@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+	<meta name="viewport" content="width=1140">
+	<title> 로앤비 </title>
+	<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+	<link rel="stylesheet" type="text/css" href="../css/_next_default.css" />
+	<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />
+	<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />
+	<script src="/Scripts/lib/jquery-3.4.1.min.js" type="text/javascript"></script>
+	<script src="../js/pdf.js"></script>
+	<script src="../js/commonjs.js"></script>
+	<script language="javascript">
+<!--
+
+		function resizeComment() {
+
+			$(".right_container").removeClass('slide_mov_right');
+		}
+
+		$(function () {
+			setHeight();
+			$('.organi_top>ul>li').removeClass('this-page');
+			$('#law_content').html($('.contentsDiv').eq("0").html())
+			$('#result_tab>ul>li').click(function () {
+				$('#result_tab>ul>li').removeClass('this-page');
+				$(this).addClass('this-page');
+				var idx = $("#result_tab>ul>li").index($(this));
+				$('#law_content').empty();
+				$('#law_content').html($('.contentsDiv').eq(idx).html());
+				setHeight();
+			});
+
+			$('.favi_add').click(function () {
+				$(this).children('i').toggleClass('starfull');
+				$('.base_popup').hide();
+				$('#popup_favilaw').show();
+			});
+
+			// 임시 쿼리입니다. cshtml 에서는 사용하지 말아주세요.
+			$(".right_container .btn-group .btn-default").click(function () {
+				$("#title_result_tab").toggle();
+				$("#result_area").toggle();
+				$("#view_content").toggle();
+				$(".main_container").toggleClass('temp_overflow');
+			});
+
+		});
+
+		//-->
+	</script>
+	<style type="text/css">
+		.temp_overflow {
+			overflow: auto;
+		}
+	</style>
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_popupContainer">
+	<div id="wrap" >
+		<header> 
+			<div class="top_container ">  
+				<a href="/maf/poc/app/homepage"><h1>로앤비</h1></a>
+				<div class="function_area">
+					<p class="hide">기타기능버튼들</p>
+					<div id="search_word">
+						<span style="padding-right:0"><i class="icon-left" data-icon=""></i></span>
+						<span onclick="checkMarking()" class="chkMarking">
+							<i class="icon-checkbox-unchecked"></i>
+						</span>
+						<span style="padding-left:0"><i class="icon-right" data-icon=""></i></span>
+						<br><span>검색어</span>
+					</div>
+					<div>
+						<span><i class="icon-plus" data-icon="&#xea0a;"></i></span> 
+						<span><i class="icon-plus" data-icon="&#xea0b;"></i></span>
+						<br><span>글자크기</span>
+					</div>
+					
+					<a href="#">
+						<span><i class="icon-share2" data-icon="&#xea82;"></i></span>
+						<span>공유</span>
+					</a>
+				</div>
+			</div>        	
+		</header> 
+		<div id="container" class="news two-con"> 
+			<div id="breadcrumb" class="navi_area"> 
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div class="title_area">
+				<h2>2023년도 제12회 변호사 시험 기출문제(기록형 등재) </h2>
+				<div class="meta_area">법무부 / 변호사시험 / 2021. 01. 15​</div>
+			</div>
+			<div id="container_inner">
+				<div class="left_container">   
+					<section id="result_tab"> 
+						<h4 class="hide">메뉴</h4>
+						<ul>
+							<li class="this-page">결정문</li> 
+							<li>요약정보</li>
+						</ul>
+					</section>
+				</div>
+				<article class="main_container">  
+					<div class="main_container_view">
+						<div id="view_content">
+							<div id="pdf_view" class="pdfobject-container">
+								<div class="ebook_iframe_div">
+									<iframe src="hoisa_5_1_75_78.pdf" class="ebook_iframe" frameborder="0"></iframe>
+									</div>
+								</div>
+						</div>
+						<div id="title_result_tab" class="result_tab" >
+							<div>관련정보 </div>
+							<div class="btn_option_outer"><div class="btn_close">X</div></div>
+							<div class="btn_option_outer reposition"><div class="btn_reapprea" style="display: none;">검색결과 보기</div></div>
+						</div>
+						<div id="result_area" class="popup_mov_area slide_mov_bottom" style="padding:0 30px;" >
+							<div id="result_sep">
+								<a href="javascript:view.addInfoList('C000');" class="_this">법령(7건)</a>
+								<a href="javascript:view.addInfoList('C000');">판례(3건)</a>
+								<a href="javascript:view.addInfoList('C000');">관련기출문제(4건) </a>
+								<a href="javascript:view.addInfoList('C000');">제10회변호사시험(3건)</a>
+							</div><div class="list"></div>
+							
+							<div class="list_order_pr">
+								<div class="article_popup_group_info">간행물 동일 권호 자료는 발행일 최신순 최대 300건까지만 지원합니다.</div>
+								<div class="btn_option_outer">
+									<div class="select_area">
+										<p class="blind">보기 개수 선택</p>
+										<select id="sListChecker" name="sListChecker">
+											<option value="10" selected="selected">10개</option>
+											<option value="20">20개</option>
+										</select>
+									</div>
+
+								</div>
+							</div>
+							<ol class="list myfolder_total"></ol>
+							<ol id="olist" class="list">
+								<li>
+									<span class="list_num">1</span>
+									<div class="co_searchContent">
+										<h3> <a href="../Info/ContentView?sid=C000FE6147695491" class="popup_view">대법원 2014. 12. 24 선고 2012다60329 판결 【채권양도등】 <span>[공2015상, 176]</span></a><br></h3>
+										<div class="co_searchResults_summary"><p>구 국세징수법상 공매절차에서 대항력 있는 전세권은 배분요구와 무관하게 매각으로 소멸하지 않고 매수인에게 인수되는지 여부(적극)및 그 경우 같은 법 제81조 제1항 제3호에서 말하는 ‘전세권’의 범위 </p></div>
+									</div>
+								</li>
+								<li>
+									<span class="list_num">2</span>
+									<div class="co_searchContent">
+										<h3> <a href="../Info/ContentView?sid=C000E765832706D8" class="popup_view">대법원 2008. 6. 12 선고 2005두5956 판결 【하천편입토지에대한보상금】 <span>[미간행]</span></a><br></h3>
+										<div class="co_searchResults_summary"><p> ..[1] 구 ..‘법률 제3782호 하천법 중 개정법률 부칙 제2조의 규정에 의한 하천 편입토지의 보상에 관한 규정’에 따른 보상을 위한 평가의 기준일 ..<br>[2] 구 ..‘법률 제3782호 하천법 중 개정법률 부칙 제2조의 규정에 의한 하천 편입토지의 보상에 관한 규정’ 제10조의 ..‘편입 당시의 지목 및 이용상황’의 의미 ..<br>[3] 경매의 목적물인 토지가 경락허가결정 확정 후 하천구역에 편입되어 국유로 되었으나 그 보상금의 지급을 구할 수 있는 방법이나 절차가 없다가 상당한 기간이 지난 뒤 보상금청구의 방법과 절차가 마련..</p></div>
+									</div>
+								</li>
+								<li>
+									<span class="list_num">3</span>
+									<div class="co_searchContent">
+										<h3> <a href="../Info/ContentView?sid=C000222438918591" class="popup_view">대법원 2002. 2. 8 선고 99다23901 판결 【부당이득반환】 <span>[집50(1)민,109;공2002.4.1.(151),645]</span></a><br></h3>
+										<div class="co_searchResults_summary"><p> [1] 경매 목적물인 토지가 경락허가결정 이후 하천구역에 편입됨으로써 소유자의 경락자에 대한 소유권이전등기의무가 이행불능이 된 경우, 경락자는 소유자가 지급받게 되는 손실보상금에 대한 대상청구권을 행사할 수 있는지 여부(적극)  <br>[2] 대상청구권의 소멸시효의 기산점  <br>[3] 채권자가 직접 자신의 명의로 대상청구의 대상이 되는 보상금을 수령한 것이 채무자에 대한 관계에서 부당이득이 되는지 여부(소극) </p></div>
+									</div>
+								</li>
+								<li>
+									<span class="list_num">4</span>
+									<div class="co_searchContent">
+										<h3> <a href="../Info/ContentView?sid=C000AF4B68DB78B2" class="popup_view">대법원 1997. 7. 8 선고 96누15770 판결 【양도소득세부과처분취소】 <span>[공97.8.15.[40],2421]</span></a><br></h3>
+										<div class="co_searchResults_summary"><p>[1] 임의경매절차를 통하여 매각된 토지의 소득세법상 양도시기(=경락대금완납일) <br>[2] 기준시가의 적용기준일을 고시일로 정하고 있는 구소득세법시행령제115조 제6항의 무효 여부(소극)</p></div>
+									</div>
+								</li>
+								<li>
+									<span class="list_num">5</span>
+									<div class="co_searchContent">
+										<h3> <a href="../Info/ContentView?sid=C000A3A94252476F" class="popup_view">대법원 1992. 2. 14 선고 91다12349 판결 【소유권이전등기】 <span>[공1992.4.1.(917),1011]</span></a><br></h3>
+										<div class="co_searchResults_summary"><p> [1] 부동산 매매계약상 매도인이 부담하는 소유권이전등기의무의 내용 <br>[2] 위 "[1]"항의 경우 부동산처분금지가처분등기가 유효하게 기입된 후 경료된 가처분 위반의 처분등기가 매도인이 말소하여야 할 등기상의 부담인지여부(적극) <br>[3] 토지거래 신고구역 내에 있는 토지에 대하여 신고를 하지 않고 체결한거래계약의 효력 유무(적극) <br>[4] 토지거래 신고구역 내에 있는 토지에 대한 매매계약에 있어 토지거래신고필증의 제공 없이 그와 동시이행관계에 있는 대금채무불이행을 이유로 한 계약해제 의사표시의 효력 유무(소극) </p></div>
+									</div>
+								</li>
+								<li>
+									<span class="list_num">6</span>
+									<div class="co_searchContent">
+										<h3> <a href="../Info/ContentView?sid=C0002CB5D6370261" class="popup_view">대법원 1964. 12. 15 선고 63다1071 판결 【토지소유권이전등기】 <span>[집12(2)민,195]</span></a><br></h3>
+										<div class="co_searchResults_summary"><p> 부동산강제경매개시결정 등기 후에 그 부동산에 대하여 처분금지가처분등기를 한 자는 강제경매 신청인이나 경락인에게 대항할 수 없다. </p></div>
+									</div>
+								</li>
+								<li>
+									<span class="list_num">7</span>
+									<div class="co_searchContent">
+										<h3> <a href="../Info/ContentView?sid=C00012324493DC26" class="popup_view">대법원 1961. 2. 9 자 4293민상124 결정 【부당이득금반환】 <span>[집9(1민).15]</span></a><br></h3>
+										<div class="co_searchResults_summary"><p>  가. 국세납부기 1년전에 설정된 질권 또는 저당권자는 그 재산의 매각대금에 관하여 국세자체에 대하여는 우선권이 있다 할 것이나 국세보다 선순위로 징수하여야 할 대납처분비, 독촉수수료에 대하여는 우선권이 없다. 나. 국세체납처분에 의한 공매절차가 추진중에 있는 경우에도 법원은 그 부동산에 대하여 강제경매나 임의경매의 절차를 별도로 진행할 수 있다.  </p></div>
+									</div>
+								</li>
+								<li>
+									<span class="list_num">8</span>
+									<div class="co_searchContent">
+										<h3> <a href="../Info/ContentView?sid=C000248EF213536D" class="popup_view">대법원 1959. 5. 19 자 4292민재항2 결정 【부동산경락허가결정에대한항고】</a><br></h3>
+										<div class="co_searchResults_summary"><p>[1]국세징수법에 의한 연납처분에 의하여 차압기입의 등기 있는 부동산에 대하여는 다시 강제 혹은 임의경매절차를 진행할 수 없다는 규정이 없고 행정청과 사법기관은 각자 독자적 절차에 의하여 경매절차를 진행할 수 있고 경락자 중 선수위로 그 소유권을 취득한 자가 진정한 소유자로 확정된다.<br>[2]공과주관공무소에 대한 최고를 하지 않았다 하더라도 경락허가결정의 효력에는 영향이 없다. </p></div>
+									</div>
+								</li>
+							</ol>
+
+							<script type="text/javascript">
+    <!--
+								$(function () {
+									$('.navigationLinks>a').click(function (e) {
+										e.preventDefault();
+									});
+
+									$('.navigationLinks>a.navPages').click(function () {
+										goToPage($.trim($(this).text()));
+									});
+
+									$('.navigationLinks>a.navFirst').click(function () {
+										goToPage('1');
+									});
+
+									$('.navigationLinks>a.navPrevious').click(function () {
+										goToPage(parseInt($.trim('1'), 10) - 1);
+									});
+
+									$('.navigationLinks>a.navNext').click(function () {
+										goToPage(parseInt($.trim('1'), 10) + 1);
+									});
+
+									$('.navigationLinks>a.navLast').click(function () {
+										goToPage(parseInt($.trim('1')));
+									});
+								});
+
+								//-->
+							</script>
+							<!-- paging -->
+							<div class="navigationLinks">
+								<span class="currentPage">1</span>
+							</div><!-- paging end-->
+
+						</div>
+					</div>
+				</article> 
+				<aside class="right_container">
+					<section>
+						<h4>관련법령 
+								<em>총 3건</em>
+								 <div class="btn-group fr">
+								 	<button type="button" class="btn btn-default" onclick="view.addInfoList('C000')">전체보기</button>
+								 </div>
+						</h4>
+						
+						
+						<ul>
+							<li><a href="#">헌법재판소 2020360 자 2020헌마1736 결정 【법무부공고 제2020-360호 등 위헌확인】​</a></li>
+							<li><a href="#">헌법재판소 2020360 자 2020헌마1736 결정 【법무부공고 제2020-360호 등 위헌확인】​</a></li>
+							<li><a href="#">헌법재판소 2020360 자 2020헌마1736 결정 【법무부공고 제2020-360호 등 위헌확인】​</a></li>
+						</ul>
+					</section>
+					<section>
+						<h4>관련판례 <em>총 3건</em>
+							<div class="btn-group fr">
+								<button type="button" class="btn btn-default" onclick="view.addInfoList('C000')">전체보기</button>
+							</div>
+						</h4>
+						<ul>
+							<li><a href="#">헌법재판소 2020360 자 2020헌마1736 결정 【법무부공고 제2020-360호 등 위헌확인】​</a></li>
+							<li><a href="#">헌법재판소 2020360 자 2020헌마1736 결정 【법무부공고 제2020-360호 등 위헌확인】​</a></li>
+							<li><a href="#">헌법재판소 2020360 자 2020헌마1736 결정 【법무부공고 제2020-360호 등 위헌확인】​</a></li>
+						</ul>
+					</section>
+
+					<section>
+						<h4>관련기출문제 <em>총 3건</em>
+							<div class="btn-group fr">
+								<button type="button" class="btn btn-default" onclick="view.addInfoList('C000')">전체보기</button>
+							</div>
+						</h4>
+						<ul>
+							<li><a href="#">토지의 양도에 대하여 기준시가에 의하여 양도차익을 산정한 처분의 당부 <span class="list_meta">법률신문 / 2023.04.06</span></a></li>
+							<li><a href="#">토지의 양도에 대하여 기준시가에 의하여 양도차익을 산정한 처분의 당부 <span class="list_meta">법률신문 / 2023.04.06</span></a></li>
+							<li><a href="#">토지의 양도에 대하여 기준시가에 의하여 양도차익을 산정한 처분의 당부 <span class="list_meta">법률신문 / 2023.04.06</span></a></li>
+						</ul>
+					</section>
+
+					<section>
+						<h4>
+							제10회 변호사시험 <em>총 3건</em>
+							<div class="btn-group fr">
+								<button type="button" class="btn btn-default" onclick="view.addInfoList('C000')">전체보기</button>
+							</div>
+						</h4>
+						<ul>
+							<li><a href="#">2023년도 제12회 변호사 시험 기출문제(기록형) : 공법 <span class="list_meta">법무부 / 변호사시험 / 2023. 01. 15​</span></a></li>
+							<li><a href="#">2023년도 제12회 변호사 시험 기출문제(기록형) : 공법 <span class="list_meta">법무부 / 변호사시험 / 2023. 01. 15​</span></a></li>
+							<li><a href="#">2023년도 제12회 변호사 시험 기출문제(기록형) : 공법 <span class="list_meta">법무부 / 변호사시험 / 2023. 01. 15​</span></a></li>
+						</ul>
+					</section>
+
+					<section class="policy_viwer">
+						<ul>
+							<li>
+								저작물 출처 : 법무부, www.moj.go.kr <br />
+								(2010년 부터 게재된 기출문제)
+							</li>
+						</ul>
+					</section>
+					<section id="down_pdf_viwer">
+						<p><a href="https://get.adobe.com/reader/?loc=kr" target="_blank" class="nopopup"><i class="icon-file_word" style="color:red;font-weight:bold" data-icon=""></i> Acrobat Reader 다운로드 <i class="icon-download3" data-icon=""></i></a></p>
+						<ul>
+							<li>이 자료는 Acrobat Reader를 설치해야 볼 수 있는 PDF 파일입니다. 만약 오류가 있으면 PC에 설치된 Acrobat 프로그램을 삭제하고 새로 다운받아 설치해 보십시오. </li>
+						</ul>
+					</section>
+				</aside>   
+			</div>
+    	</div> 
+		<div id="bg_screen"></div> 
+	</div>
+		<script type="text/javascript">   
+			setHeight();
+		</script>
+</div> 
+</body>
+</html>

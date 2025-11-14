@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../js/commonjs.js?s"></script>
+<script language="javascript">
+<!--
+ 
+	function resizeComment(){ 
+			if($('.right_container').hasClass('add_border')){
+				$(".right_container").removeClass('slide_mov_right'); 
+			}else{
+				if($('#container').hasClass('list-view')){
+					$(".right_container").addClass('slide_mov_right'); 
+				}else{
+					$(".right_container").removeClass('slide_mov_right'); 
+				}
+			}
+			setHeight_under();
+		}
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_mainContainer">
+	<div id="wrap" >
+		<header> 
+			<div class="top_container  ">  
+				<h1>로앤비</h1>
+				<div id="t_search" class="search_container">
+				<h2>통합검색 영역</h2>
+				<div class="search_inner">
+					<form  action="" > 
+					<div class="search_left hide">
+						<label class="hide">통합검색  </label>
+					</div>
+					<div class="search_center">
+						<input type="search" name="" id="" >
+					</div>
+					<div class="search_right"><span  class="more_btn">more</span></div>
+					<div id="searchButton" class="search_btn"><i class="icon-" data-icon="&#xe910;"></i><span class="hide">검색</span></div> 
+					</form>
+					<div class="btn_search_result"><i class="icon-table" data-icon="&#xea71;"></i><span class="hide">검색결과 맵 보기</span></div>
+				</div>
+				<div class="search_layer_outer" >
+				<div class="search_layer" >
+					<div class="search_layer_list _done ">
+						<!-- <div class="txt_info">최근검색어저장 기능이 OFF 상태에 있습니다.<br>이용을 원하시면 하단의 최근검색어저장 상태를 ON으로 변경해주세요. </div> 
+						<ul>
+							<li>공정거래법 위반으로 인한 손해액의 산정방법과 주요 쟁점으로 <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+						</ul>-->
+						<ul>
+							<li><strong>대법</strong>원인터넷등기소<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+							<li><strong>대법</strong>원나의사건검색</li>
+							<li><strong>대법</strong>원법원경매정보</li>
+							<li><strong>대법</strong>원전자가족관계</li>
+							<li><strong>대법</strong>원경매</li>
+							<li><strong>대법</strong>원인터넷등기소<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+							<li><strong>대법</strong>원나의사건검색<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+							<li><strong>대법</strong>원법원경매정보</li>
+							<li><strong>대법</strong>원전자가족관계</li>
+							<li><strong>대법</strong>원경매</li>
+						</ul> 
+						<div class="expend_result" onclick="">
+							<p>법무법인(유한) 태평양어쩌고 저쩌고</p>
+							<span>주소 : [050-50] 서울시 광진구 디지털로 272, 한신 IT타워 611호<br>대표전화 : 02-2204-2114</span>
+							<div class="dirct_go">바로가기</div>
+						</div>
+					</div>
+					<!-- <div class="noti_txt"><i class="icon-" data-icon="&#xe90d;"></i> 공용 PC에서는 개인정보보호를 위하여 반드시 로그아웃을 해주세요.</div> -->
+					<div class="search_layer_foot">
+						<div class="fl">기록삭제</div>
+						<div class="fr">최근검색어저장 <div class="btn-group"><button type="button" class="btn btn_orange _select">ON</button><button type="button" class="btn btn-default">OFF</button></div> 자동완성 <div class="btn-group"><button type="button" class="btn btn_orange _select">ON</button><button type="button" class="btn btn-default">OFF</button></div>
+						</div>						
+					</div>
+				</div> 
+				</div>
+			</div>
+				<div id="indiv_area" class="indiv_container">
+					<span alt="나의폴더">나의폴더<i class="icon-myfolder" data-icon="&#xe91a;"></i></span>
+					<span alt="히스토리">히스토리<i class="icon-history" data-icon="&#xe916;"></i></span>
+					<span alt="알림설정">알림설정<i class="icon-alert" data-icon="&#xe918;"></i><em>9+</em></span>
+					<span alt="질문내역">문의내역<i class="icon-question" data-icon="&#xe919;"></i></span>
+					<span alt="나의정보">나의정보<i class="icon-myinfo" data-icon="&#xe917;"></i></span>
+				</div>
+			</div>
+			<nav> 
+				<dl id="main_menu" class="mmenu">
+					<dt class="blind">메인 메뉴</dt> 
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=IAED6CC08DD364059AB193CEAF31A4AB0&amp;stnew=true"><span>판례</span></a>
+					</dd>
+					<dd class="currentTab" >
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I0F5DD49BE2B544DBB7414874EC787E80&amp;stnew=true"><span>법규</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=ICAA980E9234848FEA6D0DA62432279E0&amp;stnew=true"><span>심판·결정·해석</span></a>
+					</dd>
+					<dd >
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I247AD0D84D9B4429B617C8D9F8388C8F&amp;stnew=true"><span>문헌</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I661610C9A2C749D6A4221A93502B0170&amp;stnew=true"><span>법조인</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I574B9F7164CB11E498DB8B09B4F043E0&amp;stnew=true"><span>기업법무</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I66693AFFED274970AC53A686AAA123C0&amp;stnew=true"><span>서식</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocHelp?docguid=WLAWLNEXT"><span>뉴스·칼럼</span></a>
+					</dd>
+				</dl>   
+			</nav>        	
+		</header> 
+		<div id="container" class="lawyer">
+			<div id="breadcrumb" class="navi_area">
+				<div>Home > 법조인 > 법률사무소</div>
+				<div class="group_indivi_btn"><a href="">로그인</a><a href="">개인화님</a> </div>
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div id="container_inner">
+				<div class="left_container"> 
+					<section id="result_tab"> 
+						<h4 class="hide">법률사무소 메뉴</h4>
+						<ul>
+							<li class="this-page"><a href="gf">기본정보</a></li>
+							<li><a href="fd">구성원정보</a></li>
+							<li><a href="sfd">법률사무소 소식</a></li> 
+						</ul>
+					</section> 
+				</div>
+				<article class="main_container"> 
+					<div class="main_container_inner"> 
+						<div id="search_results">
+							<h2 class="dark_line">법무법인 율촌</h2>
+							<div class="case_info mgt10 lawfirm">
+								<p>소개</p>
+								
+								<div><div class="logo_area_lawfarm"><img src="http://lawnbedu.com/File/Lawfirm/2014-08-01/율촌.jpg"></div>법무법인(유) 율촌(律村)은 “뜻을 모으고 실력을 합쳐 법률가의 마을을 세우다”라는 의미를 가지고 1997년 설립되었습니다. 고객에 대한 헌신과 창의적인 법률마인드를 바탕으로 언제나 최선의 솔루션을 제공하기 위해 노력하고 있으며, 법률시장 개방과 급변하는 법조환경에 선제적으로 대응함으로써 변화를 선도하는 대한민국의 대표 로펌을 성장하겠습니다. </div>
+								<div class="mgt10">- 본사무소
+									<div class="lawyer_info mgl10"><span>대표전화 : 02-528-5200</span><br><span>주소 : (06180) 서울특별시 강남구 테헤란로 518(대치동, 섬유센터 12층)</span></div>
+								</div> 
+							</div> 
+							<div class="case_info mgt10 lawfirm ">
+								<p>법률사무소 소식</p>
+								<ul>
+									<li><div class="thumb_right"><img src="http://www.lawnb.com/userfiles/image/news/2016/09/160913036.jpg"></div><a href="1">법무법인 율촌, '공익법인 법제 세미나' 13일 개최 []</a><span><em>이데일리</em> / 2017.04.11</span><br>
+									법무법인 율촌(대표변호사 김동수. 사진)은 공익사단법인 온율(이사장 소순무)과 함께 13일 서울 삼성동 섬유센터빌딩 17층 소회의실에서 ‘공익법인 법제 어떻게 바꿀 것인가’ 세미나를 갖는다...</li>
+									<li><div class="thumb_right"><img src="http://www.lawnb.com/userfiles/image/news/2016/09/160913036.jpg"></div><a href="1">중국 ‘부정경쟁법’ 대폭 개정… 국내기업 관심집중</a><span><em>법률신문</em> / 2017.04.10</span><br>
+									2월 제12기 전국인민대표대회 상무위원회 제26차회의에서 반부정당경쟁법 개정안을 제출했다 개정안은 지난달 25일까지 우리나라의 입법예고에 해당하는 공개 의견수렴단계를 거쳤으며, 연내 개정과 시행이 이뤄질 예정이다 최근 반부정당경쟁법 개정안 내용을 소개한 법무법인 율촌(대표변호사 우창록)의 '중국 Legal Update'에 따르면, 개정안은 모호했던 부정경쟁행위 유형약..</li>
+									<li><a href="1">한국사내변호사회·싱가포르국제중재센터, '기업의 동남아 진출' 세미나</a><span><em>법률신문</em> / 2017.04.05</span><br>
+									13일 오후 6시 서울 종로구 서린동 서울국제중재센터 11층 대회의실에서 '기업의 동남아시아 진출: 전략, 전망 및 잠재적 리스크'를 주제로 세미나를 개최한다 법무법인 광장(대표변호사 김재훈)과 태평양(대표변호사 김성  ..
+								</ul>
+							</div>
+						 </div> 
+					 </div>
+					 <div class="main_container_view">
+						<div class="main_container_view_inner">
+							  
+						</div>
+					 </div> 
+				</article> 
+				<aside class="right_container">
+					<section  > 
+						<h4 class="hide">법조인 기타메뉴</h4>
+						<div class="right_button">법조인명록 등록 / 수정</div>
+						<div class="right_button">승소판결문 등록</div>  
+					</section>
+					<section class="d_edu" style="background:url(../images/RTX3AHQX_small.jpg) left bottom ;background-size:100%;min-height:100px">
+						<h4 class="hide">교육배너</h4>
+						<div class="edu_list"><span>4.26</span><a href="http://www.lawnbedu.com/s" target="_blank">[세미나] 기업 법률리스크와 컴플라이언스</a></div>
+					</section>
+					<section >
+						<h4>법률사무소 구성원
+							<div class="btn-group fr"  >
+							  <button type="button" class="btn btn-default">전체보기</button> 
+							</div>
+						</h4>
+						<dl class="lawyer_area">
+							<dt><div class="img"><img src="../images/main_img_lawyer_3.png" ></div></dt>
+							<dd><a href="1">최용문</a><div>변호사시험 1회</dd>
+							<dd>
+								<ul>
+									<li>변호사(파트너 변호사)</li> 
+									<li><span>업무분야</span>저작권,엔터테인먼트,일반민사,조세사건,행정사건,형사사건</li>
+								</ul> 
+							</dd> 
+
+							<dt><div class="img"><img src="../images/main_img_lawyer_3.png" ></div></dt>
+							<dd><a href="1">최용문</a><div>변호사시험 1회</dd>
+							<dd>
+								<ul>
+									<li>변호사(파트너 변호사)</li> 
+									<li ><span>업무분야</span>저작권,엔터테인먼트,일반민사,조세사건,행정사건,형사사건</li>
+								</ul> 
+							</dd> 
+
+							<dt><div class="img"><img src="../images/main_img_lawyer_3.png" ></div></dt>
+							<dd><a href="1">최용문</a><div>변호사시험 1회</dd>
+							<dd>
+								<ul>
+									<li>변호사(파트너 변호사)</li> 
+									<li><span>업무분야</span>저작권,엔터테인먼트,일반민사,조세사건,행정사건,형사사건</li>
+								</ul> 
+							</dd> 
+
+							<dt><div class="img"><img src="../images/main_img_lawyer_3.png" ></div></dt>
+							<dd><a href="1">최용문</a><div>변호사시험 1회</dd>
+							<dd>
+								<ul>
+									<li>변호사(파트너 변호사)</li> 
+									<li><span>업무분야</span>저작권,엔터테인먼트 ,저작권,엔터테인먼트 저작권,엔터테인먼트</li>
+								</ul> 
+							</dd>
+						</dl> 
+					</section>
+				</aside>
+			</div>
+    	</div>
+		<footer>
+			<div class="etc_menu"> 
+				<div class="top_container">  
+					<ul>	
+						<li class="blind">기타 메뉴 </li>
+						<li>회사소개</li>
+						<li>광고 · 제휴문의</li>
+						<li>이용약관</li>
+						<li>개인정보 취급/처리 방침</li>
+						<li>법적고지</li>
+						<li>이메일 무단수집거부</li>
+					</ul>
+				</div>
+			</div>  
+			<div class="top_container   _footer"> 	   
+				1. 콘텐츠의 명칭 : 법률정보 &nbsp;&nbsp; 2. 콘텐츠의 제작 및 표시 : 2006년 2월 17일(업그레이드 콘텐츠의 경우 갱신일) &nbsp;&nbsp; 3. 콘텐츠 제작자 : ㈜로앤비  &nbsp;&nbsp;  4. 콘텐츠의 이용조건 : <a href="/support/agree_use.asp" class="red_bott">이용약관</a> 및 로앤비 <a href="/support/serviceInfo_member.asp" class="red_bott">서비스안내</a>와 같음 (무단 복제금지) &nbsp;&nbsp;5. 콘텐츠의 보호기간 : ㈜로앤비 사이트의 모든 콘텐츠는 「콘텐츠산업 진흥법」에 따라 제작 또는 갱신일로부터 5년간 보호됨
+				<div>Thomson reuters</div>
+				<div>Copyright ⓒ 1998~2016 <b>LAWnB</b>. All Rights Reserved.</div>
+			</div>           
+		</footer>
+		<div id="bg_screen"></div>
+		<script type="text/javascript">  
+			setHeight_under();		 
+		</script>
+	</div>
+</div> 
+</body>
+</html>

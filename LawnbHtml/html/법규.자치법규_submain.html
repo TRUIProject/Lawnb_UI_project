@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="../Scripts/lib/jquery-3.4.1.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="../js/commonjs.js?sdd"></script>
+<script language="javascript">
+<!--
+	 
+	function resizeComment(){ 
+			setHeight_under();
+			$(".right_container").removeClass('slide_mov_right'); 
+		}
+//-->
+
+
+    $(document).ready(function () {
+        $('.region_select, .btn_close_pop, .bg_screen').click(function () {
+            $('.region_div2, .bg_screen').toggle();
+        });
+        $('.tNavToggle, .region_list > .check_area > ol > li > label').click(function () {
+            $(this).parent().parent().find('ol').slideToggle(300);
+            $(this).parent().parent().find('.tNavToggle').toggleClass('on');
+        });
+    });
+
+</script>
+
+
+
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_mainContainer">
+	<div id="wrap" >
+		<header>
+			<div class="top_container ">
+				<h1>로앤비1</h1>
+				<div id="t_search" class="search_container">
+					<h2>통합검색 영역</h2>
+					<div class="search_inner">
+						<form method="post" id="totalSearchForm" action="Info/ContentTotal" onsubmit="return getTotalSearch();">
+							<div class="search_left hide">
+								<label class="hide">통합검색  </label>
+							</div>
+							<div class="search_center">
+								<input type="search" id="qu" name="qu" title="통합검색" autocomplete="off">
+							</div>
+							<div class="search_right">
+								<span class="more_btn"><i class="icon-more" data-icon=""></i><span class="hide">more</span></span>
+
+								<!-- 검색 연산자 -->
+								<i class="icon-info" data-icon="" onclick="searchCalcInfo();" alt="검색연산자 안내">
+									<span class="blind">검색 연산자 안내</span>
+								</i>
+							</div>
+							<div id="searchButton" class="search_btn"><i class="icon-" data-icon=""></i><span class="hide">검색</span></div>
+						</form>
+					</div>
+					<!-- 모바일 체크 할것 -->
+					<div class="btn_search_result"><i class="icon-" data-icon=""></i><span>통합검색 결과 맵&ZeroWidthSpace;</span></div>
+					<div class="search_layer_outer" style="display: none;">
+						<div class="search_layer" style="display: none;">
+							<div class="search_layer_list _done ">
+								<div class="txt_info" style="display:none"></div>
+								<ul>
+								</ul>
+								<div id="result_target"></div>
+							</div>
+						</div>
+					</div>
+					<div class="layer_calc_outer" style="display: none;">
+						<div class="box_calc_info">
+							<h3>LAWnB 검색연산자 안내</h3>
+							<div class="box_calcDL">
+								<dl>
+									<dt>AND</dt>
+									<dd>
+										<span>"이사회"와 "감사"가 모두 포함된 문서</span>
+										<span>- 예시) 이사회 감사, 이사회 AND 감사</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>OR</dt>
+									<dd>
+										<span>"이사회"와 "감사" 중 어느 하나라도 포함된 문서</span>
+										<span>- 예시) 이사회 OR 감사</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>NOT</dt>
+									<dd>
+										<span>"이사회"가 포함되고 "감사"가 포함되지 않은 문서</span>
+										<span>- 예시) [검색어]이사회 [제외어]감사, 이사회 NOT 감사</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>EQUAL</dt>
+									<dd>
+										<span>"이사회 감사"라는 검색어와 완전일치하는 구문이 있는 문서</span>
+										<span>- 예시) “이사회 감사”</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>NEAR </dt>
+									<dd>
+										<span>"이사회"와 "감사" 사이에 단어(형태소)가 10개 이하인 문서</span>
+										<span>- 예시) “이사회 감사”~10</span>
+									</dd>
+								</dl>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+				<div id="indiv_area" class="indiv_container">
+					<span alt="나의 검색" onclick="MYSEARCH();">
+						나의검색
+						<em class="icon_mySearch_on">ON</em>
+						<i class="newic-mysearch_main"></i>
+					</span>
+					<span alt="나의폴더" onclick="MyFolder();">나의폴더<i class="icon-icon_myfolder" data-icon=""></i></span>
+					<span alt="하이라이트/메모" onclick="MyHighlight();">하이라이트&메모<i class="newic-h_light"></i></span>
+					<span alt="히스토리" onclick="MyHistory();">히스토리<i class="icon-icon_history" data-icon=""></i></span>
+					<span alt="알림설정" onclick="MyAlert();">
+						알림<i class="icon-icon_alert" data-icon=""></i>
+						<em id="alertCount" style="display: none;">0</em>
+					</span>
+					<span alt="문의내역">문의내역<i class="icon-icon_question" data-icon=""></i></span>
+					<span alt="나의정보" onclick="MyInfo();">나의정보<i class="icon-icon_myinfo" data-icon=""></i></span>
+				</div>
+
+			</div>
+
+			<nav style="background: none;">
+				<div class="nav_menuBox">
+					<dl id="main_menu" class="mmenu">
+						<dd>
+							<a href="Info/ContentMain/Case"><span>판례</span></a>
+						</dd>
+						<dd>
+							<a href="#"><span>법규</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="Info/ContentMain/Law">법령</a></li>
+								<li><a href="Info/ContentMain/AdminRule">행정규칙</a></li>
+								<li><a href="Info/ContentMain/LawMake">입법동향</a></li>
+								<li><a href="Info/ContentMain/Treaty">조약</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>심판·결정·해석</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="Info/ContentMain/PatentCase">특허심판례</a></li>
+								<li><a href="Info/ContentMain/AdminCase">결정례</a></li>
+								<li><a href="Info/ContentMain/InterpretRule">유권해석</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>문헌</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="Info/ContentMain/Doc">논문·평석</a></li>
+								<li><a href="Info/ContentMain/Jusuk">주석서</a></li>
+								<li><a href="Info/ContentMain/Ebook">E-book</a></li>
+								<li><a href="Info/ContentMain/LawDic">법률사전</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>법조인</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="Info/ContentMain/Lawyer">법조인명록</a></li>
+								<li><a href="Info/ContentMain/Org">조직도</a></li>
+								<li><a href="Info/ContentMain/LawFirm">법률사무소</a></li>
+								<li><a href="Info/ContentMain/OrgInfo">법조기관 안내</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>기업법무</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="Info/ContentMain/LawFirmReport">로펌 리포트</a></li>
+								<li><a href="Info/ContentMain/BizInfo">기업정보</a></li>
+								<li><a href="Info/ContentMain/Sosong">소송비용계산</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>서식</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="Info/ContentMain/LawForm">전문법률서식</a></li>
+								<li><a href="Info/ContentMain/BizForm">비즈폼 서식</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>뉴스·칼럼</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="Info/ContentMain/News">뉴스</a></li>
+								<li><a href="Info/ContentMain/Column">칼럼</a></li>
+								<!-- <li><a href="/Editor/Index">LAWnB Editor</a></li> -->
+							</ul>
+						</dd>
+						<dd>
+							<a href="Info/ContentMain/ONJU"><span>온주</span></a>
+						</dd>
+						<dd class="btn_menu_all">
+							<a href="#" onclick="showAllMenu();">메뉴 전체보기  <i></i></a>
+						</dd>
+					</dl>
+					<div class="box_menu_all">
+						<div class="btn_close_pop" onclick="showAllMenu();">닫기<i class="icon-close" data-icon=""></i></div>
+						<ul>
+							<!--<li><strong>판례</strong></li>-->
+							<li><a href="Info/ContentMain/Case">판례</a></li>
+						</ul>
+						<ul>
+							<!--<li><strong>법규</strong></li>-->
+							<li><a href="Info/ContentMain/Law">법령</a></li>
+							<li><a href="Info/ContentMain/AdminRule">행정규칙</a></li>
+							<li><a href="Info/ContentMain/LawMake">입법동향</a></li>
+							<li><a href="Info/ContentMain/Treaty">조약</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>심판·결정·해석</strong></li>-->
+							<li><a href="Info/ContentMain/PatentCase">특허심판례</a></li>
+							<li><a href="Info/ContentMain/AdminCase">결정례</a></li>
+							<li><a href="Info/ContentMain/InterpretRule">유권해석</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>문헌</strong></li>-->
+							<li><a href="Info/ContentMain/Doc">평석·논문</a></li>
+							<li><a href="Info/ContentMain/Jusuk">주석서</a></li>
+							<li><a href="Info/ContentMain/Ebook">E-book</a></li>
+							<li><a href="Info/ContentMain/LawDic">법률사전</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>법조인</strong></li>-->
+							<li><a href="Info/ContentMain/Lawyer">법조인명록</a></li>
+							<li><a href="Info/ContentMain/Org">조직도</a></li>
+							<li><a href="Info/ContentMain/LawFirm">법률사무소</a></li>
+							<li><a href="Info/ContentMain/OrgInfo">법조기관 안내</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>기업법무</strong></li>-->
+							<li><a href="Info/ContentMain/LawFirmReport">로펌 리포트</a></li>
+							<li><a href="Info/ContentMain/BizInfo">기업정보</a></li>
+							<li><a href="Info/ContentMain/Sosong">소송비용계산</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>서식</strong></li>-->
+							<li><a href="Info/ContentMain/LawForm">전문법률서식</a></li>
+							<li><a href="Info/ContentMain/BizForm">비즈폼 서식</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>뉴스·칼럼</strong></li> -->
+							<li><a href="Info/ContentMain/News">뉴스</a></li>
+							<li><a href="Info/ContentMain/Column">칼럼</a></li>
+							<!-- <li><a href="/Editor/Index">LAWnB Editor</a></li> -->
+						</ul>
+						<ul>
+							<!-- <li><strong>온주</strong></li>-->
+							<li><a href="Info/ContentMain/ONJU">온주</a></li>
+						</ul>
+						<ul>
+							<li><a href="javascript:OnetoOneContactUs('B02');">판결문 등재신청&ZeroWidthSpace;</a></li>
+							<li><a href="javascript:showOriginalView('/Lawyer/Management/');">법조인명록 등록/수정&ZeroWidthSpace;</a></li>
+							<li><a href="javascript:OnetoOneContactUs('B04');">승소판결문 등록&ZeroWidthSpace;</a></li>
+							<li><a href="javascript:OnetoOneContactUs('B01');">1:1문의&ZeroWidthSpace;</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+
+		</header> 
+		
+		<div id="container" class="two-con submain law">
+			<div id="breadcrumb" class="navi_area">
+				<div>Home > 법규 > 자치법규</div>
+				<div class="group_indivi_btn"><a href="">로그인</a><a href="">개인화님</a> </div>
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div id="container_inner">
+				<div class="left_container">  
+				</div>
+				<article class="main_container"> 
+					<div class="main_container_inner">
+						<div id="search_submain" class="submain_group">
+							<h3>자치법규 검색</h3>
+							<div class="search_div">
+								<form id="searchForm" method="post" action="CaseList">
+								<div class="search_input">
+									<label>기본검색</label>
+									<input type="search" id="sWord" name="sWord"  placeholder="검색어">
+									<div class="except">
+									<input type="search" name="sWord1" placeholder="제외어">
+									</div>
+								</div> 
+								
+								<div class="detail_area_open _open" id="detail_area">
+									<ul>
+										<li class="half">
+											<label>자치법규명</label>
+											<input type="text" id="sWorkArea" name="sWorkArea" >
+										</li>
+										<li class="half">
+											<label>조문제목</label>
+											<input type="text" id="sWorkArea" name="sWorkArea" >
+										</li>
+										<li class="half">
+											<label>조문내용</label>
+											<input type="text" id="sWorkArea" name="sWorkArea" >
+										</li> 
+										<li class="half">
+											<label>부칙</label>
+											<input type="text" id="sWorkArea" name="sWorkArea" >
+										</li>
+										<li class="half">
+											<label>별표서식</label>
+											<input type="text" id="sWorkArea" name="sWorkArea" >
+										</li>
+									</ul> 
+									<ul class="third_search">
+										<li><label for="sSubWord1">검색범위</label>
+											<ul>
+												<li>
+													<label for="sSubWord1">종류</label>
+													<input type="checkbox" name="CAT1" checked="" onclick="cat_click1('0')" value="0">전체&nbsp;&nbsp;
+													<input type="checkbox" name="CAT1" checked="" onclick="cat_click1('1')" value="1">조례&nbsp;&nbsp;
+													<input type="checkbox" name="CAT1" checked="" onclick="cat_click1('2')" value="2">규칙&nbsp;&nbsp;
+													<input type="checkbox" name="CAT1" checked="" onclick="cat_click1('3')" value="3">훈령&nbsp;&nbsp;
+													<input type="checkbox" name="CAT1" checked="" onclick="cat_click1('4')" value="4">예규&nbsp;&nbsp;
+													<input type="checkbox" name="CAT1" checked="" onclick="cat_click1('5')" value="5">고시&nbsp;&nbsp;
+													<input type="checkbox" name="CAT1" checked="" onclick="cat_click1('6')" value="6">의회규칙&nbsp;&nbsp;
+													<input type="checkbox" name="CAT1" checked="" onclick="cat_click1('7')" value="7">기타
+												</li>
+												<li>
+													<label>소관부처</label>
+													<div class="btn region_select">선택</div>
+													<span class="text_ex"> 서울특별시, 인천광역시</span>
+
+													<div class="region_div2">
+														<div class="top_title ">
+															<span>소관부처 선택</span>
+															<div class="btn_region_cancel">입력초기화</div>
+															<div class="top_title_group">
+																<div class="btn_close_pop">닫기<i class="icon-close" data-icon=""></i></div>
+															</div>
+														</div>
+														<div class="region_list">
+															<div class="check_area">
+																<ol>
+																	<li>
+																		<input type="checkbox" id="eType1_a" name="eType1_a" value="2062" onclick="chkSubCat_A('1')">
+																		<label><em>서울특별시</em></label>
+																		<span class="tNavToggle"></span>
+																		<ol>
+																			<li><input type="checkbox"><label>강남구</label></li>
+																			<li><input type="checkbox"><label>강동구</label></li>
+																			<li><input type="checkbox"><label>강북구</label></li>
+																			<li><input type="checkbox"><label>강서구</label></li>
+																			<li><input type="checkbox"><label>관악구</label></li>
+																			<li><input type="checkbox"><label>광진구</label></li>
+																			<li><input type="checkbox"><label>구로구</label></li>
+																			<li><input type="checkbox"><label>금천구</label></li>
+																			<li><input type="checkbox"><label>노원구</label></li>
+																			<li><input type="checkbox"><label>도봉구</label></li>
+																			<li><input type="checkbox"><label>동대문구</label></li>
+																			<li><input type="checkbox"><label>동작구</label></li>
+																			<li><input type="checkbox"><label>마포구</label></li>
+																			<li><input type="checkbox"><label>서대문구</label></li>
+																			<li><input type="checkbox"><label>서초구</label></li>
+																			<li><input type="checkbox"><label>성동구</label></li>
+																			<li><input type="checkbox"><label>성북구</label></li>
+																			<li><input type="checkbox"><label>송파구</label></li>
+																			<li><input type="checkbox"><label>양천구</label></li>
+																			<li><input type="checkbox"><label>영등포구</label></li>
+																			<li><input type="checkbox"><label>용산구</label></li>
+																			<li><input type="checkbox"><label>은평구</label></li>
+																			<li><input type="checkbox"><label>종로구</label></li>
+																			<li><input type="checkbox"><label>중구</label></li>
+																			<li><input type="checkbox"><label>중랑구</label></li>
+																		</ol>
+																	</li>
+																	<li>
+																		<input type="checkbox">
+																		<label><em>인천광역시</em></label>
+																		<span class="tNavToggle"></span>
+																		<ol>
+																			<li><input type="checkbox"><label>강화군</label></li>
+																			<li><input type="checkbox"><label>계양구</label></li>
+																			<li><input type="checkbox"><label>남동구</label></li>
+																			<li><input type="checkbox"><label>동구</label></li>
+																			<li><input type="checkbox"><label>미추홀구</label></li>
+																			<li><input type="checkbox"><label>부평구</label></li>
+																			<li><input type="checkbox"><label>서구</label></li>
+																			<li><input type="checkbox"><label>연수구</label></li>
+																			<li><input type="checkbox"><label>옹진군</label></li>
+																			<li><input type="checkbox"><label>중구</label></li>
+																		</ol>
+																	</li>
+																	<li>
+																		<input type="checkbox">
+																		<label><em>대전광역시</em></label>
+																		<span class="tNavToggle"></span>
+																		<ol>
+																			<li><input type="checkbox"><label>대덕구</label></li>
+																			<li><input type="checkbox"><label>동구</label></li>
+																			<li><input type="checkbox"><label>서구</label></li>
+																			<li><input type="checkbox"><label>유성구</label></li>
+																			<li><input type="checkbox"><label>중구</label></li>
+																		</ol>
+																	</li>
+																	<li>
+																		<input type="checkbox">
+																		<label><em>광주광역시</em></label>
+																		<span class="tNavToggle"></span>
+																		<ol>
+																			<li><input type="checkbox"><label>광산구</label></li>
+																			<li><input type="checkbox"><label>남구</label></li>
+																			<li><input type="checkbox"><label>동구</label></li>
+																			<li><input type="checkbox"><label>북구</label></li>
+																			<li><input type="checkbox"><label>서구</label></li>
+																		</ol>
+																	</li>
+																	<li>
+																		<input type="checkbox">
+																		<label><em>대구광역시</em></label>
+																		<span class="tNavToggle"></span>
+																		<ol>
+																			<li><input type="checkbox"><label>남구</label></li>
+																			<li><input type="checkbox"><label>달서구</label></li>
+																			<li><input type="checkbox"><label>달성군</label></li>
+																			<li><input type="checkbox"><label>동구</label></li>
+																			<li><input type="checkbox"><label>북구</label></li>
+																			<li><input type="checkbox"><label>서구</label></li>
+																			<li><input type="checkbox"><label>수성구</label></li>
+																			<li><input type="checkbox"><label>중구</label></li>
+																		</ol>
+																	</li>
+																</ol>
+
+																<ol>
+																	<li>
+																		<input type="checkbox">
+																		<label><em>울산광역시</em></label>
+																		<span class="tNavToggle"></span>
+																		<ol>
+																			<li><input type="checkbox"><label>남구</label></li>
+																			<li><input type="checkbox"><label>동구</label></li>
+																			<li><input type="checkbox"><label>북구</label></li>
+																			<li><input type="checkbox"><label>울주군</label></li>
+																			<li><input type="checkbox"><label>중구</label></li>
+																		</ol>
+																	</li>
+																	<li>
+																		<input type="checkbox">
+																		<label><em>부산광역시</em></label>
+																		<span class="tNavToggle"></span>
+																		<ol>
+																			<li><input type="checkbox"><label>강서구</label></li>
+																			<li><input type="checkbox"><label>금정구</label></li>
+																			<li><input type="checkbox"><label>기장군</label></li>
+																			<li><input type="checkbox"><label>남구</label></li>
+																			<li><input type="checkbox"><label>동구</label></li>
+																			<li><input type="checkbox"><label>동래구</label></li>
+																			<li><input type="checkbox"><label>부산진구</label></li>
+																			<li><input type="checkbox"><label>북구</label></li>
+																			<li><input type="checkbox"><label>사상구</label></li>
+																			<li><input type="checkbox"><label>사하구</label></li>
+																			<li><input type="checkbox"><label>서구</label></li>
+																			<li><input type="checkbox"><label>수영구</label></li>
+																			<li><input type="checkbox"><label>연제구</label></li>
+																			<li><input type="checkbox"><label>영도구</label></li>
+																			<li><input type="checkbox"><label>중구</label></li>
+																			<li><input type="checkbox"><label>해운대구</label></li>
+																		</ol>
+																	</li>
+																	<li>
+																		<input type="checkbox">
+																		<label><em>경기도</em></label>
+																		<span class="tNavToggle"></span>
+																		<ol>
+																			<li><input type="checkbox"><label>가평군</label></li>
+																			<li><input type="checkbox"><label>고양시</label></li>
+																			<li><input type="checkbox"><label>과천시</label></li>
+																			<li><input type="checkbox"><label>광명시</label></li>
+																			<li><input type="checkbox"><label>광주시</label></li>
+																			<li><input type="checkbox"><label>구리시</label></li>
+																			<li><input type="checkbox"><label>군포시</label></li>
+																			<li><input type="checkbox"><label>김포시</label></li>
+																			<li><input type="checkbox"><label>남양주시</label></li>
+																			<li><input type="checkbox"><label>동두천시</label></li>
+																			<li><input type="checkbox"><label>부천시</label></li>
+																			<li><input type="checkbox"><label>성남시</label></li>
+																			<li><input type="checkbox"><label>수원시</label></li>
+																			<li><input type="checkbox"><label>시흥시</label></li>
+																			<li><input type="checkbox"><label>안산시</label></li>
+																			<li><input type="checkbox"><label>안성시</label></li>
+																			<li><input type="checkbox"><label>안양시</label></li>
+																			<li><input type="checkbox"><label>양주시</label></li>
+																			<li><input type="checkbox"><label>양평군</label></li>
+																			<li><input type="checkbox"><label>여주시</label></li>
+																			<li><input type="checkbox"><label>연천군</label></li>
+																			<li><input type="checkbox"><label>오산시</label></li>
+																			<li><input type="checkbox"><label>용인시</label></li>
+																			<li><input type="checkbox"><label>의왕시</label></li>
+																			<li><input type="checkbox"><label>의정부시</label></li>
+																			<li><input type="checkbox"><label>이천시</label></li>
+																			<li><input type="checkbox"><label>파주시</label></li>
+																			<li><input type="checkbox"><label>평택시</label></li>
+																			<li><input type="checkbox"><label>포천시</label></li>
+																			<li><input type="checkbox"><label>하남시</label></li>
+																			<li><input type="checkbox"><label>화성시</label></li>
+																		</ol>
+																	</li>
+																	<li>
+																		<input type="checkbox">
+																		<label><em>강원도</em></label>
+																		<span class="tNavToggle"></span>
+																		<ol>
+																			<li><input type="checkbox"><label>강릉시</label></li>
+																			<li><input type="checkbox"><label>고성군</label></li>
+																			<li><input type="checkbox"><label>동해시</label></li>
+																			<li><input type="checkbox"><label>삼척시</label></li>
+																			<li><input type="checkbox"><label>속초시</label></li>
+																			<li><input type="checkbox"><label>양구군</label></li>
+																			<li><input type="checkbox"><label>양양군</label></li>
+																			<li><input type="checkbox"><label>영월군</label></li>
+																			<li><input type="checkbox"><label>원주시</label></li>
+																			<li><input type="checkbox"><label>인제군</label></li>
+																			<li><input type="checkbox"><label>정선군</label></li>
+																			<li><input type="checkbox"><label>철원군</label></li>
+																			<li><input type="checkbox"><label>춘천시</label></li>
+																			<li><input type="checkbox"><label>태백시</label></li>
+																			<li><input type="checkbox"><label>평창군</label></li>
+																			<li><input type="checkbox"><label>홍천군</label></li>
+																			<li><input type="checkbox"><label>화천군</label></li>
+																			<li><input type="checkbox"><label>횡성군</label></li>
+																		</ol>
+																	</li>
+																	<li>
+																		<input type="checkbox">
+																		<label><em>충청북도</em></label>
+																		<span class="tNavToggle"></span>
+																		<ol>
+																			<li><input type="checkbox"><label>괴산군</label></li>
+																			<li><input type="checkbox"><label>단양군</label></li>
+																			<li><input type="checkbox"><label>보은군</label></li>
+																			<li><input type="checkbox"><label>영동군</label></li>
+																			<li><input type="checkbox"><label>옥천군</label></li>
+																			<li><input type="checkbox"><label>음성군</label></li>
+																			<li><input type="checkbox"><label>제천시</label></li>
+																			<li><input type="checkbox"><label>증평군</label></li>
+																			<li><input type="checkbox"><label>진천군</label></li>
+																			<li><input type="checkbox"><label>청주시</label></li>
+																			<li><input type="checkbox"><label>충주시</label></li>
+																		</ol>
+																	</li>
+																</ol>
+
+																<ol>
+																	<li>
+																		<input type="checkbox">
+																		<label><em>충청남도</em></label>
+																		<span class="tNavToggle"></span>
+																		<ol>
+																			<li><input type="checkbox"><label>계룡시</label></li>
+																			<li><input type="checkbox"><label>공주시</label></li>
+																			<li><input type="checkbox"><label>금산군</label></li>
+																			<li><input type="checkbox"><label>논산시</label></li>
+																			<li><input type="checkbox"><label>당진시</label></li>
+																			<li><input type="checkbox"><label>보령시</label></li>
+																			<li><input type="checkbox"><label>부여군</label></li>
+																			<li><input type="checkbox"><label>서산시</label></li>
+																			<li><input type="checkbox"><label>서천군</label></li>
+																			<li><input type="checkbox"><label>아산시</label></li>
+																			<li><input type="checkbox"><label>예산군</label></li>
+																			<li><input type="checkbox"><label>천안시</label></li>
+																			<li><input type="checkbox"><label>청양군</label></li>
+																			<li><input type="checkbox"><label>태안군</label></li>
+																			<li><input type="checkbox"><label>홍성군</label></li>
+																		</ol>
+																	</li>
+																	<li>
+																		<input type="checkbox">
+																		<label><em>전라북도</em></label>
+																		<span class="tNavToggle"></span>
+																		<ol>
+																			<li><input type="checkbox"><label>강진군</label></li>
+																			<li><input type="checkbox"><label>고흥군</label></li>
+																			<li><input type="checkbox"><label>곡성군</label></li>
+																			<li><input type="checkbox"><label>광양시</label></li>
+																			<li><input type="checkbox"><label>구례군</label></li>
+																			<li><input type="checkbox"><label>나주시</label></li>
+																			<li><input type="checkbox"><label>담양군</label></li>
+																			<li><input type="checkbox"><label>목포시</label></li>
+																			<li><input type="checkbox"><label>무안군</label></li>
+																			<li><input type="checkbox"><label>보성군</label></li>
+																			<li><input type="checkbox"><label>순천시</label></li>
+																			<li><input type="checkbox"><label>신안군</label></li>
+																			<li><input type="checkbox"><label>여수시</label></li>
+																			<li><input type="checkbox"><label>영광군</label></li>
+																			<li><input type="checkbox"><label>영암군</label></li>
+																			<li><input type="checkbox"><label>완도군</label></li>
+																			<li><input type="checkbox"><label>장성군</label></li>
+																			<li><input type="checkbox"><label>장흥군</label></li>
+																			<li><input type="checkbox"><label>진도군</label></li>
+																			<li><input type="checkbox"><label>함평군</label></li>
+																			<li><input type="checkbox"><label>해남군</label></li>
+																			<li><input type="checkbox"><label>화순군</label></li>
+																		</ol>
+																	</li>
+																	<li>
+																		<input type="checkbox">
+																		<label><em>전라남도</em></label>
+																		<span class="tNavToggle"></span>
+																		<ol>
+																			<li><input type="checkbox"><label>강진군</label></li>
+																			<li><input type="checkbox"><label>고흥군</label></li>
+																			<li><input type="checkbox"><label>곡성군</label></li>
+																			<li><input type="checkbox"><label>광양시</label></li>
+																			<li><input type="checkbox"><label>구례군</label></li>
+																			<li><input type="checkbox"><label>나주시</label></li>
+																			<li><input type="checkbox"><label>담양군</label></li>
+																			<li><input type="checkbox"><label>목포시</label></li>
+																			<li><input type="checkbox"><label>무안군</label></li>
+																			<li><input type="checkbox"><label>보성군</label></li>
+																			<li><input type="checkbox"><label>순천시</label></li>
+																			<li><input type="checkbox"><label>신안군</label></li>
+																			<li><input type="checkbox"><label>여수시</label></li>
+																			<li><input type="checkbox"><label>영광군</label></li>
+																			<li><input type="checkbox"><label>영암군</label></li>
+																			<li><input type="checkbox"><label>완도군</label></li>
+																			<li><input type="checkbox"><label>장성군</label></li>
+																			<li><input type="checkbox"><label>장흥군</label></li>
+																			<li><input type="checkbox"><label>진도군</label></li>
+																			<li><input type="checkbox"><label>함평군</label></li>
+																			<li><input type="checkbox"><label>해남군</label></li>
+																			<li><input type="checkbox"><label>화순군</label></li>
+																		</ol>
+																	</li>
+																	<li>
+																		<input type="checkbox">
+																		<label><em>경상북도</em></label>
+																		<span class="tNavToggle"></span>
+																		<ol>
+																			<li><input type="checkbox"><label>경산시</label></li>
+																			<li><input type="checkbox"><label>경주시</label></li>
+																			<li><input type="checkbox"><label>고령군</label></li>
+																			<li><input type="checkbox"><label>구미시</label></li>
+																			<li><input type="checkbox"><label>군위군</label></li>
+																			<li><input type="checkbox"><label>김천시</label></li>
+																			<li><input type="checkbox"><label>문경시</label></li>
+																			<li><input type="checkbox"><label>봉화군</label></li>
+																			<li><input type="checkbox"><label>상주시</label></li>
+																			<li><input type="checkbox"><label>성주군</label></li>
+																			<li><input type="checkbox"><label>안동시</label></li>
+																			<li><input type="checkbox"><label>영덕군</label></li>
+																			<li><input type="checkbox"><label>영양군</label></li>
+																			<li><input type="checkbox"><label>영주시</label></li>
+																			<li><input type="checkbox"><label>영천시</label></li>
+																			<li><input type="checkbox"><label>예천군</label></li>
+																			<li><input type="checkbox"><label>울릉군</label></li>
+																			<li><input type="checkbox"><label>울진군</label></li>
+																			<li><input type="checkbox"><label>의성군</label></li>
+																			<li><input type="checkbox"><label>청도군</label></li>
+																			<li><input type="checkbox"><label>청송군</label></li>
+																			<li><input type="checkbox"><label>칠곡군</label></li>
+																			<li><input type="checkbox"><label>포항시</label></li>
+																		</ol>
+																	</li>
+																	<li>
+																		<input type="checkbox">
+																		<label><em>경상남도</em></label>
+																		<span class="tNavToggle"></span>
+																		<ol>
+																			<li><input type="checkbox"><label>거제시</label></li>
+																			<li><input type="checkbox"><label>거창군</label></li>
+																			<li><input type="checkbox"><label>고성군</label></li>
+																			<li><input type="checkbox"><label>김해시</label></li>
+																			<li><input type="checkbox"><label>남해군</label></li>
+																			<li><input type="checkbox"><label>마산시</label></li>
+																			<li><input type="checkbox"><label>밀양시</label></li>
+																			<li><input type="checkbox"><label>사천시</label></li>
+																			<li><input type="checkbox"><label>산청군</label></li>
+																			<li><input type="checkbox"><label>양산시</label></li>
+																			<li><input type="checkbox"><label>의령군</label></li>
+																			<li><input type="checkbox"><label>진주시</label></li>
+																			<li><input type="checkbox"><label>창녕군</label></li>
+																			<li><input type="checkbox"><label>창원시</label></li>
+																			<li><input type="checkbox"><label>통영시</label></li>
+																			<li><input type="checkbox"><label>하동군</label></li>
+																			<li><input type="checkbox"><label>함안군</label></li>
+																			<li><input type="checkbox"><label>함양군</label></li>
+																			<li><input type="checkbox"><label>합천군</label></li>
+																		</ol>
+																	</li>
+																</ol>
+
+																<ol>
+																	<li>
+																		<input type="checkbox">
+																		<label><em>제주특별자치도</em></label>
+																		<span class="tNavToggle"></span>
+																	</li>
+																	<li>
+																		<input type="checkbox">
+																		<label><em>교육청</em></label>
+																		<span class="tNavToggle"></span>
+																		<ol>
+																			<li><input type="checkbox"><label>서울특별시교육청</label></li>
+																			<li><input type="checkbox"><label>부산광역시교육청</label></li>
+																			<li><input type="checkbox"><label>인천광역시교육청</label></li>
+																			<li><input type="checkbox"><label>대전광역시교육청</label></li>
+																			<li><input type="checkbox"><label>대구광역시교육청</label></li>
+																			<li><input type="checkbox"><label>광주광역시교육청</label></li>
+																			<li><input type="checkbox"><label>울산광역시교육청</label></li>
+																			<li><input type="checkbox"><label>세종특별자치시</label></li>
+																			<li><input type="checkbox"><label>세종특별자치시교육청</label></li>
+																			<li><input type="checkbox"><label>경기도교육청</label></li>
+																			<li><input type="checkbox"><label>강원도교육청</label></li>
+																			<li><input type="checkbox"><label>충청북도교육청</label></li>
+																			<li><input type="checkbox"><label>충청남도교육청</label></li>
+																			<li><input type="checkbox"><label>경상북도교육청</label></li>
+																			<li><input type="checkbox"><label>경상남도교육청</label></li>
+																			<li><input type="checkbox"><label>전라북도교육청</label></li>
+																			<li><input type="checkbox"><label>전라남도교육청</label></li>
+																			<li><input type="checkbox"><label>제주도교육청</label></li>
+																			<li><input type="checkbox"><label>제주특별자치도교육청</label></li>
+																		</ol>
+																	</li>
+																</ol>
+															</div>
+														</div>
+													</div>
+													<div class="bg_screen" ></div>
+
+												</li>
+												<li class="mgt10 ">
+													<label>일자 </label><input type="radio" id="" name="">공포일자&nbsp;&nbsp;<input type="radio" id="" name="">시행일자 &nbsp;&nbsp;
+													<input type="number" id="sUnivS" name="sUnivS" title="시작일" style="width:80px" placeholder="20160101"> ~ <input type="number" id="sUnivE" name="sUnivE" title="종료일" style="width:80px" placeholder="20161231"> <div class="btn-group"><button type="button" class="btn btn-square ">최근 1년</button> <button type="button" class="btn btn-square">최근 3년</button> <button type="button" class="btn btn-square">최근 5년</button></div>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</div>	
+								<div class="btn_area"><input type="submit" id="searchBtn" value="검색"> <span class="_cancel"><i class="icon-16" data-icon="&#xe90e;"></i>입력초기화</span></div>
+								</form>
+							</div> 
+						</div>
+						
+						<div  class="submain_group title"> 
+							<h3>나의 법규집<div class="btn_more"><a href="e">사용방법 안내</a></div></h3> 
+							<ul class="directory_list mylaw">
+								<li><em  class="favi_icon"><i class="icon-star starfull" ></i></em><a href="1" >상법편</a> </li>
+								<li><em  class="favi_icon"><i class="icon-star starfull" ></i></em><a href="2">민사소송편</a></li>
+								<li><em  class="favi_icon"><i class="icon-star starfull" ></i></em><a href="3">형사소송편</a></li>
+								<li><em  class="favi_icon"><i class="icon-star starfull" ></i></em><a href="4">행정절차편</a></li> 
+								<li><em  class="favi_icon"><i class="icon-star starfull" ></i></em><a href="5">민사집행편</a></li>
+								<li><em  class="favi_icon"><i class="icon-star starfull" ></i></em><a href="5">민법편</a></li>
+								<li><em  class="favi_icon"><i class="icon-star starfull" ></i></em><a href="5">형법편</a></li> 
+							</ul>
+							<div class="info_lawbook">아직 등록된 나의 법규가 없습니다. <br>나의 법규집에 법규를 입력해 두면 보다 편리하게 본문으로 이동할 수 있습니다. <br>나의 법규집은 로그인 후 법령, 행정규칙 및 조약 본문 상단에서 선택할 수 있으며, 법규는 30개까지 지정할 수 있습니다.
+							</div>
+						</div>
+					</div>
+					<div class="main_container_view">
+						<div class="main_container_view_inner">
+							 
+						</div>
+					</div>
+				</article> 
+				<aside class="right_container">
+					<section class="calc_info">
+						<h4>LAWnB 검색연산자 안내<span class="btn_more"><i class="icon_open"></i>열기</span></h4>
+						<div style="display: none;">
+							<table>
+								<tbody>
+									<tr>
+										<td><span>AND 검색</span><br>"이사회"와 "감사"가 모두 포함된 문서<div style="display: block;">예시) 이사회 감사, 이사회 AND 감사</div></td>
+									</tr>
+									<tr>
+										<td><span>OR 검색</span><br>"이사회"와 "감사" 중 어느 하나라도 포함된 문서<div style="display: block;">예시) 이사회 OR 감사</div></td>
+									</tr>
+									<tr>
+										<td><span>NOT 검색</span><br>"이사회"가 포함되고 "감사"가 포함되지 않은 문서<div style="display: block;">예시) [검색어]이사회 [제외어]감사, 이사회 NOT 감사</div></td>
+									</tr>
+									<tr>
+										<td><span>EQUAL 검색</span><br>"이사회 감사"라는 검색어와 완전일치하는 구문이 있는 문서<div style="display: block;">예시) “이사회 감사”</div></td>
+									</tr>
+									<tr>
+										<td><span>NEAR 검색</span><br>"이사회"와 "감사" 사이에 단어(형태소)가 10개 이하인 문서<div style="display: block;">예시) “이사회 감사”~10</div></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+
+					<section>
+						<div class="right_button" onclick="javascript:OnetoOneContactUs('B02');">법규 비교</div>
+					</section>
+					<section>
+						<h4>최신 자치법규</h4>
+						<ul>
+							<li><a href="1">국민안전처 소속 경찰공무원 근속승진 운영 규칙 </a><span>[시행 2017.1.26.] [국민안전처훈령 제238호, 2017.1.26., 일부개정]</span></a></li>
+							<li><a href="1">국민안전처 소속 경찰공무원 근속승진 운영 규칙 </a><span>[시행 2017.1.26.] [국민안전처훈령 제238호, 2017.1.26., 일부개정]</span></a></li>
+							<li><a href="1">국민안전처 소속 경찰공무원 근속승진 운영 규칙 </a><span>[시행 2017.1.26.] [국민안전처훈령 제238호, 2017.1.26., 일부개정]</span></a></li>
+							<li><a href="1">국민안전처 소속 경찰공무원 근속승진 운영 규칙 </a><span>[시행 2017.1.26.] [국민안전처훈령 제238호, 2017.1.26., 일부개정]</span></a></li>
+							<li><a href="1">국민안전처 소속 경찰공무원 근속승진 운영 규칙 </a><span>[시행 2017.1.26.] [국민안전처훈령 제238호, 2017.1.26., 일부개정]</span></a></li>
+						</ul>
+					</section>
+				</aside>
+			</div>
+    	</div>
+		<footer>
+			<div class="etc_menu"> 
+				<div class="top_container">  
+					<ul>	
+						<li class="blind">기타 메뉴 </li>
+						<li>회사소개</li>
+						<li>광고 · 제휴문의</li>
+						<li>이용약관</li>
+						<li>개인정보 취급/처리 방침</li>
+						<li>법적고지</li>
+						<li>이메일 무단수집거부</li>
+					</ul>
+				</div>
+			</div>  
+			<div class="top_container   _footer"> 	   
+				1. 콘텐츠의 명칭 : 법률정보 &nbsp;&nbsp; 2. 콘텐츠의 제작 및 표시 : 2006년 2월 17일(업그레이드 콘텐츠의 경우 갱신일) &nbsp;&nbsp; 3. 콘텐츠 제작자 : ㈜로앤비  &nbsp;&nbsp;  4. 콘텐츠의 이용조건 : <a href="/support/agree_use.asp" class="red_bott">이용약관</a> 및 로앤비 <a href="/support/serviceInfo_member.asp" class="red_bott">서비스안내</a>와 같음 (무단 복제금지) &nbsp;&nbsp;5. 콘텐츠의 보호기간 : ㈜로앤비 사이트의 모든 콘텐츠는 「콘텐츠산업 진흥법」에 따라 제작 또는 갱신일로부터 5년간 보호됨
+				<div>Thomson reuters</div>
+				<div>Copyright ⓒ 1998~2016 <b>LAWnB</b>. All Rights Reserved.</div>
+			</div>       
+		</footer>
+		<div id="bg_screen"></div>
+		<script type="text/javascript">  
+			setHeight_under();			  
+		</script>
+	</div>
+</div> 
+</body>
+</html>

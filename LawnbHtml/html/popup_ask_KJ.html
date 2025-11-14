@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="../Scripts/lib/jquery-3.4.1.min.js"></script>
+<script src="../js/commonjs.js"></script>
+<script language="javascript">
+
+    function askPNext() {
+        $('.ask1').hide();
+        $('.ask2').show();
+	}
+
+    function test1() {
+		alert("문의가 등록되었습니다.");
+        self.close()
+	}
+   
+</script>
+
+<style type="text/css">
+    .ask1, .ask2 {
+		padding:0 !important;
+    }
+
+    .lawyer_info table tbody th:before {
+		display:none;
+    }
+    .ask1-ul {
+        padding: 23px 23px 5px 23px;
+        line-height: 150%;
+    }
+        .ask1-ul li {
+            margin-bottom: 10px;
+            list-style: inherit;
+        }
+</style>
+</head>
+<body> 
+<div id="co_popupContainer_small" style="min-width:0">
+		<div id="wrap" >
+			<header> 
+				<div class="newpopup">  
+					<h1>로앤비 <span>Ask a Questions</span></h1>
+				</div> 
+			</header> 
+			<div class="container">
+
+				<div class="ask1">
+					<p><strong>개인정보 제공 및 이용동의</strong></p>
+					<ul class="ask1-ul">
+						<li>귀하의 질의와 답변은 실무법 서비스에 대한 ONPL의 이용 약관 및 Ask 범위 및 규칙에 따라 제출 및 답변됩니다.</li>
+						<li>
+							귀하의 질의와 답변은 모든 ONPL 사용자가 보고 의견을 제시할 수 있는 ONPL 의 사이트에 게시될 수 있습니다. 귀하의 질문은 익명으로 게시됩니다. 귀하의 질문은 게시 전에 검토 및 수정될 수 있습니다(제목 추가 포함).
+						</li>
+						<li>
+							질문에 대한 답변은 법적 조언이 아니며 질문을 하는 사람과 답변하는 사람 사이에 변호사-고객 관계가 형성되지 않습니다. 적절한 경우 법률 자문을 위해 자신의 변호사와 상의해야 합니다.
+						</li>
+						<li>달리 명시하지 않는 한, 질문에 대한 답변은 국내법을 기반으로 합니다.</li>
+						<li>우리는 귀하의 질문에 응답할 의무가 없습니다.</li>
+						<li>문제 또는 당사자를 식별할 수 있는 세부 정보를 OMPL에 기밀 정보를 제공하지 않아야 하며 이를 인정해야 합니다.</li>
+					</ul>
+					<div style="background-color:#f0f0f0;padding:5px"><label><input type="checkbox" id="" name="">입력한 법조인 정보의 보관 및 이용에 동의합니다.</label></div>
+
+					<div class="btn_area ac mgb10"><span class="btn" onclick="askPNext()">확인</span></div>
+				</div>
+
+				<div class="ask2" style="display:none;">
+
+					<div class="lawyer_info onetoone">
+						<ul>
+							<li class="_ful">
+								<span>아이디 <em class="text_ness">*</em></span>
+								Hong1234
+							</li>
+							<li class="_ful">
+								<span>이름 <em class="text_ness">*</em></span>
+								<input type="text" id="UserName" name="UserName" value="홍길동" maxlength="100">
+							</li>
+							<li class="_ful">
+								<span>이메일 <em class="text_ness">*</em></span>
+								<input type="text" id="UserEmail" name="UserEmail" value="hong@naver.com" maxlength="200" style="width:98%">
+							</li>
+							<li class="_ful">
+								<span>휴대폰</span>
+								<input type="text" id="UserHP" name="UserHP" value="010-1234-1234" maxlength="20">
+							</li>
+
+							<li class="_ful">
+								<span>문의분야<em class="text_ness">*</em></span>
+								<select name="BBSQuestion" id="BBSQuestion">
+									<option value="" selected="selected">선택</option>
+									<option value="001">콘텐츠 문의</option>
+									<option value="002">회원정보 문의</option>
+									<option value="003">가입/결제 문의</option>
+									<option value="004">제휴/광고 문의</option>
+									<option value="006">온주집필 문의</option>
+									<option value="005">기타</option>
+								</select>
+							</li>
+							<li class="_ful mHide">
+								<span>제목 <em class="text_ness">*</em></span>
+								<input type="text" id="Title" name="Title" maxlength="200" style="width:98%" value="">
+							</li>
+							<li class="_ful mHide">
+								<span>문의내용 <em class="text_ness">*</em></span>
+								<textarea name="Contents" id="Contents" class="sContents_add"></textarea>
+							</li>
+							<li class="_ful mHide">
+								<span>첨부파일</span>
+								<input type="file" id="sFileName" name="sFileName" onchange="FileCheck();">
+								<span id="FilenameLayer" class="sFile_name" style="display: none;"></span>
+							</li>
+						</ul>
+					</div>
+
+					<div class="btn_area ac mgb10"><span class="btn" onclick="test1()">확인</span></div>
+
+
+				</div>
+
+			</div>  
+		</div>  
+</div> 
+</body>
+</html> 

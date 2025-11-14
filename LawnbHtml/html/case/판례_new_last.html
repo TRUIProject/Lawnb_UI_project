@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+	<meta name="viewport" content="width=1140">
+	<title> 로앤비 </title>
+	<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+	<link rel="stylesheet" type="text/css" href="../../css/_next_default.css?v2" />
+	<link rel="stylesheet" type="text/css" href="../../css/_next_layout_old.css?dd" />
+	<link rel="stylesheet" type="text/css" href="../../css/_next_funtion.css?s" />
+	<link rel="stylesheet" type="text/css" href="../../css/icon-style.css" />
+	<script src="../../Scripts/lib/jquery-3.4.1.min.js" type="text/javascript"></script>
+	<script src="../../Scripts/common/commonjs.js?d26"></script>
+	<script language="javascript">
+<!--
+		$(document).ready(function () {
+			if ($(".afolder").length > 0) {
+				$(".afolder").each(function (index) {
+					if (index + 1 > 5) {
+						$(".afolder").eq(index).hide();
+					}
+				});
+			}
+		});
+
+		function myFolderMemoSave() {
+			var i = $(".txtMemo").index($(this).index());
+			//var sCont = $(".txtMemo").eq(i).val();
+			alert(i);
+			//alert(sCont);
+		}
+
+		var targetList = 0;
+		function goUpDownList(t) {
+		}
+
+
+		function resizeComment() {
+			setHeight();
+			$(".right_container").removeClass('slide_mov_right');
+		}
+		function email_edit() {
+			$("#popup_share").hide();
+			$("#popup_email").show();
+		}
+
+		$(function () {
+			$('.memo_btn').on('click', '.memo_all_view', function () { //개인화 메모전체보기
+				$("#title_result_tab div:first-child").text('담은폴더 전체보기');
+				$("#title_result_tab .btn_close").show();
+				$("#title_result_tab .btn_reapprea").hide();
+				$("#title_result_tab").show();
+				$(".myfolder_total").show();
+				$("#result_area").show();
+				$("#pdf_view").hide();
+				$("#view_content").hide();
+				$('.relate_list').hide();
+				$('.myfolder_total').show();
+				$(".list_order_pr").hide();
+				$("#result_sep").hide();
+				setTimeout(function () {
+					$("#result_area").addClass('slide_mov_bottom');
+				}, 200);
+			});
+
+
+			$("section .btn-group .btn").click(function () {
+				if ($('#right_control').css("display") == "block") {
+					$(".right_container").removeClass('add_border').addClass('slide_mov_right').removeClass('slide_mov');
+					$('#right_control').removeClass('_up');
+				}
+				$("#title_result_tab div:first-child").text('관련정보');
+				$("#title_result_tab .btn_close").show();
+				$("#title_result_tab .btn_reapprea").hide();
+				$("#title_result_tab").show();
+				$("#result_area").show();
+				$('.relate_list').show();
+				$('.myfolder_total').hide();
+				$("#pdf_view").hide();
+				$("#view_content").hide();
+				setTimeout(function () {
+					$("#result_area").addClass('slide_mov_bottom');
+				}, 200);
+			});
+
+			if ($('.title_area h2').height() > 50) {
+				$('h2 .more').show();
+			} else {
+				var expanded = false;
+				$('h2 .more').hide();
+			};
+			$('.more').click(function () {
+				if (!expanded) {
+					$('.title_area h2').addClass("case_tit_hidden");
+					$('.btn_more_area').addClass("act");
+					$('.more').attr('title', '판례제목열기');
+					resizeComment();
+					expanded = true;
+				} else {
+					$('.title_area h2').removeClass("case_tit_hidden");
+					$('.btn_more_area').removeClass("act");
+					$('.more').attr('title', '판례제목닫기');
+					resizeComment();
+					expanded = false;
+				}
+			});
+			$('.afolder').on('click', '.btn-right', function () {
+
+				var index = $('.btn-right').index($(this));
+				//alert(index);
+				$('.memo_text').each(function (i) {
+					if (i == index) {
+						if ($('.memo_text').eq(index).css("display") == "none")
+							$('.memo_text').eq(i).show();
+						else
+							$('.memo_text').eq(i).hide();
+					}
+					else {
+						$('.memo_text').eq(i).hide();
+					}
+				});
+			});
+
+			$('.function_area').on('click', '#inner_search', function () {
+				$(this).hide();
+				$('#search_word').hide();
+				$('.inner_search_div').css('display', 'inline-block');
+
+
+				$('.inner_search_div').on('click', '.inner_search_close', function () {
+					$('.inner_search_div').hide();
+					$('#search_word').css('display', 'inline-block');
+					$('#inner_search').css('display', 'inline-block');
+				});
+			});
+
+			$('.function_area').on('click', '.btn_inner_search_get', function () {
+				$('#view_content').hide();
+				$('#view_sub_content').show();
+
+				$('.btn_close').click(function () {
+					$('#view_content').show();
+					$('#view_sub_content').hide();
+				});
+			});
+		});
+		//-->
+	</script>
+	<script>
+		function layout2Title() {
+			$('.legal_layout_title').toggle();
+		}
+
+		function layout2Wing() {
+			$('#container').toggleClass('case100');
+		}
+
+		function layout2Text() {
+			$('#view_content').toggleClass('case_info2');
+		}
+
+		function layout2Myoungjo() {
+			$('.main_container_view_inner ').toggleClass('Myoungjo');
+		}
+
+		function layout2large() {
+			$('.main_container_view_inner ').toggleClass('font-Large');
+		}
+
+		function layout2Background1() {
+			$('.main_container_view').toggleClass('main_container_view_back1');
+		}
+
+		function layout2Background2() {
+			$('.main_container_view').toggleClass('main_container_view_back2');
+		}
+
+		function layout2Background3() {
+			$('.main_container_view').toggleClass('main_container_view_back3');
+		}
+
+		function layout2mgBox() {
+			$('.main_container_view_inner').toggleClass('case_mgBox');
+		}
+
+		function layout2mgBox2() {
+			$('.main_container_view_inner').toggleClass('case_mgBox2');
+		}
+
+
+        function layout2mgBox0() {
+            $('.main_container_view_inner').toggleClass('case_mgBox0');
+		}
+
+	</script>
+
+	<style type="text/css">
+
+
+		@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap');
+
+
+		.case100 {
+			width: 100% !important;
+		}
+
+
+
+		/* 판례 가독성 업데이트 */
+
+		/* 판례 내부 폰트 _ 나중에 case_info2를 case_info로 바꾸기 */
+		.case_info2 .c_tit_1 {
+			margin-top: 60px;
+			font-size: 1.3em;
+			font-weight: bold;
+			margin-bottom: 20px;
+			text-align: center;
+			letter-spacing: 20px;
+		}
+
+		.case_info2 .c_tit_2 {
+			line-height: 220%;
+			margin-bottom: 20px;
+			text-align: left;
+		}
+
+		.case_info2 .c_tit_2-2 {
+			border-top: 1px solid #eee;
+			padding-top: 10px;
+			margin-top: 10px;
+			text-align: left;
+		}
+
+		.case_info2 .c_tit_3 {
+			margin-top: 40px;
+			margin-bottom: 20px;
+			text-align: left;
+		}
+
+		.case_info2 .c_tit_4 {
+			margin-top: 40px;
+			margin-bottom: 20px;
+			text-align: left;
+		}
+
+		.case_info2 p {
+			position: relative;
+			display: block;
+			padding-left: 0px;
+			background: none;
+			font-size: 1.3em;
+			font-weight: bold;
+			line-height: 220%; /* 배경 소스 없앨것  margin-top:19px; background:url(../images/tr_icon_blit_org.png) no-repeat 2px 15px;background-size:5px; */
+		}
+
+			.case_info2 p span {
+				position: absolute;
+				top: 0;
+				right: 0;
+			}
+
+			.case_info2 p:first-of-type {
+				margin-top: 0
+			}
+
+		.case_info2 .c_tit_3 {
+			margin-top: 20px;
+		}
+
+			.case_info2 .c_tit_3 table td {
+				text-align: justify;
+			}
+
+		.case_info2 #case_judge {
+			border-top: 1px solid #eee;
+			padding-top: 10px;
+			display: block;
+			margin-top: 20px
+		}
+
+		.case_info2 .c_con {
+			padding-left: 0 !important;
+			line-height: 240%;
+		}
+
+			.case_info2 .c_con p {
+				background-image: none;
+				padding-left: 0;
+				margin-left: -15px;
+				margin-top: 10px;
+				padding-top: 10px;
+				border-top: none;
+			}
+
+		.case_info2 .fo11em {
+			font-size: 1.1em !important;
+			margin-bottom: 0 !important;
+		}
+
+			.case_info2 .fo11em:before {
+				content: ' ';
+			}
+
+		.case_info2 .c_con, .case_info2 .c_tit_3 {
+			text-align: justify
+		}
+
+		.case_info2 .c_tit_2-1 {
+			text-align: center;
+		}
+
+		/* 배경1 진한배경 */
+		.main_container_view_back1 {
+			background: #777 !important;
+		}
+
+			.main_container_view_back1 .main_container_view_inner {
+				background: #fff !important;
+				max-width: 840px;
+				padding: 20px 40px;
+			}
+
+		/* 배경2 중간배경 */
+		.main_container_view_back2 {
+			background: #ccc !important;
+		}
+
+			.main_container_view_back2 .main_container_view_inner {
+				background: #fff !important;
+				max-width: 840px;
+				padding: 20px 40px;
+			}
+
+		/* 배경3 진한배경 */
+		.main_container_view_back3 {
+			background: #fafafa !important;
+		}
+
+			.main_container_view_back3 .main_container_view_inner {
+				background: #fff !important;
+				max-width: 840px;
+				padding: 20px 40px;
+			}
+
+
+        /* 사이즈 높이만 내려간거  */
+        .case_mgBox0 {
+            margin-top: 40px !important;
+        }
+
+		/* 사이즈 760  */
+		.case_mgBox {
+			margin: 40px auto !important;
+			max-width: 760px !important;
+			padding: 40px !important;
+		}
+
+		/* 사이즈 700  */
+		.case_mgBox2 {
+			margin: 40px auto !important;
+			max-width: 700px !important;
+			padding: 40px !important;
+		}
+
+		/* 폰트 크게   */
+		.font-Large {
+			font-size: large;
+		}
+
+		@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&display=swap');
+
+		.Myoungjo h2, .Myoungjo .c_con, .Myoungjo .c_tit_1, .Myoungjo .c_tit_2, .Myoungjo .c_tit_2-1, .Myoungjo .c_tit_2-2, .Myoungjo .c_tit_3, .Myoungjo a {
+			font-family: 'Nanum Myeongjo', serif;
+			transform: rotate(0.04deg);
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+	</style>
+
+
+</head>
+
+<body onresize="resizeComment();">
+	<div id="co_popupContainer">
+		<div id="wrap">
+			<header>
+				<div class="top_container  ">
+					<h1>로앤비</h1>
+					<div class="function_area">
+						<p class="hide">기타기능버튼들</p>
+						<a href="#" id="inner_search">
+							<span><i class="icon-folder" data-icon=""></i></span>
+							<span>본문검색</span>
+						</a>
+						<div class="inner_search_div">
+							<input type="search" id="txtContendViewSearchWord" placeholder="본문검색" onkeypress="if(event.keyCode==13) { contentViewSearchType('C000'); return false;}">
+							<span class="btn_inner_search" onclick="contentViewSearchType('C000');"><i class="icon-folder" data-icon=""></i></span>
+							<span class="btn_inner_updown"><i class="icon-ups" data-icon="" onclick="movePreviousWord();"></i> <br><i class="icon-downs" data-icon="" onclick="moveNextWord();"></i></span>
+							<span class="inner_search_close" title="본문검색닫기" onclick="setRemoveHighlight('C000');"><i class="icon-close" data-icon=""></i></span>
+						</div>
+						<div id="search_word">
+							<span style="padding-right:0" onclick="moveFindMarks('P')"><i class="icon-left" data-icon=""></i></span>
+							<span onclick="checkMarking()">
+								<i class="icon-checkbox-unchecked _checked"></i>
+							</span>
+							<span style="padding-left:0" onclick="moveFindMarks('N')"><i class="icon-right" data-icon=""></i></span>
+							<br><span>검색어</span>
+						</div>
+						<div>
+							<span class="font-p"><i class="icon-plus" data-icon=""></i></span>
+							<span class="font-m"><i class="icon-minus" data-icon=""></i></span>
+							<br><span>글자크기</span>
+						</div>
+						<input type="hidden" id="hdnSlawId" value="0">
+						<input type="hidden" id="hdnStitle" value="대법원 1997. 5. 1 자 97마384 결정 [등기공무원처분에관한이의] [공97.7.1.[37],1811]">
+
+						<a href="#" id="folder_put" onclick="mydesk.myPersonalization('VIEWMY01')">
+							<span><i class="icon-folder" data-icon=""></i></span>
+							<span>폴더담기</span>
+						</a>
+						<a href="#" id="pring_set" onclick="mydesk.myPersonalization('VIEWMY05')">
+							<span><i class="icon-printer" data-icon=""></i></span>
+							<span>인쇄</span>
+						</a>
+						<a href="#" id="save_set" onclick="mydesk.myPersonalization('VIEWMY06')">
+							<span><i class="icon-download3" data-icon=""></i></span>
+							<span>파일저장</span>
+						</a>
+
+						<a href="#" id="cont_share" onclick="mydesk.myPersonalization('VIEWMY07')">
+							<span><i class="icon-share2" data-icon=""></i></span>
+							<span>공유</span>
+						</a>
+					</div>
+				</div>
+			</header>
+
+
+			<div id="container" class="case">
+				<div class="container_hide">
+					<button id="left_wide"><i class="icon_list" data-icon="&#xe900;"><span class="blind">목차 넓게보기</span></i></button>
+					<button id="left_hide"><i class="icon_list" data-icon="&#xe901;"><span class="blind">목차 없애기</span></i></button>
+				</div>
+				<div id="breadcrumb" class="navi_area">
+					<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+				</div>
+				<div class="title_area">
+					<div class="btn_option">
+						<span id="btnHistory" class="" onclick="caselaw.goToRefView('C000AA0DF44095FE_R5')">판례히스토리</span>
+					</div>
+					<h2>
+						대법원 1997. 5. 1 자 97마384 결정 [등기공무원처분에관한이의]<span>[공97.7.1.[37],1811]</span>
+						<div class="btn_more_area"><button title="판례제목 닫기" class="more" style="display: none;"></button></div>
+					</h2>
+					<div class="case_nick"></div>
+				</div>
+
+				<div id="container_inner">
+					<div class="left_container">
+						<div class="table_index">
+							<h3>요약정보</h3>
+							<ul id="LiAddInfo">
+								<li><a href="#case_info">판시사항</a></li>
+								<li><a href="#case_point">결정요지</a></li>
+								<li><a href="#law_refer">참조조문</a></li>
+								<li><a href="#hiscase_point">재판경과</a></li>
+								<li><a href="#case_refer">참조판례</a></li>
+								<li><a href="#refcase_point">따름판례</a></li>
+							</ul>
+							<h3>전문</h3>
+							<ul>
+								<li><a href="#case_plaintiff">당사자</a></li>
+								<li><a href="#case_entire_ori">원심결정</a></li>
+								<li><a href="#case_outcome">주문</a></li>
+								<li>
+									<a href="#case_reason">이유</a>
+									<ul> </ul>
+								</li>
+								<li><a href="#case_judge">판사</a></li>
+							</ul>
+						</div>
+					</div>
+					<article class="main_container">
+						<div class="main_container_view">
+							<div class="main_container_view_inner">
+
+
+								<!-- 내부 타이틀 -->
+								<div class="legal_layout_title" style="display:none;">
+									<div class="title_area" style="display:block; margin-bottom: 40px;">
+										<h2 style="margin-top: 30px; text-align: center; margin-bottom: 20px; font-size:1.4em;">
+											대법원 1997. 5. 1 자  97마384 결정 <br /> [등기공무원처분에관한이의] <br /><span>[공97.7.1.[37],1811]</span>
+											<div class="btn_more_area"><button title="판례제목 닫기" class="more" style="display: none;"></button></div>
+										</h2>
+										<div style=" overflow: hidden; ">
+											<div class="btn_option" style="display: none;">
+												<span id="btnHistory" class="" onclick="caselaw.goToRefView('C000AA0DF44095FE_R5')">판례히스토리</span>
+											</div>
+										</div>
+										<div class="case_nick"></div>
+									</div>
+								</div>
+
+								<div id="title_result_tab" class="result_tab">
+									<div>관련정보 </div>
+									<div class="btn_option_outer"><div class="btn_close">X</div></div>
+									<div class="btn_option_outer"><div class="btn_reapprea">검색결과 보기</div></div>
+								</div>
+								<div id="result_area" class="popup_mov_area">
+									<div id="result_sep"></div>
+									<div class="list_order_pr">
+
+									</div>
+									<ol class="list myfolder_total">
+										<!--나의폴더-->
+
+									</ol>
+									<div class="navigationLinks">
+									</div>
+								</div>
+								<div class="case_info" id="view_content">
+									<!--?xml version="1.0" encoding="utf-16"?-->
+									<a id="case_info" name="case_info" class="nopopup"> </a>
+									<p class="c_tit_1" id="prPansi_t"> 판시사항<br> </p>
+									<div class="c_con" id="prPansi">[1] 부동산실권리자명의등기에관한법률에 규정된 유예기간 내에 기존의 명의신탁자가 실명등기를 하지 않은 경우, 유예기간 경과 후 명의신탁 해지를 원인으로 한 소유권이전등기 신청의 허부(소극)<br>[2] <a href="/Info/ContentView?sid=L000001178_6_19961230" class="popup_view">부동산실권리자명의등기에관한법률 제6조 제1항</a>의 취지가 유예기간 경과후 명의신탁 해지를 원인으로 한 명의신탁자의 명의수탁자에 대한 사법상의 등기청구권을 인정하는 것인지 여부(소극)</div><a id="case_point" name="case_point" class="nopopup"> </a>
+									<p class="c_tit_1" id="prSumm_t">결정요지<br> </p>
+									<div class="c_con" id="prSumm">[1] <a href="/Info/ContentView?sid=L000001178_11_19961230" class="popup_view">부동산실권리자명의등기에관한법률 제11조 제1항</a> 본문, <a href="/Info/ContentView?sid=L000001178_12_19961230" class="popup_view">제12조 제1항</a>, <a href="/Info/ContentView?sid=L000001178_4_19961230" class="popup_view">제4조</a>의 각 규정에 따르면, 부동산실권리자명의등기에관한법률 시행 전에 명의신탁 약정에 의하여 부동산에 관한 물권을 명의수탁자 명의로 등기한 명의신탁자는 유예기간 이내에 실명등기 등을 하여야 하고, 유예기간 이내에 실명등기 등을 하지 아니한 경우에는 유예기간이 경과한 날 이후부터 명의신탁 약정은 무효가 되고, 명의신탁 약정에 따라 행하여진 등기에 의한 부동산에 관한 물권변동도 무효가 되므로, 유예기간이 경과한 후 명의신탁 약정의 해지를 원인으로 한 명의신탁자의 소유권이전등기 신청은 그 신청취지 자체에 의하여 법률상 허용될 수 없음이 명백한 경우로서 <a href="/Info/ContentView?sid=L000001697_55_19961230" class="popup_view">부동산등기법 제55조 제2호</a>의 '사건이 등기할 것이 아닌 때'에 해당하여 등기공무원은 이를 각하하여야 한다.<br>[2] <a href="/Info/ContentView?sid=L000001178_6_19961230" class="popup_view">부동산실권리자명의등기에관한법률 제6조 제1항</a>이 과징금을 부과받은 명의신탁자에 대하여 지체 없이 당해 부동산에 관한 물권을 '자기 명의로 등기하여야 한다'고 규정하고 있는 뜻은 명의신탁자에게 그와 같은 공법상의 의무를 부과하는 것에 불과하고, 그로써 기존의 명의신탁 약정과 명의수탁자 명의 등기가 무효로 되었음에도 불구하고, 명의신탁자에게 새삼스럽게 명의신탁 약정을 원인으로 하여 직접 명의수탁자로부터 등기를 청구할 수 있도록 사법상의 권리를 창설하는 것이라고 볼 수 없다.</div><a id="law_refer" name="law_refer" class="nopopup"> </a>
+
+									<hr style="display: block; margin-top: 60px; border: 1px solid #eee;" />
+									<p class="c_tit_2 fo11em" id="prCont_t_1"> 참조조문<br> </p>
+									<div class="c_con" id="prCont_1">[1] <a href="/Info/ContentView?sid=L000001697_55_19961230" class="popup_view">부동산등기법 제55조 제2호</a>: <a href="/Info/ContentView?sid=L000001178_4_19961230" class="popup_view">부동산실권리자명의등기에관한법률 제4조</a>,<a href="/Info/ContentView?sid=L000001178_11_19961230" class="popup_view">제11조 제1항</a>,<a href="/Info/ContentView?sid=L000001178_12_19961230" class="popup_view">제12조 제1항</a><br>[2] <a href="/Info/ContentView?sid=L000001178_5_19961230" class="popup_view">부동산실권리자명의등기에관한법률 제5조 제1항</a>,<a href="/Info/ContentView?sid=L000001178_6_19961230" class="popup_view">제6조 제1항</a>,<a href="/Info/ContentView?sid=L000001178_12_19961230" class="popup_view">제12조 제2항</a></div><a name="hiscase_point" id="hiscase_point" class="nopopup"> </a>
+									<p class="c_tit_2 fo11em" id="prCont_t_5">재판경과</p>
+									<div class="c_con" id="prCont_5">
+										<div class="this_case"><a href="/Info/ContentView?sid=C000AA0DF44095FE" class="popup_view">대법원 1997. 5. 1 자 97마384 결정 </a></div>
+										<div class="not_this_case"><a href="/Info/ContentView?sid=부산지방법원_96파1566" class="popup_view">부산지방법원 1997. 10. 10 자 96파1566 결정 </a></div>
+										<div class="not_this_case"><a href="/Info/ContentView?sid=C000E56690436F80" class="popup_view">부산지방법원 1997. 1. 22 자 96라270 결정 </a></div>
+									</div><a id="case_refer" name="case_refer" class="nopopup"> </a>
+									<p class="c_tit_2 fo11em" id="prCont_t_0"> 참조판례<br> </p>
+									<div class="c_con" id="prCont_0">[1] <a href="/Info/ContentView?sid=C000AC84DA8AA9B1" class="popup_view">대법원 1989.11.30. 89마645 결정(1984,520)</a><a href="/Info/ContentView?sid=C000DA1454A97F2E" class="popup_view">대법원 1993.11.29. 93마1645 결정(1988,189)</a><a href="/Info/ContentView?sid=C00032EF3D426E46" class="popup_view">대법원 1996.3.4. 95마1700 결정(1992,1037)</a></div><a name="refcase_point" id="refcase_point" class="nopopup"></a>
+									<p class="c_tit_2 fo11em" id="prCont_t_4">따름판례</p>
+									<div class="c_con" id="prCont_4"><a href="/Info/ContentView?sid=C0003BD46D6D8933" class="popup_view">대법원 1999. 1. 26 선고 98다1027 판결 </a>, <a href="/Info/ContentView?sid=C000716253FB1346" class="popup_view">대법원 1998. 9. 4 선고 98다20981 판결 </a></div><a name="case_entire" class="nopopup"> </a>
+									<hr style="display: block; margin-top: 60px; border: 1px solid #eee;" />
+
+									<p class="c_tit_1" id="prCont_t_3"> 판 결<br> </p>
+									<div class="c_con" id="prCont_3">
+										<div class="c_tit_2" id="c_tit_2"><a id="case_plaintiff" name="case_plaintiff" class="nopopup"> </a>【재항고인】 강삼만<br></div>
+										<div class="c_tit_2">
+											<div class="c_tit_2">
+												<div class="c_tit_2"><a id="case_entire_ori" name="case_entire_ori" class="nopopup"> </a>【원심결정】 <a href="/Info/ContentView?sid=C000E56690436F80" class="popup_view">부산지법 1997. 1. 22.자 96라270 결정</a></div>
+												<div class="c_tit_2">
+													<a id="case_outcome" name="case_outcome" class="nopopup"> </a>
+													<div class="c_tit_1">【주 문】</div>
+													재항고를 기각한다.
+												</div>
+												<div class="c_tit_3">
+													<a id="case_reason" name="case_reason" class="nopopup"> </a>
+													<div class="c_tit_1">【이 유】</div>
+													재항고이유를 본다.
+													<br>기록에 의하면 이 사건 부동산은 원래 윤상필 명의로 등기되어 있던 것인데 그에 관하여 1971. 5. 19.자로 소외 강길아 명의로 소유권이전등기가 마쳐졌으며, 재항고인은 <a href="/Info/ContentView?sid=L000001178_11_19961230" class="popup_view">부동산실권리자명의등기에관한법률 제11조 제1항</a>의 유예기간이 경과한 후인 1996. 8. 27.자로 이 사건 부동산에 관한 강길아 명의의 등기는 1971. 5. 19.자 재항고인과 강길아 사이의 명의신탁 약정에 의한 것임을 전제로 그 명의신탁 약정 해지를 원인으로 재항고인 명의로 소유권이전등기를 하여 달라고 신청하였고, 같은 달 29. 등기공무원이 위 등기 신청은 <a href="/Info/ContentView?sid=L000001697_55_19961230" class="popup_view">부동산등기법 제55조 제2호</a>에 해당한다고 하여 이를 각하하였음을 알 수 있다.<br><a href="/Info/ContentView?sid=L000001178_11_19961230" class="popup_view">부동산실권리자명의등기에관한법률 제11조 제1항</a> 본문, <a href="/Info/ContentView?sid=L000001178_12_19961230" class="popup_view">제12조 제1항</a>, <a href="/Info/ContentView?sid=L000001178_4_19961230" class="popup_view">제4조</a>의 각 규정에 따르면, 부동산실권리자명의등기에관한법률 시행 전에 명의신탁 약정에 의하여 부동산에 관한 물권을 명의수탁자 명의로 등기한 명의신탁자는 유예기간 이내에 실명등기(물권을 명의신탁자 명의로 등기하는 것) 등을 하여야 하고, 유예기간 이내에 실명등기 등을 하지 아니한 경우에는 유예기간이 경과한 날 이후부터 명의신탁 약정은 무효가 되고, 명의신탁 약정에 따라 행하여진 등기에 의한 부동산에 관한 물권변동도 무효가 된다.<br>그러므로 유예기간이 경과한 날 이후에는 재항고인과 강길아 사이의 명의신탁 약정은 무효이고, 강길아 명의의 등기도 무효이므로 재항고인의 이 사건 등기 신청은 그 신청취지 자체에 의하여 법률상 허용될 수 없음이 명백한 경우로서 <a href="/Info/ContentView?sid=L000001697_55_19961230" class="popup_view">부동산등기법 제55조 제2호</a>의 '사건이 등기할 것이 아닌 때'에 해당하여 등기공무원은 이를 각하하여야 한다.<br>한편 재항고인이 지적하고 있는 바와 같이 <a href="/Info/ContentView?sid=L000001178_12_19961230" class="popup_view">부동산실권리자명의등기에관한법률 제12조 제2항</a>, <a href="/Info/ContentView?sid=L000001178_5_19961230" class="popup_view">제5조 제1항</a>, <a href="/Info/ContentView?sid=L000001178_6_19961230" class="popup_view">제6조 제1항, 제2항</a>에 따르면, 법 시행 전에 명의신탁 약정에 의하여 부동산에 관한 물권을 명의수탁자 명의로 등기하도록 한 명의신탁자가 유예기간 이내에 실명등기를 하지 아니하면 당해 부동산 가액의 100분의 30분에 해당하는 과징금이 부과되고, 그 과징금을 부과받은 자는 지체 없이 당해 부동산에 관한 물권을 자기 명의로 등기하여야 하고, 이를 위반한 자에 대하여는 이행강제금이 부과된다.<br>그러나 <a href="/Info/ContentView?sid=L000001178_6_19961230" class="popup_view">부동산실권리자명의등기에관한법률 제6조 제1항</a>이 과징금을 부과받은 명의신탁자에 대하여 지체 없이 당해 부동산에 관한 물권을 '자기 명의로 등기하여야 한다'고 규정하고 있는 뜻은 명의신탁자에게 그와 같은 공법상의 의무를 부과하는 것에 불과하고, 그로써 기존의 명의신탁 약정과 명의수탁자 명의 등기가 무효로 되었음에도 불구하고, 명의신탁자에게 새삼스럽게 명의신탁 약정을 원인으로 하여 직접 명의수탁자로부터 등기를 청구할 수 있도록 사법상의 권리를 창설하는 것이라고 볼 수 없다.<br>같은 취지의 원심판단은 정당하고, 여기에 논하는 바와 같은 법리오해의 위법이 있다고 할 수 없다.<br>논지는 이유가 없다.<br>그러므로 재항고를 기각하기로 하여 관여 법관의 일치된 의견으로 주문과 같이 결정한다.<br>
+												</div>
+												<div class="c_tit_2-1"><a id="case_judge" name="case_judge" class="nopopup"> </a>대법관 최종영(재판장) 이돈희 이임수(주심)</div>
+												<div class="c_tit_2-2" style="display: none;"><a id="case_byulpyo" name="case_byulpyo" class="nopopup"></a></div>
+												<div class="c_tit_2-2"><div class="case_byulpyo"><div><i class="icon-" data-icon=""></i> <a href="javascript:caselaw.byeoljiPDFOpen('C000698804FDCFEA', '0')">별지1</a></div></div></div>
+											</div>
+										</div>
+										<!--<div class="case_info" id="view_sub_content" style="display:none"></div>-->
+									</div>
+								</div>
+
+								<div class="case_info" id="view_sub_content" style="display:none"></div>
+								<input type="hidden" id="lbDid" name="lbDid" value="C000AA0DF44095FE">
+								<input type="hidden" id="lbTid" name="lbTid" value="C000AA0DF44095FE">
+								<input type="hidden" id="lbCol" name="lbCol">
+								<input type="hidden" id="sList" name="sList" value="10">
+							</div>
+						</div>
+					</article>
+
+
+					<aside class="right_container">
+						<div id="myfolder_area"></div>
+						<div id="addInfoDiv">
+
+							<section>
+								<h4>
+									판례 디자인 업데이트 버튼
+								</h4>
+								<ul>
+									<li><a href="#" onclick="layout2Wing();">좌우여백</a></li>
+									<li><a href="#" onclick="layout2Text();">[레이아웃] 크기정렬</a></li>
+									<li><a href="#" onclick="layout2Myoungjo();">[폰트] 명조체</a></li>
+									<li><a href="#" onclick="layout2large();">[폰트] 크게</a></li>
+									<li><a href="#" onclick="layout2Background1();">[배경] 어둡게</a></li>
+									<li><a href="#" onclick="layout2Background2();">[배경] 중간</a></li>
+									<li><a href="#" onclick="layout2Background3();">[배경]살짝</a></li>
+									<li><a href="#" onclick="layout2mgBox0();">[사이즈] 상단 여백만</a></li>
+									<li><a href="#" onclick="layout2mgBox();">[사이즈] 750</a></li>
+									<li><a href="#" onclick="layout2mgBox2();">[사이즈] 700</a></li>
+									<li><a href="#" onclick="layout2Title();">[타이틀] 상단</a></li>
+								</ul>
+							</section>
+
+							<section>
+								<h4>
+									관련주석서 <em>총 3건</em>
+									<div class="btn-group fr">
+									</div>
+								</h4>
+								<ul>
+									<li><a href="/Info/ContentView?sid=J001001697_92795_0" class="popup_view">[온주] 부동산등기법 / [제29조] 제2호</a></li>
+									<li><a href="/Info/ContentView?sid=J001001178_88264_0" class="popup_view">[온주] 부동산실권리자명의등기에관한법률 / 제12조 [실명등기의무 위반의 효력 등]</a></li>
+									<li><a href="/Info/ContentView?sid=D0211DF800C97420_100807" class="popup_view">[주석서] 물권법 / 부동산실권리자명의등기에관한법률 제6조 [이행강제금] </a></li>
+								</ul>
+							</section>
+							<section>
+								<h4>
+									관련논문·평석 <em>총 2건</em>
+									<div class="btn-group fr">
+									</div>
+								</h4>
+								<ul>
+									<li><a href="/Info/ContentView?sid=D0110EE414803DFE" class="popup_view">[판례연구] 소유권에 관한 판례: 소유권의 취득, 소유권의 내용과 범위, 공유, 건물의 구분소유, 명의신탁, 물권적 청구권 </a></li>
+									<li><a href="/Info/ContentView?sid=D011E0980605FF86" class="popup_view">[판례연구] 부동산실권리자명의등기에관한 법률상 명의신탁약정의 효력 </a></li>
+								</ul>
+							</section>
+							<section>
+								<h4>
+									유사판례 <em>총 20건</em>
+									<div class="btn-group fr">
+										<button type="button" class="btn btn-default" onclick="view.addInfoList('C000')">전체보기</button>
+									</div>
+								</h4>
+								<ul>
+									<li><a href="/Info/ContentView?sid=C000AB2735ECD1C3" class="popup_view">대법원 2009. 8. 20 선고 2008도12009 판결 【부동산실권리자명의등기에관한법률위반ㆍ횡령ㆍ건축법위반】 <span>[미간행]</span></a></li>
+									<li><a href="/Info/ContentView?sid=C000E1D81B3CBC46" class="popup_view">대법원 2008. 10. 23 선고 2008다43693 판결 【소유권이전등기】 <span>[공2008하,1598]</span></a></li>
+									<li><a href="/Info/ContentView?sid=C00036523C85BD5B" class="popup_view">대법원 2003. 5. 16 선고 2002다71252 판결 【소유권이전등기】</a></li>
+									<li><a href="/Info/ContentView?sid=C000721DAA7A3557" class="popup_view">대법원 2002. 12. 26 선고 2000다21123 판결 【소유권이전등기】 <span>[공2003.2.15.(172),452]</span></a></li>
+									<li><a href="/Info/ContentView?sid=C0008DB176070415" class="popup_view">대법원 2002. 10. 28 자 2001마1235 결정 【등기관의처분에관한이의】 <span>[공2003.1.15.(170),134]</span></a></li>
+								</ul>
+							</section>
+						</div>
+					</aside>
+				</div>
+			</div>
+			<div id="bg_screen"></div>
+
+		</div>
+		<script type="text/javascript">
+			setHeight();
+		</script>
+	</div>
+</body>
+</html>

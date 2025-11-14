@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 로앤�?</title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../js/commonjs.js?4"></script>
+<script language="javascript">
+<!--
+ 
+	function resizeComment(){ 
+			if($('.right_container').hasClass('add_border')){
+				$(".right_container").removeClass('slide_mov_right'); 
+			}else{
+				if($('#container').hasClass('list-view')){
+					$(".right_container").addClass('slide_mov_right'); 
+				}else{
+					$(".right_container").removeClass('slide_mov_right'); 
+				}
+			}
+			setHeight_under();
+		}
+	$(document).ready(function () { 
+			$('.list li').each(function(index){
+				$(this).find('ul li').each(function(index){
+					if( index > 2){ 
+						$(this).hide(); 
+						$('.more_area').hide();	
+					}
+				}); 
+			});
+			
+			var i = 0; 
+			$('.history_open').click(function(){
+				var x_object = $(this).parent().find('ul'); 
+				var more_object = $(this).parent().find('.more_area');
+				
+				if(i=="0"){ 
+					$(x_object).children('li').show(); 
+					$(this).children('i').removeClass('icon_open_').addClass('icon_close');
+					$(more_object).show();
+					i=1;
+				}else{	  
+					 $(x_object).children('li:eq(2)').nextAll().hide(); 
+					$(this).children('i').addClass('icon_open_').removeClass('icon_close');
+					$(more_object).hide();
+					 i=0;
+				}
+				setHeight_under();
+			 });
+ 
+	setHeight_under();	 
+		
+	});
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_mainContainer">
+	<div id="wrap" >
+		<header> 
+			<div class="top_container  ">  
+				<a href="/maf/poc/app/homepage"><h1>로앤�?/h1></a>
+				<div id="t_search" class="search_container">
+					<h2>?�합검???�역</h2>
+					<div class="search_inner">
+						<form  action="" > 
+						<div class="search_left">
+							?�합검??
+							<ul>
+								<li>?�합검??/li>
+								<li>?��?</li>
+								<li>법령</li>
+								<li>?�ㅇ??/li>
+							</ul>
+							<span  class="more_btn">more</span>
+						</div>
+						<div class="search_center">
+							<input type="search" name="" id="" >
+						</div>
+						<div class="search_right"><span  class="more_btn">more</span></div>
+						<input type="button" value="Search " id="searchButton" class="search_btn">
+						</form>
+					</div>
+				</div>
+				<div id="indiv_area" class="indiv_container">
+					<span alt="?�스?�리"><a href="/maf/poc/app/homepage">?�스?�리</a></span>
+					<span alt="즐겨찾기">즐겨찾기</span>
+					<span alt="?�의?�더">?�의?�더</span>
+					<span alt="?�림?�정">?�림?�정</span>
+					<span alt="?�의?�보">?�의?�보</span>
+				</div>
+			</div>
+			<nav> 
+				<dl id="main_menu" class="mmenu">
+					<dt class="blind">메인 메뉴</dt> 
+					<dd>
+						<a href="#"><span>?��?</span></a>
+					</dd>
+					<dd class="currentTab" >
+						<a href="#"><span>법규</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>결정·?�석</span></a>
+					</dd>
+					<dd >
+						<a href="#"><span>문헌</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>법조??/span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>기업법무</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>?�식</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>?�스·?�슈</span></a>
+					</dd>
+				</dl>   
+			</nav> 
+		</header>  
+			<div class="submenu_group" style="">
+				<div>
+					<dl>
+						<dd><a href="">?��?</a></dd>
+						<dd><a href="">?��??�렉?�리</a></dd>
+						<dd><a href="">?��??�보</a></dd>
+					</dl>
+					<dl>
+						<dd><a href="">법령</a></dd>
+						<dd><a href="">?�정규칙</a></dd>
+						<dd><a href="">?�법?�향</a></dd>
+						<dd><a href="">조약</a></dd>
+					</dl>
+					<dl>
+						<dd><a href="">?�허 ?�판례</a></dd>
+						<dd><a href="">결정례</a></dd>
+						<dd><a href="">법령?�석</a></dd>
+					</dl>
+					<dl>
+						<dd><a href="">?�문?�석</a></dd>
+						<dd><a href="">주석??/a></dd>
+						<dd><a href="">E-book</a></dd>
+						<dd><a href="">법률?�어</a></dd>
+					</dl>
+					<dl>
+						<dd><a href="">법조?�명�?/a></dd>
+						<dd><a href="">조직??/a></dd>
+						<dd><a href="">법률?�무??/a></dd>
+						<dd>법조기�? ?�내</dd>
+					</dl>
+					<dl>
+						<dd>로펌 리포??/dd>
+						<dd>?�무?�보</dd>
+						<dd>기업?�보</dd>
+					</dl>
+					<dl>
+						<dd>법률?�식</dd>
+						<dd>비즈???�식</dd>
+					</dl>
+					<dl>
+						<dd>?�스</dd>
+						<dd>칼럼</dd>
+					</dl>
+				</div>
+				<div class="ad_area">ss</div>
+			</div>
+		<div id="container" class="law">
+			<div id="breadcrumb" class="navi_area">
+				<div>Home > 법규 > 법령</div>
+				<div class="group_indivi_btn"><a href="">로그??/a><a href="">개인?�님</a> </div>
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">?�른�??�역</span></i></span>
+			</div>
+			<div id="container_inner">
+				<div class="left_container"> 
+					<section id="result_tab"> 
+						<h4>검?�결�?/h4>
+						<ul>
+							<li><a href="gf">법령�?span>(0)</span></a></li>
+							<li><a href="fd">조문?�목<span>(0)</span></a></li>
+							<li class="this-page"><a href="sfd">조문?�용<span>(0)</span></a></li>
+							<li><a href="fd">부�?span>(0)</span></a></li>
+							<li><a href="sd">별표?�식�?span>(0)</span></a></li>
+						</ul>
+					</section>
+					<section>
+						<h4>검?�결�??�리</h4> 
+						<ol class="check_area">
+							<li><input type="checkbox" value="2"><label>?�체</label></li>
+							<li><input type="checkbox" value="1"><label>법률</label></li>
+							<li><input type="checkbox" value="1"><label>?�?�령??/label></li>
+							<li><input type="checkbox" value="1"><label>총리??부??/label></li>
+							<li><input type="checkbox" value="1"><label>기�?</label></li> 
+						</ol> 
+						<div class="check_area select_area">
+							<p class="blind">?�자 ?�택</p>
+							<ol class="check_area"  style="font-size:14px">
+								<li><input type="radio" id="" name=""><label >공포?�자</label></li>
+								<li><input type="radio" id="" name=""><label>?�행?�자</label></li> 
+							</ol>  
+							<select name="sType5" id="sType5" class="date_select">
+								<option value="0" selected="selected" >?�자  ?�택</option>  
+								<option value="2">최근 1??/option>
+								<option value="3">최근 3??/option>
+								<option value="3">최근 5??/option>
+								<option value="00">직접?�택</option>
+							</select>
+							<div class="detail_date"><input type="number" id="sUnivS" name="sUnivS" title="?�작?? style="width:80px" placeholder="20160101"> ~ <input type="number" id="sUnivE" name="sUnivE" title="종료?? style="width:80px" placeholder="20161231"></div> 
+						</div>
+						<p class="submit_area"><span id="arrangeBtn">?�용</span><span class="_cancel"><i class="icon-16" data-icon="&#xe90e;"></i>?�용취소</span></p>
+					</section>
+				</div>
+				<article class="main_container"> 
+					<div class="main_container_inner">
+						<div class="search_div">
+						<form id="searchForm" method="post" action="CaseList">
+							<div class="search_input">
+								<label>기본검??/label>
+								<input type="search" id="sWord" name="sWord"  placeholder="검?�어">
+								<div class="except">
+								<input type="search" name="sWord1" placeholder="?�외??>
+								</div>
+							</div> 
+							<ol class="check_area mgl10">
+								<li><input type="radio" class="sType2List" value="0"><label>?�행 </label></li>
+								<li><input type="radio" class="sType2List" value="32"><label>?�행+?�혁+?��?</label></li> 
+							</ol> 
+							<div class="detail_area_open" id="detail_area">
+								<ul>
+									<li>
+										<label>법령�?/label>
+										<input type="text" id="sWorkArea" name="sWorkArea" >
+									</li>
+									<li class="half">
+										<label>조문?�목</label>
+										<input type="text" id="sWorkArea" name="sWorkArea" >
+									</li>
+									<li class="half">
+										<label>조문?�용</label>
+										<input type="text" id="sWorkArea" name="sWorkArea" >
+									</li>
+									<li class="half">
+										<label>부�?/label>
+										<input type="text" id="sWorkArea" name="sWorkArea" >
+									</li>
+									<li class="half">
+										<label>별표?�식�?/label>
+										<input type="text" id="sWorkArea" name="sWorkArea" >
+									</li> 
+								</ul> 
+								<ul class="third_search">
+									<li><label>검?�범??/label>
+										<ul>
+											<li><label for="sSubWord1">법령종류</label><input type="checkbox" name="CAT1" checked="" onclick="cat_click1('0')" value="0">?�체&nbsp;&nbsp;<input type="checkbox" name="CAT1" checked="" onclick="cat_click1('1')" value="1">법률&nbsp;&nbsp;<input type="checkbox" name="CAT1" checked="" onclick="cat_click1('2')" value="2">?�?�령??nbsp;&nbsp;<input type="checkbox" name="CAT1" checked="" onclick="cat_click1('2')" value="2">총리??부??nbsp;&nbsp;<input type="checkbox" name="CAT1" checked="" onclick="cat_click1('2')" value="2">기�?</li>
+												  
+											<li class="mgt10 ">
+												<label>?�자 </label><input type="radio" id="" name="">공포?�자&nbsp;&nbsp;<input type="radio" id="" name="">?�행?�자  
+												<br><input type="number" id="sUnivS" name="sUnivS" title="?�작?? style="width:80px" placeholder="20160101"> ~ <input type="number" id="sUnivE" name="sUnivE" title="종료?? style="width:80px" placeholder="20161231"> <div class="btn-group"><button type="button" class="btn btn-square ">최근 1??/button> <button type="button" class="btn btn-square">최근 3??/button> <button type="button" class="btn btn-square">최근 5??/button></div>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>	
+							<div class="detail_area">
+								<div class="but">?�세검???�션</div>
+							</div>
+							<div class="btn_area"><input type="submit" id="searchBtn" value="검??> <span class="_cancel"><i class="icon-16" data-icon="&#xe90e;"></i>?�력초기??/span></div>
+							<p>검?�어 ?�키?�드??�?검?�한 결과?�니?? </p>
+						</form>
+						</div>
+						<div id="search_results">
+							<div class="s_num_area">검?�결�?21�?<small>1/1000</small></div>
+							<div class="btn_option_outer">
+								<div class="btn_option_select">
+									<p class="blind">?�택?�운로드</p>
+									<div class="btn-group" >
+									  <button type="button" class="btn btn-default"><input type="checkbox" name="">?�운로드</button>
+									</div>   
+								</div> 
+								<div class="select_area"> 
+									<p class="blind">보기 개수 ?�택</p>
+									<select id="" name=""  >
+										<option value="">10�?/option>
+										<option value="" selected>20�?/option>
+										<option value="">50�?/option>
+									</select>
+								</div>
+								<div class="btn_option"> 
+									<div class="btn-group" > 
+										<button type="button" class="btn btn-default _select">법령�?<i class="icon-sort-alpha-desc" data-icon="&#xea48;"></i></button> <button type="button" class="btn btn-default">?�확??/button> <button type="button" class="btn btn-default">공포?�자 <i class="icon-sort-alpha-desc" data-icon="&#xea4a;"></i></button> 
+									</div>	
+									<ul class="view_type_list _view_type_list">
+										<p class="blind">보기?�션 ?�택</p>
+										<li class="_preview"><a href="#" class="option_a  "   id="option_a" >미리보기??/a></li>
+										<li class="_onlyTitle"><a href="#" class="option_b_on  "  id="option_b">?�세보기??/a></li>
+									</ul>
+								</div>
+							</div>
+							<ol class="list btn_exist">
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>							 
+									<div class="co_searchContent">
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">?�허�?/a></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary">
+											<ul class="law_history_list">
+												<li><span class="label-icon blue">?�행</span> <a href="e">법률 ??1234???��?개정 공포??2014.09.11, ?�행??2011.09.11</a></li>
+												<li><span class="label-icon sky">?�혁</span> <a href="e">법률 ??0366???�산·채권 ?�의 ?�보??관??법률) ?��?개정 공포??2014.09.11, ?�행??2011.09.11 </a></li>
+											</ul> 
+										</div> 
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">300</span>						 
+									<div class="co_searchContent">  
+										<h3><a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">?�로교통�?/a></h3>
+										<div class="history_open" >?�혁 검??11�?<i class="icon_open_"  ></i></div><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"> 
+											<ul class="law_history_list">
+												<li><span class="label-icon default">?��?</span> <a href="e">법률 ??1234???��?개정 공포??2014.09.11, ?�행??2011.09.11</a></li>
+												<li><span class="label-icon sky">?�혁</span> <a href="e">법률 ??1234???��?개정 공포??2014.09.11, ?�행??2011.09.11</a></li>
+												<li><span class="label-icon sky">?�혁</span> <a href="e">법률 ??1234???��?개정 공포??2014.09.11, ?�행??2011.09.11</a></li>
+												<li><span class="label-icon sky">?�혁</span> <a href="e">법률 ??1234???��?개정 공포??2014.09.11, ?�행??2011.09.11</a></li>
+												<li><span class="label-icon sky">?�혁</span> <a href="e">법률 ??1234???��?개정 공포??2014.09.11, ?�행??2011.09.11</a></li>
+												<li><span class="label-icon sky">?�혁</span> <a href="e">법률 ??1234???��?개정 공포??2014.09.11, ?�행??2011.09.11</a></li>
+												<li><span class="label-icon sky">?�혁</span> <a href="e">법률 ??1234???��?개정 공포??2014.09.11, ?�행??2011.09.11</a></li>
+											</ul> 
+											<div class="more_area">
+												<div class="more"><div class="blit_round"></div><div class="blit_round gray"></div></div> 
+											</div>
+										</div> 
+									 </div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent"> 
+										<h3><a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">?�허�?/a></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary">
+											<p><span class="label-icon blue">?�행</span> <a href="e">법률 ??1234???��?개정 공포??2014.09.11, ?�행??2011.09.11</a> 
+											</p>
+											<p>?�전공공기�??� ?�상?�인 ?��?·보수 ?�에 건축물을 ?�축·증축 ?�는 개축?�거???�차면적???��??????�다. ?�만, ?�전공공기�??� 건축물의 증축·개축...
+											</p> 
+										</div>
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent"> 
+										<h3><a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">?�허�?/a></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary">
+											<p><span class="label-icon blue">?�행</span> <a href="e">법률 ??1234???��?개정 공포??2014.09.11, ?�행??2011.09.11</a>< 
+											</p>
+											<ul>
+												<li><strong>??�??�별검?�의 직무범위?� 권한 ??</strong> 검찰청, 경찰�???관�?기�????�에�???조의 ?�건�?관?�된 ?�건???�사기록 �?증거 ???�료???�출�??�사 ?�동??지?????�사?�조�??�청??/li>
+												<li><strong>??�??�별검?�의 직무범위?� 권한 ??</strong> ?�차?�이 <mark>계약갱신?�구�?/mark>???�사???�후 ?�차?�과 ?��??�이 ?�규 ?��?차계?�의 ?�식?�로 체결??계약???��?차에 관???�계?�으�?�?것인지 ?��?(?�정 ?�극)</li>
+											</ul>
+										</div>
+									 </div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent">    
+										<h3><a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">?�허�?/a></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary">
+											<p><span class="label-icon blue">?�행</span> <a href="e">법률 ??1234???��?개정 공포??2014.09.11, ?�행??2011.09.11</a>
+											</p>
+											<ul>
+												<li><strong>??�??�별검?�의 직무범위?� 권한 ??</strong> 검찰청, 경찰�???관�?기�????�에�???조의 ?�건�?관?�된 ?�건???�사기록 �?증거 ???�료???�출�??�사 ?�동??지?????�사?�조�??�청??/li>
+												<li><strong>??�??�별검?�의 직무범위?� 권한 ??</strong> ?�차?�이 <mark>계약갱신?�구�?/mark>???�사???�후 ?�차?�과 ?��??�이 ?�규 ?��?차계?�의 ?�식?�로 체결??계약???��?차에 관???�계?�으�?�?것인지 ?��?(?�정 ?�극)</li>
+											</ul>
+										</div>
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent">   
+										<h3><a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">?�허�?/a></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary">
+											<p><span class="label-icon blue">?�행</span> <a href="e">법률 ??1234???��?개정 공포??2014.09.11, ?�행??2011.09.11</a> 
+											</p>
+											<ul>
+												<li><strong>??�??�별검?�의 직무범위?� 권한 ??</strong> 검찰청, 경찰�???관�?기�????�에�???조의 ?�건�?관?�된 ?�건???�사기록 �?증거 ???�료???�출�??�사 ?�동??지?????�사?�조�??�청??/li>
+												<li><strong>??�??�별검?�의 직무범위?� 권한 ??</strong> ?�차?�이 <mark>계약갱신?�구�?/mark>???�사???�후 ?�차?�과 ?��??�이 ?�규 ?��?차계?�의 ?�식?�로 체결??계약???��?차에 관???�계?�으�?�?것인지 ?��?(?�정 ?�극)</li>
+											</ul>
+										</div>
+									</div>
+								</li>  
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent">  
+										<h3><a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">?�허�?/a></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary">
+											<p><span class="label-icon blue">?�행</span> <a href="e">법률 ??1234???��?개정 공포??2014.09.11, ?�행??2011.09.11</a> 
+											</p>
+											<ul>
+												<li><strong>??�??�별검?�의 직무범위?� 권한 ??</strong> 검찰청, 경찰�???관�?기�????�에�???조의 ?�건�?관?�된 ?�건???�사기록 �?증거 ???�료???�출�??�사 ?�동??지?????�사?�조�??�청??/li>
+												<li><strong>??�??�별검?�의 직무범위?� 권한 ??</strong> ?�차?�이 <mark>계약갱신?�구�?/mark>???�사???�후 ?�차?�과 ?��??�이 ?�규 ?��?차계?�의 ?�식?�로 체결??계약???��?차에 관???�계?�으�?�?것인지 ?��?(?�정 ?�극)</li>
+											</ul>
+										</div>
+									</div>
+								</li> 
+							</ol>
+							<div class="navigationLinks">				        									
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=0" class="navFirst hiddenLink "><i class="icon-7" data-icon="&#xe911;"></i></a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=-1" class="navPrevious hiddenLink "><i class="icon-2" data-icon="&#xe901;"></i></a>
+								<span class="currentPage">1</span>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navPages">2</a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=2" class="navPages">3</a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=3" class="navPages">4</a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navNext"><i class="icon-1" data-icon="&#xe900;"></i></a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=13" class="navLast "><i class="icon-8" data-icon="&#xe907;"></i></a>
+							</div>
+						 </div> 
+					 </div>
+					 <div class="main_container_view">
+						<div class="main_container_view_inner">
+							<div class="fl"><i class="icon-fleg red" ><span class="path1"></span><span class="path2"></span><span class="blind">?�기변�?/span></i><i class="icon-10" data-icon="&#xe909;"><span class="blind">?�원?�의�?/span></i></div>
+							<h3>?�법원 2001. 3. 15. ?�고 99??594 ?�원?�의�??�결[�?��금�?과처분취?? <span >[각공2014??629 ]</span><span class="btn_newtap"><span class="hide">?�기</span><i class="icon-new-tab" data-icon="&#xea7e;"></i></span> <div class="btn_option_outer"><div class="btn_close">?�기</div></div></h3>
+							<!-- ?�용?�작 xml -->
+							<div class="case_info" id="view_content">
+			 <a id="case_info" name="case_info" class="nopopup"></a><p class="c_tit_1" id="prPansi_t">?�시?�항</p><div class="c_con" id="prPansi">[1] 주택?�개발사?�에 ?�??관리처분계???��??� 공사?�료가 ???�태?�서 근거 법령??<mark>?�시</mark>?�개발법??개정?�면???�리 ?�별??경과규정???��? ?��? 경우, �?���??�정?��?과의 근거가 ?�는 법령(=개정법령)  <br>[2] 지방자치단체�? ?�업?�행?��? ?�어 ?�행?�는 <mark>?�시</mark>?�개발사?�의 경우, �?���??�정방식??관?�여 '면적?��?방식'??규정??조�?가 '가격평가방식'??규정??<mark>?�시</mark>?�개발법?�에 ?�배?�는지 ?��?(?�극) <br></div><a id="case_point" name="case_point" class="nopopup"></a><p class="c_tit_1" id="prSumm_t">?�결?��?
+    </p><div class="c_con" id="prSumm">[1] ?�정처분?� ?�칙?�으�?처분?�의 법령??근거?�여 ?�하?�져???�고, 법령??개정?�로 �?기�???변경된 경우?�는 ?�리 ?�별???�함???�는 ??처분?�의 개정법령?�서 규정?�고 ?�는 기�????�용?�어???�는�? �?<mark>?�시</mark>?�개발법(1995. 12. 29. 법률 ??116?�로 ?�문 개정?�기 ?�의 �????�하??주택?�개발사?�에 ?�??관리처분계???��??� 공사?�료가 ?�었?�나, 1995. 12. 29. 법률 ??116?�로 ?�문 개정??<span class="heightlight">?�시</span>?�개발법 �?1996. 6. 29. ?�?�령????5096?�로 ?�문 개정??같�?법시?�령?� �?��금의 ?�정?��?과�? 관?�하??�?<span class="heightlight">?�시</span>?�개발법(1995. 12. 29. 법률 ??116?�로 ?�문 개정?�기 ?�의 �? �?같�?법시?�령(1996. 6. 29. ?�?�령????5096?�로 ?�문 개정?�기 ?�의 �???관??규정??계속 ?�용?�다�?�????�는 경과규정???�고 ?��? ?�니?��?�? �??�행 ?�에 ?�루?�진 �?���??�정?��?과의 근거 법령?� 1995. 12. 29. 법률 ??116?�로 ?�문 개정?? <a href="javascript:hyperlink('F0B8894AACB94BD5BA5CB5D6B823D8FB|42')"><span class="heightlight">?�시</span>?�개발법 ??2�?/a> ?� 1996. 6. 29. ?�?�령????5096?�로 ?�문 개정?? <a href="javascript:hyperlink('B13535D79F294D18BAFE31D93A827995|45')">같�?법시?�령 ??5�?/a>  �? <a href="javascript:hyperlink('B13535D79F294D18BAFE31D93A827995|40')">??0�?/a> ?�이 분명?�다.   </div>
+    <a name="hiscase_point" id="hiscase_point" class="nopopup"></a><p class="c_tit_1" id="prCont_t_5">?�판경과</p><div class="c_con" id="prCont_5"><div class="not_this_case"><i class="icon-10" data-icon="�?><span class="blind">?�원?�의�?/span></i><a href="javascript:hyperlink('?�울고등법원|98??171')">?�울고등법원 1999. 2. 10. ?�고 98??171 ?�결</a></div><div class="this_case"><a href="javascript:hyperlink('?�법원|99??594')">?�법원 2001. 3. 15. ?�고 99??594 ?�결</a></div></div>
+    <a id="case_refer" name="case_refer" class="nopopup"></a><p class="c_tit_1" id="prCont_t_0">
+        참조?��?
+    </p><div class="c_con" id="prCont_0">[1]  <a href="javascript:hyperlink('6D4B9F2777184E6A9E0F7E359707119A')">?�법원 1984. 5. 22. ?�고 84??7 ?�결(1984,520)</a> ,  <a href="javascript:hyperlink('A1111B51A49E4E779AB18353799DF288')">?�법원 1996. 8. 20. ?�고 95??0877 ?�결(1988,189)</a> ,  <a href="javascript:hyperlink('04EEB043F17C475AB99CF777C4DAC2B8')">?�법원 2000. 3. 10. ?�고 97??3818 ?�결(1992,1037) </a> <br>[2]  <a href="javascript:hyperlink('E5C251F99CA0438A9AEF366C1342BF29')">?�법원 1995. 4. 25. ?�고 93??7850 ?�원?�의�??�결(�?988, 168)</a> ,  <a href="javascript:hyperlink('5F906DCC80174A119B1C2357D5130993')">?�법원 1995. 6. 13. ?�고 94??3626 ?�원?�의�??�결(�?993?? 2098)</a> ,  <a href="javascript:hyperlink('?�법원|2000??917')">?�법원 2001. 3. 15. ?�고 2000??917 ?�원?�의�??�결</a> </div>
+    <a name="refcase_point" id="refcase_point" class="nopopup"></a><p class="c_tit_1" id="prCont_t_4">?�름?��?</p><div class="c_con" id="prCont_4"><a href="javascript:hyperlink('01D11FF019B74493A98AD4DA39CC0FE6')">?�법원 2001. 10. 12. ?�고 2001??74 ?�결</a>, <a href="javascript:hyperlink('E71788FE47094B178CE9988D213B13AA')">?�법원 2002. 6. 25. ?�고 2001??125 ?�결</a>, <a href="javascript:hyperlink('769FF13215D340BA845E6D486931B3BC')">?�법원 2005. 7. 29. ?�고 2003??550 ?�결</a>, <a href="javascript:hyperlink('17BA47EFE0D84349B1F9593ACE31B951')">?�법원 2009. 4. 23. ?�고 2008??918 ?�결</a>, <a href="javascript:hyperlink('C9C4CF7D38214763B85A007B411A3D68')">?�법원 2009. 4. 23. ?�고 2008??7745 ?�결</a></div>
+    <a id="law_refer" name="law_refer" class="nopopup"></a><p class="c_tit_1" id="prCont_t_1">
+        참조법령
+    </p><div class="c_con" id="prCont_1">[1]  <a href="javascript:hyperlink('5E5CB15313894697A32587AFAE5DDE10|1')">?�정?�송�???�?/a> [?�정처분?�반],  <a href="javascript:hyperlink('706ED873A5564EF4A9D297E5FFE1EF16|42')"><span class="heightlight">?�시</span>?�개발법(1995. 12. 29. 법률 ??116?�로 ?�문 개정??�? ??2�?/a> , <a href="javascript:hyperlink('CC98285B9DE640B6B954DD1556626804|40')"><span class="heightlight">?�시</span>?�개발법?�행??1996. 6. 29. ?�?�령????5096?�로 ?�문 개정??�? ??0�?/a> , <a href="javascript:hyperlink('CC98285B9DE640B6B954DD1556626804|45')">??5�?/a> , <a href="javascript:hyperlink('706ED873A5564EF4A9D297E5FFE1EF16|53')">�?<span class="heightlight">?�시</span>?�개발법(1995. 12. 29. 법률 ??116?�로 ?�문 개정?�기 ?�의 �? ??3�?/a> (  <a href="javascript:hyperlink('F0B8894AACB94BD5BA5CB5D6B823D8FB|42')">?�행 ??2�?/a>  참조),  <a href="javascript:hyperlink('CC98285B9DE640B6B954DD1556626804|46')">�?<span class="heightlight">?�시</span>?�개발법?�행??1996. 6. 29. ?�?�령????5096?�로 ?�문 개정?�기 ?�의 �? ??6�?/a> (  <a href="javascript:hyperlink('B13535D79F294D18BAFE31D93A827995|45')">?�행 ??5�?/a>  참조),  <a href="javascript:hyperlink('CC98285B9DE640B6B954DD1556626804|60')">??0�?/a> (  <a href="javascript:hyperlink('B13535D79F294D18BAFE31D93A827995|40')">?�행 ??0�?/a>  참조) <br>[2]  <a href="javascript:hyperlink('706ED873A5564EF4A9D297E5FFE1EF16|42')"><span class="heightlight">?�시</span>?�개발법(1995. 12. 29. 법률 ??116?�로 ?�문 개정??�? ??2�?/a> , <a href="javascript:hyperlink('CC98285B9DE640B6B954DD1556626804|40')"><span class="heightlight">?�시</span>?�개발법?�행??1996. 6. 29. ?�?�령????5096?�로 ?�문 개정??�? ??0�?/a> , <a href="javascript:hyperlink('CC98285B9DE640B6B954DD1556626804|45')">??5�?/a> , <a href="javascript:hyperlink('B15B623C23BF434985ADFECFEF22DEA1|15')">지방자치법 ??5�?/a> , <a href="javascript:hyperlink('5EB6CC3A84724A139A604AF7BE4F7238|117')">?�법 ??17�?????/a> ,?�울?�별?�용?�구주택?�개발사?�시?�조례  <a href="javascript:hyperlink('5EB6CC3A84724A139A604AF7BE4F7238|29')">??9�?/a> ,  <a href="javascript:hyperlink('5EB6CC3A84724A139A604AF7BE4F7238|30')">??0�?/a> </div><a name="case_entire" class="nopopup"></a><p class="c_tit_1" id="prCont_t_3">
+        ??�?
+    </p><div class="c_con" id="prCont_3"><div class="c_tit_2" id="c_tit_2"><a id="case_plaintiff" name="case_plaintiff" class="nopopup"></a>?�원�??�상고인??박◎????691?? (?�송?�리인 변?�사 ?�▼????1?? <br></div><div class="c_tit_2" id="c_tit_2"><a id="case_plaintiff" name="case_plaintiff" class="nopopup"></a>?�피�??�고?��??�울?�별???�산구청?? (?�송?�리인 ?�초 법무법인 ?�당변?�사 박▲�???4?? <br></div><div class="c_tit_2"></div><div class="c_tit_2"></div><div class="c_tit_2"><a id="case_entire_ori" name="case_entire_ori" class="nopopup"></a>?�원?�판결�? <a href="javascript:hyperlink('10B1E19645794D0686687FC5C02EDBA2')">?�울고법 1999. 2. 10. ?�고 98??171 ?�결</a> </div><div class="c_tit_2"><a id="case_outcome" name="case_outcome" class="nopopup"></a>?�주문�?<br>?�고�?기각?�다. ?�고비용?� ?�고??부?�으�??�다. <br></div><div class="c_tit_3"><a id="case_reason" name="case_reason" class="nopopup"></a>?�이?��?<br>?�고?�유�?본다.  <br></div><div class="c_tit_3"><a id="R02" name="R02" class="nopopup"></a>1. ?�심?�결 ?�유???�하�??�심?�, ?�울 ?�○�??�○??가 ?��???주택개량???�한 ???�건 ?�개발사?�의 ?�행??관?�여 1976. 9. 4.?�로 ?�시 ?�행?�던  <a href="javascript:hyperlink('DB8C45BB429E4619BF664EA2EB52549D|31')">�?<span class="heightlight">?�시</span>계획�?1976. 12. 31. 법률 ??988?�로 개정?�기 ?�의 �? ??1�?/a> ??기한 ?�시계획 ?��?고시가 ?��? ?? 1976. 12. 31. 법률 ??968?�로 ?�정??<span class="heightlight">?�시</span>?�개발법??1977. 7. 1.?�로 ?�행?�에 ?�라 ??법에 기하??1979. 8. 4.?�로 관리처분계??공람공고가, 1979. 10. 29.부??1989. 12. 29.까�? ?�이??18?�에 걸쳐 관리처분계???��?고시가 차�?�??�루?��??? 1993. 12. 14. 공사?�료 공고가 ???�음, �??�업?�행?�로???�고??1996. 2. 26.?�로 개정??'?�울?�별?�용?�구주택?�개발사?�시?�조례'(?�하 '???�건 조�?'???�다)가  <a href="javascript:hyperlink('DB8C45BB429E4619BF664EA2EB52549D|29')">??9�?????????/a> ?�서 "?�력개발?�업지구의 �?��?� 분양처분 고시 ???�음 �??�의 방법???�한?? 1. ?��??��????��??�정면적??권리면적??비하??증감???�는 경우 증감???�당?�는 ?��?면적???�당?�는 금액??징수?�거??지급한??"�?규정?�고,  <a href="javascript:hyperlink('DB8C45BB429E4619BF664EA2EB52549D|30')">??0�?????/a> ?�서 " <a href="javascript:hyperlink('DB8C45BB429E4619BF664EA2EB52549D|29')">??9�?????????�?????/a>  규정???�한 �?��금�? 분양처분??징수?�교부면적??공사착수 ??가격에  <a href="javascript:hyperlink('421837C7C91C4652A73AA4F8D35D892F|46')">????6�?/a> ??비용??가?�한 가격으�??�다."�? ????��??"????�� 공사착수 ?�이???��? 최초??관리처분계???��? ?�시�?말한??"�?규정?�으로써, ???�건 ?�개발사?�과 같이 ?�업?�행?�는 공공?�설만을 ?�비?�고 건축물�? ?��? ?�유?��? 관리처분계?�에 ?�라 ?�축?�정비하???�른�??�력개발(?�力?�發) 방식???�개발사?�의 경우??�?�?��금을 가?�면?�과 감보?�을 ?�용??권리면적�?분양?�지??면적??비교?�여 �?과�?족분???�을 경우 �?면적??가격을 관리처분계???��? ?�시�?기�??�점?�로 ?�여 ?�정?�는 ?�른�?면적?��?방식??규정?�고 ?�음??근거�??�여, 1997. 4. 25. 분양처분??거치�??�어 1997. 9. 14. ?�업구역 ???��? ?�유?�들로서 종전?��????�??권리면적보다 ??면적??분양받�? ?�고?�에 ?�?�여 ?��? 같�? 면적?��?방식???�하???�정??금액??�?��금을 부과하?????�건 처분?????�실???�정???�음, 1995. 12. 29. 법률 ??116?�로 ?�문 개정?? <a href="javascript:hyperlink('F0B8894AACB94BD5BA5CB5D6B823D8FB|42')"><span class="heightlight">?�시</span>?�개발법(?�하 ?��? '?�법'?�라 ?�고, 개정 ?�의 <span class="heightlight">?�시</span>?�개발법??'구법'?�라 ?�다.) ??2�?/a> ?� �??�행?�인 1996. 6. 29. ?�?�령????5096?�로 ?�문 개정???�행 <a href="javascript:hyperlink('B13535D79F294D18BAFE31D93A827995|45')">???�하 ?��? '?�시?�령'?�라 ?�고, 개정 ?�의 ?�행?�을 '구시?�령'?�라 ?�다.) ??5�?/a>  �? <a href="javascript:hyperlink('B13535D79F294D18BAFE31D93A827995|40')">??0�?/a> ?�서 ?�개발사?�의 �?���??�정?� ?�업?�행 고시가 ?��? ?�을 기�??�로 ?�여 종전???��? ?�는 건축�??�하 '종전?��?'???�다)??가격과 그에 ?�정??비용??가?�하???�정?�는 분양받�? ?�지 ?�는 건축?�설(?�하 '분양?�지'???�다)??가격을 비교?�여 �?차액??�?��금으�??�는 ?�른�?가격평가방식???�하?�야 ?�는 것으�?규정?�고 ?�음?�도, ???�건 조�????�러??가격평가방식???�닌 면적?��?방식??규정?�고 ?�어 ?�위법령???�배?�는 무효??규정?��?�? 그에 기하??�?��금을 ?�정?????�건 처분?� ?�법?�다???�유�?�?취소�?구하???�고?�의 �?���??�용?��???  <br></div><div class="c_tit_3"><a id="R03" name="R03" class="nopopup"></a>2. ?�정처분?� ?�칙?�으�?처분?�의 법령??근거?�여 ?�하?�져???�고, 법령??개정?�로 �?기�???변경된 경우?�는 ?�리 ?�별???�함???�는 ??처분?�의 개정법령?�서 규정?�고 ?�는 기�????�용?�어???�는�?  <a href="javascript:hyperlink('6D4B9F2777184E6A9E0F7E359707119A')">?�법원 1984. 5. 22. ?�고 84??7 ?�결</a> ,  <a href="javascript:hyperlink('A1111B51A49E4E779AB18353799DF288')">1996. 8. 20. ?�고 95??0877 ?�결</a> ,  <a href="javascript:hyperlink('04EEB043F17C475AB99CF777C4DAC2B8')">2000. 3. 10. ?�고 97??3818 ?�결</a>  ??참조), ???�건??경우 ?�법 �??�시?�령?� �?��금의 ?�정?��?과�? 관?�하??구법 �?구시?�령??관??규정??계속 ?�용?�다�?�????�는 경과규정???�고 ?��? ?�니?��?�? �??�행 ?�에 ?�루?�진 ???�건 처분?�서??�?���??�정?��?과의 근거 법령?� ??<a href="javascript:hyperlink('F0B8894AACB94BD5BA5CB5D6B823D8FB|42')">�???2�?/a> ?� ?�시??<a href="javascript:hyperlink('B13535D79F294D18BAFE31D93A827995|45')">????5�?/a>  �? <a href="javascript:hyperlink('B13535D79F294D18BAFE31D93A827995|40')">??0�?/a> ?�이 분명?�다.  <br>그런???�들 ?�법 �??�시?�령??�?규정???�하�? ?�개발사?�에??�?��금의 ?�정?� �??�업?�행??방식 ?�하�?불문?�고 종전?��???가격�? ?�업?�행 고시가 ?��? ?�을 기�??�로 ?�정?�고, 분양?�지??가격�? �?종전?��???가격에 ?�정????��???�개발사?�비?�을 가?�하??방식?�로 ?�정?�여 �?차액???�당?�는 금액??�?��금으�??�는 ?�른�?가격평가방식???�하�??�어 ?�음??명백?�에?? ?�심???�정??바�? 같이, ???�건 조�????��? ?�리 종전?��????�?�여 가?�면?�과 감보?�을 ?�용?�여 ?�출??권리면적�?분양?�지??면적 ?�체�?비교?�여 �?과�?족분??가격을 관리처분계???��? ?�시�?기�??�점?�로 ?�여 ?�정?�는 ?�른�?면적?��?방식??규정?�고 ?�음???????�다.  <br>종래 ?�개발사?��?�??�의 ?��????�개발사???�행??결과 ?�입비용 ?�상??가�?증�?가 창출?�는 것이 ?�반?�인 ?�실?�었?�에 비추?????�건 조�??�의 면적?��?방식?� ?�법 �??�시?�령 규정?�의 가격평가방식�?비교???? ?�선 ?�전 추산???�업�??�수�?근거�??�출??체비지 면적??감보?�의 ?�용???�하??분양?�?�에???�전 ?�외?�킴?�로??결과?�으�??�업?�행지?????��? ?�유?�들???�??분양?�지??면적??축소?�키�??�고, ??가격평가방식???�할 경우?�는 분양?�지??가격에 가?�되???�개발사?�비??�??��?가 ?�외?�기???�는 ???�시??<a href="javascript:hyperlink('B13535D79F294D18BAFE31D93A827995|45')">????5�?????????/a>  참조) ?�에 견주???��? ?�유?�들?�게 불리?�다�??��? ?�을 ???�는�? 지방자치단체�? ?�업?�행?��? ?�어 ?�행?�는 <mark>?�시</mark>?�개발사?�의 경우??조�?�??��?, 건축물에 관??권리??가격평가방법, 관리처분계??�?�?��??관???�항 ?�을 ?�함?�는 ?�행규정?????�는 ?�되, ?�위법령??<mark>?�시</mark>?�개발법?�의 규정 취�????�긋?��? ?�아????것이므�? 결국 ?��? 같이 모법???�임 ?�이 모법??규정???�용???��? ?�유?�들?�게 불이?�하�?변경하???�용??면적?��?방식??규정?????�건 조�????�위법령???�배?�어 �??�력???�고, ?�라??그에 기한 ???�건 부과처분�? ???�건 ?�개발사?�의 ?�행방식�?관계없???�법?�을 면할 ???�다(  <a href="javascript:hyperlink('E5C251F99CA0438A9AEF366C1342BF29')">?�법원 1995. 4. 25. ?�고 93??7850</a>  ?�원?�의�??�결,  <a href="javascript:hyperlink('5F906DCC80174A119B1C2357D5130993')">1995. 6. 13. ?�고 94??3626</a>  ?�원?�의�??�결 ??참조).  <br>같�? 취�????�심 ?�단?� ?�당?�고, 거기???�고?�유?�서 주장?�는 바�? 같�? 법리?�해 ?�의 ?�법???�다�??????�다. ?�개발사?�의 �?���??�정방법?�로 면적?��?방식???�용?�을 ?�제�??�는 ?�고?�유???�느 것도 받아?�일 ???�다.  <br></div><div class="c_tit_3"><a id="R04" name="R04" class="nopopup"></a>3. 그러므�??�고�?기각?�고, ?�고비용?� ?�소?�의 부?�으�??�기�??�여 관???�법�? ?�원???�치???�견?�로 주문�?같이 ?�결?�다. <br></div><div class="c_tit_2-1"><a id="case_judge" name="case_judge" class="nopopup"></a>?�법원??최종???�판?? ?�진??주심) ?�성 조무???��????�재???�용??배기??강신???�규???�강�??��???박재??</div><div class="c_tit_2-2"><a name="case_byulpyo" class="nopopup"></a></div> </div>
+            
+		  
+							</div>
+						</div>
+					 </div>
+				</article> 
+				<aside class="right_container">
+					<section >
+						<h4>관?�자�?/h4>
+						<p><a href="12">천자?�석</a></p>
+						<p><a href="13">?�외?��?</a></p>
+						<p><a href="14">?�스?�의 ?��?</a></p> 
+					</section>
+					<section >
+						<h4>최근?�람?��?</h4>
+						<ul>
+							<li><a href="1" >?�법원 2016. 3. 10. ?�고 2013??1233 ?�결 <span>[배임?�재?�축?�물가공처리법?�반?�사기ㆍ?�정범죄가중처벌등?��??�법률위�?조세)?�조?�범처벌법위�?</span></a></li>
+							<li><a href="2" >?�울중앙지방법??2017. 7. 4. ?�고 2013가??0479 <span>[?�해배상??</span></a></li>
+							<li><a href="3" >?�법?�판??2016. 2. 25. ?�고 2013?�마626, 655, 2014?�마434(병합) <span>[?�정?�법 ??�????????�헌?�인 ??</span></a></li>
+							<li><a href="4" >?�법?�판??2016. 2. 25. ?�고 2015?��?11 <span>[?�로교통�???�???6???�헌?�청]</span></a></li>
+							<li><a href="5" >?�법?�판??2016. 2. 25. ?�고 2015?��?15 <span>[?�립?�교교직???�금�???1�??????�헌?�청]</span></a></li>
+							<li><a href="6" >?�법원 2016. 3. 10. ?�고 2013??1233 ?�결 <span>[배임?�재?�축?�물가공처리법?�반?�사기ㆍ?�정범죄가중처벌등?��??�법률위�?조세)?�조?�범처벌법위�?</span></a></li>
+							<li><a href="7" >?�울중앙지방법??2017. 7. 4. ?�고 2013가??0479 <span>[?�해배상??</span></a></li>
+							<li><a href="8" >?�법?�판??2016. 2. 25. ?�고 2013?�마626, 655, 2014?�마434(병합) <span>[?�정?�법 ??�????????�헌?�인 ??</span></a></li>
+							<li><a href="9" >?�법?�판??2016. 2. 25. ?�고 2015?��?11 <span>[?�로교통�???�???6???�헌?�청]</span></a></li>
+							<li><a href="10" >?�법?�판??2016. 2. 25. ?�고 2015?��?15 <span>[?�립?�교교직???�금�???1�??????�헌?�청]</span></a></li>
+							<li><a href="0" >1?�법원 2016. 3. 10. ?�고 2013??1233 ?�결 <span>[배임?�재?�축?�물가공처리법?�반?�사기ㆍ?�정범죄가중처벌등?��??�법률위�?조세)?�조?�범처벌법위�?</span></a></li> 
+						</ul> 
+						<div class="more_view">more</div>
+					</section>
+				</aside>
+			</div>
+    	</div>
+		<footer>
+			<div class="etc_menu"> 
+				<div class="top_container">  
+					<ul>	
+						<li class="blind">기�? 메뉴 </li>
+						<li>?�사?�개</li>
+						<li>광고 · ?�휴문의</li>
+						<li>?�용?��?</li>
+						<li>개인?�보 취급/처리 방침</li>
+						<li>법적고�?</li>
+						<li>?�메??무단?�집거�?</li>
+					</ul>
+				</div>
+			</div>  
+			<div class="top_container   _footer"> 	   
+				1. 콘텐츠의 명칭 : 법률?�보 &nbsp;&nbsp; 2. 콘텐츠의 ?�작 �??�시 : 2006??2??17???�그?�이??콘텐츠의 경우 갱신?? &nbsp;&nbsp; 3. 콘텐�??�작??: ?�로?�비  &nbsp;&nbsp;  4. 콘텐츠의 ?�용조건 : <a href="/support/agree_use.asp" class="red_bott">?�용?��?</a> �?로앤�?<a href="/support/serviceInfo_member.asp" class="red_bott">?�비?�안??/a>?� 같음 (무단 복제금�?) &nbsp;&nbsp;5. 콘텐츠의 보호기간 : ?�로?�비 ?�이?�의 모든 콘텐츠는 ?�콘?�츠?�업 진흥법」에 ?�라 ?�작 ?�는 갱신?�로부??5?�간 보호??
+				<div>Thomson reuters</div>
+				<div>Copyright ??1998~2016 <b>LAWnB</b>. All Rights Reserved.</div>
+			</div>           
+		</footer>
+		<div id="bg_screen"></div>
+		<script type="text/javascript">  
+			setHeight_under();		 
+		</script>
+	</div>
+</div> 
+</body>
+</html>

@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+	<meta name="viewport" content="width=1140">
+	<title> 로앤비 </title>
+	<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+	<link rel="stylesheet" type="text/css" href="../../css/_next_default.css?v2" />
+	<link rel="stylesheet" type="text/css" href="../../css/_next_layout_old.css?dd" />
+	<link rel="stylesheet" type="text/css" href="../../css/_next_funtion.css?s" />
+	<link rel="stylesheet" type="text/css" href="../../css/icon-style.css" />
+	<script src="../../Scripts/lib/jquery-3.4.1.min.js" type="text/javascript"></script>
+	<script src="../../Scripts/common/commonjs.js?d26"></script>
+	<script language="javascript">
+<!--
+		$(document).ready(function () {
+			if ($(".afolder").length > 0) {
+				$(".afolder").each(function (index) {
+					if (index + 1 > 5) {
+						$(".afolder").eq(index).hide();
+					}
+				});
+			}
+		});
+
+		function myFolderMemoSave() {
+			var i = $(".txtMemo").index($(this).index());
+			//var sCont = $(".txtMemo").eq(i).val();
+			alert(i);
+			//alert(sCont);
+		}
+
+		var targetList = 0;
+		function goUpDownList(t) {
+		}
+
+
+		function resizeComment() {
+			setHeight();
+			$(".right_container").removeClass('slide_mov_right');
+		}
+		function email_edit() {
+			$("#popup_share").hide();
+			$("#popup_email").show();
+		}
+
+		$(function () {
+			$('.memo_btn').on('click', '.memo_all_view', function () { //개인화 메모전체보기
+				$("#title_result_tab div:first-child").text('담은폴더 전체보기');
+				$("#title_result_tab .btn_close").show();
+				$("#title_result_tab .btn_reapprea").hide();
+				$("#title_result_tab").show();
+				$(".myfolder_total").show();
+				$("#result_area").show();
+				$("#pdf_view").hide();
+				$("#view_content").hide();
+				$('.relate_list').hide();
+				$('.myfolder_total').show();
+				$(".list_order_pr").hide();
+				$("#result_sep").hide();
+				setTimeout(function () {
+					$("#result_area").addClass('slide_mov_bottom');
+				}, 200);
+			});
+
+
+			$("section .btn-group .btn").click(function () {
+				if ($('#right_control').css("display") == "block") {
+					$(".right_container").removeClass('add_border').addClass('slide_mov_right').removeClass('slide_mov');
+					$('#right_control').removeClass('_up');
+				}
+				$("#title_result_tab div:first-child").text('관련정보');
+				$("#title_result_tab .btn_close").show();
+				$("#title_result_tab .btn_reapprea").hide();
+				$("#title_result_tab").show();
+				$("#result_area").show();
+				$('.relate_list').show();
+				$('.myfolder_total').hide();
+				$("#pdf_view").hide();
+				$("#view_content").hide();
+				setTimeout(function () {
+					$("#result_area").addClass('slide_mov_bottom');
+				}, 200);
+			});
+
+			if ($('.title_area h2').height() > 50) {
+				$('h2 .more').show();
+			} else {
+				var expanded = false;
+				$('h2 .more').hide();
+			};
+			$('.more').click(function () {
+				if (!expanded) {
+					$('.title_area h2').addClass("case_tit_hidden");
+					$('.btn_more_area').addClass("act");
+					$('.more').attr('title', '판례제목열기');
+					resizeComment();
+					expanded = true;
+				} else {
+					$('.title_area h2').removeClass("case_tit_hidden");
+					$('.btn_more_area').removeClass("act");
+					$('.more').attr('title', '판례제목닫기');
+					resizeComment();
+					expanded = false;
+				}
+			});
+			$('.afolder').on('click', '.btn-right', function () {
+
+				var index = $('.btn-right').index($(this));
+				//alert(index);
+				$('.memo_text').each(function (i) {
+					if (i == index) {
+						if ($('.memo_text').eq(index).css("display") == "none")
+							$('.memo_text').eq(i).show();
+						else
+							$('.memo_text').eq(i).hide();
+					}
+					else {
+						$('.memo_text').eq(i).hide();
+					}
+				});
+			});
+
+			$('.function_area').on('click', '#inner_search', function () {
+				$(this).hide();
+				$('#search_word').hide();
+				$('.inner_search_div').css('display', 'inline-block');
+
+
+				$('.inner_search_div').on('click', '.inner_search_close', function () {
+					$('.inner_search_div').hide();
+					$('#search_word').css('display', 'inline-block');
+					$('#inner_search').css('display', 'inline-block');
+				});
+			});
+
+			$('.function_area').on('click', '.btn_inner_search_get', function () {
+				$('#view_content').hide();
+				$('#view_sub_content').show();
+
+				$('.btn_close').click(function () {
+					$('#view_content').show();
+					$('#view_sub_content').hide();
+				});
+			});
+		});
+		//-->
+	</script>
+	<script>
+		function layout2Title() {
+			$('.legal_layout_title').toggle();
+		}
+
+		function layout2Wing() {
+			$('#container').toggleClass('case100');
+		}
+
+		function layout2Text() {
+			$('#view_content').toggleClass('case_info2');
+		}
+
+		function layout2Myoungjo() {
+			$('.main_container_view_inner ').toggleClass('Myoungjo');
+		}
+
+		function layout2large() {
+			$('.main_container_view_inner ').toggleClass('font-Large');
+		}
+
+		function layout2Background1() {
+			$('.main_container_view').toggleClass('main_container_view_back1');
+		}
+
+		function layout2Background2() {
+			$('.main_container_view').toggleClass('main_container_view_back2');
+		}
+
+		function layout2Background3() {
+			$('.main_container_view').toggleClass('main_container_view_back3');
+		}
+
+		function layout2mgBox() {
+			$('.main_container_view_inner').toggleClass('case_mgBox');
+		}
+
+		function layout2mgBox2() {
+			$('.main_container_view_inner').toggleClass('case_mgBox2');
+		}
+
+
+		function layout2mgBox0() {
+			$('.main_container_view_inner').toggleClass('case_mgBox0');
+		}
+
+	</script>
+
+	<style type="text/css">
+
+
+		@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap');
+
+
+		.case100 {
+			width: 100% !important;
+		}
+
+
+
+		/* 판례 가독성 업데이트 */
+
+		/* 판례 내부 폰트 _ 나중에 case_info2를 case_info로 바꾸기 */
+		.case_info2 .c_tit_1 {
+			margin-top: 60px;
+			font-size: 1.3em;
+			font-weight: bold;
+			margin-bottom: 20px;
+			text-align: center;
+			letter-spacing: 20px;
+		}
+
+		.case_info2 .c_tit_2 {
+			line-height: 220%;
+			margin-bottom: 20px;
+			text-align: left;
+		}
+
+		.case_info2 .c_tit_2-2 {
+			border-top: 1px solid #eee;
+			padding-top: 10px;
+			margin-top: 10px;
+			text-align: left;
+		}
+
+		.case_info2 .c_tit_3 {
+			margin-top: 40px;
+			margin-bottom: 20px;
+			text-align: left;
+		}
+
+		.case_info2 .c_tit_4 {
+			margin-top: 40px;
+			margin-bottom: 20px;
+			text-align: left;
+		}
+
+		.case_info2 p {
+			position: relative;
+			display: block;
+			padding-left: 0px;
+			background: none;
+			font-size: 1.3em;
+			font-weight: bold;
+			line-height: 220%; /* 배경 소스 없앨것  margin-top:19px; background:url(../images/tr_icon_blit_org.png) no-repeat 2px 15px;background-size:5px; */
+		}
+
+			.case_info2 p span {
+				position: absolute;
+				top: 0;
+				right: 0;
+			}
+
+			.case_info2 p:first-of-type {
+				margin-top: 0
+			}
+
+		.case_info2 .c_tit_3 {
+			margin-top: 20px;
+		}
+
+			.case_info2 .c_tit_3 table td {
+				text-align: justify;
+			}
+
+		.case_info2 #case_judge {
+			border-top: 1px solid #eee;
+			padding-top: 10px;
+			display: block;
+			margin-top: 20px
+		}
+
+		.case_info2 .c_con {
+			padding-left: 0 !important;
+			line-height: 240%;
+		}
+
+			.case_info2 .c_con p {
+				background-image: none;
+				padding-left: 0;
+				margin-left: -15px;
+				margin-top: 10px;
+				padding-top: 10px;
+				border-top: none;
+			}
+
+		.case_info2 .fo11em {
+			font-size: 1.1em !important;
+			margin-bottom: 0 !important;
+		}
+
+			.case_info2 .fo11em:before {
+				content: ' ';
+			}
+
+		.case_info2 .c_con, .case_info2 .c_tit_3 {
+			text-align: justify
+		}
+
+		.case_info2 .c_tit_2-1 {
+			text-align: center;
+		}
+
+		/* 배경1 진한배경 */
+		.main_container_view_back1 {
+			background: #777 !important;
+		}
+
+			.main_container_view_back1 .main_container_view_inner {
+				background: #fff !important;
+				max-width: 840px;
+				padding: 20px 40px;
+			}
+
+		/* 배경2 중간배경 */
+		.main_container_view_back2 {
+			background: #ccc !important;
+		}
+
+			.main_container_view_back2 .main_container_view_inner {
+				background: #fff !important;
+				max-width: 840px;
+				padding: 20px 40px;
+			}
+
+		/* 배경3 진한배경 */
+		.main_container_view_back3 {
+			background: #fafafa !important;
+		}
+
+			.main_container_view_back3 .main_container_view_inner {
+				background: #fff !important;
+				max-width: 840px;
+				padding: 20px 40px;
+			}
+
+		/* 사이즈 760  */
+		.case_mgBox {
+			margin: 40px auto !important;
+			max-width: 760px !important;
+			padding: 40px !important;
+		}
+
+		/* 사이즈 760  */
+		.case_mgBox2 {
+			margin: 40px auto !important;
+			max-width: 700px !important;
+			padding: 40px !important;
+		}
+
+		/* 폰트 크게   */
+		.font-Large {
+			font-size: large;
+		}
+
+		@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&display=swap');
+
+		.Myoungjo h2, .Myoungjo .c_con, .Myoungjo .c_tit_1, .Myoungjo .c_tit_2, .Myoungjo .c_tit_2-1, .Myoungjo .c_tit_2-2, .Myoungjo .c_tit_3, .Myoungjo a {
+			font-family: 'Nanum Myeongjo', serif;
+			transform: rotate(0.04deg);
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+	</style>
+
+
+</head>
+
+<body onresize="resizeComment();">
+	<div id="co_popupContainer">
+		<div id="wrap">
+			<header>
+				<div class="top_container  ">
+					<h1>로앤비</h1>
+					<div class="function_area">
+						<p class="hide">기타기능버튼들</p>
+						<a href="#" id="inner_search">
+							<span><i class="icon-folder" data-icon=""></i></span>
+							<span>본문검색</span>
+						</a>
+						<div class="inner_search_div">
+							<input type="search" id="txtContendViewSearchWord" placeholder="본문검색" onkeypress="if(event.keyCode==13) { contentViewSearchType('C000'); return false;}">
+							<span class="btn_inner_search" onclick="contentViewSearchType('C000');"><i class="icon-folder" data-icon=""></i></span>
+							<span class="btn_inner_updown"><i class="icon-ups" data-icon="" onclick="movePreviousWord();"></i> <br><i class="icon-downs" data-icon="" onclick="moveNextWord();"></i></span>
+							<span class="inner_search_close" title="본문검색닫기" onclick="setRemoveHighlight('C000');"><i class="icon-close" data-icon=""></i></span>
+						</div>
+						<div id="search_word">
+							<span style="padding-right:0" onclick="moveFindMarks('P')"><i class="icon-left" data-icon=""></i></span>
+							<span onclick="checkMarking()">
+								<i class="icon-checkbox-unchecked _checked"></i>
+							</span>
+							<span style="padding-left:0" onclick="moveFindMarks('N')"><i class="icon-right" data-icon=""></i></span>
+							<br><span>검색어</span>
+						</div>
+						<div>
+							<span class="font-p"><i class="icon-plus" data-icon=""></i></span>
+							<span class="font-m"><i class="icon-minus" data-icon=""></i></span>
+							<br><span>글자크기</span>
+						</div>
+						<input type="hidden" id="hdnSlawId" value="0">
+						<input type="hidden" id="hdnStitle" value="대법원 1997. 5. 1 자 97마384 결정 [등기공무원처분에관한이의] [공97.7.1.[37],1811]">
+
+						<a href="#" id="folder_put" onclick="mydesk.myPersonalization('VIEWMY01')">
+							<span><i class="icon-folder" data-icon=""></i></span>
+							<span>폴더담기</span>
+						</a>
+						<a href="#" id="pring_set" onclick="mydesk.myPersonalization('VIEWMY05')">
+							<span><i class="icon-printer" data-icon=""></i></span>
+							<span>인쇄</span>
+						</a>
+						<a href="#" id="save_set" onclick="mydesk.myPersonalization('VIEWMY06')">
+							<span><i class="icon-download3" data-icon=""></i></span>
+							<span>파일저장</span>
+						</a>
+
+						<a href="#" id="cont_share" onclick="mydesk.myPersonalization('VIEWMY07')">
+							<span><i class="icon-share2" data-icon=""></i></span>
+							<span>공유</span>
+						</a>
+					</div>
+				</div>
+			</header>
+
+
+			<div id="container" class="case">
+				<div class="container_hide">
+					<button id="left_wide"><i class="icon_list" data-icon="&#xe900;"><span class="blind">목차 넓게보기</span></i></button>
+					<button id="left_hide"><i class="icon_list" data-icon="&#xe901;"><span class="blind">목차 없애기</span></i></button>
+				</div>
+				<div id="breadcrumb" class="navi_area">
+					<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+				</div>
+				<div class="title_area">
+					<div class="btn_option">
+						<span id="btnHistory" class="" onclick="caselaw.goToRefView('C000AA0DF44095FE_R5')">판례히스토리</span>
+					</div>
+					<h2>
+						대법원 1997. 5. 1 자 97마384 결정 [등기공무원처분에관한이의]<span>[공97.7.1.[37],1811]</span>
+						<div class="btn_more_area"><button title="판례제목 닫기" class="more" style="display: none;"></button></div>
+					</h2>
+					<div class="case_nick"></div>
+				</div>
+
+				<div id="container_inner">
+					<div class="left_container">
+						<div class="table_index">
+							<h3>요약정보</h3>
+							<ul id="LiAddInfo">
+								<li><a href="#case_info">판시사항</a></li>
+								<li><a href="#case_point">결정요지</a></li>
+								<li><a href="#law_refer">참조조문</a></li>
+								<li><a href="#hiscase_point">재판경과</a></li>
+								<li><a href="#case_refer">참조판례</a></li>
+								<li><a href="#refcase_point">따름판례</a></li>
+							</ul>
+							<h3>전문</h3>
+							<ul>
+								<li><a href="#case_plaintiff">당사자</a></li>
+								<li><a href="#case_entire_ori">원심결정</a></li>
+								<li><a href="#case_outcome">주문</a></li>
+								<li>
+									<a href="#case_reason">이유</a>
+									<ul> </ul>
+								</li>
+								<li><a href="#case_judge">판사</a></li>
+							</ul>
+						</div>
+					</div>
+					<article class="main_container">
+						<div class="main_container_view">
+							<div class="main_container_view_inner">
+
+
+								<!-- 내부 타이틀 -->
+								<div class="legal_layout_title" style="display:none;">
+									<div class="title_area" style="display:block; margin-bottom: 40px;">
+										<h2 style="margin-top: 30px; text-align: center; margin-bottom: 20px; font-size:1.4em;">
+											대법원 1997. 5. 1 자  97마384 결정 <br /> [등기공무원처분에관한이의] <br /><span>[공97.7.1.[37],1811]</span>
+											<div class="btn_more_area"><button title="판례제목 닫기" class="more" style="display: none;"></button></div>
+										</h2>
+										<div style=" overflow: hidden; ">
+											<div class="btn_option" style="display: none;">
+												<span id="btnHistory" class="" onclick="caselaw.goToRefView('C000AA0DF44095FE_R5')">판례히스토리</span>
+											</div>
+										</div>
+										<div class="case_nick"></div>
+									</div>
+								</div>
+
+								<div id="title_result_tab" class="result_tab">
+									<div>관련정보 </div>
+									<div class="btn_option_outer"><div class="btn_close">X</div></div>
+									<div class="btn_option_outer"><div class="btn_reapprea">검색결과 보기</div></div>
+								</div>
+								<div id="result_area" class="popup_mov_area">
+									<div id="result_sep"></div>
+									<div class="list_order_pr">
+
+									</div>
+									<ol class="list myfolder_total">
+										<!--나의폴더-->
+
+									</ol>
+									<div class="navigationLinks">
+									</div>
+								</div>
+					
+								<div class="case_info" id="view_content">
+									<!--?xml version="1.0" encoding="utf-16"?--><a name="case_entire" class="nopopup"> </a>
+									<p class="c_tit_1" id="prCont_t_3"> 전 문<br> </p>
+									<div class="c_con" id="prCont_3">
+										<div class="c_tit_2" id="c_tit_2"><a id="case_plaintiff" name="case_plaintiff" class="nopopup"> </a>원 고 주식회사 A <br>대표이사 B <br></div>
+										<div class="c_tit_2" id="c_tit_2"><a id="case_plaintiff" name="case_plaintiff" class="nopopup"> </a>소송대리인 변리사 유환열 <br></div>
+										<div class="c_tit_2" id="c_tit_2"><a id="case_plaintiff" name="case_plaintiff" class="nopopup"> </a>피 고 주식회사 C <br>대표이사 D <br></div>
+										<div class="c_tit_2" id="c_tit_2"><a id="case_plaintiff" name="case_plaintiff" class="nopopup"> </a>소송대리인 법무법인 오킴스 <br>담당변호사 오성헌 <br></div>
+										<div class="c_tit_2" id="c_tit_2"><a id="case_plaintiff" name="case_plaintiff" class="nopopup"> </a>소송대리인 특허법인 오킴스 <br>담당변리사 이의철 <br></div>
+										<div class="c_tit_2">변 론 종 결 2021. 7. 23.</div>
+										<div class="c_tit_2">판 결 선 고 2021. 8. 20.</div>
+										<div class="c_tit_2"><a id="case_outcome" name="case_outcome" class="nopopup"> </a><br>주 문 <br>1. 원고의 청구를 기각한다. <br>2. 소송비용은 원고가 부담한다. <br></div>
+										<div class="c_tit_2"><a id="case_purpose" name="case_purpose" class="nopopup"> </a><br>청 구 취 지 <br>특허심판원이 2021. 1. 28. 2019당2921호 사건에 관하여 한 심결을 취소한다. <br></div>
+										<div class="c_tit_3"><a id="case_reason" name="case_reason" class="nopopup"> </a> 이 유 <br></div>
+										<div class="c_tit_3"><a id="R02" name="R02" class="nopopup"></a><strong>1. 기초사실 <br></strong></div>
+										<div class="c_tit_3"><strong><a id="R03" name="R03" class="nopopup"></a>가. 원고의 등록디자인(갑 제3호증, 이하 '이 사건 등록디자인'이라 한다) </strong><br>1) 출원일/ 등록일/ 등록번호: 2018. 7. 19./ 2018. 10. 23./ 제978403호 <br>2) 디자인의 대상이 되는 물품: 가방 <br>3) 디자인의 설명 및 도면: 별지 1과 같다. <br><strong></strong></div>
+										<div class="c_tit_3"><strong><a id="R04" name="R04" class="nopopup"></a>나. 확인대상디자인</strong> <br>1) 물품: 가방 <br>2) 도면: 별지 2와 같다. <br></div>
+										<div class="c_tit_3"><a id="R05" name="R05" class="nopopup"></a><strong>다. 선행디자인들</strong> <br></div>
+										<div class="c_tit_3"><a id="R06" name="R06" class="nopopup"></a><strong>1) 선행디자인 1(을 제1호증의 1, 2) <br></strong>2018. 3. 12.경 인터넷(https://E)에 게재된 가방에 관한 디자인으로서, 그 도면은 별지 3과 같다. <br></div>
+										<div class="c_tit_3"><a id="R07" name="R07" class="nopopup"></a><strong>2) 선행디자인 2(을 제2호증) </strong><br>2018. 2. 16. 인터넷(https://F)에 게재된 가방에 관한 디자인으로서, 그 도면은 별지 4와 같다. <br></div>
+										<div class="c_tit_3"><a id="R08" name="R08" class="nopopup"></a><strong>3) 선행디자인 3(을 제3호증의 1, 2) </strong><br>2018. 6. 30. 소셜미디어 인스타그램(https://www.instagram.com/G)에 게재된 가방에 관한 디자인으로서, 그 도면은 별지 5와 같다. <br></div>
+										<div class="c_tit_3"><a id="R09" name="R09" class="nopopup"></a><strong>4) 선행디자인 4(갑 제4호증) <br></strong>가) 출원일/ 등록일/ 등록번호: 2017. 6. 8./ 2018. 2. 12./ 제944762호 <br>나) 디자인의 대상이 되는 물품: 가방 <br>다) 디자인의 설명 및 도면: 별지 6과 같다. <br></div>
+										<div class="c_tit_3"><a id="R010" name="R010" class="nopopup"></a><strong>라. 원고의 심판청구 및 심결 </strong><br>1) 원고는 2019. 9. 10. 특허심판원에 피고를 상대로 확인대상디자인이 이 사건 등록디자인과 유사하므로 그 권리범위에 속한다고 주장하면서 적극적 권리범위확인심판을 청구하였다. <br>2) 이에 특허심판원은 위 심판청구를 2019당2921호로 심리한 후, 2021. 1. 28. “확인대상디자인은 그 디자인이 속하는 분야에서 통상의 지식을 가진 사람(이하 '통상의 디자이너'라 한다)이 선행디자인 3으로부터 쉽게 실시할 수 있는 자유실시디자인이므로, 이 사건 등록디자인과 대비할 필요도 없이 이 사건 등록디자인의 권리범위에 속하지 않는다.”는 이유로 원고의 위 심판청구를 기각하는 심결(이하 '이 사건 심결'이라 한다)을 하였다. <br></div>
+										<div class="c_tit_3"><a id="R011" name="R011" class="nopopup"></a>[인정 근거] 다툼 없는 사실, 갑 제1 내지 4호증, 을 제1 내지 3호증(각 가지번호 있는 것은 각 가지번호 포함, 이하 같다)의 각 기재 및 영상, 변론 전체의 취지 <br></div>
+										<div class="c_tit_3"><a id="R012" name="R012" class="nopopup"></a><strong>2. 당사자의 주장 <br></strong></div>
+										<div class="c_tit_3"><strong><a id="R013" name="R013" class="nopopup"></a>가. 원고 </strong><br>1) 피고가 제출한 증거들만으로는 선행디자인 1 내지 3이 이 사건 등록디자인의 출원일인 2018. 7. 19. 전에 공지된 것이라고 볼 수 없다. <br>2) 확인대상디자인은 선행디자인 3과 ① 수납부의 상ㆍ하폭이 다르고, ② 수납부상부의 천과 하부의 천이 이어지는 선의 형태가 다르며, ③ 손잡이부의 형태가 다르고, ④ 저면부를 대비할 수 없는 등의 차이점이 있어 선행디자인 3으로부터 쉽게 실시할 수 있는 자유실시디자인에 해당하지 않는다. <br>3) 원고의 이 사건 등록디자인은 선행디자인들과 형상과 모양이 상이하여, 선행디자인들 또는 그 결합에 의하여 쉽게 창작할 수 있는 자유실시디자인에 해당하지 않는다. <br>4) 확인대상디자인은 이 사건 등록디자인과 유사하여 이 사건 등록디자인의 권리범위에 속한다. <br></div>
+										<div class="c_tit_3"><a id="R014" name="R014" class="nopopup"></a><strong>나. 피고 </strong><br>1) 확인대상디자인은 선행디자인 3으로부터 쉽게 실시할 수 있는 자유실시디자인에 해당한다. <br>2) 확인대상디자인은 이 사건 등록디자인과 대비하여 구체적 형상ㆍ모양에 차이가 있어 그 권리범위에 속하지 않는다. <br></div>
+										<div class="c_tit_3"><a id="R015" name="R015" class="nopopup"></a><strong>3. 이 사건 심결의 위법 여부 <br></strong></div>
+										<div class="c_tit_3"><strong><a id="R016" name="R016" class="nopopup"></a>가. 선행디자인 1 내지 3이 이 사건 등록디자인 출원일 전에 공지되었는지 여부 <br></strong>원고는, 을 제1 내지 3호증은 조작할 수 있어 선행디자인 1 내지 3이 이 사건 등록디자인보다 먼저 공지되었다고 볼 수 없다고 주장한다. <br>그러나 앞서 기초사실에서 인정한 바와 같이 선행디자인 1 내지 3은 이 사건 등록디자인의 출원일인 2018. 7. 19. 전에 공지되었음을 알 수 있고, 이를 뒤집을 만한 아무런 증거가 없다. 원고의 위 주장은 이유 없다. <br></div>
+										<div class="c_tit_3"><a id="R017" name="R017" class="nopopup"></a><strong>나. 확인대상디자인이 자유실시디자인에 해당하는지 여부 <br></strong></div>
+										<div class="c_tit_3"><a id="R018" name="R018" class="nopopup"></a><strong>1) 관련 법리 </strong><br>등록디자인과 대비되는 디자인이 등록디자인의 출원 전에 통상의 디자이너가 공지디자인 또는 이들의 결합에 따라 쉽게 실시할 수 있는 것인 때에는 등록디자인과 대비할 것도 없이 등록디자인의 권리범위에 속하지 않는다(<a href="/Info/ContentView?sid=C0003E999979909E" class="popup_view">대법원 2016. 8. 29. 선고 2016후878 판결</a> 등 참조). <br>여기서 쉽게 실시할 수 있는 디자인이란 공지디자인의 형상‧모양‧색채 또는 이들의 결합(이하 '공지형태'라고 한다)이나 국내에서 널리 알려진 형상ㆍ모양ㆍ색채 또는 이들의 결합(이하 '주지형태'라고 한다)을 거의 그대로 모방 또는 전용하였거나, 이를 부분적으로 변형하였다고 하더라도 그것이 전체적으로 볼 때 다른 미감적 가치가 인정되지 않는 상업적ㆍ기능적 변형에 불과하거나, 또는 그 디자인 분야에서 흔한 창작수법이나 표현방법에 의해 이를 변경ㆍ조합하거나 전용하였음에 불과한 디자인 등과 같이 창작수준이 낮은 디자인을 의미한다. 또한 공지형태나 주지형태를 서로 결합하거나 그 결합된 형태를 위와 같이 변형ㆍ변경 또는 전용한 경우에도 창작수준이 낮은 디자인에 해당할 수 있는데, 그 창작수준을 판단할 때는 그 공지디자인의 대상 물품이나 주지형태의 알려진 분야, 그 공지디자인이나 주지형태의 외관적 특징들의 관련성, 해당 디자인 분야의 일반적 경향 등에 비추어 통상의 디자이너가 쉽게 그와 같은 결합에 이를 수 있는지를 함께 살펴보아야 한다(<a href="/Info/ContentView?sid=C000D4FFB398D4CE" class="popup_view">대법원 2016. 3. 10. 선고 2013후2613 판결</a> 등 참조). <br></div>
+										<div class="c_tit_3"><a id="R019" name="R019" class="nopopup"></a><strong>2) 판단 <br></strong>앞서 인정한 기초사실에 의하면, 앞서 본 선행디자인들 중 선행디자인 3이 확인대상디자인과 가장 유사한 것으로 판단되고, 위 선행디자인 3을 중심으로 확인대상디자인과 대비하여 살펴본다. <br>가) 확인대상디자인과 선행디자인 3을 대비하면 아래 표와 같다. <br><img class="cImg" alt="" src="https://lawnb.com/lbimg/C000/2021/1015/lawnb_15110048168.jpg"> <br>나) 확인대상디자인과 선행디자인 3은, ① 전체적으로 손으로 잡거나 어깨에 걸 수 있는 손잡이부와 물건 등을 넣을 수 있는 수납부로 구성된 가방으로, ② 수납부의 앞면에 주름(플리츠면)이 형성되어 있어 가방을 접을 수 있는 점, ③ 수납부의 약 1/4지점에 가로 선이 형성되어 있어 그 선을 중심으로 상ㆍ하부가 서로 다른 색상인 점, ④ 손잡이부는 수납부의 양 끝에서 좌우로 연결되어 있는 점 등에서 공통된다. <br>다) 한편, 확인대상디자인과 선행디자인 3은, ① 확인대상디자인과 선행디자인의 색상이 서로 다른 점, ② 확인대상디자인은 수납부 상단과 하단의 색상이 구분되는 선이 직선이나, 선행디자인 3은 완만한 커브형인 점, ③ 확인대상디자인은 매듭 끈이 있으나 선행디자인 3에서는 매듭 끈의 유무를 확인하기 어려운 점에서 차이가 있다. <br>라) 그러나 확인대상디자인에서 가장 눈에 잘 띄는 지배적인 특징은 가방을 접을 수 있도록 플리츠면이 형성되어 있고(공통점 ②) 수납부 상ㆍ하부의 색상이 다르게 구성되어 있다는 것(공통점 ③)인데, 이는 선행디자인 3에도 동일한 형상과 모양이 그대로 나타나 있으므로, 양 디자인은 전체적으로 동일ㆍ유사한 심미감을 갖는다고 할 것이다. 나아가 차이점들은 다음과 같은 사정, 즉 (1) 차이점 ①은 양 디자인의 색상에 관한 것으로서 심미감에 차이가 생긴다고 보기 어려운 점, (2) 차이점 ②는 전체 디자인에서 자세히 살펴보아야만 알 수 있는 부분에 해당하고 해당 디자인 분야에서 흔한 창작수법에 불과하므로 심미감에 차이가 생긴다고 볼 수 없는 점, (3) 차이점 ③은 선행디자인 3에 원고의 주장과 같이 매듭 끈이 형성되어 있지 않다고 하더라도 통상의 디자이너가 선행디자인 3의 '창작성 관련 디자인' 중 수납부 상단에 형성된 매듭 끈을 결합하여 별다른 어려움 없이 부가할 수 있는 상업적 변형에 불과한 점 등에 비추어 보면, 통상의 디자이너가 쉽게 실시할 수 있는 것으로 보인다. <br></div>
+										<div class="c_tit_3"><a id="R020" name="R020" class="nopopup"></a><strong>3) 원고의 주장에 대한 판단 </strong><br>가) 원고는 확인대상디자인은 수납부의 상하 폭이 같으나, 선행디자인 3은 수납부의 상부가 좁고 하부가 넓어 차이가 있다고 주장한다. <br>살피건대, 디자인의 유사 여부는 디자인이 표현된 물품의 사용시의 외관에 의한 심미감도 함께 고려하여 판단하여야 하는데(<a href="/Info/ContentView?sid=C0001C00402BADFB" class="popup_view">대법원 2010. 5. 13. 선고 2010후265 판결</a> 등 참조), 확인대상디자인에는 매듭 끈이 있어, 매듭 끈을 사용하면 수납부의 상부의 폭이 줄어들게 되어 상부가 좁고 하부가 넓은 형상을 가지게 될 것으로 보인다. <br>그렇다면 양 디자인의 각 수납부는 같은 형상을 갖게 되어 원고가 주장하는 차이점이 있다고 할 수 없으므로, 원고의 위 주장은 받아들이지 아니한다. <br>나) 그리고 원고는 확인대상디자인의 손잡이부는 수납부와 재봉 등으로 이어진 것으로 보이나, 선행디자인 3의 손잡이부는 수납부와 일체여서 차이가 있다고 주장한다. <br>살피건대, 양 디자인의 형상과 모양에 원고 주장의 차이가 있는지 확인하기 어렵다. 설령 그러한 차이가 존재한다고 하더라도 이는 자세히 살펴보아야만 알 수 있는 부분에 해당하고, 해당 디자인 분야에서 흔한 창작수법에 불과하여, 새로운 미감적 가치를 창출한 부분이라고 할 수 없다. <br>따라서 원고의 위 주장은 받아들이지 아니한다. <br>다) 원고는 선행디자인 3의 저면도를 확인할 수 없어, 확인대상디자인과 선행디자인 3을 비교할 수 없다는 취지로 주장한다. <br>살피건대, 디자인의 유사 판단에 있어 대비 대상이 되는 디자인의 공개 정도는 통상의 디자이너가 그것을 보고 용이하게 디자인을 창작할 수 있을 정도로 표현되어 있으면 충분하고 반드시 육면도나 참고사시도 등으로 그 형상과 모양의 모든 것이 기재되어 있어야 하는 것은 아니며, 자료의 표현이 부족하더라도 이를 경험칙에 의하여 보충하여 그 디자인의 요지 파악이 가능하다면 그 대비판단의 대상이 될 수 있다(<a href="/Info/ContentView?sid=C00091AEC216D3F4" class="popup_view">대법원 2006. 7. 28. 선고 2003후1956 판결</a> 등 참조). 그런데 선행디자인 3은 가방의 전체적인 형상과 모양이 자세히 표현되어 있어 그것만으로도 쉽사리 그 전체적인 형태를 알 수 있다고 할 것이므로, 선행디자인 3과 확인대상디자인을 충분히 대비할 수 있다. <br>따라서 원고의 위 주장은 받아들이지 아니한다. <br></div>
+										<div class="c_tit_3"><a id="R021" name="R021" class="nopopup"></a><strong>다. 소결 </strong><br>따라서 확인대상디자인은 통상의 디자이너가 선행디자인 3으로부터 쉽게 실시할 수 있는 자유실시디자인에 해당하므로, 이 사건 등록디자인과 대비할 것도 없이 그 권리범위에 속하지 않는다. 이와 결론을 같이 한 이 사건 심결은 적법하다. <br><strong></strong></div>
+										<div class="c_tit_3"><strong><a id="R022" name="R022" class="nopopup"></a>4. 결론 <br></strong>그렇다면 이 사건 심결의 취소를 구하는 원고의 청구는 이유 없으므로 이를 기각하기로 하여 주문과 같이 판결한다. <br></div>
+										<div class="c_tit_2-1"><a id="case_judge" name="case_judge" class="nopopup"> </a>재판장 판사 김상우 판사 이혜진 판사 김영기</div>
+										<div class="c_tit_2-2" style="display:none;"><a id="case_byulpyo" name="case_byulpyo" class="nopopup"></a></div>
+									</div>
+								</div>
+
+								<div class="case_info" id="view_sub_content" style="display:none"></div>
+								<input type="hidden" id="lbDid" name="lbDid" value="C000AA0DF44095FE">
+								<input type="hidden" id="lbTid" name="lbTid" value="C000AA0DF44095FE">
+								<input type="hidden" id="lbCol" name="lbCol">
+								<input type="hidden" id="sList" name="sList" value="10">
+							</div>
+						</div>
+					</article>
+
+
+					<aside class="right_container">
+						<div id="myfolder_area"></div>
+						<div id="addInfoDiv">
+
+							<section>
+								<h4>
+									판례 디자인 업데이트 버튼
+								</h4>
+								<ul>
+									<li><a href="#" onclick="layout2Wing();">좌우여백</a></li>
+									<li><a href="#" onclick="layout2Text();">[레이아웃] 크기정렬</a></li>
+									<li><a href="#" onclick="layout2Myoungjo();">[폰트] 명조체</a></li>
+									<li><a href="#" onclick="layout2large();">[폰트] 크게</a></li>
+									<li><a href="#" onclick="layout2Background1();">[배경] 어둡게</a></li>
+									<li><a href="#" onclick="layout2Background2();">[배경] 중간</a></li>
+									<li><a href="#" onclick="layout2Background3();">[배경]살짝</a></li>
+									<li><a href="#" onclick="layout2mgBox0();">[사이즈] 상단 여백만</a></li>
+									<li><a href="#" onclick="layout2mgBox();">[사이즈] 750</a></li>
+									<li><a href="#" onclick="layout2mgBox2();">[사이즈] 700</a></li>
+									<li><a href="#" onclick="layout2Title();">[타이틀] 상단</a></li>
+								</ul>
+							</section>
+
+							<section>
+								<h4>
+									관련주석서 <em>총 3건</em>
+									<div class="btn-group fr">
+									</div>
+								</h4>
+								<ul>
+									<li><a href="/Info/ContentView?sid=J001001697_92795_0" class="popup_view">[온주] 부동산등기법 / [제29조] 제2호</a></li>
+									<li><a href="/Info/ContentView?sid=J001001178_88264_0" class="popup_view">[온주] 부동산실권리자명의등기에관한법률 / 제12조 [실명등기의무 위반의 효력 등]</a></li>
+									<li><a href="/Info/ContentView?sid=D0211DF800C97420_100807" class="popup_view">[주석서] 물권법 / 부동산실권리자명의등기에관한법률 제6조 [이행강제금] </a></li>
+								</ul>
+							</section>
+							<section>
+								<h4>
+									관련논문·평석 <em>총 2건</em>
+									<div class="btn-group fr">
+									</div>
+								</h4>
+								<ul>
+									<li><a href="/Info/ContentView?sid=D0110EE414803DFE" class="popup_view">[판례연구] 소유권에 관한 판례: 소유권의 취득, 소유권의 내용과 범위, 공유, 건물의 구분소유, 명의신탁, 물권적 청구권 </a></li>
+									<li><a href="/Info/ContentView?sid=D011E0980605FF86" class="popup_view">[판례연구] 부동산실권리자명의등기에관한 법률상 명의신탁약정의 효력 </a></li>
+								</ul>
+							</section>
+							<section>
+								<h4>
+									유사판례 <em>총 20건</em>
+									<div class="btn-group fr">
+										<button type="button" class="btn btn-default" onclick="view.addInfoList('C000')">전체보기</button>
+									</div>
+								</h4>
+								<ul>
+									<li><a href="/Info/ContentView?sid=C000AB2735ECD1C3" class="popup_view">대법원 2009. 8. 20 선고 2008도12009 판결 【부동산실권리자명의등기에관한법률위반ㆍ횡령ㆍ건축법위반】 <span>[미간행]</span></a></li>
+									<li><a href="/Info/ContentView?sid=C000E1D81B3CBC46" class="popup_view">대법원 2008. 10. 23 선고 2008다43693 판결 【소유권이전등기】 <span>[공2008하,1598]</span></a></li>
+									<li><a href="/Info/ContentView?sid=C00036523C85BD5B" class="popup_view">대법원 2003. 5. 16 선고 2002다71252 판결 【소유권이전등기】</a></li>
+									<li><a href="/Info/ContentView?sid=C000721DAA7A3557" class="popup_view">대법원 2002. 12. 26 선고 2000다21123 판결 【소유권이전등기】 <span>[공2003.2.15.(172),452]</span></a></li>
+									<li><a href="/Info/ContentView?sid=C0008DB176070415" class="popup_view">대법원 2002. 10. 28 자 2001마1235 결정 【등기관의처분에관한이의】 <span>[공2003.1.15.(170),134]</span></a></li>
+								</ul>
+							</section>
+						</div>
+					</aside>
+				</div>
+			</div>
+			<div id="bg_screen"></div>
+
+		</div>
+		<script type="text/javascript">
+			setHeight();
+		</script>
+	</div>
+</body>
+</html>

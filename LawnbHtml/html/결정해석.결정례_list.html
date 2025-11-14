@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../js/commonjs.js?s"></script>
+<script language="javascript">
+<!--
+ 
+	function resizeComment(){ 
+			if($('.right_container').hasClass('add_border')){
+				$(".right_container").removeClass('slide_mov_right'); 
+			}else{
+				if($('#container').hasClass('list-view')){
+					$(".right_container").addClass('slide_mov_right'); 
+				}else{
+					$(".right_container").removeClass('slide_mov_right'); 
+				}
+			}
+			setHeight_under();
+		}
+	$(document).ready(function () { 
+	 
+
+}); 
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_mainContainer">
+	<div id="wrap" >
+		<header> 
+			<div class="top_container  ">  
+				<a href="/maf/poc/app/homepage"><h1>로앤비</h1></a>
+				<div id="t_search" class="search_container">
+					<h2>통합검색 영역</h2>
+					<div class="search_inner">
+						<form  action="" > 
+						<div class="search_left">
+							통합검색
+						</div>
+						<div class="search_center">
+							<input type="search" name="" id="" >
+						</div>
+						<div class="search_right"><span  class="more_btn">more</span></div>
+						<input type="button" value="Search " id="searchButton" class="search_btn">
+						</form>
+					</div>
+				</div>
+				<div id="indiv_area" class="indiv_container">
+					<span alt="나의폴더">나의폴더<i class="icon-myfolder" data-icon="&#xe91a;"></i></span>
+					<span alt="히스토리">히스토리<i class="icon-history" data-icon="&#xe916;"></i></span>
+					<span alt="알림설정">알림설정<i class="icon-alert" data-icon="&#xe918;"></i><em>9+</em></span>
+					<span alt="질문내역">문의내역<i class="icon-question" data-icon="&#xe919;"></i></span>
+					<span alt="나의정보">나의정보<i class="icon-myinfo" data-icon="&#xe917;"></i></span>
+				</div>
+			</div>
+			<nav> 
+				<dl id="main_menu" class="mmenu">
+					<dt class="blind">메인 메뉴</dt> 
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=IAED6CC08DD364059AB193CEAF31A4AB0&amp;stnew=true"><span>판례</span></a>
+					</dd>
+					<dd class="currentTab" >
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I0F5DD49BE2B544DBB7414874EC787E80&amp;stnew=true"><span>법규</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=ICAA980E9234848FEA6D0DA62432279E0&amp;stnew=true"><span>심판·결정·해석</span></a>
+					</dd>
+					<dd >
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I247AD0D84D9B4429B617C8D9F8388C8F&amp;stnew=true"><span>문헌</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I661610C9A2C749D6A4221A93502B0170&amp;stnew=true"><span>법조인</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I574B9F7164CB11E498DB8B09B4F043E0&amp;stnew=true"><span>기업법무</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I66693AFFED274970AC53A686AAA123C0&amp;stnew=true"><span>서식</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocHelp?docguid=WLAWLNEXT"><span>뉴스·칼럼</span></a>
+					</dd>
+				</dl>   
+			</nav>        	
+		</header> 
+		<div id="container" class="decision">
+			<div id="breadcrumb" class="navi_area">
+				<div>Home > 결정∙해석 > <a href="1">결정례</a></div>
+				<div class="group_indivi_btn"><a href="">로그인</a><a href="">개인화님</a> </div>
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div id="container_inner">
+				<div class="left_container">  
+					<section>
+						<h4>검색결과 정리</h4>  
+						<p class="hide">결정기관</p>
+						<ol class="check_area tree">
+							<li>
+								<input type="checkbox" value="0"><label>테스트 </label><span>11</span>
+								<ol>
+									<li><input type="checkbox" value="2"><label>부가가치세 </label><span>11</span></li>
+								</ol>
+							</li>
+							<li>
+								<input type="checkbox" value="2"><label>조세심판원 </label><span>11</span>
+								<ol>
+									<li><input type="checkbox" value="2"><label>부가가치세 </label><span>11</span></li>
+									<li><input type="checkbox" value="1"><label>소득세  </label><span>100</span></li>
+									<li><input type="checkbox" value="1"><label>등록세   </label><span>100</span></li>
+									<li><input type="checkbox" value="1"><label>부가가치세   </label><span>100</span></li>
+									<li><input type="checkbox" value="1"><label>소득세  </label><span>100</span></li>
+								</ol>
+							</li>
+							<li>
+								<input type="checkbox" value="2"><label>감사원 </label><span>11</span>
+								<ol>
+									<li><input type="checkbox" value="2"><label>부가가치세 </label><span>11</span></li>
+									<li><input type="checkbox" value="1"><label>소득세  </label><span>100</span></li>
+									<li><input type="checkbox" value="1"><label>등록세   </label><span>100</span></li>
+								</ol>
+							</li>
+							<li>
+								<input type="checkbox" value="2"><label>공정위  </label><span>11</span>
+								<ol>
+									<li><input type="checkbox" value="2"><label>부가가치세 </label><span>11</span></li>
+								</ol>
+							</li>
+						</ol> 
+
+						<p class="hide">결정일자 </p>
+						<div class="check_area select_area">
+							<select name="sType5" id="sType5" class="date_select">
+								<option value="0" selected="selected">결정일자  선택</option> 
+								<option value="1">최근 6개월 </option>
+								<option value="2">최근 1년</option>
+								<option value="3">최근 5년</option>
+								<option value="00">직접선택</option>
+							</select>
+							<div class="detail_date"><input type="number" id="sUnivS" name="sUnivS" title=" 시작일" style="width:45%" placeholder="20160101"> ~ <input type="number" id="sUnivE" name="sUnivE" title=" 종료일" style="width:45%" placeholder="20161231"></div> 
+						</div>
+						<p class="submit_area"><span id="arrangeBtn">적용</span><span class="_cancel"><i class="icon-16" data-icon="&#xe90e;"></i>적용취소</span></p>
+					</section>
+				</div>
+				<article class="main_container"> 
+					<!-- <div class="move_btn"  ><div class="btn_block"><i class="icon-" data-icon="&#xe911;"></i><i class="icon-" data-icon="&#xe907;"></i></div></div> -->
+					<div class="main_container_inner">
+						<div class="search_div">
+						<form id="searchForm" method="post" action="CaseList">
+							<div class="search_input">
+								<input type="search" id="sWord" name="sWord"  placeholder="검색어">
+								<div class="except">
+								<input type="search" name="sWord1" placeholder="제외어">
+								</div>
+							</div>
+							<ol class="check_area">
+								<li><input type="checkbox" class="sType2List" value="0"><label>전체</label></li>
+								<li><input type="checkbox" class="sType2List" value="32"><label>사건명</label></li>
+								<li><input type="checkbox" class="sType2List" value="16"><label>결정요지</label></li>
+								<li><input type="checkbox" class="sType2List" value="8"><label>전문</label></li>
+								<li><input type="checkbox" class="sType2List" value="2"><label>사건번호</label></li> 
+							</ol>
+							<div class="detail_area_open decision" id="detail_area">
+								<ul>
+									<li>
+										<label>결정기관</label>
+										<select id="sJob" name="sJob">
+										  <option value="">전체</option>
+										  <option value="조세심판원" checked="checked">조세심판원</option>
+										  <option value="변호사">변호사</option>
+										  <option value="검사">검사</option>
+										  <option value="교수">교수</option>
+										  <option value="연구관">연구관</option>
+										  <option value="법무사">법무사</option>
+										  <option value="공무원">공무원</option>
+										  <option value="사법연수원생">사법연수원생</option>
+										  <option value="군법무관">군법무관</option>
+										</select> 
+									</li>
+									<li>
+										<label>구분</label>
+										<select id="sJob" name="sJob">
+										  <option value="">전체</option>
+										  <option value="판사">판사</option>
+										  <option value="변호사">변호사</option>
+										  <option value="검사">검사</option>
+										  <option value="교수">교수</option>
+										  <option value="연구관">연구관</option>
+										  <option value="법무사">법무사</option>
+										  <option value="공무원">공무원</option>
+										  <option value="사법연수원생">사법연수원생</option>
+										  <option value="군법무관">군법무관</option>
+										</select> 
+									</li> 
+									<li class="fill ">
+										<label>결정일자 </label>
+										<input type="number" id="sUnivS" name="sUnivS" title=" 시작일" style="width:80px" placeholder="20160101"> ~ <input type="number" id="sUnivE" name="sUnivE" title=" 종료일" style="width:80px" placeholder="20161231"> <div class="btn-group" ><button type="button"  class="btn btn-square ">최근 6개월</button> <button type="button"  class="btn btn-square">최근 1년</button> <button type="button"  class="btn btn-square">최근 5년</button></div>
+									</li>
+
+								</ul>
+							</div>	
+							<div class="detail_area"><!-- 상세검색옵션버튼 -->
+								<div class="but"></div>
+							</div>
+							<div class="btn_area"><input type="submit" id="searchBtn" value="검색"> <span class="_cancel"><i class="icon-16" data-icon="&#xe90e;"></i>입력초기화</span></div>
+							<p>검색어 “키워드” 로 검색한 결과입니다. </p>
+						</form>
+						</div>
+						<div id="search_results">
+							<div class="s_num_area">검색결과 21건 <small>1/1000</small></div>
+							<div class="btn_option_outer">
+								<div class="btn_option_select">
+									<p class="blind">선택다운로드</p>
+									<div class="btn-group" >
+									  <button type="button" class="btn btn-default"><input type="checkbox" name="">다운로드</button>
+									</div>   
+								</div> 
+								<div class="select_area"> 
+									<p class="blind">보기 개수 선택</p>
+									<select id="" name=""  >
+										<option value="">10개</option>
+										<option value="" selected>20개</option>
+										<option value="">50개</option>
+									</select>
+								</div>
+								<div class="btn_option"> 
+									<div class="btn-group" > 
+										 <button type="button" class="btn btn-default">정확도</button> <button type="button" class="btn btn-default">중요도</button> 
+										 <button type="button" class="btn btn-default _select">최신순 <i class="icon-sort-alpha-desc" data-icon="&#xea4a;"></i></button>
+									</div>	
+									<ul class="view_type_list _view_type_list">
+										<p class="blind">보기옵션 선택</p>
+										<li class="_preview"><a href="#" class="option_a  "   id="option_a" >미리보기형</a></li>
+										<li class="_onlyTitle"><a href="#" class="option_b_on  "  id="option_b">상세보기형</a></li>
+									</ul>
+								</div>
+							</div>
+							<ol class="list btn_exist decision">
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>							 
+									<div class="co_searchContent">
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">조세심판원 조심2015지1556, <span>2016.07.29</span> [쟁점토지에 대한 지목변경 취득세 과세표준…]</a></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>지목변경에 대한 취득세 과세표준은 지목변경 공사착공일 현재의 개별공시지가에서 지목변경 후 토지의 개별공시자가의 차액을 기준으로 하는 것인바, 청구인이 지목변경 전·후의 개별공시지가 차액을 과세표준으로 하여 취득세 등을 신고·납부하였으므로 처분청에서 이 건 경정청구를 거부한 처분은 잘못이 없다고 판단됨.</p></div>
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">300</span>						 
+									<div class="co_searchContent">  
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">조세심판원 조심2015지1556, <span>2016.07.29</span> [쟁점토지에 대한 지목변경 취득세 과세표준…]</a></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary">
+											 
+										</div> 
+									 </div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent"> 
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">조세심판원 조심2015지1556, <span>2016.07.29</span> [쟁점토지에 대한 지목변경 취득세 과세표준…]</a></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>[1] 지방도에 대한 관이유지사무를 도지사가 조례로써 관할 군수에게 위임한 경우 그 도로의 관리청<br>
+	[2] 군이 도로부터 관이유지를 위임받은 지방도를 관리하는 경우 군의 부당이득 성부 </p></div> 
+									 </div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent"> 
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">조세심판원 조심2015지1556, <span>2016.07.29</span> [쟁점토지에 대한 지목변경 취득세 과세표준…]</a></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>[1] 구 상가건물 임대차보호법 제10조 제4항에 따른 임대인의 갱신 거절 통지에 제10조 제1항 제1호 내지 제8호에서 정한 정당한 사유가 없는 경우, 임대인의 갱신 거절 통지의 선후와 관계없이 임차인의 계약갱신요구권 행사로 종전 임대차가 갱신되는지 여부(적극)<br>[2] 임차인이 계약갱신요구권을 행사한 이후 임차인과 임대인이 신규 임대차계약의 형식으로 체결한 계약을 임대차에 관한 재계약으로 볼 것인지 여부(한정 소극)</p></div>
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent">    
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">조세심판원 조심2015지1556, <span>2016.07.29</span> [쟁점토지에 대한 지목변경 취득세 과세표준…]</a></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>[1] 구 상가건물 임대차보호법 제10조 제4항에 따른 임대인의 갱신 거절 통지에 제10조 제1항 제1호 내지 제8호에서 정한 정당한 사유가 없는 경우, 임대인의 갱신 거절 통지의 선후와 관계없이 임차인의 계약갱신요구권 행사로 종전 임대차가 갱신되는지 여부(적극)<br>[2] 임차인이 계약갱신요구권을 행사한 이후 임차인과 임대인이 신규 임대차계약의 형식으로 체결한 계약을 임대차에 관한 재계약으로 볼 것인지 여부(한정 소극)</p></div>
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent">   
+									<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">조세심판원 조심2015지1556, <span>2016.07.29</span> [쟁점토지에 대한 지목변경 취득세 과세표준…]</a></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+									<div class="co_searchResults_summary"><p>[1] 구 상가건물 임대차보호법 제10조 제4항에 따른 임대인의 갱신 거절 통지에 제10조 제1항 제1호 내지 제8호에서 정한 정당한 사유가 없는 경우, 임대인의 갱신 거절 통지의 선후와 관계없이 임차인의 계약갱신요구권 행사로 종전 임대차가 갱신되는지 여부(적극)<br>[2] 임차인이 계약갱신요구권을 행사한 이후 임차인과 임대인이 신규 임대차계약의 형식으로 체결한 계약을 임대차에 관한 재계약으로 볼 것인지 여부(한정 소극)</p></div>
+									</div>
+								</li>  
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent">  
+									<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">조세심판원 조심2015지1556, <span>2016.07.29</span> [쟁점토지에 대한 지목변경 취득세 과세표준…]</a></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+									<div class="co_searchResults_summary"><p>[1] 구 상가건물 임대차보호법 제10조 제4항에 따른 임대인의 갱신 거절 통지에 제10조 제1항 제1호 내지 제8호에서 정한 정당한 사유가 없는 경우, 임대인의 갱신 거절 통지의 선후와 관계없이 임차인의 계약갱신요구권 행사로 종전 임대차가 갱신되는지 여부(적극)<br>[2] 임차인이 계약갱신요구권을 행사한 이후 임차인과 임대인이 신규 임대차계약의 형식으로 체결한 계약을 임대차에 관한 재계약으로 볼 것인지 여부(한정 소극)</p></div>
+									</div>
+								</li> 
+							</ol>
+							<div class="navigationLinks">				        									
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=0" class="navFirst hiddenLink "><i class="icon-7" data-icon="&#xe911;"></i></a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=-1" class="navPrevious hiddenLink "><i class="icon-2" data-icon="&#xe901;"></i></a>
+								<span class="currentPage">1</span>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navPages">2</a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=2" class="navPages">3</a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=3" class="navPages">4</a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navNext"><i class="icon-1" data-icon="&#xe900;"></i></a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=13" class="navLast "><i class="icon-8" data-icon="&#xe907;"></i></a>
+							</div>
+						 </div> 
+					 </div>
+					 <div class="main_container_view">
+						<div class="main_container_view_inner">
+							<h3>조세심판원 조심2015지1556, <span>2016.07.29</span> [쟁점토지에 대한 지목변경 취득세 과세표준…]<span class="btn_newtap"><span class="hide">새창열기</span><i class="icon-new-tab" data-icon="&#xea7e;"></i></span> <div class="btn_option_outer"><div class="btn_close">닫기</div></div></h3>
+							<!-- 내용시작 xml -->
+							<div   id="view_content">
+								<embed  name="plugin" id="pdf_view" src="hoisa_5_1_75_78.pdf" style="height:1000px"  type="application/pdf" wmode="transparent" wmode='Opaque'></embed> 
+		  
+							</div>
+						</div>
+					 </div>
+				</article> 
+				<aside class="right_container">
+					<section >
+						<h4>최근 조회 자료</h4>
+						<ul> 
+							<li><a href="1" >조세심판원 조심2015지1556, 2016.07.29 <span>[쟁점토지에 대한 지목변경 취득세 과세표준…]</span></a></li> 
+							<li><a href="1" >감사원 심사-2015-99, 2016.07.20 <span>[부가가치세 환급경정 거부처분 취소에 관한…]</span></a></li> 
+							<li><a href="1" >공정거래위원회 2016카총1613, 2016.07.19 <span>[한국기상산업진흥원 발주 등표 …]</span></a></li> 
+							<li><a href="1" >공정거래위원회 2016카총1613, 2016.07.19 <span>[한국기상산업진흥원 발주 등표 …]</span></a></li> 
+							<li><a href="1" >공정거래위원회 2016카총1613, 2016.07.19 <span>[한국기상산업진흥원 발주 등표 …]</span></a></li> 
+							<li><a href="1" >공정거래위원회 2016카총1613, 2016.07.19 <span>[한국기상산업진흥원 발주 등표 …]</span></a></li>  
+						</ul>   
+					</section>
+				</aside>
+			</div>
+    	</div>
+		<footer>
+			<div class="etc_menu"> 
+				<div class="top_container">  
+					<ul>	
+						<li class="blind">기타 메뉴 </li>
+						<li>회사소개</li>
+						<li>광고 · 제휴문의</li>
+						<li>이용약관</li>
+						<li>개인정보 취급/처리 방침</li>
+						<li>법적고지</li>
+						<li>이메일 무단수집거부</li>
+					</ul>
+				</div>
+			</div>  
+			<div class="top_container   _footer"> 	   
+				1. 콘텐츠의 명칭 : 법률정보 &nbsp;&nbsp; 2. 콘텐츠의 제작 및 표시 : 2006년 2월 17일(업그레이드 콘텐츠의 경우 갱신일) &nbsp;&nbsp; 3. 콘텐츠 제작자 : ㈜로앤비  &nbsp;&nbsp;  4. 콘텐츠의 이용조건 : <a href="/support/agree_use.asp" class="red_bott">이용약관</a> 및 로앤비 <a href="/support/serviceInfo_member.asp" class="red_bott">서비스안내</a>와 같음 (무단 복제금지) &nbsp;&nbsp;5. 콘텐츠의 보호기간 : ㈜로앤비 사이트의 모든 콘텐츠는 「콘텐츠산업 진흥법」에 따라 제작 또는 갱신일로부터 5년간 보호됨
+				<div>Thomson reuters</div>
+				<div>Copyright ⓒ 1998~2016 <b>LAWnB</b>. All Rights Reserved.</div>
+			</div>           
+		</footer>
+		<div id="bg_screen"></div>
+		<script type="text/javascript">  
+			setHeight_under();		 
+		</script>
+	</div>
+</div> 
+</body>
+</html>

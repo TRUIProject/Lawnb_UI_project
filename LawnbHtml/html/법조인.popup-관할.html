@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="http://code.jquery.com/jquery-latest.js"></script> 
+<script src="../js/pdf.js"></script> 
+<script src="../js/commonjs.js"></script>
+<script language="javascript">
+<!-- 
+ 
+		function resizeComment(){ 
+			
+			$(".right_container").removeClass('slide_mov_right'); 
+			setHeight();
+		}
+
+		$(function () { 
+			setHeight();
+			$('.organi_top>ul>li').removeClass('this-page');
+			$('#law_content').html($('.contentsDiv').eq("0").html())
+			$('#result_tab>ul>li').click(function () {
+				$('#result_tab>ul>li').removeClass('this-page');
+				$(this).addClass('this-page');
+				var idx = $("#result_tab>ul>li").index($(this)); 
+				$('#law_content').empty();
+				$('#law_content').html($('.contentsDiv').eq(idx).html());
+				setHeight();
+			});
+
+			 
+		});
+  
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_popupContainer">
+	<div id="wrap" >
+		<header> 
+			<div class="top_container  ">  
+				<a href="/maf/poc/app/homepage"><h1>로앤비</h1></a> 
+			</div>        	
+		</header> 
+		<div id="container" class="lawyer list_two-con">  
+			<div id="container_inner">
+				<div class="left_container">   
+					<section id="result_tab"> 
+						<h4 class="hide">메뉴</h4>
+						<ul>
+							<li class="this-page">법원</li> 
+							<li>검찰청</li>
+							<li>법률구조공단</li>
+							<li>경찰서</li>
+							<li>등기소</li>
+						</ul>
+					</section>
+				</div>
+				<article class="main_container">  
+					<div class="main_container_view">
+						<h2 class="submain_group dark_line">지역선택 : <select name="" id="">
+							<option value="" selected="selected">서울</option>
+							<option value=""></option>
+						</select>
+							<div class="btn_more"><span><i class="icon-printer" data-icon="&#xe954;"></i>인쇄</span></div>
+						</h2>
+						<div class="c_con submain_group "  id="view_content">
+							<table>
+								<colgroup>
+									<col width="15%"></col>
+									<col width="35%"></col>
+									<col width="15%"></col>
+									<col width="35%"></col>
+								</colgroup>
+								<tbody>
+									<tr>
+										<th>서울 고등법원</th>
+										<td>서울 서초구 서초1동, 서초2동, 서초3동, 서초4동 / 서울 서초구 서초1동, 서초2동, 서초3동, 서초4동  / 서울 서초구 서초1동, 서초2동, 서초3동, 서초4동 <br>
+											<ul>
+												<li>가사/호적 사건 : 서울 가정법원</li>
+												<li>소년 사건 : 서울 가정법원</li>
+											</ul>
+										</td>
+										<th>서울 중앙지방법원</th>
+										<td>서울 서초구 서초1동, 서초2동, 서초3동, 서초4동 / 서울 서초구 서초1동, 서초2동, 서초3동, 서초4동  / 서울 서초구 서초1동, 서초2동, 서초3동, 서초4동 </td> 
+									</tr>
+									<tr>
+										<th>서울 고등법원</th>
+										<td>서울 서초구 서초1동, 서초2동, 서초3동, 서초4동 / 서울 서초구 서초1동, 서초2동, 서초3동, 서초4동  / 서울 서초구 서초1동, 서초2동, 서초3동, 서초4동 <br>
+											<ul>
+												<li>가사/호적 사건 : 서울 가정법원</li>
+												<li>소년 사건 : 서울 가정법원</li>
+											</ul>
+										</td>
+										<th>서울 중앙지방법원</th>
+										<td>서울 서초구 서초1동, 서초2동, 서초3동, 서초4동 / 서울 서초구 서초1동, 서초2동, 서초3동, 서초4동  / 서울 서초구 서초1동, 서초2동, 서초3동, 서초4동 </td> 
+									</tr>
+								</tbody>
+							</table>
+						</div> 
+							 
+					</div>
+				</article> 
+				<aside class="right_container">  
+				</aside>   
+			</div>
+    	</div> 
+		<div id="bg_screen"></div> 
+	</div>
+		<script type="text/javascript">   
+			setHeight();
+		</script>
+</div> 
+</body>
+</html>

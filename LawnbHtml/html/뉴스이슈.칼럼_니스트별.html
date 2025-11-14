@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../js/commonjs.js?sdd"></script>
+<script language="javascript">
+<!--
+	 
+	function resizeComment(){ 
+			setHeight_under();
+			$(".right_container").removeClass('slide_mov_right'); 
+		}
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_mainContainer">
+	<div id="wrap" >
+		<header> 
+			<div class="top_container  ">  
+				<a href="/maf/poc/app/homepage"><h1>로앤비</h1></a>
+				<div id="t_search" class="search_container">
+					<h2>통합검색 영역</h2>
+					<div class="search_inner">
+						<form  action="" > 
+						<div class="search_left hide">
+							<label class="hide">통합검색  </label>
+						</div>
+						<div class="search_center">
+							<input type="search" name="" id="" >
+						</div>
+						<div class="search_right"><span  class="more_btn">more</span></div>
+						<div id="searchButton" class="search_btn"><i class="icon-" data-icon="&#xe910;"></i><span class="hide">검색</span></div> 
+						</form>
+						<div class="btn_search_result"><i class="icon-table" data-icon="&#xea71;"></i><span class="hide">검색결과 맵 보기</span></div>
+					</div>
+					<div class="search_layer_outer" >
+					<div class="search_layer" >
+						<div class="search_layer_list _done ">
+							<!-- <div class="txt_info">최근검색어저장 기능이 OFF 상태에 있습니다.<br>이용을 원하시면 하단의 최근검색어저장 상태를 ON으로 변경해주세요. </div> 
+							<ul>
+								<li>공정거래법 위반으로 인한 손해액의 산정방법과 주요 쟁점으로 <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+							</ul>-->
+							<ul>
+								<li><strong>대법</strong>원인터넷등기소<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+								<li><strong>대법</strong>원나의사건검색</li>
+								<li><strong>대법</strong>원법원경매정보</li>
+								<li><strong>대법</strong>원전자가족관계</li>
+								<li><strong>대법</strong>원경매</li>
+								<li><strong>대법</strong>원인터넷등기소<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+								<li><strong>대법</strong>원나의사건검색<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+								<li><strong>대법</strong>원법원경매정보</li>
+								<li><strong>대법</strong>원전자가족관계</li>
+								<li><strong>대법</strong>원경매</li>
+							</ul> 
+							<div class="expend_result" onclick="">
+								<p>법무법인(유한) 태평양어쩌고 저쩌고</p>
+								<span>주소 : [050-50] 서울시 광진구 디지털로 272, 한신 IT타워 611호<br>대표전화 : 02-2204-2114</span>
+								<div class="dirct_go">바로가기</div>
+							</div>
+						</div>
+						<!-- <div class="noti_txt"><i class="icon-" data-icon="&#xe90d;"></i> 공용 PC에서는 개인정보보호를 위하여 반드시 로그아웃을 해주세요.</div> -->
+						<div class="search_layer_foot">
+							<div class="fl">기록삭제</div>
+							<div class="fr">최근검색어저장 <div class="btn-group"><button type="button" class="btn btn_orange _select">ON</button><button type="button" class="btn btn-default">OFF</button></div> 자동완성 <div class="btn-group"><button type="button" class="btn btn_orange _select">ON</button><button type="button" class="btn btn-default">OFF</button></div>
+							</div>						
+						</div>
+					</div> 
+					</div>
+				</div>
+				<div id="indiv_area" class="indiv_container">
+					<span alt="나의폴더">나의폴더<i class="icon-myfolder" data-icon="&#xe91a;"></i></span>
+					<span alt="히스토리">히스토리<i class="icon-history" data-icon="&#xe916;"></i></span>
+					<span alt="알림설정">알림설정<i class="icon-alert" data-icon="&#xe918;"></i><em>9+</em></span>
+					<span alt="질문내역">문의내역<i class="icon-question" data-icon="&#xe919;"></i></span>
+					<span alt="나의정보">나의정보<i class="icon-myinfo" data-icon="&#xe917;"></i></span>
+				</div>
+			</div>
+			<nav> 
+				<dl id="main_menu" class="mmenu">
+					<dt class="blind">메인 메뉴</dt> 
+					<dd>
+						<a href="#"><span>판례</span></a>
+					</dd>
+					<dd class="currentTab" >
+						<a href="#"><span>법규</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>심판·결정·해석</span></a>
+					</dd>
+					<dd >
+						<a href="#"><span>문헌</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>법조인</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>기업법무</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>서식</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>뉴스·칼럼</span></a>
+					</dd>
+				</dl>      
+			</nav>        	
+		</header> 
+		<div class="submenu_group" style="">
+				<div>
+					<dl>
+						<dd><a href="">판례</a></dd>
+						<dd><a href="">판례디렉토리</a></dd>
+						<dd><a href="">판례속보</a></dd>
+					</dl>
+					<dl>
+						<dd><a href="">법령</a></dd>
+						<dd><a href="">행정규칙</a></dd>
+						<dd><a href="">입법동향</a></dd>
+						<dd><a href="">조약</a></dd>
+					</dl>
+					<dl>
+						<dd><a href="">특허 심판례</a></dd>
+						<dd><a href="">결정례</a></dd>
+						<dd><a href="">유권해석</a></dd>
+					</dl>
+					<dl>
+						<dd><a href="">논문평석</a></dd>
+						<dd><a href="">주석서</a></dd>
+						<dd><a href="">E-book</a></dd>
+						<dd><a href="">법률용어</a></dd>
+					</dl>
+					<dl>
+						<dd><a href="">법조인명록</a></dd>
+						<dd><a href="">조직도</a></dd>
+						<dd><a href="">법률사무소</a></dd>
+						<dd>법조기관 안내</dd>
+					</dl>
+					<dl>
+						<dd>로펌 리포트</dd>
+						<dd>세무정보</dd>
+						<dd>기업정보</dd>
+					</dl>
+					<dl>
+						<dd>법률서식</dd>
+						<dd>비즈폼 서식</dd>
+					</dl>
+					<dl>
+						<dd>뉴스</dd>
+						<dd>칼럼</dd>
+					</dl>
+				</div>
+				<div class="ad_area">ss</div>
+			</div>
+		<div id="container" class="two-con submain news">
+			<div id="breadcrumb" class="navi_area">
+				<div>Home > 뉴스·칼럼 > <a href="1">칼럼</a></div>
+				<div class="group_indivi_btn"><a href="">로그인</a><a href="">개인화님</a> </div>
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div id="container_inner">
+				<div class="left_container">  
+				</div>
+				<article class="main_container"> 
+					<div class="main_container_inner">
+						<div id="search_submain" class="submain_group">
+							<h3>칼럼
+								<div class="small_search_outbox"><!-- small search -->
+									<div class="small_search_inbox"> 
+										<input type="search" name="" placeholder="칼럼 검색" > <input type="button" value="검색 " id="searchButton_s" class="btn _search">
+									</div>
+								</div>
+							</h3>
+							<div class="search_div">
+								<div class="news_today_title">권형필 변호사의 집합건물 관련 칼럼</div>
+								<div class="news_colum_top"> 
+									<div class="news_A">  
+										<img src="" class="columlist_logo">
+										<div class="columlist_area">
+											<p>칼럼니스트 정보</p>
+											<dl class="lawyer_area">
+												<dt><img src="../images/main_img_lawyer_3.png"></dt>
+												<dd><a href="1">최용문</a><div>사법시험 41회/연수원 32기</div></dd>
+												<dd>
+													<ul>
+														<li><span>소속</span>법무법인 소속</li> 
+														<li><span>주요취급분야</span>저작권,엔터테인먼트</li>
+													</ul> 
+												</dd>
+											</dl>
+										</div> 
+										<div class="news_D"><a href="s">불법행위 유형별로 위자료 산정…법원-변협 12개 방안 추진</a><div>최광석 변호사의 부동산칼럼 <em>2016.12.30</em></div>국무총리 공관 100m 이내에서 옥외집회·시위를 금지한 집회 및 시위에 관한 법률 조항이 위헌인지 여부를 심리하기 위한 헌법재판소 공개변론이 열렸다. 
+											<ul>
+												<li><span class="related_law">법령</span><a href="1">민법 제20조</a>, <a href="2">민사소송법 제5조</a></li>
+												<li><span class="related_law">판례</span><a href="1">대법원 2016. 11. 25.선고 2016다211309</a></li>
+											</ul>
+										</div>
+										<div class="colum_other_outer"> 
+											<div class="colum_other"> 
+												<p>기업법무 칼럼보기<span>더보기</span></p>
+												<ul>
+													<li><a href="1">주택임대차보호법의 태생경위와 문제점</a><span>연합뉴스 <em>2016.12.30</em></span></li>
+													<li><a href="1">부동산 거래와 신의칙상 고지의무</a><span>최광석 변호사의 부동산칼럼 <em>2016.12.27</em></span></li>  
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="news_C"> 
+										<ul>
+											<li><a href="1">국토부 사업자선정지침은 구 주택법 시행령 시행 전까지는 법률에 위임의 근거가 없는 행정규칙에 불과하므로</a>
+											<span><em>2016.12.30</em></span>
+											</li>
+											<li><a href="1">국토부 사업자선정지침은 구 주택법 시행령 시행 전까지는 법률에 위임의 근거가 없는 행정규칙에 불과하므로</a>
+											<span><em>2016.12.30</em></span>
+											</li>
+											<li><a href="1">국토부 사업자선정지침은 구 주택법 시행령 시행 전까지는 법률에 위임의 근거가 없는 행정규칙에 불과하므로</a>
+											<span><em>2016.12.30</em></span>
+											</li>
+											<li><a href="1">교육감이 감사를 위법하다고 판단하여 감사관련 자료를 제출하지 않도록 하는 공문을 발송한 경우 직권남용권리행사방해가 성립하는지 여부</a>
+											<span><em>2016.12.30</em></span>
+											</li>
+											<li><a href="1">국토부 사업자선정지침은 구 주택법 시행령 시행 전까지는 법률에 위임의 근거가 없는 행정규칙에 불과하므로</a>
+											<span><em>2016.12.30</em></span>
+											</li>
+											<li><a href="1">국토부 사업자선정지침은 구 주택법 시행령 시행 전까지는 법률에 위임의 근거가 없는 행정규칙에 불과하므로</a>
+											<span><em>2016.12.30</em></span>
+											</li>
+											<li><a href="1">국토부 사업자선정지침은 구 주택법 시행령 시행 전까지는 법률에 위임의 근거가 없는 행정규칙에 불과하므로</a>
+											<span><em>2016.12.30</em></span>
+											</li>
+											<li><a href="1">국토부 사업자선정지침은 구 주택법 시행령 시행 전까지는 법률에 위임의 근거가 없는 행정규칙에 불과하므로</a>
+											<span><em>2016.12.30</em></span>
+											</li>
+										</ul>
+										<div class="navigationLinks">				        									
+											<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=0" class="navFirst hiddenLink "><i class="icon-7" data-icon="&#xe911;"></i></a>
+											<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=-1" class="navPrevious hiddenLink "><i class="icon-2" data-icon="&#xe901;"></i></a>
+											<span class="currentPage">1</span>
+											<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navPages">2</a>
+											<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=2" class="navPages">3</a>
+											<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=3" class="navPages">4</a>
+											<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navNext"><i class="icon-1" data-icon="&#xe900;"></i></a>
+											<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=13" class="navLast "><i class="icon-8" data-icon="&#xe907;"></i></a>
+										</div>
+									</div> 
+								</div> 
+							</div> 
+						</div> 
+					</div>
+					<div class="main_container_view">
+						<div class="main_container_view_inner">
+							 
+						</div>
+					</div>
+				</article> 
+				<aside class="right_container"> 
+					<section >
+						<h4>칼럼 리스트</h4> 
+						<dl class="lawyer_area">
+							<dt><img src="../images/main_img_lawyer_3.png"></dt>
+							<dd><a href="1">권형필 변호사의 집합건물 관련 칼럼 </a><br>등재칼럼 23 / 최신등록일  2016.12.20</dd> 
+						</dl>
+						<dl class="lawyer_area">
+							<dt><img src="../images/main_img_lawyer_3.png"></dt>
+							<dd><a href="1">박영목변호사의 법률보기</a><br>등재칼럼 23 / 최신등록일  2016.12.20</dd> 
+						</dl>
+						<dl class="lawyer_area">
+							<dt><img src="../images/main_img_lawyer_3.png"></dt>
+							<dd><a href="1">구건서노무사의 노동법칼럼</a><br>등재칼럼 23 / 최신등록일  2016.12.20</dd> 
+						</dl>
+						<dl class="lawyer_area">
+							<dt><img src="../images/main_img_lawyer_3.png"></dt>
+							<dd><a href="1">권형필 변호사의 집합건물 관련 칼럼 </a><br>등재칼럼 23 / 최신등록일  2016.12.20</dd> 
+						</dl>
+						<!-- <div class="more_view">more</div> -->
+					</section> 
+				</aside>
+			</div>
+    	</div>
+		<footer>
+			<div class="etc_menu"> 
+				<div class="top_container">  
+					<ul>	
+						<li class="blind">기타 메뉴 </li>
+						<li>회사소개</li>
+						<li>광고 · 제휴문의</li>
+						<li>이용약관</li>
+						<li>개인정보 취급/처리 방침</li>
+						<li>법적고지</li>
+						<li>이메일 무단수집거부</li>
+					</ul>
+				</div>
+			</div>  
+			<div class="top_container   _footer"> 	   
+				1. 콘텐츠의 명칭 : 법률정보 &nbsp;&nbsp; 2. 콘텐츠의 제작 및 표시 : 2006년 2월 17일(업그레이드 콘텐츠의 경우 갱신일) &nbsp;&nbsp; 3. 콘텐츠 제작자 : ㈜로앤비  &nbsp;&nbsp;  4. 콘텐츠의 이용조건 : <a href="/support/agree_use.asp" class="red_bott">이용약관</a> 및 로앤비 <a href="/support/serviceInfo_member.asp" class="red_bott">서비스안내</a>와 같음 (무단 복제금지) &nbsp;&nbsp;5. 콘텐츠의 보호기간 : ㈜로앤비 사이트의 모든 콘텐츠는 「콘텐츠산업 진흥법」에 따라 제작 또는 갱신일로부터 5년간 보호됨
+				<div>Thomson reuters</div>
+				<div>Copyright ⓒ 1998~2016 <b>LAWnB</b>. All Rights Reserved.</div>
+			</div>       
+		</footer>
+		<div id="bg_screen"></div>
+		<script type="text/javascript">  
+			setHeight_under();			  
+		</script>
+	</div>
+</div> 
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<link rel="stylesheet" type="text/css" href="../css/_next_login.css">
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="http://code.jquery.com/jquery-latest.js"></script> 
+<script type="text/javascript" src="../js/commonjs.js?s"></script> 
+</head>
+
+<body>
+<div id="wrap" class="login" >
+	<header>
+		<h1 title="로앤�?"><img src="../images/space.gif"  alt="로앤�? " /><span><a href="">로앤�???/a>        <a href="">고객?�터</a>        <a href="">?�비?�안??/a>   <a href="">?��?�?/a></span></h1>  
+	</header>
+	<div id="container">
+		<div class="inner">
+			<h2>PC?�증</h2>   
+			<div class="info_area">?�녕?�세?? ?�길???�원??br><br>로앤비에?�는 One ID One User ?�책???�라 ?�PC?�증 ?�도?��? ?�행?�고 ?�으�? ?�증받�? PC?�서�?로그?�할 ???�습?�다.
+				<div class="regist_pc"><span>?�재??PC???�증??받으?�겠?�니�? </span><br><span>?�원?��? ?��? 주PC가 ?�록?�어 ?�습?�다. ?�재 컴퓨?��? 보조 PC�??�록?�시겠습?�까?</span>
+
+					<div><input type="radio" id="" name="">주PC�??�록</div>
+					<ul>
+						<li><lable>?�용?�소</lable> <input type="text" id="" name=""> <span class="text_ex">???�사컴퓨?? ?�길?�집, ?�트�???/span></li>
+					</ul>
+
+				</div>
+				<i class="icon-info" data-icon="&#xe90d;"></i> ?�증??받�? ?�후???�른 PC?�서 ?�용?�시?�면 ?�제?��? PC?�증???�전?�록?�고 ?�용?????�습?�다.
+			</div>
+			<div class="final_area"><span>?�인</span><span class="_cancel">취소</span></div>
+		</div>
+	</div>
+	<div id="footer">
+		<div class="copy_area"> 
+			Copyright@ <em>LAW</em>n<em>B</em>. All Rights Reserved. <div class="img_tr"><img src="../images/logo_tr.gif "></div>
+		</div>   
+	</div>
+</div>
+</body>
+</html>

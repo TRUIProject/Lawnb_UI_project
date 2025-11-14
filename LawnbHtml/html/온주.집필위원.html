@@ -1,0 +1,394 @@
+﻿
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Style-Type" content="text/html">
+    <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+    <meta name="viewport" content="width=1140">
+    <title> 온주 - 로앤비 </title>
+
+    <link rel="stylesheet" type="text/css" href="../css/_next_default.css" />
+    <link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />
+    <link rel="stylesheet" type="text/css" href="../css/icon-style.css" />
+    <script src="../Scripts/lib/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../Scripts/common/commonjs.js"></script>
+
+    <script src="/Scripts/member/mydesk/MyDesk.js?v=2020123006" type="text/javascript"></script>
+    <script src="/Scripts/member/mydesk/MyFolder.js?v=2020123006" type="text/javascript"></script>
+    <script src="/Scripts/member/mydesk/MyAlert.js?v=2020123006" type="text/javascript"></script>
+
+    <script src="/Scripts/sub/serviceBinding.js?v=2020123006" type="text/javascript"></script>
+    <script src="/Scripts/sub/shareBinding.js?v=2020123006" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        function resizeComment() {
+            reSettingHeight();
+            //        if ($('.wide_left').length > 0) {
+            //            $('#right_control').hide();
+            //            $('.right_container').addClass('slide_mov_right');
+            //        } else{
+            //            $(".right_container").removeClass('slide_mov_right');
+            //        }
+        }
+
+        $(function () {
+
+            var UserCode = uCode = "";
+            // 히스토리 자동저장
+            if (UserCode != null && UserCode != "") {
+                if ("0" != "N003" && "0" != "B003") {
+                    SetMyHistoryList('0', '0', encodeURIComponent(''));
+                }
+            }
+
+            // 나의폴더
+            var myforderParams = {
+                'MyFolderGetUrl': '../MyDesk/MyFolderGet',
+                'MyFolderContentSetUrl': '../MyDesk/MyFolderContentSet',
+                'sCode': "0",
+                'Did': '0',
+                'sTitle': encodeURIComponent('')
+            };
+            myfolder.init(myforderParams);
+
+            if (UserCode != null && UserCode != "") {
+                // 해당컨텐츠가 담긴 나의폴더 가져오기
+                myfolder.myFolderRelateContent("0");
+            }
+            if (UserCode != null && UserCode != "") {
+                // 인쇄하기, 파일저장 컨탠츠가 담긴 폴더 가져오기
+                service.getMyFolderHtml("0", "MY05");
+                service.getMyFolderHtml("0", "MY06");
+            }
+            // 알림text설정
+            if ("0" == "Y") { $("#alert_set #alertSetting").text("알림"); }
+            else { $("#alert_set #alertSetting").text("알림설정"); }
+
+
+            // 공유하기
+            var shareParams = {
+                "sTitle": encodeURIComponent(""),
+                "sUrl": encodeURIComponent("https://onju.lawnb.com/SubInfo/CaseSignHelp")
+            };
+            share.init(shareParams);
+
+            //20200617 본문검색
+            $('.function_area').on('click', '#inner_search', function () {
+                $(this).hide();
+                $('#search_word').hide();
+                $('.inner_search_div').css('display', 'inline-block');
+
+
+                $('.inner_search_div').on('click', '.inner_search_close', function () {
+                    $('.inner_search_div').hide();
+                    $('#search_word').css('display', 'inline-block');
+                    $('#inner_search').css('display', 'inline-block');
+                });
+
+                if ($("#view_content #P1").length > 0) {
+
+                    $("#gatheringContentView").show();
+                }
+                else {
+
+                    $("#gatheringContentView").hide();
+                }
+            });
+
+
+            $('.function_area').on('click', '.btn_inner_search_get', function () {
+                //$('#view_content').hide();
+                //$('#view_sub_content').show();
+
+                $('.btn_close').click(function () {
+                    $('#view_sub_content').html("");
+                    $('#view_sub_content').hide();
+                    $('#view_content').show();
+                });
+            });
+
+
+            if ("0" == "1") {
+                $(".popup_kerisalert_area").show();
+                $("#bg_screen").show();
+            }
+        });
+    </script>
+
+</head>
+
+<body onresize="resizeComment();">
+     
+    <div id="co_popupContainer">
+        <input type="hidden" id="sFullsId" value="0" />
+        <div id="wrap" class="">
+            <header>
+                <div class="top_container  ">
+                        <h1>로앤비</h1>
+                    <div class="function_area">
+                        <p class="hide">기타기능버튼들</p>
+                         
+
+                    </div>
+                </div>
+            </header>
+            <script src="/Scripts/content/colcat/caseBinding.js?v=2020123006" type="text/javascript"></script>
+<script src="/Scripts/content/cViewBinding.js?v=2020123006" type="text/javascript"></script>
+<script src="/Scripts/content/cViewAjaxBinding.js?v=2020123006" type="text/javascript"></script>
+             
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#right_control").hide();
+    });
+
+    $(function () {
+        var viewParams = {
+            "realFileName": ""
+        };
+        view.init(viewParams); 
+        initCaseview(1);
+    });
+    function initCaseview(targeType) {
+        if (targeType != null) {
+            if (targeType == "1") {
+                $('.lawyer_commit').show();
+                $('.lawyer_writers').hide();
+                $('#tab_area a').addClass('off').removeClass('on');
+                $('#tab_area a').eq(0).addClass('on').removeClass('off');
+                $('#hdnPrintType').val('1');
+            }
+            else if (targeType == "2") {
+                $('.lawyer_commit').hide();
+                $('.lawyer_writers').show();
+                $('#tab_area a').addClass('off').removeClass('on');
+                $('#tab_area a').eq(1).addClass('on').removeClass('off');
+                $('#hdnPrintType').val('2');
+            }
+        }
+    }
+</script>
+<div id="container" class="onlycon law">
+    <div class="title_area"> 
+        <input type="hidden" id="hdnPrintType" value="1" />
+        <input type="hidden" id="hdnSignTabIndex" value="0" />
+        <div id="tab_area" class="mgt20">
+            <a href="#" id="casesignTop1" class="on" onclick="initCaseview('1');">온주 편집위원 소개</a>
+            <a href="#" id="casesignTop2" class="off" onclick="initCaseview('2');">온주 집필위원 소개</a>
+        </div>
+    </div>
+    <div id="container_inner">
+        <article class="main_container">
+            <div class="main_container_view"> 
+                <div  class="onju">
+                    <div class="lawyer_commit  ">
+                        <div class="writer_master"> 
+                            <dl class="lawyer_area">
+                                <dt><img src="/lbimg/peopdata/kwongwangjung20110613.jpg" class="img"></dt>
+                                <dd>대표편집위원 권광중 <span>변호사</span></dd>
+                                <dd><span class="text_ex">소속</span>법무법인 광장 </dd>
+                                <dd><span class="text_ex">주요경력</span>법무법인 광장 고문변호사 (현)<br />
+                                법조윤리협의회 위원장(전)<br />
+                                대한변호사협회 변호사연수원장<br />
+                                법무법인 광장 대표 변호사<br />
+                                광주지방법원장, 사법연수원장
+                                </dd>
+                            </dl>
+                        </div>
+                        
+                        <div class="txt_info">* 아래의 편집위원 리스트는 가나다순입니다.</div>
+
+                        <div class="writer_main">
+                            <dl class="lawyer_area">
+                                <dt><img src="/lbimg/peopdata/songinwook20130204.jpg" class="img"></dt>
+                                <dd><p>편집위원 <a href="">김건식</a></p></dd>
+                                <dd><span class="text_ex">소속</span>법무법인 광장 </dd>
+                                <dd>
+                                    <span class="text_ex">주요경력</span>서울대 법학전문대학원 교수(현)<br />
+                                    BFL 편집위원장(현)<br />
+                                    서울법대 금융법센터장<br />
+                                    한국상사법학회장<br />
+                                    서울법대 학장
+                                </dd>
+                            </dl>
+                            <dl class="lawyer_area">
+                                <dt><img src="/lbimg/peopdata/songinwook20130204.jpg" class="img"></dt>
+                                <dd><p>편집위원 <a href="">김건식</a></p></dd>
+                                <dd><span class="text_ex">소속</span>법무법인 광장 </dd>
+                                <dd>
+                                    <span class="text_ex">주요경력</span>서울대 법학전문대학원 교수(현)<br />
+                                    BFL 편집위원장(현)<br />
+                                    서울법대 금융법센터장<br />
+                                    한국상사법학회장<br />
+                                    서울법대 학장
+                                </dd>
+                            </dl>
+                            <dl class="lawyer_area">
+                                <dt><img src="/lbimg/peopdata/songinwook20130204.jpg" class="img"></dt>
+                                <dd><p>편집위원 <a href="">김건식</a></p></dd>
+                                <dd><span class="text_ex">소속</span>법무법인 광장 </dd>
+                                <dd>
+                                    <span class="text_ex">주요경력</span>서울대 법학전문대학원 교수(현)<br />
+                                    BFL 편집위원장(현)<br />
+                                    서울법대 금융법센터장<br />
+                                    한국상사법학회장<br />
+                                    서울법대 학장
+                                </dd>
+                            </dl>
+                            <dl class="lawyer_area">
+                                <dt><img src="/lbimg/peopdata/songinwook20130204.jpg" class="img"></dt>
+                                <dd><p>편집위원 <a href="">김건식</a></p></dd>
+                                <dd><span class="text_ex">소속</span>법무법인 광장 </dd>
+                                <dd>
+                                    <span class="text_ex">주요경력</span>서울대 법학전문대학원 교수(현)<br />
+                                    BFL 편집위원장(현)<br />
+                                    서울법대 금융법센터장<br />
+                                    한국상사법학회장<br />
+                                    서울법대 학장
+                                </dd>
+                            </dl>
+                            <dl class="lawyer_area">
+                                <dt><img src="/lbimg/peopdata/songinwook20130204.jpg" class="img"></dt>
+                                <dd><p>편집위원 <a href="">김건식</a></p></dd>
+                                <dd><span class="text_ex">소속</span>법무법인 광장 </dd>
+                                <dd>
+                                    <span class="text_ex">주요경력</span>서울대 법학전문대학원 교수(현)<br />
+                                    BFL 편집위원장(현)<br />
+                                    서울법대 금융법센터장<br />
+                                    한국상사법학회장<br />
+                                    서울법대 학장
+                                </dd>
+                            </dl>
+                            <dl class="lawyer_area">
+                                <dt><img src="/lbimg/peopdata/songinwook20130204.jpg" class="img"></dt>
+                                <dd><p>편집위원 <a href="">김건식</a></p></dd>
+                                <dd><span class="text_ex">소속</span>법무법인 광장 </dd>
+                                <dd>
+                                    <span class="text_ex">주요경력</span>서울대 법학전문대학원 교수(현)<br />
+                                    BFL 편집위원장(현)<br />
+                                    서울법대 금융법센터장<br />
+                                    한국상사법학회장<br />
+                                    서울법대 학장
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="lawyer_writers"> 
+                            <div id="search_results">
+                                <div class="onju_writers_search"> 
+                                    <div class="small_search_outbox">
+                                        <!-- small search -->
+                                        <div class="small_search_inbox">
+                                            <select id="sType4" name="sType4">
+                                                <option value="all">주석서전체</option>
+                                                <option value="desc">분야</option>
+                                                <option value="title">제목</option>
+                                                <option value="cont">본문</option>
+                                            </select>
+                                            <!-- 검색 버튼 -->
+                                            <input type="search" id="sWord" name="sWord" placeholder="집필위원 검색" onkeypress="if(event.keyCode==13) {lawfirm.goSearchList(); return false;}" value="">
+                                            <input type="button" value="검색 " id="searchButton_s" class="btn _search" onclick="return lawfirm.goSearchList();">
+                                            <!--// 검색 버튼 -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="s_num_area">검색결과 11,001건 <small>1/1000</small></div>
+                                <div class="btn_option_outer">
+                                    <div class="select_area">
+                                        <p class="blind">보기 개수 선택</p>
+                                        <select id="sListChecker" name="sListChecker">
+                                            <option value="10">10개</option>
+                                            <option value="20" selected="selected">20개</option>
+                                        </select>
+                                    </div>
+                                    <div class="btn_option">
+                                        <div class="btn-group" data-toggle="buttons-checkbox">
+                                            <button type="button" class="btn btn-default _select">이름 <i class="icon-sort-numeric-asc" data-icon=""></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ol class="list btn_exist lawyer">
+                                    <li>
+                                        <span class="list_num">1</span> 
+                                        <div class="img"><img src="http://www.lawnb.com/data/peopdata/kimgaram20140410.bmp" alt="사진"></div>
+                                        <div class="co_searchContent">
+                                            <h3> <a href="/list_view.html">강진석 姜珍錫</a>  <span>1999년생/ 여자 / 사법시험 35회</span></h3>
+                                            <div class="co_searchResults_summary">
+                                                <span>현직 : 변호사(대표번호사) / 법무법인 서울</span><br />
+                                                <span>집필법령: 법인세법</span>
+                                            </div>
+                                            <div class="function_btn"><span class="blue_bt">온주집필 1건</span><span class="blue_bt">승소판례 291건</span><a href=""><span class="icon_function">네비게이션</span></a></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="list_num">1</span>
+                                        <div class="img"><img src="http://www.lawnb.com/data/peopdata/songinwook20130204.jpg" alt="사진"></div>
+                                        <div class="co_searchContent">
+                                            <h3><a href="#">김강산(金江山)</a> <span>1972년생  / 여자 / 사법시험 41회</span></h3>
+                                            <div class="co_searchResults_summary">
+                                                <span>현직 : 변호사(대표번호사) / 법무법인 서울</span><br />
+                                                <span>집필법령: 법인세법</span>
+                                            </div>
+                                            <div class="function_btn"><a href=""><span class="icon_function">네비게이션</span></a></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="list_num">1</span>
+                                        <div class="img"><img src="http://www.lawnb.com/data/peopdata/kimhyojeon_20091222.jpg" alt="사진"></div>
+                                        <div class="co_searchContent">
+                                            <h3><a href="#">김효전(金孝全)</a> <span>1972년생 / 남자 / 변호사시험 2회</span></h3>
+                                            <div class="co_searchResults_summary">
+                                                <span>현직 : 변호사(대표번호사) / 법무법인 서울</span><br />
+                                                <span>집필법령: 법인세법</span>
+                                            </div>
+                                            <div class="function_btn"><a href=""><span class="icon_function">네비게이션</span></a></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="list_num">1</span>
+                                        <div class="img">
+                                            <img src="http://www.lawnb.com/data/peopdata/ShimJaeguk20160216.jpg" alt="사진"> 
+                                        </div>
+                                        <div class="co_searchContent">
+                                            <h3><a href="#">심재국(沈載國)</a> <span>1981년생 / 남자 / 변호사시험 3회</span></h3>
+                                            <div class="co_searchResults_summary">
+                                                <span>현직 : 변호사(대표번호사) / 법무법인 서울</span><br />
+                                                <span>집필법령: 법인세법</span>
+                                            </div>
+                                            <div class="function_btn"><a href=""><span class="icon_function">네비게이션</span></a></div>
+                                        </div>
+                                    </li>
+                                </ol>
+                                <div class="navigationLinks">
+                                    <a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=0" class="navFirst hiddenLink "><i class="icon-7" data-icon=""></i></a>
+                                    <a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=-1" class="navPrevious hiddenLink "><i class="icon-2" data-icon=""></i></a>
+                                    <span class="currentPage">1</span>
+                                    <a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navPages">2</a>
+                                    <a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=2" class="navPages">3</a>
+                                    <a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=3" class="navPages">4</a>
+                                    <a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navNext"><i class="icon-1" data-icon=""></i></a>
+                                    <a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=13" class="navLast "><i class="icon-8" data-icon=""></i></a>
+                                </div>
+                            </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>
+
+            <div id="bg_screen"><div class="loading_img"><img src="/images/tr_img_loading_re.gif?v=2020123006"></div></div>
+          
+        </div>
+           
+
+
+        <script type="text/javascript">
+            setHeight();
+        </script>
+    </div>
+</body>
+</html>

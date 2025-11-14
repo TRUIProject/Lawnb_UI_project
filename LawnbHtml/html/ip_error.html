@@ -1,0 +1,192 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+    <meta name="viewport" content="width=1140" />
+    <title>로앤비</title>
+    <style type="text/css">
+        * {
+            font-family: "MalgunGothic", "MalGun Gothic", "malgungothic", "malgun gothic",NanumGothic,Helvetica,AppleSDGothicNeo,sans-serif;
+            font-size: 14px;
+        }
+
+        #wrap h1 {
+            height: 70px
+        }
+
+        .login header {
+            border-bottom: 0;
+            margin: 0 auto;
+            margin-top: 40px;
+            width: 860px;
+            background-color: #144b78;
+            font-size: 0
+        }
+
+        header h1 {
+            text-align: left;
+            margin: 0 auto;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .login.mobile header {
+            width: 100%;
+            margin-top: 0
+        }
+
+        #wrap.login h1 img {
+            width: 130px;
+            height: 50px;
+            background-size: 130px;
+        }
+
+        .login h2 {
+            font-size: 20px
+        }
+
+        #container {
+            position: relative;
+            z-index: 200;
+            text-align: left;
+            width: 860px;
+            margin: 0 auto
+        }
+
+        .mobile #container {
+            width: 100%;
+            padding-left: 10px
+        }
+
+        .login #container .inner {
+            width: 780px;
+            margin: 20px auto
+        }
+
+        .login.mobile #container .inner {
+            width: 100%
+        }
+
+        .login .info_area {
+            background-color: #f2f2f2;
+            padding: 20px;
+            margin-top: 20px;
+            line-height: 160%
+        }
+
+        .login.mobile .info_area {
+            margin-right: 20px
+        }
+
+        .final_area {
+            margin: 30px 0;
+            text-align: center
+        }
+
+            .final_area span {
+                background: #ff5900;
+                font-size: 16px;
+                border: 0;
+                color: #fff;
+                padding: 6px 22px;
+                line-height: 22px;
+                border-radius: 20px;
+                font-weight: bold;
+                cursor: pointer
+            }
+
+                .final_area span a {
+                    color: #fff;
+                    text-decoration: none
+                }
+
+        #footer {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            border-top: 0;
+            margin: 0 auto;
+            text-align: center;
+            padding-bottom: 20px
+        }
+
+        .copy_area {
+            position: relative;
+            width: 860px;
+            margin: 0 auto;
+            padding: 10px 0;
+            text-align: left
+        }
+
+        .login .img_tr {
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding-right: 5px;
+        }
+
+        .login .copy_area em {
+            color: #ff8000;
+            font-style: normal;
+            font-weight: bold
+        }
+
+        .mobile .copy_area {
+            font-size: 11px;
+            width: 100%
+        }
+
+            .mobile .copy_area img {
+                width: 70%
+            }
+
+        .mobile.login .img_tr {
+            text-align: right
+        }
+    </style>
+    <script src="/Scripts/lib/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            $(".final_area").hide();
+            if (opener) {
+                $(".final_area").eq(1).show();
+            } else {
+                $(".final_area").eq(0).show();
+            }
+        });
+
+    </script>
+</head>
+
+
+<body>
+    <div id="wrap" class="login">
+        <header>
+            <span><a href="/" id="btn_home"><img src="//www.lawnb.com/images/tr_logo_lawnb_w.png" /></a></span>
+        </header>
+        <div id="container">
+            <div class="inner">
+                <h2>이용중인 서비스가 종료되었습니다.  </h2>
+                <div class="info_area">
+                    이용을 원하시면 아래 메일주소로 연락 주시기 바랍니다.
+                    <br />
+                    <a href="mailto:kr.legal.sales@tr.com">kr.legal.sales@tr.com</a>
+                </div>
+                <div class="final_area" style="height:60px"><span><a href="/">로앤비 홈</a></span></div>
+                <div class="final_area" style="height:60px"><span><a href="javascript:window.close();">닫기</a></span></div>
+            </div>
+        </div>
+        <div id="footer">
+            <div class="copy_area">
+                Copyright@ <em>LAWnB</em>. All Rights Reserved. <div class="img_tr"><img src="//www.lawnb.com/Images/logo_tr.gif?v=2019112611" alt="logo_tr"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../js/commonjs.js?sdd"></script>
+<script language="javascript">
+<!--
+	 
+	function resizeComment(){ 
+			setHeight_under();
+			$(".right_container").removeClass('slide_mov_right'); 
+		}
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_mainContainer">
+	<div id="wrap" >
+		<header> 
+			<div class="top_container  ">  
+				<a href="/maf/poc/app/homepage"><h1>로앤비</h1></a>
+				<div id="t_search" class="search_container">
+					<h2>통합검색 영역</h2>
+				<div class="search_inner">
+					<form  action="" > 
+					<div class="search_left hide">
+						<label class="hide">통합검색  </label>
+					</div>
+					<div class="search_center">
+						<input type="search" name="" id="" >
+					</div>
+					<div class="search_right"><span  class="more_btn">more</span></div>
+					<div id="searchButton" class="search_btn"><i class="icon-" data-icon="&#xe910;"></i><span class="hide">검색</span></div> 
+					</form>
+					<div class="btn_search_result"><i class="icon-table" data-icon="&#xea71;"></i><span class="hide">검색결과 맵 보기</span></div>
+				</div>
+				<div class="search_layer_outer" >
+					<div class="search_layer" >
+						<div class="search_layer_list _done ">
+							<!-- <div class="txt_info">최근검색어저장 기능이 OFF 상태에 있습니다.<br>이용을 원하시면 하단의 최근검색어저장 상태를 ON으로 변경해주세요. </div> 
+							<ul>
+								<li>공정거래법 위반으로 인한 손해액의 산정방법과 주요 쟁점으로 <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+							</ul>-->
+							<ul>
+								<li><strong>대법</strong>원인터넷등기소<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+								<li><strong>대법</strong>원나의사건검색</li>
+								<li><strong>대법</strong>원법원경매정보</li>
+								<li><strong>대법</strong>원전자가족관계</li>
+								<li><strong>대법</strong>원경매</li>
+								<li><strong>대법</strong>원인터넷등기소<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+								<li><strong>대법</strong>원나의사건검색<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+								<li><strong>대법</strong>원법원경매정보</li>
+								<li><strong>대법</strong>원전자가족관계</li>
+								<li><strong>대법</strong>원경매</li>
+							</ul> 
+							<div class="expend_result" onclick="">
+								<p>법무법인(유한) 태평양어쩌고 저쩌고</p>
+								<span>주소 : [050-50] 서울시 광진구 디지털로 272, 한신 IT타워 611호<br>대표전화 : 02-2204-2114</span>
+								<div class="dirct_go">바로가기</div>
+							</div>
+						</div>
+						<!-- <div class="noti_txt"><i class="icon-" data-icon="&#xe90d;"></i> 공용 PC에서는 개인정보보호를 위하여 반드시 로그아웃을 해주세요.</div> -->
+						<div class="search_layer_foot">
+							<div class="fl">기록삭제</div>
+							<div class="fr">최근검색어저장 <div class="btn-group"><button type="button" class="btn btn_orange _select">ON</button><button type="button" class="btn btn-default">OFF</button></div> 자동완성 <div class="btn-group"><button type="button" class="btn btn_orange _select">ON</button><button type="button" class="btn btn-default">OFF</button></div>
+							</div>						
+						</div>
+					</div>
+					
+					
+				</div>
+			</div>
+			<div id="indiv_area" class="indiv_container">
+				<span alt="나의폴더">나의폴더<i class="icon-myfolder" data-icon="&#xe91a;"></i></span>
+				<span alt="히스토리">히스토리<i class="icon-history" data-icon="&#xe916;"></i></span>
+				<span alt="알림설정">알림설정<i class="icon-alert" data-icon="&#xe918;"></i><em>9+</em></span>
+				<span alt="질문내역">문의내역<i class="icon-question" data-icon="&#xe919;"></i></span>
+				<span alt="나의정보">나의정보<i class="icon-myinfo" data-icon="&#xe917;"></i></span>
+			</div>
+			</div>
+			<nav> 
+				<dl id="main_menu" class="mmenu">
+					<dt class="blind">메인 메뉴</dt> 
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=IAED6CC08DD364059AB193CEAF31A4AB0&amp;stnew=true"><span>판례</span></a>
+					</dd>
+					<dd class="currentTab" >
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I0F5DD49BE2B544DBB7414874EC787E80&amp;stnew=true"><span>법규</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=ICAA980E9234848FEA6D0DA62432279E0&amp;stnew=true"><span>심판·결정·해석</span></a>
+					</dd>
+					<dd >
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I247AD0D84D9B4429B617C8D9F8388C8F&amp;stnew=true"><span>문헌</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I661610C9A2C749D6A4221A93502B0170&amp;stnew=true"><span>법조인</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I574B9F7164CB11E498DB8B09B4F043E0&amp;stnew=true"><span>기업법무</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I66693AFFED274970AC53A686AAA123C0&amp;stnew=true"><span>서식</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocHelp?docguid=WLAWLNEXT"><span>뉴스·칼럼</span></a>
+					</dd>
+				</dl>   
+			</nav>        	
+		</header> 
+		<div id="container" class="two-con submain doc">
+			<div id="breadcrumb" class="navi_area">
+				<div>Home > 문헌 > <a href="1">주석서</a></div>
+				<div class="group_indivi_btn"><a href="">로그인</a><a href="">개인화님</a> </div>
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div id="container_inner">
+				<div class="left_container">  
+				</div>
+				<article class="main_container"> 
+					<div class="main_container_inner">
+						<div id="search_submain" class="submain_group">
+							<h3>주석서</h3>
+							<div class="search_div">
+								<form id="searchForm" method="post" action="CaseList">
+								<div class="search_input">
+									<input type="search" id="sWord" name="sWord"  placeholder="검색어">
+									<div class="except">
+									<input type="search" name="sWord1" placeholder="제외어">
+									</div>
+								</div>
+								<ol class="check_area">
+									<li><input type="checkbox" class="sType2List" value="0"><label>전체</label></li>
+									<li><input type="checkbox" class="sType2List" value="32"><label>목차 </label></li>
+									<li><input type="checkbox" class="sType2List" value="16"><label>본문</label></li> 
+								</ol>
+								<div class="detail_area_open    _open">
+									<ul>  
+										<li class="half">
+											<label>분야선택</label>
+											<select name="sType5" id="sType5" >
+												<option value="0" selected="selected">전체</option> 
+												<option value="1">최근 6개월 </option>
+												<option value="2">최근 1년</option>
+												<option value="3">최근 5년</option>
+												<option value="00">직접선택</option>
+											</select>
+										</li>
+										<li class="half">
+											<label>권호선택</label>
+											<select name="sType5" id="sType5"  class="date_select">
+												<option value="0" selected="selected">전체</option> 
+												<option value="1">최근 6개월 </option>
+												<option value="2">최근 1년</option>
+												<option value="3">최근 5년</option>
+												<option value="00">직접선택</option>
+											</select>
+											<div class="detail_date"><input type="number" id="sUnivS" name="sUnivS" title="시작일" style="width:80px" placeholder="20160101"> ~ <input type="number" id="sUnivE" name="sUnivE" title="종료일" style="width:80px" placeholder="20161231"></div> 
+										</li>
+									</ul>
+								</div>	
+								<div class="btn_area"><input type="submit" id="searchBtn" value="검색"> <span class="_cancel"><i class="icon-16" data-icon="&#xe90e;"></i>입력초기화</span></div>
+								</form>
+							</div> 
+						</div>
+						<div  class="submain_group title">
+							<h3>분야별 주석서</h3> 
+							<ul class="directory_list">
+								<li>민법</li>
+								<li><a href="#">민사소송편</a></li>
+								<li><a href="#">민사집행편</a></li>
+								<li><a href="#">상법</a></li>
+								<li><a href="#">형법</a></li>
+								<li><a href="#">형사소송법</a></li> 
+								<li><a href="#">행정절차편</a></li> 
+							</ul> 
+							<div class="directory_sub_org" style="display:block">
+								<h4 class="hide">민법 </h4> 
+								<span></span> 
+								<div class="directory_list sub"> 
+									<div class="book_group">
+										<p><em class="list_num">1</em><a href="33">민법총칙</a></p>
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제6장 통칙</button>  
+											</div> 제1조 ~ 제2조 
+										</div>
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제2장 인</button>  
+											</div> 제3조 ~ 제30조
+										</div>
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square " >제3장 법인</button>  
+											</div> 제31조 ~ 제97조
+										</div> 
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" title="">제4장 물건</button>  
+											</div> 제98조 ~ 제 102조
+										</div> 
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" title="第3節 數人의 債權者 및 債權者">第3節 數人의 債權者 및 債權者 </button>  
+											</div> 제103조 ~ 제154조 
+										</div> 
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제6장 기간</button>  
+											</div> 제155조 ~ 제161조
+										</div> 
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn  btn-square" >제7장 소멸시효</button>  
+											</div> 제162조 ~ 제184조
+										</div> 
+									</div>
+									<div class="book_group">
+										<p><em class="list_num">2</em><a href="33">물권법</a></p>
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제1장 통칙</button>  
+											</div> 제185조 ~ 제261조
+										</div>
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제2장 인</button>  
+											</div> 제3조 ~ 제30조
+										</div>
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제3장 법인</button>  
+											</div> 제31조 ~ 제97조
+										</div> 
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제4장 물건</button>  
+											</div> 제98조 ~ 제 102조
+										</div> 
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제5장 법률행위</button>  
+											</div> 제103조 ~ 제154조 
+										</div> 
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제6장 기간</button>  
+											</div> 제155조 ~ 제161조
+										</div> 
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제7장 소멸시효</button>  
+											</div> 제162조 ~ 제184조
+										</div> 
+									</div>
+									<div class="book_group">
+										<p><em class="list_num">3</em><a href="33">채권총칙</a></p>
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제1장 통칙</button>  
+											</div> 제185조 ~ 제261조
+										</div>
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제2장 인</button>  
+											</div> 제3조 ~ 제30조
+										</div>
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제3장 법인</button>  
+											</div> 제31조 ~ 제97조
+										</div> 
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제4장 물건</button>  
+											</div> 제98조 ~ 제 102조
+										</div> 
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제5장 법률행위</button>  
+											</div> 제103조 ~ 제154조 
+										</div> 
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제6장 기간</button>  
+											</div> 제155조 ~ 제161조
+										</div> 
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제7장 소멸시효</button>  
+											</div> 제162조 ~ 제184조
+										</div> 
+									</div>
+									<div class="book_group">
+										<p><em class="list_num">4</em><a href="33">채권각칙 </a></p>
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제1장 통칙</button>  
+											</div> 제185조 ~ 제261조
+										</div>
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제2장 인</button>  
+											</div> 제3조 ~ 제30조
+										</div>
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제3장 법인</button>  
+											</div> 제31조 ~ 제97조
+										</div> 
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제4장 물건</button>  
+											</div> 제98조 ~ 제 102조
+										</div> 
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제5장 법률행위</button>  
+											</div> 제103조 ~ 제154조 
+										</div> 
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제6장 기간</button>  
+											</div> 제155조 ~ 제161조
+										</div> 
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제7장 소멸시효</button>  
+											</div> 제162조 ~ 제184조
+										</div> 
+									</div>
+									<div class="book_group">
+										<p><em class="list_num">5</em><a href="33">친족법  </a></p>
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제1장 통칙</button>  
+											</div> 제185조 ~ 제261조
+										</div>
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제2장 인</button>  
+											</div> 제3조 ~ 제30조
+										</div>
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제3장 법인</button>  
+											</div> 제31조 ~ 제97조
+										</div> 
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제4장 물건</button>  
+											</div> 제98조 ~ 제 102조
+										</div> 
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제5장 법률행위</button>  
+											</div> 제103조 ~ 제154조 
+										</div> 
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제6장 기간</button>  
+											</div> 제155조 ~ 제161조
+										</div> 
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제7장 소멸시효</button>  
+											</div> 제162조 ~ 제184조
+										</div> 
+									</div>
+									<div class="book_group">
+										<p><em class="list_num">6</em><a href="33">상속법</a></p>
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제1장 통칙</button>  
+											</div> 제185조 ~ 제261조
+										</div>
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제2장 인</button>  
+											</div> 제3조 ~ 제30조
+										</div>
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제3장 법인</button>  
+											</div> 제31조 ~ 제97조
+										</div> 
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제4장 물건</button>  
+											</div> 제98조 ~ 제 102조
+										</div> 
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제5장 법률행위</button>  
+											</div> 제103조 ~ 제154조 
+										</div> 
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제6장 기간</button>  
+											</div> 제155조 ~ 제161조
+										</div> 
+										<div class="book_cate">
+											<div class="btn-group" >
+											  <button type="button" class="btn btn-square" >제7장 소멸시효</button>  
+											</div> 제162조 ~ 제184조
+										</div> 
+									</div>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+					<div class="main_container_view">
+						<div class="main_container_view_inner">
+							 
+						</div>
+					</div>
+				</article> 
+				<aside class="right_container"> 
+					<section class="calc_info">  
+						<h4>LAWnB 검색연산자 안내<span class="btn_more"><i class="icon_open"  ></i>열기</span></h4> 
+						<div>
+							<table>
+								<tr>
+									<td><span>AND 검색</span><br>"이사회"와 "감사"가 모두 포함된 문서<div>예시) 이사회 감사, 이사회 & 감사, 이사회 AND 감사</div></td> 
+								</tr>
+								<tr>
+									<td ><span>OR 검색</span><br>"이사회"와 "감사" 중 어느 하나라도 포함된 문서<div>예시) 이사회 + 감사, 이사회 OR 감사</div></td>
+								</tr>
+								<tr>
+									<td ><span>NOT 검색</span><br>"이사회"가 포함되어 있는 문서 중 "감사"가 포함되지 않은 문서<div>예시) [검색어]이사회 [제외어]감사 ,이사회 ! 감사</div></td>
+								</tr>
+								<tr>
+									<td ><span>EQUAL 검색</span><br>"이사회 감사" 라는 검색어와 완전히 일치하는 구문이 있는 문서<div>예시) “이사회 감사”</div></td> 
+								</tr>
+								<tr>
+									<td ><span>NEAR 검색</span><br>"이사회"와 "감사" 사이에 문자가 10글자 이하인 문서<div>예시) “이사회 감사”~10</div></td>
+								</tr>
+							</table>
+						</div>
+					</section> 
+					<section >
+						<h4>주석서 안내</h4>
+						<p>로앤비는 기본법의 조문 단위 주석 서비스를 제공하고 있습니다. 각 분야에서  제공하는 개별서의 범위는 아래와 같습니다.</p> 
+						<table class="comm_info">
+							<tr>
+								<th>민법</th>
+								<td>민법총칙, 물권법, 채권총칙, 채권각칙, 친족법, 상속법</td>
+							</tr>
+							<tr>
+								<th>민사소송법</th>
+								<td>민사소송법</td>
+							</tr>
+							<tr>
+								<th>민사집행법</th>
+								<td>민사집행법</td>
+							</tr>
+							<tr>
+								<th>상법</th>
+								<td>총칙상행위, 회사법, 어음수표법, 보험법, 해상법</td>
+							</tr>
+							<tr>
+								<th>행정절차법</th>
+								<td>행정절차법</td>
+							</tr>
+							<tr>
+								<th>형법</th>
+								<td>형법총칙, 형법각칙</td>
+							</tr>
+							<tr>
+								<th>형사소송법</th>
+								<td>형사소송법</td>
+							</tr>
+						</table> 
+					</section> 
+					<section class="direct_s">
+						<h4>온주 <span>실무중심, 조문별 온라인 법령해설서</span></h4>
+						<ul > 
+							<li>추천 주석서 <div class="btn-group fr">
+							  <button type="button" class="btn btn-default">전체보기</button> 
+							</div><br>  
+								<span class="label-icon  ">NEW</span> <a href="1" >개인정보보호법 </a><br>
+								<span class="label-icon  ">NEW</span> <a href="2" >신용정보의이용및보호에관한법률</a><br>
+								<span class="label-icon  ">NEW</span> <a href="3" >건축법</a><br>
+								<span class="label-icon default">UP</span> <a href="4" >국세기본법</a></li> 
+						</ul>  
+					</section>
+				</aside>
+			</div>
+    	</div>
+		<footer>
+			<div class="etc_menu"> 
+				<div class="top_container">  
+					<ul>	
+						<li class="blind">기타 메뉴 </li>
+						<li>회사소개</li>
+						<li>광고 · 제휴문의</li>
+						<li>이용약관</li>
+						<li>개인정보 취급/처리 방침</li>
+						<li>법적고지</li>
+						<li>이메일 무단수집거부</li>
+					</ul>
+				</div>
+			</div>  
+			<div class="top_container   _footer"> 	   
+				1. 콘텐츠의 명칭 : 법률정보 &nbsp;&nbsp; 2. 콘텐츠의 제작 및 표시 : 2006년 2월 17일(업그레이드 콘텐츠의 경우 갱신일) &nbsp;&nbsp; 3. 콘텐츠 제작자 : ㈜로앤비  &nbsp;&nbsp;  4. 콘텐츠의 이용조건 : <a href="/support/agree_use.asp" class="red_bott">이용약관</a> 및 로앤비 <a href="/support/serviceInfo_member.asp" class="red_bott">서비스안내</a>와 같음 (무단 복제금지) &nbsp;&nbsp;5. 콘텐츠의 보호기간 : ㈜로앤비 사이트의 모든 콘텐츠는 「콘텐츠산업 진흥법」에 따라 제작 또는 갱신일로부터 5년간 보호됨
+				<div>Thomson reuters</div>
+				<div>Copyright ⓒ 1998~2016 <b>LAWnB</b>. All Rights Reserved.</div>
+			</div>       
+		</footer>
+		<div id="bg_screen"></div>
+		<script type="text/javascript">  
+			setHeight_under();			  
+		</script>
+	</div>
+</div> 
+</body>
+</html>

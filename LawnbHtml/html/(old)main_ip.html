@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="viewport" content="width=1140">
+<title> 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css?d" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" />
+<link rel="stylesheet" type="text/css" href="../css/_next_main_old.css" />
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../js/commonjs.js?5"></script>
+<script language="javascript"> 
+	$(document).ready(function() {     
+		$(".main #content_overview .btn_close").click(function(){ 
+			$("#content_overview").hide();
+			$("#bg_screen").hide();
+			 
+		}); 
+		 
+ });
+ 
+</script>
+</head>
+
+<body>
+<div id="co_mainContainer">
+<div id="wrap" class="main ac">
+	<header>
+		<div class="top_container ">
+			<h1>로앤비</h1>
+			<div id="t_search" class="search_container">
+				<h2>통합검색 영역</h2>
+				<div class="search_inner">
+					<form  action="" > 
+					<div class="search_left hide">
+						<label class="hide">통합검색  </label>
+					</div>
+					<div class="search_center">
+						<input type="search" name="" id="" >
+					</div>
+					<div class="search_right"><span  class="more_btn">more</span></div>
+					<div id="searchButton" class="search_btn"><i class="icon-" data-icon="&#xe910;"></i><span class="hide">검색</span></div> 
+					</form>
+					<div class="btn_search_result"><i class="icon-table" data-icon="&#xea71;"></i><span class="hide">검색결과 맵 보기</span></div>
+				</div>
+				<div class="search_layer_outer" >
+					<div class="search_layer" >
+						<div class="search_layer_list _done ">
+							<!-- <div class="txt_info">최근검색어저장 기능이 OFF 상태에 있습니다.<br>이용을 원하시면 하단의 최근검색어저장 상태를 ON으로 변경해주세요. </div> 
+							<ul>
+								<li>공정거래법 위반으로 인한 손해액의 산정방법과 주요 쟁점으로 <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+							</ul>-->
+							<ul>
+								<li><strong>대법</strong>원인터넷등기소<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+								<li><strong>대법</strong>원나의사건검색</li>
+								<li><strong>대법</strong>원법원경매정보</li>
+								<li><strong>대법</strong>원전자가족관계</li>
+								<li><strong>대법</strong>원경매</li>
+								<li><strong>대법</strong>원인터넷등기소<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+								<li><strong>대법</strong>원나의사건검색<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+								<li><strong>대법</strong>원법원경매정보</li>
+								<li><strong>대법</strong>원전자가족관계</li>
+								<li><strong>대법</strong>원경매</li>
+							</ul> 
+							<div class="expend_result" onclick="">
+								<p>법무법인(유한) 태평양어쩌고 저쩌고</p>
+								<span>주소 : [050-50] 서울시 광진구 디지털로 272, 한신 IT타워 611호<br>대표전화 : 02-2204-2114</span>
+								<div class="dirct_go">바로가기</div>
+							</div>
+						</div>
+						<!-- <div class="noti_txt"><i class="icon-" data-icon="&#xe90d;"></i> 공용 PC에서는 개인정보보호를 위하여 반드시 로그아웃을 해주세요.</div> -->
+						<div class="search_layer_foot">
+							<div class="fl">기록삭제</div>
+							<div class="fr">최근검색어저장 <div class="btn-group"><button type="button" class="btn btn_orange _select">ON</button><button type="button" class="btn btn-default">OFF</button></div> 자동완성 <div class="btn-group"><button type="button" class="btn btn_orange _select">ON</button><button type="button" class="btn btn-default">OFF</button></div>
+							</div>						
+						</div>
+					</div>
+					
+					
+				</div>
+			</div>
+			<div id="indiv_area" class="indiv_container">
+				<span alt="나의폴더">나의폴더<i class="icon-myfolder" data-icon="&#xe91a;"></i></span>
+				<span alt="히스토리">히스토리<i class="icon-history" data-icon="&#xe916;"></i></span>
+				<span alt="알림설정">알림설정<i class="icon-alert" data-icon="&#xe918;"></i><em>9+</em></span>
+				<span alt="질문내역">문의내역<i class="icon-question" data-icon="&#xe919;"></i></span>
+				<span alt="나의정보">나의정보<i class="icon-myinfo" data-icon="&#xe917;"></i></span>
+			</div>
+		</div>
+		<nav> 
+			<dl id="main_menu" class="mmenu">
+				<dt class="blind">메인 메뉴</dt> 
+				<dd>
+					<a href="#"><span>판례</span></a>
+				</dd>
+				<dd class="currentTab" >
+					<a href="#"><span>법규</span></a>
+				</dd>
+				<dd>
+					<a href="#"><span>심판·결정·해석</span></a>
+				</dd>
+				<dd >
+					<a href="#"><span>문헌</span></a>
+				</dd>
+				<dd>
+					<a href="#"><span>법조인</span></a>
+				</dd>
+				<dd>
+					<a href="#"><span>기업법무</span></a>
+				</dd>
+				<dd>
+					<a href="#"><span>서식</span></a>
+				</dd>
+				<dd>
+					<a href="#"><span>뉴스·칼럼</span></a>
+				</dd>
+			</dl>  
+		</nav>
+	</header>
+	 <div class="submenu_group"  >
+		<div>
+			<dl>
+				<dd><a href="@Href("~/Info/ContentMain/Case")">판례</a></dd>
+				<dd><a href="1">판례디렉토리</a></dd> 
+			</dl>
+			<dl>
+				<dd><a href="1">법령</a></dd>
+				<dd><a href="1">행정규칙</a></dd>
+				<dd><a href="1">입법동향</a></dd>
+				<dd><a href="">조약</a></dd>
+			</dl>
+			<dl>
+				<dd><a href="1">특허 심판례</a></dd>
+				<dd><a href="@Href("~/Info/ContentMain/CaseAdmin")">결정례</a></dd>
+				<dd><a href="@Href("~/Info/ContentMain/InterpretRule")">유권해석</a></dd>
+			</dl>
+			<dl>
+				<dd><a href="@Href("~/Info/ContentMain/Doc")">논문평석</a></dd>
+				<dd><a href="1">주석서</a></dd>
+				<dd><a href="1">E-book</a></dd>
+				<dd><a href="1">법률용어</a></dd>
+			</dl>
+			<dl>
+				<dd><a href="1">법조인명록</a></dd>
+				<dd><a href="1">조직도</a></dd>
+				<dd><a href="1">법률사무소</a></dd>
+				<dd>법조기관 안내</dd>
+			</dl>
+			<dl>
+				<dd>로펌 리포트</dd>
+				<dd>세무정보</dd>
+				<dd>기업정보</dd>
+			</dl>
+			<dl>
+				<dd>법률서식</dd>
+				<dd><a href="@Href("~/Info/ContentMain/BizForm")">비즈폼 서식</a></dd>
+			</dl>
+			<dl>
+				<dd><a href="@Href("~/Info/ContentMain/News")">뉴스</a></dd>
+				<dd>칼럼</dd>
+			</dl>
+		</div>
+		<div class="ad_area">ss</div>
+	</div>
+	<div id="container" > 
+		<section class="left_colum">
+			<aside class="banner_area"><img src="../images/main_banner_1.png" ></aside>
+			<section class="lawnb_editor">
+				<h2>LAWnB Editor<span>MORE</span></h2>
+				<div class="main_issue">
+					<div class="issue_tit"><a href="">자율주행차 사고 나면 누구 책임?…운전자 vs 제조사</a></div>
+					<div class="issue_comment">
+						<div><img src="../images/img_main_sample.png" class="img">정부는 2020년 자율주행자동차 상용화를 목표로, 자율주행자동차를 9대 국가 전략 프로젝트 중 하나로 선정하여 적극적으로 지원하고 있다. 하지만 자율주행자동차가 실제로 도로를 주행하기 위해서는 성능, 안전성 등 기술적 문제에서부터 사고 시 배상문제까지 여러 이슈에 대한 법·제도적 대비가 필요하며 특히 사고가 발생할 경우 자율주행의 정도에 따라 운전자와 제조사간 책임 비율 문제가 다투어질 것이고, 일반 소비자가 자율주행차 프로그램의 오류를 입증하기 쉽지 않으므로 보통의 경우보다 입증책임을 완화하는 법 규정을 만들어야 한다는 견해가 유력하다.</div>
+					</div>
+					<ul>
+						<li><span>법령</span><a href="">자동차손해배상 보장법 3조</a>, <a href="">제조물책임법 3조1항</a>, <a href="">자동차관리법 시행규칙 26조의2</a></li>
+						<li><span>문헌</span><a href="">자율주행자동차 사고발생에 따른 형사책임의 귀속여부</a></li>
+						<li><span>문헌</span><a href="">독일에서의 자율주행자동차에 관한 법적 논의</a></li>
+						<li><span>리포트</span><a href="">4차 산업혁명과 자율주행자동차, [자율주행자동차 해외 법제]</a></li>
+						<li><span>리포트</span><a href="">4차 산업혁명과 자율주행자동차, 자율주행자동차의 현황</a></li>
+						<li><span>로펌리포트</span><a href="">자동차관리법; 자율주행자동차 정의 및 자율주행자동차 임시운행 허가제도 신설 등</a></li>
+					</ul>
+				</div>
+				<div class="list_issue"> 
+					<a href="">음주측정 거부 시 공무집행방해 적용 여부</a>
+					<a href="" class="_this">자율주행차 사고 나면 누구 책임?…운전자 vs 제조사</a>
+					<a href="">제조업체의 사내하도급을 불법파견으로 볼 수 없다는 ...</a>
+					<a href="">대법 '전세금 변제순위, 잔금지급 아닌 확정·전입신고..</a>
+					<a href="">보행 흡연 금지</a>
+				</div>
+			</section>
+		</section>
+		<section class="right_colum">
+			<section class="login_area">
+				<h2>로그인</h2>
+				<div class="login_info" >
+					<ul >
+						<li><strong>서울시청 [idididid]</strong>님</li>
+						<li></li>
+						<li>IP(전용)회원 / URL : snu.lawnb.com</li>
+					</ul>
+					<div class="btn_set ip">
+						<span>개인화<br>로그아웃</span> 
+					</div>
+				</div> 
+				<div class="login_box" style="display:none">
+					 <div  >
+						<div>LAWnB 로그인</div>
+					 </div>
+				</div>
+				<div>
+					<span>고객센터</span>
+					<span>이용도움말</span>
+					<span>1:1문의</span> 
+					<span>회원정보</span>
+				</div>
+				<div class="tel_area">
+					<div><em>CS : </em>02-6936-1322</div>
+					<div><em>24시간 긴급장애 : </em>070-7618-9861</div>
+				</div>
+			</section>
+			<section class="notice_area">
+				<span>FAMILY SITE</span>
+				<ul>
+					<li><a href="#f">교육센터</a></li>
+					<li><a href="#23">온주</a></li>
+				</ul>
+			</section>
+			<section class="news_area">
+				<h2>뉴스·칼럼</h2> 
+				<ul>
+					<li><span></span><a href="#uyt">면세점 특허 10년으로 연장·갱신 허용…수수료 차등 적용</a></li>
+					<li><span></span><a href="#kr">'TV·인터넷이 공짜?'…결합상품 공짜 광고 금지</a></li>
+					<li><span></span><a href="#56t">'제2의 메르스 막자'…150병상 이상 병원 감염관리실 의무화</a></li>
+					<li><span></span><a href="#hdg">근로정신대시민모임 '미쓰비시, 악의적인 소송 지연'</a></li>
+					<li><span></span><a href="#s">'한센병환자 격리재판은 잘못'…日대법원, 이례적 사죄 검토</a></li> 
+				</ul> 
+			</section>
+			<section class="edu_ad">
+				<h2>교육강좌&세미나</h2>
+				<ul>
+					<li><span>5/22</span><a href="#agd">기업실무자를 위한 형사소송실무</a><div>조우성 변호사 / 한중 법률사무소</div></li>
+					<li><span class="online">Online</span><a href="#kyu">기업소송 100전 100승</a><div>조우성 변호사 / 한중 법률사무소</div></li> 
+				</ul>
+			</section> 
+			<section class="lawyer_area">
+				<h2>오늘의 변호사</h2> 
+				<dl>
+					<dt><img src="../images/main_img_lawyer_2.png" ></dt>
+					<dd><a href="">최용문</a><span>(사법시험 51회, 연수원 41기)</span></dd>
+					<dd>
+						<ul> 
+							<li><span>주요분야</span>저작권,엔터테인먼트</li>
+							<li><a href="">승소 판례 등록 3건</a></li>
+						</ul>
+					</dd>
+				</dl>  
+			</section>
+		</section>
+	</div>
+	<footer>
+		<div class="etc_menu">
+			<div class="top_container main">
+				<ul>
+					<li>회사소개</li>
+					<li>이용약관</li>
+					<li>개인정보 취급/처리 방침</li>
+					<li>법적고지</li>
+					<li>이메일 무단수집거부</li>
+				</ul>
+			</div>
+		</div> 
+		<div class="top_container main _footer">
+			(주)톰슨로이터코리아 대표이사 방 영 선<span>|</span>서울특별시 구로구 디지털로 272, 611호(한신IT타워)<span>|</span>TEL : 02) 6936-1300, FAX : 02) 6936-1476 <span>|</span><a href="http://ftc.go.kr/info/bizinfo/communicationView.jsp?apv_perm_no=2012316015930200926&amp;area1=&amp;area2=&amp;currpage=1&amp;searchKey=04&amp;searchVal=2208600665&amp;stdate=&amp;enddate=" target="_blank">사업자등록번호  220-86-00665</a><span>|</span><a href="http://ftc.go.kr/info/bizinfo/communicationView.jsp?apv_perm_no=2012316015930200926&amp;area1=&amp;area2=&amp;currpage=1&amp;searchKey=04&amp;searchVal=2208600665&amp;stdate=&amp;enddate=" target="_blank">통신판매업신고번호 : 구로-0926</a><span>|</span>웹마스터 : 장경미 webmaster.lawnb@tr.com <span>|</span>개인정보관리책임자 : 정경률 atta.jung@tr.com <span>|</span> 분쟁조정기관표시 : 전자거래분쟁조정위원회 
+			<div>Thomson reuters</div>
+			<div>Copyright ⓒ 1998~2017 <b>LAWnB</b>. All Rights Reserved.</div>
+		</div>
+	</footer>
+	<div id="bg_screen" >
+		<div id="session_alert" >
+			<div class="sesscion_tit">세션이 만료되었습니다.<br>재로그인을 하여 기존 세션을 연장하시겠습니까?</div>
+			<div class="btn_area_normal mgt20 mgb20"><span class="btn" onclick="">확인</span><span class="btn _cancel" onclick="">취소</span></div>
+			<div>세션만료 및 연장안내는 2시간 이상 사이트 이용이 없을 때 보여집니다. <br>[확인]을 클릭하면 자동으로 재로그인 및 세션이 연장됩니다.</div>
+		</div>
+	</div>
+	<div id="content_overview" >
+		<div class="overview_inner">
+			<div class="main_container">
+				<div class="fl"><i class="icon-10" data-icon="&#xe909;"><span class="blind">전원합의체</span></i><i class="icon-10" data-icon="&#xe909;"><span class="blind">전원합의체</span></i></div><h3>델타헤지에 따른 주식대량매도 행위를 자본시장법상 시세조정행위 내지 부정거래행위로 판단하는 기준[법무법인 지평] <div class="btn_option_outer"><div class="btn_close">닫기</div></div></h3>
+				<div >[연합뉴스TV 제공]</div><br><br><br><b>원고 승소 확정…2년 초과 근무한 파견근로자 손들어줘 </b><br><br>정규직 근로자의 지위를 놓고 벌어진 한국지엠 비정규직 근로자들과 회사의 법적 분쟁에서 근로자들이 승리했다.<br><br>대법원 1부(주심 이인복 대법관)는 13일 한국지엠 창원공장 근로자인 김모(38)씨 등 5명이 회사를 상대로 낸 근로자 지위확인소송 상고심에서 심리불속행 결정을 내리고 원고 승소 판결한 원심을 확정했다고 밝혔다.<br><br>김씨 등은 1996년부터 회사와 '사내하청'이라고 불리는 하도급 방식의 근로관계를 맺고 한국지엠 창원공장에서 정규직 근로자들과 함께 조립과 도장, 엔진가공 등 직접생산 공정과 물류 등 간접생산 공정에서 일했다.<br><br>이들은 자신들이 2년을 초과해 계속 근무해온 파견근로자에 해당되므로 옛 파견근로자보호법의 고용간주 규정에 따라 사내하청 근로자들과 회사 사이에 고용관계가 성립됐다고 주장하며 2013년 5월 회사를 상대로 소송을 냈다.<br><br>1, 2심은 "2년의 기간이 경과되면 사업주가 파견근로자를 고용한 것으로 간주하는 것은 '침해 최소성의 원칙'을 위반했다고 볼 수 없으며 법익의 균형성도 인정된다"며 근로자들의 손을 들어줬다.<br><br>근로자들을 대리한 전국금속노동조합 법률원은 "제조업 생산 공정에서 일하는 근로자와 도급계약을 맺는 것은 불법파견이라는 법원 판단이 계속되는 가운데 2년 이상 근무한 사내하청 근로자를 정규직 근로자로 인정한 것은 당연한 결과"라고 환영했다.<br><br>(서울=연합뉴스) 임순현 기자 <a href="mailto:hyun@yna.co.kr">hyun@yna.co.kr</a><br><br>&lt;저작권자(c) 연합뉴스, 무단 전재-재배포 금지&gt; 
+			 </div>
+		</div>
+	</div>
+	<div id="individual_area" class="popup_win">
+		<div class="container_popup">
+			<div id="popup_login_ask" class="base_popup"><!-- 개인화로그인전 -->
+				<div class="top_title " >
+					<span><i class="icon-" data-icon="&#xe919;"></i> 문의내역</span>
+					<div class="top_title_group"> 
+						<div class="btn_close_pop">닫기<i class="icon-close" data-icon="&#xe915;"></i></div>
+					</div>
+					<div class="my_set_list">
+						<p>로그인을 하시면 1:1문의내역 및 판결문 등재 신청·나의 법조인명록 관련 요청사항·승소판결문 등록등에 대한 답변을 확인하실 수 있습니다. </p> 
+						<div class="ac"><div class="btn-group mgt10"><span  class="btn btn-default bt-login">LAWnB 로그인</span></div></div>
+					</div>
+				</div>
+			</div>
+			<div id="popup_myfolder" class="base_popup"><!-- 나의폴더 -->
+				<div class="top_title " >
+					<span><i class="icon-" data-icon="&#xe930;"></i> 나의 폴더</span>
+					<div class="top_title_group">
+						<div class="btn-group"><button type="button" class="btn btn-default">전체보기</button></div>
+						<div class="btn_close_pop">닫기<i class="icon-close" data-icon="&#xe915;"></i></div>
+					</div>
+				</div>
+				<div class="cont_list">
+					<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span><em>폴더1 > 하위폴더2</em></p></a>
+					<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span><em>폴더1 > 하위폴더2</em></p></a>
+					<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span><em>폴더1 > 하위폴더2</em></p></a>
+					<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span><em>폴더1 > 하위폴더2</em></p></a>
+					<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span><em>폴더1 > 하위폴더2</em></p></a>
+					<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span><em>폴더1 > 하위폴더2</em></p></a> 
+				</div>
+			</div>
+			<div id="popup_myinfo" class="base_popup"> <!-- 나의정보 -->
+				<div class="top_title">
+					<span><i class="icon-" data-icon="&#xe91d;"></i> 나의 정보</span>
+					<div class="top_title_group">
+						<div class="btn-group"><button type="button" class="btn btn-default">회원정보</button></div>
+						<div class="btn_close_pop">닫기<i class="icon-close" data-icon="&#xe915;"></i></div>
+					</div>
+				</div>
+				<div class="my_state">정회원 [ 2016.07.07 ~ <span>2017.07.07</span> ]  <a href="1">유료전환</a></div>
+				<div class="my_set_list">
+					<p>메일링 서비스</p>
+					<span>이메일 : san***@tsdsdfr.com<br> 메일링 서비스 신청 사항<br><span class="gr_area"><input type="checkbox" id="1" name="1" checked="checked" onclick="return false;"> 비즈레터&nbsp;&nbsp;<input type="checkbox" id="" name="" onclick="return false;"> 마케팅 메일 <a href="2">관리</a></span></span>
+					<p>모바일 기기 등록 내역</p>
+					<span>휴대폰 번호 : 010-2634-**** <br>모바일 기기 등록 내역 <br><span class="gr_area">- Sanna phone (2015-06-23)  <a href="2">삭제</a></span></span>
+					<p>법인 아이디 이용현황</p>
+					<span>서브 아이디 (유료 10개 / 무료 10개) <a href="2">관리</a> </span>
+				</div>
+				<div class="my_lawyer">
+					<p>나의 법조인 명록</p>
+					<div class="img"><img src="http://www.lawnb.com/data/peopdata/kimgaram20140410.bmp" alt="사진"></div> 
+					<div class="basic_info"><a href="/list_view.html">강진석 姜珍錫</a>  <span>1999년생/ 여자 / (사법시험 50회 / 연수원 40기)</span><br><span>현직 : 변호사 / 법무법인 서울 </span></div> 
+					<div class="lawyer_info">
+						<span>주요업무분야 <small><i class="icon-info" data-icon="" onmouseout="close_miju('Miju2')" onmouseover="open_miju('Miju2')"><span class="blind">안내</span><div id="Miju2" class="miju_box"><div class="miju_box_line">변호사님이 주로 취급하는 업무로 선택한 분야입니다.</div></div></i></small> : 금융/회사/건설/무역/해외투자/지적재산권</span> 
+					</div>
+					<div class="ar text_ex ">[최근 업데이트 일자 : 2016.12.10] <a href="2">수정요청하기</a></div>
+				</div>
+			</div>
+			<div id="popup_history" class="base_popup"> <!-- 히스토리 -->
+				<div class="top_title " >
+					<span><i class="icon-" data-icon="&#xe91c;"></i> 최근 조회 컨텐츠</span>
+					<div class="top_title_group">
+						<div class="btn-group"><button type="button" class="btn btn-default">전체보기</button></div>
+						<div class="btn_close_pop">닫기<i class="icon-close" data-icon="&#xe915;"></i></div>
+					</div>
+				</div>
+				<div class="cont_list">
+					<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span></p></a>
+					<a href="1"><p>조세심판원 조심2015지1556, 2016.07.29 <span>[쟁점토지에 대한 지목변경 취득세 과세표준]</span></p></a>
+					<a href="1"><p>서울중앙지방법원 2017. 7. 4. 선고 2013가합80479 <span>[손해배상등]</span></p></a>
+					<a href="1"><p>헌법재판소 2016. 2. 25. 선고 2015헌가11 <span>[도로교통법 제2조 제26호 위헌제청]</span></p></a>
+					<a href="1"><p>대법원 2016. 5. 27. 선고 2014두8490 판결 <span>[도로점용허가처분무효확인등] 종국결과 [공2016하, 888 ]</span></p></a>
+					<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span></p></a> 
+				</div>
+				<div class="noti_txt"><i class="icon-" data-icon="&#xe90d;"></i> 로앤비에서 제공하는 히스토리의 기본 수집 범위는 <strong>판례</strong>와 <strong>법규</strong> 서비스에 한정됩니다. <br>해당 범위는 아래의   설정버튼에서 변경 가능합니다.</div>
+				<div class="noti_txt_set"><i class="icon-" data-icon="&#xe90d;"></i> 히스토리 수집범위 설정<br><input type="checkbox" checked="checked" id="" name="">판례 <input type="checkbox" checked="checked" id="" name="">법규  <input type="checkbox" id="" name="">심판·결정·해석 <input type="checkbox" id="" name="">문헌  <input type="checkbox" id="" name="">법조인  <input type="checkbox" id="" name="">기업법무  <input type="checkbox" id="" name="">서식 <input type="checkbox" id="" name="">뉴스·칼럼
+					<div class="div_ab">
+						<div class="set_close">X 설정닫기</div>
+						<div class="btn-group">
+						  <button type="button" class="btn   btn-square" style="width:50px">저장</button> 
+						</div>
+						<span class="_cancel"><i class="icon-16" data-icon="&#xe90e;"></i>초기화</span>  
+					</div> 
+
+				</div>
+				<div class="base_popup_set">
+					<div class="area_onoff">히스토리 <div class="btn-group"><button type="button" class="btn btn_orange _select">ON</button><button type="button" class="btn btn-default">OFF</button></div></div>
+					<div class="btn_set"><div class="btn-group"><button type="button" class="btn btn-default" onclick="set_history();">설정</button></div></div>
+				</div>
+			</div> 
+			<div id="popup_alert" class="base_popup"> <!-- 알림 -->
+				<div class="seperation_div">
+					<div class="top_title " >
+						<span><i class="icon-" data-icon="&#xe91b;"></i> 알림</span>
+						<div class="top_title_group">
+							<div class="btn-group"><button type="button" class="btn btn-default">알림 설정</button></div> 
+						</div>
+					</div>
+					<div class="alert_list">	
+						<p class="txt_orange day_tit">Today</p>
+						<div>
+							<a href="1"><p>요청하신 판결문 (<em>대법원 2016. 10. 13. 선고 2014다234032</em>)이 등재되었습니다.</p></a>
+							<a href="1"><p>나의 <em>1:1문의</em>에 대한 답변이 등재되었습니다.</p></a>
+							<a href="#"><p>키워드 알림 <em onclick="popup_alert();">"공정거래” & “독과점"</em></p></a>
+							<a href="#"><p>키워드 알림 <em onclick="popup_alert();">"공정거래” & “독과점"</em></p></a>
+						</div>
+						<p class="day_tit">2016.12.27(화)</p>
+						<div>
+							<a href="1"><p>법령개정 알림 <em>"개인정보보호법"</em></p></a>
+							<a href="1"><p>입법동향 알림 <em>"개인정보보호법"</em></p></a>
+						</div>
+					</div>
+				</div><div class="seperation_div">
+					<div class="top_title " >
+						<span><i class="icon-" data-icon="&#xe91b;"></i> 공지사항</span>
+						<div class="top_title_group"> 
+							<div class="btn-group"><button type="button" class="btn btn-default">전체보기</button></div> 
+							<div class="btn_close_pop">닫기<i class="icon-close" data-icon="&#xe915;"></i></div>
+						</div>
+					</div>
+					<div class="cont_list">
+						<a href="1"><p><span>2017년 상반기 법원 및 검찰청 조직도가 업데이트 되었습니다. </span><em>2017.03.15</em></p></a>
+						<a href="1"><p><span>E-Book 이 업데이트 되었습니다</span><em>2017.03.15</em></p></a>
+						<a href="1"><p><span>PM작업 안내드립니다. (3월 18일 토요일, 00:00~08:00) </span><em>2017.03.15</em></p></a>
+						<a href="1"><p><span>[판례]대법원 공보 제504호(2016년 12월 15일자)가 업데이트 되었습니다. 2017.03.10</span><em>2017.03.15</em></p></a> 
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="search_map" >
+		<div class="map_inner">		
+			<div class="top_title">
+				<span><i class="icon-" data-icon="&#xe910;"></i> 통합검색 결과 맵</span>
+				<div class="top_title_group"> 
+					<div class="btn_close_pop">닫기<i class="icon-close" data-icon="&#xe915;"></i></div>
+				</div>
+			</div>
+			<div class="txt_info"><strong>“키워드 키워드 키워드”</strong>에 대한 각 메뉴별 검색결과로 이동합니다. </div>
+			<table>
+				<thead>
+				<tr>
+					<th>판례</th>
+					<th>법규</th>
+					<th>심판·결정·해석</th>
+					<th>문헌</th>
+					<th>법조인</th>
+					<th>기업법무</th>
+					<th>서식</th>
+					<th>리걸이슈</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>판례<br><span>(15478)</span></td>
+					<td>법령<br><span>(15478)</span></td>
+					<td>특허 심판례<br><span>(15478)</span></td>
+					<td>논문·평석<br><span>(15478)</span></td>
+					<td>법조인명록<br><span>(15478)</span></td>
+					<td>로펌 리포트<br><span>(15478)</span></td>
+					<td>법률 서식<br><span>(15478)</span></td>
+					<td>뉴스 <br><span>(15478)</span></td>
+				</tr>
+				<tr>	
+					<td>&nbsp;</td>
+					<td>행정규칙<br><span>(15478)</span></td>
+					<td>결정례<br><span>(15478)</span></td>
+					<td>주석서<br><span>(15478)</span></td>
+					<td>법률사무소<br><span>(15478)</span></td>
+					<td>세무정보<br><span>(15478)</span></td>
+					<td>비즈폼 서식<br><span>(15478)</span></td>
+					<td>칼럼<br><span>(15478)</span></td>
+				</tr>
+				<tr>	
+					<td>&nbsp;</td>
+					<td>조약<br><span>(15478)</span></td>
+					<td>해석례<br><span>(15478)</span></td>
+					<td>E-Book<br><span>(15478)</span></td>
+					<td>&nbsp;</td>
+					<td>기업정보<br><span>(15478)</span></td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>	
+					<td>&nbsp;</td>
+					<td>입법동향<br><span>(15478)</span></td>
+					<td>&nbsp;</td>
+					<td>법률용어<br><span>(15478)</span></td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+</div>
+</body>
+</html>

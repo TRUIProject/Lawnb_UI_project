@@ -1,0 +1,184 @@
+@font-face {
+    font-family: 'mini';
+    src:
+            url('../fonts/mini.ttf?20180606') format('truetype'),
+            url('../fonts/mini.woff?20180606') format('woff'),
+            url('../fonts/mini.svg?20180606#mini') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'mini' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    vertical-align:middle;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+[data-icon]:before {
+    font-family: 'mini';
+    content: attr(data-icon);
+    speak: none;
+}
+
+@font-face {
+    font-family: 'LAWnBOnju';
+    src:
+            url('../fonts/LAWnBOnju.ttf?38pdsh') format('truetype'),
+            url('../fonts/LAWnBOnju.woff?38pdsh') format('woff'),
+            url('../fonts/LAWnBOnju.svg?38pdsh#LAWnBOnju') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="newic-"], [class*=" newic-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'LAWnBOnju' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    vertical-align: middle;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+section div i  span {
+    font-size:40px;
+    display:inline;
+    margin:0;
+}
+.path1, .path2 {
+    font-family: 'LAWnBOnju' !important;
+}
+
+.icon-dot:before {
+    content: '\e926';
+    margin-right: 4px
+}
+
+.icon-10{background-color:#f6891f;color:#fff;border:1px solid rgba(0,0,0,0.2);font-size:120%;margin-right:4px;vertical-align:middle}
+.icon-10-1{background-color:#e6e6e6;color:#a00000;border:1px solid rgba(0,0,0,0.2);font-size:120%;margin-right:4px;vertical-align:middle}
+.icon-fleg {margin-right:4px;}
+.co_searchContent .icon-fleg { margin-right:initial;}
+
+.main_container_view [class*="icon-10"], .title_area [class*="icon-10"], .title_area [class*="icon-fleg"]{font-size:150%}
+.main_container_view .c_con [class*="icon-10"]{font-size:110%}
+.popup_mov_area .icon-10{font-size:120% !important}
+.list .icon-10{vertical-align:middle}
+.icon-new-tab{font-size:20px;cursor:pointer;color:#7f7f7f}
+.icon-new-tab:hover{color:#ccc}
+.icon-info{vertical-align:middle;cursor:pointer}
+
+.icon-help .path1:before{color:#212121}
+.icon-help .path2:before{color:#fff;margin-left: -1em;}
+.icon-10-1 .path1:before {color: #c24141}
+.icon-10-1 .path2:before,.icon-10-1 .path3:before,.icon-10-1 .path4:before,.icon-10-1 .path5:before{color: #212121;margin-left: -1em}
+.icon-info{position:relative}
+.function_down [class^="icon-"]{font-size:20px;color:#333;line-height:100%}
+.icon_myfavi{color:#c24141;font-size:22px;width:24px}
+.icon_listnview{font-size:22px;width:24px}
+.icon-icon_search{vertical-align:middle}
+.icon_open{ font-size:smaller	}
+.icon_close:before,.icon_open.icon_close:before{font-family: 'mini';font-size:13px;vertical-align:middle;content: '\e902'}
+.icon_open:before{font-family: 'mini'; content:'\e903';}
+.icon_open_:before{font-family: 'mini';font-size:13px;vertical-align:middle;content:'\e903'}
+.intable{vertical-align:middle;font-size:18px}
+.icon_plus:before{content:'+';}
+.icon_plus{font-weight:bold;font-size:14px;color:#525252}
+.icon-star:before{content:'\e9d7';color:#777;font-size:22px;line-height:27px}
+.icon-star.starfull:before{content:'\e9d9';color:#ff5900}
+.icon_delete{font-size:22px;width:24px}
+.memoicon{font-size:16px;color:#585858}
+.icon-compare{font-size:20px;color:#005da2;cursor:pointer;margin-right:2px}
+.icon-cleft{font-size:28px}
+.icon-down:before{font-family: 'mini'; content:'\ea3e';margin-right:2px}
+.icon-up:before{font-family: 'mini'; content:'\ea3a';margin-right:2px}
+.icon-r:last-child{margin-left:-7px}
+.icon-f:before{margin-left:-17px}
+
+.icon-checkbox-unchecked:before{content:'\ea53'}
+.icon-checkbox-unchecked._checked:before{content:'\ea52'}
+
+.icon-sort-num-up:before{content:'\ea4b'}
+.icon-sort-num-down:before{content:'\ea4a'}
+
+.newic-books-01 .path1:before {
+    content: "\e931";
+    color: rgb(250, 100, 0);
+}
+.newic-books-01 .path2:before {
+    content: "\e932";
+    margin-left: -1em;
+}
+.newic-books-16:before {
+    content: "\e902";
+}
+.newic-feather-01:before {
+    content: "\e933";
+}
+.newic-globes-17:before {
+    content: "\e934";
+}
+.newic-industrySpecific_17:before {
+    content: "\e935";
+}
+.newic-industrySpecific_18:before {
+    content: "\e936";
+}
+.newic-industrySpecific_29:before {
+    content: "\e937";
+}
+
+.newic-h_light:before {
+    content: "\e938";
+}
+
+.newic-h_memo:before {
+    content: "\e939";
+}
+
+.newic-ask:before {
+    content: "\e930";
+}
+.newic-pro-color:before {
+    content: "\e922";
+    color: #ff5900;
+    font-size: 18px;
+}
+.newic-mysearch:before {
+    content: "\e921";
+}
+.newic-mysearch_main:before {
+    content: "\e920";
+}
+
+.icon-fleg .path1:before {
+    content: "\e941";
+}
+.icon-fleg .path2:before {
+    content: "\e942";
+    margin-left: -1em;
+}
+
+.icon-fleg.red .path1:before {
+    color: rgb(214, 78, 69);
+}
+.icon-fleg.red .path2:before {
+    color: rgb(122, 0, 0);
+}
+
+.icon-fleg.yellow .path1:before {
+    color: rgb(245, 207, 37);
+}
+.icon-fleg.yellow .path2:before {
+    color: rgb(204, 137, 41);
+}

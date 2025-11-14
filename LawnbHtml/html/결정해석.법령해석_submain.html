@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="../Scripts/lib/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="../js/commonjs.js?sdd"></script>
+<script language="javascript">
+<!--
+
+	function resizeComment() {
+		setHeight_under();
+		$(".right_container").removeClass('slide_mov_right');
+	}
+	var expanded = false;
+	function showCheckboxes() {
+		if (!expanded) {
+			$("#checkboxes").show();
+			expanded = true;
+		} else {
+			$("#checkboxes").hide();
+			expanded = false;
+		}
+	}
+
+	$(document).ready(function () {
+		$('.submain_tap li a').click(function () {
+			$('.submain_tap li').not(this).removeClass('active');
+			$(this).parent('li').addClass('active');
+		});
+	});
+
+
+	function mainTap1() {
+		$('._tab1').show();
+		$('._tab2').hide();
+	};
+
+	function mainTap2() {
+		$('._tab1').hide();
+		$('._tab2').show();
+	};
+
+	function moreSearchFrom() {
+		$('.submain_search._option').toggle();
+		$('.submain_search_more span').toggle();
+	};
+
+	//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_mainContainer">
+	<div id="wrap" >
+		<header>
+			<div class="top_container  ">
+				<a href="/"><h1>로앤비 1</h1></a>
+				<div id="t_search" class="search_container">
+					<h2>통합검색 영역</h2>
+					<div class="search_inner">
+						<form method="post" id="totalSearchForm" action="../ContentTotal" onsubmit="return getTotalSearch();">
+							<div class="search_left hide">
+								<label class="hide">통합검색  </label>
+							</div>
+							<div class="search_center">
+								<input type="search" id="qu" name="qu" value="" title="통합검색" autocomplete="off">
+							</div>
+							<div class="search_right">
+								<span class="more_btn"><i class="icon-more" data-icon=""></i><span class="hide">more</span></span>
+
+								<!-- 검색 연산자 -->
+								<div class="calc_btn">
+									<i class="icon-info" data-icon="" onclick="searchCalcInfo();" alt="검색연산자 안내">
+										<span class="blind">검색 연산자 안내</span>
+									</i>
+								</div>
+							</div>
+							<div id="searchButton" class="search_btn"><i class="icon-" data-icon=""></i><span class="hide">검색</span></div>
+						</form>
+					</div>
+
+					<div class="btn_search_result"><i class="icon-" data-icon=""></i><span>통합검색 결과 맵&ZeroWidthSpace;</span></div>
+					<div class="search_layer_outer" style="display: none;">
+						<div class="search_layer" style="display: none;">
+							<div class="search_layer_list _done ">
+								<div class="txt_info" style="display:none"> </div>
+								<ul>
+								</ul>
+								<div id="result_target"></div>
+							</div>
+						</div>
+					</div>
+					<div class="layer_calc_outer" style="display: none;">
+						<div class="box_calc_info">
+							<h3>LAWnB 검색연산자 안내</h3>
+							<div class="box_calcDL">
+								<dl>
+									<dt>AND</dt>
+									<dd>
+										<span>"이사회"와 "감사"가 모두 포함된 문서</span>
+										<span>- 예시) 이사회 감사, 이사회 AND 감사</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>OR</dt>
+									<dd>
+										<span>"이사회"와 "감사" 중 어느 하나라도 포함된 문서</span>
+										<span>- 예시) 이사회 OR 감사</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>NOT</dt>
+									<dd>
+										<span>"이사회"가 포함되고 "감사"가 포함되지 않은 문서</span>
+										<span>- 예시) [검색어]이사회 [제외어]감사, 이사회 NOT 감사</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>EQUAL</dt>
+									<dd>
+										<span>"이사회 감사"라는 검색어와 완전일치하는 구문이 있는 문서</span>
+										<span>- 예시) “이사회 감사”</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>NEAR </dt>
+									<dd>
+										<span>"이사회"와 "감사" 사이에 단어(형태소)가 10개 이하인 문서</span>
+										<span>- 예시) “이사회 감사”~10</span>
+									</dd>
+								</dl>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div id="indiv_area" class="indiv_container">
+					<span alt="나의 검색" onclick="javascript:mydesk.myPersonalization('MYSEARCH'); return false;" id="spanMySearch">
+						나의검색
+						<!-- 2022.04 UI 개선 수정 작업-->
+						<!--<em class="icon_mySearch_on">ON</em>-->
+						<em class="icon_mySearch_off">OFF</em>
+						<i class="newic-mysearch_main"></i>
+					</span>
+
+					<span alt="나의폴더" onclick="javascript:mydesk.myPersonalization('MY01'); return false;">나의폴더<i class="icon-icon_myfolder" data-icon=""></i></span>
+					<span alt="하이라이트&amp;메모" onclick="javascript:mydesk.myPersonalization('MYHIGHLIGHT'); return false;" class="indiv_highlight">하이라이트&amp;메모<i class="newic-h_light"></i></span>
+					<span alt="히스토리" onclick="javascript:mydesk.myPersonalization('MY02'); return false;">히스토리<i class="icon-icon_history" data-icon=""></i></span>
+					<span alt="알림설정" onclick="javascript:mydesk.myPersonalization('MY03'); return false;">
+						알림<i class="icon-icon_alert" data-icon=""></i>
+						<em></em>
+					</span>
+					<span alt="질문내역" onclick="javascript:loginNeed(); return false;">문의내역<i class="icon-icon_question" data-icon=""></i></span>
+					<span alt="나의정보" onclick="javascript:MyInfo(); return false;">나의정보<i class="icon-icon_myinfo" data-icon=""></i></span>
+				</div>
+
+
+			</div>
+			<nav>
+				<div class="nav_menuBox">
+					<dl id="main_menu" class="mmenu">
+						<dd>
+							<a href="#"><span>판례</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="/Info/ContentMain/Case">판례&ZeroWidthSpace;</a></li>
+								<li><a href="/html/판례.천자평석_submain.html">천자평석</a></li>
+								<li><a href="/html/판례.판례연구_submain.html">판례연구</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>법규</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="/Info/ContentMain/Law">법령</a></li>
+								<li><a href="/Info/ContentMain/AdminRule">행정규칙</a></li>
+								<li><a href="/Info/ContentMain/LawMake">입법동향</a></li>
+								<li><a href="/Info/ContentMain/Treaty">조약</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>심판·결정·해석</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="/Info/ContentMain/PatentCase">특허심판례</a></li>
+								<li><a href="/Info/ContentMain/AdminCase">결정례</a></li>
+								<li><a href="/Info/ContentMain/InterpretRule">유권해석</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>주석서</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="/Info/ContentMain/Jusuk">기본법 주석서</a></li>
+								<li><a href="/Info/ContentMain/ONJU">온주&ZeroWidthSpace;</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>문헌</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="/Info/ContentMain/Doc">논문</a></li>
+								<li><a href="/html/문헌.저널_submain.html">저널</a></li>
+								<li><a href="/html/문헌.글로벌법제동향_submain.html">글로벌법제동향</a></li>
+								<li><a href="/Info/ContentMain/LawDic">법률사전</a></li>
+								<!--<li><a href="Ebook">(X예정)E-book</a></li>-->
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>법조인</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="/Info/ContentMain/Lawyer">법조인명록</a></li>
+								<li><a href="/Info/ContentMain/Org">조직도</a></li>
+								<li><a href="/Info/ContentMain/LawFirm">로펌</a></li>
+								<li><a href="/Info/ContentMain/OrgInfo">법조기관</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>기업법무</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="/Info/ContentMain/LawFirmReport">로펌 리포트</a></li>
+								<li><a href="/Info/ContentMain/Tax">세무·인사</a></li>
+								<li><a href="/Info/ContentMain/BizInfo">기업정보</a></li>
+								<li><a href="/Info/ContentMain/Sosong">소송비용계산</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>서식</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="/Info/ContentMain/LawForm">전문법률서식</a></li>
+								<li><a href="/Info/ContentMain/BizForm">비즈폼 서식</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>뉴스·칼럼</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="/Info/ContentMain/News">뉴스</a></li>
+								<li><a href="/Info/ContentMain/Column">칼럼</a></li>
+								<!-- <li><a href="/Editor/Index">LAWnB Editor</a></li> -->
+							</ul>
+						</dd>
+						<dd class="btn_menu_all">
+							<a href="#" onclick="showAllMenu();">메뉴 전체보기  <i></i></a>
+						</dd>
+					</dl>
+					<div class="box_menu_all">
+						<div class="btn_close_pop" onclick="showAllMenu();">닫기<i class="icon-close" data-icon=""></i></div>
+						<ul>
+							<!--<li><strong>판례</strong></li>-->
+							<li><a href="Case">판례</a></li>
+						</ul>
+						<ul>
+							<!--<li><strong>법규</strong></li>-->
+							<li><a href="Law">법령</a></li>
+							<li><a href="AdminRule">행정규칙</a></li>
+							<li><a href="LawMake">입법동향</a></li>
+							<li><a href="Treaty">조약</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>심판·결정·해석</strong></li>-->
+							<li><a href="PatentCase">특허심판례</a></li>
+							<li><a href="AdminCase">결정례</a></li>
+							<li><a href="InterpretRule">유권해석</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>문헌</strong></li>-->
+							<li><a href="Doc">평석·논문</a></li>
+							<li><a href="Jusuk">주석서</a></li>
+							<li><a href="Ebook">E-book</a></li>
+							<li><a href="LawDic">법률사전</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>법조인</strong></li>-->
+							<li><a href="Lawyer">법조인명록</a></li>
+							<li><a href="Org">조직도</a></li>
+							<li><a href="LawFirm">법률사무소</a></li>
+							<li><a href="OrgInfo">법조기관 안내</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>기업법무</strong></li>-->
+							<li><a href="LawFirmReport">로펌 리포트</a></li>
+							<li><a href="Tax">세무·인사</a></li>
+							<li><a href="BizInfo">기업정보</a></li>
+							<li><a href="Sosong">소송비용계산</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>서식</strong></li>-->
+							<li><a href="LawForm">전문법률서식</a></li>
+							<li><a href="BizForm">비즈폼 서식</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>뉴스·칼럼</strong></li> -->
+							<li><a href="News">뉴스</a></li>
+							<li><a href="Column">칼럼</a></li>
+							<!-- <li><a href="/Editor/Index">LAWnB Editor</a></li> -->
+						</ul>
+						<ul>
+							<!-- <li><strong>온주</strong></li>-->
+							<li><a href="ONJU">온주</a></li>
+						</ul>
+						<ul>
+							<li><a href="javascript:OnetoOneContactUs('B02');">판결문 등재신청&ZeroWidthSpace;</a></li>
+							<li><a href="javascript:loginNeed();">법조인명록 등록/수정&ZeroWidthSpace;</a></li>
+							<li><a href="javascript:OnetoOneContactUs('B04');">승소판결문 등록&ZeroWidthSpace;</a></li>
+							<li><a href="javascript:OnetoOneContactUs('B01');">1:1문의&ZeroWidthSpace;</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+
+		</header>
+		<div id="container" class="two-con submain decision">
+			<div id="breadcrumb" class="navi_area">
+				<div>Home > 결정∙해석 > <a href="1">유권해석</a></div>
+				<div class="group_indivi_btn"><a href="">로그인</a><a href="">개인화님</a> </div>
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div id="container_inner">
+				<div class="left_container">  
+				</div>
+				<article class="main_container"> 
+					<div class="main_container_inner">
+						<div id="search_submain" class="submain_group">
+							<h3>유권해석</h3>
+							<div class="search_div">
+								<form id="searchForm" method="post" action="CaseList">
+								<div class="search_input">
+									<input type="search" id="sWord" name="sWord"  placeholder="검색어">
+									<div class="except">
+									<input type="search" name="sWord1" placeholder="제외어">
+									</div>
+								</div>
+								<ol class="check_area">
+									<li><input type="checkbox" class="sType2List" value="0"><label>전체</label></li>
+									<li><input type="checkbox" class="sType2List" value="32"><label>관련법령</label></li>
+									<li><input type="checkbox" class="sType2List" value="16"><label>질의요지</label></li>
+									<li><input type="checkbox" class="sType2List" value="8"><label>전문</label></li>
+									<li><input type="checkbox" class="sType2List" value="2"><label>문서번호</label></li> 
+								</ol>
+								<div class="detail_area_open decision _open">
+									<ul>
+										<li>
+											<label>회신기관</label>
+											<select id="sCat1" name="sCat1">
+											  <option value="00">전체</option>
+											  <option value="440539">법제처</option>
+											  <option value="440540">금융위원회/금융감독원</option>
+											  <option value="440541">기획재정부</option>
+											  <option value="440542">안전행정부</option>
+											  <option value="440543">조달청</option>
+											  <option value="440612">행정자치부</option>
+											</select>
+										</li>
+										<li>
+											<label class="sCat_txt">구분</label>
+											<select id="sCat2" name="sCat2">
+											  <option value="">전체</option>
+											  <option value="판사">판사</option>
+											  <option value="변호사">변호사</option>
+											  <option value="검사">검사</option>
+											  <option value="교수">교수</option>
+											  <option value="연구관">연구관</option>
+											  <option value="법무사">법무사</option>
+											  <option value="공무원">공무원</option>
+											  <option value="사법연수원생">사법연수원생</option>
+											  <option value="군법무관">군법무관</option>
+											</select> 
+										</li>
+										<li class="fill ">
+											<label>회신일자</label>
+											<input type="number" id="sUnivS" name="sUnivS" title="시작일" style="width:80px" placeholder="20160101"> ~ <input type="number" id="sUnivE" name="sUnivE" title="종료일" style="width:80px" placeholder="20161231"> <div class="btn-group" ><button type="button"  class="btn btn-square ">최근 6개월</button> <button type="button"  class="btn btn-square">최근 1년</button> <button type="button"  class="btn btn-square">최근 5년</button></div>
+										</li>
+									</ul>
+								</div>
+								<div class="btn_area"><input type="submit" id="searchBtn" value="검색"> <span class="_cancel"><i class="icon-16" data-icon="&#xe90e;"></i>입력초기화</span></div>
+								</form>
+							</div> 
+						</div>
+						<div class="submain_group title ">
+							<div class="submain_block">
+								<h3>주요 회신기관별 유권해석</h3>
+
+								<ul class="list_type_tab commentary">
+									<li class="_this"><a href="#">법제처</a></li>
+									<li><a href="#">금융위원회</a></li>
+									<li><a href="#">기획재정부</a></li>
+									<li><a href="#">안전행정부</a></li>
+									<li><a href="#">조달청</a></li>
+									<li><a href="#">test6</a></li>
+									<li><a href="#">test7</a></li>
+								</ul>
+
+								<div class="directory_sub_org">
+									<h4 class="hide">법제처 질의기관</h4>
+									<ul class="list_type_box line5">
+										<li><a href="1">감사원</a></li>
+										<li><a href="1">경찰청</a></li>
+										<li><a href="1">교육부</a></li>
+										<li><a href="1">국가보훈처</a></li>
+										<li><a href="1">국방부</a></li>
+										<li><a href="1">국민안전처</a></li>
+										<li><a href="1">국토교통부</a></li>
+										<li><a href="1">금융위원회</a></li>
+										<li><a href="1">기획재정부</a></li>
+										<li><a href="1">농림축산식품부</a></li>
+										<li><a href="1">문화재청</a></li>
+										<li><a href="1">문화체육관광부</a></li>
+										<li><a href="1">미래창조과학부</a></li>
+										<li><a href="1">보건복지부</a></li>
+										<li><a href="1">산림청</a></li>
+										<li><a href="1">산업통상자원부</a></li>
+										<li><a href="1">식약청</a></li>
+										<li><a href="1">외교부</a></li>
+										<li><a href="1">인사혁신처</a></li>
+										<li><a href="1">중소기업청</a></li>
+									</ul>
+								</div>
+								<div class="directory_sub_org">
+									<h4 class="hide">금융위원회 질의기관</h4>
+									<span></span>
+									<ul class="directory_list sub commentary">
+										<li><a href="1">금융위원회</a></li>
+										<li><a href="1">경찰청</a></li>
+										<li><a href="1">교육부</a></li>
+										<li><a href="1">국가보훈처</a></li>
+										<li><a href="1">국방부</a></li>
+										<li><a href="1">국민안전처</a></li>
+										<li><a href="1">국토교통부</a></li>
+										<li><a href="1">금융위원회</a></li>
+										<li><a href="1">기획재정부</a></li>
+										<li><a href="1">농림축산식품부</a></li>
+										<li><a href="1">문화재청</a></li>
+										<li><a href="1">문화체육관광부</a></li>
+										<li><a href="1">미래창조과학부</a></li>
+										<li><a href="1">보건복지부</a></li>
+										<li><a href="1">산림청</a></li>
+										<li><a href="1">산업통상자원부</a></li>
+										<li><a href="1">식약청</a></li>
+										<li><a href="1">외교부</a></li>
+										<li><a href="1">인사혁신처</a></li>
+										<li><a href="1">중소기업청</a></li>
+									</ul>
+								</div>
+								<div class="directory_sub_org">
+									<h4 class="hide">기획재정부 질의기관</h4>
+									<span></span>
+									<ul class="directory_list sub commentary">
+										<li><a href="1">기획재정부</a></li>
+										<li><a href="1">경찰청</a></li>
+										<li><a href="1">교육부</a></li>
+										<li><a href="1">국가보훈처</a></li>
+										<li><a href="1">국방부</a></li>
+										<li><a href="1">국민안전처</a></li>
+										<li><a href="1">국토교통부</a></li>
+										<li><a href="1">금융위원회</a></li>
+										<li><a href="1">기획재정부</a></li>
+										<li><a href="1">농림축산식품부</a></li>
+										<li><a href="1">문화재청</a></li>
+										<li><a href="1">문화체육관광부</a></li>
+										<li><a href="1">미래창조과학부</a></li>
+										<li><a href="1">보건복지부</a></li>
+										<li><a href="1">산림청</a></li>
+										<li><a href="1">산업통상자원부</a></li>
+										<li><a href="1">식약청</a></li>
+										<li><a href="1">외교부</a></li>
+										<li><a href="1">인사혁신처</a></li>
+										<li><a href="1">중소기업청</a></li>
+									</ul>
+								</div>
+								<div class="directory_sub_org">
+									4
+								</div>
+								<div class="directory_sub_org">
+									5
+								</div>
+								<div class="directory_sub_org">
+									6
+								</div>
+								<div class="directory_sub_org">
+									7
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="main_container_view">
+						<div class="main_container_view_inner">
+							 
+						</div>
+					</div>
+				</article> 
+				<aside class="right_container"> 
+					<section class="calc_info">  
+						<h4>LAWnB 검색연산자 안내<span class="btn_more"><i class="icon_open"  ></i>열기</span></h4> 
+						<div>
+							<table>
+								<tr>
+									<td><span>AND 검색</span><br>이사회 감사<br>이사회 & 감사<br>이사회 AND 감사</td>
+									<td>"이사회"와 "감사"가 모두 포함된 문서</td>
+								</tr>
+								<tr>
+									<td ><span>OR 검색</span><br>이사회 + 감사<br>이사회 OR 감사</td>
+									<td>"이사회"와 "감사" 중 어느 하나라도 포함된 문서</td>
+								</tr>
+								<tr>
+									<td ><span>NOT 검색</span><br>[검색어]이사회 <br>[제외어]감사<br>이사회 ! 감사</td>
+									<td>"이사회"가 포함되어 있는 문서 중 "감사"가 포함되지 않은 문서</td>
+								</tr>
+								<tr>
+									<td ><span>EQUAL 검색</span><br>“이사회 감사”</td>
+									<td>"이사회 감사" 라는 검색어와 완전히 일치하는 구문이 있는 문서</td>
+								</tr>
+								<tr>
+									<td ><span>NEAR 검색</span><br>“이사회 감사”~10</td>
+									<td>"이사회"와 "감사" 사이에 문자가 10글자 이하인 문서</td>
+								</tr>
+							</table>
+						</div>
+					</section> 
+					<section >
+						<h4>최근 해석법령</h4>
+						<ul> 
+							<li><a href="1" >조세심판원 조심2015지1556, 2016.07.29 [쟁점토지에 대한 지목변경 취득세 과세표준…]</a></li> 
+							<li><a href="1" >감사원 심사-2015-99, 2016.07.20 [부가가치세 환급경정 거부처분 취소에 관한…]</a></li> 
+							<li><a href="1" >공정거래위원회 2016카총1613, 2016.07.19 [한국기상산업진흥원 발주 등표 …]</a></li> 
+							<li><a href="1" >공정거래위원회 2016카총1613, 2016.07.19 [한국기상산업진흥원 발주 등표 …]</a></li> 
+							<li><a href="1" >공정거래위원회 2016카총1613, 2016.07.19 [한국기상산업진흥원 발주 등표 …]</a></li> 
+							<li><a href="1" >공정거래위원회 2016카총1613, 2016.07.19 [한국기상산업진흥원 발주 등표 …]</a></li> 
+							<li><a href="1" >공정거래위원회 2016카총1613, 2016.07.19 [한국기상산업진흥원 발주 등표 …]</a></li> 
+						</ul>  
+						<!-- <div class="more_view">more</div> -->
+					</section>
+				</aside>
+			</div>
+    	</div>
+		<footer>
+			<div class="etc_menu"> 
+				<div class="top_container">  
+					<ul>	
+						<li class="blind">기타 메뉴 </li>
+						<li>회사소개</li>
+						<li>광고 · 제휴문의</li>
+						<li>이용약관</li>
+						<li>개인정보 취급/처리 방침</li>
+						<li>법적고지</li>
+						<li>이메일 무단수집거부</li>
+					</ul>
+				</div>
+			</div>  
+			<div class="top_container   _footer"> 	   
+				1. 콘텐츠의 명칭 : 법률정보 &nbsp;&nbsp; 2. 콘텐츠의 제작 및 표시 : 2006년 2월 17일(업그레이드 콘텐츠의 경우 갱신일) &nbsp;&nbsp; 3. 콘텐츠 제작자 : ㈜로앤비  &nbsp;&nbsp;  4. 콘텐츠의 이용조건 : <a href="/support/agree_use.asp" class="red_bott">이용약관</a> 및 로앤비 <a href="/support/serviceInfo_member.asp" class="red_bott">서비스안내</a>와 같음 (무단 복제금지) &nbsp;&nbsp;5. 콘텐츠의 보호기간 : ㈜로앤비 사이트의 모든 콘텐츠는 「콘텐츠산업 진흥법」에 따라 제작 또는 갱신일로부터 5년간 보호됨
+				<div>Thomson reuters</div>
+				<div>Copyright ⓒ 1998~2016 <b>LAWnB</b>. All Rights Reserved.</div>
+			</div>       
+		</footer>
+		<div id="bg_screen"></div>
+		<script type="text/javascript">  
+			setHeight_under();			  
+		</script>
+	</div>
+</div> 
+</body>
+</html>

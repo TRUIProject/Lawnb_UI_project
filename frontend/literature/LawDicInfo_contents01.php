@@ -1,0 +1,694 @@
+<?php include '../include/header_sub_content.php'; ?>
+<!--	시작 : 헤더	-->
+<header class="ct-header">
+	<div class="w800 str clear">
+		<h1 class="logo-div"><a href="../main/main_search.php"><img src="../images/common/logo_s.png" alt="로앤비"/></a></h1>
+		<h2 class="logo-txt"> | 법명령 약어표</h2>
+	</div>
+</header>
+<!--	끝 : 헤더	-->
+<!--	시작 : 본문	-->
+<div class="popup-pd w800">
+	<div class="container clear">
+		<table class="dic_table">
+			<thead>
+			<tr>
+				<th colspan="2">가</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<th>가소</th>
+				<td>가사소송법</td>
+			</tr>
+			<tr>
+				<th>가족등록</th>
+				<td>가족관계의 등록 등에 관한 법률</td>
+			</tr>
+			<tr>
+				<th>감사</th>
+				<td>감사원법</td>
+			</tr>
+			<tr>
+				<th>감염예관</th>
+				<td>감염병의 예방 및 관리에 관한 법률</td>
+			</tr>
+			<tr>
+				<th>개소세	</th>
+				<td>개별소비세법</td>
+			</tr>
+			<tr>
+				<th>검찰</th>
+				<td>검찰청법</td>
+			</tr>
+			<tr>
+				<th>경직</th>
+				<td>경찰관 직무집행법</td>
+			</tr>
+			<tr>
+				<th>계엄</th>
+				<td>계엄법</td>
+			</tr>
+			<tr>
+				<th>공광저</th>
+				<td>공장 및 광업재단 저당법</td>
+			</tr>
+			<tr>
+				<th>공선</th>
+				<td>공직선거법</td>
+			</tr>
+			<tr>
+				<th>공연</th>
+				<td>공무원연금법</td>
+			</tr>
+			<tr>
+				<th>공익사업</th>
+				<td>공익사업을 위한 토지 등의 취득 및 보상에 관한 법률</td>
+			</tr>
+			<tr>
+				<th>공임령</th>
+				<td>공무원임용령</td>
+			</tr>
+			<tr>
+				<th>공증</th>
+				<td>공증인법</td>
+			</tr>
+			<tr>
+				<th>공탁</th>
+				<td>공탁법</td>
+			</tr>
+			<tr>
+				<th>관세</th>
+				<td>관세법</td>
+			</tr>
+			<tr>
+				<th>광업</th>
+				<td>광업법</td>
+			</tr>
+			<tr>
+				<th>교공</th>
+				<td>교육공무원법</td>
+			</tr>
+			<tr>
+				<th>교육세</th>
+				<td>교육세법</td>
+			</tr>
+			<tr>
+				<th>교에환세</th>
+				<td>교통,에너지,환경세법</td>
+			</tr>
+			<tr>
+				<th>구민</th>
+				<td>구민법</td>
+			</tr>
+			<tr>
+				<th>구상</th>
+				<td>구상법</td>
+			</tr>
+			<tr>
+				<th>국가계약</th>
+				<td>국가를 당사자로 하는 계약에 관한 법률</td>
+			</tr>
+			<tr>
+				<th>국가소송</th>
+				<td>국가를 당사자로 하는 소송에 관한 법률</td>
+			</tr>
+			<tr>
+				<th>국감</th>
+				<td>국정감사 및 조사에 관한 법률</td>
+			</tr>
+			<tr>
+				<th>국공</th>
+				<td>국가공무원법</td>
+			</tr>
+			<tr>
+				<th>국민건보</th>
+				<td>국민건강보험법</td>
+			</tr>
+			<tr>
+				<th>국민연</th>
+				<td>국민연금법</td>
+			</tr>
+			<tr>
+				<th>국보</th>
+				<td>국가보안법</td>
+			</tr>
+			<tr>
+				<th>국사</th>
+				<td>국제사법</td>
+			</tr>
+			<tr>
+				<th>국상</th>
+				<td>국가배상법</td>
+			</tr>
+			<tr>
+				<th>국세기</th>
+				<td>국세기본법</td>
+			</tr>
+			<tr>
+				<th>국세징</th>
+				<td>국세징수법</td>
+			</tr>
+			<tr>
+				<th>국유</th>
+				<td>국유재산법</td>
+			</tr>
+			<tr>
+				<th>국재</th>
+				<td>국가재정법</td>
+			</tr>
+			<tr>
+				<th>국적</th>
+				<td>국적법</td>
+			</tr>
+			<tr>
+				<th>국토계획</th>
+				<td>국토의 계획 및 이용에 관한 법률</td>
+			</tr>
+			<tr>
+				<th>국회</th>
+				<td>국회법</td>
+			</tr>
+			<tr>
+				<th>군법</th>
+				<td>군사법원법</td>
+			</tr>
+			<tr>
+				<th>군인</th>
+				<td>군인사법</td>
+			</tr>
+			<tr>
+				<th>근기</th>
+				<td>근로기준법</td>
+			</tr>
+			</tbody>
+		</table>
+		<table class="dic_table">
+			<thead>
+			<tr>
+				<th colspan="2">나~다</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<th>노동관계</th>
+				<td>노동조합 및 노동관계조정법</td>
+			</tr>
+			<tr>
+				<th>노위</th>
+				<td>노동위원회법</td>
+			</tr>
+			<tr>
+				<th>농특세</th>
+				<td>농어촌특별세법</td>
+			</tr>
+			<tr>
+				<th>농협</th>
+				<td>농업협동조합법</td>
+			</tr>
+			<tr>
+				<th>담보사</th>
+				<td>담보부사채신탁법</td>
+			</tr>
+			<tr>
+				<th>도로</th>
+				<td>도로법</td>
+			</tr>
+			<tr>
+				<th>도로교</th>
+				<td>도로교통법</td>
+			</tr>
+			<tr>
+				<th>독민</th>
+				<td>독일민법</td>
+			</tr>
+			<tr>
+				<th>독상</th>
+				<td>독일상법</td>
+			</tr>
+			<tr>
+				<th>독점</th>
+				<td>독점규제 및 공정거래에 관한 법률</td>
+			</tr>
+			<tr>
+				<th>디보</th>
+				<td>디자인보호법</td>
+			</tr>
+			</tbody>
+		</table>
+		<table class="dic_table">
+			<thead>
+			<tr>
+				<th colspan="2">마</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<th>마약관리</th>
+				<td>마약류 관리에 관한 법률</td>
+			</tr>
+			<tr>
+				<th>모자보건</th>
+				<td>모자보건법</td>
+			</tr>
+			<tr>
+				<th>문화재</th>
+				<td>문화재보호법</td>
+			</tr>
+			<tr>
+				<th>민</th>
+				<td>민법</td>
+			</tr>
+			<tr>
+				<th>민사조</th>
+				<td>민사조정법</td>
+			</tr>
+			<tr>
+				<th>민소</th>
+				<td>민사소송법</td>
+			</tr>
+			<tr>
+				<th>민소규</th>
+				<td>민사소송규칙</td>
+			</tr>
+			<tr>
+				<th>민원</th>
+				<td>민원 처리에 관한 법률</td>
+			</tr>
+			<tr>
+				<th>민인</th>
+				<td>민사소송 등 인지법</td>
+			</tr>
+			<tr>
+				<th>민집</th>
+				<td>민사집행법</td>
+			</tr>
+			</tbody>
+		</table>
+		<table class="dic_table">
+			<thead>
+			<tr>
+				<th colspan="2">바</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<th>방문판매</th>
+				<td>방문판매 등에 관한 법률</td>
+			</tr>
+			<tr>
+				<th>방송</th>
+				<td>방송법</td>
+			</tr>
+			<tr>
+				<th>법공포</th>
+				<td>법령 등 공포에 관한 법률</td>
+			</tr>
+			<tr>
+				<th>법세</th>
+				<td>법인세법</td>
+			</tr>
+			<tr>
+				<th>법조</th>
+				<td>법원조직법</td>
+			</tr>
+			<tr>
+				<th>변리</th>
+				<td>변리사법</td>
+			</tr>
+			<tr>
+				<th>변호</th>
+				<td>변호사법</td>
+			</tr>
+			<tr>
+				<th>병역</th>
+				<td>병역법</td>
+			</tr>
+			<tr>
+				<th>보안관찰</th>
+				<td>보안관찰법</td>
+			</tr>
+			<tr>
+				<th>보험</th>
+				<td>보험업법</td>
+			</tr>
+			<tr>
+				<th>부가세</th>
+				<td>부가가치세법</td>
+			</tr>
+			<tr>
+				<th>부등</th>
+				<td>부동산등기법</td>
+			</tr>
+			<tr>
+				<th>부등규</th>
+				<td>부동산등기규칙</td>
+			</tr>
+			<tr>
+				<th>부등특치</th>
+				<td>부동산등기 특별조치법</td>
+			</tr>
+			<tr>
+				<th>부실명등</th>
+				<td>부동산 실권리자명의 등기에 관한 법률</td>
+			</tr>
+			<tr>
+				<th>부정수</th>
+				<td>부정수표 단속법</td>
+			</tr>
+			<tr>
+				<th>불민</th>
+				<td>프랑스민법</td>
+			</tr>
+			<tr>
+				<th>비송</th>
+				<td>비송사건절차법</td>
+			</tr>
+			</tbody>
+		</table>
+		<table class="dic_table">
+			<thead>
+			<tr>
+				<th colspan="2">사</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<th>사면</th>
+				<td>사면법</td>
+			</tr>
+			<tr>
+				<th>산자조관</th>
+				<td>산림자원의 조성 및 관리에 관한 법률</td>
+			</tr>
+			<tr>
+				<th>산재보</th>
+				<td>산업재해보상보험법</td>
+			</tr>
+			<tr>
+				<th>상</th>
+				<td>상법</td>
+			</tr>
+			<tr>
+				<th>상등</th>
+				<td>상업등기법</td>
+			</tr>
+			<tr>
+				<th>상속</th>
+				<td>상속세 및 증여세법</td>
+			</tr>
+			<tr>
+				<th>상임</th>
+				<td>상가건물 임대차보호법</td>
+			</tr>
+			<tr>
+				<th>상표</th>
+				<td>상표법</td>
+			</tr>
+			<tr>
+				<th>선원</th>
+				<td>선원법</td>
+			</tr>
+			<tr>
+				<th>선위</th>
+				<td>선거관리위원회법</td>
+			</tr>
+			<tr>
+				<th>소</th>
+				<td>소년법</td>
+			</tr>
+			<tr>
+				<th>소기</th>
+				<td>소방기본법</td>
+			</tr>
+			<tr>
+				<th>소비기</th>
+				<td>소비자기본법</td>
+			</tr>
+			<tr>
+				<th>소세</th>
+				<td>소득세법</td>
+			</tr>
+			<tr>
+				<th>소액</th>
+				<td>소액사건심판법</td>
+			</tr>
+			<tr>
+				<th>수</th>
+				<td>수표법</td>
+			</tr>
+			<tr>
+				<th>수산</th>
+				<td>수산업법</td>
+			</tr>
+			<tr>
+				<th>수협</th>
+				<td>수산업협동조합법</td>
+			</tr>
+			<tr>
+				<th>식위</th>
+				<td>식품위생법</td>
+			</tr>
+			<tr>
+				<th>신보</th>
+				<td>신원보증법</td>
+			</tr>
+			<tr>
+				<th>신안</th>
+				<td>실용신안법</td>
+			</tr>
+			</tbody>
+		</table>
+		<table class="dic_table">
+			<thead>
+			<tr>
+				<th colspan="2">아</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<th>아동복</th>
+				<td>아동복지법</td>
+			</tr>
+			<tr>
+				<th>약관규제</th>
+				<td>약관의 규제에 관한 법률</td>
+			</tr>
+			<tr>
+				<th>어</th>
+				<td>어음법</td>
+			</tr>
+			<tr>
+				<th>여자운업</th>
+				<td>여객자동차 운수사업법</td>
+			</tr>
+			<tr>
+				<th>우편</th>
+				<td>우편법</td>
+			</tr>
+			<tr>
+				<th>유실</th>
+				<td>유실물법</td>
+			</tr>
+			<tr>
+				<th>은행</th>
+				<td>은행법</td>
+			</tr>
+			<tr>
+				<th>의료</th>
+				<td>의료법</td>
+			</tr>
+			<tr>
+				<th>입목</th>
+				<td>입목에 관한 법률</td>
+			</tr>
+			</tbody>
+		</table>
+		<table class="dic_table">
+			<thead>
+			<tr>
+				<th colspan="2">자</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<th>자동손배</th>
+				<td>자동차손해배상 보장법</td>
+			</tr>
+			<tr>
+				<th>자시금투</th>
+				<td>자본시장과 금융투자업에 관한 법률</td>
+			</tr>
+			<tr>
+				<th>자재</th>
+				<td>자산재평가법</td>
+			</tr>
+			<tr>
+				<th>저작</th>
+				<td>저작권법</td>
+			</tr>
+			<tr>
+				<th>전자문서</th>
+				<td>전자문서 및 전자거래 기본법</td>
+			</tr>
+			<tr>
+				<th>전자서명</th>
+				<td>전자서명법</td>
+			</tr>
+			<tr>
+				<th>정당</th>
+				<td>정당법</td>
+			</tr>
+			<tr>
+				<th>정자</th>
+				<td>정치자금법</td>
+			</tr>
+			<tr>
+				<th>정조</th>
+				<td>정부조직법</td>
+			</tr>
+			<tr>
+				<th>조세범</th>
+				<td>조세범 처벌법</td>
+			</tr>
+			<tr>
+				<th>주세</th>
+				<td>주세법</td>
+			</tr>
+			<tr>
+				<th>주임</th>
+				<td>주택임대차보호법</td>
+			</tr>
+			<tr>
+				<th>증거세</th>
+				<td>증권거래세법</td>
+			</tr>
+			<tr>
+				<th>지공</th>
+				<td>지방공무원법</td>
+			</tr>
+			<tr>
+				<th>지공임</th>
+				<td>지방공무원 임용령</td>
+			</tr>
+			<tr>
+				<th>지세</th>
+				<td>지방세법</td>
+			</tr>
+			<tr>
+				<th>지세기</th>
+				<td>지방세기본법</td>
+			</tr>
+			<tr>
+				<th>지자</th>
+				<td>지방자치법</td>
+			</tr>
+			<tr>
+				<th>집합건</th>
+				<td>집합건물의 소유 및 관리에 관한 법률</td>
+			</tr>
+			<tr>
+				<th>집행</th>
+				<td>집행관법</td>
+			</tr>
+			<tr>
+				<th>집회</th>
+				<td>집회 및 시위에 관한 법률</td>
+			</tr>
+			</tbody>
+		</table>
+		<table class="dic_table">
+			<thead>
+			<tr>
+				<th colspan="2">차~파</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<th>채회파</th>
+				<td>채무자 회생 및 파산에 관한 법률</td>
+			</tr>
+			<tr>
+				<th>청보</th>
+				<td>청소년 보호법</td>
+			</tr>
+			<tr>
+				<th>청원</th>
+				<td>청원법</td>
+			</tr>
+			<tr>
+				<th>총포도검</th>
+				<td>총포,도검,화약류 등의 안전관리에 관한 법률</td>
+			</tr>
+			<tr>
+				<th>특정범죄</th>
+				<td>특정범죄 가중처벌 등에 관한 법률</td>
+			</tr>
+			<tr>
+				<th>특허</th>
+				<td>특허법</td>
+			</tr>
+			</tbody>
+		</table>
+		<table class="dic_table">
+			<thead>
+			<tr>
+				<th colspan="2">하</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<th>할부거래</th>
+				<td>할부거래에 관한 법률</td>
+			</tr>
+			<tr>
+				<th>행소</th>
+				<td>행정소송법</td>
+			</tr>
+			<tr>
+				<th>행심</th>
+				<td>행정심판법</td>
+			</tr>
+			<tr>
+				<th>행절</th>
+				<td>행정절차법</td>
+			</tr>
+			<tr>
+				<th>헌</th>
+				<td>헌법</td>
+			</tr>
+			<tr>
+				<th>헌재</th>
+				<td>헌법재판소법</td>
+			</tr>
+			<tr>
+				<th>형</th>
+				<td>형법</td>
+			</tr>
+			<tr>
+				<th>형보</th>
+				<td>형사보상 및 명예회복에 관한 법률</td>
+			</tr>
+			<tr>
+				<th>형소</th>
+				<td>형사소송법</td>
+			</tr>
+			<tr>
+				<th>형소규</th>
+				<td>형사소송규칙</td>
+			</tr>
+			<tr>
+				<th>형집행</th>
+				<td>형의 집행 및 수용자의 처우에 관한 법률</td>
+			</tr>
+			<tr>
+				<th>환평</th>
+				<td>환경영향평가법</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<!--	끝 : 본문	-->
+</body>
+</html>

@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" /> 
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/html">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="robots" content="noindex, nofollow" > 
+<title> 법조기관 - 로앤비 </title>
+<link rel="shortcut icon" href="/images/favicon_tr.ico" /> 
+<link href="/css/M_next_layout.css?v=2018062601" rel="stylesheet" type="text/css" /> 
+<link href="/css/M_next_default.css?v=2018062601" rel="stylesheet" type="text/css" /> 
+<link href="/css/icon-style.css?v=2018062601" rel="stylesheet" type="text/css" /> 
+<script src="/Scripts/lib/jquery-3.4.1.min.js" type="text/javascript"></script>
+<script src="/Scripts/common/storage.js?v=2018062601" type="text/javascript"></script>
+<script src="/Scripts/common/commonAjax.js?v=2018062601" type="text/javascript"></script>
+<script src="/Scripts/common/commonjs.js?v=2018062601" type="text/javascript"></script>
+<script src="/Scripts/common/commonjs_Mobile.js?v=2018062601" type="text/javascript"></script>
+<script src="/Scripts/common/wordSuggest.js?v=2018062601" type="text/javascript"></script>
+<script src="/Scripts/member/login/Session.js?v=2018062601" type="text/javascript"></script>
+    <script src="/Scripts/member/mydesk/MyDesk.js?v=2018062601" type="text/javascript"></script>
+<script src="/Scripts/member/mydesk/MyFolder.js?v=2018062601" type="text/javascript"></script>
+<script src="/Scripts/member/mydesk/MyAlert.js?v=2018062601" type="text/javascript"></script>
+<script src="/Scripts/sub/serviceBinding.js?v=2018062601" type="text/javascript"></script>
+<script type="text/javascript">
+    function resizeComment() {
+        setHeight(); 
+    }
+
+    var expanded = false;
+    function showCheckboxes() {
+        if (!expanded) {
+            $("#checkboxes").show();
+            expanded = true;
+        } else {
+            $("#checkboxes").hide();
+            expanded = false;
+        }
+    }
+
+    storage.setStatusType(1);
+
+    $(document).ready(function () {
+
+        $(".btn_area_normal").on('click', '._cancel', function () {
+            $('.alert_area_modi').hide();
+            $('#bg_screen').hide();
+            $('#alert_add_keyw').hide();
+        });
+
+        $(".lawsearch").click(function () {
+            $("#alert_add_keyw .school_search").show();
+        });
+
+        $(".school_search p span").click(function () {
+            $("#alert_add_keyw .school_search").hide();
+        });
+
+        //제목 상단 고정
+        $(window).scroll(function () {
+            if ($(window).scrollTop() >= 40) {
+                $(".title_area").addClass('topfixed');
+            } else {
+                $(".title_area").removeClass('topfixed');
+            }
+        });
+    }); 
+
+     
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_popupContainer" class="mobile free">
+	<div id="wrap" class="">
+		<header> 
+			<div class="top_container  ">  		
+                <h1>법조기관 </h1>
+                <div class="btn_close_pop"><i class="icon-close" data-icon=""></i></div>
+			</div>        	
+		</header>
+  
+        <div id="container" class="laworg">
+            <div class="title_area">
+				<h2>수원지방법원 안산지원 광명시법원</h2> 
+            </div> 
+			<div id="container_inner">
+				<div class="left_container">  
+				</div>
+				<article class="main_container"> 
+					<div class="main_container_inner"></div>
+					<div class="main_container_view">
+						<div class="main_container_view_inner">
+							<div id="divOrgInfoView"   >
+                                <div class="submain_group title organi"><h3>기본정보<span class="btn_more">(업데이트 기준일 : 2018.04.02)</span></h3><div class="lawyer_info"><span>대표전화 : 02-3480-2000</span><br><span>주소 : 서울특별시 서초구 반포대로 157</span><br><span>홈페이지 : <a href="http://www.spo.go.kr/" target="_blank">http://www.spo.go.kr/</a></span><br><span>관할구역 : 전국</span></div></div>
+                                <div class="submain_group title organi"><h3>부서별 전화번호</h3><div class="lawyer_info tel"><span>수사정보정책관실 : (02)536-6414</span><span>수사정보1담당관실 : (02)535-3070</span><span>수사정보2담당관실 : (02)536-6415</span><span>검찰미래기획단 : (02)535-0143</span><span>국제협력단 : (02)535-0709,0785</span><span>형사정책단 : (02)535-0143</span><span>기획조정부장 : (02)535-9375</span><span>기획조정부장 : </span><span>정책기획과 : (02)535-5890</span><span>정보통신과 : (02)535-4712</span><span>반부패부장 : (02)535-9388</span><span>선임연구관실 : (02)535-2253</span><span>수사지휘과 : (02)535-2343</span><span>수사지원과 : (02)599-8193</span><span>범죄수익환수과 : (02)3480-2840</span><span>형사부장 : (02)535-5331</span><span>형사1과 : (02)535-5506</span><span>형사2과 : (02)535-5748</span><span>강력부장 : (02)535-6701</span><span>조직범죄과 : (02)535-3966</span><span>마약과 : (02)535-0133</span><span>피해자인권과 : (02)535-4435</span><span>공안부장 : (02)535-4522</span><span>공안기획관실 : (02)535-0150</span><span>공안1과 : (02)535-0197</span><span>공안2과 : (02)535-0253</span><span>공안3과 : (02)535-4679</span><span>공판송무부장 : (02)535-0722</span><span>공판송무과 : (02)535-2501</span><span>집행과 : (02)3480-2374</span><span>집행과 : (02)535-3191</span><span>집행과 : (02)535-3191</span><span>과학수사부장 : </span><span>과학수사기획관실 : (02)535-9484</span><span>법과학분석과 : (02)535-4215</span><span>디엔에이·화학분석과 : (02)535-0783</span><span>디지털수사과 : (02)535-9482</span><span>사이버수사과 : (02)3480-2190</span><span>감찰본부장 : (02)535-7003</span><span>감찰1과 : (02)535-7584</span><span>감찰2과 : (02)535-7174</span><span>특별감찰단  : (02)3480-3820-1</span><span>대변인실(405, 407호) : </span><span>수사정보 : (02)3480-2380</span><span>정책기획과 : (02)3480-2120</span><span>검찰미래기획단 : (02)3480-2880</span><span>범죄정보(1203호) : </span><span>검찰미래기획단(1310호) : </span><span>국제협력단 : (02)3480-4222</span><span>국제협력사무단(510호,505호) : </span><span>형사정책단(1212호) : (02)3480-2921</span><span>검찰개혁추진단 : (02)3480-3755</span><span>강력(1310호) : </span><span>반부패부(1101~1106호) : (02)3480-2750</span><span>반부패부(1101~1106호)  : </span><span>감찰본부(1과,506~7호,310~314호) : (02)3480-3726</span><span>감찰본부(2과, 512호)  : </span><span>감찰본부(2과,512호) : (02)3480-2921</span><span>검찰본부(특별감찰단,1116~1117호) : (02)3480-4979</span><span>공안(911호) : (02)3480-2741</span><span>과학수사부(212호)  : </span><span>형사(1105호,1109호,1110호,1310호) : (02)3480-2904</span><span>강력(1310호) : (02)3480-2895</span><span>양형팀(1207호)  : </span><span>양형팀(1207호) : (02)3480-2359</span><span>과학수사부(503호) : (02)3480-3277</span><span>대변인실 : </span><span>검찰연구관 : </span></div></div>
+						    </div> 
+						</div>
+					</div>
+				</article>  
+			</div>
+   </div>
+    	
+		<footer>
+			
+<div class="popup_footer"> 
+            <div class="btns_left m1">이전화면<i class="icon-16" data-icon="&#xe901;"></i></div> 
+            <div class="btns_right m1">다음화면<i class="icon-16" data-icon="&#xe900;"></i></div> 
+            <div class="btns_top m1">새로고침<i class="icon-16" data-icon="&#xe90e;"></i></div>
+            <div class="btns_help m1">공유<i class="icon-share2" data-icon="&#xea82;"></i></div>           </div>
+		</footer>
+ 
+  <div id="bg_screen"><div  class="loading_img"><img src="/images/tr_img_loading_re.gif?v=2018062601"></div></div>        
+         
+        <script type="text/javascript">
+            setHeight();			  
+		</script> 
+
+        
+        
+</div>  
+</div>
+
+</body>
+</html>

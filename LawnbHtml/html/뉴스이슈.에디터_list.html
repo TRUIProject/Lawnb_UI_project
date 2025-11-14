@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../js/commonjs.js?s"></script>
+<script language="javascript">
+<!--
+ 
+	function resizeComment(){ 
+			if($('.right_container').hasClass('add_border')){
+				$(".right_container").removeClass('slide_mov_right'); 
+			}else{
+				if($('#container').hasClass('list-view')){
+					$(".right_container").addClass('slide_mov_right'); 
+				}else{
+					$(".right_container").removeClass('slide_mov_right'); 
+				}
+			}
+			setHeight_under();
+		}
+	$(document).ready(function () { 
+		$('.left_container').on('click', '.btn_biz', function(){ //비즈레터
+			 
+			$('.popup_win').show();
+			//$('#bg_screen').show();
+			$('#letter_set').show();
+		});
+		$('#letter_set').on('click', '.btn_close_pop', function(){ //비즈레터 닫기
+			 
+			$('.popup_win').hide();
+			//$('#bg_screen').hide();
+			$('#letter_set').hide();
+		});
+	});
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_mainContainer">
+	<div id="wrap" >
+		<header> 
+			<h1>로앤비</h1>
+			<div id="t_search" class="search_container">
+				<h2>통합검색 영역</h2>
+				<div class="search_inner">
+					<form  action="" > 
+					<div class="search_left hide">
+						<label class="hide">통합검색  </label>
+					</div>
+					<div class="search_center">
+						<input type="search" name="" id="" >
+					</div>
+					<div class="search_right"><span class="more_btn"><i class="icon-more" data-icon=""></i><span class="hide">more</span></span></div>
+					<div id="searchButton" class="search_btn"><i class="icon-" data-icon="&#xe910;"></i><span class="hide">검색</span></div> 
+					</form>
+					<div class="btn_search_result"><i class="icon-table" data-icon="&#xea71;"></i><span class="hide">검색결과 맵 보기</span></div>
+				</div>
+				<div class="search_layer_outer" >
+					<div class="search_layer" >
+						<div class="search_layer_list _done ">
+							<!-- <div class="txt_info">최근검색어저장 기능이 OFF 상태에 있습니다.<br>이용을 원하시면 하단의 최근검색어저장 상태를 ON으로 변경해주세요. </div> 
+							<ul>
+								<li>공정거래법 위반으로 인한 손해액의 산정방법과 주요 쟁점으로 <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+							</ul>-->
+							<ul>
+								<li><strong>대법</strong>원인터넷등기소<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+								<li><strong>대법</strong>원나의사건검색</li>
+								<li><strong>대법</strong>원법원경매정보</li>
+								<li><strong>대법</strong>원전자가족관계</li>
+								<li><strong>대법</strong>원경매</li>
+								<li><strong>대법</strong>원인터넷등기소<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+								<li><strong>대법</strong>원나의사건검색<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+								<li><strong>대법</strong>원법원경매정보</li>
+								<li><strong>대법</strong>원전자가족관계</li>
+								<li><strong>대법</strong>원경매</li>
+							</ul> 
+							<div class="expend_result" onclick="">
+								<p>법무법인(유한) 태평양어쩌고 저쩌고</p>
+								<span>주소 : [050-50] 서울시 광진구 디지털로 272, 한신 IT타워 611호<br>대표전화 : 02-2204-2114</span>
+								<div class="dirct_go">바로가기</div>
+							</div>
+						</div>
+						<!-- <div class="noti_txt"><i class="icon-" data-icon="&#xe90d;"></i> 공용 PC에서는 개인정보보호를 위하여 반드시 로그아웃을 해주세요.</div> -->
+						<div class="search_layer_foot">
+							<div class="fl">기록삭제</div>
+							<div class="fr">최근검색어저장 <div class="btn-group"><button type="button" class="btn btn_orange _select">ON</button><button type="button" class="btn btn-default">OFF</button></div> 자동완성 <div class="btn-group"><button type="button" class="btn btn_orange _select">ON</button><button type="button" class="btn btn-default">OFF</button></div>
+							</div>						
+						</div>
+					</div> 
+				</div>
+			</div>
+			<div id="indiv_area" class="indiv_container">
+				<span alt="나의폴더">나의폴더<i class="icon-myfolder" data-icon="&#xe91a;"></i></span>
+				<span alt="히스토리">히스토리<i class="icon-history" data-icon="&#xe916;"></i></span>
+				<span alt="알림설정">알림설정<i class="icon-alert" data-icon="&#xe918;"></i><em>9+</em></span>
+				<span alt="질문내역">문의내역<i class="icon-question" data-icon="&#xe919;"></i></span>
+				<span alt="나의정보">나의정보<i class="icon-myinfo" data-icon="&#xe917;"></i></span>
+			</div>
+			<nav> 
+				<dl id="main_menu" class="mmenu">
+					<dt class="blind">메인 메뉴</dt> 
+					<dd>
+						<a href="#"><span>판례</span></a>
+					</dd>
+					<dd class="currentTab" >
+						<a href="#"><span>법규</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>심판·결정·해석</span></a>
+					</dd>
+					<dd >
+						<a href="#"><span>문헌</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>법조인</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>기업법무</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>서식</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>뉴스·칼럼</span></a>
+					</dd>
+				</dl>  
+			</nav>
+		</header> 
+			<div class="submenu_group" style="">
+				<div>
+					<dl>
+						<dd><a href="">판례</a></dd>
+						<dd><a href="">판례디렉토리</a></dd>
+						<dd><a href="">판례속보</a></dd>
+					</dl>
+					<dl>
+						<dd><a href="">법령</a></dd>
+						<dd><a href="">행정규칙</a></dd>
+						<dd><a href="">입법동향</a></dd>
+						<dd><a href="">조약</a></dd>
+					</dl>
+					<dl>
+						<dd><a href="">특허 심판례</a></dd>
+						<dd><a href="">결정례</a></dd>
+						<dd><a href="">유권해석</a></dd>
+					</dl>
+					<dl>
+						<dd><a href="">논문평석</a></dd>
+						<dd><a href="">주석서</a></dd>
+						<dd><a href="">E-book</a></dd>
+						<dd><a href="">법률용어</a></dd>
+					</dl>
+					<dl>
+						<dd><a href="">법조인명록</a></dd>
+						<dd><a href="">조직도</a></dd>
+						<dd><a href="">법률사무소</a></dd>
+						<dd>법조기관 안내</dd>
+					</dl>
+					<dl>
+						<dd>로펌 리포트</dd>
+						<dd>세무정보</dd>
+						<dd>기업정보</dd>
+					</dl>
+					<dl>
+						<dd>법률서식</dd>
+						<dd>비즈폼 서식</dd>
+					</dl>
+					<dl>
+						<dd>뉴스</dd>
+						<dd>칼럼</dd>
+					</dl>
+				</div>
+				<div class="ad_area">ss</div>
+			</div>
+		<div id="container" class="news">
+			<div id="breadcrumb" class="navi_area">
+				<div>Home > 뉴스·칼럼 > <a href="1">LAWnB Editor</a></div>
+				<div class="group_indivi_btn"><a href="">로그인</a><a href="">개인화님</a> </div>
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div id="container_inner">
+				<div class="left_container">  
+					<section id="result_tab">
+						<div><i class="icon-2" data-icon="&#xe901;"><span class="blind">이전년도</span></i> 2017년 <i class="icon-2 disabled" data-icon="&#xe900;"><span class="blind">다음년도</span></i></div>   
+						<ul>
+							<li><a href="gf">1월 <span>(10)</span></a></li>
+							<li><a href="fd">2월 <span>(8)</span></a></li>
+							<li class="this-page"><a href="sfd">3월 <span>(10)</span></a></li>
+							<li><a href="fd">4월 <span>(5)</span></a></li>
+							<li><a href="sd">5월 <span>(10)</span></a></li>
+							<li><a href="sd">6월 <span>(10)</span></a></li>
+							<li><a href="sd">7월 <span>(10)</span></a></li>
+							<li><a href="sd">8월 <span>(10)</span></a></li>
+							<li><a href="sd">9월 <span>(10)</span></a></li>
+							<li><a href="sd">10월 <span>(10)</span></a></li>
+						</ul>
+					</section>
+					<section>
+						<div class="btn_biz">비즈레터 구독신청</div>
+					</section>
+				</div>
+				<article class="main_container"> 
+					<div class="main_container_inner">
+						<div class="issue_result_list">
+							<h2 class="dark_line">저작권 관련 이슈</h2>
+							<ul>
+								<li>대규모 점포에 대한 음원 저작권 행사 범위 확장</li>
+								<li class="_this">자율주행차 사고 나면 누구 책임?…운전자 vs 제조사</li>
+								<li>회식에서의 업무상 재해의 적용 범위</li>
+								<li>제조사제조업체의 사내하도급을 불법파견으로 볼 수 없다는 ...대법  </li>
+								<li>음주측정 거부 시 공무집행방해 적용 여부</li>
+							</ul>
+							<div class="more_view"><span class="_this"></span><span></span><span></span></div>
+						</div>
+						<div class="main_issue">
+							<div class="issue_tit"><a href="">자율주행차 사고 나면 누구 책임?…운전자 vs 제조사</a></div>
+							<div class="issue_comment">
+								<div><img src="../images/img_main_sample.png" class="img">정부는 2020년 자율주행자동차 상용화를 목표로, 자율주행자동차를 9대 국가 전략 프로젝트 중 하나로 선정하여 적극적으로 지원하고 있다. 하지만 자율주행자동차가 실제로 도로를 주행하기 위해서는 성능, 안전성 등 기술적 문제에서부터 사고 시 배상문제까지 여러 이슈에 대한 법·제도적 대비가 필요하며 특히 사고가 발생할 경우 자율주행의 정도에 따라 운전자와 제조사간 책임 비율 문제가 다투어질 것이고, 일반 소비자가 자율주행차 프로그램의 오류를 입증하기 쉽지 않으므로 보통의 경우보다 입증책임을 완화하는 법 규정을 만들어야 한다는 견해가 유력하다.</div>
+							</div> 
+							<span class="date">Edit Date : 2017.08.16</span>
+						</div>
+						<div id="search_results" class="issue_inner_list">
+							<div>
+								<a href="">[뉴스] '불법 몰카 원천 차단'…장병완, 몰카 근절법 발의</a>
+								<span class="meta">로이슈  2017.08.14</span>
+								<div class="issue_content">내년 하반기부터 50㎡ 초과 매장 월정액 최저 4천원 부과 '공연권 확대' 저작권법 시행령 개정안 국무회의 통과 커피숍 [연합뉴스 사진자료] 앞으로는 커피숍, 호프집, 헬스장 등에서 음악을 틀면 음악 창작자나 가수, 연주자에게 저작권료를 내야 한다 내년 하반기부터 적용되며 15∼30평 규모 매장에 월 4천 원이 부과될 예정이다.</div>
+							</div>
+							<div>
+								<a href="">[판례] 대법원 2016. 8. 24. 선고 2016다204653 판결 【손해배상(기)】 <span>[공2016하, 1352]</span></a> 
+								<div class="issue_content">[1]저작권법 제105조 제5항에 따라 승인받은 사용료의 요율 또는 금액이 없는 경우,저작권위탁관리업자의 저작권 침해를 원인으로 한 손해배상청구권 행사가 제한되는지 여부(소극)<br>
+[2]저작권법 제29조 제2항에서 말하는 ‘판매용 음반’의 의미(=시중에 판매할 목적으로 제작된 음반)</div>
+							</div>
+							<div>
+								<a href="">[법령] 저작권법 제29조</a>
+								<div class="issue_content"><span class="label-icon blue">현행</span> <a href="22">법률 제9148호 일부개정 공포일 2008.12.19, 시행일 2008.12.19</a><br><span class="label-icon sky">연혁</span> <a href="2">법률 제9148호 일부개정 공포일 2008.12.19, 시행일 2008.12.19</a></div>
+							</div>
+							<div>
+								<a href="">[로펌리포트] 국토교통부, '드론산업발전 기본계획안' 발표</a>
+								<span class="meta">[법무법인(유) 화우] 2015. 8. 6</span>
+								<div class="issue_content">대법원 2015. 6. 11. 선고 2015다200227 판결- 양창수 前 대법관 (한양대 로스쿨 교수) [사실관계] 1. 갑은 1992년 5월에 이 사건 토지를 취득하고 같은 해 8월에 피고에 대한 차용금채무(이하 '이 사건 차용금채무'라고 한다)의 담보로 피고에게 채권최고액 6000만원의 근저당권을 설정하였다. 그 후 2004년..</div>
+							</div>
+							<div>
+								<a href="">[로펌리포트] 국토교통부, '드론산업발전 기본계획안' 발표</a>
+								<span class="meta">김영환 / 형사판례연구 5권 / 형사판례연구회 / 1997.08.20 / 15page</span>
+								<div class="issue_content"></div>
+							</div>
+							<div>
+								<a href="">[로펌리포트] 국토교통부, '드론산업발전 기본계획안' 발표</a>
+								<span class="meta">[법무법인(유) 화우] 2015. 8. 6</span>
+								<div class="issue_content">대법원 2015. 6. 11. 선고 2015다200227 판결- 양창수 前 대법관 (한양대 로스쿨 교수) [사실관계] 1. 갑은 1992년 5월에 이 사건 토지를 취득하고 같은 해 8월에 피고에 대한 차용금채무(이하 '이 사건 차용금채무'라고 한다)의 담보로 피고에게 채권최고액 6000만원의 근저당권을 설정하였다. 그 후 2004년..</div>
+							</div>
+							<div>
+								<a href="">[로펌리포트] 국토교통부, '드론산업발전 기본계획안' 발표</a>
+								<span class="meta">[법무법인(유) 화우] 2015. 8. 6</span>
+								<div class="issue_content">대법원 2015. 6. 11. 선고 2015다200227 판결- 양창수 前 대법관 (한양대 로스쿨 교수) [사실관계] 1. 갑은 1992년 5월에 이 사건 토지를 취득하고 같은 해 8월에 피고에 대한 차용금채무(이하 '이 사건 차용금채무'라고 한다)의 담보로 피고에게 채권최고액 6000만원의 근저당권을 설정하였다. 그 후 2004년..</div>
+							</div>
+						 </div> 
+					 </div>
+					 <div class="main_container_view"> 
+					 </div>
+				</article> 
+				<aside class="right_container"> 
+					<section >
+						<h4>LAWnB Editor</h4>
+						<p class="mgt10">2017년 8월의 다른 이슈</p>
+						<ul> 
+							<li><a href="1" >회식에서의 업무상 재해의 적용 범위</a></li> 
+							<li><a href="1" >자율주행자동차 사고에 대한 민∙형사상 책임</a></li> 
+							<li><a href="1" >소년법 적용 논란 - '때릴땐 어른, 처벌땐 아이' 소년법 논의 봇물</a></li> 
+							<li><a href="1" >음주측정 거부 시 공무집행방해 적용 여부'</a></li> 
+							<li><a href="1" >제조업체의 사내하도급을 불법파견으로 볼 수 없다는 대법원 판결</a></li> 
+							<li><a href="1" >2017년 세법 개정안</a></li> 
+						</ul>   
+					</section> 
+				</aside>
+			</div>
+    	</div>
+		<footer>
+			<div class="etc_menu"> 
+				<div class="top_container">  
+					<ul>	
+						<li class="blind">기타 메뉴 </li>
+						<li>회사소개</li>
+						<li>광고 · 제휴문의</li>
+						<li>이용약관</li>
+						<li>개인정보 취급/처리 방침</li>
+						<li>법적고지</li>
+						<li>이메일 무단수집거부</li>
+					</ul>
+				</div>
+			</div>  
+			<div class="top_container   _footer"> 	   
+				1. 콘텐츠의 명칭 : 법률정보 &nbsp;&nbsp; 2. 콘텐츠의 제작 및 표시 : 2006년 2월 17일(업그레이드 콘텐츠의 경우 갱신일) &nbsp;&nbsp; 3. 콘텐츠 제작자 : ㈜로앤비  &nbsp;&nbsp;  4. 콘텐츠의 이용조건 : <a href="/support/agree_use.asp" class="red_bott">이용약관</a> 및 로앤비 <a href="/support/serviceInfo_member.asp" class="red_bott">서비스안내</a>와 같음 (무단 복제금지) &nbsp;&nbsp;5. 콘텐츠의 보호기간 : ㈜로앤비 사이트의 모든 콘텐츠는 「콘텐츠산업 진흥법」에 따라 제작 또는 갱신일로부터 5년간 보호됨
+				<div>Thomson reuters</div>
+				<div>Copyright ⓒ 1998~2016 <b>LAWnB</b>. All Rights Reserved.</div>
+			</div>           
+		</footer>
+		<div id="bg_screen"></div>
+		<script type="text/javascript">  
+			setHeight_under();		 
+		</script>
+		 
+		<div  class="popup_win">
+			<div  id="letter_set"> 
+				<div class="top_title al">
+					<span>비즈레터 구독신청</span>
+					<div class="top_title_group">  
+						<div class="btn_close_pop">닫기<i class="icon-close" data-icon=""></i></div>
+					</div>
+				</div> 
+				<div class="seperation_group">
+					<div class="seperation_div">로앤비 개인/법인 회원인 경우
+						<div class="gray_info ">로앤비 ID가 있으시면 통합회원 사이트에 로그인 후 회원정보>ID관리의 메일링서비스 부분에서 비즈레터 구독을 신청할 수 있습니다.
+						</div>
+						<span class="btn">내 메일링 서비스 설정</span>
+					</div>
+					<div class="seperation_div">비회원/IP(전용)회원인 경우
+						<div class="gray_info ">로앤비 ID가 없으시면 비회원 메일링 서비스 신청을 통해 비즈레터를 구독을 신청할 수 있습니다. </div>
+						<span class="btn">비회원 메일링 서비스 신청</span>
+					</div>
+				</div>
+			</div>
+		</div> 
+	</div>
+</div> 
+</body>
+</html>

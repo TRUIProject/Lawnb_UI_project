@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../js/commonjs.js?4"></script>
+<script language="javascript">
+<!--
+ 
+	function resizeComment(){ 
+			if($('.right_container').hasClass('add_border')){
+				$(".right_container").removeClass('slide_mov_right'); 
+			}else{
+				if($('#container').hasClass('list-view')){
+					$(".right_container").addClass('slide_mov_right'); 
+				}else{
+					$(".right_container").removeClass('slide_mov_right'); 
+				}
+			}
+			setHeight_under();
+		}
+	$(document).ready(function () { 
+			$('.list li').each(function(index){
+				$(this).find('ul li').each(function(index){
+					if( index > 2){ 
+						$(this).hide(); 
+						$('.more_area').hide();	
+					}
+				}); 
+			});
+			
+			var i = 0; 
+			$('.history_open').click(function(){
+				var x_object = $(this).parent().find('ul'); 
+				var more_object = $(this).parent().find('.more_area');
+				
+				if(i=="0"){ 
+					$(x_object).children('li').show(); 
+					$(this).children('i').removeClass('icon_open_').addClass('icon_close');
+					$(more_object).show();
+					i=1;
+				}else{	  
+					 $(x_object).children('li:eq(2)').nextAll().hide(); 
+					$(this).children('i').addClass('icon_open_').removeClass('icon_close');
+					$(more_object).hide();
+					 i=0;
+				}
+				setHeight_under();
+			 });
+ 
+	setHeight_under();	 
+		
+	});
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_mainContainer">
+	<div id="wrap" >
+		<header> 
+			<div class="top_container  ">  
+				<a href="/maf/poc/app/homepage"><h1>로앤비</h1></a>
+				<div id="t_search" class="search_container">
+					<h2>통합검색 영역</h2>
+					<div class="search_inner">
+						<form  action="" > 
+						<div class="search_left">
+							통합검색
+						</div>
+						<div class="search_center">
+							<input type="search" name="" id="" >
+						</div>
+						<div class="search_right"><span  class="more_btn">more</span></div>
+						<input type="button" value="Search " id="searchButton" class="search_btn">
+						</form>
+					</div>
+				</div>
+				<div id="indiv_area" class="indiv_container">
+					<span alt="나의폴더">나의폴더<i class="icon-myfolder" data-icon="&#xe91a;"></i></span>
+					<span alt="히스토리">히스토리<i class="icon-history" data-icon="&#xe916;"></i></span>
+					<span alt="알림설정">알림설정<i class="icon-alert" data-icon="&#xe918;"></i><em>9+</em></span>
+					<span alt="질문내역">문의내역<i class="icon-question" data-icon="&#xe919;"></i></span>
+					<span alt="나의정보">나의정보<i class="icon-myinfo" data-icon="&#xe917;"></i></span>
+				</div>
+			</div>
+			<nav> 
+				<dl id="main_menu" class="mmenu">
+					<dt class="blind">메인 메뉴</dt> 
+					<dd>
+						<a href="#"><span>판례</span></a>
+					</dd>
+					<dd class="currentTab" >
+						<a href="#"><span>법규</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>심판·결정·해석</span></a>
+					</dd>
+					<dd >
+						<a href="#"><span>문헌</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>법조인</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>기업법무</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>서식</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>뉴스·칼럼</span></a>
+					</dd>
+				</dl>   
+			</nav> 
+		</header>  
+			<div class="submenu_group" style="">
+				<div>
+					<dl>
+						<dd><a href="">판례</a></dd>
+						<dd><a href="">판례디렉토리</a></dd>
+						<dd><a href="">판례속보</a></dd>
+					</dl>
+					<dl>
+						<dd><a href="">법령</a></dd>
+						<dd><a href="">행정규칙</a></dd>
+						<dd><a href="">입법동향</a></dd>
+						<dd><a href="">조약</a></dd>
+					</dl>
+					<dl>
+						<dd><a href="">특허 심판례</a></dd>
+						<dd><a href="">결정례</a></dd>
+						<dd><a href="">유권해석</a></dd>
+					</dl>
+					<dl>
+						<dd><a href="">논문평석</a></dd>
+						<dd><a href="">주석서</a></dd>
+						<dd><a href="">E-book</a></dd>
+						<dd><a href="">법률용어</a></dd>
+					</dl>
+					<dl>
+						<dd><a href="">법조인명록</a></dd>
+						<dd><a href="">조직도</a></dd>
+						<dd><a href="">법률사무소</a></dd>
+						<dd>법조기관 안내</dd>
+					</dl>
+					<dl>
+						<dd>로펌 리포트</dd>
+						<dd>세무정보</dd>
+						<dd>기업정보</dd>
+					</dl>
+					<dl>
+						<dd>법률서식</dd>
+						<dd>비즈폼 서식</dd>
+					</dl>
+					<dl>
+						<dd>뉴스</dd>
+						<dd>칼럼</dd>
+					</dl>
+				</div>
+				<div class="ad_area">ss</div>
+			</div>
+		<div id="container" class="law">
+			<div id="breadcrumb" class="navi_area">
+				<div>Home > 법규 > 입법동향</div>
+				<div class="group_indivi_btn"><a href="">로그인</a><a href="">개인화님</a> </div>
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div id="container_inner">
+				<div class="left_container">  
+					<section>
+						<h4>검색결과 정리</h4>  
+							<p class="mgt10">제안대수 선택</p> 
+						<div class="check_area select_area">
+							<select name="sType5" id="sType5" >
+								<option value="0" selected="selected" >20대 </option>  
+								<option value="2">최근 1년</option>
+								<option value="3">최근 3년</option>
+								<option value="3">최근 5년</option>
+								<option value="00">직접선택</option>
+							</select> 
+						</div>  
+						<p>소관위원회 선택</p> 
+						<ol class="check_area nofl">
+							<li><input type="checkbox" value="2"><label>전체</label></li>
+							<li><input type="checkbox" value="1"><label>본회의</label></li>
+							<li><input type="checkbox" value="1"><label>국회운영위원회</label></li>
+							<li><input type="checkbox" value="1"><label>법제사법위원회</label></li>
+							<li><input type="checkbox" value="1"><label>정무위원회</label></li>
+							<li><input type="checkbox" value="1"><label>기획재정위원회</label></li>
+							<li><input type="checkbox" value="1"><label>미래창조과학방송통신위원회</label></li>
+							<li><input type="checkbox" value="1"><label>교육문화체육관광위원회</label></li>
+							<li><input type="checkbox" value="1"><label>외교통일위원회</label></li>
+							<li><input type="checkbox" value="1"><label>국방위원회</label></li>
+							<li><input type="checkbox" value="1"><label>안전행정위원회</label></li>
+							<li><input type="checkbox" value="1"><label>농림축산식품해양수산위원회</label></li>
+							<li><input type="checkbox" value="1"><label>산업통상자원위원회</label></li>
+							<li><input type="checkbox" value="1"><label>보건복지위원회</label></li>
+							<li><input type="checkbox" value="1"><label>환경노동위원회</label></li>
+							<li><input type="checkbox" value="1"><label>국토교통위원회</label></li>
+							<li><input type="checkbox" value="1"><label>정보위원회</label></li>
+							<li><input type="checkbox" value="1"><label>여성가족위원회</label></li>
+							<li><input type="checkbox" value="1"><label>예산결산특별위원회</label></li>
+							<li><input type="checkbox" value="1"><label>윤리특별위원회</label></li>
+							<li><input type="checkbox" value="1"><label>특위</label></li>
+							<li><input type="checkbox" value="1"><label>미확정</label></li> 
+						</ol> 
+						<p class="submit_area"><span id="arrangeBtn">적용</span><span class="_cancel"><i class="icon-16" data-icon="&#xe90e;"></i>적용취소</span></p>
+					</section>
+				</div>
+				<article class="main_container"> 
+					<div class="main_container_inner">
+						<div class="search_div"> 
+							<div class="law_tap nosub">
+								<div class="_this"><strong>계류</strong><br><a href="">123</a><span>전체보기</span></div>
+								<div><strong>본회의부의</strong><br><a href="">2123</a><span>전체보기</span></div>
+								<div><strong>처리</strong><br><a href="">4123</a><span>전체보기</span></div>
+							</div>   
+							<p class="mgt10">처리 종류 선택</p>
+							<div class="sub_tap  ">
+								<a href="@" class="_this"><em>전체</em><br>(1111)</a>
+								<a href="@"><em>가결(통과)</em><br>(1111)</a>
+								<a href="@"><em>대안반영</em><br>(1111)</a>
+								<a href="@"><em>부결</em><br>(1111)</a>
+								<a href="@"><em>기타</em><br>(1111)</a>
+							</div>
+						</div>
+						<div id="search_results">
+							<div class="s_num_area">검색결과 21건 <small>1/1000</small></div>
+							<div class="btn_option_outer">
+								<div class="btn_option_select">
+									<p class="blind">선택다운로드</p>
+									<div class="btn-group" >
+									  <button type="button" class="btn btn-default"><input type="checkbox" name="">다운로드</button>
+									</div>   
+								</div> 
+								<div class="select_area"> 
+									<p class="blind">보기 개수 선택</p>
+									<select id="" name=""  >
+										<option value="">10개</option>
+										<option value="" selected>20개</option>
+										<option value="">50개</option>
+									</select>
+								</div>
+								<div class="btn_option"> 
+									<ul class="view_type_list _view_type_list">
+										<p class="blind">보기옵션 선택</p>
+										<li class="_preview"><a href="#" class="option_a  "   id="option_a" >미리보기형</a></li>
+										<li class="_onlyTitle"><a href="#" class="option_b_on  "  id="option_b">상세보기형</a></li>
+									</ul>
+								</div>
+							</div>
+							<ol class="list btn_exist">
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>							 
+									<div class="co_searchContent">
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[23333] 경찰공무원법 일부개정법률(윤재옥의원등 10인)</a><br><span class="list_meta">제안자 : 의원 / 안정행정위원회 / 제안일 2017.11.13 / 의결일 2017.12.23 / 의결결과 : 철회</span></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary">
+											<p>[제안이유 및 주요내용] 현행법은 지방문화원에서 지역문화(향토자료를 포함한다)의 발굴·수집·조사·연구 및 활용, 지역문화의 계발·보존 및 활용 등 지역문화사업을 수행하고 있음. 그런데 2016년 지방문화원 실태조사에 따르면 지방문화원의 지</p>
+										</div> 
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>							 
+									<div class="co_searchContent">
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[23333] 경찰공무원법 일부개정법률(윤재옥의원등 10인)</a><br><span class="list_meta">제안자 : 의원 / 안정행정위원회 / 제안일 2017.11.13 / 의결일 2017.12.23 / 의결결과 : 철회</span></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary">
+											<p>[제안이유 및 주요내용] 현행법은 지방문화원에서 지역문화(향토자료를 포함한다)의 발굴·수집·조사·연구 및 활용, 지역문화의 계발·보존 및 활용 등 지역문화사업을 수행하고 있음. 그런데 2016년 지방문화원 실태조사에 따르면 지방문화원의 지</p>
+										</div> 
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>							 
+									<div class="co_searchContent">
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[23333] 경찰공무원법 일부개정법률(윤재옥의원등 10인)</a><br><span class="list_meta">제안자 : 의원 / 안정행정위원회 / 제안일 2017.11.13 / 의결일 2017.12.23 / 의결결과 : 철회</span></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary">
+											<p>[제안이유 및 주요내용] 현행법은 지방문화원에서 지역문화(향토자료를 포함한다)의 발굴·수집·조사·연구 및 활용, 지역문화의 계발·보존 및 활용 등 지역문화사업을 수행하고 있음. 그런데 2016년 지방문화원 실태조사에 따르면 지방문화원의 지</p>
+										</div> 
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>							 
+									<div class="co_searchContent">
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[23333] 경찰공무원법 일부개정법률(윤재옥의원등 10인)</a><br><span class="list_meta">제안자 : 의원 / 안정행정위원회 / 제안일 2017.11.13 / 의결일 2017.12.23 / 의결결과 : 철회</span></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary">
+											<p>[제안이유 및 주요내용] 현행법은 지방문화원에서 지역문화(향토자료를 포함한다)의 발굴·수집·조사·연구 및 활용, 지역문화의 계발·보존 및 활용 등 지역문화사업을 수행하고 있음. 그런데 2016년 지방문화원 실태조사에 따르면 지방문화원의 지</p>
+										</div> 
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>							 
+									<div class="co_searchContent">
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[23333] 경찰공무원법 일부개정법률(윤재옥의원등 10인)</a><br><span class="list_meta">제안자 : 의원 / 안정행정위원회 / 제안일 2017.11.13 / 의결일 2017.12.23 / 의결결과 : 철회</span></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary">
+											<p>[제안이유 및 주요내용] 현행법은 지방문화원에서 지역문화(향토자료를 포함한다)의 발굴·수집·조사·연구 및 활용, 지역문화의 계발·보존 및 활용 등 지역문화사업을 수행하고 있음. 그런데 2016년 지방문화원 실태조사에 따르면 지방문화원의 지</p>
+										</div> 
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>							 
+									<div class="co_searchContent">
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[23333] 경찰공무원법 일부개정법률(윤재옥의원등 10인)</a><br><span class="list_meta">제안자 : 의원 / 안정행정위원회 / 제안일 2017.11.13 / 의결일 2017.12.23 / 의결결과 : 철회</span></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary">
+											<p>[제안이유 및 주요내용] 현행법은 지방문화원에서 지역문화(향토자료를 포함한다)의 발굴·수집·조사·연구 및 활용, 지역문화의 계발·보존 및 활용 등 지역문화사업을 수행하고 있음. 그런데 2016년 지방문화원 실태조사에 따르면 지방문화원의 지</p>
+										</div> 
+									</div>
+								</li>  
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>							 
+									<div class="co_searchContent">
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[23333] 경찰공무원법 일부개정법률(윤재옥의원등 10인)</a><br><span class="list_meta">제안자 : 의원 / 안정행정위원회 / 제안일 2017.11.13 / 의결일 2017.12.23 / 의결결과 : 철회</span></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary">
+											<p>[제안이유 및 주요내용] 현행법은 지방문화원에서 지역문화(향토자료를 포함한다)의 발굴·수집·조사·연구 및 활용, 지역문화의 계발·보존 및 활용 등 지역문화사업을 수행하고 있음. 그런데 2016년 지방문화원 실태조사에 따르면 지방문화원의 지</p>
+										</div> 
+									</div>
+								</li>
+							</ol>
+							<div class="navigationLinks">				        									
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=0" class="navFirst hiddenLink "><i class="icon-7" data-icon="&#xe911;"></i></a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=-1" class="navPrevious hiddenLink "><i class="icon-2" data-icon="&#xe901;"></i></a>
+								<span class="currentPage">1</span>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navPages">2</a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=2" class="navPages">3</a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=3" class="navPages">4</a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navNext"><i class="icon-1" data-icon="&#xe900;"></i></a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=13" class="navLast "><i class="icon-8" data-icon="&#xe907;"></i></a>
+							</div>
+						 </div> 
+					 </div>
+					 <div class="main_container_view">
+						<div class="main_container_view_inner">
+							<h3>[23333] 경찰공무원법 일부개정법률(윤재옥의원등 10인)  <br><span class="list_meta">제안자 : 의원 / 안정행정위원회 / 제안일 2017.11.13 / 의결일 2017.12.23 / 의결결과 : 철회</span> <span class="btn_newtap"><span class="hide">닫기</span><i class="icon-new-tab" data-icon="&#xea7e;"></i></span> <div class="btn_option_outer"><div class="btn_close">닫기</div></div></h3>
+							<!-- 내용시작 xml -->
+							<div class="case_info" id="view_content">
+								<a id="case_info" name="case_info" class="nopopup"></a>
+								<p class="c_tit_1" >심사진행단계</p>
+								<div class="c_con flow_g"  ><span>접수</span><span>본회의 심의</span><span>정부이송</span><span class="_this">체계자구 심사</span><span>본회의 심의</span><span>공포</span>
+								</div>
+								<a id="case_point" name="case_point" class="nopopup"></a>
+								<p class="c_tit_1"  >접수</p>
+								<div class="c_con"  >
+									<div>의안접수정보</div>
+									<table >
+										<thead>
+										<tr>
+											<th>의안번호</th>
+											<th>제안일자</th>
+											<th>제안자</th>
+											<th>문서</th>
+											<th>제안회기</th>
+										</tr>
+										</thead>
+										<tbody>
+										<tr>
+											<td>2004909</td>
+											<td>2017-01-02</td>
+											<td>이찬열의원 등 10인 </td>
+											<td>의안원문 : <a href="1"><i class="icon-file_hwp intable" data-icon="&#xe914;"></i></a> <a href="1"><i class="icon-file_pdf intable" data-icon="&#xeadf;"></i></a> </td>
+											<td>제20대 (2016~2020) 제347회</td>
+										</tr>
+										</tbody>
+									</table>
+									<div class="mgt10">제안이유 및 주요내용</div>
+									<div class="mgl10">벌금형은 징역형과 함께 형사처벌의 대표적인 수단으로서 누구나 인정할 수 있는 공정성과 합리성을 지니고 있어야 함.<br>
+그러나 유사한 위반행위에 대하여 각 법률이 규정하는 법정형 중에는 다른 법률들과 비교할 때에 그 처벌 정도가 과소하거나 과도하여 비합리적인 편차가 존재하고 있는 실정임.<br>
+특히 위반행위의 불법성에 비하여 벌금형이 과소한 경우에는 범죄억지력을 달성하기가 어려운 경우가 발생하고 있음.<br>
+이에 벌금액을 국민권익위원회의 권고안 및 국회사무처 법제예규의 기준인 징역 1년당 1천만원의 비율로 개정함으로써 법정형의 편차를 조정하고 형사처벌의 공정성을 기하고자 함.</div>
+								</div>
+								
+								<a name="hiscase_point" id="hiscase_point" class="nopopup"></a>
+								<p class="c_tit_1" id="prCont_t_5">위원회 심사</p>
+								<div class="c_con"  >     
+									<div>소관위 심사정보</div>
+									<table>
+										<tr>
+											<th>소관위원회</th>
+											<th>회부일</th>
+											<th>상정일</th>
+											<th>처리일</th>
+											<th>처리결과</th>
+											<th>문서</th>
+										</tr>
+										<tr>
+											<td>국방위원회</td>
+											<td>2017-01-02</td>
+											<td>2017-02-14</td>
+											<td>2017-02-14</td>
+											<td>폐기</td>
+											<td>심사보고서 : <a href="1"><i class="icon-file_hwp intable" data-icon="&#xe914;"></i></a> <a href="1"><i class="icon-file_pdf intable" data-icon="&#xeadf;"></i></a><br>검토보고서 : <a href="1"><i class="icon-file_hwp intable" data-icon="&#xe914;"></i></a><a href="1"><i class="icon-file_pdf intable" data-icon="&#xeadf;"></i></a> </td>
+										</tr>
+									</table>   
+									<div class="mgt10">소관위 회의정보</div>
+									<table>
+										<tr>
+											<th>회의명</th>
+											<th>회의일</th>
+											<th>회의결과</th>
+											<th>회의록</th>
+										</tr>
+										<tr>
+											<td>제349회 국회(임시회) 제1차 전체회의</td>
+											<td>2017-01-02</td>
+											<td>상정/제안설명/검토보고/대체토론/소위회부</td>
+											<td class="actions"><a href="1">요약</a><a href="1"><i class="icon-file_pdf intable" data-icon="&#xeadf;"></i></a></td>
+										</tr>
+										<tr>
+											<td>제349회 국회(임시회) 제1차 전체회의</td>
+											<td>2017-01-02</td>
+											<td>상정/제안설명/검토보고/대체토론/소위회부</td>
+											<td>요약 <a href="1"><i class="icon-file_pdf intable" data-icon="&#xeadf;"></i></a></td>
+										</tr>
+										<tr>
+											<td>제349회 국회(임시회) 제1차 전체회의</td>
+											<td>2017-01-02</td>
+											<td>상정/제안설명/검토보고/대체토론/소위회부</td>
+											<td>요약 <a href="1"><i class="icon-file_pdf intable" data-icon="&#xeadf;"></i></a></td>
+										</tr>
+									</table>
+								</div> 
+								
+								<p class="c_tit_1" id="prCont_t_5">본회의 심의</p>
+								<div class="c_con"  >     </div> 
+						 
+            
+		  
+							</div>
+						</div>
+					 </div>
+				</article> 
+				<aside class="right_container">
+					<section >
+						<h4>최근 조회 자료</h4>
+						<ul>
+							<li><a href="21" >[2005190] 병역법 일부개정법률안(대안)(국방위원장)</li> 
+							<li><a href="21" >[2005192] 제348회국회(임시회) 회기결정의 건(국회운영위원장)</li> 
+							<li><a href="21" >[2005190] 병역법 일부개정법률안(대안)(국방위원장)</li> 
+							<li><a href="21" >[2005192] 제348회국회(임시회) 회기결정의 건(국회운영위원장)</li> 
+							<li><a href="21" >[2005190] 병역법 일부개정법률안(대안)(국방위원장)</li> 
+						</ul>   
+					</section>
+				</aside>
+			</div>
+    	</div>
+		<footer>
+			<div class="etc_menu"> 
+				<div class="top_container">  
+					<ul>	
+						<li class="blind">기타 메뉴 </li>
+						<li>회사소개</li>
+						<li>광고 · 제휴문의</li>
+						<li>이용약관</li>
+						<li>개인정보 취급/처리 방침</li>
+						<li>법적고지</li>
+						<li>이메일 무단수집거부</li>
+					</ul>
+				</div>
+			</div>  
+			<div class="top_container   _footer"> 	   
+				1. 콘텐츠의 명칭 : 법률정보 &nbsp;&nbsp; 2. 콘텐츠의 제작 및 표시 : 2006년 2월 17일(업그레이드 콘텐츠의 경우 갱신일) &nbsp;&nbsp; 3. 콘텐츠 제작자 : ㈜로앤비  &nbsp;&nbsp;  4. 콘텐츠의 이용조건 : <a href="/support/agree_use.asp" class="red_bott">이용약관</a> 및 로앤비 <a href="/support/serviceInfo_member.asp" class="red_bott">서비스안내</a>와 같음 (무단 복제금지) &nbsp;&nbsp;5. 콘텐츠의 보호기간 : ㈜로앤비 사이트의 모든 콘텐츠는 「콘텐츠산업 진흥법」에 따라 제작 또는 갱신일로부터 5년간 보호됨
+				<div>Thomson reuters</div>
+				<div>Copyright ⓒ 1998~2016 <b>LAWnB</b>. All Rights Reserved.</div>
+			</div>           
+		</footer>
+		<div id="bg_screen"></div>
+		<script type="text/javascript">  
+			setHeight_under();		 
+		</script>
+	</div>
+</div> 
+</body>
+</html>

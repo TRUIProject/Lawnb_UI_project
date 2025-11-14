@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="../js/commonjs.js"></script>
+<script language="javascript">
+<!--
+ 
+		function resizeComment(){ 
+			setHeight();
+		//	$(".right_container").removeClass('slide_mov_right'); 
+		}
+		$(document).ready(function () { 
+			$("#result_area").height($('.main_container').height()- 37);
+			$("#searchButton_s").click(function(){  
+				$("#title_result_tab .btn_close").show();
+				$("#title_result_tab .btn_reapprea").hide();
+				$("#title_result_tab").show(); 
+				$("#result_area").show();
+				setTimeout(function(){  
+					$("#result_area").addClass('slide_mov_bottom');   
+					$("#pdf_view").css('padding-top','37px');
+				}, 200);
+			}); 
+			
+			$('.favi_add').click(function(){    
+				$(this).children('i').toggleClass('starfull');
+			}); 
+
+		}); 
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_popupContainer">
+	<div id="wrap" >
+		<header> 
+			<div class="top_container  ">  
+				<a href="/maf/poc/app/homepage"><h1>로앤비</h1></a>
+				<div class="function_area">
+					<p class="hide">기타기능버튼들</p> 
+					<div>
+						<span style="padding-right:0"><i class="icon-left" data-icon="&#xe901;"></i></span> 
+						<span><i class="icon-checkbox-unchecked" style="color:yellow" data-icon="&#xea52;"></i></span>
+						<span style="padding-left:0"><i class="icon-right" data-icon="&#xe900;"></i></span>
+						<br><span>검색어</span>
+					</div>
+					<div>
+						<span><i class="icon-plus" data-icon="&#xea0a;"></i></span> 
+						<span><i class="icon-plus" data-icon="&#xea0b;"></i></span>
+						<br><span>글자크기</span>
+					</div>
+					<a href="#" id="alert_set"> 
+						<span><i class="icon-alert" data-icon="&#xe91b;" ></i></span>
+						<span>알림설정</span>
+					</a>
+					<a href="#" id="folder_put"> 
+						<span><i class="icon-folder" data-icon="&#xe930;"></i></span>
+						<span>폴더담기</span>
+					</a>
+					<a href="#"> 
+						<span><i class="icon-printer" data-icon="&#xe954;"></i></span>
+						<span>인쇄</span>
+					</a>
+					<a href="#" > 
+						<span><i class="icon-download3" data-icon="&#xe9c7;"></i></span>
+						<span>파일저장</span>
+					</a>
+					<a href="#">
+						<span><i class="icon-share2" data-icon="&#xea82;"></i></span>
+						<span>공유</span>
+					</a>
+				</div>
+			</div>        	
+		</header> 
+		<div id="container" class="doc"> 
+			<div id="breadcrumb" class="navi_area"> 
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div class="title_area">   
+				<h2><em class="favi_add"><i class="icon-star" ></i></em>항공우주법개론 제2판</h2>  
+				<div class="meta_area"><span  >박원화, 정영진, 이구희</span> <span >발간연도 : 2012. 02 </span> <span  >출판사 : 한국학술정보</span></div>
+			</div>
+			<div id="container_inner">
+				<div class="left_container">   
+					 <div class="small_search_inbox">  
+						<input type="search" name="" placeholder="도서내 검색"style="width:136px"> <input type="button" value="검색 " id="searchButton_s" class="btn _search">
+					</div>
+					 <div class="table_index">
+						<h3>목차</h3>  
+						<ul class="tree">
+							<li><a href="#case_plaintiff"> 제1편 유가증권법상의 기본이론 </a><span>p.77</span>
+								<ol>
+									<li>제1장 총설 <span>p.31</span></li>
+									<li>제2장 유가증권의 개념 <span>p.32</span> 
+										<ol>
+											<li>1. 총설 <span>p.32</span>  
+                                                <ol>
+                                                    <li>test1</li>
+                                                    <li>test2</li>
+                                                    <li>test3</li>
+                                                    <li>
+                                                        <ol>
+                                                            <li>test11</li>
+                                                            <li>test12</li>
+                                                            <li>test13</li>
+                                                        </ol>
+                                                    </li>
+                                                </ol>
+                                            </li>
+											<li>2. 유가증권의 개념에 관한 학설<span> p.34</span>  </li>
+											<li>3. 보통증권 <span>p.37</span>  </li>
+											<li>4. 유가증권과 구별되는 증권 <span>p.41</span>  </li>
+											<li>5. 유가증권인지 여부가 문제되는 증권<span>p.44</span>  </li>
+										</ol>
+									</li>
+									<li>제3장 유가증권의 기능과 속성 <span>p.59</span> 
+										<ol>
+											<li> 1. 유가증권의 기능 <span>p.59</span>  </li>
+											<li>2. 유가증권의 개념에 관한 학설 <span>p.34</span>  </li>
+											<li>2. 유가증권의 속성<span> p.67</span>  </li>
+										</ol>
+									</li>
+								</ol>
+							</li>
+							<li><a href="#case_plaintiff">제2편 어음· 수표에 관한 통칙 </a><span>p.115 </span>
+								<ol>
+									<li>제1장 어음· 수표의 의의 <span>p.115 </span>
+										<ol>
+											<li>1. 어음· 수표의 개념 <span>p.115</span> </li>
+											<li>2. 어음· 수표의 경제적 기능· 속성 및 남용 <span>p.119</span> </li>
+											<li>3. 환어음· 약속어음· 수표의 이동 <span>p.129</span> </li>
+										</ol>
+									</li>
+									<li>제2장 어음· 수표의 분류 <span>p.136 </span>
+										<ol>
+											<li>1. 어음· 수표의 개념 <span>p.115</span> </li>
+											<li>2. 어음· 수표의 경제적 기능· 속성 및 남용 <span>p.119</span> </li>
+											<li>3. 환어음· 약속어음· 수표의 이동 <span>p.129</span> </li>
+										</ol>
+									</li>
+								</ol>
+							</li>
+						</ul> 
+					</div>
+				</div>
+				<article class="main_container">  
+				<div class="main_container_view" >
+					<!-- <div class="main_container_view_inner">  pdf는 이 테그들이 사라져야 100% 로 디스플레이됨 --> 
+						<div id="title_result_tab" class="result_tab">도서내 검색결과 1,000건
+							<div class="btn_option_outer"><div class="btn_close">X</div></div>
+							<div class="btn_option_outer"><div class="btn_reapprea">검색결과 보기</div></div>
+						</div>
+						<div id="result_area" class="popup_mov_area">  
+							<div class="list tree">
+								<ul>
+									<li><em>제1편 유가증권법상의 기본이론</em><span>2</span>
+										<ul>
+											<li><em>제1장 총설</em>
+												<div class="co_searchResults_summary">
+													<p>본절은 금전채권에 기초한 집행권원에 기하여 이루어지는 동산에 대한 집행 절차를 규정하고 있다. 본절에서의 <mark>동산</mark>은 유체동산 외에 채권 기타 재산권을 포함하는 것으로서 민법상의  <mark>동산</mark>과는 개념을 달리 한다.  </p>
+												</div>
+											</li>
+											<li><em>제2장 유가증권의 개념</em> <span>10</span>
+												<ol>
+													<li><em>제1조 매매</em>
+													<div class="co_searchResults_summary">
+														<p>본절은 금전채권에 기초한 집행권원에 기하여 이루어지는 동산에 대한 집행 절차를 규정하고 있다. 본절에서의 <mark>동산</mark>은 유체동산 외에 채권 기타 재산권을 포함하는 것으로서 민법상의  <mark>동산</mark>과는 개념을 달리 한다.  </p>
+													</div>
+													</li>
+													<li><em>제1조 매매</em>
+													<div class="co_searchResults_summary">
+														<p>본절은 금전채권에 기초한 집행권원에 기하여 이루어지는 동산에 대한 집행 절차를 규정하고 있다. 본절에서의 <mark>동산</mark>은 유체동산 외에 채권 기타 재산권을 포함하는 것으로서 민법상의  <mark>동산</mark>과는 개념을 달리 한다. </p> 
+													</div>
+													</li>
+												</ol>
+											</li>
+										</ul>
+									</li>
+									<li><em>제1편 유가증권법상의 기본이론</em>
+										<ul>
+											<li><em>제1장 유가증권의 개념</em> <span>10</span>
+												<ol>
+													<li><em>제1조 매매</em>
+													<div class="co_searchResults_summary">
+														<p>본절은 금전채권에 기초한 집행권원에 기하여 이루어지는 동산에 대한 집행 절차를 규정하고 있다. 본절에서의 <mark>동산</mark>은 유체동산 외에 채권 기타 재산권을 포함하는 것으로서 민법상의  <mark>동산</mark>과는 개념을 달리 한다.  </p>
+													</div>
+													</li>
+													<li><em>제1조 매매</em>
+													<div class="co_searchResults_summary">
+														<p>본절은 금전채권에 기초한 집행권원에 기하여 이루어지는 동산에 대한 집행 절차를 규정하고 있다. 본절에서의 <mark>동산</mark>은 유체동산 외에 채권 기타 재산권을 포함하는 것으로서 민법상의  <mark>동산</mark>과는 개념을 달리 한다. </p> 
+													</div>
+													</li>
+												</ol>
+											</li>
+											<li>제2장 유가증권의 개념</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<embed  name="plugin" id="pdf_view" src="hoisa_5_1_75_78.pdf"   type="application/pdf" wmode="transparent" wmode='Opaque'></embed> 
+					 <!--</div> -->
+				</div>
+				</article> 
+				<aside class="right_container"> 
+					<section>
+						<div class="btn_set">
+							<div class="btn_group"><span class="btn"><i class="icon-2" data-icon="&#xe901;"></i>이전페이지</span></div><div class="btn_group"><span class="btn">다음페이지<i class="icon-2" data-icon="&#xe900;"></i></span></div>
+						</div>
+					</section>
+					<section >
+						<h4>저자의 다른 도서정보</h4>
+						<ul>
+							<li><div class="thumb_right"><img src="http://www.lawnb.com/images/doc/ebook/16000036.gif" alt="항공우주법개론 제2판"></div><a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">총칙 상행위Ⅰ</a> <br><span class="list_meta">집필대표 / 발행일자 (판차) /관련법령</span><div class="cb"></div></li>  
+							<li><div class="thumb_right"><img src="http://www.lawnb.com/images/doc/ebook/16000036.gif" alt="항공우주법개론 제2판"></div><a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">총칙 상행위Ⅰ</a> <br><span class="list_meta">집필대표 / 발행일자 (판차) /관련법령</span><div class="cb"></div></li>  
+						</ul>  
+					</section>  
+				</aside>   
+			</div>
+    	</div> 
+		<div id="bg_screen"></div> 
+	</div>
+		<script type="text/javascript">   
+			setHeight();
+		</script>
+</div> 
+</body>
+</html>

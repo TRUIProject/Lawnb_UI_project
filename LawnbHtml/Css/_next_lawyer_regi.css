@@ -1,0 +1,205 @@
+﻿@charset "utf-8";
+body{background-color:#13365c}
+#container.lawyer_reg{background-color:transparent;border:0;margin:0}
+header{background-color:transparent}
+#co_popupContainer header .top_container h1{ font-size:0;text-align:left;position:absolute;z-index:10000;top:5px;left:0px;width: 300px;height:50px;background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAzMDAgNTAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDMwMCA1MDsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9DQoJLnN0MXtmaWxsOm5vbmU7fQ0KPC9zdHlsZT4NCjxnPg0KCTxyZWN0IHg9Ijg1LjgiIHk9IjE0LjIiIGNsYXNzPSJzdDAiIHdpZHRoPSIxLjIiIGhlaWdodD0iMjEuNSIvPg0KCTxnPg0KCQk8cG9seWxpbmUgY2xhc3M9InN0MSIgcG9pbnRzPSItMC44LC0wLjIgODQuMiwtMC4yIDg0LjIsNDAuNyAtMC44LDQwLjcgLTAuOCwtMC4yIAkJIi8+DQoJCTxnPg0KCQkJPHBhdGggY2xhc3M9InN0MCIgZD0iTTU4LjgsMzIuNXYtNy4xYzAtMS4yLTAuNi0xLjgtMS44LTEuOGMtMS42LDAtMi40LDEtMi40LDIuOXY2LjFoLTIuOFYyMS40aDIuN3YxLjljMC42LTEuMiwxLjctMi4yLDMuNi0yLjINCgkJCQljMi42LDAsMy42LDEuNCwzLjYsMy44djcuNkM2MS43LDMyLjUsNTguOCwzMi41LDU4LjgsMzIuNXogTTY0LjIsMTcuMkg3MWMyLjgsMCw0LjQsMS40LDQuNCwzLjdjMCwxLjctMC45LDMuMS0yLjcsMy44DQoJCQkJYzEuOSwwLjQsMy4yLDEuNiwzLjIsMy43YzAsMi41LTEuOSw0LjItNC45LDQuMmgtNi44VjE3LjJ6IE03MC4yLDIzLjdjMS42LDAsMi40LTEuMSwyLjQtMi4zYzAtMS4yLTAuOC0yLTIuNC0ySDY3djQuMg0KCQkJCUw3MC4yLDIzLjdMNzAuMiwyMy43eiBNNzAuNywzMC4zYzEuNywwLDIuNC0wLjksMi40LTIuMmMwLTEuMy0wLjktMi4xLTIuNi0yLjFoLTMuNHY0LjNINzAuN3ogTTcuNCwxNy4yaDIuOVYzMGg3djIuNUg3LjRWMTcuMnoNCgkJCQkgTTIzLjYsMTcuMmgzLjNsNSwxNS4zaC0yLjdsLTEuMS0zLjZoLTUuNmwtMS4xLDMuNmgtMi43TDIzLjYsMTcuMnogTTIzLjIsMjYuNWg0LjJsLTIuMS02LjdMMjMuMiwyNi41eiBNNDQuNCwyNy45bDIuOC0xMC42DQoJCQkJaDIuOWwtNC42LDE1LjNoLTIuNGwtMi45LTEyLjJsLTMsMTIuMmgtMi40bC00LjctMTUuM0gzM2wzLDEwLjZsMi42LTEwLjZoMy4yTDQ0LjQsMjcuOXoiLz4NCgkJCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik05LjYsOC43VjEySDguN1Y4LjdINy41VjhoMy4ydjAuOEg5LjZWOC43eiBNMTEuNiw4aDAuOXYxLjZoMS42VjhIMTV2NC4xaC0wLjl2LTEuN2gtMS42djEuN2gtMC45Vjh6DQoJCQkJIE0xNy43LDcuOWMxLjMsMCwyLDAuOSwyLDIuMXMtMC42LDIuMS0yLDIuMWMtMS4zLDAtMi0wLjktMi0yLjFDMTUuOCw4LjgsMTYuNCw3LjksMTcuNyw3Ljl6IE0xOC44LDEwYzAtMC44LTAuMy0xLjQtMS4xLTEuNA0KCQkJCWMtMC43LDAtMS4xLDAuNi0xLjEsMS40YzAsMC44LDAuMywxLjQsMS4xLDEuNFMxOC44LDEwLjgsMTguOCwxMHogTTIwLjUsOGgwLjlsMS4zLDIuN0wyMy45LDhoMC45djQuMUgyNFY5LjdsLTAuOSwxLjhoLTAuOQ0KCQkJCWwtMC45LTEuOFYxMmgtMC45TDIwLjUsOEwyMC41LDh6IE0yNy4yLDEyLjFjLTAuNSwwLTEtMC4xLTEuNS0wLjNsMC4yLTAuN2MwLjQsMC4yLDAuOSwwLjMsMS4zLDAuM3MwLjctMC4xLDAuNy0wLjQNCgkJCQljMC0wLjMtMC4yLTAuNC0wLjgtMC41Yy0wLjktMC4yLTEuNC0wLjUtMS40LTEuM2MwLTEsMC42LTEuMywxLjYtMS4zYzAuNiwwLDEsMC4xLDEuNCwwLjNsLTAuMiwwLjdjLTAuMy0wLjItMC44LTAuMy0xLjItMC4zDQoJCQkJYy0wLjQsMC0wLjcsMC4xLTAuNywwLjRjMCwwLjMsMC4yLDAuNCwwLjksMC41YzAuOSwwLjIsMS40LDAuNSwxLjQsMS4zQzI4LjgsMTEuNywyOC4yLDEyLjEsMjcuMiwxMi4xeiBNMzEuMyw3LjkNCgkJCQljMS4zLDAsMiwwLjksMiwyLjFzLTAuNiwyLjEtMiwyLjFjLTEuMywwLTItMC45LTItMi4xQzI5LjQsOC44LDMwLDcuOSwzMS4zLDcuOXogTTMyLjQsMTBjMC0wLjgtMC4zLTEuNC0xLjEtMS40DQoJCQkJYy0wLjcsMC0xLjEsMC42LTEuMSwxLjRjMCwwLjgsMC4zLDEuNCwxLjEsMS40QzMyLjEsMTEuNCwzMi40LDEwLjgsMzIuNCwxMHogTTM0LDhoMC45bDEuOCwyLjZWOGgwLjl2NC4xaC0wLjlsLTEuOC0yLjZ2Mi42SDM0DQoJCQkJVjh6IE00My4xLDEwLjVsMS4xLDEuNkg0M2wtMC45LTEuNGgtMC43djEuNGgtMC45VjhoMmMwLjksMCwxLjQsMC41LDEuNCwxLjNDNDMuOSw5LjgsNDMuNiwxMC4zLDQzLjEsMTAuNXogTTQyLjQsOC43aC0wLjl2MS4yDQoJCQkJaDAuOWMwLjQsMCwwLjYtMC4yLDAuNi0wLjZDNDMsOC45LDQyLjcsOC43LDQyLjQsOC43eiBNNDQuOCw4aDIuOHYwLjhoLTEuOXYwLjhoMS44djAuOGgtMS44djAuOWgxLjl2MC44aC0yLjhWOHogTTUyLDEwLjUNCgkJCQljMCwwLjktMC42LDEuNi0xLjcsMS42Yy0xLjIsMC0xLjctMC43LTEuNy0xLjZWOGgwLjl2Mi42YzAsMC41LDAuMywwLjgsMC44LDAuOHMwLjgtMC4zLDAuOC0wLjhWOEg1MlYxMC41eiBNNTQuNyw4LjdWMTJoLTAuOQ0KCQkJCVY4LjdoLTEuMVY4aDMuMnYwLjhoLTEuMlY4Ljd6IE01Ni43LDhoMi44djAuOGgtMS45djAuOGgxLjh2MC44aC0xLjh2MC45aDEuOXYwLjhoLTIuOFY4eiBNNjIuOSwxMC41bDEuMSwxLjZoLTEuMUw2MiwxMC43aC0wLjcNCgkJCQl2MS40aC0wLjlWOGgyYzAuOSwwLDEuNCwwLjUsMS40LDEuM0M2My43LDkuOCw2My40LDEwLjMsNjIuOSwxMC41eiBNNjIuMiw4LjdoLTAuOXYxLjJoMC45YzAuNCwwLDAuNi0wLjIsMC42LTAuNg0KCQkJCUM2Mi44LDguOSw2Mi41LDguNyw2Mi4yLDguN3ogTTY1LjksMTIuMWMtMC41LDAtMS0wLjEtMS41LTAuM2wwLjItMC43YzAuNCwwLjIsMC45LDAuMywxLjMsMC4zczAuNy0wLjEsMC43LTAuNA0KCQkJCWMwLTAuMy0wLjItMC40LTAuOC0wLjVjLTAuOS0wLjItMS40LTAuNS0xLjQtMS4zYzAtMSwwLjYtMS4zLDEuNi0xLjNjMC42LDAsMSwwLjEsMS40LDAuM2wtMC4yLDAuN2MtMC40LTAuMi0wLjgtMC4zLTEuMi0wLjMNCgkJCQljLTAuNCwwLTAuNywwLjEtMC43LDAuNGMwLDAuMywwLjIsMC40LDAuOSwwLjVjMC45LDAuMiwxLjQsMC41LDEuNCwxLjNDNjcuNSwxMS43LDY3LDEyLjEsNjUuOSwxMi4xeiIvPg0KCQk8L2c+DQoJPC9nPg0KPC9nPg0KPC9zdmc+DQo=);background-size:auto;background-position:0 0;}
+#co_popupContainer header .top_container h1 span{font-size:18px;color:#fff;display:inline-block;padding-left:100px;line-height:47px;font-weight:normal;}
+.lawyer_reg .main_container{border:0}
+.lawyer_reg .main_container_view{padding:17px 27px}
+.lawyer_reg.level_1 .left_container,.lawyer_reg.level_2 .left_container{display:none}
+.lawyer_reg.level_1 .main_container,.lawyer_reg.level_2 .main_container{margin-left:0 !important}
+.lawyer_reg .right_container{background-color:rgba(255,255,255,0.3);color:#fff;width:24% }
+.lawyer_reg .left_container{background-color:#fff}
+.lawyer_reg .left_container .table_index{background-color:#fafafa;padding:15px 0;border:1px solid #ccc;border-radius:40px 0 40px 0;box-shadow:5px 5px 1px #ececec;margin:15px 15px 0 15px}
+.lawyer_reg .left_container .table_index ol{counter-reset: li}
+.lawyer_reg .left_container .table_index ol li{counter-increment: li;padding:15px 0 15px 15px;font-size:16px;border-bottom:1px solid #d4d4d4;color:#7f7f7f}
+.lawyer_reg .left_container .table_index ol li a{color:#7f7f7f}
+.lawyer_reg .left_container .table_index ol li._this a{color:#212121}
+.lawyer_reg .left_container .table_index ol li:last-child{border-bottom:0}
+.lawyer_reg .left_container .table_index ol li:before{margin-right:5px;content:counter(li)'.'}
+p.right_tit{color:#ffe8b0;font-size:16px;font-weight:bold;text-align:center;height:43px;line-height:43px;background-color:rgba(255,255,255,0.3)}
+.text_ex{color:#7f7f7f;font-size:smaller}
+.t_name{border-bottom:3px solid #e5e5e5;font-weight:bold;padding:10px 5px;font-size:18px;margin-bottom:20px}
+.main_container_view .img {float: left;position: relative;margin-right: 15px;width:100px;height:100px;overflow: hidden;border-radius:50%}
+.main_container_view .img img{width:100px}
+.lawyer_info{margin-bottom: 10px}
+.lawyer_info ul {width: 100%;border-radius: 5px;border-right: 1px solid #ccc;border-top: 1px solid #ccc;border-bottom: 1px solid #ccc}
+.lawyer_info li:nth-child(1),.lawyer_info._deafult li:nth-child(2){border-top: 0}
+.lawyer_info li{width: 50%;padding-left:100px;padding-bottom:3px;border-left: 1px solid #e6e6e6;border-top: 1px solid #e6e6e6;float: left;position: relative}
+.lawyer_info._deafult li{width:calc(100% /2  - 1px)}
+.lawyer_info li span {position: absolute;top: 0;left: 0;text-indent: 0;width: 100px;padding-left: 5px;margin-right: 5px;font-size: smaller;color: #777}
+.lawyer_info span:before {content: '· '}
+.lawyer_info li._ful{width:100%}
+.lawyer_info ul:after,.detail_area_open.law ul:after{display:block;clear:both;height:1px;margin-top:-1px;content:''}
+._ful input[type="text"]{width:calc(100% - 10px)}
+.lawyer_info input:read-only{background-color:#e6e6e6}
+.lawyer_info._deafult{float:right;width:calc(100% - 120px)}
+.lawyer_info._deafult:after{display:block;clear:right;height:1px;margin-top:-1px;content:''}
+.lawyer_info p {position:relative;font-weight: bold;padding-left: 10px;background: url(../images/tr_icon_blit_org.png) no-repeat 2px 15px;background-size: 5px}
+.lawyer_info p.nodot{background-image:none}
+.lawyer_info .lawyer_part{display:none}
+.lawyer_info .school li{width:15%;padding-left:5px;text-align:center;min-height:30px} 
+.lawyer_info .school li:nth-child(4n+2){width:55%;text-align:left;position:relative}
+.lawyer_info .school li:nth-child(2), .lawyer_info .school li:nth-child(3), .lawyer_info .school li:nth-child(4), .lawyer_info .career li:nth-child(2), .lawyer_info .career li:nth-child(3){border-top: 0}
+.lawyer_info .lawschool li:nth-child(2),.lawyer_info .lawschool li:nth-child(3),.lawyer_info .lawschool li:nth-child(4),.lawyer_info .lawschool li:nth-child(5),.lawyer_info .lawschool li:nth-child(6){border-top: 0}
+.lawyer_info .lawschool li:nth-child(6n+2){width:25%}
+.lawyer_info .lawschool li{width:15%;padding-left:5px;text-align:center;min-height:30px} 
+.lawyer_info .career li{width:15%;padding-left:5px;text-align:center;min-height:30px} 
+.lawyer_info .career li:nth-child(3n+1){width:70%;text-align:left;position:relative}
+#SocialLayer.career li{width:100%} 
+#SocialLayer.career li input{width:98%}
+#SocialLayer.career li:nth-child(3n+1){width:100%}
+.lawyer_info table{width:100%;border-radius: 5px;border: 1px solid #ccc;border-spacing: 0;border-collapse: separate;overflow: hidden;}
+.lawyer_info table th{width:15%;font-size:smaller;font-weight:normal;color:#777;padding-left:5px;border-top: 1px solid #e6e6e6;line-height: 140%;}
+.lawyer_info table td{position:relative;display:table-cell;padding-top:5px;padding-right:5px;padding-bottom:5px;border-top: 1px solid #e6e6e6;line-height:160%}
+.lawyer_info table tr:first-child td,.lawyer_info table tr:first-child th{border-top:0}
+.result_list{margin-bottom:5px}
+.result_list span{display:block;line-height:160%}
+.result_list span .text_ex{cursor:pointer} 
+.line_add{display:inline-block;font-size: smaller;cursor:pointer}
+.line_add:before{content: '+ '}
+.lh{line-height:175%}
+.school_search{display:none;border:1px solid #7f7f7f;width:calc(100% - 100px);background-color:#fff;position:absolute;top:28px;left:0;z-index:1000;padding:10px;overflow-y:auto;height:150px}
+.school_search p{background-color:#f0f0f0;position:relative;padding:5px 3px;font-size:smaller;background-image:none}
+.school_search p span{position:absolute;right:10px;top:4px;cursor:pointer}
+.school_search span:before{content:'' !important}
+.school_search div{padding:3px 0;position:relative;font-size:14px;cursor:pointer}
+.school_search div span{position:absolute;right:10px;top:1px}
+.school_search div:first-of-type{margin-top:5px}
+.school_search div div:hover{background-color:#f1f8f9}  
+.school_search .lawyer_info span:before{content:''}
+.txt_info{line-height:160%;font-size:14px;margin-top:5px;color:#005da2;font-weight:normal} 
+.txt_info.ar{position:absolute;right:0;cursor:pointer;display: inline-block;border: 1px solid #7f7f7f;border-radius: 2px;color:#444;padding: 0 5px;height:23px;font-size:smaller;}
+.total_view{cursor:pointer;display: inline-block;border: 1px solid #7f7f7f;margin-left:10px;border-radius: 2px;color:#444;padding: 0 5px;height:23px;font-size:smaller;} 
+li .txt_info{margin-top:0 !important}
+.check_group label{display:inline-block;width:165px} 
+.right_container section{margin: 20px} 
+.right_container section h4{color:#fff;font-size:16px}
+.right_container section p{padding-left:10px;margin-top:5px;font-size:15px;line-height:160%}
+.right_container section ul{margin-left:10px;text-indent:-10px;padding-left:10px}
+.right_container section li{padding:5px 0;line-height:160%}
+.right_container section .btn{border:1px solid #bbc5d0;text-align:center;padding:18px 0 22px 0;font-size:18px;cursor:pointer;margin-bottom:10px}
+.right_container section .btn:hover{background-color:#e5e5e5;color:#555}
+.gray_btn{border:1px solid #909090;background-color: #e6e6e6;font-size:smaller;margin-left:5px;cursor:pointer;height:22px}
+.btn_area{text-align:center;padding:10px;margin:10px auto} 
+.btn_area span{display:inline-block;background-color:#7f7f7f;border-radius:20px;color:#fff;font-size:17px;margin:10px;padding:0 30px;height:40px;cursor:pointer}
+.btn_area span:nth-child(2){background-color:#ff8000}
+.btn_area span:hover{background-color:#656565}
+.btn_area span:nth-child(2):hover{background-color:#f06600}
+.btn_img_add{position:absolute;top:250px;left:30px;}
+.btn_img_add span{display:block;background-color:#585858;color:#fff;width:100px;text-align:center}
+.btn_img_add em{font-weight:normal;font-size:smaller;width:100px;display:inline-block}
+.status_txt{text-align:center;color:#074379;font-size:20px;margin:5px auto;font-weight:bold;margin-bottom:20px}
+.subtit{text-align:left;width:700px}
+.dark_info{text-align:center;color:#fff;background-color:#427099;width:818px;margin:0 auto }
+.flow_box_group{margin:10px auto;text-align:center;width:818px}
+.flow_box_group.two{width:542px}
+.flow_box_group.two div:nth-child(odd){margin-left:0}
+.flow_box_group:after{display:block;clear:both;height:1px;margin-top:-1px;content:''}
+.flow_box_group div{position:relative;float:left;width:266px;height:189px;background-color:#eee;margin-left:10px;margin-bottom:10px;color:rgba(0,0,0,0.7);font-size:14px;text-align:left;padding:20px;line-height:160%;cursor:pointer}
+.flow_box_group div:first-child{margin-left:0}
+.flow_box_group div:hover{background-color:#dadada}
+.flow_box_group div p{color:#212121;margin:5px 0 7px 0;font-weight:bold;font-size:16px;text-align:center}
+.flow_box_group div i{position:absolute;bottom:15px;left:120px;font-size:28px;display:block;margin-top:5px;text-align:center;color:#777}
+.flow_box_group.regist_info div:nth-child(2){background-color:#dce9f4}
+.flow_box_group.regist_info div{height:160px;cursor:text}
+.flow_box_group.regist_info div:hover{background-color:#eee}
+.flow_box_group.regist_info div span{display:block;border-top:1px solid #d1dde8;padding-top:10px}
+.onju .flow_box_group{width:100%;font-size:0}
+.onju .flow_box_group div{width:calc(100% / 4 - 40px);float:none;display:inline-block;background-color:#dce9f4}
+.onju .flow_box_group div:before {content: '';position: absolute;left: 0;bottom: 50px;height: 1px;background-color: #fff;}
+.onju .flow_box_group div i{left:110px}
+.onju_writer_menu div{background-color:#eee;float:left;padding:5px 15px;margin-right:10px}
+.onju_writer_menu div._this{background-color:#005da2;color:#fff}
+.onju_writer_menu:after{display:block;clear:both;height:1px;margin-top:-1px;content:''}
+.lawyer_list{width:542px;margin-left:10px;background-color:#dce9f4;width:100%;text-align:center}
+.lawyer_list ul{margin:10px auto;width:542px;padding:10px;text-align:left}
+.lawyer_list li:after{display:block;clear:both;height:1px;margin-top:-1px;content:''}
+.lawyer_list li a{font-size:16px;color:#074379}
+.lawyer_list.lots_list{background-color:#fff}
+.lawyer_list.lots_list ul{width:670px}
+.lawyer_list.lots_list li{margin-bottom:10px;background-color:#dce9f4;padding:10px 20px;padding-right:128px}
+.lots_list li{counter-increment: li;position:relative}
+.lots_list li:before{margin-right: 10px;content: counter(li);display: inline-block;position:absolute;top:10px;left:-30px}
+.btn_right{position:absolute;top:0;right:0;width:128px;text-align:center;height:100%;vertical-align:middle;background-color:rgba(0,0,0,0.08);cursor:pointer}
+.btn_right._done{background-color:rgba(0,0,0,0.03);color:rgba(0,0,0,0.5);cursor:text}
+.btn_right:hover{background-color:rgba(0,0,0,0.2)}
+.btn_right._done:hover{background-color:rgba(0,0,0,0.03)}
+.etc_info{width:520px;margin:20px auto}
+.etc_info.red{width:620px}
+.etc_info.red p{font-weight:bold;color:#c24141}
+.etc_info.red p i{vertical-align:middle}
+.etc_info.red ol li{list-style:decimal}
+.etc_info a{color:#005da2}
+.policy_agree{width:680px;margin:20px auto;border:1px solid #eee;color:#585858}
+.policy_agree p{font-weight:bold;margin:10px 0 0 20px}
+.policy_agree div{margin:0 20px 10px 35px;line-height:160%}
+.policy_agree a{color:#005da2;}
+.policy_agree label{display:block;padding-left:10px;background-color:#f0f0f0;font-size:smaller}
+.professor_part,.flawyer_part,.training_num{display:none}
+.add_job{position:absolute;top:0;right:0;cursor:pointer}
+.add_job:before{content:'+' !important}
+.prev_text_info{background-color:#dce4ec;padding:10px 20px}
+.admin_add_area{font-size:15px;background-color:#fff;padding:20px;padding-bottom:10px}
+.admin_add_area table.data_view {border-collapse: collapse;width:100%;border:1px solid #a9a9a9;margin-bottom:10px}
+.admin_add_area table.data_view thead th{text-align:center;color:#585858;padding:5px;font-size:13px;background:#fafafa;border-bottom:1px solid #eee}
+.admin_add_area table.data_view tbody th{text-align:left;color:#585858;width:90px;padding:5px 5px 5px 20px;font-size:13px;background:#fafafa url(../images/tr_blit_block.png) no-repeat 10px center;border-top:1px solid #eee}
+.admin_add_area table.data_view tbody td{padding:10px;border-top:1px solid #eee;position:relative}
+.admin_add_area table.data_view tbody td a{color:#005da2}
+.admin_add_area table.data_view tbody tr:first-child td{border-top:0}
+.admin_add_area table.data_view tbody tr:first-child th{border-top:0}
+.admin_add_area table.data_view tbody td input[type="text"]{width:100%}
+
+.submain_group{margin:0 auto;width:90%}
+.submain_group.title h3 {background-color: #dce9f4;padding:5px 20px;}
+.submain_group h3{color:#444;font-size:15px;position:relative;padding:0 5px} 
+.submain_group .btn_more{position:absolute;right:20px;top:10px;line-height:180%;font-size:12px;font-weight:normal}
+.onju .submain_group + .law_list {width: 90%;}
+.onju .law_list{width:95%;margin:10px auto}
+.onju .law_list table{width:100%;border-collapse:collapse}
+.onju .law_list table thead th{text-align:center;border-top:1px solid #7f7f7f;border-bottom:2px solid #7f7f7f;font-size:14px}
+.onju .law_list table tbody td{border-bottom: 1px solid #cacaca;text-align:center}
+.onju .law_list table tbody tr:last-of-type td{border-bottom: 0}
+.onju .law_list a{color:#005da2;font-weight:bold}
+.onju .txt_info{color:#555}
+.onju_table_options{width:95%;margin:0 auto}
+div.s_num_area {border-bottom: 3px solid #e7ebf2;padding-bottom: 10px;font-weight: bold;}
+.btn_option_outer {text-align: right;padding: 5px 0;background-color: #f1f8f9;}
+.btn_option_select {float: left;line-height: 0;padding-left: 10px;}
+.btn-group{position:relative;display:inline-block;vertical-align:middle}
+.btn-group >.btn{position:relative;float:left;height:25px;line-height:15px;border-radius:0}
+.search_results .btn-group >.btn{height:25px}
+.main_container .btn{display:inline-block;padding:4px 8px;margin-bottom:0;font-size:12px;text-align:center;cursor:pointer;background-image:none;border:1px solid transparent;text-indent:0}
+.main_container .btn-group>.btn:first-child{margin-left:0} 
+.main_container .btn-group>.btn:first-child:not(:last-child){border-top-right-radius:0;border-bottom-right-radius:0}
+.main_container .btn-group .btn+.btn, .btn-group .btn+.btn-group, .btn-group .btn-group+.btn, .btn-group .btn-group+.btn-group{margin-left:-1px}
+.main_container .btn-default:hover{color:#333;background-color:#e6e6e6;border-color:#a9a9a9}
+.main_container .btn-group>.btn:last-child:not(:first-child){border-top-left-radius:0;border-bottom-left-radius:0}
+.main_container .btn-default{color:#333;background-color:#fff;border-color:#dcdcdc} 
+.select_area{float:right;margin-right:5px;font-size:0} 
+.select_area select{font-size:12px;border:1px solid #ccc;color:#333;width:60px;height:25px;vertical-align:middle;padding:0;line-height:25px !important;display:-webkit-box;}
+.btn_option_outer:after{display:block;clear:both;height:1px;margin-top:-1px;content:''}
+.onju .btn_group{margin-top:10px}
+.onju .btn_group span{display:inline-block;padding:3px 20px;background-color:#f06600;margin-right:10px;color:#fff;font-weight:bold;cursor:pointer}
+.onju .btn_group span:last-of-type{background-color:#7f7f7f}
+#co_popupContainer .lawyer_reg.onju .small_search_inbox{right:0;left:unset;width:70%;text-align:right;top:-5px;border:0}
+.onju .btn_option_outer .btn_option{float: right;line-height: 0;padding-right: 5px;position: relative;}
+.btn-group .btn._select {background-color: #005da2;border-color: #00557e;color: #fff;}
+td.default_comment{color:#a9a9a9}
+.miju_box {display:none;position: absolute;top: 6px;left: -3px;z-index: 999999999}
+.miju_box_left{position:absolute;top:6px;left:auto;right:-6px;z-index:99999999;text-align:right}
+.miju_box_line{width: 250px;border: 1px ridge #7f7f7f;background-color:#fff;font-size: 13px ;color:#212121;line-height: 130%;padding: 10px 15px;font-weight: normal;text-align: left}
+.miju_box_bottom{bottom:-6px;top:auto}
+
+@media screen and (max-width:1270px) {
+	.main_container{margin-right:0} 
+	.admin_add_area{margin-right:0}
+}
+@media screen and (min-width:1270px) and (max-width:1440px){
+	.main_container{margin-right:25%}  
+	.admin_add_area{margin-right:25%}
+}
+@media screen and (min-width: 1440px){ 
+	.main_container{margin-right: 25%  !important}
+	.admin_add_area{margin-right:25%}
+}

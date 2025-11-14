@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 통합검색 - 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css?bdsfd1" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../js/commonjs.js?3"></script>
+<script language="javascript">
+<!--
+ 
+	function resizeComment(){ 
+			if($('.right_container').hasClass('add_border')){
+				$(".right_container").removeClass('slide_mov_right'); 
+			}else{
+				if($('#container').hasClass('list-view')){
+					$(".right_container").addClass('slide_mov_right'); 
+				}else{
+					$(".right_container").removeClass('slide_mov_right'); 
+				}
+			}
+			setHeight_under();
+		}
+	var expanded = false; 
+	function showCheckboxes() { 
+	  if (!expanded) {
+		$("#checkboxes").show();
+		expanded = true;
+	  } else {
+		$("#checkboxes").hide();
+		expanded = false;
+	  }
+	} 
+
+	$(document).ready(function () {
+		$('.direct_title span').click(function(){
+			$('#direct_area').children().toggle();
+			$(this).toggleClass('open');
+			$(this).parent().show();
+		});
+		
+		if($(".related_area").length > 0){
+			//$(".related_area").height($('#direct_area').height()-30);
+			$(".direct_main").addClass('_right');
+			//alert($('#direct_area').height());
+		}
+		
+		$('#result_tab li em').click(function(){
+			$(this).parent().parent().find('ul').toggle(); 
+			$(this).children('i').toggleClass('icon_close'); 
+		});
+
+		//
+		
+		
+		 
+	}); 
+
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_mainContainer">
+	<div id="wrap" >
+		<header>
+		<div class="top_container ">
+			<h1>로앤비</h1>
+			<div id="t_search" class="search_container">
+				<h2>통합검색 영역</h2>
+				<div class="search_inner">
+					<form  action="" > 
+					<div class="search_left hide">
+						<label class="hide">통합검색  </label>
+					</div>
+					<div class="search_center">
+						<input type="search" name="" id="" >
+					</div>
+					<div class="search_right"><span  class="more_btn">more</span></div>
+					<div id="searchButton" class="search_btn"><i class="icon-" data-icon="&#xe910;"></i><span class="hide">검색</span></div> 
+					</form>
+					<div class="btn_search_result"><i class="icon-table" data-icon="&#xea71;"></i><span class="hide">검색결과 맵 보기</span></div>
+				</div>
+				<div class="search_layer_outer" >
+				<div class="search_layer" >
+					<div class="search_layer_list _done ">
+						<!-- <div class="txt_info">최근검색어저장 기능이 OFF 상태에 있습니다.<br>이용을 원하시면 하단의 최근검색어저장 상태를 ON으로 변경해주세요. </div> 
+						<ul>
+							<li>공정거래법 위반으로 인한 손해액의 산정방법과 주요 쟁점으로 <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+						</ul>-->
+						<ul>
+							<li><strong>대법</strong>원인터넷등기소<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+							<li><strong>대법</strong>원나의사건검색</li>
+							<li><strong>대법</strong>원법원경매정보</li>
+							<li><strong>대법</strong>원전자가족관계</li>
+							<li><strong>대법</strong>원경매</li>
+							<li><strong>대법</strong>원인터넷등기소<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+							<li><strong>대법</strong>원나의사건검색<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+							<li><strong>대법</strong>원법원경매정보</li>
+							<li><strong>대법</strong>원전자가족관계</li>
+							<li><strong>대법</strong>원경매</li>
+						</ul> 
+						<div class="expend_result" onclick="">
+							<p>법무법인(유한) 태평양어쩌고 저쩌고</p>
+							<span>주소 : [050-50] 서울시 광진구 디지털로 272, 한신 IT타워 611호<br>대표전화 : 02-2204-2114</span>
+							<div class="dirct_go">바로가기</div>
+						</div>
+					</div>
+					<!-- <div class="noti_txt"><i class="icon-" data-icon="&#xe90d;"></i> 공용 PC에서는 개인정보보호를 위하여 반드시 로그아웃을 해주세요.</div> -->
+					<div class="search_layer_foot">
+						<div class="fl">기록삭제</div>
+						<div class="fr">최근검색어저장 <div class="btn-group"><button type="button" class="btn btn_orange _select">ON</button><button type="button" class="btn btn-default">OFF</button></div> 자동완성 <div class="btn-group"><button type="button" class="btn btn_orange _select">ON</button><button type="button" class="btn btn-default">OFF</button></div>
+						</div>						
+					</div>
+				</div> 
+				</div>
+			</div>
+			<div id="indiv_area" class="indiv_container">
+				<span alt="나의폴더">나의폴더<i class="icon-myfolder" data-icon="&#xe91a;"></i></span>
+				<span alt="히스토리">히스토리<i class="icon-history" data-icon="&#xe916;"></i></span>
+				<span alt="알림설정">알림설정<i class="icon-alert" data-icon="&#xe918;"></i><em>9+</em></span>
+				<span alt="질문내역">문의내역<i class="icon-question" data-icon="&#xe919;"></i></span>
+				<span alt="나의정보">나의정보<i class="icon-myinfo" data-icon="&#xe917;"></i></span>
+			</div>
+		</div>
+		<nav> 
+			<dl id="main_menu" class="mmenu">
+				<dt class="blind">메인 메뉴</dt> 
+				<dd>
+					<a href="#"><span>판례</span></a>
+				</dd>
+				<dd class="currentTab" >
+					<a href="#"><span>법규</span></a>
+				</dd>
+				<dd>
+					<a href="#"><span>심판·결정·해석</span></a>
+				</dd>
+				<dd >
+					<a href="#"><span>문헌</span></a>
+				</dd>
+				<dd>
+					<a href="#"><span>법조인</span></a>
+				</dd>
+				<dd>
+					<a href="#"><span>기업법무</span></a>
+				</dd>
+				<dd>
+					<a href="#"><span>서식</span></a>
+				</dd>
+				<dd>
+					<a href="#"><span>뉴스·칼럼</span></a>
+				</dd>
+			</dl>  
+		</nav>
+	</header>
+			<div class="submenu_group" style="">
+				<div>
+					<dl>
+						<dd><a href="">판례</a></dd>
+						<dd><a href="">판례디렉토리</a></dd>
+					</dl>
+					<dl>
+						<dd><a href="">법령</a></dd>
+						<dd><a href="">행정규칙</a></dd>
+						<dd><a href="">입법동향</a></dd>
+						<dd><a href="">조약</a></dd>
+					</dl>
+					<dl>
+						<dd><a href="">특허 심판례</a></dd>
+						<dd><a href="">결정례</a></dd>
+						<dd><a href="">유권해석</a></dd>
+					</dl>
+					<dl>
+						<dd><a href="">논문평석</a></dd>
+						<dd><a href="">주석서</a></dd>
+						<dd><a href="">E-book</a></dd>
+						<dd><a href="">법률용어</a></dd>
+					</dl>
+					<dl>
+						<dd><a href="">법조인명록</a></dd>
+						<dd><a href="">조직도</a></dd>
+						<dd><a href="">법률사무소</a></dd>
+						<dd>법조기관 안내</dd>
+					</dl>
+					<dl>
+						<dd>로펌 리포트</dd>
+						<dd>세무정보</dd>
+						<dd>기업정보</dd>
+					</dl>
+					<dl>
+						<dd>법률서식</dd>
+						<dd>비즈폼 서식</dd>
+					</dl>
+					<dl>
+						<dd>뉴스</dd>
+						<dd>칼럼</dd>
+					</dl>
+				</div>
+				<div class="ad_area">ss</div>
+			</div>
+		<div id="container" class="t_search">
+			<div id="breadcrumb" class="navi_area">
+				<div>Home > 통합검색</div>
+				<div class="group_indivi_btn"><a href="">로그인</a><a href="">개인화님</a> </div>
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div id="container_inner">
+				<div class="left_container"> 
+					<section id="result_tab"> 
+						<h4 class="hide">통검전체</h4>
+						<ul>
+							<li class="overall this-page"><a href="gf">통합검색 개요</a></li> 
+						</ul>
+						<h4>판례</h4>
+						<ul>
+							<li>판례<span>234500 <em><i class="icon_open"></i></em></span>
+								<ul>
+									<li>사건번호<span>11</span></li>
+									<li>판시사항 <span>11</span></li>
+									<li>재판요지 <span>11</span></li>
+									<li>전문 <span>11</span></li>
+									<li>사건명 <span>11</span></li>
+									<li>참조조문  <span>11</span></li>
+								</ul>
+							</li> 
+						</ul>
+						<h4>법규</h4>
+						<ul>
+							<li>법령<span>234500 <em><i class="icon_open"></i></em></span>
+								<ul>
+									<li>법령명 <span>11</span></li>
+									<li>조문제목 <span>11</span></li>
+									<li>조문내용 <span>11</span></li>
+									<li>부칙 <span>11</span></li>
+									<li>별표서식명  <span>11</span></li> 
+								</ul>
+							</li> 
+							<li>행정규칙<span>234500  <em><i class="icon_open"></i></em></span>
+								<ul>
+									<li>법령명 <span>11</span></li>
+									<li>조문제목 <span>11</span></li>
+									<li>조문내용 <span>11</span></li>
+									<li>부칙 <span>11</span></li>
+									<li>별표서식명  <span>11</span></li> 
+								</ul>
+							</li> 
+							<li><a href="gf">입법동향(20대)<span>234500</span></a></li> 
+							<li><a href="gf">조약<span>234500</span></a></li> 
+						</ul>
+						<h4>심판·결정·해석</h4>
+						<ul>
+							<li>특허심판례 <span>234500  <em><i class="icon_open"></i></em></span>
+								<ul>
+									<li>심판번호<span>11</span></li>
+									<li>사건표시 <span>11</span></li>
+									<li>청구취지 <span>11</span></li>
+									<li>전문 <span>11</span></li>
+									<li>등록번호  <span>11</span></li> 
+									<li>출원번호  <span>11</span></li> 
+									<li>청구인  <span>11</span></li> 
+									<li>피청구인  <span>11</span></li> 
+								</ul>
+							</li> 
+							<li><a href="gf">결정례<span>234500</span></a></li> 
+							<li><a href="gf">해석례<span>234500</span></a></li>  
+						</ul>
+						<h4>문헌</h4>
+						<ul>
+							<li><a href="gf">논문·평석<span>234500</span></a></li> 
+							<li><a href="gf">주석서 <span>234500</span></a></li> 
+							<li><a href="gf">E-Book <span>234500</span></a></li>  
+							<li><a href="gf">법률용어 <span>234500</span></a></li>  
+						</ul>
+						<h4>기업법무</h4>
+						<ul>
+							<li><a href="gf">로펌리포트 <span>234500</span></a></li> 
+							<li><a href="gf">세무정보 <span>234500</span></a></li> 
+							<li><a href="gf">기업정보 <span>234500</span></a></li>  
+						</ul>
+						<h4>서식</h4>
+						<ul>
+							<li><a href="gf">전문법률서식  <span>234500</span></a></li> 
+							<li><a href="gf">비즈폼서식 <span>234500</span></a></li>  
+						</ul>
+						<h4>리걸이슈</h4>
+						<ul>
+							<li><a href="gf">뉴스   <span>234500</span></a></li> 
+							<li><a href="gf">컬럼  <span>234500</span></a></li>  
+						</ul>
+					</section> 
+				</div>
+				<article class="main_container"> 
+					<div class="main_container_inner">
+						<div id="direct_area" >
+							<p class="direct_title">다이렉트 검색 <span></span></p>
+							<!-- 판례-->
+							<!-- <div class="related_area"  >
+								<p>같은 사건번호 다른 판결문</p>
+								<ul>
+									<li><a href="1" >대법원 2016. 3. 10. 선고 2013도11233 판결</a></li> 
+								</ul> 
+							</div>  -->
+							 <div class="direct_main"  >
+								<div class="main_area">
+									<h3><a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">대법원 2016. 5. 27. 선고 2014두8490 판결 [도로점용허가처분무효확인등]&nbsp;종국결과   <span>[공2016하, 888 ]</span></a><br><span><별칭사건명 별칭사건명 별칭사건명></span></h3>
+									<div class="co_searchResults_summary"><p>[1] 계약당사자 중 일방이 상대방 및 제3자와 3면 계약을 체결하거나 상대방의 승낙을 얻어 계약상 당사자의 지위를 포괄적으로 제3자에게 이전하는 경우, 제3자가 종래 계약에서 이미 발생한 채권ㆍ채무도 모두 이전받는지 여부(적극)<br>
+		[2] 사업시행자가 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 시행령 제40조 제2항 단서에 따라 택지개발촉진법 또는 주택법 등 관계 법령에 의하여 이주대책대상자들에게 택지 또는 주택을 공급하는 경우에도 이주정착지를 제공하는 경우와 마찬가지로 사업시행자 부담으로 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제4항에서 정한 생활기본시설을 설치하여 이주대책대상자들에게 제공하여야 하는지 여부(적극)<br>
+		[3] 사업시행자의 이주대책 수립ㆍ실시의무를 정하고 있는 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제1항과 이주대책의 내용을 정하고 있는 같은 조 제4항 본문이 강행법규인지 여부(적극)<br>
+		[4] 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제4항에서 정한 ‘도로ㆍ급수시설ㆍ배수시설 그 밖의 공공시설 등 당해 지역조건에 따른 생활기본시설’의 의미 및 이주대책대상자들과 사업시행자 등이 체결한 택지 또는 주택에 관한 특별공급계약에서 위 조항에 규정된 생활기본시설 설치비용을 분양대금에 포함시킴으로써 이주대책대상자들이 그 비용까지 사업시행자 등에게 지급하게 된 경우,사업시행자 등이 그 비용 상당액을 부당이득으로 이주대책대상자들에게 반환하여야 하는지 여부(적극) </p></div>
+								</div>
+								<div class="related_doc link-black">
+									<p>판례히스토리</p>
+									<ul>
+										<li><a href="21">대법원 2011. 9. 2. 선고 2009다52649 전원합의체 판결 【정정ㆍ반론】[공2011하, 2009]</a></li>
+										<li><a href="2">대법원 2016. 3. 10. 선고 2013도11233 판결 [배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</a></li>
+									</ul>
+								</div>
+								<div class="related_tab" >
+									<p class="hide">관련자료</p>
+									<div class="tabs">
+										<a href="d" class="tab-link direct-doc _this">논문평석(10)</a>
+										<a href="d" class="tab-link direct-comm">주석서(10)</a>
+										<a href="d" class="tab-link direct-news">뉴스(10)</a>
+										<div class="btn-group fr ">
+										  <button type="button" class="btn btn-default">더보기</button> 
+										</div> 
+									</div>
+									<ul class="link-black">
+										<li><a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[학회논문] 개별 행정법상 "이의신청제도"의 현황 검토</a></li>
+										<li><a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[학회논문] 개별 행정법상 "이의신청제도"의 현황 검토</a></li>
+										<li><a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[학회논문] 개별 행정법상 "이의신청제도"의 현황 검토</a></li>
+									</ul>
+								</div>
+							</div>   
+							<!--법령<div class="related_area" style="display:none">
+								<p>입법동향</p>
+								<ul>
+									<li><a href="1" ><strong>[계류]</strong> 가맹사업거래의 공정화에 관한 법률 일부개정법률안(정인화의원 등 11인) / 2005089</a></li> 
+									<li><a href="1" ><strong>[본회의부의]</strong> 가맹사업거래의 공정화에 관한 법률 일부개정법률안(정인화의원 등 11인) / 2005089  </a></li> 
+								</ul> 
+							</div>
+							<div class="direct_main" style="display:none">
+								<div class="main_area">
+									<h3><a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">개인정보보호법 <span>[법률 제14107호 일부개정 2016. 03. 29.]</span></a></h3>
+								</div>
+								<div class="related_doc link-black">
+									<p>법령체계도</p>
+									<ul>
+										<li><a href="21">[법률] 개인정보보호법</a></li>
+										<li><a href="2">[대통령령] 개인정보보법시행령</a></li>
+										<li><a href="2">[부령] 개인정보보호법시행규칙</a> <a href="12" class="btn-white">3단비교보기</a></li>
+									</ul> 
+								</div>
+								<div class="related_doc link-black">
+									<p>온라인 주석서</p>
+									<ul>
+										<li><a href="21" class="popup-link">온주 개인정보보호법</a> (집필자 : 강태욱, 김일환, 류광현, 최경진)</li>
+									</ul>
+								</div>
+								<div class="related_tab">
+									<p class="hide">관련자료</p>
+									<div class="tabs">
+										<a href="d" class="tab-link direct-doc _this">E-Book(10)</a>
+										<a href="d" class="tab-link direct-comm">주석서(10)</a>
+										<a href="d" class="tab-link direct-news">리포트(10)</a>
+										<a href="d" class="tab-link direct-news">보도자료(10)</a>
+										<div class="btn-group fr ">
+										  <button type="button" class="btn btn-default">더보기</button> 
+										</div> 
+									</div>
+									<ul class="link-black">
+										<li><a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[학회논문] 개별 행정법상 "이의신청제도"의 현황 검토</a></li>
+										<li><a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[학회논문] 개별 행정법상 "이의신청제도"의 현황 검토</a></li>
+										<li><a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[학회논문] 개별 행정법상 "이의신청제도"의 현황 검토</a></li>
+									</ul>
+								</div>
+							</div> 
+							
+							<!--법조인 <div class="related_area">
+								<p>동명이인</p>
+								<ul>
+									<li><a href="1" ><strong>강진석 姜珍錫</strong><br>(현)법무법인 서울, 사법시험 50회 </a></li> 
+									<li><a href="1" ><strong>강진석</strong><br>(현)법무법인 서울, 사법시험 50회 </a></li> 
+									<li><a href="1" ><strong>강진석</strong><br>(현)법무법인 서울, 사법시험 50회 </a></li> 
+								</ul> 
+								<div class="btn_updown"><span><i class="icon-4" data-icon="&#xe903;"></i></span><span><i class="icon-4" data-icon="&#xe902;"></i></span></div>
+							</div>
+							<div class="direct_main lawyer">
+								<div class="main_area">
+									<div class="img"><img src="http://www.lawnb.com/data/peopdata/kimgaram20140410.bmp" alt="사진"></div> 
+									<h3><a href="/list_view.html">강진석 姜珍錫</a>  <span>1999년생/ 여자 / (사법시험 50회 / 연수원 40기)</span><br><span>현직 : 변호사 / 법무법인 서울 / 특허파트 / 상표부</span><br></h3> 
+									<div class="lawyer_info">
+										<span>주요업무분야 <small><i class="icon-info" data-icon="" onmouseout="close_miju('Miju2')" onmouseover="open_miju('Miju2')"><span class="blind">안내</span><div id="Miju2" class="miju_box"><div class="miju_box_line">(변호사님이 주로 취급하는 업무로 선택한 분야입니다.)</div></div></i></small> : 금융/회사/건설/무역/해외투자/지적재산권</span> 
+									</div>
+									<div class="ar text_ex ">[최근 업데이트 일자 : 2016.12.10]</div>
+								</div> 
+								<div class="related_tab">
+									<p class="hide">관련자료</p>
+									<div class="tabs">
+										<a href="d" class="tab-link direct-doc _this">승소판례(10)</a>
+										<a href="d" class="tab-link direct-comm">논문/기고(10)</a> 
+										<a href="d" class="tab-link direct-news">보도자료(10)</a>
+										<div class="btn-group fr ">
+										  <button type="button" class="btn btn-default">더보기</button> 
+										</div> 
+									</div>
+									<ul class="link-black">
+										<li><a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">헌법재판소 2010. 9.30. 선고 2009헌바86 구 소득세법 제2조 제3항 위헌소원</a></li>
+										<li><a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">대법원 2009. 1.15. 선고 2006두14926 취득세등부과처분취소</a></li>
+										<li><a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">대법원 2008.12.11. 선고 2006두18652 법인세등부과처분취소</a></li>
+									</ul>
+								</div>
+							</div> -->
+							<!-- 법률사무소<div class="direct_main lawyer">
+								<div class="main_area">
+									<h3><a href="/list_view.html">법무법인(유) 율촌</a><br><span>주소 : (06180) 서울특별시 강남구 테헤란로 518(대치동, 섬유센터 12층) <br>대표전화 : 02-528-5200 </span></h3> 
+									<div class="logo">
+										 <a href="http://www.yulchon.com" target="_blank">
+										 <img src="http://lawnbedu.com/File/Lawfirm/2014-08-01/율촌.jpg">
+										 </a>
+									</div> 
+								</div> 
+								<div class="related_tab">
+									<p class="hide">관련자료</p>
+									<div class="tabs">
+										<a href="d" class="tab-link direct-doc _this">소개글</a>
+										<a href="d" class="tab-link direct-comm">법률사무소 소식(52)</a> 
+										<div class="btn-group fr ">
+										  <button type="button" class="btn btn-default">더보기</button> 
+										</div> 
+									</div>
+									<div class="link-black">
+										법무법인(유) 율촌(律村)은 “뜻을 모으고 실력을 합쳐 법률가의 마을을 세우다”라는 의미를 가지고 1997년 설립되었습니다. 고객에 대한 헌신과 창의적인 법률마인드를 바탕으로 언제나 최선의 솔루션을 제공하기 위해 노력하고 있으며, 법률시장 개방과 급변하는 법조환경에 선제적으로 대응함으로써 변화를 선도하는 대한민국의 대표 로펌을 성장하겠습니다. 
+									</div>
+								</div>
+							</div>  -->
+						</div>
+						<div id="search_results">
+							<div class="s_num_area">판례 > 사건번호 <small>2000</small>
+								<div class="btn_option">  
+									<ul class="view_type_list _view_type_list">
+										<p class="blind">보기옵션 선택</p>
+										<li class="_preview"><a href="#" class="option_a  "   id="option_a" >미리보기형</a></li>
+										<li class="_onlyTitle"><a href="#" class="option_b_on  "  id="option_b">상세보기형</a></li>
+									</ul>
+									<div class="btn-group fr mgl10">
+									  <button type="button" class="btn btn-default">상세조건 검색</button> 
+									</div>
+								</div>
+							</div> 
+							<ol class="list  ">
+								<li>
+									<span class="list_num">1</span>							 
+									<div class="co_searchContent">
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html"><i class="icon-fleg red" ><span class="path1"></span><span class="path2"></span><span class="blind">폐기변경</span></i><i class="icon-10" data-icon="&#xe909;"><span class="blind">전원합의체</span></i>대법원 2016. 5. 27. 선고 2014두8490 판결 【도로점용허가처분무효확인등】&nbsp;종국결과   <span>[공2016하, 888 ]</span></a><br><span><별칭사건명 별칭사건명 별칭사건명></span></h3>
+										<div class="co_searchResults_summary"><p>[1] 계약당사자 중 일방이 상대방 및 제3자와 3면 계약을 체결하거나 상대방의 승낙을 얻어 계약상 당사자의 지위를 포괄적으로 제3자에게 이전하는 경우, 제3자가 종래 계약에서 이미 발생한 채권ㆍ채무도 모두 이전받는지 여부(적극)<br>
+	[2] 사업시행자가 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 시행령 제40조 제2항 단서에 따라 택지개발촉진법 또는 주택법 등 관계 법령에 의하여 이주대책대상자들에게 택지 또는 주택을 공급하는 경우에도 이주정착지를 제공하는 경우와 마찬가지로 사업시행자 부담으로 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제4항에서 정한 생활기본시설을 설치하여 이주대책대상자들에게 제공하여야 하는지 여부(적극)<br>
+	[3] 사업시행자의 이주대책 수립ㆍ실시의무를 정하고 있는 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제1항과 이주대책의 내용을 정하고 있는 같은 조 제4항 본문이 강행법규인지 여부(적극)<br>
+	[4] 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제4항에서 정한 ‘도로ㆍ급수시설ㆍ배수시설 그 밖의 공공시설 등 당해 지역조건에 따른 생활기본시설’의 의미 및 이주대책대상자들과 사업시행자 등이 체결한 택지 또는 주택에 관한 특별공급계약에서 위 조항에 규정된 생활기본시설 설치비용을 분양대금에 포함시킴으로써 이주대책대상자들이 그 비용까지 사업시행자 등에게 지급하게 된 경우,사업시행자 등이 그 비용 상당액을 부당이득으로 이주대책대상자들에게 반환하여야 하는지 여부(적극) </p></div>
+										<div class="function_btn"><a href=""><span class="blue_bt">판례히스토리</span></a></div>
+									</div>
+								</li>
+								<li>
+									<span class="list_num">300</span>						 
+									<div class="co_searchContent">  
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html"><i class="icon-10" data-icon="&#xe909;"><span class="blind">전원합의체</span></i>대법원 2011. 9. 2. 선고 <mark>2009다52649</mark> 전원합의체 판결 【정정ㆍ반론】<span>[공2011하, 2009]</span></a><br><span><별칭사건명 별칭사건명 별칭사건명></span></h3>
+										<div class="co_searchResults_summary"><p>[1] 구 상가건물 임대차보호법 제10조 제4항에 따른 임대인의 갱신 거절 통지에 제10조 제1항 제1호 내지 제8호에서 정한 정당한 사유가 없는 경우, 임대인의 갱신 거절 통지의 선후와 관계없이 임차인의 계약갱신요구권 행사로 종전 임대차가 갱신되는지 여부(적극)<br>[2] 임차인이 계약갱신요구권을 행사한 이후 임차인과 임대인이 신규 임대차계약의 형식으로 체결한 계약을 임대차에 관한 재계약으로 볼 것인지 여부(한정 소극)</p></div>
+										 <div class="function_btn"><a href=""><span class="blue_bt">판례히스토리</span></a><a href=""><span class="blue_bt">논문</span></a></div>
+									 </div>
+								</li>
+							</ol> 
+							<div class="s_num_area">법규 > 법령 <small>2000</small>
+								<div class="btn_option">  
+									<ul class="view_type_list _view_type_list">
+										<p class="blind">보기옵션 선택</p>
+										<li class="_preview"><a href="#" class="option_a  "   id="option_a" >미리보기형</a></li>
+										<li class="_onlyTitle"><a href="#" class="option_b_on  "  id="option_b">상세보기형</a></li>
+									</ul>
+									<div class="btn-group fr mgl10">
+									  <button type="button" class="btn btn-default">상세조건 검색</button> 
+									</div>
+								</div>
+							</div> 
+							<ol class="list  ">
+								<li>
+									<span class="list_num">1</span>							 
+									<div class="co_searchContent">
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">특허법</a></h3>
+										<div class="co_searchResults_summary">
+											<ul class="law_history_list">
+												<li><span class="label-icon blue">현행</span> <a href="e">법률 제 1234호 일부개정 공포일 2014.09.11, 시행일 2011.09.11</a></li>
+											</ul> 
+										</div> 
+									</div>
+								</li>
+								<li>
+									<span class="list_num">1</span>							 
+									<div class="co_searchContent">
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">특허법</a></h3>
+										<div class="co_searchResults_summary">
+											<ul class="law_history_list">
+												<li><span class="label-icon blue">현행</span> <a href="e">법률 제 1234호 일부개정 공포일 2014.09.11, 시행일 2011.09.11</a></li>
+											</ul> 
+										</div> 
+									</div>
+								</li>
+							</ol>
+							
+							<div class="s_num_area">심판·결정·해석 > 특허심판례 <small>2000</small>
+								<div class="btn_option">  
+									<ul class="view_type_list _view_type_list">
+										<p class="blind">보기옵션 선택</p>
+										<li class="_preview"><a href="#" class="option_a  "   id="option_a" >미리보기형</a></li>
+										<li class="_onlyTitle"><a href="#" class="option_b_on  "  id="option_b">상세보기형</a></li>
+									</ul>
+									<div class="btn-group fr mgl10">
+									  <button type="button" class="btn btn-default">상세조건 검색</button> 
+									</div>
+								</div>
+							</div> 
+							<ol class="list  ">
+								<li>
+									<span class="list_num">1</span>							 
+									<div class="co_searchContent">
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">조세심판원 조심2015지1556, <span>2016.07.29</span> [쟁점토지에 대한 지목변경 취득세 과세표준…]</a></h3>
+										<div class="co_searchResults_summary"><p>지목변경에 대한 취득세 과세표준은 지목변경 공사착공일 현재의 개별공시지가에서 지목변경 후 토지의 개별공시자가의 차액을 기준으로 하는 것인바, 청구인이 지목변경 전·후의 개별공시지가 차액을 과세표준으로 하여 취득세 등을 신고·납부하였으므로 처분청에서 이 건 경정청구를 거부한 처분은 잘못이 없다고 판단됨.</p></div>
+									</div>
+								</li>
+								<li>
+									<span class="list_num">1</span>							 
+									<div class="co_searchContent">
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">조세심판원 조심2015지1556, <span>2016.07.29</span> [쟁점토지에 대한 지목변경 취득세 과세표준…]</a></h3>
+										<div class="co_searchResults_summary"><p>지목변경에 대한 취득세 과세표준은 지목변경 공사착공일 현재의 개별공시지가에서 지목변경 후 토지의 개별공시자가의 차액을 기준으로 하는 것인바, 청구인이 지목변경 전·후의 개별공시지가 차액을 과세표준으로 하여 취득세 등을 신고·납부하였으므로 처분청에서 이 건 경정청구를 거부한 처분은 잘못이 없다고 판단됨.</p></div>
+									</div>
+								</li>
+							</ol>
+							<div class="s_num_area">문헌 > 논문·평석 <small>2000</small>
+								<div class="btn_option">  
+									<ul class="view_type_list _view_type_list">
+										<p class="blind">보기옵션 선택</p>
+										<li class="_preview"><a href="#" class="option_a  "   id="option_a" >미리보기형</a></li>
+										<li class="_onlyTitle"><a href="#" class="option_b_on  "  id="option_b">상세보기형</a></li>
+									</ul>
+									<div class="btn-group fr mgl10">
+									  <button type="button" class="btn btn-default">상세조건 검색</button> 
+									</div>
+								</div>
+							</div> 
+							<ol class="list  ">
+								<li>
+									<span class="list_num">1</span>	
+									<div class="co_searchContent">
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[학회논문] 개별 행정법상 "이의신청제도"의 현황 검토</a><br><span>Legal Practice Study : Study on objection systems in several administrative laws</span><br><span class="list_meta">하경효(Kyung Hyo Ha), 하경효(Kyung Hyo Ha)/ 안암법학회/ 안암법학 <54>/ 2014/ 30Page </span></h3>
+										
+										<div class="co_searchResults_summary"><p>지목변경에 대한 취득세 과세표준은 지목변경 공사착공일 현재의 개별공시지가에서 지목변경 후 토지의 개별공시자가의 차액을 기준으로 하는 것인바, 청구인이 지목변경 전·후의 개별공시지가 차액을 과세표준으로 하여 취득세 등을 신고·납부하였으므로 처분청에서 이 건 경정청구를 거부한 처분은 잘못이 없다고 판단됨.</p></div>
+										<div class="function_btn"><a href=""><span class="blue_bt">관련 판례 14건</span></a><a href=""><span class="blue_bt">관련 법령 13건</span></a></div>
+									</div>
+								</li>
+								<li>
+									<span class="list_num">300</span>						 
+									<div class="co_searchContent">  
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[법률잡지] 개별 행정법상 "이의신청제도"의 현황 검토</a><br><span>Legal Practice Study : Study on objection systems in several administrative laws</span><br><span class="list_meta">하경효(Kyung Hyo Ha)/사법행정 <제157호>/2015.12/30Page</span></h3>
+										<div class="co_searchResults_summary"><p>지목변경에 대한 취득세 과세표준은 지목변경 공사착공일 현재의 개별공시지가에서 지목변경 후 토지의 개별공시자가의 차액을 기준으로 하는 것인바, 청구인이 지목변경 전·후의 개별공시지가 차액을 과세표준으로 하여 취득세 등을 신고·납부하였으므로 처분청에서 이 건 경정청구를 거부한 처분은 잘못이 없다고 판단됨.</p></div>
+										<div class="function_btn"><a href=""><span class="blue_bt">관련 판례 14건</span></a><a href=""><span class="blue_bt">관련 법령 13건</span></a></div>
+									 </div>
+								</li>
+							</ol>
+							<div class="s_num_area">서식 > 전문법률서식  <small>2000</small>
+								<div class="btn_option">  
+									<ul class="view_type_list _view_type_list">
+										<p class="blind">보기옵션 선택</p>
+										<li class="_preview"><a href="#" class="option_a  "   id="option_a" >미리보기형</a></li>
+										<li class="_onlyTitle"><a href="#" class="option_b_on  "  id="option_b">상세보기형</a></li>
+									</ul>
+									<div class="btn-group fr mgl10">
+									  <button type="button" class="btn btn-default">상세조건 검색</button> 
+									</div>
+								</div>
+							</div> 
+							<ol class="list  ">
+								<li>
+									<span class="list_num">1</span>							 
+									<div class="co_searchContent">
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[서식 13]혼인 무효확인 청구의 소장</a > <span class="list_meta"> / 신형사소송총람 / 2011.01.01</span></h3> 
+										<div class="co_searchResults_summary"><p>[1] 계약당사자 중 일방이 상대방 및 제3자와 3면 계약을 체결하거나 상대방의 승낙을 얻어 계약상 당사자의 지위를 포괄적으로 제3자에게 이전하는 경우, 제3자가 종래 계약에서 이미 발생한 채권ㆍ채무도 모두 이전받는지 여부(적극)<br>
+	[2] 사업시행자가 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 시행령 제40조 제2항 단서에 따라 택지개발촉진법 또는 주택법 등 관계 법령에 의하여 이주대책대상자들에게 택지 또는 주택을 공급하는 경우에도 이주정착지를 제공하는 경우와 마찬가지로 사업시행자 부담으로 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제4항에서 정한 생활기본시설을 설치하여 이주대책대상자들에게 제공하여야 하는지 여부(적극)<br>
+	[3] 사업시행자의 이주대책 수립ㆍ실시의무를 정하고 있는 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제1항과 이주대책의 내용을 정하고 있는 같은 조 제4항 본문이 강행법규인지 여부(적극)<br>
+	[4] 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제4항에서 정한 ‘도로ㆍ급수시설ㆍ배수시설 그 밖의 공공시설 등 당해 지역조건에 따른 생활기본시설’의 의미 및 이주대책대상자들과 사업시행자 등이 체결한 택지 또는 주택에 관한 특별공급계약에서 위 조항에 규정된 생활기본시설 설치비용을 분양대금에 포함시킴으로써 이주대책대상자들이 그 비용까지 사업시행자 등에게 지급하게 된 경우,사업시행자 등이 그 비용 상당액을 부당이득으로 이주대책대상자들에게 반환하여야 하는지 여부(적극) </p></div>
+									</div>
+								</li>
+								<li>
+									<span class="list_num">1</span>							 
+									<div class="co_searchContent">
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[서식 13]혼인 무효확인 청구의 소장</a > <span class="list_meta"> / 신형사소송총람 / 2011.01.01</span></h3> 
+										<div class="co_searchResults_summary"><p>[1] 계약당사자 중 일방이 상대방 및 제3자와 3면 계약을 체결하거나 상대방의 승낙을 얻어 계약상 당사자의 지위를 포괄적으로 제3자에게 이전하는 경우, 제3자가 종래 계약에서 이미 발생한 채권ㆍ채무도 모두 이전받는지 여부(적극)<br>
+	[2] 사업시행자가 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 시행령 제40조 제2항 단서에 따라 택지개발촉진법 또는 주택법 등 관계 법령에 의하여 이주대책대상자들에게 택지 또는 주택을 공급하는 경우에도 이주정착지를 제공하는 경우와 마찬가지로 사업시행자 부담으로 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제4항에서 정한 생활기본시설을 설치하여 이주대책대상자들에게 제공하여야 하는지 여부(적극)<br>
+	[3] 사업시행자의 이주대책 수립ㆍ실시의무를 정하고 있는 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제1항과 이주대책의 내용을 정하고 있는 같은 조 제4항 본문이 강행법규인지 여부(적극)<br>
+	[4] 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제4항에서 정한 ‘도로ㆍ급수시설ㆍ배수시설 그 밖의 공공시설 등 당해 지역조건에 따른 생활기본시설’의 의미 및 이주대책대상자들과 사업시행자 등이 체결한 택지 또는 주택에 관한 특별공급계약에서 위 조항에 규정된 생활기본시설 설치비용을 분양대금에 포함시킴으로써 이주대책대상자들이 그 비용까지 사업시행자 등에게 지급하게 된 경우,사업시행자 등이 그 비용 상당액을 부당이득으로 이주대책대상자들에게 반환하여야 하는지 여부(적극) </p></div>
+									</div>
+								</li>
+							</ol>
+							<div class="s_num_area">리걸이슈 > 뉴스   <small>2000</small>
+								<div class="btn_option">  
+									<ul class="view_type_list _view_type_list">
+										<p class="blind">보기옵션 선택</p>
+										<li class="_preview"><a href="#" class="option_a  "   id="option_a" >미리보기형</a></li>
+										<li class="_onlyTitle"><a href="#" class="option_b_on  "  id="option_b">상세보기형</a></li>
+									</ul>
+									<div class="btn-group fr mgl10">
+									  <button type="button" class="btn btn-default">상세조건 검색</button> 
+									</div>
+								</div>
+							</div> 
+							<ol class="list  ">
+								<li>
+									<span class="list_num">1</span>						 
+									<div class="co_searchContent">  
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">법원 '고용부의 전공노 설립 신고 반려, 정당‘ <span class="list_meta">로이슈 |  2016.11.16 </span></a></h3>
+										<div class="co_searchResults_summary"><p>[1] 계약당사자 중 일방이 상대방 및 제3자와 3면 계약을 체결하거나 상대방의 승낙을 얻어 계약상 당사자의 지위를 포괄적으로 제3자에게 이전하는 경우, 제3자가 종래 계약에서 이미 발생한 채권ㆍ채무도 모두 이전받는지 여부(적극)<br>
+	[2] 사업시행자가 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 시행령 제40조 제2항 단서에 따라 택지개발촉진법 또는 주택법 등 관계 법령에 의하여 이주대책대상자들에게 택지 또는 주택을 공급하는 경우에도 이주정착지를 제공하는 경우와 마찬가지로 사업시행자 부담으로 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제4항에서 정한 생활기본시설을 설치하여 이주대책대상자들에게 제공하여야 하는지 여부(적극)<br>
+	[3] 사업시행자의 이주대책 수립ㆍ실시의무를 정하고 있는 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제1항과 이주대책의 내용을 정하고 있는 같은 조 제4항 본문이 강행법규인지 여부(적극)<br>
+	[4] 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제4항에서 정한 ‘도로ㆍ급수시설ㆍ배수시설 그 밖의 공공시설 등 당해 지역조건에 따른 생활기본시설’의 의미 및 이주대책대상자들과 사업시행자 등이 체결한 택지 또는 주택에 관한 특별공급계약에서 위 조항에 규정된 생활기본시설 설치비용을 분양대금에 포함시킴으로써 이주대책대상자들이 그 비용까지 사업시행자 등에게 지급하게 된 경우,사업시행자 등이 그 비용 상당액을 부당이득으로 이주대책대상자들에게 반환하여야 하는지 여부(적극) </p></div> 
+									 </div>
+								</li>
+								<li>
+									<span class="list_num">1</span>						 
+									<div class="co_searchContent">  
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">법원 '고용부의 전공노 설립 신고 반려, 정당‘ <span class="list_meta">로이슈 |  2016.11.16 </span></a></h3>
+										<div class="co_searchResults_summary"><p>[1] 계약당사자 중 일방이 상대방 및 제3자와 3면 계약을 체결하거나 상대방의 승낙을 얻어 계약상 당사자의 지위를 포괄적으로 제3자에게 이전하는 경우, 제3자가 종래 계약에서 이미 발생한 채권ㆍ채무도 모두 이전받는지 여부(적극)<br>
+	[2] 사업시행자가 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 시행령 제40조 제2항 단서에 따라 택지개발촉진법 또는 주택법 등 관계 법령에 의하여 이주대책대상자들에게 택지 또는 주택을 공급하는 경우에도 이주정착지를 제공하는 경우와 마찬가지로 사업시행자 부담으로 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제4항에서 정한 생활기본시설을 설치하여 이주대책대상자들에게 제공하여야 하는지 여부(적극)<br>
+	[3] 사업시행자의 이주대책 수립ㆍ실시의무를 정하고 있는 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제1항과 이주대책의 내용을 정하고 있는 같은 조 제4항 본문이 강행법규인지 여부(적극)<br>
+	[4] 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제4항에서 정한 ‘도로ㆍ급수시설ㆍ배수시설 그 밖의 공공시설 등 당해 지역조건에 따른 생활기본시설’의 의미 및 이주대책대상자들과 사업시행자 등이 체결한 택지 또는 주택에 관한 특별공급계약에서 위 조항에 규정된 생활기본시설 설치비용을 분양대금에 포함시킴으로써 이주대책대상자들이 그 비용까지 사업시행자 등에게 지급하게 된 경우,사업시행자 등이 그 비용 상당액을 부당이득으로 이주대책대상자들에게 반환하여야 하는지 여부(적극) </p></div> 
+									 </div>
+								</li>
+							</ol>
+						 </div> 
+					 </div>
+					 <div class="main_container_view">
+						<div class="main_container_view_inner">  
+						</div>
+					 </div>
+				</article> 
+				<aside class="right_container"> 
+					<section class="direct_s d_edu">
+						<h4>교육센터 추천 강좌</h4>
+						<ul>
+							<li><a href="1" >[오프라인] 라이센스계약 법률실무</a><br>교육기간 : 03.22 ~ 03.23 (6시간)<br>강사 : 선미라, 윤복남 </li> 
+							<li><a href="1" >[온라인] 지적재산권과 라이센스 실무전략</a><br>교육시간 : 총 14강 약 9시간<br>강사 : 김범희, 선미라, 윤복남</li> 
+						</ul> 
+						<div><em>기업법무 전문 실무 노하우 전수</em><br><a href="21" class="popup-link">온오프라인 강좌 / 세미나 전체보기</a></div>
+					</section>
+					<section class="direct_s">
+						<h4>온주 </h4>
+						<ul >
+							<li><a href="21" class="popup-link">온주 개인정보보호법</a><br>(집필자 : 강태욱, 김일환, 류광현, 최경진)</li> 
+							<li>본문 검색결과 <div class="btn-group fr">
+							  <button type="button" class="btn btn-default">전체보기</button> 
+							</div><br>  
+								<a href="1" >개인정보보호법 <span>(총 72건)</span></a><br>
+								<a href="2" >신용정보의이용및보호에관한법률 <span>(총 17건)</span></a><br>
+								<a href="3" >건축법 <span>(총 1건)</span></a><br>
+								<a href="4" >국세기본법 <span> (총 2건)</span></a></li> 
+						</ul>  
+					</section>
+					<section >
+						<h4>최근 조회자료</h4>
+						<ul>
+							<li><a href="1" >대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span></a></li>
+							<li><a href="2" >개인정보 보호법 <span>[법률 제14107호 일부개정 2016. 03. 29.]</span></a></li>
+							<li><a href="3" >개인정보 제도개선 관련 최근 입법동향 <span>[황지은/ 경제규제와 법/서울대학교 공익산업법센터/2016]</span></a></li>
+							<li><a href="4" >홍길동  <span>[변호사/ 법무법인(유한) 태평양/ 사법시험 33회]</span></a></li> 
+						</ul>  
+					</section>
+				</aside>
+			</div>
+    	</div>
+		<footer>
+			<div class="etc_menu"> 
+				<div class="top_container">  
+					<ul>	
+						<li class="blind">기타 메뉴 </li>
+						<li>회사소개</li>
+						<li>광고 · 제휴문의</li>
+						<li>이용약관</li>
+						<li>개인정보 취급/처리 방침</li>
+						<li>법적고지</li>
+						<li>이메일 무단수집거부</li>
+					</ul>
+				</div>
+			</div>  
+			<div class="top_container   _footer"> 	   
+				1. 콘텐츠의 명칭 : 법률정보 &nbsp;&nbsp; 2. 콘텐츠의 제작 및 표시 : 2006년 2월 17일(업그레이드 콘텐츠의 경우 갱신일) &nbsp;&nbsp; 3. 콘텐츠 제작자 : ㈜로앤비  &nbsp;&nbsp;  4. 콘텐츠의 이용조건 : <a href="/support/agree_use.asp" class="red_bott">이용약관</a> 및 로앤비 <a href="/support/serviceInfo_member.asp" class="red_bott">서비스안내</a>와 같음 (무단 복제금지) &nbsp;&nbsp;5. 콘텐츠의 보호기간 : ㈜로앤비 사이트의 모든 콘텐츠는 「콘텐츠산업 진흥법」에 따라 제작 또는 갱신일로부터 5년간 보호됨
+				<div>Thomson reuters</div>
+				<div>Copyright ⓒ 1998~2016 <b>LAWnB</b>. All Rights Reserved.</div>
+			</div>           
+		</footer>
+		<div id="bg_screen"></div>
+		<script type="text/javascript">  
+			setHeight_under();		 
+		</script>
+		<div id="individual_area" class="popup_win">
+		<div class="container_popup">
+		<div id="popup_myfolder" class="base_popup"><!-- 나의폴더 -->
+			<div class="top_title " >
+				<span><i class="icon-" data-icon="&#xe930;"></i> 나의 폴더</span>
+				<div class="top_title_group">
+					<div class="btn-group"><button type="button" class="btn btn-default">전체보기</button></div>
+					<div class="btn_close_pop">닫기<i class="icon-close" data-icon="&#xe915;"></i></div>
+				</div>
+			</div>
+			<div class="cont_list">
+				<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span><em>폴더1 > 하위폴더2</em></p></a>
+				<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span><em>폴더1 > 하위폴더2</em></p></a>
+				<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span><em>폴더1 > 하위폴더2</em></p></a>
+				<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span><em>폴더1 > 하위폴더2</em></p></a>
+				<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span><em>폴더1 > 하위폴더2</em></p></a>
+				<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span><em>폴더1 > 하위폴더2</em></p></a> 
+			</div>
+		</div>
+		<div id="popup_myinfo" class="base_popup"> <!-- 나의정보 -->
+			<div class="top_title">
+				<span><i class="icon-" data-icon="&#xe91d;"></i> 나의 정보</span>
+				<div class="top_title_group">
+					<div class="btn-group"><button type="button" class="btn btn-default">회원정보</button></div>
+					<div class="btn_close_pop">닫기<i class="icon-close" data-icon="&#xe915;"></i></div>
+				</div>
+			</div>
+			<div class="my_state">정회원 [ 2016.07.07 ~ <span>2017.07.07</span> ]  <a href="1">유료전환</a></div>
+			<div class="my_set_list">
+				<p>메일링 서비스</p>
+				<span>이메일 : san***@tsdsdfr.com<br> 메일링 서비스 신청 사항<br><span><input type="checkbox" id="1" name="1" checked="checked" onclick="return false;"> 비즈레터&nbsp;&nbsp;<input type="checkbox" id="" name="" onclick="return false;"> 마케팅 메일 <a href="2">관리</a></span></span>
+				<p>모바일 기기 등록 내역</p>
+				<span>휴대폰 번호 : 010-2634-**** <br>모바일 기기 등록 내역 <br><span>Sanna phone (2015-06-23)  <a href="2">삭제</a></span></span>
+				<p>법인 아이디 이용현황</p>
+				<span>서브 아이디 (유료 10개 / 무료 10개) <a href="2">관리</a> </span>
+			</div>
+			<div class="my_lawyer">
+				<p>나의 법조인 명록</p>
+				<div class="img"><img src="http://www.lawnb.com/data/peopdata/kimgaram20140410.bmp" alt="사진"></div> 
+				<div class="basic_info"><a href="/list_view.html">강진석 姜珍錫</a>  <span>1999년생/ 여자 / (사법시험 50회 / 연수원 40기)</span><br><span>현직 : 변호사 / 법무법인 서울 </span></div> 
+				<div class="lawyer_info">
+					<span>주요업무분야 <small><i class="icon-info" data-icon="" onmouseout="close_miju('Miju2')" onmouseover="open_miju('Miju2')"><span class="blind">안내</span><div id="Miju2" class="miju_box"><div class="miju_box_line">(변호사님이 주로 취급하는 업무로 선택한 분야입니다.)</div></div></i></small> : 금융/회사/건설/무역/해외투자/지적재산권</span> 
+				</div>
+				<div class="ar text_ex ">[최근 업데이트 일자 : 2016.12.10] <a href="2">수정요청하기</a></div>
+			</div>
+		</div>
+		<div id="popup_history" class="base_popup"> <!-- 히스토리 -->
+			<div class="top_title " >
+				<span><i class="icon-" data-icon="&#xe91c;"></i> 최근 조회 컨텐츠</span>
+				<div class="top_title_group">
+					<div class="btn-group"><button type="button" class="btn btn-default">전체보기</button></div>
+					<div class="btn_close_pop">닫기<i class="icon-close" data-icon="&#xe915;"></i></div>
+				</div>
+			</div>
+			<div class="cont_list">
+				<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span></p></a>
+				<a href="1"><p>조세심판원 조심2015지1556, 2016.07.29 <span>[쟁점토지에 대한 지목변경 취득세 과세표준]</span></p></a>
+				<a href="1"><p>서울중앙지방법원 2017. 7. 4. 선고 2013가합80479 <span>[손해배상등]</span></p></a>
+				<a href="1"><p>헌법재판소 2016. 2. 25. 선고 2015헌가11 <span>[도로교통법 제2조 제26호 위헌제청]</span></p></a>
+				<a href="1"><p>대법원 2016. 5. 27. 선고 2014두8490 판결 <span>[도로점용허가처분무효확인등] 종국결과 [공2016하, 888 ]</span></p></a>
+				<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span></p></a> 
+			</div>
+			<div class="noti_txt"><i class="icon-" data-icon="&#xe90d;"></i> 로앤비에서 제공하는 히스토리의 기본 수집 범위는 <strong>판례</strong>와 <strong>법령</strong> 서비스에 한정됩니다. <br>해당 범위는 아래의   설정버튼에서 변경 가능합니다.</div>
+			<div class="base_popup_set">
+				<div class="area_onoff">히스토리 <div class="btn-group"><button type="button" class="btn btn_orange _select">on</button><button type="button" class="btn btn-default">off</button></div></div>
+				<div class="btn_set"><div class="btn-group"><button type="button" class="btn btn-default">설정</button></div></div>
+			</div>
+		</div>
+		</div>  
+	</div>
+	<div id="search_map" >
+		<div class="map_inner">		
+			<div class="top_title">
+				<span><i class="icon-" data-icon="&#xe910;"></i> 통합검색 결과 맵</span>
+				<div class="top_title_group"> 
+					<div class="btn_close_pop">닫기<i class="icon-close" data-icon="&#xe915;"></i></div>
+				</div>
+			</div>
+			<div class="txt_info"><strong>“키워드 키워드 키워드”</strong>에 대한 각 메뉴별 검색결과로 이동합니다. </div>
+			<table>
+				<thead>
+				<tr>
+					<th>판례</th>
+					<th>법규</th>
+					<th>심판·결정·해석</th>
+					<th>문헌</th>
+					<th>법조인</th>
+					<th>기업법무</th>
+					<th>서식</th>
+					<th>리걸이슈</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>판례<br><span>(15478)</span></td>
+					<td>법령<br><span>(15478)</span></td>
+					<td>특허 심판례<br><span>(15478)</span></td>
+					<td>논문·평석<br><span>(15478)</span></td>
+					<td>법조인명록<br><span>(15478)</span></td>
+					<td>로펌 리포트<br><span>(15478)</span></td>
+					<td>법률 서식<br><span>(15478)</span></td>
+					<td>뉴스 <br><span>(15478)</span></td>
+				</tr>
+				<tr>	
+					<td>&nbsp;</td>
+					<td>행정규칙<br><span>(15478)</span></td>
+					<td>결정례<br><span>(15478)</span></td>
+					<td>주석서<br><span>(15478)</span></td>
+					<td>법률사무소<br><span>(15478)</span></td>
+					<td>세무정보<br><span>(15478)</span></td>
+					<td>비즈폼 서식<br><span>(15478)</span></td>
+					<td>칼럼<br><span>(15478)</span></td>
+				</tr>
+				<tr>	
+					<td>&nbsp;</td>
+					<td>조약<br><span>(15478)</span></td>
+					<td>해석례<br><span>(15478)</span></td>
+					<td>E-Book<br><span>(15478)</span></td>
+					<td>&nbsp;</td>
+					<td>기업정보<br><span>(15478)</span></td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>	
+					<td>&nbsp;</td>
+					<td>입법동향<br><span>(15478)</span></td>
+					<td>&nbsp;</td>
+					<td>법률용어<br><span>(15478)</span></td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	</div>
+
+</div> 
+</body>
+</html>

@@ -1,0 +1,158 @@
+
+/*main login*/
+.textInputs{margin-top:5px}
+.textInputs li{display:inline-block}
+.textInputs li:first-child{margin-right:5px}
+.textInputs input[type="text"],.textInputs input[type="password"]{border:0;width:114px;height:26px}
+#savePassword label{display:inline-block;height:25px;font-size:12px;vertical-align:middle;line-height:24px;color:#474747}
+#submitDiv{position:absolute;right:0;top:5px}
+#submitDiv input[type="submit"]{border:1px solid #e86312;height:30px;width:70px;background-color:#f37021;color:#fff;cursor:pointer}
+#links li{display:inline-block;margin-bottom:5px }
+.login_info ul#links li + li{position:relative; top: 0;left:0; text-align:left;margin-left:7px}
+.signonlinks{font-size:13px}
+#newSession,#clientsIdUsageReportContainer{font-size:13px}
+/*end*/
+.main #container{width:1200px;min-width:1200px;background-color:#fff}
+.main #container section{float:left;box-sizing: border-box}
+.main #container section.left_colum{width:780px;border-right:1px solid #e6e6e6} 
+.main #container section.right_colum{width:calc(100% - 780px)} 
+.mobile .main #container{width:100%;min-width:100%}
+.mobile .main #container section.right_colum{display:none}
+.mobile .main #container section.left_colum{width:100%;border-right:0;margin-top:10px}
+.mobile .main .etc_menu{min-width:100%}
+.mobile .banner_area{display:none}
+.mobile .lawnb_editor{padding:0 10px}
+.mobile .main .map_inner{width:100%}
+#container:after{display:block;clear:both;height:1px;margin-top:-1px;content:''}
+.topic_area{padding:10px 20px;width:100%}
+.topic_area div:first-child{background-color:#ffe2c4;height:45px;text-align:left;line-height:43px;width:100%;position:relative}
+.topic_area div:first-child h2{margin-left:15px;font-size:16px;font-weight:bold}
+.topic_area div:first-child > div{position:absolute;right:15px;top:0;font-size:14px}
+.topic_area ul{background-color:#fefbf9;padding:20px}
+.topic_area ul li{width:20%;font-size:14px;float:left;text-align:left;padding-left:5px;height:28px}
+.topic_area ul li a{color:#005da2;font-weight:bold;text-decoration:none}
+.topic_area ul:after{display:block;clear:both;height:1px;margin-top:-1px;content:''}
+.banner_area{padding:10px 20px}
+.lawnb_editor{padding:0 22px;width:100%;box-sizing: border-box}
+.lawnb_editor h2{position:relative;height:36px;line-height:36px;font-weight:bold;text-align:left;color:#fff;background-color:#6e9934;font-size: 16px;padding-left:22px;width:100%;box-sizing: border-box}
+.lawnb_editor h2 span{position:absolute;right:0;top:0;cursor:pointer;border-left:1px solid rgba(255,255,255,0.4);font-size:14px;font-weight:normal;padding:0 15px;color:rgba(255,255,255,0.87)}
+.lawnb_editor h2 span:hover{background-color:rgba(255,255,255,0.2);color:#fff}
+.lawnb_editor .main_issue{border:1px solid #e0e0e0;margin-top:5px;text-align:left;padding:10px 20px 20px;float:right;width:79.5%;height:434px}
+.issue_tit a{font-size:18px;color:#005da2;font-weight:bold} 
+.issue_comment div {height:97px;overflow:hidden} 
+.issue_comment .img{display:none}
+.main_issue ul{margin:10px;margin-right:0;margin-bottom:0;line-height:180%} 
+.main_issue ul li{font-size:15px;height:30px;overflow:hidden;white-space: nowrap;text-overflow: ellipsis;word-wrap:break-word}
+.main_issue ul li a{font-weight:bold;color:#000}
+.main_issue ul li span{display:inline-block;color:#555;font-size:12px;width:60px}
+.main_issue .issue_comment{height:163px;line-height:170%}
+.main_issue .issue_comment div {height:136px;overflow:hidden}
+.list_issue{margin:5px 0 30px;vertical-align:top;font-size:0;float:left;width:20%}
+.list_issue a{position:relative;display:inline-block;width:134.5px;font-weight:bold;padding:5px;text-align:left;float:left;font-size:13px;color:#005da2;margin-bottom:5px;border:2px solid #d6d6d6;height:83px;line-height:140%;box-sizing: border-box;overflow:hidden}
+.list_issue a._this{border-color:#eaeaea;background-color:#eaeaea }
+.list_issue a:hover{text-decoration:none;border-color:#a1a1a1}
+.list_issue a:last-child{margin-right:0} 
+.list_issue a._this:hover:before{border-left:2px solid #a1a1a1;border-right:2px solid #a1a1a1;box-sizing: border-box}
+.list_issue:after{display:block;clear:both;height:1px;margin-top:-1px;content:''}
+.login_area{background:#f0f0f0;width:100%;padding:10px 25px;font-size:0;text-align:left}
+.login_area h2{display:none}
+.login_area div + div{position:relative;width:100%}
+.login_area div + div span{display:inline-block;cursor:pointer;border:1px solid #c0cfdd;background-color:#dce4ec;font-size:12px;line-height:24px;text-align:center;width:calc(100% / 3 - 5px);margin-right:5px}
+.login_area div + div span a{color:#212121}
+.login_area div + div span:last-child{margin-right:0}
+.login_box div{height:60px}
+.login_box div div{background-color:#fff;font-size:16px; border:1px solid #dedede;width:272px;height:46px;line-height:46px;text-align:center;margin:0 auto;cursor:pointer}
+.tel_area {padding-top:8px;padding-bottom:2px}
+.tel_area div{font-size:13px;display:inline-block;font-weight:bold}
+.tel_area div:last-child{float:right;text-align:right;width:63%}
+.tel_area div em{font-weight:normal;font-size:12px}
+.login_info{position:relative;}
+.login_info ul{list-style:none;font-size:12px;padding-left:5px;margin-bottom:5px}
+.login_info ul li{height:26px;line-height:26px}
+.login_info ul li strong{font-size:16px}
+.login_info ul li + li{position:absolute;top:0;right:90px;text-align:right}
+.login_info ul li + li + li{position:relative;left:0;text-align:left}
+.login_info ul li span{color:#d71345;font-weight:bold}
+.login_info ul li b{font-family:knowledge-text-n4,knowledge,Arial,sans-serif;font-size:13px}
+.login_info .btn_set{position:absolute;top:0;right:0px;width:70px;display:none}
+.btn_set span{display:inline-block;text-align:center;border:1px solid #fff;background-color:#dcdcdc;height:50px;line-height:16px;padding-top:7px;width:70px;color:#60534f;font-size:13px;cursor:pointer}
+.btn_set span a{color:#60534f}
+.notice_area{position:relative;padding-top:2px;width:100%}
+.notice_area span{text-align:left;position:absolute;left:20px;top:5px;font-size:15px;padding-top:10px;color:#575757;font-weight:bold}
+.notice_area ul{margin-left:120px;margin-top:8px;font-size:0;text-align:left}
+.notice_area li{display:inline-block;text-align:center;font-size:15px;height:34px;font-weight:bold;margin-left:5px;border:2px solid #d0d0d0;padding:4px 10px;width:110px} 
+.notice_area li:first-child{margin-top:0}
+.notice_area li a{color:#005da2}
+.news_area{padding:10px 20px;padding-bottom:0;width:100%;position:relative}
+.news_area h2,.lawyer_area h2,.edu_ad h2{font-size:16px;border-bottom:1px solid #a9a9a9;padding-bottom:10px;text-align:left;padding-left:10px}
+.news_area h2:nth-of-type(2){display:none}
+.news_area div{position:absolute;top:15px;right:20px;font-size:12px}
+.news_area div span{display:inline-block;padding:0 10px;color:#737475}
+.news_area div a{color:#737475}
+.news_area li{height:30px;text-align:left;overflow:hidden;white-space: nowrap;text-overflow: ellipsis;word-wrap:break-word}
+.news_area li span{display:inline-block;width:3px;height:3px;background-color:#000;margin-right:7px;vertical-align:middle}
+.news_area li a{font-weight:bold;font-size:14px}
+.news_area ul{margin:12px;margin-bottom:0}
+.news_area dl img{width:72px}
+.news_area dl{margin:12px;margin-bottom:0}
+.news_area dl dt{float:left;width:78px;text-align:left }
+.news_area dl dd{font-weight:bold;font-size:14px;line-height:150%;text-align:left;overflow:hidden}
+.news_area dl dd + dd{margin-top:3px;font-weight:normal;color:#737475;font-size:12px;line-height:150%;height:35px;-webkit-line-clamp: 2;-webkit-box-orient: vertical;overflow: hidden; text-overflow: ellipsis;word-wrap:break-word}
+.news_area dl:after {display:block;clear:both;height:1px;margin-top:-1px;content:''}
+.news_area .noti_pin{margin-left:0;line-height: 160%;height: 20px}
+.news_area li:nth-child(4){display:none}
+.notice_box li:nth-of-type(4){display:none}
+.banner_side{padding:0 20px 10px 20px;overflow:hidden}
+.banner_side div{display:inline-block}
+.banner_side div:first-child{margin-right:6px}
+.lawyer_area{padding:10px 20px;width:100%;position:relative}
+.lawyer_area dl{margin-top:15px} 
+.lawyer_area dl dt{float:left;padding-right:12px;overflow:hidden}
+.lawyer_area dl dt img{width:60px}
+.lawyer_area dl dd{text-align:left}
+.lawyer_area dl dd span{font-size:13px;color:#555 }
+.lawyer_area dl dd a{font-size:15px;font-weight:bold;color:#000}
+.lawyer_area dl ul{margin-top:7px;font-size:13px;color:#333}
+.lawyer_area dl li{overflow:hidden}
+.lawyer_area dl li span{font-weight:bold;display:inline-block;margin-right:10px;color:#585858}
+.lawyer_area dl li a{font-size:13px;color:#333}  
+.edu_ad{padding:10px 20px;width:100%;position:relative;display:none} 
+.edu_ad ul{margin:10px;margin-bottom:0}
+.edu_ad li{position:relative;font-size:14px;height:40px;padding-left:60px; text-align:left;overflow:hidden;margin-top:7px;font-weight:bold}
+.edu_ad li:first-child{margin-top:0}
+.edu_ad li span{position:absolute;top:0;left:0;color:#fff;line-height:37px;border:1px solid #1b4973;font-size:15px;background:#1f5586;display:inline-block;width:52px;height:40px;font-weight:normal;text-align:center}
+.edu_ad li span.online{background-color:#8a8a8a;border:1px solid #777}
+.edu_ad li a{display:inline-block;height:20px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;word-wrap: break-word;}
+.edu_ad div{font-size:13px;font-weight:normal;color:#333}
+.edu_ad h2 span,.news_area h2 span{float:right;cursor:pointer;font-size:12px;font-weight:normal;padding-top:5px;padding-right:5px }
+#content_overview .main_container{line-height:220%}
+.temp_noti div{display:block;text-align:left;padding-left:10px;padding-top:10px;width:374px;padding-bottom:10px;border-bottom:1px solid #eee}
+.temp_noti div a{font-weight:bold;color:#005da2}
+.temp_noti div span{display:inline-block;font-size:small;background-color:#005da2;color:#fff;border-radius:3px;padding:1px 4px;margin-right:5px}
+.temp_noti li{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;word-wrap: break-word;max-height:25px}
+.temp_noti li:last-of-type span{margin-top:5px}
+/*베타안내*/
+#content_overview .main_container{line-height:220%;background:linear-gradient(#dce4ec 3%,#fff 40%,#fff 45%);height:auto !important}
+.info_popup .title{font-weight:bold;position:relative;font-size:18px;padding:10px;background-color:#dce4ec}
+.info_popup .title em{font-weight:normal;font-size:16px}
+.info_popup .title .btn_close_pop{font-size:15px;font-weight:normal;position:absolute;top:10px;right:10px;cursor:pointer}
+.btn_s_close{font-size:15px;font-weight:normal;position:absolute;top:10px;right:65px;cursor:pointer}
+.info_popup .cont{padding:20px 10px 0;line-height:180%}
+.info_popup .cont.list{padding-top:0;padding-bottom:20px}
+.info_popup .cont.list div{font-size:14px;padding-left:30px;text-indent:-20px} 
+.btn_area span{display: inline-block;background-color: #ff5900;border-radius: 20px;color: #fff;font-size: 17px;margin: 10px;padding: 0 30px;height: 40px;line-height: 35px;cursor: pointer;}
+span.dt{display:inline-block;padding-left:20px;}
+span.dt:before{content:'· '}
+#content_overview div.tab{position:absolute;top:50px;left: 50%;width:490px;text-align: right;z-index: 1}
+#content_overview div.tab span{display:block;float:right;width:490px;padding-right:17px;height:50px;text-align:right; background-color:#ccc;line-height:50px;margin-bottom:5px;cursor:pointer} 
+#content_overview div.tab span._this{background-color:#dde5ec}
+.mobile .list_issue a{width:100%}
+#NUniversity{display:none}
+@media screen and (max-width:480px)
+{
+.mobile .list_issue {width:100%;float:none}
+.mobile .list_issue a{width:100%;border:0;float:none;height:auto;font-size:15px} 
+.mobile .list_issue a._this:before{background-color:transparent}
+.mobile .list_issue a._this:hover:before{border:0}
+.lawnb_editor .main_issue{width:100%;border:0;border-bottom: 6px solid #eaeaea;padding:0;float:none}
+}

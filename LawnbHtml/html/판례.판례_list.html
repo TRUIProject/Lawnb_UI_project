@@ -1,0 +1,711 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 판례 - 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css?n" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../js/commonjs.js?3"></script>
+<script language="javascript">
+<!--
+ 
+	function resizeComment(){ 
+			if($('.right_container').hasClass('add_border')){
+				$(".right_container").removeClass('slide_mov_right'); 
+			}else{
+				if($('#container').hasClass('list-view')){
+					$(".right_container").addClass('slide_mov_right'); 
+				}else{
+					$(".right_container").removeClass('slide_mov_right'); 
+				}
+			}
+			setHeight_under();
+		}
+	var expanded = false; 
+	function showCheckboxes() { 
+	  if (!expanded) {
+		$("#checkboxes").show();
+		expanded = true;
+	  } else {
+		$("#checkboxes").hide();
+		expanded = false;
+	  }
+	} 
+$(document).ready(function () { 
+	
+	 
+
+}); 
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_mainContainer">
+	<div id="wrap" >
+		<header> 
+			<div class="top_container  ">  
+				<a href="/maf/poc/app/homepage"><h1>로앤비</h1></a>
+				<div id="t_search" class="search_container">
+				<h2>통합검색 영역</h2>
+				<div class="search_inner">
+					<form action=""> 
+					<div class="search_left hide">
+						<label class="hide">통합검색  </label>
+					</div>
+					<div class="search_center">
+						<input type="search" name="" id="">
+					</div>
+					<div class="search_right"><span class="more_btn">more</span></div>
+					<div id="searchButton" class="search_btn"><i class="icon-" data-icon=""></i><span class="hide">검색</span></div> 
+					</form>
+					<div class="btn_search_result"><i class="icon-table" data-icon=""></i><span class="hide">검색결과 맵 보기</span></div>
+				</div>
+				<div class="search_layer_outer">
+				<div class="search_layer">
+					<div class="search_layer_list _done ">
+						<!-- <div class="txt_info">최근검색어저장 기능이 OFF 상태에 있습니다.<br>이용을 원하시면 하단의 최근검색어저장 상태를 ON으로 변경해주세요. </div> 
+						<ul>
+							<li>공정거래법 위반으로 인한 손해액의 산정방법과 주요 쟁점으로 <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+						</ul>-->
+						<ul style="height: 267px;">
+							<li><strong>대법</strong>원인터넷등기소<i class="icon-myfolder" data-icon=""></i></li>
+							<li><strong>대법</strong>원나의사건검색</li>
+							<li><strong>대법</strong>원법원경매정보</li>
+							<li><strong>대법</strong>원전자가족관계</li>
+							<li><strong>대법</strong>원경매</li>
+							<li><strong>대법</strong>원인터넷등기소<i class="icon-myfolder" data-icon=""></i></li>
+							<li><strong>대법</strong>원나의사건검색<i class="icon-myfolder" data-icon=""></i></li>
+							<li><strong>대법</strong>원법원경매정보</li>
+							<li><strong>대법</strong>원전자가족관계</li>
+							<li><strong>대법</strong>원경매</li>
+						</ul> 
+						<div class="expend_result" onclick="">
+							<p>법무법인(유한) 태평양어쩌고 저쩌고</p>
+							<span>주소 : [050-50] 서울시 광진구 디지털로 272, 한신 IT타워 611호<br>대표전화 : 02-2204-2114</span>
+							<div class="dirct_go">바로가기</div>
+						</div>
+					</div>
+					<!-- <div class="noti_txt"><i class="icon-" data-icon="&#xe90d;"></i> 공용 PC에서는 개인정보보호를 위하여 반드시 로그아웃을 해주세요.</div> -->
+					<div class="search_layer_foot">
+						<div class="fl">기록삭제</div>
+						<div class="fr">최근검색어저장 <div class="btn-group"><button type="button" class="btn btn_orange _select">ON</button><button type="button" class="btn btn-default">OFF</button></div> 자동완성 <div class="btn-group"><button type="button" class="btn btn_orange _select">ON</button><button type="button" class="btn btn-default">OFF</button></div>
+						</div>						
+					</div>
+				</div> 
+				</div>
+			</div>
+				<div id="indiv_area" class="indiv_container">
+					<span alt="나의폴더">나의폴더<i class="icon-myfolder" data-icon="&#xe91a;"></i></span>
+					<span alt="히스토리">히스토리<i class="icon-history" data-icon="&#xe916;"></i></span>
+					<span alt="알림설정">알림설정<i class="icon-alert" data-icon="&#xe918;"></i></span>
+					<span alt="질문내역">문의내역<i class="icon-question" data-icon="&#xe919;"></i></span>
+					<span alt="나의정보">나의정보<i class="icon-myinfo" data-icon="&#xe917;"></i></span>
+				</div>
+			</div>
+			<nav> 
+				<dl id="main_menu" class="mmenu">
+					<dt class="blind">메인 메뉴</dt> 
+					<dd>
+						<a href="#"><span>판례</span></a>
+					</dd>
+					<dd class="currentTab" >
+						<a href="#"><span>법규</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>심판·결정·해석</span></a>
+					</dd>
+					<dd >
+						<a href="#"><span>문헌</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>법조인</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>기업법무</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>서식</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>뉴스·칼럼</span></a>
+					</dd>
+				</dl>   
+			</nav> 
+		</header>  
+		<div class="submenu_group" style="">
+			<div>
+				<dl>
+					<dd><a href="">판례</a></dd>
+					<dd><a href="">판례디렉토리</a></dd>
+				</dl>
+				<dl>
+					<dd><a href="">법령</a></dd>
+					<dd><a href="">행정규칙</a></dd>
+					<dd><a href="">입법동향</a></dd>
+					<dd><a href="">조약</a></dd>
+				</dl>
+				<dl>
+					<dd><a href="">특허 심판례</a></dd>
+					<dd><a href="">결정례</a></dd>
+					<dd><a href="">유권해석</a></dd>
+				</dl>
+				<dl>
+					<dd><a href="">논문평석</a></dd>
+					<dd><a href="">주석서</a></dd>
+					<dd><a href="">E-book</a></dd>
+					<dd><a href="">법률용어</a></dd>
+				</dl>
+				<dl>
+					<dd><a href="">법조인명록</a></dd>
+					<dd><a href="">조직도</a></dd>
+					<dd><a href="">법률사무소</a></dd>
+					<dd>법조기관 안내</dd>
+				</dl>
+				<dl>
+					<dd>로펌 리포트</dd>
+					<dd>세무정보</dd>
+					<dd>기업정보</dd>
+				</dl>
+				<dl>
+					<dd>법률서식</dd>
+					<dd>비즈폼 서식</dd>
+				</dl>
+				<dl>
+					<dd>뉴스</dd>
+					<dd>칼럼</dd>
+				</dl>
+			</div>
+			<div class="ad_area">ss</div>
+		</div> 
+		<div id="container" class="case">  
+			<div id="breadcrumb" class="navi_area">
+				<div>Home > 판례</div>
+				<div class="group_indivi_btn">di님 <em>|</em> 정회원(개인/법인관리자/법인서브) [~2017.07.07] <em>|</em><a href="">고객센터</a> <div class="btn-group" > 
+    <button type="button" class="btn btn-default _select">로그아웃</button></div></div>
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div id="container_inner">
+				<div class="left_container"> 
+					<section id="result_tab"> 
+						<h4>검색결과</h4>
+						<ul>
+							<li><a href="gf">사건번호<span>(0)</span></a></li>
+							<li><a href="fd">판시사항<span>(0)</span></a></li>
+							<li class="this-page"><a href="sfd">재판요지<span>(0)</span></a></li>
+							<li><a href="fd">전문<span>(0)</span></a></li>
+							<li><a href="sd">사건명<span>(0)</span></a></li>
+							<li><a href="fsd">참조조문<span>(0)</span></a></li>
+						</ul>
+					</section>
+					<section>
+						<h4>검색결과 정리</h4>
+						<ol class="check_area">
+							<li><input type="checkbox" value="2"><label>공간</label></li>
+							<li><input type="checkbox" value="1"><label>미공간</label></li>
+						</ol>
+						<ol class="check_area">
+							<li><input type="checkbox" value="2"><label>헌법</label></li>
+							<li><input type="checkbox" value="1"><label>민법</label></li>
+							<li><input type="checkbox" value="1"><label>형사</label></li>
+							<li><input type="checkbox"  value="1"><label>가사</label></li>
+							<li><input type="checkbox"  value="1"><label>행정</label></li>
+							<li><input type="checkbox"  value="1"><label>특허</label></li>
+							<li><input type="checkbox"  value="1"><label>선거</label></li>
+						</ol>
+						<div class="check_area select_area">
+							<p class="blind">보기 개수 선택</p>
+							<div class="pr" >
+								<div class="selectBox" onclick="showCheckboxes()">
+									<select  id="cType3" name="cType3">
+									<option>법원등급 선택</option>
+									</select>
+									<div class="overSelect"></div>
+								</div>
+								<div id="checkboxes" class="hide_check nolaw" >
+									  <div><input type="checkbox" id="" name="" value="">전체</div>
+									  <div><input type="checkbox" id="" name="" value="1">대법원 </div>
+									  <div><input type="checkbox" id="" name="" value="2">대법원(전원합의체) </div>
+									  <div><input type="checkbox" id="" name="" value="3">헌법재판소 </div>
+									  <div><input type="checkbox" id="" name="" value="4">행정법원 </div>
+									  <div><input type="checkbox" id="" name="" value="5">고등법원 </div>
+									  <div><input type="checkbox" id="" name="" value="6">지방법원 </div>
+									  <div><input type="checkbox" id="" name="" value="7">특허법원 </div>
+									  <div><input type="checkbox" id="" name="" value="8">기타 </div>
+								 </div>  
+							</div>			
+						</div> 
+						<div class="check_area select_area">
+							<p class="blind">보기 개수 선택</p>
+							<select name="sType5" id="sType5" class="date_select">
+								<option value="0" selected="selected" >선고일자  선택</option>  
+								<option value="2">최근 1년</option>
+								<option value="3">최근 3년</option>
+								<option value="3">최근 5년</option>
+								<option value="00">직접선택</option>
+							</select>
+							<div class="detail_date"><input type="number" id="sUnivS" name="sUnivS" title="시작일" style="width:80px" placeholder="20160101"> ~ <input type="number" id="sUnivE" name="sUnivE" title="종료일" style="width:80px" placeholder="20161231"></div> 
+						</div>
+						<p class="submit_area"><span id="arrangeBtn">적용</span><span class="_cancel"><i class="icon-16" data-icon="&#xe90e;"></i>적용취소</span></p>
+					</section>
+				</div>
+				<article class="main_container">  
+					<div class="main_container_inner">
+						<div class="search_div">
+							<form id="searchForm" method="post" action="CaseList">
+								<div class="search_input">
+									<label>기본검색</label>
+									<input type="search" id="sWord" name="sWord" placeholder="검색어">
+									<div class="except">
+										<input type="search" name="sWord1" placeholder="제외어">
+									</div>
+								</div>
+								<div class="detail_area_open" id="detail_area">
+									<ul>
+										<li class="half">
+											<label>사건번호</label>
+											<input type="text" id="sWorkArea" name="sWorkArea">
+										</li>
+										<li class="half">
+											<label>판시사항</label>
+											<input type="text" id="sWorkArea" name="sWorkArea">
+										</li>
+										<li class="half">
+											<label>재판요지</label>
+											<input type="text" id="sWorkArea" name="sWorkArea">
+										</li>
+										<li class="half">
+											<label>전문</label>
+											<input type="text" id="sWorkArea" name="sWorkArea">
+										</li>
+										<li class="half">
+											<label>사건명</label>
+											<input type="text" id="sWorkArea" name="sWorkArea">
+										</li>
+										<li>
+											<label>참조조문</label>
+											<span>법령명</span>
+											<input type="text" style="width:28%" id=" " name=" " placeholder="예) 형법,민사소송">
+											<span>조문번호</span>
+											<input type="text" id=" " name=" " style="width:28%" placeholder="예) 제10조">
+										</li>
+									</ul>
+									<ul class="third_search">
+										<li>
+											<label>검색범위</label>
+											<ul>
+												<li><label for="sSubWord1">공간여부</label><input type="checkbox" name="CAT1" checked="" onclick="cat_click1('0')" value="0">전체&nbsp;&nbsp;<input type="checkbox" name="CAT1" checked="" onclick="cat_click1('1')" value="1">공간&nbsp;&nbsp;<input type="checkbox" name="CAT1" checked="" onclick="cat_click1('2')" value="2">미공간</li>
+												<li><label for="sSubWord1">공간여부</label><input type="checkbox" name="CAT2" checked="" onclick="cat_click2('0')" value="0">전체&nbsp;&nbsp;<input type="checkbox" name="CAT2" checked="" onclick="cat_click2('1')" value="1">헌법&nbsp;&nbsp;<input type="checkbox" name="CAT2" checked="" onclick="cat_click2('2')" value="2">민사&nbsp;&nbsp;<input type="checkbox" name="CAT2" checked="" onclick="cat_click2('3')" value="3">형사&nbsp;&nbsp;<input type="checkbox" name="CAT2" checked="" onclick="cat_click2('4')" value="4">가사&nbsp;&nbsp;<input type="checkbox" name="CAT2" checked="" onclick="cat_click2('5')" value="5">행정&nbsp;&nbsp;<input type="checkbox" name="CAT2" checked="" onclick="cat_click2('6')" value="6">특허&nbsp;&nbsp;<input type="checkbox" name="CAT2" checked="" onclick="cat_click2('7')" value="7">선거</li>
+												<li>
+													<label>법원등급</label>
+													<div class="pr">
+														<div class="selectBox" onclick="showCheckboxes()">
+															<select id="cType3" name="cType3">
+																<option>법원등급 선택</option>
+															</select>
+															<div class="overSelect"></div>
+														</div>
+														<div id="checkboxes" class="hide_check nolaw">
+															<div><input type="checkbox" id="" name="" value="">전체</div>
+															<div><input type="checkbox" id="" name="" value="1">대법원 </div>
+															<div><input type="checkbox" id="" name="" value="2">대법원(전원합의체) </div>
+															<div><input type="checkbox" id="" name="" value="3">헌법재판소 </div>
+															<div><input type="checkbox" id="" name="" value="4">행정법원 </div>
+															<div><input type="checkbox" id="" name="" value="5">고등법원 </div>
+															<div><input type="checkbox" id="" name="" value="6">지방법원 </div>
+															<div><input type="checkbox" id="" name="" value="7">특허법원 </div>
+															<div><input type="checkbox" id="" name="" value="8">기타 </div>
+														</div>
+													</div>
+												</li>
+												<li class="mgt10 ">
+													<label>선고일자 </label>
+													<input type="number" id="sUnivS" name="sUnivS" title="시작일" style="width:80px" placeholder="20160101"> ~ <input type="number" id="sUnivE" name="sUnivE" title="종료일" style="width:80px" placeholder="20161231"> <div class="btn-group"><button type="button" class="btn btn-square ">최근 6개월</button> <button type="button" class="btn btn-square">최근 1년</button> <button type="button" class="btn btn-square">최근 5년</button></div>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+								<div class="detail_area">
+									<!-- 상세검색옵션버튼 -->
+									<div class="but"></div>
+								</div>
+								<div class="btn_area"><input type="submit" id="searchBtn" value="검색"> <span class="_cancel"><i class="icon-16" data-icon="&#xe90e;"></i>입력초기화</span></div>
+								<p>검색어 “키워드” 로 검색한 결과입니다. </p>
+
+								<!--
+								<ul class="">
+									<li><a href="#">전문 판례</a></li>
+									<li><a href="#">민사</a></li>
+								</ul>
+									-->
+							</form>
+						</div>
+						<div id="search_results">
+							<div class="s_num_area">검색결과 21건 <small>1/1000</small></div>
+							<div class="btn_option_outer">
+								<div class="btn_option_select">
+									<p class="blind">선택다운로드</p>
+									<div class="btn-group" >
+									  <button type="button" class="btn btn-default"><input type="checkbox" name="">다운로드</button>
+									</div>   
+								</div> 
+								<div class="select_area"> 
+									<p class="blind">보기 개수 선택</p>
+									<select id="" name=""  >
+										<option value="">10개</option>
+										<option value="" selected>20개</option>
+										<option value="">50개</option>
+									</select>
+								</div>
+								<div class="btn_option"> 
+									<div class="btn-group" > 
+										<button type="button" class="btn btn-default _select">선고일 <i class="icon-sort-alpha-desc" data-icon="&#xea4a;"></i></button> <button type="button" class="btn btn-default">정확도</button> <button type="button" class="btn btn-default">인용</button> 
+									</div>	
+									<ul class="view_type_list _view_type_list">
+										<p class="blind">보기옵션 선택</p>
+										<li class="_preview"><span  class="option_a  "   id="option_a" >미리보기형</span></li>
+										<li class="_onlyTitle"><span  class="option_b_on  "  id="option_b">상세보기형</span></li>
+									</ul>
+								</div>
+							</div>
+							<ol class="list btn_exist">
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent">
+										<h3>
+											<a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">
+												<i class="icon-fleg red"><span class="path1"></span><span class="path2"></span><span class="blind">폐기변경</span></i>
+												<i class="icon-10" data-icon="&#xe909;"><span class="blind">전원합의체</span></i>
+												대법원 2016. 5. 27. 선고 2014두8490 판결 【도로점용허가처분무효확인등】&nbsp;종국결과  <span>[공2016하, 888 ]</span>
+											</a>
+											<span class="label-fixed" title="해당 확정 정보는 참고자료로만 활용해 주시기 바랍니다.">확정</span>
+											<span class="label-winlose1" title="본 판결 결과는 AI분석을 통해 표기된 정보이므로 참고자료로만 활용해 주시기 바랍니다.​">상고인(피고) 승</span>
+											<br>
+											<span><i class="icon-" data-icon="&#xe901;"></i>별칭사건명 별칭사건명 별칭사건명<i class="icon-" data-icon="&#xe900;"></i></span>
+										</h3>
+										<div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary">
+											<p>
+												[1] 계약당사자 중 일방이 상대방 및 제3자와 3면 계약을 체결하거나 상대방의 승낙을 얻어 계약상 당사자의 지위를 포괄적으로 제3자에게 이전하는 경우, 제3자가 종래 계약에서 이미 발생한 채권ㆍ채무도 모두 이전받는지 여부(적극)<br>
+												[2] 사업시행자가 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 시행령 제40조 제2항 단서에 따라 택지개발촉진법 또는 주택법 등 관계 법령에 의하여 이주대책대상자들에게 택지 또는 주택을 공급하는 경우에도 이주정착지를 제공하는 경우와 마찬가지로 사업시행자 부담으로 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제4항에서 정한 생활기본시설을 설치하여 이주대책대상자들에게 제공하여야 하는지 여부(적극)<br>
+												[3] 사업시행자의 이주대책 수립ㆍ실시의무를 정하고 있는 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제1항과 이주대책의 내용을 정하고 있는 같은 조 제4항 본문이 강행법규인지 여부(적극)<br>
+												[4] 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제4항에서 정한 ‘도로ㆍ급수시설ㆍ배수시설 그 밖의 공공시설 등 당해 지역조건에 따른 생활기본시설’의 의미 및 이주대책대상자들과 사업시행자 등이 체결한 택지 또는 주택에 관한 특별공급계약에서 위 조항에 규정된 생활기본시설 설치비용을 분양대금에 포함시킴으로써 이주대책대상자들이 그 비용까지 사업시행자 등에게 지급하게 된 경우,사업시행자 등이 그 비용 상당액을 부당이득으로 이주대책대상자들에게 반환하여야 하는지 여부(적극)
+											</p>
+										</div>
+										<div class="function_btn"><i class="icon-alert" data-icon="&#xe91b;" title="알림"></i> <i class="icon-folder" data-icon="&#xe930;" title="폴더"></i> <i class="icon-memo" data-icon="&#xe924;" title="메모"></i> <i class="icon-glass" data-icon="&#xe913;" title="최근조회자료"></i> <a href=""><span class="blue_bt">판례히스토리</span></a></div>
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent">
+										<h3>
+											<a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">
+												<i class="icon-fleg red"><span class="path1"></span><span class="path2"></span><span class="blind">폐기변경</span></i>
+												<i class="icon-10" data-icon="&#xe909;"><span class="blind">전원합의체</span></i>
+												대법원 2016. 5. 27. 선고 2014두8490 판결 【도로점용허가처분무효확인등】&nbsp;종국결과  <span>[공2016하, 888 ]</span>
+											</a>
+											<span class="label-fixed" title="해당 확정 정보는 참고자료로만 활용해 주시기 바랍니다.">확정</span>
+											<span class="label-winlose" title="본 판결 결과는 AI분석을 통해 표기된 정보이므로 참고자료로만 활용해 주시기 바랍니다.​">상고인(피고) 승</span>
+											<br>
+											<span><i class="icon-" data-icon="&#xe901;"></i>별칭사건명 별칭사건명 별칭사건명<i class="icon-" data-icon="&#xe900;"></i></span>
+										</h3>
+										<div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary">
+											<p>
+												[1] 계약당사자 중 일방이 상대방 및 제3자와 3면 계약을 체결하거나 상대방의 승낙을 얻어 계약상 당사자의 지위를 포괄적으로 제3자에게 이전하는 경우, 제3자가 종래 계약에서 이미 발생한 채권ㆍ채무도 모두 이전받는지 여부(적극)<br>
+												[2] 사업시행자가 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 시행령 제40조 제2항 단서에 따라 택지개발촉진법 또는 주택법 등 관계 법령에 의하여 이주대책대상자들에게 택지 또는 주택을 공급하는 경우에도 이주정착지를 제공하는 경우와 마찬가지로 사업시행자 부담으로 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제4항에서 정한 생활기본시설을 설치하여 이주대책대상자들에게 제공하여야 하는지 여부(적극)<br>
+												[3] 사업시행자의 이주대책 수립ㆍ실시의무를 정하고 있는 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제1항과 이주대책의 내용을 정하고 있는 같은 조 제4항 본문이 강행법규인지 여부(적극)<br>
+												[4] 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제4항에서 정한 ‘도로ㆍ급수시설ㆍ배수시설 그 밖의 공공시설 등 당해 지역조건에 따른 생활기본시설’의 의미 및 이주대책대상자들과 사업시행자 등이 체결한 택지 또는 주택에 관한 특별공급계약에서 위 조항에 규정된 생활기본시설 설치비용을 분양대금에 포함시킴으로써 이주대책대상자들이 그 비용까지 사업시행자 등에게 지급하게 된 경우,사업시행자 등이 그 비용 상당액을 부당이득으로 이주대책대상자들에게 반환하여야 하는지 여부(적극)
+											</p>
+										</div>
+										<div class="function_btn"><i class="icon-alert" data-icon="&#xe91b;" title="알림"></i> <i class="icon-folder" data-icon="&#xe930;" title="폴더"></i> <i class="icon-memo" data-icon="&#xe924;" title="메모"></i> <i class="icon-glass" data-icon="&#xe913;" title="최근조회자료"></i> <a href=""><span class="blue_bt">판례히스토리</span></a></div>
+									</div>
+								</li>
+
+								<li>
+									<input type="checkbox" name=""><span class="list_num">300</span>
+									<div class="co_searchContent">
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html"><i class="icon-10" data-icon="&#xe909;"><span class="blind">전원합의체</span></i>대법원 2011. 9. 2. 선고 <mark>2009다52649</mark> 전원합의체 판결 【정정ㆍ반론】<span>[공2011하, 2009]</span></a><br><span><별칭사건명 별칭사건명 별칭사건명></span></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>[1] 구 상가건물 임대차보호법 제10조 제4항에 따른 임대인의 갱신 거절 통지에 제10조 제1항 제1호 내지 제8호에서 정한 정당한 사유가 없는 경우, 임대인의 갱신 거절 통지의 선후와 관계없이 임차인의 계약갱신요구권 행사로 종전 임대차가 갱신되는지 여부(적극)<br>[2] 임차인이 계약갱신요구권을 행사한 이후 임차인과 임대인이 신규 임대차계약의 형식으로 체결한 계약을 임대차에 관한 재계약으로 볼 것인지 여부(한정 소극)</p></div>
+										<div class="function_btn"><i class="icon-alert" data-icon="&#xe91b;" title="알림"></i> <i class="icon-folder" data-icon="&#xe930;" title="폴더"></i> <i class="icon-memo" data-icon="&#xe924;" title="메모"></i> <i class="icon-glass" data-icon="&#xe913;" title="최근조회자료"></i><a href=""><span class="blue_bt">판례히스토리</span></a><span class="blue_bt">논문</span></div>
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent">
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html"><i class="icon-10" data-icon="&#xe909;"><span class="blind">전원합의체</span></i>대법원 2006. 10. 19. 선고 2005도3909 전원합의체 판결 【증거인멸·직무유기】 <span>[공2006.11.15.(262),1952 ]</span></a><br><span><별칭사건명 별칭사건명 별칭사건명></span></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary">
+											<p>
+												[1] 지방도에 대한 관이유지사무를 도지사가 조례로써 관할 군수에게 위임한 경우 그 도로의 관리청<br>
+												[2] 군이 도로부터 관이유지를 위임받은 지방도를 관리하는 경우 군의 부당이득 성부
+											</p>
+										</div>
+										<div class="function_btn"><a href=""><span class="blue_bt">판례히스토리</span></a><a href=""><span class="blue_bt">논문</span></a></div>
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent">
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html"><i class="icon-10" data-icon="&#xe909;"><span class="blind">전원합의체</span></i>대법원 2012. 6. 18. 선고 2010두27639 전원합의체 판결 【과징금부과처분취소ㆍ부당이득환수처분취소】<span>[공2012하, 1311]</span></a><br><span><별칭사건명 별칭사건명 별칭사건명></span></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>[1] 구 상가건물 임대차보호법 제10조 제4항에 따른 임대인의 갱신 거절 통지에 제10조 제1항 제1호 내지 제8호에서 정한 정당한 사유가 없는 경우, 임대인의 갱신 거절 통지의 선후와 관계없이 임차인의 계약갱신요구권 행사로 종전 임대차가 갱신되는지 여부(적극)<br>[2] 임차인이 계약갱신요구권을 행사한 이후 임차인과 임대인이 신규 임대차계약의 형식으로 체결한 계약을 임대차에 관한 재계약으로 볼 것인지 여부(한정 소극)</p></div>
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent">
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html"><i class="icon-10" data-icon="&#xe909;"><span class="blind">전원합의체</span></i>대법원 1996. 10. 17. 선고 94도2865 전원합의체 판결 【* 가중뇌물수수ㆍ가중뇌물공여ㆍ뇌물공여의사표시ㆍ변호사법위반ㆍ골재채취법위반ㆍ폐기물관리법위반】   <span>[공1996하, 3267 ]</span></a><br><span><별칭사건명 별칭사건명 별칭사건명></span></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>[1] 구 상가건물 임대차보호법 제10조 제4항에 따른 임대인의 갱신 거절 통지에 제10조 제1항 제1호 내지 제8호에서 정한 정당한 사유가 없는 경우, 임대인의 갱신 거절 통지의 선후와 관계없이 임차인의 계약갱신요구권 행사로 종전 임대차가 갱신되는지 여부(적극)<br>[2] 임차인이 계약갱신요구권을 행사한 이후 임차인과 임대인이 신규 임대차계약의 형식으로 체결한 계약을 임대차에 관한 재계약으로 볼 것인지 여부(한정 소극)</p></div>
+										<div class="function_btn"><a href=""><span class="blue_bt">천자평석</span></a></div>
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent">
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">수원지방법원 2014. 7. 8. 선고 2013가합23924 판결【손해배상(국)】수원지방법원 2014. 7. 8. 선고 2013가합23924 판결【손해배상(국)】수원지방법원 2014. 7. 8. 선고 2013가합23924 판결【손해배상(국)】 <span>[각공2014하,629 ]</span></a></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>[1] 구 상가건물 임대차보호법 제10조 제4항에 따른 임대인의 갱신 거절 통지에 제10조 제1항 제1호 내지 제8호에서 정한 정당한 사유가 없는 경우, 임대인의 갱신 거절 통지의 선후와 관계없이 임차인의 계약갱신요구권 행사로 종전 임대차가 갱신되는지 여부(적극)<br>[2] 임차인이 계약갱신요구권을 행사한 이후 임차인과 임대인이 신규 임대차계약의 형식으로 체결한 계약을 임대차에 관한 재계약으로 볼 것인지 여부(한정 소극)</p></div>
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent">
+										<h3><a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">수원지방법원 2014. 7. 8. 선고 2013가합23924 판결【손해배상(국)】수원지방법원 2014. 7. 8. 선고 2013가합23924 판결【손해배상(국)】수원지방법원 2014. 7. 8. 선고 2013가합23924 판결【손해배상(국)】 <span>[각공2014하,629 ]</span></a></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>[1] 구 상가건물 임대차보호법 제10조 제4항에 따른 임대인의 갱신 거절 통지에 제10조 제1항 제1호 내지 제8호에서 정한 정당한 사유가 없는 경우, 임대인의 갱신 거절 통지의 선후와 관계없이 임차인의 계약갱신요구권 행사로 종전 임대차가 갱신되는지 여부(적극)<br>[2] 임차인이 계약갱신요구권을 행사한 이후 임차인과 임대인이 신규 임대차계약의 형식으로 체결한 계약을 임대차에 관한 재계약으로 볼 것인지 여부(한정 소극)</p></div>
+									</div>
+								</li>
+							</ol>
+							<div class="navigationLinks">				        									
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=0" class="navFirst hiddenLink "><i class="icon-7" data-icon="&#xe911;"></i></a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=-1" class="navPrevious hiddenLink "><i class="icon-2" data-icon="&#xe901;"></i></a>
+								<span class="currentPage">1</span>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navPages">2</a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=2" class="navPages">3</a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=3" class="navPages">4</a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navNext"><i class="icon-1" data-icon="&#xe900;"></i></a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=13" class="navLast "><i class="icon-8" data-icon="&#xe907;"></i></a>
+							</div>
+						 </div> 
+					 </div>
+					 <script type="text/javascript">
+						<!--
+						$(function () { 
+						 
+							
+							$(window).scroll(function(){
+								var sclTop = $(this).scrollTop();
+								if( sclTop >= 112) {
+								//alert('here');
+									$(".preview_div").addClass("fixed_area");  
+								} else {
+									$(".preview_div").removeClass("fixed_area"); 
+								}
+							});
+						}); 
+
+						//-->
+					</script>
+					 <div class="main_container_view">
+						<div class="main_container_view_inner">
+						<div class=" preview_div">
+							<div class="fl"><i class="icon-fleg red" ><span class="path1"></span><span class="path2"></span><span class="blind">폐기변경</span></i><i class="icon-10" data-icon="&#xe909;"><span class="blind">전원합의체</span></i></div>
+							<h3>대법원 2001. 3. 15. 선고 99두4594 전원합의체 판결[청산금부과처분취소] <span >[각공2014하,629 ]</span><span class="btn_newtap"><span class="hide">닫기</span><i class="icon-new-tab" data-icon="&#xea7e;"></i></span> <div class="btn_option_outer"><div class="btn_close">닫기</div></div></h3>
+							<!-- 내용시작 xml -->
+							<div class="function_btn"><a ><span class="blue_bt">관련 판례 14건</span></a><a href=""><span class="blue_bt">관련 법령 13건</span></a></div>
+							<div class="ar">판결문 제공 : <a href="1">권형필</a> 변호사, <a href="1">권형필</a> 변호사</div>
+							<div class="case_info" id="view_content">
+								<div class="changed_case_info"><span>변경</span> <a href="5">대법원 2001. 3. 15. 선고 98두15597 전원합의체 판결</a>에 의하여 변경</div>
+			 <a id="case_info" name="case_info" class="nopopup"></a><p class="c_tit_1" id="prPansi_t">판시사항</p><div class="c_con" id="prPansi">[1] 주택재개발사업에 대한 관리처분계획 인가와 공사완료가 된 상태에서 근거 법령인 <mark>도시</mark>재개발법이 개정되면서 달리 특별한 경과규정을 두지 않은 경우, 청산금 산정ㆍ부과의 근거가 되는 법령(=개정법령)  <br>[2] 지방자치단체가 사업시행자가 되어 시행하는 <mark>도시</mark>재개발사업의 경우, 청산금 산정방식에 관하여 '면적평가방식'을 규정한 조례가 '가격평가방식'을 규정한 <mark>도시</mark>재개발법령에 위배되는지 여부(적극) <br></div><a id="case_point" name="case_point" class="nopopup"></a><p class="c_tit_1" id="prSumm_t">판결요지
+    </p><div class="c_con" id="prSumm">[1] 행정처분은 원칙적으로 처분시의 법령에 근거하여 행하여져야 하고, 법령의 개정으로 그 기준이 변경된 경우에는 달리 특별한 정함이 없는 한 처분시의 개정법령에서 규정하고 있는 기준이 적용되어야 하는바, 구 <mark>도시</mark>재개발법(1995. 12. 29. 법률 제5116호로 전문 개정되기 전의 것)에 의하여 주택재개발사업에 대한 관리처분계획 인가와 공사완료가 되었으나, 1995. 12. 29. 법률 제5116호로 전문 개정된 <span class="heightlight">도시</span>재개발법 및 1996. 6. 29. 대통령령 제15096호로 전문 개정된 같은법시행령은 청산금의 산정ㆍ부과와 관련하여 구 <span class="heightlight">도시</span>재개발법(1995. 12. 29. 법률 제5116호로 전문 개정되기 전의 것) 및 같은법시행령(1996. 6. 29. 대통령령 제15096호로 전문 개정되기 전의 것)의 관련 규정이 계속 적용된다고 볼 수 있는 경과규정을 두고 있지 아니하므로, 그 시행 후에 이루어진 청산금 산정ㆍ부과의 근거 법령은 1995. 12. 29. 법률 제5116호로 전문 개정된  <a href="javascript:hyperlink('F0B8894AACB94BD5BA5CB5D6B823D8FB|42')"><span class="heightlight">도시</span>재개발법 제42조</a> 와 1996. 6. 29. 대통령령 제15096호로 전문 개정된  <a href="javascript:hyperlink('B13535D79F294D18BAFE31D93A827995|45')">같은법시행령 제45조</a>  및  <a href="javascript:hyperlink('B13535D79F294D18BAFE31D93A827995|40')">제40조</a> 임이 분명하다.   </div>
+    <a name="hiscase_point" id="hiscase_point" class="nopopup"></a><p class="c_tit_1" id="prCont_t_5">재판경과</p><div class="c_con" id="prCont_5"><div class="not_this_case"><i class="icon-10" data-icon=""><span class="blind">전원합의체</span></i><a href="javascript:hyperlink('서울고등법원|98누8171')">서울고등법원 1999. 2. 10. 선고 98누8171 판결</a></div><div class="this_case"><a href="javascript:hyperlink('대법원|99두4594')">대법원 2001. 3. 15. 선고 99두4594 판결</a></div></div>
+    <a id="case_refer" name="case_refer" class="nopopup"></a><p class="c_tit_1" id="prCont_t_0">
+        참조판례
+    </p><div class="c_con" id="prCont_0">[1]  <a href="javascript:hyperlink('6D4B9F2777184E6A9E0F7E359707119A')">대법원 1984. 5. 22. 선고 84누77 판결(1984,520)</a> ,  <a href="javascript:hyperlink('A1111B51A49E4E779AB18353799DF288')">대법원 1996. 8. 20. 선고 95누10877 판결(1988,189)</a> ,  <a href="javascript:hyperlink('04EEB043F17C475AB99CF777C4DAC2B8')">대법원 2000. 3. 10. 선고 97누13818 판결(1992,1037) </a> <br>[2]  <a href="javascript:hyperlink('E5C251F99CA0438A9AEF366C1342BF29')">대법원 1995. 4. 25. 선고 93누17850 전원합의체 판결(공1988, 168)</a> ,  <a href="javascript:hyperlink('5F906DCC80174A119B1C2357D5130993')">대법원 1995. 6. 13. 선고 94누13626 전원합의체 판결(공1993하, 2098)</a> ,  <a href="javascript:hyperlink('대법원|2000두3917')">대법원 2001. 3. 15. 선고 2000두3917 전원합의체 판결</a> </div>
+    <a name="refcase_point" id="refcase_point" class="nopopup"></a><p class="c_tit_1" id="prCont_t_4">따름판례</p><div class="c_con" id="prCont_4"><a href="javascript:hyperlink('01D11FF019B74493A98AD4DA39CC0FE6')">대법원 2001. 10. 12. 선고 2001두274 판결</a>, <a href="javascript:hyperlink('E71788FE47094B178CE9988D213B13AA')">대법원 2002. 6. 25. 선고 2001두5125 판결</a>, <a href="javascript:hyperlink('769FF13215D340BA845E6D486931B3BC')">대법원 2005. 7. 29. 선고 2003두3550 판결</a>, <a href="javascript:hyperlink('17BA47EFE0D84349B1F9593ACE31B951')">대법원 2009. 4. 23. 선고 2008두8918 판결</a>, <a href="javascript:hyperlink('C9C4CF7D38214763B85A007B411A3D68')">대법원 2009. 4. 23. 선고 2008두17745 판결</a></div>
+    <a id="law_refer" name="law_refer" class="nopopup"></a><p class="c_tit_1" id="prCont_t_1">
+        참조법령
+    </p><div class="c_con" id="prCont_1">[1]  <a href="javascript:hyperlink('5E5CB15313894697A32587AFAE5DDE10|1')">행정소송법 제1조</a> [행정처분일반],  <a href="javascript:hyperlink('706ED873A5564EF4A9D297E5FFE1EF16|42')"><span class="heightlight">도시</span>재개발법(1995. 12. 29. 법률 제5116호로 전문 개정된 것) 제42조</a> , <a href="javascript:hyperlink('CC98285B9DE640B6B954DD1556626804|40')"><span class="heightlight">도시</span>재개발법시행령(1996. 6. 29. 대통령령 제15096호로 전문 개정된 것) 제40조</a> , <a href="javascript:hyperlink('CC98285B9DE640B6B954DD1556626804|45')">제45조</a> , <a href="javascript:hyperlink('706ED873A5564EF4A9D297E5FFE1EF16|53')">구 <span class="heightlight">도시</span>재개발법(1995. 12. 29. 법률 제5116호로 전문 개정되기 전의 것) 제53조</a> (  <a href="javascript:hyperlink('F0B8894AACB94BD5BA5CB5D6B823D8FB|42')">현행 제42조</a>  참조),  <a href="javascript:hyperlink('CC98285B9DE640B6B954DD1556626804|46')">구 <span class="heightlight">도시</span>재개발법시행령(1996. 6. 29. 대통령령 제15096호로 전문 개정되기 전의 것) 제46조</a> (  <a href="javascript:hyperlink('B13535D79F294D18BAFE31D93A827995|45')">현행 제45조</a>  참조),  <a href="javascript:hyperlink('CC98285B9DE640B6B954DD1556626804|60')">제60조</a> (  <a href="javascript:hyperlink('B13535D79F294D18BAFE31D93A827995|40')">현행 제40조</a>  참조) <br>[2]  <a href="javascript:hyperlink('706ED873A5564EF4A9D297E5FFE1EF16|42')"><span class="heightlight">도시</span>재개발법(1995. 12. 29. 법률 제5116호로 전문 개정된 것) 제42조</a> , <a href="javascript:hyperlink('CC98285B9DE640B6B954DD1556626804|40')"><span class="heightlight">도시</span>재개발법시행령(1996. 6. 29. 대통령령 제15096호로 전문 개정된 것) 제40조</a> , <a href="javascript:hyperlink('CC98285B9DE640B6B954DD1556626804|45')">제45조</a> , <a href="javascript:hyperlink('B15B623C23BF434985ADFECFEF22DEA1|15')">지방자치법 제15조</a> , <a href="javascript:hyperlink('5EB6CC3A84724A139A604AF7BE4F7238|117')">헌법 제117조 제1항</a> ,서울특별시용산구주택재개발사업시행조례  <a href="javascript:hyperlink('5EB6CC3A84724A139A604AF7BE4F7238|29')">제29조</a> ,  <a href="javascript:hyperlink('5EB6CC3A84724A139A604AF7BE4F7238|30')">제30조</a> </div><a name="case_entire" class="nopopup"></a><p class="c_tit_1" id="prCont_t_3">
+        전 문
+    </p><div class="c_con" id="prCont_3"><div class="c_tit_2" id="c_tit_2"><a id="case_plaintiff" name="case_plaintiff" class="nopopup"></a>【원고,피상고인】 박◎수 외 691인  (소송대리인 변호사 신▼택 외 1인) <br></div><div class="c_tit_2" id="c_tit_2"><a id="case_plaintiff" name="case_plaintiff" class="nopopup"></a>【피고,상고인】 서울특별시 용산구청장  (소송대리인 서초 법무법인 담당변호사 박▲기 외 4인) <br></div><div class="c_tit_2"></div><div class="c_tit_2"></div><div class="c_tit_2"><a id="case_entire_ori" name="case_entire_ori" class="nopopup"></a>【원심판결】  <a href="javascript:hyperlink('10B1E19645794D0686687FC5C02EDBA2')">서울고법 1999. 2. 10. 선고 98누8171 판결</a> </div><div class="c_tit_2"><a id="case_outcome" name="case_outcome" class="nopopup"></a>【주문】 <br>상고를 기각한다. 상고비용은 피고의 부담으로 한다. <br></div><div class="c_tit_3"><a id="case_reason" name="case_reason" class="nopopup"></a>【이유】 <br>상고이유를 본다.  <br></div><div class="c_tit_3"><a id="R02" name="R02" class="nopopup"></a>1. 원심판결 이유에 의하면 원심은, 서울 ○○구 ○○동1가 일대의 주택개량을 위한 이 사건 재개발사업의 시행에 관하여 1976. 9. 4.자로 당시 시행되던  <a href="javascript:hyperlink('DB8C45BB429E4619BF664EA2EB52549D|31')">구 <span class="heightlight">도시</span>계획법(1976. 12. 31. 법률 제2988호로 개정되기 전의 것) 제31조</a> 에 기한 실시계획 인가고시가 있은 후, 1976. 12. 31. 법률 제2968호로 제정된 <span class="heightlight">도시</span>재개발법이 1977. 7. 1.자로 시행됨에 따라 이 법에 기하여 1979. 8. 4.자로 관리처분계획 공람공고가, 1979. 10. 29.부터 1989. 12. 29.까지 사이에 18회에 걸쳐 관리처분계획 인가고시가 차례로 이루어지자, 1993. 12. 14. 공사완료 공고가 된 다음, 그 사업시행자로서 피고는 1996. 2. 26.자로 개정된 '서울특별시용산구주택재개발사업시행조례'(이하 '이 사건 조례'라 한다)가  <a href="javascript:hyperlink('DB8C45BB429E4619BF664EA2EB52549D|29')">제29조 제1항 제1호</a> 에서 "자력개발사업지구의 청산은 분양처분 고시 후 다음 각 호의 방법에 의한다. 1. 환지토지는 환지확정면적이 권리면적에 비하여 증감이 있는 경우 증감에 해당하는 토지면적에 상당하는 금액을 징수하거나 지급한다."고 규정하고,  <a href="javascript:hyperlink('DB8C45BB429E4619BF664EA2EB52549D|30')">제30조 제1항</a> 에서 " <a href="javascript:hyperlink('DB8C45BB429E4619BF664EA2EB52549D|29')">제29조 제1항 제1호 및 제2호</a>  규정에 의한 청산금은 분양처분시 징수ㆍ교부면적의 공사착수 전 가격에  <a href="javascript:hyperlink('421837C7C91C4652A73AA4F8D35D892F|46')">영 제46조</a> 의 비용을 가산한 가격으로 한다."고, 제4항에서 "제1항의 공사착수 전이라 함은 최초의 관리처분계획 인가 당시를 말한다."고 규정함으로써, 이 사건 재개발사업과 같이 사업시행자는 공공시설만을 정비하고 건축물은 토지 소유자가 관리처분계획에 따라 신축ㆍ정비하는 이른바 자력개발(自力開發) 방식의 재개발사업의 경우에 그 청산금을 가산면적과 감보율을 적용한 권리면적과 분양대지의 면적을 비교하여 그 과부족분이 있을 경우 그 면적의 가격을 관리처분계획 인가 당시를 기준시점으로 하여 산정하는 이른바 면적평가방식을 규정하고 있음을 근거로 하여, 1997. 4. 25. 분양처분을 거치고 이어 1997. 9. 14. 사업구역 내 토지 소유자들로서 종전토지에 대한 권리면적보다 큰 면적을 분양받은 원고들에 대하여 위와 같은 면적평가방식에 의하여 산정한 금액의 청산금을 부과하는 이 사건 처분을 한 사실을 인정한 다음, 1995. 12. 29. 법률 제5116호로 전문 개정된  <a href="javascript:hyperlink('F0B8894AACB94BD5BA5CB5D6B823D8FB|42')"><span class="heightlight">도시</span>재개발법(이하 이를 '신법'이라 하고, 개정 전의 <span class="heightlight">도시</span>재개발법을 '구법'이라 한다.) 제42조</a> 와 그 시행령인 1996. 6. 29. 대통령령 제15096호로 전문 개정된 시행 <a href="javascript:hyperlink('B13535D79F294D18BAFE31D93A827995|45')">령(이하 이를 '신시행령'이라 하고, 개정 전의 시행령을 '구시행령'이라 한다.) 제45조</a>  및  <a href="javascript:hyperlink('B13535D79F294D18BAFE31D93A827995|40')">제40조</a> 에서 재개발사업의 청산금 산정은 사업시행 고시가 있은 날을 기준으로 하여 종전의 토지 또는 건축물(이하 '종전토지'라 한다)의 가격과 그에 소정의 비용을 가산하여 산정하는 분양받은 대지 또는 건축시설(이하 '분양대지'라 한다)의 가격을 비교하여 그 차액을 청산금으로 하는 이른바 가격평가방식에 의하여야 하는 것으로 규정하고 있음에도, 이 사건 조례는 이러한 가격평가방식이 아닌 면적평가방식을 규정하고 있어 상위법령에 위배되는 무효인 규정이므로, 그에 기하여 청산금을 산정한 이 사건 처분은 위법하다는 이유로 그 취소를 구하는 원고들의 청구를 인용하였다.  <br></div><div class="c_tit_3"><a id="R03" name="R03" class="nopopup"></a>2. 행정처분은 원칙적으로 처분시의 법령에 근거하여 행하여져야 하고, 법령의 개정으로 그 기준이 변경된 경우에는 달리 특별한 정함이 없는 한 처분시의 개정법령에서 규정하고 있는 기준이 적용되어야 하는바(  <a href="javascript:hyperlink('6D4B9F2777184E6A9E0F7E359707119A')">대법원 1984. 5. 22. 선고 84누77 판결</a> ,  <a href="javascript:hyperlink('A1111B51A49E4E779AB18353799DF288')">1996. 8. 20. 선고 95누10877 판결</a> ,  <a href="javascript:hyperlink('04EEB043F17C475AB99CF777C4DAC2B8')">2000. 3. 10. 선고 97누13818 판결</a>  등 참조), 이 사건의 경우 신법 및 신시행령은 청산금의 산정ㆍ부과와 관련하여 구법 및 구시행령의 관련 규정이 계속 적용된다고 볼 수 있는 경과규정을 두고 있지 아니하므로, 그 시행 후에 이루어진 이 사건 처분에서의 청산금 산정ㆍ부과의 근거 법령은 신 <a href="javascript:hyperlink('F0B8894AACB94BD5BA5CB5D6B823D8FB|42')">법 제42조</a> 와 신시행 <a href="javascript:hyperlink('B13535D79F294D18BAFE31D93A827995|45')">령 제45조</a>  및  <a href="javascript:hyperlink('B13535D79F294D18BAFE31D93A827995|40')">제40조</a> 임이 분명하다.  <br>그런데 이들 신법 및 신시행령의 각 규정에 의하면, 재개발사업에서 청산금의 산정은 그 사업시행의 방식 여하를 불문하고 종전토지의 가격은 사업시행 고시가 있은 날을 기준으로 산정하고, 분양대지의 가격은 그 종전토지의 가격에 일정한 항목의 재개발사업비용을 가산하는 방식으로 산정하여 그 차액에 상당하는 금액을 청산금으로 하는 이른바 가격평가방식에 의하게 되어 있음이 명백함에도, 원심이 확정한 바와 같이, 이 사건 조례는 이와 달리 종전토지에 대하여 가산면적과 감보율을 적용하여 산출한 권리면적과 분양대지의 면적 자체를 비교하여 그 과부족분의 가격을 관리처분계획 인가 당시를 기준시점으로 하여 산정하는 이른바 면적평가방식을 규정하고 있음을 알 수 있다.  <br>종래 재개발사업지구 내의 토지는 재개발사업 시행의 결과 투입비용 이상의 가치 증가가 창출되는 것이 일반적인 현실이었음에 비추어 이 사건 조례상의 면적평가방식은 신법 및 신시행령 규정상의 가격평가방식과 비교할 때, 우선 사전 추산된 사업비 액수를 근거로 산출한 체비지 면적을 감보율의 적용에 의하여 분양대상에서 사전 제외시킴으로써 결과적으로 사업시행지역 내 토지 소유자들에 대한 분양대지의 면적을 축소시키게 되고, 또 가격평가방식에 의할 경우에는 분양대지의 가격에 가산되는 재개발사업비용 중 일부가 제외되기도 하는 점(신시행 <a href="javascript:hyperlink('B13535D79F294D18BAFE31D93A827995|45')">령 제45조 제2항 제5호</a>  참조) 등에 견주어 토지 소유자들에게 불리하다고 하지 않을 수 없는바, 지방자치단체가 사업시행자가 되어 시행하는 <mark>도시</mark>재개발사업의 경우에 조례로 토지, 건축물에 관한 권리의 가격평가방법, 관리처분계획 및 청산에 관한 사항 등을 포함하는 시행규정을 둘 수는 있되, 상위법령인 <mark>도시</mark>재개발법령의 규정 취지에 어긋나지 않아야 할 것이므로, 결국 위와 같이 모법의 위임 없이 모법에 규정된 내용을 토지 소유자들에게 불이익하게 변경하는 내용의 면적평가방식을 규정한 이 사건 조례는 상위법령에 위배되어 그 효력이 없고, 따라서 그에 기한 이 사건 부과처분은 이 사건 재개발사업의 시행방식과 관계없이 위법함을 면할 수 없다(  <a href="javascript:hyperlink('E5C251F99CA0438A9AEF366C1342BF29')">대법원 1995. 4. 25. 선고 93누17850</a>  전원합의체 판결,  <a href="javascript:hyperlink('5F906DCC80174A119B1C2357D5130993')">1995. 6. 13. 선고 94누13626</a>  전원합의체 판결 등 참조).  <br>같은 취지의 원심 판단은 정당하고, 거기에 상고이유에서 주장하는 바와 같은 법리오해 등의 위법이 있다고 할 수 없다. 재개발사업의 청산금 산정방법으로 면적평가방식이 허용됨을 전제로 하는 상고이유는 어느 것도 받아들일 수 없다.  <br></div><div class="c_tit_3"><a id="R04" name="R04" class="nopopup"></a>3. 그러므로 상고를 기각하고, 상고비용은 패소자의 부담으로 하기로 하여 관여 대법관 전원의 일치된 의견으로 주문과 같이 판결한다. <br></div><div class="c_tit_2-1"><a id="case_judge" name="case_judge" class="nopopup"></a>대법원장 최종영(재판장) 송진훈(주심) 서성 조무제 유지담 윤재식 이용우 배기원 강신욱 이규홍 이강국 손지열 박재윤 </div><div class="c_tit_2-2"><a name="case_byulpyo" class="nopopup"></a></div> </div>
+								<div class="inner_login_area">
+									<p class="hide">로그인</p>
+									<div class="main_noti">본 컨텐츠의 상세정보는 정회원 이상의 유료회원에게만 제공됩니다. </div>
+									<div class="gray_info">아직 로그인하지 않으셨습니다. <br>로그인 또는 회원가입 후 이용해 주시기 바랍니다. </div>
+									<div class="btn_area"><span>로그인</span><span>회원가입</span></div>
+									<!-- <div class="gray_info">현재 무료회원으로 로그인되어 있습니다. <br>유료전환 후 이용해 주시기 바랍니다 </div>
+									<div class="btn_area"><span>유료권한결제</span></div> -->
+								</div>
+		  
+							</div>
+							</div>
+						</div>
+					 </div>
+				</article> 
+				<aside class="right_container">
+					<section class="direct_s">
+						<h4>다이렉트 검색</h4>
+						<ul>
+							<!-- <li><a href="1" >대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span></a><br><별칭사건명 별칭사건명 별칭사건명> </li> -->
+							<li><a href="1" >개인정보보호법 <span>[법률 제14107호 일부개정 2016. 03. 29.]</span></a><div class="mgt10 mgl10 law_str">[법률] <a href="1">개인정보보호법</a><br>[대통령령] <a href="1">개인정보보법시행령</a><br>[부령] <a href="1">개인정보보호법시행규칙</a></div>
+							<div class="function_btn"><a href=""><span class="blue_bt">3단비교보기</span></a></div>
+							<div class="mgt10 onju_dir_right"><span>온라인주석서</span> <br><a href="3" target="" class="popup-link">온주 개인정보보호법</a> (집필자 : 강태욱, 김일환, 류광현, 최경진)</div>
+							</li>
+						</ul>
+					</section>
+					<section class="direct_s">
+						<h4>다이렉트 검색</h4>
+						<dl class="lawyer_area" >
+							<dt><img src="../images/main_img_lawyer_3.png"  class="img"></dt>
+							<dd><a href="1">최용문</a> <span>1999년생 / 여자 / 사법시험 100회 / 연수원 40기</span><br><span>현직 : </span>변호사 / 법무법인 율원 / 특허파트/ 상표부<br><span>주요업무분야 : 산재/노동, 의료사고</span></dd>
+							<dd class="ar"><div>[최근 업데이트 일자 : 2017.03.06]</div></dd>
+						</dl>
+					</section>
+					<section style="padding-top:10px">  
+						<p><a href="">누락판례 신청</a></p> 
+					</section>  
+					<section >
+						<h4>최근 조회 자료</h4>
+						<ul>
+							<li><a href="1" >대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span></a></li>
+							<li><a href="2" >서울중앙지방법원 2017. 7. 4. 선고 2013가합80479 <span>[손해배상등]</span></a></li>
+							<li><a href="3" >헌법재판소 2016. 2. 25. 선고 2013헌마626, 655, 2014헌마434(병합) <span>[행정사법 제9조 제2항 등 위헌확인 등]</span></a></li>
+							<li><a href="4" >헌법재판소 2016. 2. 25. 선고 2015헌가11 <span>[도로교통법 제2조 제26호 위헌제청]</span></a></li>
+							<li><a href="5" >헌법재판소 2016. 2. 25. 선고 2015헌가15 <span>[사립학교교직원 연금법 제41조 제2항 위헌제청]</span></a></li>
+							<li><a href="6" >대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span></a></li>
+							<li><a href="7" >서울중앙지방법원 2017. 7. 4. 선고 2013가합80479 <span>[손해배상등]</span></a></li>
+							<li><a href="8" >헌법재판소 2016. 2. 25. 선고 2013헌마626, 655, 2014헌마434(병합) <span>[행정사법 제9조 제2항 등 위헌확인 등]</span></a></li>
+							<li><a href="9" >헌법재판소 2016. 2. 25. 선고 2015헌가11 <span>[도로교통법 제2조 제26호 위헌제청]</span></a></li>
+							<li><a href="10" >헌법재판소 2016. 2. 25. 선고 2015헌가15 <span>[사립학교교직원 연금법 제41조 제2항 위헌제청]</span></a></li>
+							<li><a href="0" >1대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span></a></li> 
+						</ul>  
+					</section>
+				</aside>
+			</div>
+    	</div>
+		<footer>
+			<div class="etc_menu"> 
+				<div class="top_container">  
+					<ul>	
+						<li class="blind">기타 메뉴 </li>
+						<li>회사소개</li>
+						<li>광고 · 제휴문의</li>
+						<li>이용약관</li>
+						<li>개인정보 취급/처리 방침</li>
+						<li>법적고지</li>
+						<li>이메일 무단수집거부</li>
+					</ul>
+				</div>
+			</div>  
+			<div class="top_container   _footer"> 	   
+				1. 콘텐츠의 명칭 : 법률정보 &nbsp;&nbsp; 2. 콘텐츠의 제작 및 표시 : 2006년 2월 17일(업그레이드 콘텐츠의 경우 갱신일) &nbsp;&nbsp; 3. 콘텐츠 제작자 : ㈜로앤비  &nbsp;&nbsp;  4. 콘텐츠의 이용조건 : <a href="/support/agree_use.asp" class="red_bott">이용약관</a> 및 로앤비 <a href="/support/serviceInfo_member.asp" class="red_bott">서비스안내</a>와 같음 (무단 복제금지) &nbsp;&nbsp;5. 콘텐츠의 보호기간 : ㈜로앤비 사이트의 모든 콘텐츠는 「콘텐츠산업 진흥법」에 따라 제작 또는 갱신일로부터 5년간 보호됨
+				<div>Thomson reuters</div>
+				<div>Copyright ⓒ 1998~2016 <b>LAWnB</b>. All Rights Reserved.</div>
+			</div>           
+		</footer>
+		<div id="bg_screen"></div>
+		<script type="text/javascript">  
+			setHeight_under();		 
+		</script>
+		<div id="individual_area" class="popup_win">
+			<div class="container_popup">
+				<div id="popup_myfolder" class="base_popup"><!-- 나의폴더 -->
+					<div class="top_title " >
+						<span><i class="icon-" data-icon="&#xe930;"></i> 나의 폴더</span>
+						<div class="top_title_group">
+							<div class="btn-group"><button type="button" class="btn btn-default">전체보기</button></div>
+							<div class="btn_close_pop">닫기<i class="icon-close" data-icon="&#xe915;"></i></div>
+						</div>
+					</div>
+					<div class="cont_list">
+						<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span><em>폴더1 > 하위폴더2</em></p></a>
+						<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span><em>폴더1 > 하위폴더2</em></p></a>
+						<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span><em>폴더1 > 하위폴더2</em></p></a>
+						<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span><em>폴더1 > 하위폴더2</em></p></a>
+						<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span><em>폴더1 > 하위폴더2</em></p></a>
+						<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span><em>폴더1 > 하위폴더2</em></p></a> 
+					</div>
+				</div>
+				<div id="popup_myinfo" class="base_popup"> <!-- 나의정보 -->
+					<div class="top_title">
+						<span><i class="icon-" data-icon="&#xe91d;"></i> 나의 정보</span>
+						<div class="top_title_group">
+							<div class="btn-group"><button type="button" class="btn btn-default">회원정보</button></div>
+							<div class="btn_close_pop">닫기<i class="icon-close" data-icon="&#xe915;"></i></div>
+						</div>
+					</div>
+					<div class="my_state">정회원 [ 2016.07.07 ~ <span>2017.07.07</span> ]  <a href="1">유료전환</a></div>
+					<div class="my_set_list">
+						<p>메일링 서비스</p>
+						<span>이메일 : san***@tsdsdfr.com<br> 메일링 서비스 신청 사항<br><span><input type="checkbox" id="1" name="1" checked="checked" onclick="return false;"> 비즈레터&nbsp;&nbsp;<input type="checkbox" id="" name="" onclick="return false;"> 마케팅 메일 <a href="2">관리</a></span></span>
+						<p>모바일 기기 등록 내역</p>
+						<span>휴대폰 번호 : 010-2634-**** <br>모바일 기기 등록 내역 <br><span>Sanna phone (2015-06-23)  <a href="2">삭제</a></span></span>
+						<p>법인 아이디 이용현황</p>
+						<span>서브 아이디 (유료 10개 / 무료 10개) <a href="2">관리</a> </span>
+					</div>
+					<div class="my_lawyer">
+						<p>나의 법조인 명록</p>
+						<div class="img"><img src="http://www.lawnb.com/data/peopdata/kimgaram20140410.bmp" alt="사진"></div> 
+						<div class="basic_info"><a href="/list_view.html">강진석 姜珍錫</a>  <span>1999년생/ 여자 / (사법시험 50회 / 연수원 40기)</span><br><span>현직 : 변호사 / 법무법인 서울 </span></div> 
+						<div class="lawyer_info">
+							<span>주요업무분야 <small><i class="icon-info" data-icon="" onmouseout="close_miju('Miju2')" onmouseover="open_miju('Miju2')"><span class="blind">안내</span><div id="Miju2" class="miju_box"><div class="miju_box_line">(변호사님이 주로 취급하는 업무로 선택한 분야입니다.)</div></div></i></small> : 금융/회사/건설/무역/해외투자/지적재산권</span> 
+						</div>
+						<div class="ar text_ex ">[최근 업데이트 일자 : 2016.12.10] <a href="2">수정요청하기</a></div>
+					</div>
+				</div>
+				<div id="popup_history" class="base_popup"> <!-- 히스토리 -->
+					<div class="top_title " >
+						<span><i class="icon-" data-icon="&#xe91c;"></i> 최근 조회 컨텐츠</span>
+						<div class="top_title_group">
+							<div class="btn-group"><button type="button" class="btn btn-default">전체보기</button></div>
+							<div class="btn_close_pop">닫기<i class="icon-close" data-icon="&#xe915;"></i></div>
+						</div>
+					</div>
+					<div class="cont_list">
+						<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span></p></a>
+						<a href="1"><p>조세심판원 조심2015지1556, 2016.07.29 <span>[쟁점토지에 대한 지목변경 취득세 과세표준]</span></p></a>
+						<a href="1"><p>서울중앙지방법원 2017. 7. 4. 선고 2013가합80479 <span>[손해배상등]</span></p></a>
+						<a href="1"><p>헌법재판소 2016. 2. 25. 선고 2015헌가11 <span>[도로교통법 제2조 제26호 위헌제청]</span></p></a>
+						<a href="1"><p>대법원 2016. 5. 27. 선고 2014두8490 판결 <span>[도로점용허가처분무효확인등] 종국결과 [공2016하, 888 ]</span></p></a>
+						<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span></p></a> 
+					</div>
+					<div class="noti_txt"><i class="icon-" data-icon="&#xe90d;"></i> 로앤비에서 제공하는 히스토리의 기본 수집 범위는 <strong>판례</strong>와 <strong>법령</strong> 서비스에 한정됩니다. <br>해당 범위는 아래의   설정버튼에서 변경 가능합니다.</div>
+					<div class="base_popup_set">
+						<div class="area_onoff">히스토리 <div class="btn-group"><button type="button" class="btn btn_orange _select">on</button><button type="button" class="btn btn-default">off</button></div></div>
+						<div class="btn_set"><div class="btn-group"><button type="button" class="btn btn-default">설정</button></div></div>
+					</div>
+				</div>
+				<div id="popup_login_ask" class="base_popup"> <!-- 로그인 -->
+					<div class="top_title">
+						<span><i class="icon-" data-icon="&#xe91d;"></i> 로그인</span>
+						<div class="top_title_group"> 
+							<div class="btn_close_pop">닫기<i class="icon-close" data-icon="&#xe915;"></i></div>
+						</div>
+					</div>
+					<div class="txt_info">
+						<div>로그인을 하시면 1:1문의내역 및 누락판결문 신청·나의 법조인명록 관련 요청사항·승소판결문 등록등에 대한 답변을 확인하실 수 있습니다.</div>
+						<div class="layer_login"><span>LAWnB 로그인</span></div>
+					</div> 
+				</div> 
+			</div>
+		</div>  
+	</div> 
+</div> 
+</body>
+</html>

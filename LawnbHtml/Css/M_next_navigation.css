@@ -1,0 +1,54 @@
+@charset "utf-8";
+ 
+/*navigation*/ 
+#co_popupContainer .navigation_p{overflow:hidden}
+#co_popupContainer .navigation_p .main_container_inner{display:block}
+#co_popupContainer .navigation_p .main_container_view{transform: translateX(100%); -webkit-transform: translateX(100%);border-left: 1px solid #ccc;width:60%;height: 100%;}
+#co_popupContainer .navigation_p .main_container{overflow-x:none !important}
+.list-view.navigation_p .main_container{margin-left:0;border-left:0;margin-right:0;border-right:0;transition-property:margin-left;transition-property:margin-right;transition-duration:0.3s}
+.navigation_p .title_area{width:100%;border-bottom:2px solid #ccc}
+.navigation_p .title_area a{color:#005da2}
+.navigation_p #container_inner{ }
+.navigation_p .left_container.aftersearch{width:230px;transform: translateX(-100%);border-right:1px solid #ccc}
+.navigation_p .left_container{width:270px;position: absolute;transform: translateX(0)}
+.navigation_p .main_container{margin-left:270px;margin-right:0;border-right:0}
+.navigation_p .btn_option_outer .select_area select{display:inline-block}
+.navigation_p .check_area.nofl div{display:inline-block;margin:3px 0 5px 20px;font-size:13px}
+.navigation_p .left_container section{margin-bottom:50px}
+.navigation_p .left_container .check_area li ol {margin:2px 0 5px 0}
+.navigation_p .title_area .img{float:left;position: relative;margin-right:10px;width: 70px;height: 70px;overflow: hidden;border-radius:50%}
+.navigation_p .title_area .img img {width: 70px}  
+.navigation_p .title_area .function_btn{ }
+.list-view.navigation_p .list.lawyer .img{display:none}
+.navigation_p .co_searchContent .btns{display:none}
+.navigation_p.list-view .lawyer .co_searchContent { margin-left: 55px !important}
+#navi_right{width:22%;position:absolute;right:0;top:0;text-align:left;display:none}
+.small_search_outbox{position:relative;background-color:#fff;border-bottom: 1px solid #eee;}
+#navi_right .small_search_outbox h3{margin:0;padding:15px 15px 10px 15px}
+.small_search_inbox input[type="text"]{width:80%;height:26px;border:1px solid #a9a9a9;border-right:0}
+#navi_right h3{color: #777;margin: 15px 15px 10px 15px;font-weight:normal}
+.small_search_outbox p.small_search_inbox{text-align:center;padding-bottom:20px;border:0}
+.checklist_area h3{border-bottom: 1px solid #d3d3d3;padding-bottom: 7px;}
+.checklist_area p{padding:0 15px;color:#7f7f7f}
+.checklist_area ul{font-size:14px;margin:10px 15px 15px 15px}
+.checklist_area ul li a{font-weight:bold;color:#005da2;font-size:15px}
+.checklist_area ul li{position: relative;margin-bottom: 15px;line-height:160%}
+.search_result{position:absolute;left:0; background-color:#fff;width:100%;z-index: 100;display:none;overflow-y:auto}
+.search_result h4{position:relative;color: #777;margin: 15px 15px 10px 15px;font-weight:normal}
+.search_result h4 span{font-size:smaller;position:absolute;right:5px;top:3px;cursor:pointer}
+.no_result{color:#212121;margin:10px;background-color:#f0f0f0;padding:5px 10px}
+#co_popupContainer .search_result .co_searchContent{margin-left:70px}
+#navi_right .list.lawyer{margin:20px}
+#navi_right .list.lawyer h3{padding:10px 0}
+.btn_navi.btn_option{margin-right:30px}
+.navigation_p .submit_area{position:fixed;left:0;bottom:40px;width:100%;background-color:#eee;padding-top:10px;z-index: 10}
+
+@media screen and (max-width:480px) 
+{  
+     
+    #co_popupContainer .navigation_p .left_container{position:relative;width:100%;z-index: 1}
+    #co_popupContainer .navigation_p .main_container{overflow-x:none !important;display:none} 
+    .navigation_p .left_container section{margin-bottom:70px}
+    #co_popupContainer .navigation_p .left_container.filter{position:fixed;width:100%;z-index: 1000}
+    .navigation_p .left_container section.filter{margin-bottom:70px;}
+}

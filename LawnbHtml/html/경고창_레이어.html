@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+    <meta name="viewport" content="width=1140">
+    <title> 로앤비 </title>
+    <link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+    <link rel="stylesheet" type="text/css" href="../css/_next_default.css" />
+    <link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />
+    <link rel="stylesheet" type="text/css" href="../css/icon-style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/guide.css" />
+    <script type="text/javascript" src="../js/jquery.js?2.00"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js?2.00"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+    <script type="text/javascript">
+        function layerModal() {
+            $('.alert_bg').toggle();
+        }
+    </script>
+    
+</head>
+
+<body>
+    <div id="co_mainContainer">
+        <div id="wrap">
+            <header>
+                <div class="top_container  ">
+                    <a href="/">
+                        <h1>로앤비</h1>
+                    </a>
+                    <div id="t_search" class="search_container">
+                        <h2>통합검색 영역</h2>
+                    </div>
+                </div>
+                <nav>
+                    <dl id="main_menu" class="mmenu" style="text-align: left;">
+                        <dt class="blind">메인 메뉴</dt>
+                        <dd>
+                            <a href="/html/logos.html"><span>레이어 팝업 문구 창</span></a>
+                        </dd>
+                    </dl>
+                </nav>
+            </header>
+            <div id="container" class="onlycon doc">
+
+                <!-- 경고창 팝업 소스 -->
+                <div class="alert_bg">
+                    <div class="alert_content">
+                        <div class="sesscion_tit">
+                            <div class="alert_icon">
+                                <i class="icon-" data-icon="&#xea07;"></i>
+                            </div>
+                            <div class="alert_text">
+                                <div>
+                                    대량 인쇄를 통한 부정사용이 의심되는 이용패턴이 감지되었습니다.<br />
+                                    보안상의 이유로 30분 동안 온주 인쇄가 중단되오니 양해바랍니다.<br />
+                                    귀하의 정보가 외부에 노출되어 사용되고 있을 수 있으므로 실제 사용자 이용여부를 확인해주시기 바랍니다.<br /><br />
+                                    ※ 정상접속이 확인되어 시스템 중단 시간 전 중단 해제가 필요한 경우 아래 정보를 기재하여 하단 로앤비 담당자에게 보내주시기 바랍니다.<br /><br />
+                                </div>
+                                <div>
+                                    - ID정보 (단체회윈의 경우 기관명)​ <br />
+                                    - 사용자명 <br />
+                                    - 사용자 이용내용 확인여부 (Y/N)<br /><br />
+                                </div>
+                                <div>
+                                    로앤비 담당자 : 정경률 부장&nbsp; <a href="mailto:cs_lawnb@thomsonreuters.com">cs_lawnb@thomsonreuters.com</a>, 02) 6467-5500
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn_area_normal mgt10">
+                            <a class="btn" onclick="layerModal();">닫기</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="left_container"></div>
+                <div class="main_container">
+
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

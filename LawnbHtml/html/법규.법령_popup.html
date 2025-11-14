@@ -1,0 +1,524 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+	<meta name="viewport" content="width=1140">
+	<title> 로앤비 </title>
+	<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+	<link rel="stylesheet" type="text/css" href="../css/_next_default.css" />
+	<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />
+	<link rel="stylesheet" type="text/css" href="../css/_next_law.css" />
+	<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />
+	<script src="../Scripts/lib/jquery-3.4.1.min.js" type="text/javascript"></script>
+	<script src="../Scripts/common/commonjs.js?d26"></script>
+	<script language="javascript">
+<!--
+
+		function resizeComment() {
+			setHeight();
+			$(".right_container").removeClass('slide_mov_right');
+		}
+		function elc_pdf_view() {
+			$("#title_result_tab").show();
+			$("#title_result_tab span").text('전자관보');
+			$("#title_result_tab .btn_close").show();
+			$("#title_result_tab .btn_reapprea").hide();
+			$("#result_area").hide();
+			$("#pdf_view_etc").show().addClass('slide_mov_bottom');
+			$("#view_content").hide();
+			$("#pdf_view_other").height($('.main_container').outerHeight() - 65);
+
+			setTimeout(function () {
+				$("#result_area").addClass('slide_mov_bottom');
+			}, 200);
+		}
+
+		var expanded = false;
+		function showCheckboxes() {
+			if (!expanded) {
+				$("#checkboxes").show();
+				expanded = true;
+			} else {
+				$("#checkboxes").hide();
+				expanded = false;
+			}
+		}
+		$(function () {
+			$('.favi_add').click(function () {
+				$(this).children('i').toggleClass('starfull');
+				$('.base_popup').hide();
+				$('#popup_favilaw').show();
+			});
+
+			$("section .btn-group .btn").click(function () {
+				if ($('#right_control').css("display") == "block") {
+					$(".right_container").removeClass('add_border').addClass('slide_mov_right').removeClass('slide_mov');
+					$('#right_control').removeClass('_up');
+				}
+				$("#title_result_tab .btn_close").show();
+				$("#title_result_tab .btn_reapprea").hide();
+				$("#title_result_tab").show();
+				$("#result_area").show();
+				$("#pdf_view").hide();
+				$("#view_content").hide();
+				setTimeout(function () {
+					$("#result_area").addClass('slide_mov_bottom');
+				}, 200);
+			});
+
+			var i = 0;
+			$('.relative_law .detail_area .but').click(function () {
+
+				var x_object = $(this).parent().parent().find('.relative_law_view');
+				if (i == "0") {
+					$(x_object).show();
+					$(this).children('i').removeClass('icon_open').addClass('icon_close');
+					//$('.relative_law_view .tit').show();
+					i = 1;
+				} else {
+					$(x_object).hide();
+					$(this).children('i').addClass('icon_open').removeClass('icon_close');
+					//$('.relative_law_view .tit').hide();
+					i = 0;
+				}
+				setHeight();
+			});
+
+		});
+		//-->
+	</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_popupContainer">
+	<div id="wrap" >
+		<header> 
+			<div class="top_container  ">  
+				<a href="/maf/poc/app/homepage"><h1>로앤비</h1></a>
+				<div class="function_area">
+					<p class="hide">기타기능버튼들</p> 
+					<div>
+						<span style="padding-right:0"><i class="icon-left" data-icon="&#xe901;"></i></span> 
+						<span><i class="icon-checkbox-unchecked" style="color:yellow" data-icon="&#xea52;"></i></span>
+						<span style="padding-left:0"><i class="icon-right" data-icon="&#xe900;"></i></span>
+						<br><span>검색어</span>
+					</div>
+					<div>
+						<span class="font-p"><i class="icon-plus" data-icon="&#xea0a;"></i></span> 
+						    <span class="font-m"><i class="icon-minus" data-icon="&#xea0b;"></i></span>
+						<br><span>글자크기</span>
+					</div>
+					<a href="#" id="alert_set" class="alert_view"> 
+						<span><i class="icon-alert" data-icon="&#xe91b;" ></i></span>
+						<span>알림</span>
+					</a>
+					<a href="#" id="folder_put"> 
+						<span><i class="icon-folder" data-icon="&#xe930;"></i></span>
+						<span>폴더담기</span>
+					</a>
+					<a href="#"> 
+						<span><i class="icon-printer" data-icon="&#xe954;"></i></span>
+						<span>인쇄</span>
+					</a>
+					<a href="#" > 
+						<span><i class="icon-download3" data-icon="&#xe9c7;"></i></span>
+						<span>파일저장</span>
+					</a>
+					<a href="#">
+						<span><i class="icon-share2" data-icon="&#xea82;"></i></span>
+						<span>공유</span>
+					</a>
+				</div>
+			</div>        	
+		</header> 
+		<div id="container" class="law"> 
+			<div class="container_hide">
+				<button  id="left_wide"><i class="icon_list" data-icon="&#xe900;"><span class="blind">목차 넓게보기</span></i></button>
+				<button  id="left_hide"><i class="icon_list" data-icon="&#xe901;"><span class="blind">목차 없애기</span></i></button> 
+			</div>
+			<div id="breadcrumb" class="navi_area"> 
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div class="title_area">  
+				<div class="lawhistory_area btn_option">연혁선택
+					<div class="selectBox" onclick="showCheckboxes()">
+						<select>
+						<option>입법연혁</option>
+						</select>
+						<div class="overSelect"></div>
+					</div>
+					<div id="checkboxes" class="hide_check" >
+						  <div class="no_start">법률 제14496호 일부개정 [미시행]</div>
+						  <div>법률 제14496호 일부개정 2016.12.27 [시행일 2017.1.1]</div>
+						  <div>법률 제14496호 일부개정 2016.12.27 [시행일 2017.1.1]</div>
+						  <div>법률 제14496호 일부개정 2016.12.27 [시행일 2017.1.1]</div>
+						  <div>법률 제14496호 일부개정 2016.12.27 [시행일 2017.1.1]</div>
+					  </div>
+				</div>
+				<h2><em class="favi_add"><i class="icon-star" ></i></em>국제도로 면세통과 증서의 담보하에 행하는 화물 <div class="law_nick"><i class="icon-" data-icon=""></i>약칭 : 개인정보법<i class="icon-" data-icon=""></i></div></h2>
+				<div class="meta_area">법률 제14496호 일부개정 2016.12.27 [시행일 2017.1.1]</div>
+			</div>
+			<div id="popup_favilaw" class="new_base_popup">
+				<div class="top_title " >
+					<span><i class="icon-" data-icon="&#xe9d7;"></i> 나의 법규집 추가</span> 
+					<div class="top_title_group"> 
+						<div class="btn_close_pop">닫기<i class="icon-close" data-icon="&#xe915;"></i></div>
+					</div>
+				</div>
+				<p class="law_tit">국제도로 면세통과 증서의 담보하에 행하는 화물어쩌고 저쩌고</p>
+				<div class="law_option" ><input type="radio" id="" name="">현행법령으로 저장<br><input type="radio" id="" name="">연혁법령으로 저장<br>&nbsp;&nbsp;&nbsp;&nbsp;- 법률 제14496호 일부개정 2016.12.27</div>
+				<div  class="law_option bar ac" style="display:none">나의 법규집에 추가되었습니다. <br>법령 또는 행정규칙 메인화면에서 추가된 법규을 확인하실 수 있습니다. </div>
+				<div class="ac">
+					<div class="btn-group  ">
+					  <button type="button" class="btn   btn-square" style="width:80px">저장</button>  
+					</div>	 
+				</div>
+			</div>
+			<div id="container_inner"> 
+				<div class="left_container"> 
+					<div class="table_index tree">
+						<h3 class="hide">조문목차</h3>  
+						<ul id="law_tree_list" class="regulation"><!--?xml version="1.0" encoding="UTF-16"?-->
+							<li class="active_d1 open"><a href="#">제1장 총칙 [개정 2009.1.30]</a><ul><li class="comment" title=""><a href="javascript:Move_jo('J1')"><span>제1조</span> (목적)</a></li><li class="comment" title=""><a href="javascript:Move_jo('J2')"><span>제2조</span> (적용 대상)</a></li><li class="comment" title=""><a href="javascript:Move_jo('J3')"><span>제3조</span> (정의)</a></li><li class="comment" title=""><a href="javascript:Move_jo('J4')"><span>제4조</span> (대외거래의 원활화 촉진 등)</a></li><li class="comment" title=""><a href="javascript:Move_jo('J5')"><span>제5조</span> (환율)</a></li><li class="comment" title=""><a href="javascript:Move_jo('J6')"><span>제6조</span> (외국환거래의 정지 등)</a></li><li class="comment" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J6')"><span>제6조</span> (외국환거래의 정지 등)</a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li><li class="comment" title=""><a href="javascript:Move_jo('J7')"><span>제7조</span> (채권의 회수명령)</a></li><li class="comment last" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J7')"><span>제7조</span> </a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li></ul></li><li class="active_d1 open"><a href="#">제2장 외국환업무취급기관 등 [개정 2009.1.30]</a><ul><li class="comment" title=""><a href="javascript:Move_jo('J8')"><span>제8조</span> (외국환업무의 등록 등)</a>
+								<ul>
+									<li><a href="javascript:Move_jo('J8')"><span>제8조</span> (외국환업무의 등록 등)</a></li>
+								</ul>
+							</li>
+							<li class="comment" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J8')"><span>제8조</span> (외국환업무의 등록 등)</a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li><li class="comment" title=""><a href="javascript:Move_jo('J9')"><span>제9조</span> (외국환중개업무 등)</a></li><li class="comment" title=""><a href="javascript:Move_jo('J10')"><span>제10조</span> (업무상의 확인의무)</a></li><li class="comment" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J10')"><span>제10조</span> (업무상의 의무)</a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li><li class="comment" title=""><a href="javascript:Move_jo('J11')"><span>제11조</span> (업무의 감독과 건전성 규제 등)</a></li><li class="comment" title=""><a href="javascript:Move_jo('J11X2')"><span>제11조의2</span> (외환건전성부담금)</a></li><li class="comment" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J11X2')"><span>제11조의2</span> (외환건전성부담금)</a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li><li class="comment" title=""><a href="javascript:Move_jo('J11X3')"><span>제11조의3</span> (부담금의 징수 및 이의신청)</a></li><li class="comment" title=""><a href="javascript:Move_jo('J12')"><span>제12조</span> (인가의 취소 등)</a></li><li class="comment" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J12')"><span>제12조</span> (인가의 취소 등)</a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li><li class="comment last" title=""><a href="javascript:Move_jo('J12X2')"><span>제12조의2</span> (과징금)</a></li></ul></li><li class="active_d1 open"><a href="#">제3장 외국환평형기금 [개정 2009.1.30]</a><ul><li class="comment" title=""><a href="javascript:Move_jo('J13')"><span>제13조</span> (외국환평형기금)</a></li><li class="comment last" title=""><a href="javascript:Move_jo('J14')"><span>제14조</span> (외국환평형기금 채권의 원리금 상환)</a></li></ul></li><li class="active_d1 open"><a href="#">제4장 지급과 거래 [개정 2009.1.30]</a><ul><li class="comment" title=""><a href="javascript:Move_jo('J15')"><span>제15조</span> (지급절차 등)</a></li><li class="comment" title=""><a href="javascript:Move_jo('J16')"><span>제16조</span> (지급 또는 수령의 방법의 신고)</a></li><li class="comment" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J16')"><span>제16조</span> (지급 또는 수령의 방법의 신고)</a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li><li class="comment" title=""><a href="javascript:Move_jo('J17')"><span>제17조</span> (지급수단 등의 수출입 신고)</a></li><li class="comment" title=""><a href="javascript:Move_jo('J18')"><span>제18조</span> (자본거래의 신고 등)</a></li><li class="comment last" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J18')"><span>제18조</span> (자본거래의 신고 등)</a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li></ul></li><li class="active_d1 open"><a href="#">제5장 보칙 [개정 2009.1.30]</a><ul><li class="comment" title=""><a href="javascript:Move_jo('J19')"><span>제19조</span> (경고 및 거래정지 등)</a></li><li class="comment" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J19')"><span>제19조</span> (경고 및 거래정지 등)</a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li><li class="comment" title=""><a href="javascript:Move_jo('J20')"><span>제20조</span> (보고·검사)</a></li><li class="comment" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J20')"><span>제20조</span> (보고·검사)</a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li><li class="comment" title=""><a href="javascript:Move_jo('J21')"><span>제21조</span> (국세청장 등에게의 통보 등)</a></li><li class="comment" title=""><a href="javascript:Move_jo('J22')"><span>제22조</span> (외국환거래의 비밀보장)</a></li><li class="comment" title=""><a href="javascript:Move_jo('J23')"><span>제23조</span> (권한의 위임·위탁 등)</a></li><li class="comment" title=""><a href="javascript:Move_jo('J24')"><span>제24조</span> (전자문서에 의한 허가 등)</a></li><li class="comment" title=""><a href="javascript:Move_jo('J25')"><span>제25조</span> (사무처리 등)</a></li><li class="comment last" title=""><a href="javascript:Move_jo('J26')"><span>제26조</span> (다른 법률과의 관계)</a></li></ul></li><li class="active_d1 open"><a href="#">제6장 벌칙 [개정 2009.1.30]</a><ul><li class="comment" title=""><a href="javascript:Move_jo('J27')"><span>제27조</span> (벌칙)</a></li><li class="comment" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J27')"><span>제27조</span> (벌칙)</a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li><li class="comment" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J27X2')"><span>제27조의2</span> (벌칙)</a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li><li class="comment" title=""><a href="javascript:Move_jo('J28')"><span>제28조</span> (벌칙)</a></li><li class="comment" title=""><a href="javascript:Move_jo('J29')"><span>제29조</span> (벌칙)</a></li><li class="comment" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J29')"><span>제29조</span> (벌칙)</a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li><li class="comment" title=""><a href="javascript:Move_jo('J30')"><span>제30조</span> (몰수·추징)</a></li><li class="comment" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J30')"><span>제30조</span> (몰수·추징)</a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li><li class="comment" title=""><a href="javascript:Move_jo('J31')"><span>제31조</span> (양벌규정)</a></li><li class="comment" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J31')"><span>제31조</span> (양벌규정)</a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li><li class="comment" title=""><a href="javascript:Move_jo('J32')"><span>제32조</span> (과태료)</a></li><li class="comment last" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J32')"><span>제32조</span> (과태료)</a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li></ul></li><li class="active_d0 last open"><a href="#">부칙</a><ul><li class="comment"><a href="javascript:Move_jo('b1')">부 칙[1998. 9.16  제5550호]</a></li><li class="comment"><a href="javascript:Move_jo('b2')">부 칙[2000.10.23  제6277호]</a></li><li class="comment"><a href="javascript:Move_jo('b3')">부 칙[2000.12.29  제6316호]</a></li><li class="comment"><a href="javascript:Move_jo('b4')">부 칙[2005.12.14 ]</a></li><li class="comment"><a href="javascript:Move_jo('b5')">부 칙[2006.10. 4  제8050호]</a></li><li class="comment"><a href="javascript:Move_jo('b6')">부 칙[2007. 1.26  제8266호]</a></li><li class="comment"><a href="javascript:Move_jo('b7')">부 칙[2007. 8. 3  제8635호]</a></li><li class="comment"><a href="javascript:Move_jo('b8')">부 칙[2008. 2.29  제8863호]</a></li><li class="comment"><a href="javascript:Move_jo('b9')">부 칙[2009.1.30 제9351호]</a></li><li class="comment"><a href="javascript:Move_jo('b10')">부 칙[2009.1.30  제9374호(외국인투자 촉진법)]</a></li><li class="comment"><a href="javascript:Move_jo('b11')">부 칙[2009.4.1 제9617호(신용정보의 이용 및 보호에 관한 법률)]</a></li><li class="comment"><a href="javascript:Move_jo('b12')">부 칙[2011.4.30 제10618호]</a></li><li class="comment"><a href="javascript:Move_jo('b13')">부 칙[2012.3.21 제11407호(금융위원회의 설치 등에 관한 법률)]</a></li><li class="comment"><a href="javascript:Move_jo('b14')">부 칙[2016.3.2 제14047호]</a></li><li class="comment last"><a href="javascript:Move_jo('b15')">부 칙[2017.1.17 제14525호]</a></li></ul></li></ul>
+					</div>
+				</div>
+				<article class="main_container">  
+					<div class="main_container_inner">ddd</div>
+					 <div class="main_container_view">
+						<div class="main_container_view_inner">
+						<!-- 관련정보 레이어 시작 -->
+							<div id="title_result_tab" class="result_tab"><span>관련정보 </span>
+								<div class="btn_option_outer"><div class="btn_close">X</div></div>
+								<div class="btn_option_outer"><div class="btn_reapprea">검색결과 보기</div></div>
+							</div>
+							<div id="pdf_view_etc" class="popup_mov_area"><embed  name="plugin" id="pdf_view_other"  src="hoisa_5_1_75_78.pdf"   type="application/pdf" wmode="transparent" wmode='Opaque'></embed></div>
+							<div id="result_area" class="popup_mov_area">
+								<div id="result_sep"><a href="1" class="_this">논문평석(21건)</a><a href="2">리포트(21건)</a><a href="3">주석서(21건)</a><a href="4">칼럼(21건)</a><a href="3">유사판례(21건)</a>
+								</div>
+								<div class="list_order_pr">
+									<div class="btn_option_outer"> 
+										<div class="select_area"> 
+											<p class="blind">보기 개수 선택</p>
+											<select id="" name=""  >
+												<option value="">10개</option>
+												<option value="" selected>20개</option>
+												<option value="">50개</option>
+											</select>
+										</div>
+										<div class="select_area"> 
+											<p class="blind">대상판례 선택</p>
+											<select id="" name=""  style="width:80px">
+												<option value="">전체 </option>
+												<option value="" selected>대상판례</option>
+												<option value="">본문내 관련판례</option>
+											</select>
+										</div>
+									</div>
+								</div> 
+								<ol class="list">
+									<li>
+										<span class="list_num">1</span>							 
+										<div class="co_searchContent">
+											<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[대상판례/본문내 관련판례][학회논문] 개별 행정법상 "이의신청제도"의 현황 검토</a><br><span>Legal Practice Study : Study on objection systems in several administrative laws</span><br><span class="list_meta">하경효(Kyung Hyo Ha), 하경효(Kyung Hyo Ha)/ 안암법학회/ 안암법학 <54>/ 2014/ 30Page </span></h3>  
+										</div>
+									</li>
+									<li>
+										<span class="list_num">1</span>							 
+										<div class="co_searchContent">
+											<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[대상판례/본문내 관련판례] [판례연구] 리스트 표시 개별 행정법상 "이의신청제도"의 현황 검토</a><br><span class="list_meta">하경효(Kyung Hyo Ha), 하경효(Kyung Hyo Ha)/ 형사판례 연구 21 / 2015.12.14 / 30Page </span></h3>  
+										</div>
+									</li>
+									<li>
+										<span class="list_num">1</span>							 
+										<div class="co_searchContent">
+											<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[대상판례/본문내 관련판례] [실무논문] 리스트 표시 개별 행정법상 "이의신청제도"의 현황 검토</a><br><span>Legal Practice Study : Study on objection systems in several administrative laws</span><br><span class="list_meta">하경효(Kyung Hyo Ha), 하경효(Kyung Hyo Ha)/ 법률신문 / 논문 / 2013.10.21 / txt </span></h3>  
+										</div>
+									</li>
+									<li>
+										<span class="list_num">1</span>							 
+										<div class="co_searchContent">
+											<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[학회논문] 개별 행정법상 "이의신청제도"의 현황 검토</a><br><span>Legal Practice Study : Study on objection systems in several administrative laws</span><br><span class="list_meta">하경효(Kyung Hyo Ha), 하경효(Kyung Hyo Ha)/ 안암법학회/ 안암법학 <54>/ 2014/ 30Page </span></h3>  
+										</div>
+									</li>
+									<li>
+										<span class="list_num">1</span>							 
+										<div class="co_searchContent">
+											<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[학회논문] 개별 행정법상 "이의신청제도"의 현황 검토</a><br><span>Legal Practice Study : Study on objection systems in several administrative laws</span><br><span class="list_meta">하경효(Kyung Hyo Ha), 하경효(Kyung Hyo Ha)/ 안암법학회/ 안암법학 <54>/ 2014/ 30Page </span></h3>  
+										</div>
+									</li>
+								</ol>
+								<div class="navigationLinks">				        									
+									<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=0" class="navFirst hiddenLink "><i class="icon-7" data-icon="&#xe911;"></i></a>
+									<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=-1" class="navPrevious hiddenLink "><i class="icon-2" data-icon="&#xe901;"></i></a>
+									<span class="currentPage">1</span>
+									<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navPages">2</a>
+									<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=2" class="navPages">3</a>
+									<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=3" class="navPages">4</a>
+									<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navNext"><i class="icon-1" data-icon="&#xe900;"></i></a>
+									<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=13" class="navLast "><i class="icon-8" data-icon="&#xe907;"></i></a>
+								</div> 
+							</div> <!-- 관련정보 레이어끝 -->
+							<div class="case_info"  id="view_content"> 
+							<p class="dp1 new_reg" id="prNum_2_1">제1장 총칙 <span>[개정 2011.7.21] [시행일 2012.1.22]</span></p>
+							<p id="foreTitle"></p><a name="J1"></a>
+							<div class="normal" title="" id="prCont_1"><em><a id="prNum_1" href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|1')">제1조</a></em> (목적) <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|N|1')"></a><span style="display:none" id="R_J1">Law</span><br>이 영은 「국제<span class="heightlight">도로</span> 면세통과 증서의 담보하에 행하는 화물의 국제운송에 관한 관세협약」 및 「1972년 콘테이너에 관한 관세협약」의 시행에 필요한 사항을 규정함을 목적으로 한다.<br>[전문개정 2011.12.28]</div>
+							<div class="relative_law"> <!-- 관련규정 -->
+								<div id="J1_view"  class="relative_law_view rules">
+									<div class="tit">제1조의 관련 규정</div>
+									<ul>
+										<li><a href="javascript:focusView('B0002609');">금융기관의 해외진출에 관한 규정(금융위원회고시  제2015-20호 2015.06.30)[소관부처 : 금융위원회]</a></li>
+										<li><a href="javascript:focusView('B0002609');">지능형교통체계 구축사업 지원 및 관리에 관한 규칙(경찰청 훈령 제701호 2013.04.15)[소관부처 : 경찰청]</a></li>
+										<li><a href="javascript:focusView('B0002609');">ITS 사업시행지침(교통정보 수집용 폐쇄회로TV(CCTV) 설치 및 관리)(국토해양부 고시 제2010-714호 2010.10.08)[소관부처 : 국토해양부]</a></li>
+										<li><a href="javascript:focusView('B0002609');">지능형교통체계 구축사업 지원 및 관리에 관한 규칙(경찰청 훈령 제701호 2013.04.15)[소관부처 : 경찰청]</a></li>
+										<li><a href="javascript:focusView('B0002609');">지능형교통체계 구축사업 지원 및 관리에 관한 규칙(경찰청 훈령 제701호 2013.04.15)[소관부처 : 경찰청]</a></li>
+										<li><a href="javascript:focusView('B0002609');">지능형교통체계 구축사업 지원 및 관리에 관한 규칙(경찰청 훈령 제701호 2013.04.15)[소관부처 : 경찰청]</a></li>
+										<li><a href="javascript:focusView('B0002609');">지능형교통체계 구축사업 지원 및 관리에 관한 규칙(경찰청 훈령 제701호 2013.04.15)[소관부처 : 경찰청]</a></li>
+									</ul>
+								</div>
+								<div class="detail_area">
+									<div class="but">관련 행정규칙 <i class="icon_open" ></i></div>
+								</div> 
+							</div>
+							<a name="J2"></a>
+							<div class="normal " title="" id="prCont_2"><em><a id="prNum_2" href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|2')">제2조</a></em> (정의) <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|N|2')"></a><span style="display:none" id="R_J2">Law</span>
+							<div class="btn-group  " >
+							  <button type="button" class="btn btn-square">판례</button> 
+							  <button type="button" class="btn btn-square">문헌</button> 
+							  <button type="button" class="btn btn-square">주석</button> 
+							  <button type="button" class="btn btn-square">헌법불합치</button> 
+							  <button type="button" class="btn btn-square">한정위헌</button> 
+							  <button type="button" class="btn btn-square">신/구</button> 
+							  <button type="button" class="btn btn-square">벌칙</button> 
+							  <button type="button" class="btn btn-square">과태료</button> 
+							  <button type="button" class="btn btn-square">과징금</button> 
+							</div>
+                            <br><a href="javascript:hyperlink('0CDB6E2A78B44A9B8BA38DEDE2DE97D6|2')">법 제2조제13호</a>다목에서 "대통령령으로 정하는 시설 또는 설비"란 다음 각 호의 시설 또는 설비를 말한다. [개정 <a href="1" class="etc_link">1992.5.30</a>, <a href="12" class="etc_link">11993.2.20</a>, <a href="31" class="etc_link">1994.12.30</a>, <a href="1#"  class="etc_link">1998.8.27</a>, <a href="22" class="etc_link">1999.8.6</a>, <a href="12" class="etc_link">2001.4.30</a>, <a href="22" class="etc_link">2003.11.29</a> 제18146호(<a href="javascript:hyperlink('7C63E7CFB3AA4C99AD90322178128539|0')">주택법시행령</a>), <a href="#" class="etc_link">2007.9.27</a> 제20289호(<a href="javascript:hyperlink('730F58FC14174D3F9E9B2C9AFF06182D|0')">하수도법 시행령</a>), <a href="#" class="etc_link">2008.2.29</a> 제20722호(<a href="javascript:hyperlink('8B36585DD6FC442DB1D4FA5A1F5FABF9|0')">국토해양부와 그 소속기관 직제</a>), <a href="32" class="etc_link"> 2009.10.19</a>, <a href="4"  class="etc_link">2011.1.4</a>, <a href="1"  class="etc_link">2011.12.28</a>, <a href="2"  class="etc_link">2013.3.23</a> 제24443호(<a href="javascript:hyperlink('26A4080FF6364C13AEF2482808098239|0')">국토교통부와 그 소속기관 직제</a>), 2016.8.11 제27444호(<a href="javascript:hyperlink('5867000C43A04D54B83F62E4F059F1C0|0')">주택법 시행령</a>)] <span class="popup_history" onmouseout="close_miju('Miju1')" onmouseover="open_miju('Miju1')">여기 칙개정연혁 날짜 클릭시 부칙 보여주는 레이어<div id="Miju1" class="miju_box" style="display: none;"><div class="miju_box_line">(대한변호사협회에서 10년이상의 경력을 인정한 분야입니다.)</div></div></span><br>1. 보안등·대문·경비실·자전거보관소<br>2. 조경시설·옹벽·축대<br>3. 안내표지판·공중화장실<br>4. 저수시설·지하양수시설·대피시설<br>5. 쓰레기수거 및 처리시설·오수처리시설·정화조<br>6. 소방시설·냉난방공급시설(지역난방공급시설은 제외한다) 및 방범설비<br>7. <a href="javascript:hyperlink('0C01A39108CB418EB486A9DD7DFB671F|2')">「환경친화적 자동차의 개발 및 보급 촉진에 관한 법률」 제2조제3호</a>에 따른 전기자동차에 전기를 충전하여 공급하는 시설<br>8. 그 밖에 제1호부터 제7호까지의 시설 또는 설비와 비슷한 것으로서 국토교통부령으로 정하는 시설 또는 설비<br>
+							<br>이 영에서 사용하는 용어의 뜻은 다음 각 호와 같다.<br> 1. “콘테이너”란 「국제<span class="heightlight">도로</span> 면세통과 증서의 담보하에 행하는 화물의 국제운송에 관한 관세협약」(이하 “국제<span class="heightlight">도로</span>운송협약”이라 한다) 제1조제5호 및 「1972년 콘테이너에 관한 관세협약」(이하 “콘테이너협약”이라 한다) 제1조다목에 따른 운송기기를 말한다.<br> 2. “<span class="heightlight">도로</span>운송차량”이란 국제<span class="heightlight">도로</span>운송협약제1조제3호에 따른 <span class="heightlight">도로</span>운행차량 및 같은 조 제4호에 따른 차량의 결합체를 말한다.<br> 3. “국제<span class="heightlight">도로</span>운송”이란 외국을 목적지 또는 출발지로 하여 운송하는 도중 옮겨 싣지 아니하고 같은 콘테이너로 화물을 운송하는 행위를 말한다.<br> 4. “국제<span class="heightlight">도로</span>운송증서”란 국제<span class="heightlight">도로</span>운송협약 제6조제1호에 따라 승인을 받은 단체가 같은 협약에 따라 직접 또는 그 제휴단체를 통하여 발급한 국제<span class="heightlight">도로</span> 면세통과 증서를 말한다.<br>[전문개정 2011.12.28]<br></div><a name="J3"></a><div class="normal new_reg" title="" id="prCont_3"><em><a id="prNum_3" href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|3')">제3조</a></em> (국제<span class="heightlight">도로</span>운송증서에 의한 보세운송의 신고) <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|N|3')"></a><span style="display:none" id="R_J3">Law</span><br>① 국제<span class="heightlight">도로</span>운송증서의 확인을 받으려는 자는 그 증서를 <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|5')">제5조</a>에 따른 보증단체에 제출하여야 한다.<br> ②<a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|5')">제5조</a>에 따른 보증단체가 국제<span class="heightlight">도로</span>운송증서의 확인신청을 받았을 때에는 그 증서가 국제<span class="heightlight">도로</span>운송협약<a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|6')">제6조</a>에 따른 보증단체(이하 “국제보증단체”라 한다)와 제휴하고 있는 외국의 보증단체가 발급한 것인지를 확인한 후 그 증서에 확인의 표시를 하여 신청인에게 반환하여야 한다.<br> ③ <a href="javascript:hyperlink('E566C0BD48E143C78A6DA6CB9819239A|226')">「관세법 시행령」 제226조</a>에도 불구하고 <a href="javascript:hyperlink('5BBA458BB3D64D4F97264E8205015B96|213')">「관세법」 제213조제2항</a>에 따른 보세운송의 신고는 제2항에 따른 확인을 받은 국제<span class="heightlight">도로</span>운송증서에 의하여 할 수 있다.<br>[전문개정 2011.12.28]<br></div><a name="J4"></a><div class="normal" title="" id="prCont_4"><em><a id="prNum_4" href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|4')">제4조</a></em> (콘테이너의 봉인) <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|N|4')"></a><span style="display:none" id="R_J4">Law</span><br>① 국제<span class="heightlight">도로</span>운송협약 제19조에 따라 화물 및 콘테이너를 국제<span class="heightlight">도로</span>운송증서와 함께 세관장에게 제시하는 경우에 세관장은 해당 화물 및 콘테이너에 대하여 필요한 검사를 하고 그 증서의 기재사항을 확인한 후 그 콘테이너에 봉인(封印)을 하여야 한다.<br> ② 제1항에 따른 콘테이너에 실은 화물의 관리와 봉인의 기준 및 절차에 관하여 필요한 사항은 관세청장이 정한다.<br>[전문개정 2011.12.28]<br></div><a name="J5"></a><div class="normal" title="" id="prCont_5"><em><a id="prNum_5" href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|5')">제5조</a></em> (보증단체의 승인 등) <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|N|5')"></a><span style="display:none" id="R_J5">Law</span><br>① 국내에서의 국제<span class="heightlight">도로</span>운송증서 발급 및 보증 업무를 하려는 자는 관세청장의 승인을 받아야 한다.<br> ② 제1항에 따라 승인을 받으려는 자는 신청서에 다음 각 호의 서류를 첨부하여 관세청장에게 제출하여야 한다. 이 경우 관세청장은 <a href="javascript:hyperlink('B2928BA68399415AB16513A780D37200|36')">「전자정부법」 제36조제1항</a>에 따른 행정정보의 공동이용을 통하여 법인 등기사항증명서를 확인하여야 한다.<br> 1. 국제보증단체와 제휴하고 있다는 사실을 증명하는 서류<br> 2. 국제보증단체와 관세 등에 관한 보증계약을 체결할 것이 확실하다는 사실을 증명하는 서류<br> 3. 국제<span class="heightlight">도로</span>운송증서의 발급 및 보증에 관한 규칙 사본<br> 4. 해당 법인의 등기사항증명서를 갈음하는 서류(법인 등기사항증명서로 확인할 수 없는 경우만 해당한다)<br> 5. 해당 법인의 정관과 설립 취지 및 연혁을 적은 서류 또는 이를 갈음하는 서류<br> 6. 사업계획서와 최근 사업연도의 사업보고서·손익계산서·대차대조표 및 재산목록<br> 7. 그 밖에 관세청장이 필요하다고 인정하는 서류<br> ③ 제1항에 따라 승인을 받은 자(이하 “보증단체”라 한다)는 국제보증단체와 보증계약을 체결하였을 때에는 즉시 그 보증계약의 내용을 관세청장에게 신고하여야 한다.<br> ④ 보증단체는 제3항에 따른 신고를 한 후가 아니면 국제도로운송증서를 발급할 수 없다.<br> ⑤ 보증단체는 업무를 폐지하려는 경우에는 늦어도 폐지하려는 날 1개월 전까지 업무 폐지의 날짜 및 사유를 관세청장에게 신고하여야 한다.<br> ⑥ 관세청장은 보증단체가 국제<span class="heightlight">도로</span>운송협약이나 이 영 또는 이 영에 따른 명령이나 처분을 위반하였을 때에는 보증단체의 승인을 취소하거나 업무의 정지 또는 그 밖에 필요한 조치를 명할 수 있다.<br>[전문개정 2011.12.28]<br></div><a name="J6"></a><div class="normal" title="" id="prCont_6"><em><a id="prNum_6" href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|6')">제6조</a></em> (담보의 제공) <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|N|6')"></a><span style="display:none" id="R_J6">Law</span><br>① 관세청장은 관세 등을 확보하기 위하여 필요하다고 인정할 때에는 금액과 기간을 정하여 보증단체에 담보의 제공을 요구할 수 있다.<br> ② 관세청장은 제1항에 따라 담보를 제공받은 경우에 보증단체가 납부하여야 할 관세 등을 납부기한까지 납부하지 아니하였을 때에는 담보로 제공된 재산을 처분하여 관세 등으로 충당하거나 그 밖에 필요한 조치를 할 수 있다.<br>[전문개정 2011.12.28]<br></div><a name="J7"></a><div class="normal" title="" id="prCont_7"><em><a id="prNum_7" href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|7')">제7조</a></em> (콘테이너의 승인단체) <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|N|7')"></a><span style="display:none" id="R_J7">Law</span><br>① 국제<span class="heightlight">도로</span>운송협약 제13조 및 콘테이너협약 제12조에 따른 콘테이너의 승인업무는 <a href="javascript:hyperlink('05AF694282E548CEB77DAA3A1711AF89|60')">「선박안전법」 제60조제2항</a>에 따른 선급법인[이하 “선급법인”(船級法人)이라 한다]이 한다.<br>  ② 선급법인은 콘테이너의 승인업무를 시작하기 전에 국제<span class="heightlight">도로</span>운송협약 및 콘테이너협약에 따른 콘테이너 승인에 관한 기준(수수료에 관한 사항을 포함한다. 이하 같다)을 제정하여 관세청장의 승인을 받아야 한다.<br>  ③ 관세청장은 선급법인이 다음 각 호의 어느 하나에 해당할 때에는 콘테이너 승인업무를 폐지하거나 업무의 정지 또는 그 밖에 필요한 조치를 명할 수 있다.<br>  1. 국제<span class="heightlight">도로</span>운송협약ㆍ콘테이너협약 또는 이 영이나 이 영에 따른 명령 또는 처분을 위반하였을 때<br>  2. 제2항에 따른 콘테이너 승인에 관한 기준을 위반하여 승인을 하였을 때<br>  3. 승인능력이 없게 되거나 업무를 성실히 이행하지 아니하였을 때<br>  ④ 선급법인이 제3항에 따른 승인업무의 폐지 또는 정지로 그 업무를 할 수 없게 된 경우 이 영에 따른 콘테이너의 승인업무는 관세청장이 한다.<br>[전문개정 2011.12.28]</div><a name="J8"></a><div class="normal" title="" id="prCont_8"><em><a id="prNum_8" href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|8')">제8조</a></em> (콘테이너의 개별 승인신청) <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|N|8')"></a><span style="display:none" id="R_J8">Law</span><br>① 국제<span class="heightlight">도로</span>운송협약 제13조 및 콘테이너협약 제12조에 따라 콘테이너의 개별 승인을 받으려는 자는 다음 각 호의 사항을 적은 신청서를 선급법인에 제출하여야 한다. 이를 변경하려는 경우에도 또한 같다.<br>  1. 콘테이너의 종류, 형식, 기호 또는 번호, 자체중량, 그 밖에 구조상의 중요한 특징<br>  2. 소유자의 성명 및 주소<br>  3. 그 밖에 관세청장이 필요하다고 인정하는 사항<br>  ② <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|13')">제13조</a>에 따른 콘테이너 지정검사기관의 검사를 받은 자가 제1항의 개별 승인신청을 하는 경우에는 그 신청서에 그 지정검사기관이 발급한 검사합격을 증명하는 서류를 첨부하여야 한다.<br>[전문개정 2011.12.28]</div><a name="J9"></a><div class="normal" title="" id="prCont_9"><em><a id="prNum_9" href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|9')">제9조</a></em> (콘테이너의 형식승인신청) <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|N|9')"></a><span style="display:none" id="R_J9">Law</span><br>① 국제<span class="heightlight">도로</span>운송협약 제13조 및 콘테이너협약 제12조에 따라 콘테이너의 형식승인을 받으려는 자는 다음 각 호의 사항을 적은 신청서를 선급법인에 제출하여야 한다. 이를 변경하려는 경우에도 또한 같다.<br>  1. 제조공장의 명칭 및 소재지와 제조회사의 명칭ㆍ주소 및 대표자 성명<br>  2. 제조 예정 수량<br>  3. 콘테이너의 종류, 형식, 기호 또는 번호, 자체중량, 그 밖에 구조상의 중요한 특징<br>  4. 그 밖에 관세청장이 필요하다고 인정하는 사항<br>  ② 제1항의 신청서에는 콘테이너의 설계도면과 제조설명서를 첨부하여야 한다. 다만, <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|13')">제13조</a>에 따른 콘테이너 지정검사기관의 검사를 받은 자가 승인신청을 하는 경우에는 그 지정검사기관이 발급한 검사합격을 증명하는 서류를 첨부하여야 한다.<br>[]</div><a name="J10"></a><div class="normal" title="" id="prCont_10"><em><a id="prNum_10" href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|10')">제10조</a></em> (콘테이너의 검사와 승인) <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|N|10')"></a><span style="display:none" id="R_J10">Law</span><br>① 선급법인은 <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|8')">제8조</a>에 따른 개별 승인신청 또는 <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|9')">제9조</a>에 따른 형식승인신청을 받았을 때에는 콘테이너에 대한 검사를 하여야 한다. 다만, <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|13')">제13조</a>에 따른 콘테이너 지정검사기관의 검사를 받은 콘테이너에 대해서는 검사를 생략할 수 있다.<br> ② 선급법인은 검사를 할 때 해당 콘테이너가 국제<span class="heightlight">도로</span>운송협약 부속서 7 및 콘테이너협약 부속서 4에 따른 기술적 조건에 적합한지를 심사하여야 한다.<br> ③ 선급법인은 검사에 합격한 콘테이너에 대하여 승인을 하여야 한다. <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|13')">제13조</a>에 따른 콘테이너 지정검사기관의 검사에 합격한 콘테이너에 대해서도 또한 같다.<br>[전문개정 2011.12.28]<br></div><a name="J11"></a><div class="normal" title="" id="prCont_11"><em><a id="prNum_11" href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|11')">제11조</a></em> (콘테이너 승인 표시) <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|N|11')"></a><span style="display:none" id="R_J11">Law</span><br>① 선급법인은 콘테이너에 대하여 승인을 하였을 때에는 승인증서를 발급하여야 한다.<br> ② 콘테이너에 대하여 <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|10')">제10조</a>에 따른 승인을 받은 자는 국제<span class="heightlight">도로</span>운송을 위하여 콘테이너를 사용하기 전에 그 승인받은 것을 증명하는 금속제 승인판(이하 “승인판”이라 한다)을 관세청장이 정하는 바에 따라 콘테이너의 문이나 그 밖에 외부에서 쉽게 볼 수 있는 장소에 붙이되, 형식승인을 받은 자가 승인판을 붙이는 경우에는 해당 콘테이너의 종류, 기호 또는 번호, 그 밖에 필요한 사항을 장부에 기록하여야 한다.<br> ③ 관세청장은 필요하다고 인정할 때에는 형식승인을 받은 자에게 제2항에 따라 기록된 장부의 내용에 관한 보고를 요구할 수 있다.<br>[전문개정 2011.12.28]<br></div><a name="J12"></a><div class="normal" title="" id="prCont_12"><em><a id="prNum_12" href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|12')">제12조</a></em> (콘테이너 승인의 효력 상실) <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|N|12')"></a><span style="display:none" id="R_J12">Law</span><br>승인을 받은 콘테이너가 다음 각 호의 어느 하나에 해당할 때에는 콘테이너 승인의 효력이 상실된다.<br> 1. 해당 콘테이너에 대하여 주요한 부분을 수리하였거나, 국제<span class="heightlight">도로</span>운송협약 부속서 7 및 콘테이너협약 부속서 4에 따른 기술적 조건의 변경을 초래하는 개조를 하였을 때<br> 2. 그 밖에 해당 콘테이너에 관한 본질적인 사항이 변경되어 승인 상태를 유지하기가 어렵게 되었을 때<br>[전문개정 2011.12.28]<br></div><a name="J13"></a><div class="normal" title="" id="prCont_13"><em><a id="prNum_13" href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|13')">제13조</a></em> (콘테이너 검사기관의 지정) <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|N|13')"></a><span style="display:none" id="R_J13">Law</span><br>① 관세청장은 수출용 콘테이너에 대한 검사업무를 위하여 특히 필요하다고 인정할 때에는 검사업무만을 할 검사기관을 지정할 수 있다.<br> ② 제1항에 따른 검사기관으로 지정을 받으려는 자는 신청서에 다음 각 호의 서류를 첨부하여 관세청장에게 제출하여야 한다. 이 경우 관세청장은 <a href="javascript:hyperlink('B2928BA68399415AB16513A780D37200|36')">「전자정부법」 제36조제1항</a>에 따른 행정정보의 공동이용을 통하여 법인 등기사항증명서를 확인하여야 한다.<br> 1. 해당 법인의 등기사항증명서를 갈음하는 서류(법인 등기사항증명서로 확인할 수 없는 경우만 해당한다)<br> 2. 해당 법인의 정관과 설립 취지 및 연혁을 적은 서류 또는 이를 갈음하는 서류<br> 3. 사업계획서와 최근 사업연도의 사업보고서·손익계산서·대차대조표 및 재산목록<br> 4. 국제<span class="heightlight">도로</span>운송협약 및 콘테이너협약에 따른 검사업무를 수행할 수 있음을 증명할 수 있는 서류<br> 5. 콘테이너 검사에 관한 기준(검사수수료에 관한 사항을 포함한다. 이하 같다) 사본<br> 6. 그 밖에 관세청장이 필요하다고 인정하는 서류<br> ③ 관세청장은 제1항에 따라 지정된 검사기관(이하 “콘테이너 지정검사기관”이라 한다)이 다음 각 호의 어느 하나에 해당할 때에는 검사기관의 지정을 취소하거나 업무의 정지 또는 그 밖에 필요한 조치를 명할 수 있다.<br> 1. 검사업무를 수행할 수 없게 되었을 때<br> 2. 국제<span class="heightlight">도로</span>운송협약·콘테이너협약 또는 이 영이나 이 영에 따른 명령 또는 처분을 위반하였을 때<br> 3. 제2항제5호에 따른 콘테이너 검사에 관한 기준을 위반하여 검사를 하였을 때<br> 4. 제4항에서 준용하는 <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|5')">제5조제5항</a>에 따라 업무의 폐지 신고를 하였을 때<br> ④ 콘테이너 지정검사기관에 관하여는 <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|5')">제5조제5항</a> 및 <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|10')">제10조제2항</a>을 준용한다. 이 경우 <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|5')">제5조제5항</a> 중 “보증단체”와 <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|10')">제10조제2항</a> 중 “선급법인”은 각각 “콘테이너 지정검사기관”으로 본다.<br>[전문개정 2011.12.28]<br></div><a name="J14"></a><div class="normal" title="" id="prCont_14"><em><a id="prNum_14" href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|14')">제14조</a></em> (차량승인기관의 지정) <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|N|14')"></a><span style="display:none" id="R_J14">Law</span><br>① 국제<span class="heightlight">도로</span>운송협약 제12조에 따른 차량의 승인업무는 이 영에 따라 지정을 받은 기관(이하 “차량승인기관”이라 한다)이 한다.<br> ② 차량승인기관으로 지정을 받으려는 자는 신청서에 다음 각 호의 서류를 첨부하여 관세청장에게 제출하여야 한다. 이 경우 관세청장은 <a href="javascript:hyperlink('B2928BA68399415AB16513A780D37200|36')">「전자정부법」 제36조제1항</a>에 따른 행정정보의 공동이용을 통하여 법인 등기사항증명서를 확인하여야 한다.<br> 1. 해당 법인의 등기사항증명서를 갈음하는 서류(법인 등기사항증명서로 확인할 수 없는 경우만 해당한다)<br> 2. 해당 법인의 정관과 설립 취지 및 연혁을 적은 서류 또는 이를 갈음하는 서류<br> 3. 사업계획서와 최근 사업연도의 사업보고서·손익계산서·대차대조표 및 재산목록<br> 4. 국제<span class="heightlight">도로</span>운송협약에 따른 <span class="heightlight">도로</span>운송차량의 승인업무를 수행할 수 있음을 증명할 수 있는 서류<br> 5. <span class="heightlight">도로</span>운송차량 승인에 관한 기준(승인수수료에 관한 사항을 포함한다. 이하 같다) 사본<br> 6. 그 밖에 관세청장이 필요하다고 인정하는 서류<br> ③ 관세청장은 차량승인기관이 다음 각 호의 어느 하나에 해당할 때에는 차량승인기관의 지정을 취소하거나 업무의 정지 또는 그 밖에 필요한 조치를 명할 수 있다.<br> 1. 승인업무를 수행할 수 없게 되었을 때<br> 2. 국제<span class="heightlight">도로</span>운송협약이나 이 영 또는 이 영에 따른 명령이나 처분을 위반하였을 때<br> 3. 제2항제5호에 따른 <span class="heightlight">도로</span>운송차량 승인에 관한 기준을 위반하여 승인을 하였을 때<br> 4. 제4항에서 준용하는 <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|5')">제5조제5항</a>에 따라 업무의 폐지 신고를 하였을 때<br> ④ 차량승인기관에 관하여는 <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|5')">제5조제5항</a>을 준용한다. 이 경우 <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|5')">제5조제5항</a> 중 “보증단체”는 “차량승인기관”으로 본다.<br>[전문개정 2011.12.28]<br></div><a name="J14X2"></a><div class="normal" title="" id="prCont_15"><em><a id="prNum_15" href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|14X2')">제14조의2</a></em> (청문) <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|N|14X2')"></a><span style="display:none" id="R_J14X2">Law</span><br>관세청장은 <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|14')">제14조제3항</a>에 따라 차량승인기관의 지정을 취소하려면 청문을 하여야 한다.<br>[전문개정 2011.12.28]<br></div><a name="J15"></a><div class="normal" title="" id="prCont_16"><em><a id="prNum_16" href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|15')">제15조</a></em> (<span class="heightlight">도로</span>운송차량의 승인신청) <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|N|15')"></a><span style="display:none" id="R_J15">Law</span><br>① 국제<span class="heightlight">도로</span>운송협약 제12조에 따라 <span class="heightlight">도로</span>운송차량의 승인을 받으려는 자는 다음 각 호의 사항을 적은 신청서를 차량승인기관에 제출하여야 한다. 이를 변경하려는 경우에도 또한 같다.<br> 1. <span class="heightlight">도로</span>운송차량의 종류, 형식, 차대번호(車臺番號), 원동기번호, 등록번호, 그 밖에 구조상의 중요한 특징. 다만, 원동기번호는 판명되는 경우에만 적는다.<br> 2. 소유자 또는 운송인의 성명 및 주소<br> 3. 제작회사의 명칭·주소 및 대표자의 성명<br> 4. 제작 예정 수량(형식승인의 경우에만 적는다)<br> 5. 그 밖에 관세청장이 필요하다고 인정하는 사항<br> ② 제1항의 신청서에는 차량승인기관이 필요하다고 인정하는 사진 또는 설계도면과 제조설명서를 첨부하여야 한다.<br>[전문개정 2011.12.28]<br></div><a name="J16"></a><div class="normal" title="" id="prCont_17"><em><a id="prNum_17" href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|16')">제16조</a></em> (<span class="heightlight">도로</span>운송차량의 검사와 승인) <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|N|16')"></a><span style="display:none" id="R_J16">Law</span><br>① 차량승인기관은 <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|15')">제15조</a>에 따른 승인신청을 받았을 때에는 <span class="heightlight">도로</span>운송차량에 대한 검사를 하여야 한다.<br> ② 차량승인기관은 검사를 할 때 해당 <span class="heightlight">도로</span>운송차량이 국제<span class="heightlight">도로</span>운송협약 부속서 2에 따른 기술적 조건에 적합한지를 심사하여야 한다.<br> ③ 차량승인기관은 검사에 합격한 차량에 대하여 승인을 하여야 한다.<br>[전문개정 2011.12.28]<br></div><a name="J17"></a><div class="normal" title="" id="prCont_18"><em><a id="prNum_18" href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|17')">제17조</a></em> (<span class="heightlight">도로</span>운송차량의 승인증서) <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|N|17')"></a><span style="display:none" id="R_J17">Law</span><br>① 차량승인기관은 <span class="heightlight">도로</span>운송차량에 대하여 승인을 하였을 때에는 승인증서를 발급하여야 한다.<br> ② 제1항의 승인증서의 유효기간은 2년으로 한다.<br> ③ 승인을 받은 <span class="heightlight">도로</span>운송차량이 다음 각 호의 어느 하나에 해당할 때에는 <span class="heightlight">도로</span>운송차량 승인의 효력이 상실된다.<br> 1. 승인증서의 유효기간이 만료되었을 때<br> 2. 해당 <span class="heightlight">도로</span>운송차량에 대하여 주요한 부분을 수리하였거나, 국제<span class="heightlight">도로</span>운송협약 부속서 2에 따른 기술적 조건의 변경을 초래하는 개조를 하였을 때<br> 3. 그 밖에 해당 <span class="heightlight">도로</span>운송차량에 관한 본질적인 사항이 변경되어 승인 상태를 유지하기가 어렵게 되었을 때<br>[전문개정 2011.12.28]<br></div><a name="J18"></a><div class="normal" title="" id="prCont_19"><em><a id="prNum_19" href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|18')">제18조</a></em> (보고 및 검사) <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|N|18')"></a><span style="display:none" id="R_J18">Law</span><br>① 관세청장은 이 영의 시행을 위하여 필요할 때에는 보증단체, 선급법인, 콘테이너 지정검사기관 또는 차량승인기관으로 하여금 그 업무 및 재산에 관하여 필요한 사항을 보고하게 하거나, 소속 공무원으로 하여금 이들 업무 및 재산에 관한 장부 또는 그 밖의 관계 서류를 검사하게 할 수 있다.<br> ② 제1항에 따라 검사를 하는 공무원은 그 권한을 표시하는 증표를 관계인에게 보여 주어야 한다.<br> ③ 보증단체, 선급법인, 콘테이너 지정검사기관 및 차량승인기관은 제1항에 따라 검사하는 공무원의 직무 수행에 필요한 협조를 하여야 한다.<br>[전문개정 2011.12.28]<br></div><a name="J19"></a><div class="normal" title="" id="prCont_20"><em><a id="prNum_20" href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|19')">제19조</a></em> (서식의 제정) <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|N|19')"></a><span style="display:none" id="R_J19">Law</span><br>이 영에 따른 승인판의 양식 및 형식과 각종 신청서ㆍ승인증서 등 서류의 서식은 관세청장이 정한다.<br>[전문개정 2011.12.28]</div><a name="J20"></a><div class="normal" title="" id="prCont_21"><em><a id="prNum_21" href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|20')">제20조</a></em> (운영 세칙) <a href="javascript:hyperlink('73E936A33FE64CB089EA82D0B0BC0707|N|20')"></a><span style="display:none" id="R_J20">Law</span><br>이 영에서 정하는 사항 외에 국제<span class="heightlight">도로</span>운송협약 및 콘테이너협약과 이 영의 시행에 필요한 사항은 관세청장이 정한다.<br>[전문개정 2011.12.28]</div><a name="b1"></a><div class="normal" id="prAdd_1">부칙 [82·8·13]<br>  ①(시행일) 이 영은 공포한 날로부터 시행한다. 다만, 콘테이너협약에관한규정은콘테이너협약이 대한민국에 대하여 효력을 발생하는 날로부터 시행한다.<br>  ②(경과조치) 이 영 시행당시 국제<span class="heightlight">도로</span>운송협약 및 콘테이너협약에 가입한 국가또는 그 국가가 인정한 단체가 검사·개별승인 또는 형식승인한 콘테이너 및<span class="heightlight">도로</span>운송차량은 이 영에 의하여 검사·개별승인 또는 형식승인을 받은 것으로 본다.<br></div><a name="b2"></a><div class="normal" id="prAdd_2">부칙 [97·12·31]<br>이 영은 1998년 1월 1일부터 시행한다.<br></div><a name="b3"></a><div class="normal" id="prAdd_3">부칙 [98·7·1]<br>제1조 (시행일) 이 영은 공포한 날부터 시행한다. [단서 생략]<br>제2조 생략<br></div><a name="b4"></a><div class="normal" id="prAdd_4">부칙[2000. 12. 29. 대17048호]<br>제1조(시행일) 이 영은 2001년 1월 1일부터 시행한다.<br>제2조 내지 제8조 생략<br></div><a name="b5"></a><div class="normal" id="prAdd_5">부칙 [2007.9.28 제20300호(선박안전법 시행령)]<br>제1조(시행일) 이 영은 2007년11월 4 일부터 시행한다.<br>제2조 내지 제5조 생략<br>제6조(다른 법령의 개정) ① 생략<br>  ②국제<span class="heightlight">도로</span>면세통과증서의담보하에행하는화물의국제운송에관한관세협약및콘테이너에관한관세협약의시행에관한규정 일부를 다음과 같이 개정한다.<br>제7조제1항 중 “선박안전법 제8조의 규정에 의한”을 “「선박안전법」 제60조제2항에 따른”으로 한다.<br>  ③ 내지 ⑮ 생략<br>제7조 생략</div><a name="b6"></a><div class="normal" id="prAdd_6">부칙 [2010.11.2 제22467호(행정정보의 공동이용 및 문서감축을 위한 경제교육지원법 시행령 등)]<br>이 영은 공포한 날부터 시행한다.</div><a name="b7"></a><div class="normal" id="prAdd_7">부칙 [2011.12.28 제23389호]<br>이 영은 공포한 날부터 시행한다.<br></div>
+							<div class="normal" id="prAdd_7">별표서식 차로에 따른 통행차의 기준(제16조제1항 및 제39조제1항 관련)<br>
+								<div class="ar">
+									<div class="btn-group">
+									  <button type="button" class="btn btn-square">PDF로 보기</button> 
+									  <button type="button" class="btn btn-square">TXT로보기</button>  
+									</div>
+									<div class="btn-group"> 
+									  <button type="button" class="btn btn-square">PDF 다운로드</button> 
+									  <button type="button" class="btn btn-square">HWP 다운로드</button>  
+									</div>
+								</div>
+								 
+							</div>
+							</div> 
+						</div>
+					 </div>
+				</article> 
+				<aside class="right_container">
+                    <section>
+						<div class="right_button" ><a href="">온라인 주석서</a></div> 
+					</section>
+					<section>
+						<div class="btn_group">
+							<a href="#"  ><span>3단비교</span></a><a href="#"  ><span>신구조문비교</span></a>
+						</div>
+						<div class="btn_group"> 
+							<a href="#" ><span>변경조문</span></a> <a href="#" ><span>별표서식</span></a> <a href="#" ><span>제&middot;개정이유</span></a> <a href="#" ><span>제&middot;개정문</span></a> <a href="javascript:elc_pdf_view();" ><span>전자관보</span></a> <a href="#" disable="true"><span>영문법령</span></a>
+						</div>
+					</section>
+					<section> 
+						<ul>
+							<li><a href="2" >[주석서] 개인정보보호법</a></li>  
+							<li><a href="4" >[E-Book] 개인정보법 해설</a></li>  
+							<li><a href="4" >[온주] 개인정보보호법</a></li>  
+						</ul>
+					</section>
+					<section>
+						<h4>담당부처 전화번호</h4>
+						<ul>
+							<li style="font-size:smaller">농림축산식품부(농촌정책과), 044-201-1518, 1519<br>농림축산식품부(농업기반과), 044-201-1857</li>   
+						</ul>  
+					</section> 
+					<section>
+						<h4>법령체계도 
+							<em>(총 8건)</em>
+							<div class="btn-group fr"  >
+							  <button type="button" class="btn btn-default">전체보기</button> 
+							</div>
+						</h4>
+						<div class="table_index tree"> 
+							<div class="mgl20 mgt10 mgr10">
+								<select style="width:100%">
+									<option selected="selected">자동차손해배상 보장법</option>
+									<option>가등기담보 등에 관한 법률</option>
+									<option>나노기술개발 촉진법</option>
+									<option>다문화가족지원법</option>
+									<option>발달장애인 권리보장 및 지원에 관한 법률</option>
+									<option>사립학교법</option>
+									<option>자동차손해배상 보장법</option>
+									<option>채권의 공정한 추심에 관한 법률</option>
+									<option>콘텐츠산업 진흥법</option>  
+								</select>
+							</div>
+							<ul class="regulation law_level ">
+								<li class="comment" title=""><a href="javascript:Move_jo('J1')">소방공무원법 <span >[시행 2016.8.4.] [법률 제13978호, 2016.2.3., 타법개정]</span></a>
+									<ul> 	
+										<li class="comment close" title=""><a href="javascript:Move_jo('J2')">소방공무원임용령 <span  >[시행 2017.1.1.] [대통령령 제27751호, 2016.12.30., 타법개정] </span>   </a>
+											<ul>
+												<li class="comment" title=""><a href="javascript:Move_jo('J2')">소방공무원임용룡 시행규칙 <span  >[시행 2017.1.1.] [미래창조과학부령 제89호, 2016.12.30., 타법개정] </span>   </a>
+													<ul>
+														<li class="comment  close "><a href="#" class="last_law">행정규칙 (2건)</a>
+															<ul>
+																<li  class="comment"><a href="">남북한 왕래자 등에 대한 출입(국)심사지침 </a></li>
+																<li><a href="">남북한 왕래자 등에 대한 출입(국)심사지침 </a></li> 
+															</ul>
+														</li>
+													</ul>
+												</li>
+											</ul>
+										</li><li class="comment" title=""><a href="javascript:Move_jo('J2')">공무원고충처리규정 <span  >[시행 2017.1.1.] [대통령령 제27751호, 2016.12.30., 타법개정] </span>   </a></li>
+										</li><li class="comment close" title=""><a href="javascript:Move_jo('J2')">공무원보수규정 <span  >[시행 2017.1.1.] [대통령령 제27751호, 2016.12.30., 타법개정] </span>   </a>
+											<ul> 
+												<li class="comment" title=""><a href="javascript:Move_jo('J2')">외무공무원의 승격에 관한 규칙 <span >[시행 2017.5.2.] [외교부령 제47호, 2017.5.2., 일부개정]</span> </a>
+													<ul>
+														<li class="comment  close "><a href="#" class="last_law">행정규칙 (2건)</a>
+															<ul>
+																<li  class="comment"><a href="">남북한 왕래자 등에 대한 출입(국)심사지침 </a></li>
+																<li><a href="">남북한 왕래자 등에 대한 출입(국)심사지침 </a></li> 
+															</ul>
+														</li>
+													</ul>
+												</li>
+												<li class="comment  close"><a href="#" class="last_law">행정규칙 (5건)</a>
+													<ul>
+														<li  class="comment"><a href="">남북한 왕래자 등에 대한 출입(국)심사지침 </a></li>
+														<li><a href="">남북한 왕래자 등에 대한 출입(국)심사지침 </a></li>
+														<li><a href="">남북한 왕래자 등에 대한 출입(국)심사지침 </a></li>
+														<li><a href="">남북한 왕래자 등에 대한 출입(국)심사지침 </a></li>
+														<li><a href="">남북한 왕래자 등에 대한 출입(국)심사지침 </a></li>
+														<li><a href="">남북한 왕래자 등에 대한 출입(국)심사지침 </a></li>
+														<li><a href="">남북한 왕래자 등에 대한 출입(국)심사지침 </a></li>
+													</ul>
+												</li>
+											</ul>
+										</li>
+										</li><li class="comment" title=""><a href="javascript:Move_jo('J2')">소방공무원 복무규정 <span  >[시행 2017.1.1.] [대통령령 제27751호, 2016.12.30., 타법개정] </span>   </a></li>
+										</li><li class="comment" title=""><a href="javascript:Move_jo('J2')">소방공무원 승진임용 규정 <span  >[시행 2017.1.1.] [대통령령 제27751호, 2016.12.30., 타법개정] </span>   </a></li>
+										</li><li class="comment" title=""><a href="javascript:Move_jo('J2')">소방공무원 징계령 <span  >[시행 2017.1.1.] [대통령령 제27751호, 2016.12.30., 타법개정] </span>   </a></li>
+										</li><li class="comment" title=""><a href="javascript:Move_jo('J2')">소방공무원교육훈련규정 <span  >[시행 2017.1.1.] [대통령령 제27751호, 2016.12.30., 타법개정] </span>   </a></li>
+										</li><li class="comment" title=""><a href="javascript:Move_jo('J2')">소방공무원기장령 <span  >[시행 2017.1.1.] [대통령령 제27751호, 2016.12.30., 타법개정] </span>   </a></li>
+										<li class="comment close"><a href="#" title="방송법 [시행 2017.1.1.] [대통령령 제27751호, 2016.12.30., 타법개정]" class="last_law">행정규칙 (23건)</a>
+											<ul>
+												<li  class="comment"><a href="">남북한 왕래자 등에 대한 출입(국)심사지침 </a></li>
+												<li><a href="">남북한 왕래자 등에 대한 출입(국)심사지침 </a></li>
+												<li><a href="">남북한 왕래자 등에 대한 출입(국)심사지침 </a></li>
+												<li><a href="">남북한 왕래자 등에 대한 출입(국)심사지침 </a></li>
+												<li><a href="">남북한 왕래자 등에 대한 출입(국)심사지침 </a></li>
+												<li><a href="">남북한 왕래자 등에 대한 출입(국)심사지침 </a></li>
+												<li><a href="">남북한 왕래자 등에 대한 출입(국)심사지침 </a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<!--<div class="level_law_title"><strong>관계법령  (23건)</strong> </div>
+							<ul class="regulation noindent">
+								<li class="comment" title=""><a href="javascript:Move_jo('J8')">농어촌도로정비법</a></li>
+								<li class="comment" title=""><a href="javascript:Move_jo('J8')">농어촌 특별법</a></li>
+								<li class="comment" title=""><a href="javascript:Move_jo('J8')">농어촌마을주거환경개선 및 리모델링 촉진법</a></li>
+							</ul>--> 
+						</div>
+					</section> 
+					<section>
+						<h4>입법동향
+							<div class="btn-group fr"  >
+							  <button type="button" class="btn btn-default">전체보기</button> 
+							</div>
+						</h4>
+						<ul>
+							<li><span class="label-icon gray ">계류</span> <a href="2" >[2005089] 가맹사업거래의 공정화에 관한 법률 일부개정법률안(정인화의원 등 11인)</a></li>  
+							<li><span class="label-icon d-gray">공포</span> <a href="4" >[2005089] 가맹사업거래의 공정화에 관한 법률 일부개정법률안(정인화의원 등 11인)</a></li>  
+						</ul>
+					</section> 
+				</aside>
+			</div>
+    	</div>  
+		<div id="bg_screen"></div> 
+		<div id="individual_area" class="popup_win" >
+			<div class="container_popup">
+				<div id="popup_folder" class="base_popup">
+					<div class="top_title " >
+						<span><i class="icon-" data-icon="&#xe930;"></i> 폴더 담기</span>
+						<div class="top_title_group">
+							<div class="btn-group"><button type="button" class="btn btn-default">전체보기</button></div>
+							<div class="btn_close_pop">닫기<i class="icon-close" data-icon="&#xe915;"></i></div>
+						</div>
+					</div>
+					<div class="cont_list "> 
+						 <ol class="tree">
+							<li><div ><input type="radio" id="" name="" ><strong>defaultID</strong>님의 폴더</div>
+								<ol>
+									<li><input type="radio" id="" name="" >폴더 1
+										<ol>
+											<li><input type="radio" id="" name="">under 222</li>
+											<li><input type="radio" id="" name="">under 222</li>
+											<li><input type="radio" id="" name="">under 222</li>
+											<li><input type="radio" id="" name="">under 222</li>
+											<li><input type="radio" id="" name="">under 222</li>
+											<li><input type="radio" id="" name="">under 222</li> 
+											<li><input type="radio" id="" name="">under 222</li>
+										</ol>
+									</li>
+									<li><input type="radio" id="" name="">폴더 2</li> 
+								</ol>
+							</li>
+						 </ol>
+						 <p><i class="icon-plus" data-icon="&#xe912;"></i><span>새폴더 만들기</span></p>
+					</div>
+					<div class="noti_txt"><i class="icon-" data-icon="&#xe90d;"></i> 폴더 저장 후 본문 페이지 우측영역에서 메모를 추가하실 수 있습니다. </div>
+					<div class="ac">
+						<div class="btn-group  ">
+						  <button type="button" class="btn   btn-square" style="width:80px">저장</button> 
+						  <button type="button" class="btn btn-default" style="width:80px">취소</button> 
+						</div>	 
+					</div>
+				</div>
+				<div id="popup_alert_set" class="base_popup">
+					<div class="top_title " >
+						<span><i class="icon-" data-icon="&#xe91b;"></i> 알림 설정</span>
+						<div class="top_title_group"> 
+							<div class="btn_close_pop">닫기<i class="icon-close" data-icon="&#xe915;"></i></div>
+						</div>
+					</div>
+					<ul class="cont_list "> 
+						<li><label>전송시각</label> <input type="radio" id="" name=""> 오전8시 <input type="radio" id="" name=""> 오후1시</li>
+						<li><label>전송기간</label> <input type="radio" id="" name=""> 6개월 <input type="radio" id="" name=""> 1년 <input type="radio" id="" name=""> 3년</li>
+						<li ><label>알림메일<br>수신여부</label>   <div style="line-height:160%;display:inline-block"><input type="radio" id="" name=""> Yes <input type="radio" id="" name=""> No <br> &nbsp;<input type="text" id="" name=""  style="width:200px">   <div class="btn-group  "> 
+						  <button type="button" class="btn btn-default"  >메일수정</button> 
+						</div>	</div></li>
+					</ul>
+					<div class="noti_txt"><i class="icon-" data-icon="&#xe90d;"></i> 메일정보 수정시 회원정보상의 메일 주소가 수정됩니다. 기존의 알림 메일 역시 수정된 메일 주소로 발송됩니다.  </div>
+					<div class="ac">
+						<div class="btn-group  ">
+						  <button type="button" class="btn   btn-square" style="width:80px">저장</button> 
+						  <button type="button" class="btn btn-default" style="width:80px">취소</button> 
+						</div>	 
+					</div>
+				</div>
+			</div>
+		</div>
+		
+				
+	</div>
+		<script type="text/javascript">   
+			setHeight();
+		</script>
+</div> 
+</body>
+</html>

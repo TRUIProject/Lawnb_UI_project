@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 로앤�?</title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../js/commonjs.js?s"></script>
+<script language="javascript">
+<!--
+ 
+	function resizeComment(){ 
+			if($('.right_container').hasClass('add_border')){
+				$(".right_container").removeClass('slide_mov_right'); 
+			}else{
+				if($('#container').hasClass('list-view')){
+					$(".right_container").addClass('slide_mov_right'); 
+				}else{
+					$(".right_container").removeClass('slide_mov_right'); 
+				}
+			}
+			setHeight_under();
+		}
+	$(document).ready(function () { 
+	 
+
+}); 
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_mainContainer">
+	<div id="wrap" >
+		<header> 
+			<div class="top_container  ">  
+				<a href="/maf/poc/app/homepage"><h1>로앤�?/h1></a>
+				<div id="t_search" class="search_container">
+					<h2>?�합검???�역</h2>
+					<div class="search_inner">
+						<form  action="" > 
+						<div class="search_left">
+							?�합검??
+						</div>
+						<div class="search_center">
+							<input type="search" name="" id="" >
+						</div>
+						<div class="search_right"><span  class="more_btn">more</span></div>
+						<input type="button" value="Search " id="searchButton" class="search_btn">
+						</form>
+					</div>
+				</div>
+				<div id="indiv_area" class="indiv_container">
+					<span alt="?�의?�더">?�의?�더<i class="icon-myfolder" data-icon="&#xe91a;"></i></span>
+					<span alt="?�스?�리">?�스?�리<i class="icon-history" data-icon="&#xe916;"></i></span>
+					<span alt="?�림?�정">?�림?�정<i class="icon-alert" data-icon="&#xe918;"></i><em>9+</em></span>
+					<span alt="질문?�역">문의?�역<i class="icon-question" data-icon="&#xe919;"></i></span>
+					<span alt="?�의?�보">?�의?�보<i class="icon-myinfo" data-icon="&#xe917;"></i></span>
+				</div>
+			</div>
+			<nav> 
+				<dl id="main_menu" class="mmenu">
+					<dt class="blind">메인 메뉴</dt> 
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=IAED6CC08DD364059AB193CEAF31A4AB0&amp;stnew=true"><span>?��?</span></a>
+					</dd>
+					<dd class="currentTab" >
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I0F5DD49BE2B544DBB7414874EC787E80&amp;stnew=true"><span>법규</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=ICAA980E9234848FEA6D0DA62432279E0&amp;stnew=true"><span>결정·?�석</span></a>
+					</dd>
+					<dd >
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I247AD0D84D9B4429B617C8D9F8388C8F&amp;stnew=true"><span>문헌</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I661610C9A2C749D6A4221A93502B0170&amp;stnew=true"><span>법조??/span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I574B9F7164CB11E498DB8B09B4F043E0&amp;stnew=true"><span>기업법무</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I66693AFFED274970AC53A686AAA123C0&amp;stnew=true"><span>?�식</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocHelp?docguid=WLAWLNEXT"><span>?�스·?�슈</span></a>
+					</dd>
+				</dl>   
+			</nav>        	
+		</header> 
+		<div id="container" class="decision">
+			<div id="breadcrumb" class="navi_area">
+				<div>Home > 결정?�해??> <a href="1">결정례</a></div>
+				<div class="group_indivi_btn"><a href="">로그??/a><a href="">개인?�님</a> </div>
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">?�른�??�역</span></i></span>
+			</div>
+			<div id="container_inner">
+				<div class="left_container">  
+					<section>
+						<h4>검?�결�??�리</h4>  
+						<p class="hide">결정기�?</p>
+						<ol class="check_area tree">
+							<li><input type="checkbox" value="2"><label>조세?�판??</label><span>11</span>
+								<ol>
+									<li><input type="checkbox" value="2"><label>부가가치세 </label><span>11</span></li>
+									<li><input type="checkbox" value="1"><label>?�득?? </label><span>100</span></li>
+									<li><input type="checkbox" value="1"><label>?�록??  </label><span>100</span></li>
+									<li><input type="checkbox" value="1"><label>부가가치세   </label><span>100</span></li>
+									<li><input type="checkbox" value="1"><label>?�득?? </label><span>100</span></li>
+								</ol>
+							</li> 
+							<li><input type="checkbox" value="2"><label>감사??</label><span>11</span>
+								<ol>
+									<li><input type="checkbox" value="2"><label>부가가치세 </label><span>11</span></li>
+									<li><input type="checkbox" value="1"><label>?�득?? </label><span>100</span></li>
+									<li><input type="checkbox" value="1"><label>?�록??  </label><span>100</span></li> 
+								</ol>
+							</li> 
+							<li><input type="checkbox" value="2"><label>공정?? </label><span>11</span>
+								<ol>
+									<li><input type="checkbox" value="2"><label>부가가치세 </label><span>11</span></li> 
+								</ol>
+							</li> 
+						</ol> 
+
+						<p class="hide">결정?�자 </p>
+						<div class="check_area select_area">
+							<select name="sType5" id="sType5" class="date_select">
+								<option value="0" selected="selected">결정?�자  ?�택</option> 
+								<option value="1">최근 6개월 </option>
+								<option value="2">최근 1??/option>
+								<option value="3">최근 5??/option>
+								<option value="00">직접?�택</option>
+							</select>
+							<div class="detail_date"><input type="number" id="sUnivS" name="sUnivS" title=" ?�작?? style="width:45%" placeholder="20160101"> ~ <input type="number" id="sUnivE" name="sUnivE" title=" 종료?? style="width:45%" placeholder="20161231"></div> 
+						</div>
+						<p class="submit_area"><span id="arrangeBtn">?�용</span><span class="_cancel"><i class="icon-16" data-icon="&#xe90e;"></i>?�용취소</span></p>
+					</section>
+				</div>
+				<article class="main_container"> 
+					<div class="move_btn"  ><div class="btn_block"><i class="icon-" data-icon="&#xe911;"></i><i class="icon-" data-icon="&#xe907;"></i></div></div>
+					<div class="main_container_inner">
+						<div class="search_div">
+						<form id="searchForm" method="post" action="CaseList">
+							<div class="search_input">
+								<input type="search" id="sWord" name="sWord"  placeholder="검?�어">
+								<div class="except">
+								<input type="search" name="sWord1" placeholder="?�외??>
+								</div>
+							</div>
+							<ol class="check_area">
+								<li><input type="checkbox" class="sType2List" value="0"><label>?�체</label></li>
+								<li><input type="checkbox" class="sType2List" value="32"><label>?�건�?/label></li>
+								<li><input type="checkbox" class="sType2List" value="16"><label>결정?��?</label></li>
+								<li><input type="checkbox" class="sType2List" value="8"><label>?�문</label></li>
+								<li><input type="checkbox" class="sType2List" value="2"><label>?�건번호</label></li> 
+							</ol>
+							<div class="detail_area_open decision" id="detail_area">
+								<ul>
+									<li>
+										<label>결정기�?</label>
+										<select id="sJob" name="sJob">
+										  <option value="">?�체</option>
+										  <option value="조세?�판?? checked="checked">조세?�판??/option>
+										  <option value="변?�사">변?�사</option>
+										  <option value="검??>검??/option>
+										  <option value="교수">교수</option>
+										  <option value="?�구관">?�구관</option>
+										  <option value="법무??>법무??/option>
+										  <option value="공무??>공무??/option>
+										  <option value="?�법?�수?�생">?�법?�수?�생</option>
+										  <option value="군법무�?">군법무�?</option>
+										</select> 
+									</li>
+									<li>
+										<label>구분</label>
+										<select id="sJob" name="sJob">
+										  <option value="">?�체</option>
+										  <option value="?�사">?�사</option>
+										  <option value="변?�사">변?�사</option>
+										  <option value="검??>검??/option>
+										  <option value="교수">교수</option>
+										  <option value="?�구관">?�구관</option>
+										  <option value="법무??>법무??/option>
+										  <option value="공무??>공무??/option>
+										  <option value="?�법?�수?�생">?�법?�수?�생</option>
+										  <option value="군법무�?">군법무�?</option>
+										</select> 
+									</li> 
+									<li class="fill ">
+										<label>결정?�자 </label>
+										<input type="number" id="sUnivS" name="sUnivS" title=" ?�작?? style="width:80px" placeholder="20160101"> ~ <input type="number" id="sUnivE" name="sUnivE" title=" 종료?? style="width:80px" placeholder="20161231"> <div class="btn-group" ><button type="button"  class="btn btn-square ">최근 6개월</button> <button type="button"  class="btn btn-square">최근 1??/button> <button type="button"  class="btn btn-square">최근 5??/button></div>
+									</li>
+
+								</ul>
+							</div>	
+							<div class="detail_area"><!-- ?�세검?�옵?�버??-->
+								<div class="but"></div>
+							</div>
+							<div class="btn_area"><input type="submit" id="searchBtn" value="검??> <span class="_cancel"><i class="icon-16" data-icon="&#xe90e;"></i>?�력초기??/span></div>
+							<p>검?�어 ?�키?�드??�?검?�한 결과?�니?? </p>
+						</form>
+						</div>
+						<div id="search_results">
+							<div class="s_num_area">검?�결�?21�?<small>1/1000</small></div>
+							<div class="btn_option_outer">
+								<div class="btn_option_select">
+									<p class="blind">?�택?�운로드</p>
+									<div class="btn-group" >
+									  <button type="button" class="btn btn-default"><input type="checkbox" name="">?�운로드</button>
+									</div>   
+								</div> 
+								<div class="select_area"> 
+									<p class="blind">보기 개수 ?�택</p>
+									<select id="" name=""  >
+										<option value="">10�?/option>
+										<option value="" selected>20�?/option>
+										<option value="">50�?/option>
+									</select>
+								</div>
+								<div class="btn_option"> 
+									<div class="btn-group" > 
+										 <button type="button" class="btn btn-default">?�확??/button> <button type="button" class="btn btn-default">중요??/button> 
+										 <button type="button" class="btn btn-default _select">최신??<i class="icon-sort-alpha-desc" data-icon="&#xea4a;"></i></button>
+									</div>	
+									<ul class="view_type_list _view_type_list">
+										<p class="blind">보기?�션 ?�택</p>
+										<li class="_preview"><a href="#" class="option_a  "   id="option_a" >미리보기??/a></li>
+										<li class="_onlyTitle"><a href="#" class="option_b_on  "  id="option_b">?�세보기??/a></li>
+									</ul>
+								</div>
+							</div>
+							<ol class="list btn_exist decision">
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>							 
+									<div class="co_searchContent">
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">조세?�판??조심2015지1556, <span>2016.07.29</span> [?�점?��????�??지목�?�?취득??과세?��???</a></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>지목�?경에 ?�??취득??과세?��??� 지목�?�?공사착공???�재??개별공시지가?�서 지목�?�????��???개별공시?��???차액??기�??�로 ?�는 것인�? �?��?�이 지목�?�??�·후??개별공시지가 차액??과세?��??�로 ?�여 취득???�을 ?�고·?��??��??��?�?처분�?��????�?경정�?���?거�???처분?� ?�못???�다�??�단??</p></div>
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">300</span>						 
+									<div class="co_searchContent">  
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">조세?�판??조심2015지1556, <span>2016.07.29</span> [?�점?��????�??지목�?�?취득??과세?��???</a></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary">
+											 
+										</div> 
+									 </div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent"> 
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">조세?�판??조심2015지1556, <span>2016.07.29</span> [?�점?��????�??지목�?�?취득??과세?��???</a></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>[1] 지방도???�??관?�유지?�무�??��??��? 조�?로써 관??군수?�게 ?�임??경우 �??�로??관리청<br>
+	[2] 군이 ?�로부??관?�유지�??�임받�? 지방도�?관리하??경우 군의 부?�이???��? </p></div> 
+									 </div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent"> 
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">조세?�판??조심2015지1556, <span>2016.07.29</span> [?�점?��????�??지목�?�?취득??과세?��???</a></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>[1] �??��?건물 ?��?차보?�법 ??0�?????�� ?�른 ?��??�의 갱신 거절 ?��?????0�??????????��? ???�에???�한 ?�당???�유가 ?�는 경우, ?��??�의 갱신 거절 ?��????�후?� 관계없???�차?�의 계약갱신?�구�??�사�?종전 ?��?차�? 갱신?�는지 ?��?(?�극)<br>[2] ?�차?�이 계약갱신?�구권을 ?�사???�후 ?�차?�과 ?��??�이 ?�규 ?��?차계?�의 ?�식?�로 체결??계약???��?차에 관???�계?�으�?�?것인지 ?��?(?�정 ?�극)</p></div>
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent">    
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">조세?�판??조심2015지1556, <span>2016.07.29</span> [?�점?��????�??지목�?�?취득??과세?��???</a></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>[1] �??��?건물 ?��?차보?�법 ??0�?????�� ?�른 ?��??�의 갱신 거절 ?��?????0�??????????��? ???�에???�한 ?�당???�유가 ?�는 경우, ?��??�의 갱신 거절 ?��????�후?� 관계없???�차?�의 계약갱신?�구�??�사�?종전 ?��?차�? 갱신?�는지 ?��?(?�극)<br>[2] ?�차?�이 계약갱신?�구권을 ?�사???�후 ?�차?�과 ?��??�이 ?�규 ?��?차계?�의 ?�식?�로 체결??계약???��?차에 관???�계?�으�?�?것인지 ?��?(?�정 ?�극)</p></div>
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent">   
+									<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">조세?�판??조심2015지1556, <span>2016.07.29</span> [?�점?��????�??지목�?�?취득??과세?��???</a></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+									<div class="co_searchResults_summary"><p>[1] �??��?건물 ?��?차보?�법 ??0�?????�� ?�른 ?��??�의 갱신 거절 ?��?????0�??????????��? ???�에???�한 ?�당???�유가 ?�는 경우, ?��??�의 갱신 거절 ?��????�후?� 관계없???�차?�의 계약갱신?�구�??�사�?종전 ?��?차�? 갱신?�는지 ?��?(?�극)<br>[2] ?�차?�이 계약갱신?�구권을 ?�사???�후 ?�차?�과 ?��??�이 ?�규 ?��?차계?�의 ?�식?�로 체결??계약???��?차에 관???�계?�으�?�?것인지 ?��?(?�정 ?�극)</p></div>
+									</div>
+								</li>  
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent">  
+									<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">조세?�판??조심2015지1556, <span>2016.07.29</span> [?�점?��????�??지목�?�?취득??과세?��???</a></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+									<div class="co_searchResults_summary"><p>[1] �??��?건물 ?��?차보?�법 ??0�?????�� ?�른 ?��??�의 갱신 거절 ?��?????0�??????????��? ???�에???�한 ?�당???�유가 ?�는 경우, ?��??�의 갱신 거절 ?��????�후?� 관계없???�차?�의 계약갱신?�구�??�사�?종전 ?��?차�? 갱신?�는지 ?��?(?�극)<br>[2] ?�차?�이 계약갱신?�구권을 ?�사???�후 ?�차?�과 ?��??�이 ?�규 ?��?차계?�의 ?�식?�로 체결??계약???��?차에 관???�계?�으�?�?것인지 ?��?(?�정 ?�극)</p></div>
+									</div>
+								</li> 
+							</ol>
+							<div class="navigationLinks">				        									
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=0" class="navFirst hiddenLink "><i class="icon-7" data-icon="&#xe911;"></i></a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=-1" class="navPrevious hiddenLink "><i class="icon-2" data-icon="&#xe901;"></i></a>
+								<span class="currentPage">1</span>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navPages">2</a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=2" class="navPages">3</a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=3" class="navPages">4</a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navNext"><i class="icon-1" data-icon="&#xe900;"></i></a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=13" class="navLast "><i class="icon-8" data-icon="&#xe907;"></i></a>
+							</div>
+						 </div> 
+					 </div>
+					 <div class="main_container_view">
+						<div class="main_container_view_inner">
+							<h3>조세?�판??조심2015지1556, <span>2016.07.29</span> [?�점?��????�??지목�?�?취득??과세?��???<span class="btn_newtap"><span class="hide">?�창?�기</span><i class="icon-new-tab" data-icon="&#xea7e;"></i></span> <div class="btn_option_outer"><div class="btn_close">?�기</div></div></h3>
+							<!-- ?�용?�작 xml -->
+							<div   id="view_content">
+								<embed  name="plugin" id="pdf_view" src="hoisa_5_1_75_78.pdf" style="height:1000px"  type="application/pdf" wmode="transparent" wmode='Opaque'></embed> 
+		  
+							</div>
+						</div>
+					 </div>
+				</article> 
+				<aside class="right_container">
+					<section >
+						<h4>최근 조회 ?�료</h4>
+						<ul> 
+							<li><a href="1" >조세?�판??조심2015지1556, 2016.07.29 <span>[?�점?��????�??지목�?�?취득??과세?��???</span></a></li> 
+							<li><a href="1" >감사???�사-2015-99, 2016.07.20 <span>[부가가치세 ?�급경정 거�?처분 취소??관?��?</span></a></li> 
+							<li><a href="1" >공정거래?�원??2016카총1613, 2016.07.19 <span>[?�국기상?�업진흥??발주 ?�표 ??</span></a></li> 
+							<li><a href="1" >공정거래?�원??2016카총1613, 2016.07.19 <span>[?�국기상?�업진흥??발주 ?�표 ??</span></a></li> 
+							<li><a href="1" >공정거래?�원??2016카총1613, 2016.07.19 <span>[?�국기상?�업진흥??발주 ?�표 ??</span></a></li> 
+							<li><a href="1" >공정거래?�원??2016카총1613, 2016.07.19 <span>[?�국기상?�업진흥??발주 ?�표 ??</span></a></li>  
+						</ul>   
+					</section>
+				</aside>
+			</div>
+    	</div>
+		<footer>
+			<div class="etc_menu"> 
+				<div class="top_container">  
+					<ul>	
+						<li class="blind">기�? 메뉴 </li>
+						<li>?�사?�개</li>
+						<li>광고 · ?�휴문의</li>
+						<li>?�용?��?</li>
+						<li>개인?�보 취급/처리 방침</li>
+						<li>법적고�?</li>
+						<li>?�메??무단?�집거�?</li>
+					</ul>
+				</div>
+			</div>  
+			<div class="top_container   _footer"> 	   
+				1. 콘텐츠의 명칭 : 법률?�보 &nbsp;&nbsp; 2. 콘텐츠의 ?�작 �??�시 : 2006??2??17???�그?�이??콘텐츠의 경우 갱신?? &nbsp;&nbsp; 3. 콘텐�??�작??: ?�로?�비  &nbsp;&nbsp;  4. 콘텐츠의 ?�용조건 : <a href="/support/agree_use.asp" class="red_bott">?�용?��?</a> �?로앤�?<a href="/support/serviceInfo_member.asp" class="red_bott">?�비?�안??/a>?� 같음 (무단 복제금�?) &nbsp;&nbsp;5. 콘텐츠의 보호기간 : ?�로?�비 ?�이?�의 모든 콘텐츠는 ?�콘?�츠?�업 진흥법」에 ?�라 ?�작 ?�는 갱신?�로부??5?�간 보호??
+				<div>Thomson reuters</div>
+				<div>Copyright ??1998~2016 <b>LAWnB</b>. All Rights Reserved.</div>
+			</div>           
+		</footer>
+		<div id="bg_screen"></div>
+		<script type="text/javascript">  
+			setHeight_under();		 
+		</script>
+	</div>
+</div> 
+</body>
+</html>

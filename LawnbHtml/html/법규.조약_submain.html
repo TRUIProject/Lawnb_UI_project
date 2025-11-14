@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../js/commonjs.js?sdd"></script>
+<script language="javascript">
+<!--
+	 
+	function resizeComment(){ 
+			setHeight_under();
+			$(".right_container").removeClass('slide_mov_right'); 
+	}
+	$(document).ready(function () {
+		$('.country_select').click(function(){
+			$('.country_div').show();  
+		});
+		$('.country_div .btn_close_pop').click(function(){
+			$('.country_div').hide();
+		});
+	}); 
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_mainContainer">
+	<div id="wrap" >
+		<header> 
+			<div class="top_container  ">  
+				<a href="/maf/poc/app/homepage"><h1>로앤비</h1></a>
+				<div id="t_search" class="search_container">
+					<h2>통합검색 영역</h2>
+				<div class="search_inner">
+					<form  action="" > 
+					<div class="search_left hide">
+						<label class="hide">통합검색  </label>
+					</div>
+					<div class="search_center">
+						<input type="search" name="" id="" >
+					</div>
+					<div class="search_right"><span  class="more_btn">more</span></div>
+					<div id="searchButton" class="search_btn"><i class="icon-" data-icon="&#xe910;"></i><span class="hide">검색</span></div> 
+					</form>
+					<div class="btn_search_result"><i class="icon-table" data-icon="&#xea71;"></i><span class="hide">검색결과 맵 보기</span></div>
+				</div>
+				<div class="search_layer_outer" >
+				<div class="search_layer" >
+					<div class="search_layer_list _done ">
+						<!-- <div class="txt_info">최근검색어저장 기능이 OFF 상태에 있습니다.<br>이용을 원하시면 하단의 최근검색어저장 상태를 ON으로 변경해주세요. </div> 
+						<ul>
+							<li>공정거래법 위반으로 인한 손해액의 산정방법과 주요 쟁점으로 <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+							<li>ddd <span>03.20</span></li>
+						</ul>-->
+						<ul>
+							<li><strong>대법</strong>원인터넷등기소<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+							<li><strong>대법</strong>원나의사건검색</li>
+							<li><strong>대법</strong>원법원경매정보</li>
+							<li><strong>대법</strong>원전자가족관계</li>
+							<li><strong>대법</strong>원경매</li>
+							<li><strong>대법</strong>원인터넷등기소<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+							<li><strong>대법</strong>원나의사건검색<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+							<li><strong>대법</strong>원법원경매정보</li>
+							<li><strong>대법</strong>원전자가족관계</li>
+							<li><strong>대법</strong>원경매</li>
+						</ul> 
+						<div class="expend_result" onclick="">
+							<p>법무법인(유한) 태평양어쩌고 저쩌고</p>
+							<span>주소 : [050-50] 서울시 광진구 디지털로 272, 한신 IT타워 611호<br>대표전화 : 02-2204-2114</span>
+							<div class="dirct_go">바로가기</div>
+						</div>
+					</div>
+					<!-- <div class="noti_txt"><i class="icon-" data-icon="&#xe90d;"></i> 공용 PC에서는 개인정보보호를 위하여 반드시 로그아웃을 해주세요.</div> -->
+					<div class="search_layer_foot">
+						<div class="fl">기록삭제</div>
+						<div class="fr">최근검색어저장 <div class="btn-group"><button type="button" class="btn btn_orange _select">ON</button><button type="button" class="btn btn-default">OFF</button></div> 자동완성 <div class="btn-group"><button type="button" class="btn btn_orange _select">ON</button><button type="button" class="btn btn-default">OFF</button></div>
+						</div>						
+					</div>
+				</div> 
+				</div> 
+				<div id="indiv_area" class="indiv_container">
+					<span alt="나의폴더">나의폴더<i class="icon-myfolder" data-icon="&#xe91a;"></i></span>
+					<span alt="히스토리">히스토리<i class="icon-history" data-icon="&#xe916;"></i></span>
+					<span alt="알림설정">알림설정<i class="icon-alert" data-icon="&#xe918;"></i><em>9+</em></span>
+					<span alt="질문내역">문의내역<i class="icon-question" data-icon="&#xe919;"></i></span>
+					<span alt="나의정보">나의정보<i class="icon-myinfo" data-icon="&#xe917;"></i></span>
+				</div>
+			</div>
+			</div>
+			<nav> 
+				<dl id="main_menu" class="mmenu">
+					<dt class="blind">메인 메뉴</dt> 
+					<dd>
+						<a href="#"><span>판례</span></a>
+					</dd>
+					<dd class="currentTab" >
+						<a href="#"><span>법규</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>심판·결정·해석</span></a>
+					</dd>
+					<dd >
+						<a href="#"><span>문헌</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>법조인</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>기업법무</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>서식</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>뉴스·칼럼</span></a>
+					</dd>
+				</dl>      
+			</nav>        	
+		</header> 
+		<div class="submenu_group" style="">
+			<div>
+				<dl>
+					<dd><a href="">판례</a></dd>
+					<dd><a href="">판례디렉토리</a></dd> 
+				</dl>
+				<dl>
+					<dd><a href="">법령</a></dd>
+					<dd><a href="">행정규칙</a></dd>
+					<dd><a href="">입법동향</a></dd>
+					<dd><a href="">조약</a></dd>
+				</dl>
+				<dl>
+					<dd><a href="">특허 심판례</a></dd>
+					<dd><a href="">결정례</a></dd>
+					<dd><a href="">유권해석</a></dd>
+				</dl>
+				<dl>
+					<dd><a href="">논문평석</a></dd>
+					<dd><a href="">주석서</a></dd>
+					<dd><a href="">E-book</a></dd>
+					<dd><a href="">법률용어</a></dd>
+				</dl>
+				<dl>
+					<dd><a href="">법조인명록</a></dd>
+					<dd><a href="">조직도</a></dd>
+					<dd><a href="">법률사무소</a></dd>
+					<dd>법조기관 안내</dd>
+				</dl>
+				<dl>
+					<dd>로펌 리포트</dd>
+					<dd>세무정보</dd>
+					<dd>기업정보</dd>
+				</dl>
+				<dl>
+					<dd>법률서식</dd>
+					<dd>비즈폼 서식</dd>
+				</dl>
+				<dl>
+					<dd>뉴스</dd>
+					<dd>칼럼</dd>
+				</dl>
+			</div>
+			<div class="ad_area">ss</div>
+		</div>
+		<div id="container" class="two-con submain law">
+			<div id="breadcrumb" class="navi_area">
+				<div>Home > 법규 > 조약</div>
+				<div class="group_indivi_btn"><a href="">로그인</a><a href="">개인화님</a> </div>
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div id="container_inner">
+				<div class="left_container">  
+				</div>
+				<article class="main_container"> 
+					<div class="main_container_inner">
+						<div id="search_submain" class="submain_group">
+							<h3>조약 검색</h3>
+							<div class="search_div">
+								<form id="searchForm" method="post" action="CaseList">
+								<div class="search_input">
+									<label>기본검색</label>
+									<input type="search" id="sWord" name="sWord"  placeholder="검색어">
+									<div class="except">
+									<input type="search" name="sWord1" placeholder="제외어">
+									</div>
+								</div> 
+								<ol class="check_area mgl10">
+									<li><input type="checkbox" class="sType2List" value="0"><label>전체 </label></li>
+									<li><input type="checkbox" class="sType2List" value="32"><label>조약명</label></li> 
+									<li><input type="checkbox" class="sType2List" value="32"><label>조약본문</label></li> 
+									<li><input type="checkbox" class="sType2List" value="32"><label>조약번호</label></li> 
+								</ol> 
+								<div class="detail_area_open _open" id="detail_area">
+									<ul>
+										<li class="half">
+											<label>분야</label>
+											<select name="" id="">
+												<option value="" selected="selected">전체</option>
+												<option value=""></option>
+											</select>
+										</li>
+										<li class="half">
+											<label>체결국가</label>
+											<div class="btn country_select">선택</div>
+											<div class="country_div">
+												<div class="top_title ">
+													<span>국가선택</span>
+													<div class="top_title_group"> 
+														<div class="btn_close_pop">닫기<i class="icon-close" data-icon=""></i></div>
+													</div>
+													<div class="cont_list">
+														<dl>
+															<dt><input type="checkbox" id="" name="">기타</dt>
+															<dd><input type="checkbox" id="" name="">국제연합공업개발기구(UNIDO)</dd>
+															<dd><input type="checkbox" id="" name="">r</dd>
+															<dd><input type="checkbox" id="" name="">방글라데시</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+														</dl>
+														<dl>
+															<dt><input type="checkbox" id="" name=""> 아시아</dt>
+															<dd><input type="checkbox" id="" name="">아프가니스탄</dd>
+															<dd><input type="checkbox" id="" name="">아제르바이잔</dd>
+															<dd><input type="checkbox" id="" name="">방글라데시</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+														</dl>
+														<dl>
+															<dt><input type="checkbox" id="" name="">아프리카</dt>
+															<dd><input type="checkbox" id="" name="">알제리</dd>
+															<dd><input type="checkbox" id="" name="">중앙아프리카</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+														</dl>
+														<dl>
+															<dt><input type="checkbox" id="" name="">유럽</dt>
+															<dd><input type="checkbox" id="" name="">알바니아</dd>
+															<dd><input type="checkbox" id="" name="">오스트리아</dd>
+															<dd><input type="checkbox" id="" name="">보스니아헤르체고비나</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+														</dl>
+														<dl>
+															<dt><input type="checkbox" id="" name="">북아메리가</dt>
+															<dd><input type="checkbox" id="" name="">안티구아바부다</dd>
+															<dd><input type="checkbox" id="" name="">바하마</dd>
+															<dd><input type="checkbox" id="" name="">바레인</dd>
+															<dd><input type="checkbox" id="" name="">비베이도스</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+														</dl>
+														<dl>
+															<dt><input type="checkbox" id="" name="">남아메리가</dt>
+															<dd><input type="checkbox" id="" name="">베네수엘라</dd>
+															<dd><input type="checkbox" id="" name="">아르헨티나</dd>
+															<dd><input type="checkbox" id="" name="">바레인</dd>
+															<dd><input type="checkbox" id="" name="">비베이도스</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+														</dl>
+														<dl>
+															<dt><input type="checkbox" id="" name="">오세아니아</dt>
+															<dd><input type="checkbox" id="" name="">호주</dd>
+															<dd><input type="checkbox" id="" name="">쿡아일랜드</dd>
+															<dd><input type="checkbox" id="" name="">휘지(피지)</dd>
+															<dd><input type="checkbox" id="" name="">비베이도스</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+															<dd><input type="checkbox" id="" name="">나라1</dd>
+														</dl>
+													</div>
+												</div> 
+											</div>
+										</li>
+										<li>
+											<label>발효일</label>
+											<input type="number" id="sUnivS" name="sUnivS" title="시작일" style="width:80px" placeholder="20160101"> ~ <input type="number" id="sUnivE" name="sUnivE" title="종료일" style="width:80px" placeholder="20161231"> <div class="btn-group"><button type="button" class="btn btn-square ">최근 1년</button> <button type="button" class="btn btn-square">최근 3년</button> <button type="button" class="btn btn-square">최근 5년</button></div>
+										</li> 
+									</ul>  
+								</div>	
+								<div class="btn_area"><input type="submit" id="searchBtn" value="검색"> <span class="_cancel"><i class="icon-16" data-icon="&#xe90e;"></i>입력초기화</span></div>
+								</form>
+							</div> 
+						</div>
+						
+						<div  class="submain_group title"> 
+							<h3>나의 법규집<div class="btn_more"><a href="e">사용방법 안내</a></div></h3> 
+							<ul class="directory_list mylaw">
+								<li><em  class="favi_icon"><i class="icon-star starfull" ></i></em><a href="1" >상법편</a> </li>
+								<li><em  class="favi_icon"><i class="icon-star starfull" ></i></em><a href="2">민사소송편</a></li>
+								<li><em  class="favi_icon"><i class="icon-star starfull" ></i></em><a href="3">형사소송편</a></li>
+								<li><em  class="favi_icon"><i class="icon-star starfull" ></i></em><a href="4">행정절차편</a></li> 
+								<li><em  class="favi_icon"><i class="icon-star starfull" ></i></em><a href="5">민사집행편</a></li>
+								<li><em  class="favi_icon"><i class="icon-star starfull" ></i></em><a href="5">민법편</a></li>
+								<li><em  class="favi_icon"><i class="icon-star starfull" ></i></em><a href="5">형법편</a></li> 
+							</ul>
+							<div class="info_lawbook">아직 등록된 나의 법규가 없습니다. <br>나의 법규집에 법규를 입력해 두면 보다 편리하게 본문으로 이동할 수 있습니다. <br>나의 법규집은 로그인 후 법령, 행정규칙 및 조약 본문 상단에서 선택할 수 있으며, 법규는 30개까지 지정할 수 있습니다.
+							</div>
+						</div>
+					</div>
+					<div class="main_container_view">
+						<div class="main_container_view_inner">
+							 
+						</div>
+					</div>
+				</article> 
+				<aside class="right_container">
+					<section class="calc_info">  
+						<h4>LAWnB 검색연산자 안내<span class="btn_more"><i class="icon_open"  ></i>열기</span></h4> 
+						<div>
+							<table>
+								<tr>
+									<td><span>AND 검색</span><br>이사회 감사<br>이사회 & 감사<br>이사회 AND 감사</td>
+									<td>"이사회"와 "감사"가 모두 포함된 문서</td>
+								</tr>
+								<tr>
+									<td ><span>OR 검색</span><br>이사회 + 감사<br>이사회 OR 감사</td>
+									<td>"이사회"와 "감사" 중 어느 하나라도 포함된 문서</td>
+								</tr>
+								<tr>
+									<td ><span>NOT 검색</span><br>[검색어]이사회 <br>[제외어]감사<br>이사회 ! 감사</td>
+									<td>"이사회"가 포함되어 있는 문서 중 "감사"가 포함되지 않은 문서</td>
+								</tr>
+								<tr>
+									<td ><span>EQUAL 검색</span><br>“이사회 감사”</td>
+									<td>"이사회 감사" 라는 검색어와 완전히 일치하는 구문이 있는 문서</td>
+								</tr>
+								<tr>
+									<td ><span>NEAR 검색</span><br>“이사회 감사”~10</td>
+									<td>"이사회"와 "감사" 사이에 문자가 10글자 이하인 문서</td>
+								</tr>
+							</table>
+						</div>
+					</section> 
+					<section >
+						<h4>최신 조약</h4>
+						<ul>
+							<li><a href="3" >대한민국 정부와 이집트아랍공화국 정부 간의 대외경제협력기금 차관에 관한 기본협정</a> <span>[발효일 2016.12.29] [이집트, 제2340호, 2017.1.20]</span></li> 
+							<li><a href="3" >대한민국 정부와 이집트아랍공화국 정부 간의 대외경제협력기금 차관에 관한 기본협정</a> <span>[발효일 2016.12.29] [이집트, 제2340호, 2017.1.20]</span></li> 
+							<li><a href="3" >대한민국 정부와 이집트아랍공화국 정부 간의 대외경제협력기금 차관에 관한 기본협정</a> <span>[발효일 2016.12.29] [이집트, 제2340호, 2017.1.20]</span></li> 
+							<li><a href="3" >대한민국 정부와 이집트아랍공화국 정부 간의 대외경제협력기금 차관에 관한 기본협정</a> <span>[발효일 2016.12.29] [이집트, 제2340호, 2017.1.20]</span></li> 
+							<li><a href="3" >대한민국 정부와 이집트아랍공화국 정부 간의 대외경제협력기금 차관에 관한 기본협정</a> <span>[발효일 2016.12.29] [이집트, 제2340호, 2017.1.20]</span></li> 
+						</ul>   
+					</section>
+				</aside>
+			</div>
+    	</div>
+		<footer>
+			<div class="etc_menu"> 
+				<div class="top_container">  
+					<ul>	
+						<li class="blind">기타 메뉴 </li>
+						<li>회사소개</li>
+						<li>광고 · 제휴문의</li>
+						<li>이용약관</li>
+						<li>개인정보 취급/처리 방침</li>
+						<li>법적고지</li>
+						<li>이메일 무단수집거부</li>
+					</ul>
+				</div>
+			</div>  
+			<div class="top_container   _footer"> 	   
+				1. 콘텐츠의 명칭 : 법률정보 &nbsp;&nbsp; 2. 콘텐츠의 제작 및 표시 : 2006년 2월 17일(업그레이드 콘텐츠의 경우 갱신일) &nbsp;&nbsp; 3. 콘텐츠 제작자 : ㈜로앤비  &nbsp;&nbsp;  4. 콘텐츠의 이용조건 : <a href="/support/agree_use.asp" class="red_bott">이용약관</a> 및 로앤비 <a href="/support/serviceInfo_member.asp" class="red_bott">서비스안내</a>와 같음 (무단 복제금지) &nbsp;&nbsp;5. 콘텐츠의 보호기간 : ㈜로앤비 사이트의 모든 콘텐츠는 「콘텐츠산업 진흥법」에 따라 제작 또는 갱신일로부터 5년간 보호됨
+				<div>Thomson reuters</div>
+				<div>Copyright ⓒ 1998~2016 <b>LAWnB</b>. All Rights Reserved.</div>
+			</div>       
+		</footer>
+		<div id="bg_screen"></div>
+		<script type="text/javascript">  
+			setHeight_under();			  
+		</script>
+	</div>
+</div> 
+</body>
+</html>

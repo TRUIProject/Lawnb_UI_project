@@ -1,0 +1,255 @@
+﻿
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+	<meta name="viewport" content="width=1140">
+	<title> 로앤비 </title>
+	<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+	<link rel="stylesheet" type="text/css" href="../css/_next_default.css" />
+	<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />
+	<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />
+	<script src="../Scripts/lib/jquery-3.4.1.min.js"></script>
+	<script src="../Scripts/common/commonjs.js"></script>
+	<script type="text/javascript">
+
+		function resizeComment() {
+			setHeight_customer();
+		}
+
+		$(function () {
+			$('.faq_title').click(function (index) {
+				$('.faq_explain').slideUp();
+				var idx = $(".faq_title").index($(this));
+				$(".faq_explain").eq(idx).slideDown();
+				setHeight_customer();
+			});
+		});
+
+	</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_popupContainer">
+	<div id="wrap" class="c_center">
+		<header> 
+			<div class="top_container  ">  
+				<a href="/maf/poc/app/homepage"><h1>로앤비</h1></a> 
+			</div>        	
+		</header> 
+		<div id="container" class="c_center">   
+			<div id="container_inner" >
+				<div class="left_container  ">
+					<h2><a href="/Support/SupportMain">고객센터</a></h2>
+					<ul class="tree">
+						<li>
+							<a href="/Support/SupportNotice/?sPage=1">공지사항</a>
+							<ul>
+								<li><a href="">공지</a></li>
+								<li><a href="">개선 & 업데이트</a></li>
+								<li><a href="">이벤트 & 인사이트</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="/Support/SupportManual?sPdf=852&amp;mParam=manual" style="">로앤비 이용안내</a>
+							<ul>
+								<li><a href="/Support/SupportManual?sPdf=853&amp;mParam=manual" style="" class="manual_bold853">메인 화면</a></li>
+								<li>
+									<a href="/Support/SupportManual?sPdf=854&amp;mParam=manual" style="">검색 이용안내</a>
+									<ul>
+										<li><a href="/Support/SupportManual?sPdf=854&amp;mParam=manual" style="" class="manual_bold854">통합검색</a></li>
+										<li><a href="/Support/SupportManual?sPdf=855&amp;mParam=manual" style="" class="manual_bold855">메뉴별 검색</a></li>
+										<li><a href="/Support/SupportManual?sPdf=856&amp;mParam=manual" style="" class="manual_bold856">본문</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="/Support/SupportManual?sPdf=857&amp;mParam=manual" style="">로앤비 서비스 상세보기</a>
+									<ul>
+										<li><a href="/Support/SupportManual?sPdf=857&amp;mParam=manual" style="" class="manual_bold857">판례</a></li>
+										<li><a href="/Support/SupportManual?sPdf=858&amp;mParam=manual" style="" class="manual_bold858">법규</a></li>
+										<li><a href="/Support/SupportManual?sPdf=859&amp;mParam=manual" style="" class="manual_bold859">심판·결정·해석</a></li>
+										<li><a href="/Support/SupportManual?sPdf=860&amp;mParam=manual" style="" class="manual_bold860">문헌</a></li>
+										<li><a href="/Support/SupportManual?sPdf=861&amp;mParam=manual" style="" class="manual_bold861">법조인</a></li>
+										<li><a href="/Support/SupportManual?sPdf=862&amp;mParam=manual" style="" class="manual_bold862">기업법무</a></li>
+										<li><a href="/Support/SupportManual?sPdf=863&amp;mParam=manual" style="" class="manual_bold863">서식</a></li>
+										<li><a href="/Support/SupportManual?sPdf=864&amp;mParam=manual" style="" class="manual_bold864">뉴스·칼럼</a></li>
+									</ul>
+								</li>
+								<li><a href="/Support/SupportManual?sPdf=865&amp;mParam=manual" style="" class="manual_bold865">개인화 기능</a></li>
+								<li><a href="/Support/SupportMGuide" class="manual_bold866">모바일 이용안내</a></li>
+								<li><a href="/Support/SupportManual?sPdf=910&amp;mParam=manual" style="" class="manual_bold910">모바일 기기등록 안내</a></li>
+								<li><a href="/Support/SupportPCcerti">PC인증 수동설치 안내</a></li>
+							</ul>
+						</li>
+
+						<li class="price"><a href="/Support/SupportPrice">회원체계 및 가격 안내</a></li>
+						<li class="scale"><a href="/Support/SupportScale">회원등급별 제공범위</a></li>
+						<li class="policy"><a href="/Support/SupportPolicy">약관 및 정책</a></li>
+						<li class="remote"><a href="/Support/SupportRemote">원격지원</a></li>
+					</ul>
+				</div>
+				<article class="main_container"   >  
+					 <div class="main_container_view"> 
+						<div class="noti_box">
+							<p>공지사항</p>
+							<ul>
+								<li><em class="noti_pin">알림</em><a href="1">PM 작업 안내드립니다.(3월 4일 토요일, 00:00~ 08:00)</a></li>
+								<li><em class="noti_pin">알림</em><a href="1">2017년 새해 복 많이 받으세요!!</a></li>
+								<li><a href="1"><em>이벤트 & 인사이트</em>『로앤비』 이용안내 Webinar</a></li>
+								<li><a href="1"><em>개선 & 업데이트</em>업법무 콘텐츠가 업데이트 되었습니다.</a></li>
+							</ul>
+						</div>  
+						<div class="tel_box">
+							<p class="hide">연락처</p>	 
+							<dl>
+								<dt>담당자 연락처 </dt>
+								<dd>가입/결제 안내 : 02-6936-1322,1321</dd>
+								<dd>컨텐츠 이용/검색 안내 : 02-6936-1315</dd>
+								<dd>법조인 등록/수정 안내 : 02-6936-1315</dd>
+								<dd>사이트 오류 안내 : 02-6936-1450</dd>
+							</dl>
+							<dl>
+								<dt>결제계좌 안내</dt>
+								<dd>SC은행(SC제일) 195-20-012309 (주)로앤비</dd>
+							</dl>
+						</div>  
+						<div class="cb"></div>
+						<div class="faq_box pr"> 
+							<p class="tit">FAQ</p> 
+							<span onclick="popup_question();">1:1 문의하기</span> 
+							<div class="box_set">
+								<div class="faq_title">1. 로앤비 통합회원 제도란 무엇인가요?</div>
+									<div class="faq_explain">
+										로앤비 통합회원제도는 로앤비가 운영하는 다양한 사이트를 1개의 동일한 아이디(ID)로 이용하는 제도 입니다.<br>로앤비 법률정보, 교육센터 그리고 온주 등 다양한 지식정보 서비스를 하나의 아이디(ID)와 비밀번호로 편리하게 로그인 할 수 있습니다.<br><br>[로앤비통합회원가입신청]<br><a href="http://members.lawnb.com" target="_blank">http://members.lawnb.com</a>  
+									</div>
+								<div class="faq_title">2. 가입 및 탈퇴는 어떻게 하나요?</div> 
+									<div class="faq_explain">
+										<strong>1) ID회원 가입</strong> 
+<p>ID회원은 아이디 패스워드 입력하여 PC인증을 받아 이용하는 회원입니다.<br>
+ID회원중 개인회원은 개인명의로 가입 가능하며, 법인회원은 법인 또는 개인사업자를 위한 회원제도로 법인명의로 회원가입이 가능합니다.</p> 
+<strong>2) IP회원 가입</strong> 
+<p>IP회원은 아이디 패스워드를 입력하지않고 전용 도메인을 통한 접속으로 자동 로그인되어 이용하는 회원입니다. IP회원은 별도 계약서를 통해 계약 후 이용 가능합니다.</p>
+<strong>3) 회원탈퇴</strong> 
+<p>이용자는 이용자 본인이 사전에 온라인, 전화 또는 팩스 등 회사가 인지할 수 있는 합리적인 방법을 통하여 회사에 해지,탈퇴신청을 함으로써 이용계약을 해지,탈퇴할 수 있습니다.<br>
+단, 유료회원은 바로 탈퇴처리가 되지 않습니다. <br>
+부득이하게 탈퇴를 원하시면, 담당자에게 연락을 주시기 바랍니다. </p>
+<div class="gray_info">- 전화 : 02-6936-1300     - FAX : 02-6936-1477     - 메일 cs.lawnb@tr.com</div>
+
+									</div>
+								<div class="faq_title">3. ID / 비밀번호 분실했을 때는 어떻게 해야 하나요?</div>
+									<div class="faq_explain">
+										<strong>ID/비밀번호 찾기</strong>를 이용하여 확인하실 수 있습니다.<br>
+ID를 분실하셨을 경우 이름과 휴대폰 또는 이메일로 본인여부를 확인하시면 바로 보실 수 있으며, 비밀번호를 분실하셨을 경우 이름, 아이디, 휴대폰 또는 이메일로 본인여부를 확인하시면 가입 시 등록하신 이메일 주소 또는 핸드폰 번호로 임시비밀번호를 발송해 드립니다.<br>
+만약, 이메일주소나 핸드폰 번호의 변경등으로 임시비밀번호 받기가 어려울 경우 담당자에게 연락 주시면 간단한 개인정보를 확인 한 후 임시비밀번호를 알려드립니다.<br>
+*아이디/비밀번호를 못 찾으신 경우 담당자에게 본인 확인양식을 작성하여 보내주시면 정보확인 후 임시 비밀번호를 보내드리겠습니다.<br><a href="">본인확인 양식 다운로드  </a>
+<div class="gray_info">- 전화 : 02-6936-1300     - FAX : 02-6936-1477     - 메일 cs.lawnb@tr.com</div>
+
+									</div>
+								<div class="faq_title">4. 서브(SUB)아이디란 어떤것인가요?</div>
+									<div class="faq_explain">
+										서브(SUB)아이디는 법인 관리자가 내부이용자의 아이디 관리, 통합결제의 필요성 등을 위한 제도이며, 이용금액도 메인(MAIN) 아이디와 동일합니다.<br>
+법인회원이 2개 이상의 복수 아이디를 가입할 경우 두번째 아이디(ID)부터 서브(SUB)아이디로 추가하실 수 있습니다. <br>
+기존 법인회원이 서브아이디를 추가 할 경우에는 법인 관리자에게 제공되는 관리자페이지에서 추가하실 수 있습니다. <br>
+단,이용기간 중 추가는 메인(MAIN) 아이디가 만료되는 시점까지 일할계산된 금액으로 확인 됩니다. 
+
+									</div>
+								<div class="faq_title">5. 유료이용은 어떻게 하나요?</div>
+									<div class="faq_explain">
+										신용카드, 실시간 계좌이체, 무통장입금 방법으로 결제시 이용 가능합니다.<br>
+단, 개인회원이 무통장입금으로 결제하시면 로앤비 담당자의 입금 확인 후에 유료권한이 부여됩니다.<br>
+입금은 익일(토,일,공휴일 제외) 오후 5시까지 해주시고, 이용이 급하신 고객께서는 입금 후 오후6시 이전에(토,일,공휴일 제외) 연락을 주시면 처리 가능합니다.
+
+										<div class="gray_info">- 전화 : 02-6936-1300     - FAX : 02-6936-1477     - 메일 cs.lawnb@tr.com</div>
+									</div>
+								<div class="faq_title">6. 세금계산서 및 영수증 발행은 어떻게 되나요?</div>
+									<div class="faq_explain">
+										<strong>1) 세금계산서 발행</strong> 
+										<p>개인회원은 세금계산서 발행이 되지 않고, 현금영수증만 발행 가능합니다<br>
+										법인회원은 무통장 결제 및 실시간 계좌이체를 할 경우 세금계산서 발행여부를 묻는 체크박스에 체크를 해 주시면 입력해주시는 이메일 주소로 익일(토,일,공휴일 제외)에 발송해 드립니다.<br>
+										세금계산서가 필요한 경우 반드시 법인회원으로 가입해서 사업자등록번호를 포함한 정확한 사업체정보를 입력해 주시기 바랍니다.<br>
+										그리고 신규가입 시에는 필히 사업자등록증을 담당자에게 보내주시기 바랍니다.
+										</p>
+										<strong>2) 영수증발행</strong>
+										<p>①현금영수증: 무통장입금은 입금 확인이 된 후, 실시간이체는 결제한 즉시 마이로앤비에서 현금영수증정보(휴대폰번호 또는 주민등록번호)+금액 또는 구매자명+금액을 입력 후 발행 가능합니다.<br>②신용카드영수증: 결제시 바로 출력이 가능하고 이후 영수증 확인이 필요할 때에는 마이로앤비에서 이메일+카드번호/휴대폰번호+금액/구매자명+금액을 입력 후 발행 가능합니다.<br>또한 이니시스 사이트 (www.inicis.com) 결제내역조회 서비스에서도 확인 가능합니다.
+										</p>
+									</div>
+								<div class="faq_title">7. PC인증은 무엇인가요?</div>
+									<div class="faq_explain">로앤비는 One ID One User 정책에 따라 PC 인증제도를 시행합니다.<br>
+									로앤비 유료 정회원(개인/법인 ID회원)은 사용하는 컴퓨터에 PC인증을 받아야 하며, PC인증이 되지 않은 컴퓨터에서의 서비스 이용은 물리적으로 제한됩니다. <br>
+									하나의 ID에 하나의 PC를 등록할 수 있으며, 필요한 경우 언제든지 PC를 변경할 수 있습니다. 변경방법은 회원님의 휴대폰 번호로 전송되는 번호를 입력하는 간단한 방식입니다.<br>
+									PC인증은 해당 PC를 포맷하거나 재설치할 때 함께 삭제될 수 있으며, 이때에는 PC인증을 다시 받아서 이용하시면 됩니다.<br>
+									휴대폰 번호가 변경되어 PC인증 변경이 되지 않을 경우 담당자에게 문의주시기 바랍니다.
+
+										<div class="gray_info">- 전화 : 02-6936-1300     - FAX : 02-6936-1477     - 메일 cs.lawnb@tr.com</div>
+									</div>
+								<div class="faq_title">8. 모바일앱LAWnB PRO가 무엇인가요?</div>
+									<div class="faq_explain">	
+										모바일 앱 LAWnB PRO는 태블릿 PC또는 스마트폰에서 로앤비를 이용하는 방법으로 유료회원에게만 제공됩니다.<br>
+개인/법인 정회원은 아이디당 PC인증과는 별도로 1대의 모바일 기기를 등록할 수 있으며, 단체/전용회원은 계약내용에 따라 다르므로 도서관 관리부서의 담당자 또는 각 고객사 담당자에게 문의해 주십시오. <br>LAWnB PRO의 자세한 이용 방법은 [모바일앱 LAWnB PRO]에서 확인 하실 수 있습니다.
+
+									</div>
+								<div class="faq_title">9. 찾으려는 판례가 검색이 안됩니다.</div>
+									<div class="faq_explain">
+										로앤비에서는 대법원과 각급법원 및 행정∙특허법원의 최신 판례, 미공간 하급심 판례 등을 확보하여 약 21만건 이상의 국내 최다 판례 (99% 이상 전문제공)를 제공하고 있습니다.<br><br>
+판례가 검색이 안 되는 경우는 아직 판례가 공개되지 않아 반영하지 못한 경우와 비공개 판례로 일부 반영이 안된 경우가 있습니다.<br>
+보통 판례공개는 판결선고일로부터 약 한달 후에 공개되며, 각급 법원에서 제공되는 공개 판례는 100%반영이 되어 있으나, 하급심 판례 중 일부 비공개 판례는 반영이 안되어 있을 수 있습니다.<br>
+또한 전국의 각급법원에서 대법원에 이르기까지 하루에도 수많은 판결이 내려지며, 이러한 판결 중에 상당수는 같은 사안이며 원피고 당사자 이름만 다른 경우가 많아 모든 판례를 제공하고 있지는 않습니다.<br><br>
+
+판례를 업데이트 하는 과정에서 자체적으로 판단해 중요한 의미를 갖는 판례는 상당부분 제공해드리고 있으나 찾고자 하는 판례가 없는 경우도 있기에 이러한 불편을 해결해 드리기 위해 유료회원에 한하여 로앤비에 반영되지 않은 판례를 신청할 수 있는 서비스를 제공하고 있습니다.<br><br>
+
+신청은 판례 매뉴의 <strong><a href="">판결문 등재 신청</a></strong>을 이용하여 신청하시면 되며, 사이트에 반영이 되는데로 기입하신 이메일로 판례등록메일을 보내드립니다.<br>
+각 법원에 따라 반영시간이 오래 걸릴 수도 있으니 양해바랍니다.
+										<div class="gray_info">- 전화 : 02-6936-1315   - 메일 datacenter.lawnb@tr.com</div>
+
+									</div>
+								<div class="faq_title">10. 학회논문을 검색했는데 페이지 오류가 발생합니다.</div>
+									<div class="faq_explain">로앤비에서 제공하는 학회논문의 경우 논문을 전문적으로 서비스하는 회사들과 제휴를 맺어 고객님께 서비스하고 있습니다.<br>학회논문 검색 시 오류페이지가 발생한 경우 해당 논문을 제공하는 제휴사에 연락하여 오류 원인을 확인 후 수정요청을 진행하게 됩니다.<br>바로 수정이 어려운 점 양해부탁드리며, 제휴사에 연락하여 신속한 처리를 하도록 하겠습니다.
+										<div class="gray_info">- 전화 : 02-6936-1356   - 메일 sejin.jung@tr.com</div>
+									</div>
+								<div class="faq_title">11. 로애비 사이트에 제 법조인 정보가 없어요! 잘못된 정보가 반영되어 있어요!</div>
+									<div class="faq_explain">로앤비 법조인 정보의 경우 자체 수집 및 각 법조인이 등록 및 수정요청을 해주신 정보로 서비스되고 있기에 모든 법조인 정보가 반영되어 있지는 않습니다.<br>
+법조인명록 등록 및 수정은 법조인 매뉴에 있는 등록 및 수정 페이지를 통해서 신청해주시면 확인 후 빠른 반영 진행하도록 하겠습니다.<br>
+로앤비 ID가 없으신 경우 개인/ 무료회원으로 가입하셔도 신청 가능하며, 직원이 대신 신청하게 될 경우는 메일로 신청부탁드립니다.<br><br><a href="">법조인 신규등록 파일 다운로드</a>
+
+									</div>
+							</div> 
+						</div>
+						<div class="userguide_box">
+							<p>로앤비 메뉴별 상세 이용안내</p>
+							<ul>
+								<li>판례</li>
+								<li>심판·결정·해석</li>
+								<li>법조인</li>
+								<li>서식</li>
+								<li>통합검색</li>
+								<li>법규</li>
+								<li>문헌</li>
+								<li>기업법무</li>
+								<li>뉴스·칼럼</li>
+								<li>개인화기능</li>
+								<li>모바일 -  LAWnB Pro</li>
+							</ul>
+						</div>
+					 </div>
+				</article>   
+			</div>
+    	</div>  
+		<footer>  
+			<div class="top_container   _footer"> 	   
+				서울특별시 구로구 디지털로 272, 611호(한신IT타워) | 대표이사 방 영 선 | TEL : 02)6936-1300 | 사업자등록번호 220-86-00665 | 통신판매업신고번호 : 구로-0926
+				<div>Thomson reuters</div>
+				<div>Copyright ⓒ <b>LAWnB</b>. All Rights Reserved.</div>
+			</div>            
+		</footer>
+		<div id="bg_screen"></div> 
+	</div>
+		<script type="text/javascript">   
+			setHeight_customer();
+		</script>
+</div> 
+</body>
+</html>

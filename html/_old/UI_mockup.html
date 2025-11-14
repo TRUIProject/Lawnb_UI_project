@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LawnB</title>
+    <script src="https://lawnb.com/Scripts/lib/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <style type="text/css">
+        body {background-color: #000; text-align: center; padding: 0; margin: 0;}
+        div img {cursor: pointer;}
+        .mockup { display: none;}
+        .show {display: block;}
+        .mockup span {position: absolute; right: 10px; color: #fff; font-size: 14px; width: 10px; height: 10px; cursor: pointer; z-index: 1000;}
+        .mockup span.next { top: 40px;}
+        .mockup span.prev { top: 20px;}
+        .mockup span:hover {color: #f00;}
+        .blank {position:absolute; top: 10px; right: 10px; top: 10px; width: 1560px; height: 930px;}
+    </style>
+    <script>
+        $(document).ready(function () {
+            $(".mockup img").before("<span class='prev'>←</span>");
+            $(".mockup img").after("<span class='next'>→</span>");
+
+            $(".mockup img").click(function () {
+                $(this).parent().removeClass('show')
+                $(this).parent().next().addClass('show')
+            });
+            
+            $(".mockup .next").click(function () {
+                $(this).parent().removeClass('show')
+                $(this).parent().next().addClass('show')
+            });
+
+            $(".mockup .prev").click(function () {
+                $(this).parent().removeClass('show')
+                $(this).parent().prev().addClass('show')
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <div class="mockup show"><img src="./images/feedback01.jpg"></div>
+    <div class="mockup"><img src="./images/feedback02.jpg"></div>
+    <div class="mockup"><img src="./images/feedback03.jpg"></div>
+    <div class="mockup"><img src="./images/feedback04.jpg"></div>
+    <div class="mockup"><img src="./images/feedback05.jpg"></div>
+    <div class="mockup"><img src="./images/feedback06.jpg"></div>
+    <div class="mockup"><img src="./images/feedback07.jpg"></div>
+    <div class="mockup"><img src="./images/feedback08.jpg"></div>
+    <div class="mockup"><img src="./images/feedback09.jpg"></div>
+    <div class="mockup"><img src="./images/feedback10.jpg"></div>
+    <div class="mockup"><img src="./images/feedback11.jpg"></div>
+    <div class="mockup"><img src="./images/feedback12.jpg"></div>
+    <div class="mockup"><img src="./images/feedback13.jpg"></div>
+    <div class="mockup"><img src="./images/feedback14.jpg"></div>
+    <div class="mockup"><img src="./images/feedback15.jpg"></div>
+    <div class="mockup"><img src="./images/feedback16.jpg"></div>
+    <div class="mockup"><img src="./images/feedback17.jpg"></div>
+    <div class="mockup"><img src="./images/feedback18.jpg"></div>
+    <div class="mockup"><img src="./images/feedback19.jpg"></div>
+    <div class="mockup"><img src="./images/feedback20.jpg" onclick="window.open('./new_content.html');"></div>
+    <div class="mockup"><img src="./images/feedback22.jpg"></div>
+    <div class="mockup"><img src="./images/feedback23.jpg"></div>
+    <div class="mockup"><img src="./images/feedback24.jpg"></div>
+    <div class="mockup"><img src="./images/feedback25.jpg"></div>
+    <div class="mockup"><img src="./images/feedback26.jpg"></div>
+    <div class="mockup"><img src="./images/feedback27.jpg"></div>
+    <div class="mockup"><img src="./images/feedback28.jpg"></div>
+    <div class="mockup"><img src="./images/feedback29.jpg"></div>
+    <div class="mockup"><img src="./images/feedback30.jpg"></div>
+    <div class="mockup"><img src="./images/feedback31.jpg"></div>
+    <div class="mockup"><img src=""></div>
+    
+</body>
+</html>

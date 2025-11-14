@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../js/commonjs.js?sdd"></script>
+<script language="javascript">
+<!--
+	 
+	function resizeComment(){ 
+			setHeight_under();
+			$(".right_container").removeClass('slide_mov_right'); 
+		}
+	function press_view(){
+		$('.press_list').show();
+	}
+	function press_close(){
+		$('.press_list').hide();
+	}
+
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_mainContainer">
+	<div id="wrap" >
+		<header> 
+			<div class="top_container  ">  
+				<a href="/"><h1>로앤비 </h1></a>
+				<div id="t_search" class="search_container">
+					<h2>통합검색 영역</h2>
+					<div class="search_inner">
+						<form  action="" > 
+						<div class="search_left hide">
+							<label class="hide">통합검색  </label>
+						</div>
+						<div class="search_center">
+							<input type="search" name="" id="" >
+						</div>
+						<div class="search_right"><span  class="more_btn">more</span></div>
+						<div id="searchButton" class="search_btn"><i class="icon-" data-icon="&#xe910;"></i><span class="hide">검색</span></div> 
+						</form>
+						<div class="btn_search_result"><i class="icon-table" data-icon="&#xea71;"></i><span class="hide">검색결과 맵 보기</span></div>
+					</div>
+                    <div class="search_layer_outer" >
+					<div class="search_layer" >
+						<div class="search_layer_list _done ">
+							<!-- <div class="txt_info">최근검색어저장 기능이 OFF 상태에 있습니다.<br>이용을 원하시면 하단의 최근검색어저장 상태를 ON으로 변경해주세요. </div> 
+							<ul>
+								<li>공정거래법 위반으로 인한 손해액의 산정방법과 주요 쟁점으로 <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+							</ul>-->
+							<ul>
+								<li><strong>대법</strong>원인터넷등기소<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+								<li><strong>대법</strong>원나의사건검색</li>
+								<li><strong>대법</strong>원법원경매정보</li>
+								<li><strong>대법</strong>원전자가족관계</li>
+								<li><strong>대법</strong>원경매</li>
+								<li><strong>대법</strong>원인터넷등기소<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+								<li><strong>대법</strong>원나의사건검색<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+								<li><strong>대법</strong>원법원경매정보</li>
+								<li><strong>대법</strong>원전자가족관계</li>
+								<li><strong>대법</strong>원경매</li>
+							</ul> 
+							<div class="expend_result" onclick="">
+								<p>법무법인(유한) 태평양어쩌고 저쩌고</p>
+								<span>주소 : [050-50] 서울시 광진구 디지털로 272, 한신 IT타워 611호<br>대표전화 : 02-2204-2114</span>
+								<div class="dirct_go">바로가기</div>
+							</div>
+						</div>
+						<!-- <div class="noti_txt"><i class="icon-" data-icon="&#xe90d;"></i> 공용 PC에서는 개인정보보호를 위하여 반드시 로그아웃을 해주세요.</div> -->
+						<div class="search_layer_foot">
+							<div class="fl">기록삭제</div>
+							<div class="fr">최근검색어저장 <div class="btn-group"><button type="button" class="btn btn_orange _select">ON</button><button type="button" class="btn btn-default">OFF</button></div> 자동완성 <div class="btn-group"><button type="button" class="btn btn_orange _select">ON</button><button type="button" class="btn btn-default">OFF</button></div>
+							</div>						
+						</div>
+					</div> 
+				</div>
+
+				</div>
+
+				<div id="indiv_area" class="indiv_container">
+					<span alt="나의폴더">나의폴더<i class="icon-icon_myfolder" data-icon="&#xe91a;"></i></span>
+					<span alt="히스토리">히스토리<i class="icon-icon_history" data-icon="&#xe916;"></i></span>
+					<span alt="알림설정">알림설정<i class="icon-icon_alert" data-icon="&#xe918;"></i><em>9+</em></span>
+					<span alt="질문내역">문의내역<i class="icon-icon_question" data-icon="&#xe919;"></i></span>
+					<span alt="나의정보">나의정보<i class="icon-icon_myinfo" data-icon="&#xe917;"></i></span>
+				</div>  
+			</div>
+			<nav> 
+				<dl id="main_menu" class="mmenu">
+					<dt class="blind">메인 메뉴</dt> 
+					<dd>
+						<a href="#"><span>판례</span></a>
+					</dd>
+					<dd class="currentTab" >
+						<a href="#"><span>법규</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>심판·결정·해석</span></a>
+					</dd>
+					<dd >
+						<a href="#"><span>문헌</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>법조인</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>기업법무</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>서식</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>뉴스·칼럼</span></a>
+					</dd>
+				</dl>      
+			</nav>        	
+		</header> 
+		<div class="submenu_group" style="">
+				<div>
+					<dl>
+						<dd><a href="">판례</a></dd>
+						<dd><a href="">판례디렉토리</a></dd>
+						<dd><a href="">판례속보</a></dd>
+					</dl>
+					<dl>
+						<dd><a href="">법령</a></dd>
+						<dd><a href="">행정규칙</a></dd>
+						<dd><a href="">입법동향</a></dd>
+						<dd><a href="">조약</a></dd>
+					</dl>
+					<dl>
+						<dd><a href="">특허 심판례</a></dd>
+						<dd><a href="">결정례</a></dd>
+						<dd><a href="">유권해석</a></dd>
+					</dl>
+					<dl>
+						<dd><a href="">논문평석</a></dd>
+						<dd><a href="">주석서</a></dd>
+						<dd><a href="">E-book</a></dd>
+						<dd><a href="">법률용어</a></dd>
+					</dl>
+					<dl>
+						<dd><a href="">법조인명록</a></dd>
+						<dd><a href="">조직도</a></dd>
+						<dd><a href="">법률사무소</a></dd>
+						<dd>법조기관 안내</dd>
+					</dl>
+					<dl>
+						<dd>로펌 리포트</dd>
+						<dd>세무정보</dd>
+						<dd>기업정보</dd>
+					</dl>
+					<dl>
+						<dd>법률서식</dd>
+						<dd>비즈폼 서식</dd>
+					</dl>
+					<dl>
+						<dd>뉴스</dd>
+						<dd>칼럼</dd>
+					</dl>
+				</div>
+				<div class="ad_area">ss</div>
+			</div>
+		<div id="container" class="two-con submain news">
+			<div id="breadcrumb" class="navi_area">
+				<div>Home > 뉴스·칼럼 > <a href="1">뉴스</a></div>
+				<div class="group_indivi_btn"><a href="">로그인</a><a href="">개인화님</a> </div>
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div id="container_inner">
+				<div class="left_container">  
+				</div>
+				<article class="main_container"> 
+					<div class="main_container_inner">
+						<div id="search_submain" class="submain_group">
+							<h3>뉴스
+								<div class="small_search_outbox"><!-- small search -->
+									<div class="small_search_inbox"> 
+										<input type="search" name="" placeholder="뉴스 검색" > <input type="button" value="검색 " id="searchButton_s" class="btn _search"> <em>|</em> <span onclick="press_view();">언론사별 뉴스보기사</span>
+										<div class="press_list">
+											<div class="press_list_inner">
+												<div class="top_title">
+													<span>언론사별 뉴스보기사</span>
+													<div class="top_title_group"> 
+														<div class="btn_close_pop" onclick="press_close();" >닫기<i class="icon-close" data-icon="&#xe915;"></i></div>
+													</div>
+												</div>
+												<div class="list">
+												<dl>
+													<dt>법률전문지</dt>
+													<dd><a href="javascript:NewsCatMove('법률신문');">법률신문</a></dd> 
+													<dd><a href="javascript:NewsCatMove('대한변협신문');">대한변협신문</a></dd>
+													<dd><a href="javascript:NewsCatMove('로이슈');">로이슈</a></dd> 
+													<dd><a href="javascript:NewsCatMove('한국고시');">한국고시</a></dd>
+												</dl>
+												<dl>
+													<dt>종합일간지</dt>
+													<dd><a href="javascript:NewsCatMove('연합뉴스');">연합뉴스</a></dd> 
+													<dd><a href="javascript:NewsCatMove('경향신문');">경향신문</a></dd>
+													<dd><a href="javascript:NewsCatMove('국민일보');">국민일보</a></dd>
+													<dd><a href="javascript:NewsCatMove('내일신문');">내일신문</a></dd>
+													<dd><a href="javascript:NewsCatMove('문화일보');">문화일보</a></dd>
+													<dd><a href="javascript:NewsCatMove('서울신문');">서울신문</a></dd>
+													<dd><a href="javascript:NewsCatMove('세계일보');">세계일보</a></dd>
+													<dd><a href="javascript:NewsCatMove('한겨레');">한겨레</a></dd>
+													<dd><a href="javascript:NewsCatMove('한국일보');">한국일보</a></dd>
+												</dl>
+												<dl>
+													<dt>경제지</dt>
+													<dd><a href="javascript:NewsCatMove('서울경제');">서울경제</a></dd> 
+													<dd><a href="javascript:NewsCatMove('아주경제');">아주경제</a></dd>
+													<dd><a href="javascript:NewsCatMove('파이낸셜뉴스');">파이낸셜뉴스</a></dd>
+													<dd><a href="javascript:NewsCatMove('헤럴드경제');">헤럴드경제</a></dd> 
+													<dd><a href="javascript:NewsCatMove('이데일리');">이데일리</a></dd> 
+													<dd><a href="javascript:NewsCatMove('한국경제');">한국경제</a></dd> 
+													<dd><a href="javascript:NewsCatMove('아시아경제');">아시아경제</a></dd> 
+												</dl> 
+												<dl>
+													<dt>전문지</dt> 
+													<dd><a href="javascript:NewsCatMove('PD저널');">PD저널</a></dd>
+													<dd><a href="javascript:NewsCatMove('대덕넷');">대덕넷</a></dd>
+													<dd><a href="javascript:NewsCatMove('브레이크뉴스');">브레이크뉴스</a></dd>
+													<dd><a href="javascript:NewsCatMove('뉴스핌');">뉴스핌</a></dd>
+													<dd><a href="javascript:NewsCatMove('데일리안');">데일리안</a></dd>
+													<dd><a href="javascript:NewsCatMove('노컷뉴스');">노컷뉴스</a></dd>
+													<dd><a href="javascript:NewsCatMove('소년한국일보');">소년한국일보</a></dd>
+													<dd><a href="javascript:NewsCatMove('코리아헤럴드');">코리아헤럴드</a></dd>
+													<dd><a href="javascript:NewsCatMove('코리아타임스');">코리아타임스</a></dd>
+												</dl>
+												<dl>
+													<dt>&nbsp;</dt>
+													<dd><a href="javascript:NewsCatMove('주니어헤럴드');">주니어헤럴드</a></dd> 
+													<dd><a href="javascript:NewsCatMove('환경일보');">환경일보</a></dd> 
+													<dd><a href="javascript:NewsCatMove('전자신문');">전자신문</a></dd>
+													<dd><a href="javascript:NewsCatMove('언론재단');">언론재단</a></dd> 
+												</dl>
+												<dl class="h245">
+													<dt>스포츠지</dt>
+													<dd><a href="javascript:NewsCatMove('스포츠경향');">스포츠경향</a></dd> 
+													<dd><a href="javascript:NewsCatMove('스포츠서울');">스포츠서울</a></dd>  
+												</dl>
+												<dl class="h245">
+													<dt>지방지</dt>
+													<dd><a href="javascript:NewsCatMove('강원도민일보');">강원도민일보</a></dd>
+													<dd><a href="javascript:NewsCatMove('강원일보');">강원일보</a></dd>
+													<dd><a href="javascript:NewsCatMove('경기일보');">경기일보</a></dd>  
+													<dd><a href="javascript:NewsCatMove('경남도민일보');">경남도민일보</a></dd>
+													<dd><a href="javascript:NewsCatMove('경남신문');">경남신문</a></dd>
+													<dd><a href="javascript:NewsCatMove('경상일보');">경상일보</a></dd>
+													<dd><a href="javascript:NewsCatMove('경인일보');">경인일보</a></dd>
+													<dd><a href="javascript:NewsCatMove('경북일보');">경북일보</a></dd>
+													<dd><a href="javascript:NewsCatMove('광주일보');">광주일보</a></dd>
+												</dl>
+												<dl>
+													<dt>&nbsp;</dt>  
+													<dd><a href="javascript:NewsCatMove('국제신문');">국제신문</a></dd>
+													<dd><a href="javascript:NewsCatMove('당진시대');">당진시대</a></dd>
+													<dd><a href="javascript:NewsCatMove('대구일보');">대구일보</a></dd>
+													<dd><a href="javascript:NewsCatMove('대전일보');">대전일보</a></dd>
+													<dd><a href="javascript:NewsCatMove('동양일보');">동양일보</a></dd>
+													<dd><a href="javascript:NewsCatMove('매일신문');">매일신문</a></dd>
+													<dd><a href="javascript:NewsCatMove('무등일보');">무등일보</a></dd>
+													<dd><a href="javascript:NewsCatMove('부산일보');">부산일보</a></dd>
+													<dd><a href="javascript:NewsCatMove('새전북신문');">새전북신문</a></dd>
+												</dl>
+												<dl>
+													<dt>&nbsp;</dt>
+													<dd><a href="javascript:NewsCatMove('영남일보');">영남일보</a></dd>  
+													<dd><a href="javascript:NewsCatMove('옥천신문');">옥천신문</a></dd>
+													<dd><a href="javascript:NewsCatMove('울산매일');">울산매일</a></dd>
+													<dd><a href="javascript:NewsCatMove('인천일보');">인천일보</a></dd>
+													<dd><a href="javascript:NewsCatMove('전남일보');">전남일보</a></dd>
+													<dd><a href="javascript:NewsCatMove('전북도민일보');">전북도민일보</a></dd>
+													<dd><a href="javascript:NewsCatMove('전북일보');">전북일보</a></dd> 
+													<dd><a href="javascript:NewsCatMove('제주일보');">제주일보</a></dd> 
+													<dd><a href="javascript:NewsCatMove('중도일보');">중도일보</a></dd>
+												</dl>
+												<dl>
+													<dt>&nbsp;</dt>
+													<dd><a href="javascript:NewsCatMove('중부매일');">중부매일</a></dd>
+													<dd><a href="javascript:NewsCatMove('중부일보');">중부일보</a></dd>
+													<dd><a href="javascript:NewsCatMove('충북일보');">충북일보</a></dd>
+													<dd><a href="javascript:NewsCatMove('충청일보');">충청일보</a></dd>
+													<dd><a href="javascript:NewsCatMove('충청투데이');">충청투데이</a></dd>
+													<dd><a href="javascript:NewsCatMove('한라일보');">한라일보</a></dd>
+													<dd><a href="javascript:NewsCatMove('홍성신문');">홍성신문</a></dd>
+												</dl>
+												<dl>
+													<dt>기타</dt> 
+													<dd><a href="javascript:NewsCatMove('보도자료');">보도자료</a></dd>
+												</dl> 
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</h3>
+							<div class="search_div">
+								<div class="news_today_title">오늘의 주요 법률뉴스<span>전체보기</span></div>
+								<div class="news_today_top">
+									<div class="news_A">
+										<div class="thumb_img"><img src="http://www.lawnb.com//userfiles/image/news/2016/12/161219091.jpg" ></div>
+										<div class="news_A_tit"><a href="">불법행위 유형별로 위자료 산정…법원-변협 12개 방안 추진</a></div>
+									</div>
+									<div class="news_B">
+										<ul>
+											<li><a href="#">월세·재료·인건비 월 2000만원…‘속빈 강정’ 치킨집 김 사장</a><span>연합뉴스</span></li>
+											<li><a href="1">환율 상승·소비 위축에 블랙프라이데이 대박 없었다</a><span>연합뉴스</span></li>
+											<li><a href="1">교통·상하수도·도시가스…전국 곳곳 공공요금 인상 잇따라</a><span>연합뉴스</span></li>
+											<li><a href="1">환율 상승·소비 위축에 블랙프라이데이 대박 없었다</a><span>연합뉴스</span></li>
+											<li><a href="1">환율 상승·소비 위축에 블랙프라이데이 대박 없었다</a><span>연합뉴스</span></li>
+											<li><a href="1">환율 상승·소비 위축에 블랙프라이데이 대박 없었다</a><span>연합뉴스</span></li>
+											<li><a href="1">환율 상승·소비 위축에 블랙프라이데이 대박 없었다</a><span>연합뉴스</span></li>
+										</ul>
+									</div>
+									<div class="news_C">
+										<ul>
+											<li><div class="thumb_s"><img src="http://www.lawnb.com/userfiles/image/news/2016/12/161219089.jpg"></div><a href="1">월세·재료·인건비 월 2000만원…‘속빈 강정’ 치킨집 김 사장</a><span>연합뉴스 <em>2016.12.30</em></span></li>
+											<li><div class="thumb_s"><img src="http://www.lawnb.com//userfiles/image/news/2016/12/161219091.jpg" ></div><a href="1">환율 상승·소비 위축에 블랙프라이데이 대박 없었다</a><span>연합뉴스 <em>2016.12.30</em></span></li> 
+										</ul>
+									</div>
+									<div class="news_C">
+										<ul>
+											<li><div class="thumb_s"><img src="http://www.lawnb.com/userfiles/image/news/2016/12/161219089.jpg"></div><a href="1">월세·재료·인건비 월 2000만원…‘속빈 강정’ 치킨집 김 사장</a><span>연합뉴스 <em>2016.12.30</em></span></li>
+											<li><div class="thumb_s"><img src="http://www.lawnb.com/userfiles/image/news/2016/12/161219089.jpg"></div><a href="1">환율 상승·소비 위축에 블랙프라이데이 대박 없었다</a><span>연합뉴스 <em>2016.12.30</em></span></li> 
+										</ul>
+									</div>
+								</div> 
+							</div> 
+						</div>
+						<div  class="submain_group title news_main_bot">
+							<div class="news_exam fl">
+								<h3>수험뉴스 <span>전체보기</span></h3> 
+								<dl>
+									<dt><img src="http://www.lawnb.com/userfiles/image/news/2016/12/161219080(1).jpg"></dt>
+									<dd><a href="1">월세·재료·인건비 월 2000만원…‘속빈 강정’ 치킨집 김 사장</a><span></dd>
+								</dl>
+								<dl>
+									<dt><img src="http://www.lawnb.com/userfiles/image/news/2016/12/161219080(1).jpg"></dt>
+									<dd><a href="1">월세·재료·인건비 월 2000만원…‘속빈 강정’ 치킨집 김 사장</a><span></dd>
+								</dl>
+								<ul>
+									<li><a href="1">월세·재료·인건비 월 2000만원…‘속빈 강정’ 치킨집 김 사장</a><span>연합뉴스</span></li>
+									<li><a href="1">환율 상승·소비 위축에 블랙프라이데이 대박 없었다</a><span>연합뉴스</span></li>
+									<li><a href="1">교통·상하수도·도시가스…전국 곳곳 공공요금 인상 잇따라</a><span>연합뉴스</span></li>
+									<li><a href="1">환율 상승·소비 위축에 블랙프라이데이 대박 없었다</a><span>연합뉴스</span></li>
+									<li><a href="1">환율 상승·소비 위축에 블랙프라이데이 대박 없었다</a><span>연합뉴스</span></li> 
+								</ul>
+							</div>
+							<div class="news_lawyer fl">
+								<h3>화제의 법조인<span>전체보기</span></h3>
+									<dl>
+									<dt><img src="http://www.lawnb.com/userfiles/image/news/2016/12/161219080(1).jpg"></dt>
+									<dd><a href="1">월세·재료·인건비 월 2000만원…‘속빈 강정’ 치킨집 김 사장</a><span></dd>
+								</dl>
+								<dl>
+									<dt><img src="http://www.lawnb.com/userfiles/image/news/2016/12/161219080(1).jpg"></dt>
+									<dd><a href="1">월세·재료·인건비 월 2000만원…‘속빈 강정’ 치킨집 김 사장</a><span></dd>
+								</dl>
+								<ul>
+									<li><a href="1">월세·재료·인건비 월 2000만원…‘속빈 강정’ 치킨집 김 사장</a><span>연합뉴스</span></li>
+									<li><a href="1">환율 상승·소비 위축에 블랙프라이데이 대박 없었다</a><span>연합뉴스</span></li>
+									<li><a href="1">교통·상하수도·도시가스…전국 곳곳 공공요금 인상 잇따라</a><span>연합뉴스</span></li>
+									<li><a href="1">환율 상승·소비 위축에 블랙프라이데이 대박 없었다</a><span>연합뉴스</span></li>
+									<li><a href="1">환율 상승·소비 위축에 블랙프라이데이 대박 없었다</a><span>연합뉴스</span></li> 
+								</ul>
+							</div> 
+						</div>
+						<div class="news_right">청소년보호 책임자 : 정경률, 기사배열 책임자 : 장경미 ㅣ 기사배열정책</div>
+					</div>
+					<div class="main_container_view">
+						<div class="main_container_view_inner">
+							 
+						</div>
+					</div>
+				</article> 
+				<aside class="right_container"> 
+					<section >
+						<h4>뉴스 속의 판례</h4>
+						<ul> 
+							<li><a href="1" >낙태 의사 자격정지 12개월’ … 1개월로 후퇴 </a><span>연합뉴스  | 2016.01.01</span></li> 
+							<li><a href="1" >법원 '고용부의 전공노 설립 신고 반려, 정당</a> <span>연합뉴스  | 2016.01.01</span></li> 
+							<li><a href="1" >인터뷰] '경험·전문성 살려 앞으로는 해외시장 적극 개척' </a> <span>연합뉴스  | 2016.01.01</span></li> 
+							<li><a href="1" >낙태 의사 자격정지 12개월’ … 1개월로 후퇴 </a> <span>연합뉴스  | 2016.01.01</span></li> 
+							<li><a href="1" >'국무총리 공관 100m 이내 집회·시위 금지' 위헌성 공방</a> <span>연합뉴스  | 2016.01.01</span></li> 
+							<li><a href="1" >월세·재료·인건비 월 2000만원…‘속빈 강정’ 치킨집 김 사장</a> <span>연합뉴스  | 2016.01.01</span></li> 
+						</ul>  
+						<!-- <div class="more_view">more</div> -->
+					</section>
+					<section >
+						<h4>News and Insight from REUTERS</h4>
+						<ul> 
+							<li><div></div><a href="1" >U.S. Federal Reserve says will be more open about 'stress tests‘</a><br><span>2016.11.15 | REUTERS</span><br>The Federal Reserve will be more open with Wall Street about how it conducts its annual 'stress tests' of the largest U.S. banks, the central bank said on Tuesday. </li>  
+						</ul>  
+						<!-- <div class="more_view">more</div> -->
+					</section>
+				</aside>
+			</div>
+    	</div>
+		<footer>
+			<div class="etc_menu"> 
+				<div class="top_container">  
+					<ul>	
+						<li class="blind">기타 메뉴 </li>
+						<li>회사소개</li>
+						<li>광고 · 제휴문의</li>
+						<li>이용약관</li>
+						<li>개인정보 취급/처리 방침</li>
+						<li>법적고지</li>
+						<li>이메일 무단수집거부</li>
+					</ul>
+				</div>
+			</div>  
+			<div class="top_container   _footer"> 	   
+				1. 콘텐츠의 명칭 : 법률정보 &nbsp;&nbsp; 2. 콘텐츠의 제작 및 표시 : 2006년 2월 17일(업그레이드 콘텐츠의 경우 갱신일) &nbsp;&nbsp; 3. 콘텐츠 제작자 : ㈜로앤비  &nbsp;&nbsp;  4. 콘텐츠의 이용조건 : <a href="/support/agree_use.asp" class="red_bott">이용약관</a> 및 로앤비 <a href="/support/serviceInfo_member.asp" class="red_bott">서비스안내</a>와 같음 (무단 복제금지) &nbsp;&nbsp;5. 콘텐츠의 보호기간 : ㈜로앤비 사이트의 모든 콘텐츠는 「콘텐츠산업 진흥법」에 따라 제작 또는 갱신일로부터 5년간 보호됨
+				<div>Thomson reuters</div>
+				<div>Copyright ⓒ 1998~2016 <b>LAWnB</b>. All Rights Reserved.</div>
+			</div>       
+		</footer>
+		<div id="bg_screen"></div>
+		<script type="text/javascript">  
+			setHeight_under();			  
+		</script>
+	</div>
+</div> 
+</body>
+</html>

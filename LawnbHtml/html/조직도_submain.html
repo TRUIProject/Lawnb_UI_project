@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title>천자평석 - 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="../Scripts/lib/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="../js/commonjs.js?sdd"></script>
+<script language="javascript">
+<!--
+	 
+	function resizeComment(){ 
+			setHeight_under();
+			$(".right_container").removeClass('slide_mov_right'); 
+		}
+	var expanded = false; 
+	function showCheckboxes() { 
+	  if (!expanded) {
+		$("#checkboxes").show();
+		expanded = true;
+	  } else {
+		$("#checkboxes").hide();
+		expanded = false;
+	  }
+	}
+
+    
+    $(document).ready(function () {
+        $('.submain_tap li a').click(function () {
+            $('.submain_tap li').not(this).removeClass('active');
+            $(this).parent('li').addClass('active');
+        });
+    });
+
+
+    function mainTap1() {
+        $('._tab1').show();
+		$('._tab2').hide();
+        $('._tab3').hide();
+    };
+
+    function mainTap2() {
+        $('._tab1').hide();
+		$('._tab2').show();
+        $('._tab3').hide();
+	};
+
+    function mainTap3() {
+        $('._tab1').hide();
+        $('._tab2').hide();
+        $('._tab3').show();
+    };
+
+    function moreSearchFrom() {
+        $('.submain_search._option').toggle();
+        $('.submain_search_more span').toggle();
+    };
+
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_mainContainer">
+	<div id="wrap" >
+		<header>
+			<div class="top_container  ">
+				<a href="/"><h1>로앤비 1</h1></a>
+				<div id="t_search" class="search_container">
+					<h2>통합검색 영역</h2>
+					<div class="search_inner">
+						<form method="post" id="totalSearchForm" action="../ContentTotal" onsubmit="return getTotalSearch();">
+							<div class="search_left hide">
+								<label class="hide">통합검색  </label>
+							</div>
+							<div class="search_center">
+								<input type="search" id="qu" name="qu" value="" title="통합검색" autocomplete="off">
+							</div>
+							<div class="search_right">
+								<span class="more_btn"><i class="icon-more" data-icon=""></i><span class="hide">more</span></span>
+
+								<!-- 검색 연산자 -->
+								<div class="calc_btn">
+									<i class="icon-info" data-icon="" onclick="searchCalcInfo();" alt="검색연산자 안내">
+										<span class="blind">검색 연산자 안내</span>
+									</i>
+								</div>
+							</div>
+							<div id="searchButton" class="search_btn"><i class="icon-" data-icon=""></i><span class="hide">검색</span></div>
+						</form>
+					</div>
+
+					<div class="btn_search_result"><i class="icon-" data-icon=""></i><span>통합검색 결과 맵&ZeroWidthSpace;</span></div>
+					<div class="search_layer_outer" style="display: none;">
+						<div class="search_layer" style="display: none;">
+							<div class="search_layer_list _done ">
+								<div class="txt_info" style="display:none"> </div>
+								<ul>
+								</ul>
+								<div id="result_target"></div>
+							</div>
+						</div>
+					</div>
+					<div class="layer_calc_outer" style="display: none;">
+						<div class="box_calc_info">
+							<h3>LAWnB 검색연산자 안내</h3>
+							<div class="box_calcDL">
+								<dl>
+									<dt>AND</dt>
+									<dd>
+										<span>"이사회"와 "감사"가 모두 포함된 문서</span>
+										<span>- 예시) 이사회 감사, 이사회 AND 감사</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>OR</dt>
+									<dd>
+										<span>"이사회"와 "감사" 중 어느 하나라도 포함된 문서</span>
+										<span>- 예시) 이사회 OR 감사</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>NOT</dt>
+									<dd>
+										<span>"이사회"가 포함되고 "감사"가 포함되지 않은 문서</span>
+										<span>- 예시) [검색어]이사회 [제외어]감사, 이사회 NOT 감사</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>EQUAL</dt>
+									<dd>
+										<span>"이사회 감사"라는 검색어와 완전일치하는 구문이 있는 문서</span>
+										<span>- 예시) “이사회 감사”</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>NEAR </dt>
+									<dd>
+										<span>"이사회"와 "감사" 사이에 단어(형태소)가 10개 이하인 문서</span>
+										<span>- 예시) “이사회 감사”~10</span>
+									</dd>
+								</dl>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div id="indiv_area" class="indiv_container">
+					<span alt="나의 검색" onclick="javascript:mydesk.myPersonalization('MYSEARCH'); return false;" id="spanMySearch">
+						나의검색
+						<!-- 2022.04 UI 개선 수정 작업-->
+						<!--<em class="icon_mySearch_on">ON</em>-->
+						<em class="icon_mySearch_off">OFF</em>
+						<i class="newic-mysearch_main"></i>
+					</span>
+
+					<span alt="나의폴더" onclick="javascript:mydesk.myPersonalization('MY01'); return false;">나의폴더<i class="icon-icon_myfolder" data-icon=""></i></span>
+					<span alt="하이라이트&amp;메모" onclick="javascript:mydesk.myPersonalization('MYHIGHLIGHT'); return false;" class="indiv_highlight">하이라이트&amp;메모<i class="newic-h_light"></i></span>
+					<span alt="히스토리" onclick="javascript:mydesk.myPersonalization('MY02'); return false;">히스토리<i class="icon-icon_history" data-icon=""></i></span>
+					<span alt="알림설정" onclick="javascript:mydesk.myPersonalization('MY03'); return false;">
+						알림<i class="icon-icon_alert" data-icon=""></i>
+						<em></em>
+					</span>
+					<span alt="질문내역" onclick="javascript:loginNeed(); return false;">문의내역<i class="icon-icon_question" data-icon=""></i></span>
+					<span alt="나의정보" onclick="javascript:MyInfo(); return false;">나의정보<i class="icon-icon_myinfo" data-icon=""></i></span>
+				</div>
+
+
+			</div>
+			<nav>
+				<div class="nav_menuBox">
+					<dl id="main_menu" class="mmenu">
+						<dd>
+							<a href="#"><span>판례</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="/Info/ContentMain/Case">판례&ZeroWidthSpace;</a></li>
+								<li><a href="/html/판례.천자평석_submain.html">천자평석</a></li>
+								<li><a href="/html/판례.판례연구_submain.html">판례연구</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>법규</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="/Info/ContentMain/Law">법령</a></li>
+								<li><a href="/Info/ContentMain/AdminRule">행정규칙</a></li>
+								<li><a href="/Info/ContentMain/LawMake">입법동향</a></li>
+								<li><a href="/Info/ContentMain/Treaty">조약</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>심판·결정·해석</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="/Info/ContentMain/PatentCase">특허심판례</a></li>
+								<li><a href="/Info/ContentMain/AdminCase">결정례</a></li>
+								<li><a href="/Info/ContentMain/InterpretRule">유권해석</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>주석서</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="/Info/ContentMain/Jusuk">기본법 주석서</a></li>
+								<li><a href="/Info/ContentMain/ONJU">온주&ZeroWidthSpace;</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>문헌</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="/Info/ContentMain/Doc">논문</a></li>
+								<li><a href="/html/문헌.저널_submain.html">저널</a></li>
+								<li><a href="/html/문헌.글로벌법제동향_submain.html">글로벌법제동향</a></li>
+								<li><a href="/Info/ContentMain/LawDic">법률사전</a></li>
+								<!--<li><a href="Ebook">(X예정)E-book</a></li>-->
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>법조인</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="/Info/ContentMain/Lawyer">법조인명록</a></li>
+								<li><a href="/Info/ContentMain/Org">조직도</a></li>
+								<li><a href="/Info/ContentMain/LawFirm">로펌</a></li>
+								<li><a href="/Info/ContentMain/OrgInfo">법조기관</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>기업법무</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="/Info/ContentMain/LawFirmReport">로펌 리포트</a></li>
+								<li><a href="/Info/ContentMain/Tax">세무·인사</a></li>
+								<li><a href="/Info/ContentMain/BizInfo">기업정보</a></li>
+								<li><a href="/Info/ContentMain/Sosong">소송비용계산</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>서식</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="/Info/ContentMain/LawForm">전문법률서식</a></li>
+								<li><a href="/Info/ContentMain/BizForm">비즈폼 서식</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>뉴스·칼럼</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="/Info/ContentMain/News">뉴스</a></li>
+								<li><a href="/Info/ContentMain/Column">칼럼</a></li>
+								<!-- <li><a href="/Editor/Index">LAWnB Editor</a></li> -->
+							</ul>
+						</dd>
+						<dd class="btn_menu_all">
+							<a href="#" onclick="showAllMenu();">메뉴 전체보기  <i></i></a>
+						</dd>
+					</dl>
+					<div class="box_menu_all">
+						<div class="btn_close_pop" onclick="showAllMenu();">닫기<i class="icon-close" data-icon=""></i></div>
+						<ul>
+							<!--<li><strong>판례</strong></li>-->
+							<li><a href="Case">판례</a></li>
+						</ul>
+						<ul>
+							<!--<li><strong>법규</strong></li>-->
+							<li><a href="Law">법령</a></li>
+							<li><a href="AdminRule">행정규칙</a></li>
+							<li><a href="LawMake">입법동향</a></li>
+							<li><a href="Treaty">조약</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>심판·결정·해석</strong></li>-->
+							<li><a href="PatentCase">특허심판례</a></li>
+							<li><a href="AdminCase">결정례</a></li>
+							<li><a href="InterpretRule">유권해석</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>문헌</strong></li>-->
+							<li><a href="Doc">평석·논문</a></li>
+							<li><a href="Jusuk">주석서</a></li>
+							<li><a href="Ebook">E-book</a></li>
+							<li><a href="LawDic">법률사전</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>법조인</strong></li>-->
+							<li><a href="Lawyer">법조인명록</a></li>
+							<li><a href="Org">조직도</a></li>
+							<li><a href="LawFirm">법률사무소</a></li>
+							<li><a href="OrgInfo">법조기관 안내</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>기업법무</strong></li>-->
+							<li><a href="LawFirmReport">로펌 리포트</a></li>
+							<li><a href="Tax">세무·인사</a></li>
+							<li><a href="BizInfo">기업정보</a></li>
+							<li><a href="Sosong">소송비용계산</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>서식</strong></li>-->
+							<li><a href="LawForm">전문법률서식</a></li>
+							<li><a href="BizForm">비즈폼 서식</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>뉴스·칼럼</strong></li> -->
+							<li><a href="News">뉴스</a></li>
+							<li><a href="Column">칼럼</a></li>
+							<!-- <li><a href="/Editor/Index">LAWnB Editor</a></li> -->
+						</ul>
+						<ul>
+							<!-- <li><strong>온주</strong></li>-->
+							<li><a href="ONJU">온주</a></li>
+						</ul>
+						<ul>
+							<li><a href="javascript:OnetoOneContactUs('B02');">판결문 등재신청&ZeroWidthSpace;</a></li>
+							<li><a href="javascript:loginNeed();">법조인명록 등록/수정&ZeroWidthSpace;</a></li>
+							<li><a href="javascript:OnetoOneContactUs('B04');">승소판결문 등록&ZeroWidthSpace;</a></li>
+							<li><a href="javascript:OnetoOneContactUs('B01');">1:1문의&ZeroWidthSpace;</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+
+		</header>
+		<div class="submenu_group" style="">
+			<div>
+				<dl>
+					<dd><a href="">판례</a></dd>
+					<dd><a href="">판례디렉토리</a></dd> 
+				</dl>
+				<dl>
+					<dd><a href="">법령</a></dd>
+					<dd><a href="">행정규칙</a></dd>
+					<dd><a href="">입법동향</a></dd>
+					<dd><a href="">조약</a></dd>
+				</dl>
+				<dl>
+					<dd><a href="">특허 심판례</a></dd>
+					<dd><a href="">결정례</a></dd>
+					<dd><a href="">유권해석</a></dd>
+				</dl>
+				<dl>
+					<dd><a href="">논문평석</a></dd>
+					<dd><a href="">주석서</a></dd>
+					<dd><a href="">E-book</a></dd>
+					<dd><a href="">법률용어</a></dd>
+				</dl>
+				<dl>
+					<dd><a href="">법조인명록</a></dd>
+					<dd><a href="">조직도</a></dd>
+					<dd><a href="">법률사무소</a></dd>
+					<dd>법조기관 안내</dd>
+				</dl>
+				<dl>
+					<dd>로펌 리포트</dd>
+					<dd>세무정보</dd>
+					<dd>기업정보</dd>
+				</dl>
+				<dl>
+					<dd>법률서식</dd>
+					<dd>비즈폼 서식</dd>
+				</dl>
+				<dl>
+					<dd>뉴스</dd>
+					<dd>칼럼</dd>
+				</dl>
+			</div>
+			<div class="ad_area">ss</div>
+		</div>
+		<div id="container" class="lawyer one-con submain">
+			<div id="breadcrumb" class="navi_area">
+				<div><a href="/">Home</a> <i class="icon-" data-icon=""></i> 법조인 : <a href="Org">조직도</a></div>
+				<div class="group_indivi_btn">
+					<span>queenzerg님</span> |
+					<span>Professional ( 개인회원 ) [~2100-12-31] </span>
+					|
+					<a href="/Support/SupportMain" target="Support_center">고객센터</a>
+					<a href="/Login/Logout/" class="btn_logout" onclick="javascript:localStorage.removeItem('mySearchOnOff');">로그아웃</a>
+				</div>
+
+				<span id="right_control" style="display: none;"><i class="icon-2" data-icon=""><span class="blind">오른쪽 영역</span></i></span>
+
+			</div>
+			
+			
+			<div id="container_inner">
+				<div class="left_container" style="display:none;">
+					
+				</div>
+				<article class="main_container" style="height: 1836.2px;">
+					<h2 class="display_pc">조직도</h2>
+					<div class="main_container_inner">
+
+						<div style="float:left; width:200px;">
+							<section id="result_tab">
+								<h4 class="hide">조직 종류</h4>
+								<ul>
+									<li class="orgmenu" data-id="1032">헌법재판소</li>
+									<li class="orgmenu this-page" data-id="1000">법원</li>
+									<li class="orgmenu" data-id="1001">검찰청</li>
+									<li class="orgmenu" data-id="1052">고위공직자범죄수사처</li>
+									<li class="orgmenu" data-id="1009">법학전문 대학원</li>
+									<li class="orgmenu" data-id="1010">법과대학</li>
+								</ul>
+								<!--// 상위 메뉴 -->
+							</section>
+						</div>
+						<!-- 왼쪽메뉴 -->
+						<div class="center_index" style="height: 1836.19px;">
+							<div id="divOrgMenu"><section><h4 class="hide">group</h4><div class="chg_tag"><a class="orgview" href="#" data-id="100156">대법원</a></div><p class="chg_tag"><a class="orgview" href="#" data-id="100170">법원행정처</a></p><p class="chg_tag"><a class="orgview" href="#" data-id="100172">법원공무원교육원</a></p><p class="chg_tag"><a class="orgview" href="#" data-id="100168">사법연수원</a></p><p class="chg_tag"><a class="orgview" href="#" data-id="100169">법원도서관</a></p><p class="chg_tag"><a class="orgview" href="#" data-id="135595">사법정책연구원</a></p><p class="chg_tag"><a class="orgview" href="#" data-id="135596">양형위원회</a></p><ol class="check_area tree mgl10"><li><button type="button" class="tNavToggle minus">-</button><a class="orgview" href="#" data-id="100157">서울고등법원</a><ol><li class="close"><a class="orgview" href="#" data-id="100000">서울중앙지방법원</a></li><li class="close"><a class="orgview" href="#" data-id="100167">서울가정법원</a></li><li class="close"><a class="orgview" href="#" data-id="100163">서울행정법원</a></li><li class="close"><a class="orgview" href="#" data-id="134059">서울회생법원</a></li><li class="close"><a class="orgview" href="#" data-id="100001">서울동부지방법원</a></li><li class="close"><a class="orgview" href="#" data-id="100002">서울남부지방법원</a></li><li class="close"><a class="orgview" href="#" data-id="100003">서울북부지방법원</a></li><li class="close"><a class="orgview" href="#" data-id="100004">서울서부지방법원</a></li><li class="close"><button type="button" class="tNavToggle plus">+</button><a class="orgview" href="#" data-id="100005">의정부지방법원</a><ol style="display: none;"><li class="close"><a class="orgview" href="#" data-id="100012">의정부지방법원 고양지원</a></li><li class="close"><a class="orgview" href="#" data-id="135593">의정부지방법원 남양주지원</a></li></ol></li><li class="close"><button type="button" class="tNavToggle plus">+</button><a class="orgview" href="#" data-id="100014">인천지방법원</a><ol style="display: none;"><li class="close"><a class="orgview" href="#" data-id="100017">인천지방법원 부천지원</a></li></ol></li><li class="close"><a class="orgview" href="#" data-id="134060">인천가정법원</a></li><li class="close"><button type="button" class="tNavToggle plus">+</button><a class="orgview" href="#" data-id="100030">춘천지방법원</a><ol style="display: none;"><li class="close"><a class="orgview" href="#" data-id="100035">춘천지방법원 강릉지원</a></li><li class="close"><a class="orgview" href="#" data-id="100038">춘천지방법원 원주지원</a></li><li class="close"><a class="orgview" href="#" data-id="100040">춘천지방법원 속초지원</a></li><li class="close"><a class="orgview" href="#" data-id="100043">춘천지방법원 영월지원</a></li></ol></li></ol></li><li><button type="button" class="tNavToggle minus">-</button><a class="orgview" href="#" data-id="134828">수원고등법원</a><ol><li class="close"><button type="button" class="tNavToggle plus">+</button><a class="orgview" href="#" data-id="100018">수원지방법원</a><ol style="display: none;"><li class="close"><a class="orgview" href="#" data-id="100022">수원지방법원 안산지원</a></li><li class="close"><a class="orgview" href="#" data-id="100023">수원지방법원 성남지원</a></li><li class="close"><a class="orgview" href="#" data-id="100025">수원지방법원 여주지원</a></li><li class="close"><a class="orgview" href="#" data-id="100028">수원지방법원 평택지원 </a></li><li class="close"><a class="orgview" href="#" data-id="100173">수원지방법원 안양지원</a></li></ol></li><li class="close"><a class="orgview" href="#" data-id="134832">수원가정법원</a></li></ol></li><li><button type="button" class="tNavToggle minus">-</button><a class="orgview" href="#" data-id="100158">대전고등법원</a><ol><li class="close"><button type="button" class="tNavToggle plus">+</button><a class="orgview" href="#" data-id="100047">대전지방법원</a><ol style="display: none;"><li class="close"><a class="orgview" href="#" data-id="100050">대전지방법원 홍성지원</a></li><li class="close"><a class="orgview" href="#" data-id="100054">대전지방법원 공주지원</a></li><li class="close"><a class="orgview" href="#" data-id="100056">대전지방법원 논산지원</a></li><li class="close"><a class="orgview" href="#" data-id="100059">대전지방법원 서산지원</a></li><li class="close"><a class="orgview" href="#" data-id="100062">대전지방법원 천안지원</a></li></ol></li><li class="close"><button type="button" class="tNavToggle plus">+</button><a class="orgview" href="#" data-id="100064">청주지방법원</a><ol style="display: none;"><li class="close"><a class="orgview" href="#" data-id="100068">청주지방법원 충주지원</a></li><li class="close"><a class="orgview" href="#" data-id="100070">청주지방법원 제천지원</a></li><li class="close"><a class="orgview" href="#" data-id="100072">청주지방법원 영동지원</a></li></ol></li><li class="close"><a class="orgview" href="#" data-id="100118">대전가정법원</a></li></ol></li><li><button type="button" class="tNavToggle minus">-</button><a class="orgview" href="#" data-id="100159">대구고등법원</a><ol><li class="close"><button type="button" class="tNavToggle plus">+</button><a class="orgview" href="#" data-id="100074">대구지방법원</a><ol style="display: none;"><li class="close"><a class="orgview" href="#" data-id="100081">대구지방법원 안동지원</a></li><li class="close"><a class="orgview" href="#" data-id="100084">대구지방법원 경주지원</a></li><li class="close"><a class="orgview" href="#" data-id="100085">대구지방법원 김천지원</a></li><li class="close"><a class="orgview" href="#" data-id="100087">대구지방법원 상주지원</a></li><li class="close"><a class="orgview" href="#" data-id="100090">대구지방법원 의성지원</a></li><li class="close"><a class="orgview" href="#" data-id="100093">대구지방법원 영덕지원</a></li><li class="close"><a class="orgview" href="#" data-id="100096">대구지방법원 포항지원</a></li><li class="close"><a class="orgview" href="#" data-id="100058">대구지방법원 서부지원</a></li></ol></li><li class="close"><a class="orgview" href="#" data-id="100164">대구가정법원</a></li></ol></li><li><button type="button" class="tNavToggle minus">-</button><a class="orgview" href="#" data-id="100160">부산고등법원</a><ol><li class="close"><button type="button" class="tNavToggle plus">+</button><a class="orgview" href="#" data-id="100097">부산지방법원</a><ol style="display: none;"><li class="close"><a class="orgview" href="#" data-id="134061">부산지방법원 서부지원</a></li><li class="close"><a class="orgview" href="#" data-id="100098">부산지방법원 동부지원</a></li></ol></li><li class="close"><a class="orgview" href="#" data-id="100099">울산지방법원</a></li><li class="close"><button type="button" class="tNavToggle plus">+</button><a class="orgview" href="#" data-id="100101">창원지방법원</a><ol style="display: none;"><li class="close"><a class="orgview" href="#" data-id="100105">창원지방법원 진주지원</a></li><li class="close"><a class="orgview" href="#" data-id="100110">창원지방법원 통영지원</a></li><li class="close"><a class="orgview" href="#" data-id="100113">창원지방법원 밀양지원</a></li><li class="close"><a class="orgview" href="#" data-id="100115">창원지방법원 거창지원</a></li><li class="close"><a class="orgview" href="#" data-id="100174">창원지방법원 마산지원</a></li></ol></li><li class="close"><a class="orgview" href="#" data-id="100165">부산가정법원</a></li><li class="close"><a class="orgview" href="#" data-id="134773">울산가정법원</a></li></ol></li><li><button type="button" class="tNavToggle minus">-</button><a class="orgview" href="#" data-id="100161">광주고등법원</a><ol><li class="close"><button type="button" class="tNavToggle plus">+</button><a class="orgview" href="#" data-id="100119">광주지방법원</a><ol style="display: none;"><li class="close"><a class="orgview" href="#" data-id="100126">광주지방법원 목포지원</a></li><li class="close"><a class="orgview" href="#" data-id="100130">광주지방법원 장흥지원</a></li><li class="close"><a class="orgview" href="#" data-id="100132">광주지방법원 순천지원</a></li><li class="close"><a class="orgview" href="#" data-id="100138">광주지방법원 해남지원</a></li></ol></li><li class="close"><button type="button" class="tNavToggle plus">+</button><a class="orgview" href="#" data-id="100141">전주지방법원</a><ol style="display: none;"><li class="close"><a class="orgview" href="#" data-id="100146">전주지방법원 군산지원</a></li><li class="close"><a class="orgview" href="#" data-id="100148">전주지방법원 정읍지원</a></li><li class="close"><a class="orgview" href="#" data-id="100151">전주지방법원 남원지원</a></li></ol></li><li class="close"><a class="orgview" href="#" data-id="100154">제주지방법원</a></li><li class="close"><a class="orgview" href="#" data-id="100166">광주가정법원</a></li></ol></li><li><a class="orgview" href="#" data-id="100162">특허법원</a></li></ol></section></div>
+						</div>
+						<!--// 왼쪽메뉴 -->
+						<!-- 상세 -->
+						<div class="center_view">
+							<div id="divOrgView">
+								<h2 class="submain_group dark_line">대법원<div class="btn_more"><a href="javascript:mydesk.myPersonalization('VIEWMY05')"><span><i class="icon-printer" data-icon=""></i>인쇄</span></a><a href="#" onclick="org.orgInfoMapPopup()"><span>법조기관 관할표</span></a></div></h2><div class="text_ex text_ness f14 mgl20"><i class="icon-16 " style="font-size:18px" data-icon=""></i> 로앤비 법조인 정보를 근거로 검사, 변호사를 사칭하는 보이스피싱이 급증하고 있으니 주의바랍니다. <span><a class="btn btn-default" href="//www.lawnb.com/Support/SupportNoticeView/?sPage=1&amp;nIdx=966" target="Support_center"> 내용 자세히 보기 </a></span></div><div class="submain_group title organi"><h3>기본정보<span class="btn_more">(업데이트 기준일 : 2021.09.17)</span></h3><div class="lawyer_info"><span>대표전화 : 02-3480-1100</span><br><span>주소 : [06590]서울시 서초구 서초대로 219</span><br><span>홈페이지 : <a href="https://www.scourt.go.kr/supreme" target="_blank">https://www.scourt.go.kr/supreme</a></span><br><span>관할구역 : 전국</span></div></div><div class="submain_group title organi"><h3>부서별 전화번호<span class="btn_more open">열기</span></h3><div class="lawyer_info tel"><span>대법관 : </span><span>전속재판연구관 : </span><span>공동재판연구관실 : </span></div></div><div class="submain_group title organi"><h3>구성원정보</h3><div class="lawyer_info"><span>대법원장 : <a href="/Info/ContentView?sid=P0002FB138E01074" class="popup_view">김명수</a> (15기)</span><br><span>수석재판연구관 : <a href="/Info/ContentView?sid=P00009F6ED8CDC2B" class="popup_view">오영준</a> (23기)</span><br><span>선임재판연구관 : <a href="/Info/ContentView?sid=P000DE1A7D7275E9" class="popup_view">황진구</a> (24기)</span></div></div><div class="submain_group organi divflag court"><div class="lawyer_info organi_title"><p>대법관</p></div><div class="lawyer_info small_unit"><div class="s_unit"><span>대법관</span><ul><li><a href="/Info/ContentView?sid=P0006DDB21249D29" class="popup_view">김재형</a> (18기)</li><li><a href="/Info/ContentView?sid=P00027675899AD2C" class="popup_view">조재연</a> (12기)</li><li><a href="/Info/ContentView?sid=P000EF856449D812" class="popup_view">박정화</a> (20기)</li><li><a href="/Info/ContentView?sid=P000C63F0AC9CA40" class="popup_view">안철상</a> (15기)</li><li><a href="/Info/ContentView?sid=P00000630E151676" class="popup_view">민유숙</a> (18기)</li><li><a href="/Info/ContentView?sid=P000562A031D9500" class="popup_view">김선수</a> (17기)</li><li><a href="/Info/ContentView?sid=P000B1236A03D6E1" class="popup_view">이동원</a> (17기)</li><li><a href="/Info/ContentView?sid=P00098AD04BCA348" class="popup_view">노정희</a> (19기)</li><li><a href="/Info/ContentView?sid=P0008D74A3FD379B" class="popup_view">김상환</a> (20기)</li><li><a href="/Info/ContentView?sid=P0004098F448ACF2" class="popup_view">노태악</a> (16기)</li><li><a href="/Info/ContentView?sid=P000FB11629090EE" class="popup_view">이흥구</a> (22기)</li><li><a href="/Info/ContentView?sid=P0008D8D3BABE8D1" class="popup_view">천대엽</a> (21기)</li><li><a href="/Info/ContentView?sid=P000684FA8CA81DB" class="popup_view">오경미</a> (25기)</li></ul></div></div></div><div class="submain_group organi divflag court"><div class="lawyer_info organi_title"><p>전속재판연구관</p></div><div class="lawyer_info small_unit"><div class="s_unit"><span>전속재판연구관</span><ul><li><a href="/Info/ContentView?sid=P000ECA79A972BEC" class="popup_view">현의선</a> (31기)</li><li><a href="/Info/ContentView?sid=P000D00B2CA118C2" class="popup_view">송미경</a> (35기)</li><li><a href="/Info/ContentView?sid=P00023EDEB897965" class="popup_view">김은구</a> (32기)</li><li><a href="/Info/ContentView?sid=P000ED6998749B0F" class="popup_view">남우현</a> (35기)</li><li><a href="/Info/ContentView?sid=P00079FA52AA112F" class="popup_view">신원일</a> (32기)</li><li><a href="/Info/ContentView?sid=P000F708F95785AD" class="popup_view">권민오</a> (35기)</li><li><a href="/Info/ContentView?sid=P000613A15DE3274" class="popup_view">김정훈</a> (33기)</li><li><a href="/Info/ContentView?sid=P000EBCFB929E4D2" class="popup_view">서영호</a> (35기)</li><li><a href="/Info/ContentView?sid=P00033E96279B78C" class="popup_view">이중민</a> (30기)</li><li><a href="/Info/ContentView?sid=P000548514F6ADA4" class="popup_view">나청</a> (35기)</li><li><a href="/Info/ContentView?sid=P0009FC81D55B67B" class="popup_view">지귀연</a> (31기)</li><li><a href="/Info/ContentView?sid=P000F75617B36AC0" class="popup_view">윤권원</a> (36기)</li><li><a href="/Info/ContentView?sid=P0001CF20DBDF483" class="popup_view">이영진</a> (34기)</li><li><a href="/Info/ContentView?sid=P00013636D333A50" class="popup_view">김은경</a> (36기)</li><li><a href="/Info/ContentView?sid=P000C5E59BE07CDA" class="popup_view">이상엽</a> (33기)</li><li><a href="/Info/ContentView?sid=P000DF890EB19359" class="popup_view">이학승</a> (36기)</li><li><a href="/Info/ContentView?sid=P00029B7354C93E1" class="popup_view">나진이</a> (32기)</li><li><a href="/Info/ContentView?sid=P000B816422D3337" class="popup_view">서인덕</a> (36기)</li><li><a href="/Info/ContentView?sid=P00051C26DAB9A98" class="popup_view">강부영</a> (32기)</li><li><a href="/Info/ContentView?sid=P000DABD06432FEE" class="popup_view">강선아</a> (34기)</li><li><a href="/Info/ContentView?sid=P00091E5556BAAE5" class="popup_view">박소영</a> (33기)</li><li><a href="/Info/ContentView?sid=P000CBB59AD7D55A" class="popup_view">김현곤</a> (36기)</li><li><a href="/Info/ContentView?sid=P0004B5C7FDCF177" class="popup_view">정은영</a> (33기)</li><li><a href="/Info/ContentView?sid=P000ACACFBC9CCFC" class="popup_view">김춘화</a> (35기)</li></ul></div></div></div><div class="submain_group organi divflag court"><div class="lawyer_info organi_title"><p>공동재판연구관실</p></div><div class="lawyer_info small_unit"><div class="s_unit"><span>공동재판연구관실</span><ul><li><a href="/Info/ContentView?sid=P000E210C2206812" class="popup_view">박설아</a> (38기)</li><li><a href="/Info/ContentView?sid=P000B05508928956" class="popup_view">이하린</a> (48기)</li><li><a href="/Info/ContentView?sid=P000224C6FC1BAF4" class="popup_view">송종환</a> (35기)</li><li><a href="/Info/ContentView?sid=P00034D38EE3DDFC" class="popup_view">임상우</a> (41기)</li><li><a href="/Info/ContentView?sid=P000E68BEC4622E5" class="popup_view">임재남</a> (36기)</li><li><a href="/Info/ContentView?sid=P000351DD653E63B" class="popup_view">배윤경</a> (36기)</li><li><a href="/Info/ContentView?sid=P000A42D3052B275" class="popup_view">이승훈</a> (37기)</li><li><a href="/Info/ContentView?sid=P000254AFC2E3248" class="popup_view">강효인</a> (35기)</li><li><a href="/Info/ContentView?sid=P000CB515838A0C8" class="popup_view">최은비</a> (49기)</li><li><a href="/Info/ContentView?sid=P0007E92757CF519" class="popup_view">황은규</a> (35기)</li><li><a href="/Info/ContentView?sid=P0005F8AA210730D" class="popup_view">우미형</a> (변호사시험 1회)</li><li><a href="/Info/ContentView?sid=P000C1FA89DE5E1E" class="popup_view">김도형</a> (33기)</li><li><a href="/Info/ContentView?sid=P000941F7AA7BE3B" class="popup_view">김영하</a> (35기)</li><li><a href="/Info/ContentView?sid=P00043AA3564CCEA" class="popup_view">조혜수</a> (35기)</li><li><a href="/Info/ContentView?sid=P0006B0B0DDA671C" class="popup_view">이금진</a> (35기)</li><li><a href="/Info/ContentView?sid=P000C670329CA5E9" class="popup_view">민병국</a> (36기)</li><li><a href="/Info/ContentView?sid=P000B8A399B464B3" class="popup_view">천재현</a> (37기)</li><li><a href="/Info/ContentView?sid=P00032CB66F6C3BF" class="popup_view">신신호</a> (31기)</li><li><a href="/Info/ContentView?sid=P0000D4D9F9D792C" class="popup_view">도훈태</a> (33기)</li><li><a href="/Info/ContentView?sid=P000173018BF4A27" class="popup_view">박필종</a> (35기)</li><li><a href="/Info/ContentView?sid=P00070F0DA71271F" class="popup_view">김나영</a> (35기)</li><li><a href="/Info/ContentView?sid=P0001869282BDA76" class="popup_view">유기웅</a> (35기)</li><li><a href="/Info/ContentView?sid=P0002D740335F30B" class="popup_view">허익수</a> (36기)</li><li><a href="/Info/ContentView?sid=P000A7E253247764" class="popup_view">조현락</a> (36기)</li><li><a href="/Info/ContentView?sid=P00016625CB4F300" class="popup_view">박성구</a> (36기)</li><li><a href="/Info/ContentView?sid=P000C00F38658494" class="popup_view">이봉민</a> (36기)</li><li><a href="/Info/ContentView?sid=P0001CBA6AED2F86" class="popup_view">김종석</a> (35기)</li><li><a href="/Info/ContentView?sid=P000CC598688620E" class="popup_view">이지영</a> (34기)</li><li><a href="/Info/ContentView?sid=P000CE34EB3A5EE2" class="popup_view">신윤주</a> (34기)</li><li><a href="/Info/ContentView?sid=P0009E583A0C8971" class="popup_view">유성욱</a> (35기)</li><li><a href="/Info/ContentView?sid=P0008B54A8F2622F" class="popup_view">성창희</a> (45기)</li><li><a href="/Info/ContentView?sid=P000492DC857A49C" class="popup_view">이완형</a> (31기)</li><li><a href="/Info/ContentView?sid=P00047E6C5977815" class="popup_view">장석준</a> (35기)</li><li><a href="/Info/ContentView?sid=P00006B37112D332" class="popup_view">조은경</a> (36기)</li><li><a href="/Info/ContentView?sid=P000CF82DC273432" class="popup_view">최문수</a> (36기)</li><li><a href="/Info/ContentView?sid=P00092C9B4C0A59B" class="popup_view">전아람</a> (36기)</li><li><a href="/Info/ContentView?sid=P000EC6CB1798107" class="popup_view">어준혁</a> (35기)</li><li><a href="/Info/ContentView?sid=P000A0CB42F49E5F" class="popup_view">정선균</a> (35기)</li><li><a href="/Info/ContentView?sid=P000774FDD9DECCA" class="popup_view">어재원</a> (36기)</li><li><a href="/Info/ContentView?sid=P0005550B8BE0E52" class="popup_view">이상현</a> (37기)</li><li><a href="/Info/ContentView?sid=P00054BE78F0897D" class="popup_view">이보형</a> (37기)</li><li><a href="/Info/ContentView?sid=P000A7326EBDBD55" class="popup_view">권순엽</a> (37기)</li><li><a href="/Info/ContentView?sid=P000D3B25E96AD23" class="popup_view">이준민</a> (37기)</li><li><a href="/Info/ContentView?sid=P00087B35078B9E1" class="popup_view">김건우</a> (35기)</li><li><a href="/Info/ContentView?sid=P000952A5C4735DE" class="popup_view">심현주</a> (37기)</li><li><a href="/Info/ContentView?sid=P00038CDA85DE581" class="popup_view">이동진</a> (37기)</li><li><a href="/Info/ContentView?sid=P000CA37DCFBDC66" class="popup_view">임정윤</a> (37기)</li><li><a href="/Info/ContentView?sid=P0006FC611A89172" class="popup_view">양시호</a> (37기)</li><li><a href="/Info/ContentView?sid=P000DDC383A853A2" class="popup_view">강상효</a> (37기)</li><li><a href="/Info/ContentView?sid=P00016C8F7B78AF0" class="popup_view">송병훈</a> (35기)</li><li><a href="/Info/ContentView?sid=P000249DD72314B3" class="popup_view">김홍섭</a> (36기)</li><li><a href="/Info/ContentView?sid=P00014D854AEB765" class="popup_view">하종민</a> (36기)</li><li><a href="/Info/ContentView?sid=P0003E4D1EA711A5" class="popup_view">이경은</a> (34기)</li><li><a href="/Info/ContentView?sid=P000A94B0332019A" class="popup_view">이한상</a> (35기)</li><li><a href="/Info/ContentView?sid=P000B2B18FFD2617" class="popup_view">황재호</a> (34기)</li><li><a href="/Info/ContentView?sid=P000A545B6129C11" class="popup_view">이현복</a> (30기)</li><li><a href="/Info/ContentView?sid=P000ABD46251D2AF" class="popup_view">허승</a> (37기)</li><li><a href="/Info/ContentView?sid=P000B45E81E9EF08" class="popup_view">김영석</a> (37기)</li><li><a href="/Info/ContentView?sid=P0000E1B140C07A8" class="popup_view">김동희</a> (37기)</li><li><a href="/Info/ContentView?sid=P000502E6BEE625D" class="popup_view">박민준</a> (37기)</li><li><a href="/Info/ContentView?sid=P00027A3E9F3C26E" class="popup_view">안경록</a> (37기)</li><li><a href="/Info/ContentView?sid=P00020C2ABE96AC2" class="popup_view">이태경</a> (37기)</li><li><a href="/Info/ContentView?sid=P00054912BA57606" class="popup_view">설정은</a> (37기)</li><li><a href="/Info/ContentView?sid=P0000C8F957AD5AB" class="popup_view">최윤정</a> (37기)</li><li><a href="/Info/ContentView?sid=P000BEBF0F6A592C" class="popup_view">이창민</a> (37기)</li><li><a href="/Info/ContentView?sid=P000863623803AF0" class="popup_view">이승원</a> (37기)</li><li><a href="/Info/ContentView?sid=P00098CB0C5C1831" class="popup_view">황인준</a> (37기)</li><li><a href="/Info/ContentView?sid=P000DA342009AEC3" class="popup_view">김이경</a> (36기)</li><li><a href="/Info/ContentView?sid=P00017C47038B57E" class="popup_view">김유성</a> (35기)</li><li><a href="/Info/ContentView?sid=P000EFDDFB0A7008" class="popup_view">이종욱</a> (45기)</li><li><a href="/Info/ContentView?sid=P00071E498594FE3" class="popup_view">심홍걸</a> (36기)</li><li><a href="/Info/ContentView?sid=P0009AE4080F4048" class="popup_view">김호용</a> (36기)</li><li><a href="/Info/ContentView?sid=P000CCC9C84CFF5F" class="popup_view">김기수</a> (35기)</li><li><a href="/Info/ContentView?sid=P000C369BD6B2B65" class="popup_view">정희엽</a> (35기)</li><li><a href="/Info/ContentView?sid=P000BF191215D0EB" class="popup_view">권창환</a> (36기)</li><li><a href="/Info/ContentView?sid=P0006DB488CD6923" class="popup_view">최정은</a> (35기)</li><li><a href="/Info/ContentView?sid=P0008AC60A53E5C2" class="popup_view">박가현</a> (36기)</li><li><a href="/Info/ContentView?sid=P00059E59B347913" class="popup_view">김영진</a> (35기)</li><li><a href="/Info/ContentView?sid=P0005FF0885539A2" class="popup_view">남선미</a> (31기)</li><li><a href="/Info/ContentView?sid=P000248BE9F0AE15" class="popup_view">이명철</a> (30기)</li></ul></div></div></div>
+								<script type="text/javascript">
+									$(document).ready(function () {
+
+										$("#divOrgView .submain_group .organi_title p").each(function () {
+											//console.log("before : " + this.innerText);
+											if (this.innerText.toLocaleLowerCase() == "orghide1" || this.innerText.toLocaleLowerCase() == "orghide2" || this.innerText.toLocaleLowerCase() == "orghide3" ||
+												this.innerText.toLocaleLowerCase() == "orghide4" || this.innerText.toLocaleLowerCase() == "orghide5" || this.innerText.toLocaleLowerCase() == "orghide6" ||
+												this.innerText.toLocaleLowerCase() == "orghide7" || this.innerText.toLocaleLowerCase() == "orghide8" || this.innerText.toLocaleLowerCase() == "orghide9" ||
+												this.innerText.toLocaleLowerCase() == "orghide10") {
+												console.log(this.innerText.toLocaleLowerCase());
+												$(this).parents(".submain_group").hide();
+											}
+										});
+									});
+								</script>
+
+							</div>
+						</div>
+						<!--// 상세 -->
+						<div style="clear:both;"></div>
+					</div>
+					<div class="main_container_view">
+						<div class="main_container_view_inner">
+						</div>
+					</div>
+				</article>
+				<aside class="right_container"></aside>
+			</div>
+			<div class="btn_top_box" style="margin-left: 1392.64px;"><div class="btn_top">Top</div></div>
+		</div>
+		<footer>
+			<div class="etc_menu"> 
+				<div class="top_container">  
+					<ul>	
+						<li class="blind">기타 메뉴 </li>
+						<li>회사소개</li> 
+						<li>이용약관</li>
+						<li>개인정보 취급/처리 방침</li>
+						<li>법적고지</li>
+						<li>이메일 무단수집거부</li>
+					</ul>
+				</div>
+			</div>  
+			<div class="top_container   _footer"> 	   
+				1. 콘텐츠의 명칭 : 법률정보 &nbsp;&nbsp; 2. 콘텐츠의 제작 및 표시 : 2006년 2월 17일(업그레이드 콘텐츠의 경우 갱신일) &nbsp;&nbsp; 3. 콘텐츠 제작자 : ㈜로앤비  &nbsp;&nbsp;  4. 콘텐츠의 이용조건 : <a href="/support/agree_use.asp" class="red_bott">이용약관</a> 및 로앤비 <a href="/support/serviceInfo_member.asp" class="red_bott">서비스안내</a>와 같음 (무단 복제금지) &nbsp;&nbsp;5. 콘텐츠의 보호기간 : ㈜로앤비 사이트의 모든 콘텐츠는 「콘텐츠산업 진흥법」에 따라 제작 또는 갱신일로부터 5년간 보호됨
+				<div>Thomson reuters</div>
+				<div>Copyright ⓒ 1998~2016 <b>LAWnB</b>. All Rights Reserved.</div>
+			</div>       
+		</footer>
+		<div id="bg_screen"></div>
+		<script type="text/javascript">  
+			setHeight_under();			  
+		</script>
+	</div>
+</div> 
+</body>
+</html>

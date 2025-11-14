@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" /> 
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/html">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="robots" content="noindex, nofollow" > 
+<title> 법조인 - 로앤비 </title>
+<link rel="shortcut icon" href="/images/favicon_tr.ico" /> 
+<link href="/css/M_next_layout.css?v=2018062601" rel="stylesheet" type="text/css" /> 
+<link href="/css/M_next_default.css?v=2018062601" rel="stylesheet" type="text/css" /> 
+<link href="/css/icon-style.css?v=2018062601" rel="stylesheet" type="text/css" /> 
+<script src="/Scripts/lib/jquery-3.4.1.min.js" type="text/javascript"></script>
+<script src="/Scripts/common/storage.js?v=2018062601" type="text/javascript"></script>
+<script src="/Scripts/common/commonAjax.js?v=2018062601" type="text/javascript"></script>
+<script src="/Scripts/common/commonjs.js?v=2018062601" type="text/javascript"></script>
+<script src="/Scripts/common/commonjs_Mobile.js?v=2018062601" type="text/javascript"></script>
+<script src="/Scripts/common/wordSuggest.js?v=2018062601" type="text/javascript"></script>
+<script src="/Scripts/member/login/Session.js?v=2018062601" type="text/javascript"></script>
+    <script src="/Scripts/member/mydesk/MyDesk.js?v=2018062601" type="text/javascript"></script>
+<script src="/Scripts/member/mydesk/MyFolder.js?v=2018062601" type="text/javascript"></script>
+<script src="/Scripts/member/mydesk/MyAlert.js?v=2018062601" type="text/javascript"></script>
+<script src="/Scripts/sub/serviceBinding.js?v=2018062601" type="text/javascript"></script>
+<script type="text/javascript"> 
+    function resizeComment() {
+        if ($('.right_container').hasClass('add_border')) {
+            $(".right_container").removeClass('slide_mov_right');
+        } else {
+            if ($('#container').hasClass('list-view')) {
+                $(".right_container").addClass('slide_mov_right');
+            } else {
+                $(".right_container").removeClass('slide_mov_right');
+            }
+        }
+        setHeight_under();
+    }
+
+    var expanded = false;
+    function showCheckboxes() {
+        if (!expanded) {
+            $("#checkboxes").show();
+            expanded = true;
+        } else {
+            $("#checkboxes").hide();
+            expanded = false;
+        }
+    }
+
+    storage.setStatusType(1); 
+
+    $(document).ready(function () {
+        
+        $(".btn_area_normal").on('click', '._cancel', function () {
+            $('.alert_area_modi').hide();
+            $('#bg_screen').hide();
+            $('#alert_add_keyw').hide();
+        });
+
+        $(".lawsearch").click(function () {
+            $("#alert_add_keyw .school_search").show();
+        });
+
+        $(".school_search p span").click(function () {
+            $("#alert_add_keyw .school_search").hide();
+        });
+    }); 
+
+     
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_mainContainer" class="mobile free">
+	<div id="wrap" class="">
+		<header> 
+			<div class="top_container  ">  
+				<a href="/"><h1>로앤비 1</h1></a>
+				<div class="btn_moveto_paid">유료회원 로그인</div> 
+
+  
+			</div>
+           	
+		</header> 
+  
+        <div id="container" class="two-con lawyer">
+             
+			<div id="container_inner">
+				<div class="left_container">  
+				</div>
+				<article class="main_container"> 
+					<div class="main_container_inner">
+						<div class="submain_group">
+							<h3 class="hide">법조인 검색</h3>
+							<div class="search_div">
+                                <form>
+								<div class="detail_area_open   lawyer _open">
+                                    <ul>
+										<li>
+											<label>이름</label>
+											<input type="text" id="sName" name="sName" style="width:100%">
+										</li>  
+										<li>
+											<label>소속</label>
+											<input type="text" id="sWorkArea" name="sWorkArea" style="width:100%">
+										</li> 
+									</ul>
+                                 </div> 
+								<div class="btn_area"><input type="submit" id="searchBtn" value="검색"></div>
+								</form>
+							</div> 
+                            <div class="text_info mgl20 mgr10">이름과 소속 검색이 가능하며, 검색결과는 이름, 생년, 시험정보, 현직 소속, 전문분야에 한하여 제공됩니다. 보다 상세한 검색결과를 원하시면 로그인 후 이용하실 수 있습니다. 
+</div>
+						</div> 
+					</div>
+					<div class="main_container_view">
+						<div class="main_container_view_inner"></div>
+					</div>
+				</article>  
+			</div>
+   </div>
+    	
+		<footer>
+			
+<div class="popup_footer">
+            <div class="btns_left m1">홈<i class="icon-16" data-icon="&#xe92e;"></i></div> 
+            <div class="btns_left m1">이전화면<i class="icon-16" data-icon="&#xe901;"></i></div> 
+            <div class="btns_right m1">다음화면<i class="icon-16" data-icon="&#xe900;"></i></div> 
+            <div class="btns_top m1">top<a href="#top"><i class="icon-16" data-icon="&#xe92f;"></i></a></div>
+            <div class="btns_help m1">도움말<i class="icon-help" data-icon="&#xe91f;" ></i></div>           </div>
+		</footer>
+ 
+  <div id="bg_screen"><div  class="loading_img"><img src="/images/tr_img_loading_re.gif?v=2018062601"></div></div>        
+         
+        <script type="text/javascript">
+		    setHeight_under();			  
+		</script> 
+
+        
+        
+</div>  
+</div>
+
+</body>
+</html>

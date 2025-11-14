@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../js/commonjs.js?13D"></script>
+<script language="javascript">
+<!--
+  $(document).ready(function () {  
+		$(".center_index").height($(".main_container").height()+40);
+});
+	function resizeComment(){ 
+			setHeight_under();
+			 
+			if($('.right_container').hasClass('add_border')){
+				$(".right_container").removeClass('slide_mov_right'); 
+			}else{
+				if($('#container').hasClass('list-view')){
+					$(".right_container").addClass('slide_mov_right'); 
+				}else{
+					$(".right_container").removeClass('slide_mov_right'); 
+				}
+			}
+		}
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_mainContainer">
+	<div id="wrap" >
+		<header> 
+			<div class="top_container  ">  
+				<a href="/maf/poc/app/homepage"><h1>로앤비</h1></a>
+				<div id="t_search" class="search_container">
+					<h2>통합검색 영역</h2>
+					<div class="search_inner">
+						<form  action="" > 
+						<div class="search_left hide">
+							<label class="hide">통합검색  </label>
+						</div>
+						<div class="search_center">
+							<input type="search" name="" id="" >
+						</div>
+						<div class="search_right"><span  class="more_btn">more</span></div>
+						<div id="searchButton" class="search_btn"><i class="icon-" data-icon="&#xe910;"></i><span class="hide">검색</span></div> 
+						</form>
+						<div class="btn_search_result"><i class="icon-table" data-icon="&#xea71;"></i><span class="hide">검색결과 맵 보기</span></div>
+					</div>
+					<div class="search_layer_outer" >
+					<div class="search_layer" >
+						<div class="search_layer_list _done ">
+							<!-- <div class="txt_info">최근검색어저장 기능이 OFF 상태에 있습니다.<br>이용을 원하시면 하단의 최근검색어저장 상태를 ON으로 변경해주세요. </div> 
+							<ul>
+								<li>공정거래법 위반으로 인한 손해액의 산정방법과 주요 쟁점으로 <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+							</ul>-->
+							<ul>
+								<li><strong>대법</strong>원인터넷등기소<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+								<li><strong>대법</strong>원나의사건검색</li>
+								<li><strong>대법</strong>원법원경매정보</li>
+								<li><strong>대법</strong>원전자가족관계</li>
+								<li><strong>대법</strong>원경매</li>
+								<li><strong>대법</strong>원인터넷등기소<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+								<li><strong>대법</strong>원나의사건검색<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+								<li><strong>대법</strong>원법원경매정보</li>
+								<li><strong>대법</strong>원전자가족관계</li>
+								<li><strong>대법</strong>원경매</li>
+							</ul> 
+							<div class="expend_result" onclick="">
+								<p>법무법인(유한) 태평양어쩌고 저쩌고</p>
+								<span>주소 : [050-50] 서울시 광진구 디지털로 272, 한신 IT타워 611호<br>대표전화 : 02-2204-2114</span>
+								<div class="dirct_go">바로가기</div>
+							</div>
+						</div>
+						<!-- <div class="noti_txt"><i class="icon-" data-icon="&#xe90d;"></i> 공용 PC에서는 개인정보보호를 위하여 반드시 로그아웃을 해주세요.</div> -->
+						<div class="search_layer_foot">
+							<div class="fl">기록삭제</div>
+							<div class="fr">최근검색어저장 <div class="btn-group"><button type="button" class="btn btn_orange _select">ON</button><button type="button" class="btn btn-default">OFF</button></div> 자동완성 <div class="btn-group"><button type="button" class="btn btn_orange _select">ON</button><button type="button" class="btn btn-default">OFF</button></div>
+							</div>						
+						</div>
+					</div> 
+					</div>
+				</div>
+				<div id="indiv_area" class="indiv_container">
+					<span alt="나의폴더">나의폴더<i class="icon-myfolder" data-icon="&#xe91a;"></i></span>
+					<span alt="히스토리">히스토리<i class="icon-history" data-icon="&#xe916;"></i></span>
+					<span alt="알림설정">알림설정<i class="icon-alert" data-icon="&#xe918;"></i><em>9+</em></span>
+					<span alt="질문내역">문의내역<i class="icon-question" data-icon="&#xe919;"></i></span>
+					<span alt="나의정보">나의정보<i class="icon-myinfo" data-icon="&#xe917;"></i></span>
+				</div>
+			</div>
+			<nav> 
+				<dl id="main_menu" class="mmenu">
+					<dt class="blind">메인 메뉴</dt> 
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=IAED6CC08DD364059AB193CEAF31A4AB0&amp;stnew=true"><span>판례</span></a>
+					</dd>
+					<dd class="currentTab" >
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I0F5DD49BE2B544DBB7414874EC787E80&amp;stnew=true"><span>법규</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=ICAA980E9234848FEA6D0DA62432279E0&amp;stnew=true"><span>심판·결정·해석</span></a>
+					</dd>
+					<dd >
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I247AD0D84D9B4429B617C8D9F8388C8F&amp;stnew=true"><span>문헌</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I661610C9A2C749D6A4221A93502B0170&amp;stnew=true"><span>법조인</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I574B9F7164CB11E498DB8B09B4F043E0&amp;stnew=true"><span>기업법무</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I66693AFFED274970AC53A686AAA123C0&amp;stnew=true"><span>서식</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocHelp?docguid=WLAWLNEXT"><span>뉴스·칼럼</span></a>
+					</dd>
+				</dl>   
+			</nav>        	
+		</header> 
+		<div id="container" class="doc ">
+			<div id="breadcrumb" class="navi_area">
+				<div>Home > 문헌 > 논문·평석 > <a href="1">법률잡지 검색</a></div>
+				<div class="group_indivi_btn"><a href="">로그인</a><a href="">개인화님</a> </div>
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div id="container_inner">
+				<div class="left_container">  
+					<section>
+						<h4>검색결과 정리</h4>  
+						<ol class="check_area  ">
+							<li><input type="checkbox" value="2"><label>전체</label> 
+							<li><input type="checkbox" value="2"><label>사법행정</label><span>11</span></li>
+							<li><input type="checkbox" value="1"><label>저스티스  </label><span>100</span></li>
+							<li><input type="checkbox" value="1"><label>고시계  </label><span>100</span></li>
+							<li><input type="checkbox" value="1"><label>사법정책연구총서   </label><span>100</span></li>
+							<li><input type="checkbox" value="1"><label>고시연구  </label><span>100</span></li>
+							</li> 
+						</ol> 
+ 
+						<div class="check_area select_area">
+							<select name="sType5" id="sType5" class="date_select">
+								<option value="0" selected="selected">발행연도 전체</option> 
+								<option value="1">최근 6개월 </option>
+								<option value="2">최근 1년</option>
+								<option value="3">최근 5년</option>
+								<option value="00">직접선택</option>
+							</select>
+							<div class="detail_date"><input type="number" id="sUnivS" name="sUnivS" title="심판일자 시작일" style="width:45%" placeholder="20160101"> ~ <input type="number" id="sUnivE" name="sUnivE" title="심판일자 종료일" style="width:45%" placeholder="20161231"></div> 
+						</div>
+						<p class="submit_area"><span id="arrangeBtn">적용</span><span class="_cancel"><i class="icon-16" data-icon="&#xe90e;"></i>적용취소</span></p>
+					</section>
+				</div>
+				<article class="main_container"> 
+					<div class="main_container_inner">   
+							<div class="search_div">
+								<form id="searchForm" method="post" action="CaseList">
+								<div class="search_input">
+									<input type="search" id="sWord" name="sWord"  placeholder="검색어">
+									<div class="except">
+									<input type="search" name="sWord1" placeholder="제외어">
+									</div>
+								</div>
+								<ol class="check_area">
+									<li><input type="checkbox" class="sType2List" value="0"><label>전체</label></li>
+									<li><input type="checkbox" class="sType2List" value=3"2"><label>제목</label></li>
+									<li><input type="checkbox" class="sType2List" value="16"><label>초록</label></li>
+									<li><input type="checkbox" class="sType2List" value="8"><label>저자</label></li>
+									<li><input type="checkbox" class="sType2List" value="2"><label>판례 사건번호</label></li> 
+								</ol>
+								<div class="detail_area_open" id="detail_area">
+									<ul> 
+										<li class="half">
+											<label>잡지종류</label>
+											<select name="sType5" id="sType5"  >
+												<option value="1">전체</option> 
+												<option value="0" selected="selected">사법행정</option> 
+												<option value="1">저스티스</option> 
+												<option value="3">고시계</option> 
+												<option value="3">사법정책연구총서</option> 
+												<option value="3">고시연구</option> 
+											</select> 
+										</li>
+										<li class="half">
+											<label>발간호수</label>
+											<select name="sType5" id="sType5"  >
+												<option value="0" selected="selected">연도선택</option> 
+												<option value="1">2016</option>
+												<option value="2">2015</option>
+												<option value="3">최근 5년</option>
+												<option value="00">직접선택</option>
+											</select> 
+											<select name="sType5" id="sType5"  >
+												<option value="0" selected="selected">호수선택</option> 
+												<option value="1">2016</option>
+												<option value="2">2015</option>
+												<option value="3">최근 5년</option>
+												<option value="00">직접선택</option>
+											</select> 
+										</li>
+										<li >
+											<label>발행연도</label>
+											<input type="number" id="sUnivS" name="sUnivS" title="시작일" style="width:80px" placeholder="20160101"> ~ <input type="number" id="sUnivE" name="sUnivE" title="종료일" style="width:80px" placeholder="20161231"> <div class="btn-group" ><button type="button"  class="btn btn-square ">최근 1년</button> <button type="button"  class="btn btn-square">최근 3년</button> <button type="button"  class="btn btn-square">최근 5년</button></div>
+										</li>
+									</ul>
+								</div>		
+							<div class="detail_area"><!-- 상세검색옵션버튼 -->
+								<div class="but"></div>
+							</div>
+								<div class="btn_area"><input type="submit" id="searchBtn" value="검색"> <span class="_cancel"><i class="icon-16" data-icon="&#xe90e;"></i>입력초기화</span></div>
+								</form>
+ 
+								<p>경기대학교 호텔경영연구소, “가사소송 대리”, 제외어 “손해배상” 검색결과입니다.  </p>
+							</div> 
+						<div id="search_results">
+							<div class="s_num_area">검색결과 21건 <small>1/1000</small></div>
+							<div class="btn_option_outer">
+								<div class="btn_option_select">
+									<p class="blind">선택다운로드</p>
+									<div class="btn-group" >
+									  <button type="button" class="btn btn-default"><input type="checkbox" name="">다운로드</button>
+									</div>   
+								</div> 
+								<div class="select_area"> 
+									<p class="blind">보기 개수 선택</p>
+									<select id="" name=""  >
+										<option value="">10개</option>
+										<option value="" selected>20개</option>
+										<option value="">50개</option>
+									</select>
+								</div>
+								<div class="btn_option"> 
+									<div class="btn-group" > 
+										 <button type="button" class="btn btn-default">정확도</button>  
+										 <button type="button" class="btn btn-default _select">최신순 <i class="icon-sort-alpha-desc" data-icon="&#xea4a;"></i></button>
+									</div>	
+									<ul class="view_type_list _view_type_list">
+										<p class="blind">보기옵션 선택</p>
+										<li class="_preview"><a href="#" class="option_a  "   id="option_a" >미리보기형</a></li>
+										<li class="_onlyTitle"><a href="#" class="option_b_on  "  id="option_b">상세보기형</a></li>
+									</ul>
+								</div>
+							</div>
+							<ol class="list btn_exist  ">
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>							 
+									<div class="co_searchContent">  
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[법률잡지] 개별 행정법상 "이의신청제도"의 현황 검토</a><br><span>Legal Practice Study : Study on objection systems in several administrative laws</span><br><span class="list_meta">하경효(Kyung Hyo Ha)/사법행정 <제157호>/2015.12/30Page</span></h3>
+										<div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>지목변경에 대한 취득세 과세표준은 지목변경 공사착공일 현재의 개별공시지가에서 지목변경 후 토지의 개별공시자가의 차액을 기준으로 하는 것인바, 청구인이 지목변경 전·후의 개별공시지가 차액을 과세표준으로 하여 취득세 등을 신고·납부하였으므로 처분청에서 이 건 경정청구를 거부한 처분은 잘못이 없다고 판단됨.</p></div>
+										<div class="function_btn"> <span class="blue_bt">관련 판례 14건</span> <span class="blue_bt">관련 법령 13건</span> </div>
+									 </div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">300</span>						 
+									<div class="co_searchContent">  
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[법률잡지] 개별 행정법상 "이의신청제도"의 현황 검토</a><br><span>Legal Practice Study : Study on objection systems in several administrative laws</span><br><span class="list_meta">하경효(Kyung Hyo Ha)/사법행정 <제157호>/2015.12/30Page</span></h3>
+										<div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>지목변경에 대한 취득세 과세표준은 지목변경 공사착공일 현재의 개별공시지가에서 지목변경 후 토지의 개별공시자가의 차액을 기준으로 하는 것인바, 청구인이 지목변경 전·후의 개별공시지가 차액을 과세표준으로 하여 취득세 등을 신고·납부하였으므로 처분청에서 이 건 경정청구를 거부한 처분은 잘못이 없다고 판단됨.</p></div>
+										<div class="function_btn"> <span class="blue_bt">관련 판례 14건</span> <span class="blue_bt">관련 법령 13건</span> </div>
+									 </div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent">  
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[법률잡지] 개별 행정법상 "이의신청제도"의 현황 검토</a><br><span>Legal Practice Study : Study on objection systems in several administrative laws</span><br><span class="list_meta">하경효(Kyung Hyo Ha)/사법행정 <제157호>/2015.12/30Page</span></h3>
+										<div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>지목변경에 대한 취득세 과세표준은 지목변경 공사착공일 현재의 개별공시지가에서 지목변경 후 토지의 개별공시자가의 차액을 기준으로 하는 것인바, 청구인이 지목변경 전·후의 개별공시지가 차액을 과세표준으로 하여 취득세 등을 신고·납부하였으므로 처분청에서 이 건 경정청구를 거부한 처분은 잘못이 없다고 판단됨.</p></div>
+										<div class="function_btn"> <span class="blue_bt">관련 판례 14건</span> <span class="blue_bt">관련 법령 13건</span> </div>
+									 </div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent">  
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[법률잡지] 개별 행정법상 "이의신청제도"의 현황 검토</a><br><span>Legal Practice Study : Study on objection systems in several administrative laws</span><br><span class="list_meta">하경효(Kyung Hyo Ha)/사법행정 <제157호>/2015.12/30Page</span></h3>
+										<div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>지목변경에 대한 취득세 과세표준은 지목변경 공사착공일 현재의 개별공시지가에서 지목변경 후 토지의 개별공시자가의 차액을 기준으로 하는 것인바, 청구인이 지목변경 전·후의 개별공시지가 차액을 과세표준으로 하여 취득세 등을 신고·납부하였으므로 처분청에서 이 건 경정청구를 거부한 처분은 잘못이 없다고 판단됨.</p></div>
+										<div class="function_btn"> <span class="blue_bt">관련 판례 14건</span> <span class="blue_bt">관련 법령 13건</span> </div>
+									 </div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent">  
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[법률잡지] 개별 행정법상 "이의신청제도"의 현황 검토</a><br><span>Legal Practice Study : Study on objection systems in several administrative laws</span><br><span class="list_meta">하경효(Kyung Hyo Ha)/사법행정 <제157호>/2015.12/30Page</span></h3>
+										<div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>지목변경에 대한 취득세 과세표준은 지목변경 공사착공일 현재의 개별공시지가에서 지목변경 후 토지의 개별공시자가의 차액을 기준으로 하는 것인바, 청구인이 지목변경 전·후의 개별공시지가 차액을 과세표준으로 하여 취득세 등을 신고·납부하였으므로 처분청에서 이 건 경정청구를 거부한 처분은 잘못이 없다고 판단됨.</p></div>
+										<div class="function_btn"> <span class="blue_bt">관련 판례 14건</span> <span class="blue_bt">관련 법령 13건</span> </div>
+									 </div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent">  
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[법률잡지] 개별 행정법상 "이의신청제도"의 현황 검토</a><br><span>Legal Practice Study : Study on objection systems in several administrative laws</span><br><span class="list_meta">하경효(Kyung Hyo Ha)/사법행정 <제157호>/2015.12/30Page</span></h3>
+										<div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>지목변경에 대한 취득세 과세표준은 지목변경 공사착공일 현재의 개별공시지가에서 지목변경 후 토지의 개별공시자가의 차액을 기준으로 하는 것인바, 청구인이 지목변경 전·후의 개별공시지가 차액을 과세표준으로 하여 취득세 등을 신고·납부하였으므로 처분청에서 이 건 경정청구를 거부한 처분은 잘못이 없다고 판단됨.</p></div>
+										<div class="function_btn"> <span class="blue_bt">관련 판례 14건</span> <span class="blue_bt">관련 법령 13건</span> </div>
+									 </div>
+								</li>  
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent">  
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[법률잡지] 개별 행정법상 "이의신청제도"의 현황 검토</a><br><span>Legal Practice Study : Study on objection systems in several administrative laws</span><br><span class="list_meta">하경효(Kyung Hyo Ha)/사법행정 <제157호>/2015.12/30Page</span></h3>
+										<div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>지목변경에 대한 취득세 과세표준은 지목변경 공사착공일 현재의 개별공시지가에서 지목변경 후 토지의 개별공시자가의 차액을 기준으로 하는 것인바, 청구인이 지목변경 전·후의 개별공시지가 차액을 과세표준으로 하여 취득세 등을 신고·납부하였으므로 처분청에서 이 건 경정청구를 거부한 처분은 잘못이 없다고 판단됨.</p></div>
+										<div class="function_btn"> <span class="blue_bt">관련 판례 14건</span> <span class="blue_bt">관련 법령 13건</span> </div>
+									 </div>
+								</li> 
+							</ol>
+							<div class="navigationLinks">				        									
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=0" class="navFirst hiddenLink "><i class="icon-7" data-icon="&#xe911;"></i></a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=-1" class="navPrevious hiddenLink "><i class="icon-2" data-icon="&#xe901;"></i></a>
+								<span class="currentPage">1</span>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navPages">2</a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=2" class="navPages">3</a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=3" class="navPages">4</a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navNext"><i class="icon-1" data-icon="&#xe900;"></i></a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=13" class="navLast "><i class="icon-8" data-icon="&#xe907;"></i></a>
+							</div> 
+						</div>
+						
+					 </div>
+					 <div class="main_container_view">
+						<div class="main_container_view_inner">
+							<h3>[법률잡지] 개별 행정법상 "이의신청제도"의 현황 검토<br><span> Legal Practice Study : Study on objection systems in several administrative laws</span> <span class="btn_newtap"><span class="hide">새창열기</span><i class="icon-new-tab" data-icon="&#xea7e;"></i></span> <div class="btn_option_outer"><div class="btn_close">닫기</div></div></h3>
+							<!-- 내용시작 xml -->
+							<div id="view_content">
+								<div class="function_btn"><a href=""><span class="blue_bt">관련 판례 14건</span></a><a href=""><span class="blue_bt">관련 법령 13건</span></a></div>
+								<div class="lawyer_info">
+									<ul>
+										<li class="_ful">
+											<span>저자</span> 하경효(Kyung Hyo Ha ), 하경효(Kyung Hyo Ha)
+										</li>
+										<li>
+											<span>학회/출판사</span> 법조협회 
+										</li>
+										<li>
+											<span>간행물</span> 법조 < 54권 >
+										</li>
+										<li>
+											<span>발행일자</span> 2016년
+										</li>
+										<li>
+											<span>페이지</span> 36page
+										</li>
+										<li>
+											<span>제공기관</span> 한국학술정보
+										</li>
+										<li>
+											<span>가격</span> 6,500원 (유료회원은 무료열람)
+
+										</li>
+										<li class="_ful">
+											<span>공지</span> <div class="text_ex_policy">로앤비의 모든 문헌자료는 문헌 제공업체 또는 저작자와의 계약을 통하여 로앤비 회원에게 제공되는 저작물입니다. 이를 상업적 이용, 무단 복제 및 배포 등 불법적으로 이용할 시에는 저작권법 및 관계법령에 따른 책임을 질 수 있습니다.</div>
+
+										</li>
+									</ul>
+								</div>
+								<div class="lawyer_info"><p>초록 </p>
+								<국문><br>
+								학회논문 리스트 표시 개별 행정법상 "이의신청제도"의 현황 검토 정법상 "이의신청제도 "의정법상이의 신청제도 "의정 법상 "이의신청제도"의<br>
+								<영문><br>
+								 Legal Practice Study : Study on objection systems in several administrative laws  Legal Practice Study : Study on objection systems in several administrative laws  Legal Practice Study : Study on objection laws<br>
+								<기타 언어><br>
+								S;s;sfkj;w rj;wqrj;q fㄴ러ㅣㄴ러닐ㄴ;ㅣㄹslfs S;s;sfkj;w rj;wqrj;q fS;s;sfkj;w rj;wS;s;sfkj;w rj;wS;s;sfkj;w rj;w S;s;sfkj;w rj;wS;s;sfkj;w rj;w S;s;sfkj;w rj;w S;s;sfkj;w rj;w S;s;sfkj;w rj;w S;s;sfkj;w rj;wS;s;sfkj;w 
+								</div>
+		  
+							</div>
+						</div>
+					 </div>
+				</article> 
+				<aside class="right_container">
+					 <section >
+						<h4>법률잡지 Update</h4>
+						<ul class="magazine_update"> 
+							<li><a href="1" ><img src="http://www.lawnb.com//images/doc/sabub_11.gif" alt="사법행정"> <div>사법행정<br>2016년 11월호</div></a></li>  
+							<li><a href="1" ><img src="http://www.lawnb.com//images/doc/sabub_11.gif" alt="사법행정"> <div>사법행정<br>2016년 11월호</div></a></li>  
+						</ul>   
+					</section>
+					<section >
+						<h4>법률잡지 참고</h4>
+						<ul> 
+							<li><a href="1" >사법행정</a><br> [신규등록] 2016년 10월호<br>1972년 6월 ~ 현재 (월간)</li> 
+							<li><a href="1" >저스티스</a><br> [신규등록] 2016년 10월호<br>1957년 1월 ~ 현재 (월간)</li> 
+							<li><a href="1" >고시계</a><br> [신규등록] 2016년 10월호<br>1972년 06월 ~ 현재 (월간)</li> 
+							<li><a href="1" >사법정책연구총서</a><br> [신규등록] 2016-13호<br>2015년 1월 ~ 현재 (비정기적)</li> 
+							<li><a href="1" >고시연구</a><br> 1990년 1월 ~ 2006년 12월 (폐간)</li> 
+							<li><a href="1" >고시월보</a><br> 1991년 1월 ~ 2005년 5월 (폐간)</li> 
+						</ul>   
+					</section>
+				</aside>
+			</div>
+    	</div>
+		<footer>
+			<div class="etc_menu"> 
+				<div class="top_container">  
+					<ul>	
+						<li class="blind">기타 메뉴 </li>
+						<li>회사소개</li>
+						<li>광고 · 제휴문의</li>
+						<li>이용약관</li>
+						<li>개인정보 취급/처리 방침</li>
+						<li>법적고지</li>
+						<li>이메일 무단수집거부</li>
+					</ul>
+				</div>
+			</div>  
+			<div class="top_container   _footer"> 	   
+				1. 콘텐츠의 명칭 : 법률정보 &nbsp;&nbsp; 2. 콘텐츠의 제작 및 표시 : 2006년 2월 17일(업그레이드 콘텐츠의 경우 갱신일) &nbsp;&nbsp; 3. 콘텐츠 제작자 : ㈜로앤비  &nbsp;&nbsp;  4. 콘텐츠의 이용조건 : <a href="/support/agree_use.asp" class="red_bott">이용약관</a> 및 로앤비 <a href="/support/serviceInfo_member.asp" class="red_bott">서비스안내</a>와 같음 (무단 복제금지) &nbsp;&nbsp;5. 콘텐츠의 보호기간 : ㈜로앤비 사이트의 모든 콘텐츠는 「콘텐츠산업 진흥법」에 따라 제작 또는 갱신일로부터 5년간 보호됨
+				<div>Thomson reuters</div>
+				<div>Copyright ⓒ 1998~2016 <b>LAWnB</b>. All Rights Reserved.</div>
+			</div>            
+		</footer>
+		<div id="bg_screen"></div>
+		<script type="text/javascript">  
+			setHeight_under();	
+			 
+		</script>
+	</div>
+</div> 
+</body>
+</html>

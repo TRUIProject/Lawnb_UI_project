@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../js/commonjs.js?1"></script>
+<script language="javascript">
+<!--
+ 
+$(document).ready(function () { 
+	$('.dic_infomation p').click(function (){  
+		var idx = $('.dic_infomation p').index($(this));
+		$('.dic_infomation div').hide();
+		$('.dic_infomation div').eq(idx).toggle();
+	});
+	
+}); 	
+	function resizeComment(){ 
+			if($('.right_container').hasClass('add_border')){
+				$(".right_container").removeClass('slide_mov_right'); 
+			}else{
+				if($('#container').hasClass('list-view')){
+					$(".right_container").addClass('slide_mov_right'); 
+				}else{
+					$(".right_container").removeClass('slide_mov_right'); 
+				}
+			}
+			setHeight_under();
+		}
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_mainContainer">
+	<div id="wrap" >
+		<header> 
+			<div class="top_container  ">  
+				<a href="/maf/poc/app/homepage"><h1>로앤비</h1></a>
+				<div id="t_search" class="search_container">
+					<h2>통합검색 영역</h2>
+					<div class="search_inner">
+						<form  action="" > 
+						<div class="search_left hide">
+							<label class="hide">통합검색  </label>
+						</div>
+						<div class="search_center">
+							<input type="search" name="" id="" >
+						</div>
+						<div class="search_right"><span  class="more_btn">more</span></div>
+						<div id="searchButton" class="search_btn"><i class="icon-" data-icon="&#xe910;"></i><span class="hide">검색</span></div> 
+						</form>
+						<div class="btn_search_result"><i class="icon-table" data-icon="&#xea71;"></i><span class="hide">검색결과 맵 보기</span></div>
+					</div>
+				</div>
+				<div id="indiv_area" class="indiv_container">
+					<span alt="나의폴더">나의폴더<i class="icon-myfolder" data-icon="&#xe91a;"></i></span>
+					<span alt="히스토리">히스토리<i class="icon-history" data-icon="&#xe916;"></i></span>
+					<span alt="알림설정">알림설정<i class="icon-alert" data-icon="&#xe918;"></i><em>9+</em></span>
+					<span alt="질문내역">문의내역<i class="icon-question" data-icon="&#xe919;"></i></span>
+					<span alt="나의정보">나의정보<i class="icon-myinfo" data-icon="&#xe917;"></i></span>
+				</div>
+			</div>
+			<nav> 
+				<dl id="main_menu" class="mmenu">
+					<dt class="blind">메인 메뉴</dt> 
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=IAED6CC08DD364059AB193CEAF31A4AB0&amp;stnew=true"><span>판례</span></a>
+					</dd>
+					<dd class="currentTab" >
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I0F5DD49BE2B544DBB7414874EC787E80&amp;stnew=true"><span>법규</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=ICAA980E9234848FEA6D0DA62432279E0&amp;stnew=true"><span>심판·결정·해석</span></a>
+					</dd>
+					<dd >
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I247AD0D84D9B4429B617C8D9F8388C8F&amp;stnew=true"><span>문헌</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I661610C9A2C749D6A4221A93502B0170&amp;stnew=true"><span>법조인</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I574B9F7164CB11E498DB8B09B4F043E0&amp;stnew=true"><span>기업법무</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I66693AFFED274970AC53A686AAA123C0&amp;stnew=true"><span>서식</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocHelp?docguid=WLAWLNEXT"><span>뉴스·칼럼</span></a>
+					</dd>
+				</dl>   
+			</nav>        	
+		</header> 
+		<div id="container" class="doc">
+			<div id="breadcrumb" class="navi_area">
+				<div>Home > 문헌 > 법률사전 > <a href="1">법률용어사전</a></div>
+				<div class="group_indivi_btn"><a href="">로그인</a><a href="">개인화님</a> </div>
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div id="container_inner">
+				<div class="left_container">  
+					<section id="result_tab"> 
+						<h4  >분야</h4>
+						<ul> 
+							<li><a href="fd">법학입문</a></li>
+							<li class="this-page"><a href="sfd">헌법</a></li>
+							<li><a href="fd">행정법</a></li>
+							<li><a href="fd">민법</a></li>
+							<li><a href="fd">부동산등기법</a></li>
+							<li><a href="fd">상법</a></li>
+							<li><a href="fd">어음∙수표법</a></li>
+							<li><a href="fd">형법</a></li>
+							<li><a href="fd">민사소송법</a></li>
+							<li><a href="fd">형사소송법</a></li>
+							<li><a href="fd">노동∙사회보장</a></li>
+							<li><a href="fd">경제법</a></li>
+							<li><a href="fd">지식재산권</a></li>
+							<li><a href="fd">세법</a></li>
+							<li><a href="fd">국제법</a></li>
+							<li><a href="fd">법사상가∙인명록</a></li>
+							<li><a href="fd">법률유사용어</a></li>
+						</ul>
+					</section>
+					<section id="result_tab"> 
+						<h4>INDEX</h4>  
+						<div class="directory_list"><span>ㄱ</span><span>ㄴ</span><span>ㄷ</span><span>ㄹ</span><span>ㅁ</span><span>ㅂ</span><span>ㅅ</span><span>ㅇ</span><span>ㅈ</span><span>ㅊ</span><span>ㅋ</span><span>ㅌ</span><span>ㅍ</span><span>ㅎ</span></div>
+					</section>
+				</div>
+				<article class="main_container"> 
+					<div class="main_container_inner">
+						<div class="search_div">
+						<form id="searchForm" method="post" action="CaseList">
+							<div class="search_input">
+								<input type="search" id="sWord" name="sWord" placeholder="검색어">
+								<div class="except">
+								<input type="search" name="sWord1" placeholder="제외어">
+								</div>
+							</div>  
+							<div class="btn_area"><input type="submit" id="searchBtn" value="검색"> <span class="_cancel"><i class="icon-16" data-icon="&#xe90e;"></i>입력초기화</span></div> 
+							<p><i class="icon-book" data-icon="&#xe91f;" ></i> <strong>법률용어사전 > 민법</strong>의  리스트 입니다. </p>
+						</form>
+						</div>
+						<div id="search_results"> 
+							<div class="s_num_area">총 65건 <small>1/7</small></div>
+							<div class="btn_option_outer">
+								<div class="btn_option_select">
+									<p class="blind">선택다운로드</p>
+									<div class="btn-group" >
+									  <button type="button" class="btn btn-default"><input type="checkbox" name="">다운로드</button>
+									</div>   
+								</div>  
+								<div class="select_area"> 
+									<p class="blind">보기 개수 선택</p>
+									<select id="" name=""  >
+										<option value="">10개</option>
+										<option value="" selected>20개</option>
+										<option value="">50개</option>
+									</select>
+								</div>
+								<div class="btn_option">  
+									<ul class="view_type_list _view_type_list">
+										<p class="blind">보기옵션 선택</p>
+										<li class="_preview"><a href="#" class="option_a  "   id="option_a" >미리보기형</a></li>
+										<li class="_onlyTitle"><a href="#" class="option_b_on  "  id="option_b">상세보기형</a></li>
+									</ul>
+								</div>
+							</div>
+							<ol class="list commentary btn_exist">
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span> 
+									<div class="co_searchContent">
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">준법률행위  準法律行爲 </a><span>[영] civil law </span><br><span  >민법 > 총칙</span></h3>
+										<div class="btns"><i class="icon_listnview" data-icon="&#xe90f;" onclick="javascript:page.showPreview('@data.lbDId');"><span class="blind" >미리보기</span></i></div>
+										<div class="co_searchResults_summary">
+											<ul class="dictionary">
+												<li>표현행위</li>
+												<li>사실행위</li>
+												<li>표현행위</li>
+												<li>선량한 풍속 기타 사회질서 선량한 풍속 기타 사회질서</li>
+											</ul>
+										</div> 
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">300</span>						 
+									<div class="co_searchContent">  
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">준법률행위  準法律行爲</a> <span>[영] civil law [독] bürger-liches Recht </span><br><span  >민법 > 총칙</span></h3>
+										<div class="btns"><i class="icon_listnview" data-icon="&#xe90f;" onclick="javascript:page.showPreview('@data.lbDId');"><span class="blind" >미리보기</span></i></div> 
+									 </div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">300</span>						 
+									<div class="co_searchContent">  
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">준법률행위  準法律行爲</a> <span>[영] civil law [독] bürger-liches Recht </span><br><span  >민법 > 총칙</span></h3>
+										<div class="btns"><i class="icon_listnview" data-icon="&#xe90f;" onclick="javascript:page.showPreview('@data.lbDId');"><span class="blind" >미리보기</span></i></div> 
+									 </div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">300</span>						 
+									<div class="co_searchContent">  
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">준법률행위  準法律行爲</a> <span>[영] civil law [독] bürger-liches Recht </span><br><span  >민법 > 총칙</span></h3>
+										<div class="btns"><i class="icon_listnview" data-icon="&#xe90f;" onclick="javascript:page.showPreview('@data.lbDId');"><span class="blind" >미리보기</span></i></div> 
+									 </div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">300</span>						 
+									<div class="co_searchContent">  
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">준법률행위  準法律行爲</a> <span>[영] civil law [독] bürger-liches Recht </span><br><span  >민법 > 총칙</span></h3>
+										<div class="btns"><i class="icon_listnview" data-icon="&#xe90f;" onclick="javascript:page.showPreview('@data.lbDId');"><span class="blind" >미리보기</span></i></div> 
+									 </div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">300</span>						 
+									<div class="co_searchContent">  
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">준법률행위  準法律行爲</a> <span>[영] civil law [독] bürger-liches Recht </span><br><span  >민법 > 총칙</span></h3>
+										<div class="btns"><i class="icon_listnview" data-icon="&#xe90f;" onclick="javascript:page.showPreview('@data.lbDId');"><span class="blind" >미리보기</span></i></div> 
+									 </div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">300</span>						 
+									<div class="co_searchContent">  
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">준법률행위  準法律行爲</a> <span>[영] civil law [독] bürger-liches Recht </span><br><span  >민법 > 총칙</span></h3>
+										<div class="btns"><i class="icon_listnview" data-icon="&#xe90f;" onclick="javascript:page.showPreview('@data.lbDId');"><span class="blind" >미리보기</span></i></div> 
+									 </div>
+								</li>
+							</ol>
+							<div class="navigationLinks">				        									
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=0" class="navFirst hiddenLink "><i class="icon-7" data-icon="&#xe911;"></i></a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=-1" class="navPrevious hiddenLink "><i class="icon-2" data-icon="&#xe901;"></i></a>
+								<span class="currentPage">1</span>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navPages">2</a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=2" class="navPages">3</a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=3" class="navPages">4</a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navNext"><i class="icon-1" data-icon="&#xe900;"></i></a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=13" class="navLast "><i class="icon-8" data-icon="&#xe907;"></i></a>
+							</div>
+						 </div> 
+					 </div>
+					 <div class="main_container_view">
+						<div class="main_container_view_inner">
+							<h3>준법률행위  準法律行爲 <span> [영] civil law</span> <span class="btn_newtap"><span class="hide">새창열기</span><i class="icon-new-tab" data-icon="&#xea7e;"></i></span> <br><span class="meta_area">圖說 法律用語辭典 /오세경 / 2017.02.15 / 법전출판사</span>
+							<div class="btn_option_outer"><div class="btn_close">닫기</div></div>
+							</h3>
+							<!-- 내용시작 xml -->
+							<div   id="view_content">
+								
+준법률행위란 의사표시와는 달리,
+
+		  
+							</div>
+						</div>
+					 </div>
+				</article> 
+				<aside class="right_container"> 
+					<section class="calc_info">  
+						<h4>LAWnB 검색연산자 안내<span class="btn_more"><i class="icon_open"  ></i>열기</span></h4> 
+						<div>
+							<table>
+								<tr>
+									<td><span>AND 검색</span><br>"이사회"와 "감사"가 모두 포함된 문서<div>예시) 이사회 감사, 이사회 & 감사, 이사회 AND 감사</div></td> 
+								</tr>
+								<tr>
+									<td ><span>OR 검색</span><br>"이사회"와 "감사" 중 어느 하나라도 포함된 문서<div>예시) 이사회 + 감사, 이사회 OR 감사</div></td>
+								</tr>
+								<tr>
+									<td ><span>NOT 검색</span><br>"이사회"가 포함되어 있는 문서 중 "감사"가 포함되지 않은 문서<div>예시) [검색어]이사회 [제외어]감사 ,이사회 ! 감사</div></td>
+								</tr>
+								<tr>
+									<td ><span>EQUAL 검색</span><br>"이사회 감사" 라는 검색어와 완전히 일치하는 구문이 있는 문서<div>예시) “이사회 감사”</div></td> 
+								</tr>
+								<tr>
+									<td ><span>NEAR 검색</span><br>"이사회"와 "감사" 사이에 문자가 10글자 이하인 문서<div>예시) “이사회 감사”~10</div></td>
+								</tr>
+							</table>
+						</div>
+					</section> 
+					<section>
+						<h4 class="hide">법률용어사전 책정보</h4>
+						<ul>
+							<li><div class="fl mgr10"><img src="../images/tr_img_dic_word.png" alt="圖說 法律用語辭典" class="img_dic"></div><em>圖說 法律用語辭典</em> <br>저자 : 오세경<br>발행일자 : 2017.02.15<br>출판사: 법전출판사
+							</li>   
+						</ul> 
+					</section>
+					<section class="dic_infomation">
+						<h4><i class="icon-8" data-icon="&#xe90d;"></i>일러두기</h4>
+						<p>1. 수록용어의 범위</p>
+						<div>2017년 1월 현재 시행되고 있는 헌법, 법률, 대통령령, 부령을 비롯한 대법원·국회·헌법재판소규칙·국제조약 및 법이론 등에 이르기까지의 법률상의 개념, 용어 등을 엄선하였다.</div>
+						<p>2. 편별분류</p>
+						<div>각 법령의 기본적인 성질 및 법학교과과정, 각종 국가고시 수험과목 등을 체계적으로 분석하여 편의상 법학입문, 헌법, 행정법, 민법, 부동산등기, 상법, 어음·수표법, 형법, 형사정책, 민사소송법, 형사소송법, 노동·사회보장, 경제법, 지식재산권, 세법, 국제법 등의 순서로 편별하였다.</div>
+						<p>3. 용어의 배열</p>
+						<div>각 용어는 원칙적으로 법령의 조문순에 의하여 배열하였으며, 서로 관련성이 있는 용어 및 상호 밀접하게 관계되는 용어는 예컨대공법·사법, 일반법과 특별법, 백지어음·백지수표, 재산·자산 등은 일괄하여 하나의 항목으로 설명하였다.</div>
+						<p>4. 법령조문의 인용</p>
+						<div>⑴ 법령의 관계조문을 인용하였을 때에는 괄호 안에 그 법령명과 조문을 표시하였고, 법령명약어표에 있는 법령명은 그에 따랐으며, 그 이외의 것은 법령명을 그대로 적었다.<br>⑵ 관련조문을 여러 개 인용할 때에는 동일법령의 조문 사이에 가운뎃점(·)으로, 다른 법령과의 사이에 쉼표(,)로 구분하였다.<br>⑶ 법조문은 아라비아숫자로, 항은 ○ 안의 아라비아숫자로, 호는 첨자 형태의 아라비아숫자로 표기하였다.</div>
+						<p>5. 주요내용의 굵은활자(고딕) 처리</p>
+						<div>각 항목에서 용어를 설명하는 과정에서 나오는 내용 중 기본적이고 중요한 사항에 관해서는 굵은활자(고딕)로 처리하여 용어 설명에 있어서 다른 항목과 유기적인 관련을 갖도록 하였으며 ‘가나다순 색인’에서도 찾아볼 수 있도록 하였다.</div>
+						<p>6. 부록</p>
+						<div>⑴ 법사상가·인명록：동서고금의 저명한 법사상가 및 법학자 등의 주요 약력, 공적, 저서 등을 수록하여 본문 내용과 연계하여 체계적으로 법이론의 흐름을 파악할 수 있도록 하였다(가나다순으로 수록).<br>⑵ 법률유사용어：법률용어 가운데 혼동을 일으키기 쉬운 유사용어들을 선별하여 용어의 정확한 뜻을 이해할 수 있도록 하였다.</div>
+					</section> 
+					<section class="dic_other_dicresult">
+						<h4 >법률한영사전</h4>
+						<ul>
+							<li><a href="f">민법</a> <br>(민사에 관한 법의 총칭) civil law; (협의의 민법) the Civil Law <div class="dic_add_word">[파] 민법전 the Civil Code<br>민법총칙 the general provisions of the civil code</div>
+							<span>더보기</span>
+							</li>   
+							<li><a href="f">항변권</a> <br>(민사에 관한 법의 총칭) civil law; (협의의 민법) the Civil Law <div class="dic_add_word">[파] 민법전 the Civil Code<br>민법총칙 the general provisions of the civil code</div>
+							<span>더보기</span>
+							</li>   
+							<li><a href="f">민법</a> <br>(민사에 관한 법의 총칭) civil law; (협의의 민법) the Civil Law <div class="dic_add_word">[파] 민법전 the Civil Code<br>민법총칙 the general provisions of the civil code</div>
+							<span>더보기</span>
+							</li>   
+						</ul> 
+					</section>
+				</aside>
+			</div>
+    	</div>
+		<footer>
+			<div class="etc_menu"> 
+				<div class="top_container">  
+					<ul>	
+						<li class="blind">기타 메뉴 </li>
+						<li>회사소개</li>
+						<li>광고 · 제휴문의</li>
+						<li>이용약관</li>
+						<li>개인정보 취급/처리 방침</li>
+						<li>법적고지</li>
+						<li>이메일 무단수집거부</li>
+					</ul>
+				</div>
+			</div>  
+			<div class="top_container   _footer"> 	   
+				1. 콘텐츠의 명칭 : 법률정보 &nbsp;&nbsp; 2. 콘텐츠의 제작 및 표시 : 2006년 2월 17일(업그레이드 콘텐츠의 경우 갱신일) &nbsp;&nbsp; 3. 콘텐츠 제작자 : ㈜로앤비  &nbsp;&nbsp;  4. 콘텐츠의 이용조건 : <a href="/support/agree_use.asp" class="red_bott">이용약관</a> 및 로앤비 <a href="/support/serviceInfo_member.asp" class="red_bott">서비스안내</a>와 같음 (무단 복제금지) &nbsp;&nbsp;5. 콘텐츠의 보호기간 : ㈜로앤비 사이트의 모든 콘텐츠는 「콘텐츠산업 진흥법」에 따라 제작 또는 갱신일로부터 5년간 보호됨
+				<div>Thomson reuters</div>
+				<div>Copyright ⓒ 1998~2016 <b>LAWnB</b>. All Rights Reserved.</div>
+			</div>           
+		</footer>
+		<div id="bg_screen"></div>
+		<script type="text/javascript">  
+			setHeight_under();		 
+		</script>
+	</div>
+</div> 
+</body>
+</html>

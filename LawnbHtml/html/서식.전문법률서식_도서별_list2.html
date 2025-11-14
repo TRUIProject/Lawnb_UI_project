@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../js/commonjs.js?1"></script>
+<script language="javascript">
+<!--
+ 
+$(document).ready(function () { 
+	
+	
+}); 	
+	function resizeComment(){ 
+			if($('.right_container').hasClass('add_border')){
+				$(".right_container").removeClass('slide_mov_right'); 
+			}else{
+				if($('#container').hasClass('list-view')){
+					$(".right_container").addClass('slide_mov_right'); 
+				}else{
+					$(".right_container").removeClass('slide_mov_right'); 
+				}
+			}
+			setHeight_under();
+		}
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_mainContainer">
+	<div id="wrap" >
+		<header> 
+			<div class="top_container  ">  
+				<a href="/maf/poc/app/homepage"><h1>로앤비</h1></a>
+				<div id="t_search" class="search_container">
+					<h2>통합검색 영역</h2>
+					<div class="search_inner">
+						<form  action="" > 
+						<div class="search_left">
+							통합검색
+							<ul>
+								<li>통합검색</li>
+								<li>판례</li>
+								<li>법령</li>
+								<li>ㅇㅇㅇ</li>
+							</ul>
+							<span  class="more_btn">more</span>
+						</div>
+						<div class="search_center">
+							<input type="search" name="" id="" >
+						</div>
+						<div class="search_right"><span  class="more_btn">more</span></div>
+						<input type="button" value="Search " id="searchButton" class="search_btn">
+						</form>
+					</div>
+				</div>
+				<div id="indiv_area" class="indiv_container">
+					<span alt="히스토리"><a href="/maf/poc/app/homepage">히스토리</a></span>
+					<span alt="즐겨찾기">즐겨찾기</span>
+					<span alt="나의폴더">나의폴더</span>
+					<span alt="알림설정">알림설정</span>
+					<span alt="나의정보">나의정보</span>
+				</div>
+			</div>
+			<nav> 
+				<dl id="main_menu" class="mmenu">
+					<dt class="blind">메인 메뉴</dt> 
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=IAED6CC08DD364059AB193CEAF31A4AB0&amp;stnew=true"><span>판례</span></a>
+					</dd>
+					<dd class="currentTab" >
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I0F5DD49BE2B544DBB7414874EC787E80&amp;stnew=true"><span>법규</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=ICAA980E9234848FEA6D0DA62432279E0&amp;stnew=true"><span>심판·결정·해석</span></a>
+					</dd>
+					<dd >
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I247AD0D84D9B4429B617C8D9F8388C8F&amp;stnew=true"><span>문헌</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I661610C9A2C749D6A4221A93502B0170&amp;stnew=true"><span>법조인</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I574B9F7164CB11E498DB8B09B4F043E0&amp;stnew=true"><span>기업법무</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I66693AFFED274970AC53A686AAA123C0&amp;stnew=true"><span>서식</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocHelp?docguid=WLAWLNEXT"><span>뉴스·칼럼</span></a>
+					</dd>
+				</dl>   
+			</nav>        	
+		</header> 
+		<div id="container" class="form">
+			<div id="breadcrumb" class="navi_area">
+				<div>Home > 서식 > <a href="1">전문법률서식</a></div>
+				<div class="group_indivi_btn"><a href="">로그인</a><a href="">개인화님</a> </div>
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div id="container_inner">
+				<div class="left_container">  
+					<section id="book_intro"> 
+						<h4 class="hide">책인트로</h4>
+						<div><img src="http://www.lawnb.com/images/form/book_08.gif" ></div>
+						<div  class="title">신 종합법률실무대전 Ⅰ (가사소송)</div><span>발간년도 : 2012. 02</span><span>출판사 : 진원사</span>
+						<select name=" "  style="width:100%">
+						<option value="all" selected="selected"  >다른 도서 이동</option> 
+						<option value="신종합실무1">신 종합법률실무대전Ⅰ(가사소송)
+						</option><option value="신종합실무2">신 종합법률실무대전Ⅱ(강제집행,보전처분 등)
+						</option><option value="신종합실무3">신 종합법률실무대전Ⅲ(각종 등기,세무,공탁 등)
+						</option><option value="신민1">신 민사집행 서식대전1(민사집행)
+						</option><option value="신민2">신 민사집행 서식대전2(가압류,가처분)
+						</option><option value="신형사소송">신 형사소송서식총람</option>
+						<option value="내고진탄">내용증명/고소(발)장/진정서/탄원서</option> 
+						<option value="신행서">신 행정소송 서식대전</option>
+						<option value="가서">가사소송 서식대전</option> 
+						<option value="가소1">가사소송Ⅰ(이혼,위자료,재산분할)</option>
+						<option value="가소2">가사소송Ⅱ(상속분할,유류분청구)</option>
+						<option value="소장정리">유형별 소장의 정리
+						</option><option value="유준총서">유형별로 본 답변서/준비서면
+						</option><option value="신청청구취지">신청/청구취지 작성방법
+						</option><option value="민전소송">민사소송 &amp; 전자소송
+						</option><option value="고소">고소장 작성사례부터 형사소송까지 </option> 
+						<option value="내용">알기쉬운 내용증명의 작성 요령과 사례집 </option>  
+						<option value="형사소송서식총람">형사소송 서식총람 </option> 
+						<option value="민소">민사집행 소송신청서 (가압류,가처분,경매·입찰) </option>  
+						<option value="민사소송서식">민사소송 서식총람 (민사소송)</option> 
+						<option value="민사집행서식1">민사집행 서식총람 (강제집행)</option> 
+						<option value="민사집행서식2">민사집행 서식총람 (보전처분)</option>  
+						</select> 
+					</section>
+					<section>
+						<h4>목차</h4>  
+						<ol class="check_area tree">
+							<li><em>가사사건</em> 
+								<ol>
+									<li><a href="2" class="_this">(1) 총론 </a></li>
+									<li><a href="2">(2) 가사소송 </a></li>
+									<li><a href="2">(3) 가사조정절차 </a></li>
+								</ol>
+							</li>
+							<li><em>가사소송</em> 
+								<ol>
+									<li><a href="2">(1) 법 원 </a></li>
+									<li><a href="2">(2) 가류사건 </a></li>
+									<li><a href="2">(3) 나류사건</a></li>
+									<li><a href="2">(3) 다류사건</a></li>
+								</ol>
+							</li>
+							<li><em>가사비송사건</em> </li> 
+						</ol> 
+						 
+					</section>
+				</div>
+				<article class="main_container"> 
+					<div class="main_container_inner"> 
+						<div id="search_results">
+							<h2 class="dark_line">신 종합법률실무대전 Ⅰ (가사소송)</h2> 
+							<div class="case_info mgt10 lawfirm"> 
+								<div class="small_search_outbox"><!-- small search -->
+									<div class="small_search_inbox">
+										<select id="sJob" name="sJob"    >
+										  <option value="">전체</option>
+										  <option value="">제목</option>
+										  <option value="본문">본문</option> 
+										</select> 
+										<input type="search" name="" value="혼인 무효확인" placeholder="도서내 검색"> <input type="button" value="검색 " id="searchButton_s" class="btn _search"></div>
+								</div>
+							</div> 
+							<div class="s_num_area mgt10">검색결과 21건  <small>1/100</small></div>
+							<div class="btn_option_outer">
+								<div class="btn_option_select">
+									<p class="blind">선택다운로드</p>
+									<div class="btn-group" >
+									  <button type="button" class="btn btn-default"><input type="checkbox" name="">다운로드</button>
+									</div>   
+								</div> 
+								<div class="select_area"> 
+									<p class="blind">보기 개수 선택</p>
+									<select id="" name=""  >
+										<option value="">10개</option>
+										<option value="" selected>20개</option>
+										<option value="">50개</option>
+									</select>
+								</div> 
+								<div class="btn_option"> 
+									<div class="btn-group" > 
+										<button type="button" class="btn btn-default _select">정확도</button> <button type="button" class="btn btn-default">목차순 <i class="icon-sort-numeric-asc" data-icon="&#xea4a;"></i></button> 
+									</div>	
+									<ul class="view_type_list _view_type_list">
+										<p class="blind">보기옵션 선택</p>
+										<li class="_preview"><a href="#" class="option_a  "   id="option_a" >미리보기형</a></li>
+										<li class="_onlyTitle"><a href="#" class="option_b_on  "  id="option_b">상세보기형</a></li>
+									</ul>
+								</div>
+							</div>
+							<ol class="list btn_exist">
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>							 
+									<div class="co_searchContent">
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[서식 13]혼인 무효확인 청구의 소장 </a> <span class="list_meta">2011.01.01</span></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div> 
+										<div class="co_searchResults_summary"><p>[1] 계약당사자 중 일방이 상대방 및 제3자와 3면 계약을 체결하거나 상대방의 승낙을 얻어 계약상 당사자의 지위를 포괄적으로 제3자에게 이전하는 경우, 제3자가 종래 계약에서 이미 발생한 채권ㆍ채무도 모두 이전받는지 여부(적극)<br>
+	[2] 사업시행자가 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 시행령 제40조 제2항 단서에 따라 택지개발촉진법 또는 주택법 등 관계 법령에 의하여 이주대책대상자들에게 택지 또는 주택을 공급하는 경우에도 이주정착지를 제공하는 경우와 마찬가지로 사업시행자 부담으로 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제4항에서 정한 생활기본시설을 설치하여 이주대책대상자들에게 제공하여야 하는지 여부(적극)<br>
+	[3] 사업시행자의 이주대책 수립ㆍ실시의무를 정하고 있는 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제1항과 이주대책의 내용을 정하고 있는 같은 조 제4항 본문이 강행법규인지 여부(적극)<br>
+	[4] 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제4항에서 정한 ‘도로ㆍ급수시설ㆍ배수시설 그 밖의 공공시설 등 당해 지역조건에 따른 생활기본시설’의 의미 및 이주대책대상자들과 사업시행자 등이 체결한 택지 또는 주택에 관한 특별공급계약에서 위 조항에 규정된 생활기본시설 설치비용을 분양대금에 포함시킴으로써 이주대책대상자들이 그 비용까지 사업시행자 등에게 지급하게 된 경우,사업시행자 등이 그 비용 상당액을 부당이득으로 이주대책대상자들에게 반환하여야 하는지 여부(적극) </p></div>
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">300</span>						 
+									<div class="co_searchContent">  
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[서식 13]혼인 무효확인 청구의 소장 </a> <span class="list_meta">2011.01.01</span></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>  
+										<div class="co_searchResults_summary"><p>[1] 계약당사자 중 일방이 상대방 및 제3자와 3면 계약을 체결하거나 상대방의 승낙을 얻어 계약상 당사자의 지위를 포괄적으로 제3자에게 이전하는 경우, 제3자가 종래 계약에서 이미 발생한 채권ㆍ채무도 모두 이전받는지 여부(적극)<br>
+	[2] 사업시행자가 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 시행령 제40조 제2항 단서에 따라 택지개발촉진법 또는 주택법 등 관계 법령에 의하여 이주대책대상자들에게 택지 또는 주택을 공급하는 경우에도 이주정착지를 제공하는 경우와 마찬가지로 사업시행자 부담으로 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제4항에서 정한 생활기본시설을 설치하여 이주대책대상자들에게 제공하여야 하는지 여부(적극)<br>
+	[3] 사업시행자의 이주대책 수립ㆍ실시의무를 정하고 있는 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제1항과 이주대책의 내용을 정하고 있는 같은 조 제4항 본문이 강행법규인지 여부(적극)<br>
+	[4] 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제4항에서 정한 ‘도로ㆍ급수시설ㆍ배수시설 그 밖의 공공시설 등 당해 지역조건에 따른 생활기본시설’의 의미 및 이주대책대상자들과 사업시행자 등이 체결한 택지 또는 주택에 관한 특별공급계약에서 위 조항에 규정된 생활기본시설 설치비용을 분양대금에 포함시킴으로써 이주대책대상자들이 그 비용까지 사업시행자 등에게 지급하게 된 경우,사업시행자 등이 그 비용 상당액을 부당이득으로 이주대책대상자들에게 반환하여야 하는지 여부(적극) </p></div>
+									 </div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent"> 
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[서식 13]혼인 무효확인 청구의 소장 </a> <span class="list_meta">2011.01.01</span></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>  
+										<div class="co_searchResults_summary"><p>[1] 계약당사자 중 일방이 상대방 및 제3자와 3면 계약을 체결하거나 상대방의 승낙을 얻어 계약상 당사자의 지위를 포괄적으로 제3자에게 이전하는 경우, 제3자가 종래 계약에서 이미 발생한 채권ㆍ채무도 모두 이전받는지 여부(적극)<br>
+	[2] 사업시행자가 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 시행령 제40조 제2항 단서에 따라 택지개발촉진법 또는 주택법 등 관계 법령에 의하여 이주대책대상자들에게 택지 또는 주택을 공급하는 경우에도 이주정착지를 제공하는 경우와 마찬가지로 사업시행자 부담으로 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제4항에서 정한 생활기본시설을 설치하여 이주대책대상자들에게 제공하여야 하는지 여부(적극)<br>
+	[3] 사업시행자의 이주대책 수립ㆍ실시의무를 정하고 있는 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제1항과 이주대책의 내용을 정하고 있는 같은 조 제4항 본문이 강행법규인지 여부(적극)<br>
+	[4] 구 공익사업을 위한 토지 등의 취득 및 보상에 관한 법률 제78조 제4항에서 정한 ‘도로ㆍ급수시설ㆍ배수시설 그 밖의 공공시설 등 당해 지역조건에 따른 생활기본시설’의 의미 및 이주대책대상자들과 사업시행자 등이 체결한 택지 또는 주택에 관한 특별공급계약에서 위 조항에 규정된 생활기본시설 설치비용을 분양대금에 포함시킴으로써 이주대책대상자들이 그 비용까지 사업시행자 등에게 지급하게 된 경우,사업시행자 등이 그 비용 상당액을 부당이득으로 이주대책대상자들에게 반환하여야 하는지 여부(적극) </p></div>
+									 </div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent"> 
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[서식 13]혼인 무효확인 청구의 소장 </a> <span class="list_meta">2011.01.01</span></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>  
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent">    
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[서식 13]혼인 무효확인 청구의 소장 </a> <span class="list_meta">2011.01.01</span></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>  
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent">   
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[서식 13]혼인 무효확인 청구의 소장 </a> <span class="list_meta">2011.01.01</span></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>  
+									</div>
+								</li>  
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent">  
+										<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[서식 13]혼인 무효확인 청구의 소장 </a> <span>2011.01.01</span></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>  
+									</div>
+								</li> 
+							</ol>
+							<div class="navigationLinks">				        									
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=0" class="navFirst hiddenLink "><i class="icon-7" data-icon="&#xe911;"></i></a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=-1" class="navPrevious hiddenLink "><i class="icon-2" data-icon="&#xe901;"></i></a>
+								<span class="currentPage">1</span>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navPages">2</a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=2" class="navPages">3</a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=3" class="navPages">4</a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navNext"><i class="icon-1" data-icon="&#xe900;"></i></a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=13" class="navLast "><i class="icon-8" data-icon="&#xe907;"></i></a>
+							</div>
+						 </div> 
+					 </div>
+					 <div class="main_container_view">
+						<div class="main_container_view_inner"> 
+							<h3>[서식 1]친권행사정지 사전처분신청서 <span class="btn_newtap"><span class="hide">popup열기</span><i class="icon-new-tab" data-icon="&#xea7e;"></i></span>
+							<div><span>신 종합법률실무대전 Ⅰ (가사소송)</span> <span>발간연도 : 2012. 02 </span> <span>출판사 : 진원사</span></div> <div class="btn_option_outer"><div class="btn_close">닫기</div></h3>
+							<div   id="view_content">
+								<div class="btn_option function_down"><span>원문 다운로드  <div><i class="icon-file_excel" data-icon="&#xeae1;"></i> <i class="icon-file_word" data-icon="&#xeae2;"></i> <i class="icon-file_word" data-icon="&#xeadf;"></i></span></div></div>
+								<div class="prev_img"><img src="http://www.lawnb.com//userfiles/image/news/2016/10/161028068(1).jpg"></div>
+		  
+							</div>
+						</div>
+					 </div>
+				</article> 
+				<aside class="right_container"> 
+					<section >
+						<h4>도서내 인기 서식</h4>
+						<ul> 
+							<li><a href="1" >[서식 4]친권행사정지 사전처분신청서 </a><span>2016.01.01</span></li> 
+							<li><a href="1" >[서식 4]친권행사정지 사전처분신청서 </a><span>2016.01.01</span></li> 
+							<li><a href="1" >[서식 4]친권행사정지 사전처분신청서 </a><span>2016.01.01</span></li> 
+							<li><a href="1" >[서식 4]친권행사정지 사전처분신청서 </a><span>2016.01.01</span></li> 
+							<li><a href="1" >[서식 4]친권행사정지 사전처분신청서 </a><span>2016.01.01</span></li> 
+							<li><a href="1" >[서식 4]친권행사정지 사전처분신청서 </a><span>2016.01.01</span></li> 
+						</ul>  
+					</section>
+					<section >
+						<h4>관련해설</h4>
+						<ul> 
+							<li><a href="1" >[해설 4]친권행사정지 사전처분신청서 </a><span>2016.01.01</span></li> 
+							<li><a href="1" >[해설 4]친권행사정지 사전처분신청서 </a><span>2016.01.01</span></li> 
+							<li><a href="1" >[해설 4]친권행사정지 사전처분신청서 </a><span>2016.01.01</span></li> 
+							<li><a href="1" >[해설 4]친권행사정지 사전처분신청서 </a><span>2016.01.01</span></li>  
+						</ul>  
+					</section>
+				</aside>
+			</div>
+    	</div>
+		<footer>
+			<div class="etc_menu"> 
+				<div class="top_container">  
+					<ul>	
+						<li class="blind">기타 메뉴 </li>
+						<li>회사소개</li>
+						<li>광고 · 제휴문의</li>
+						<li>이용약관</li>
+						<li>개인정보 취급/처리 방침</li>
+						<li>법적고지</li>
+						<li>이메일 무단수집거부</li>
+					</ul>
+				</div>
+			</div>  
+			<div class="top_container   _footer"> 	   
+				1. 콘텐츠의 명칭 : 법률정보 &nbsp;&nbsp; 2. 콘텐츠의 제작 및 표시 : 2006년 2월 17일(업그레이드 콘텐츠의 경우 갱신일) &nbsp;&nbsp; 3. 콘텐츠 제작자 : ㈜로앤비  &nbsp;&nbsp;  4. 콘텐츠의 이용조건 : <a href="/support/agree_use.asp" class="red_bott">이용약관</a> 및 로앤비 <a href="/support/serviceInfo_member.asp" class="red_bott">서비스안내</a>와 같음 (무단 복제금지) &nbsp;&nbsp;5. 콘텐츠의 보호기간 : ㈜로앤비 사이트의 모든 콘텐츠는 「콘텐츠산업 진흥법」에 따라 제작 또는 갱신일로부터 5년간 보호됨
+				<div>Thomson reuters</div>
+				<div>Copyright ⓒ 1998~2016 <b>LAWnB</b>. All Rights Reserved.</div>
+			</div>           
+		</footer>
+		<div id="bg_screen"></div>
+		<script type="text/javascript">  
+			setHeight_under();		 
+		</script>
+	</div>
+</div> 
+</body>
+</html>

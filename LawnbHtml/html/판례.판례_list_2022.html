@@ -1,0 +1,1402 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 판례 - 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="../Scripts/lib/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="../js/commonjs.js?3"></script>
+<script language="javascript">
+<!--
+ 
+	function resizeComment(){ 
+			if($('.right_container').hasClass('add_border')){
+				$(".right_container").removeClass('slide_mov_right'); 
+			}else{
+				if($('#container').hasClass('list-view')){
+					$(".right_container").addClass('slide_mov_right'); 
+				}else{
+					$(".right_container").removeClass('slide_mov_right'); 
+				}
+			}
+			setHeight_under();
+		}
+	var expanded = false; 
+	function showCheckboxes() { 
+	  if (!expanded) {
+		$("#checkboxes").show();
+		expanded = true;
+	  } else {
+		$("#checkboxes").hide();
+		expanded = false;
+	  }
+	} 
+
+    function moreSearchFrom() {
+        $('.submain_search._option').toggle();
+        $('.submain_search_more span').toggle();
+    };
+
+    function reModalToggle() {
+        $('.re_search_modal').toggle();
+	};
+
+
+    $(document).ready(function () {
+        // header show hide
+        $('.btn_search_result').click(function () {
+            $('.header').toggleClass('no_menu');
+            $('.btn_search_result span').toggle();
+		});
+
+		 // 통검 접기 펼치기
+        $('.filter_box_toggle').click(function () {
+            $(this).toggleClass('open');
+            $(this).parent().find('ul').toggleClass('close');
+		});
+	});
+
+	// 멀티선택 
+    function multiFilterOn() {
+		$('.multi_filter_btn').toggleClass('on');
+	};
+
+    // scroll
+    $(window).scroll(function () {
+        var sticky = $('.search_tab'),
+            scroll = $(window).scrollTop();
+
+        if (scroll >= 100) sticky.addClass('fixed');
+        else sticky.removeClass('fixed');
+    });
+
+    // 통검 tab 마지막 ... 열기 
+    function searchTabMore() {
+        $('.search_tab_more_box').toggle();
+    }
+
+    // 통검 tab 마지막 ... 바깥쪽 누르면 닫기
+    $(document).mouseup(function (e) {
+        var boxCalcInfo = $(".search_tab_more_box");
+        if (boxCalcInfo.has(e.target).length == 0)
+            $('.search_tab_more_box').hide();
+    });
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_mainContainer">
+	<div id="wrap" style="height:initial;">
+		<header class="header no_menu">
+			<div class="top_container  ">
+				<a href="/"><h1>로앤비 1</h1></a>
+				<div id="t_search" class="search_container">
+					<h2>통합검색 영역</h2>
+					<div class="search_inner">
+						<form method="post" id="totalSearchForm" action="../ContentTotal" onsubmit="return getTotalSearch();">
+							<div class="search_left hide">
+								<label class="hide">통합검색  </label>
+							</div>
+							<div class="search_center">
+								<input type="search" id="qu" name="qu" value="" title="통합검색" autocomplete="off">
+							</div>
+							<div class="search_right">
+								<span class="more_btn"><i class="icon-more" data-icon=""></i><span class="hide">more</span></span>
+
+								<!-- 검색 연산자 -->
+								<div class="calc_btn">
+									<i class="icon-info" data-icon="" onclick="searchCalcInfo();" alt="검색연산자 안내">
+										<span class="blind">검색 연산자 안내</span>
+									</i>
+								</div>
+							</div>
+							<div id="searchButton" class="search_btn"><i class="icon-" data-icon=""></i><span class="hide">검색</span></div>
+						</form>
+					</div>
+
+					<div class="btn_search_result">
+						<span>메뉴 펼치기</span><span style="display:none;">메뉴 가리기</span>
+					</div>
+					<div class="search_layer_outer" style="display: none;">
+						<div class="search_layer" style="display: none;">
+							<div class="search_layer_list _done ">
+								<div class="txt_info" style="display:none"> </div>
+								<ul>
+								</ul>
+								<div id="result_target"></div>
+							</div>
+						</div>
+					</div>
+					<div class="layer_calc_outer" style="display: none;">
+						<div class="box_calc_info">
+							<h3>LAWnB 검색연산자 안내</h3>
+							<div class="box_calcDL">
+								<dl>
+									<dt>AND</dt>
+									<dd>
+										<span>"이사회"와 "감사"가 모두 포함된 문서</span>
+										<span>- 예시) 이사회 감사, 이사회 AND 감사</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>OR</dt>
+									<dd>
+										<span>"이사회"와 "감사" 중 어느 하나라도 포함된 문서</span>
+										<span>- 예시) 이사회 OR 감사</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>NOT</dt>
+									<dd>
+										<span>"이사회"가 포함되고 "감사"가 포함되지 않은 문서</span>
+										<span>- 예시) [검색어]이사회 [제외어]감사, 이사회 NOT 감사</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>EQUAL</dt>
+									<dd>
+										<span>"이사회 감사"라는 검색어와 완전일치하는 구문이 있는 문서</span>
+										<span>- 예시) “이사회 감사”</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>NEAR </dt>
+									<dd>
+										<span>"이사회"와 "감사" 사이에 단어(형태소)가 10개 이하인 문서</span>
+										<span>- 예시) “이사회 감사”~10</span>
+									</dd>
+								</dl>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div id="indiv_area" class="indiv_container">
+					<span>법무법인 로앤비로앤비 님</span>
+					<span class="indiv_highlight">고객지원</span>
+					<span>회원가입</span>
+					<span>로그인</span>
+				</div>
+			</div>
+			<nav>
+				<div class="nav_menuBox">
+					<dl id="main_menu" class="mmenu">
+						<dd>
+							<a href="#"><span>판례</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="/Info/ContentMain/Case">판례&ZeroWidthSpace;</a></li>
+								<li><a href="/html/판례.천자평석_submain.html">천자평석</a></li>
+								<li><a href="/html/판례.판례연구_submain.html">판례연구</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>법규</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="/Info/ContentMain/Law">법령</a></li>
+								<li><a href="/Info/ContentMain/AdminRule">행정규칙</a></li>
+								<li><a href="/Info/ContentMain/LawMake">입법동향</a></li>
+								<li><a href="/Info/ContentMain/Treaty">조약</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>심판·결정·해석</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="/Info/ContentMain/PatentCase">특허심판례</a></li>
+								<li><a href="/Info/ContentMain/AdminCase">결정례</a></li>
+								<li><a href="/Info/ContentMain/InterpretRule">유권해석</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>주석서</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="/Info/ContentMain/Jusuk">기본법 주석서</a></li>
+								<li><a href="/Info/ContentMain/ONJU">온주&ZeroWidthSpace;</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>문헌</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="/Info/ContentMain/Doc">논문</a></li>
+								<li><a href="/html/문헌.저널_submain.html">저널</a></li>
+								<li><a href="/html/문헌.글로벌법제동향_submain.html">글로벌법제동향</a></li>
+								<li><a href="/Info/ContentMain/LawDic">법률사전</a></li>
+								<!--<li><a href="Ebook">(X예정)E-book</a></li>-->
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>법조인</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="/Info/ContentMain/Lawyer">법조인명록</a></li>
+								<li><a href="/Info/ContentMain/Org">조직도</a></li>
+								<li><a href="/Info/ContentMain/LawFirm">로펌</a></li>
+								<li><a href="/Info/ContentMain/OrgInfo">법조기관</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>기업법무</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="/Info/ContentMain/LawFirmReport">로펌 리포트</a></li>
+								<li><a href="/Info/ContentMain/Tax">세무·인사</a></li>
+								<li><a href="/Info/ContentMain/BizInfo">기업정보</a></li>
+								<li><a href="/Info/ContentMain/Sosong">소송비용계산</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>서식</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="/Info/ContentMain/LawForm">전문법률서식</a></li>
+								<li><a href="/Info/ContentMain/BizForm">비즈폼 서식</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>뉴스·칼럼</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="/Info/ContentMain/News">뉴스</a></li>
+								<li><a href="/Info/ContentMain/Column">칼럼</a></li>
+								<!-- <li><a href="/Editor/Index">LAWnB Editor</a></li> -->
+							</ul>
+						</dd>
+						<dd class="btn_menu_all">
+							<a href="#" onclick="showAllMenu();">메뉴 전체보기  <i></i></a>
+						</dd>
+					</dl>
+					<div class="box_menu_all">
+						<div class="btn_close_pop" onclick="showAllMenu();">닫기<i class="icon-close" data-icon=""></i></div>
+						<ul>
+							<!--<li><strong>판례</strong></li>-->
+							<li><a href="Case">판례</a></li>
+						</ul>
+						<ul>
+							<!--<li><strong>법규</strong></li>-->
+							<li><a href="Law">법령</a></li>
+							<li><a href="AdminRule">행정규칙</a></li>
+							<li><a href="LawMake">입법동향</a></li>
+							<li><a href="Treaty">조약</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>심판·결정·해석</strong></li>-->
+							<li><a href="PatentCase">특허심판례</a></li>
+							<li><a href="AdminCase">결정례</a></li>
+							<li><a href="InterpretRule">유권해석</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>문헌</strong></li>-->
+							<li><a href="Doc">평석·논문</a></li>
+							<li><a href="Jusuk">주석서</a></li>
+							<li><a href="Ebook">E-book</a></li>
+							<li><a href="LawDic">법률사전</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>법조인</strong></li>-->
+							<li><a href="Lawyer">법조인명록</a></li>
+							<li><a href="Org">조직도</a></li>
+							<li><a href="LawFirm">법률사무소</a></li>
+							<li><a href="OrgInfo">법조기관 안내</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>기업법무</strong></li>-->
+							<li><a href="LawFirmReport">로펌 리포트</a></li>
+							<li><a href="Tax">세무·인사</a></li>
+							<li><a href="BizInfo">기업정보</a></li>
+							<li><a href="Sosong">소송비용계산</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>서식</strong></li>-->
+							<li><a href="LawForm">전문법률서식</a></li>
+							<li><a href="BizForm">비즈폼 서식</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>뉴스·칼럼</strong></li> -->
+							<li><a href="News">뉴스</a></li>
+							<li><a href="Column">칼럼</a></li>
+							<!-- <li><a href="/Editor/Index">LAWnB Editor</a></li> -->
+						</ul>
+						<ul>
+							<!-- <li><strong>온주</strong></li>-->
+							<li><a href="ONJU">온주</a></li>
+						</ul>
+						<ul>
+							<li><a href="javascript:OnetoOneContactUs('B02');">판결문 등재신청&ZeroWidthSpace;</a></li>
+							<li><a href="javascript:loginNeed();">법조인명록 등록/수정&ZeroWidthSpace;</a></li>
+							<li><a href="javascript:OnetoOneContactUs('B04');">승소판결문 등록&ZeroWidthSpace;</a></li>
+							<li><a href="javascript:OnetoOneContactUs('B01');">1:1문의&ZeroWidthSpace;</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<div class="search_tab">
+			<ul>
+				<li><a href="통검_overall_2022.html">통합</a></li>
+				<li class="active"><a href="판례.판례_list_2022.html">판례</a></li>
+				<li><a href="법령.법령_list_2022.html">법령</a></li>
+				<li><a href="행정규칙.행정규칙_list_2022.html">행정규칙</a></li>
+				<li><a href="#">입법동향</a></li>
+				<li><a href="#">조약</a></li>
+				<li><a href="#">특허심판례</a></li>
+				<li><a href="#">결정례</a></li>
+				<li><a href="#">유권해석</a></li>
+				<li><a href="#">논문</a></li>
+				<li><a href="#">저널</a></li>
+				<!-- 판례 -->
+				<li>
+					<a class="search_tab_more" onclick="searchTabMore()">ㆍㆍㆍ</a>
+					<div class="search_tab_more_box">
+						<ul>
+							<li><a href="#">전문법률서식</a></li>
+							<li><a href="#">로펌 리포트</a></li>
+							<li><a href="#">뉴스</a></li>
+							<li><a href="#">칼럼</a></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<div id="container" class="submain filter case">
+			<!-- 재검색 -->
+			<div class="re_search_modal">
+				<div class="re_search_box">
+					<h3>재검색</h3>
+					<a class="close_modal btn_default btn_wh" onclick="reModalToggle()">X</a>
+					<!-- 검색 박스 -->
+					<div class="search_div">
+						<form id="searchForm" method="post" action="../ContentList" onsubmit="return page.getSearch();">
+							<input type="hidden" id="sPage" name="sPage" value="1">
+							<input type="hidden" id="sList" name="sList" value="20">
+							<input type="hidden" id="sCode" name="sCode" value="C000">
+							<input type="hidden" id="sType" name="sType" value="0">
+							<input type="hidden" id="sType1" name="sType1" value="0">
+							<input type="hidden" id="sType2" name="sType2" value="0">
+							<input type="hidden" id="sType3" name="sType3" value="0">
+							<input type="hidden" id="sSubType" name="sSubType" value="-1">
+							<input type="hidden" id="sCat" name="sCat">
+							<input type="hidden" id="sDate1" name="sDate1">
+							<input type="hidden" id="sDate2" name="sDate2">
+							<input type="hidden" id="sSort" name="sSort" value="0">
+							<input type="hidden" id="sSortChk_2" name="sSortChk_2">
+							<input type="hidden" id="sType4" name="sType4" value="">
+							<input type="hidden" id="sSubWordVals6" name="sSubWordVals6" value="">
+							<input type="hidden" id="sSubWordVals7" name="sSubWordVals7" value="">
+							<div class="submain_search">
+								<ul>
+									<li>
+										<label>검색어</label>
+										<div class="form_right">
+											<input type="text" id="sWord" name="sWord" placeholder="검색어" class="w100" autofocus="">
+										</div>
+									</li>
+									<li>
+										<label>제외어</label>
+										<div class="form_right">
+											<input type="text" id="sWordEx" name="sWordEx" placeholder="제외어" class="w100">
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="submain_search _option" id="detail_area" style="display: none;">
+								<ul>
+									<li>
+										<label>사건번호</label>
+										<div class="form_right">
+											<input type="text" id="sSubWord1" name="sSubWord1" class="w100">
+										</div>
+									</li>
+									<li>
+										<label>판시사항</label>
+										<div class="form_right">
+											<input type="text" id="sSubWord2" name="sSubWord2" class="w100">
+										</div>
+									</li>
+									<li>
+										<label>재판요지</label>
+										<div class="form_right">
+											<input type="text" id="sSubWord3" name="sSubWord3" class="w100">
+										</div>
+									</li>
+									<li>
+										<label>사건명</label>
+										<div class="form_right">
+											<input type="text" id="sSubWord5" name="sSubWord5" class="w100">
+										</div>
+									</li>
+									<li>
+										<label>전문</label>
+										<div class="form_right">
+											<div class="junmunSearch_select w35 mgr10">
+												<div onclick="checkboxesDisplay('checkboxes2')" id="selContList">
+													<select id="selType4" name="selType4" class="select_box w100">
+
+														<option>전체</option>
+													</select>
+													<div class="overSelect"></div>
+												</div>
+												<div id="checkboxes2" class="hide_check nolaw w100" style="display: none;">
+													<div><input type="checkbox" name="cType4_a" id="cType4_a" checked="checked" onclick="chkCat_A('4')"><label for="cType4_a">전체</label></div>
+													<div><input type="checkbox" name="cType4" id="cType4_b" checked="checked" onclick="chkCat('4')" value="주문"><label for="cType4_b">주문 </label></div>
+													<div><input type="checkbox" name="cType4" id="cType4_c" checked="checked" onclick="chkCat('4')" value="청구취지"><label for="cType4_c">청구취지</label></div>
+													<div><input type="checkbox" name="cType4" id="cType4_d" checked="checked" onclick="chkCat('4')" value="이유"><label for="cType4_d">이유</label></div>
+													<div><input type="checkbox" name="cType4" id="cType4_e" checked="checked" onclick="chkCat('4')" value="판사"><label for="cType4_e">판사</label></div>
+												</div>
+											</div>
+											<input type="text" class="w65" id="sSubWord4" name="sSubWord4">
+										</div>
+									</li>
+									<li class="m_pdr70">
+										<label>참조조문</label>
+										<div class="form_right">
+											<div class="refer_area">
+												<ul>
+													<li id="referJoli_0" class="flex referjo">
+														<span class="input_group_addon w15">법령명</span>
+														<input type="text" class="with_text_input mgr10 w35" id="sSubWord6" name="sSubWord6" placeholder="예) 형법,민사소송">
+														<span class="input_group_addon w15">조문번호</span>
+														<input type="text" class="with_text_input w35" id="sSubWord7" name="sSubWord7" placeholder="예) 제10조">
+													</li>
+												</ul>
+											</div>
+											<div class="btn_default btn_wh refer_addBtn" onclick="caseReferJoAdd();">+ 추가</div>
+										</div>
+									</li>
+								</ul>
+
+								<ul class="third_search hidden">
+									<li>
+										<label>검색범위</label>
+										<div class="form_right">
+											<ul>
+												<li><label>공간여부</label> <input type="checkbox" id="cType1_a" name="cType1_a" checked="checked" onclick="chkCat_A('1')">전체&nbsp;&nbsp;<input type="checkbox" name="cType1" checked="checked" onclick="chkCat('1')">공간&nbsp;&nbsp;<input type="checkbox" name="cType1" checked="checked" onclick="chkCat('1')">미공간</li>
+												<li><label>사건종류</label> <input type="checkbox" id="cType2_a" name="cType2_a" checked="checked" onclick="chkCat_A('2')">전체&nbsp;&nbsp;<input type="checkbox" name="cType2" checked="checked" onclick="chkCat('2')">헌법&nbsp;&nbsp;<input type="checkbox" name="cType2" checked="checked" onclick="chkCat('2')">민사&nbsp;&nbsp;<input type="checkbox" name="cType2" checked="checked" onclick="chkCat('2')">형사&nbsp;&nbsp;<input type="checkbox" name="cType2" checked="checked" onclick="chkCat('2')">가사&nbsp;&nbsp;<input type="checkbox" name="cType2" checked="checked" onclick="chkCat('2')">행정&nbsp;&nbsp;<input type="checkbox" name="cType2" checked="checked" onclick="chkCat('2')">특허&nbsp;&nbsp;<input type="checkbox" name="cType2" checked="checked" onclick="chkCat('2')">선거</li>
+												<li>
+													<label>법원등급</label>
+													<div class="pr">
+														<div class="selectBox" onclick="showCheckboxes('checkboxes')">
+															<select id="selType3" name="selType3">
+
+																<option>전체</option>
+															</select>
+															<div class="overSelect"></div>
+														</div>
+														<div id="checkboxes" class="hide_check nolaw" style="display: none;">
+															<div><input type="checkbox" id="cType3_a" name="cType3_a" checked="checked" onclick="chkCat_A('3')">전체</div>
+															<div><input type="checkbox" name="cType3" checked="checked" onclick="chkCat('3')" value="대법">대법원 </div>
+															<div><input type="checkbox" name="cType3" checked="checked" onclick="chkCat('3')" value="전합">대법원(전원합의체) </div>
+															<div><input type="checkbox" name="cType3" checked="checked" onclick="chkCat('3')" value="헌재">헌법재판소 </div>
+															<div><input type="checkbox" name="cType3" checked="checked" onclick="chkCat('3')" value="행법">행정법원 </div>
+															<div><input type="checkbox" name="cType3" checked="checked" onclick="chkCat('3')" value="고법">고등법원 </div>
+															<div><input type="checkbox" name="cType3" checked="checked" onclick="chkCat('3')" value="지법">지방법원 </div>
+															<div><input type="checkbox" name="cType3" checked="checked" onclick="chkCat('3')" value="특법">특허법원 </div>
+															<div><input type="checkbox" name="cType3" checked="checked" onclick="chkCat('3')" value="기타">기타 </div>
+														</div>
+													</div>
+												</li>
+												<li class="mgt10 ">
+													<label>선고일자 </label>
+													<input type="text" id="cDate1" name="cDate1" title="시작일" maxlength="8" style="width:80px" value="" placeholder="20211013">~ <input type="text" id="cDate2" name="cDate2" title="종료일" maxlength="8" style="width:80px" value="" placeholder="20221013"> <div class="btn-group"><button type="button" class="btn  btn-default" onclick="page.initCdate();">X</button></div> <div class="btn-group"><button type="button" class="btn btn-square " onclick="page.dateInput('1y', 'cDate');">최근 1년</button> <button type="button" class="btn btn-square" onclick="page.dateInput('3y', 'cDate');">최근 3년</button> <button type="button" class="btn btn-square" onclick="page.dateInput('5y', 'cDate');">최근 5년</button></div>
+												</li>
+											</ul>
+										</div>
+									</li>
+								</ul>
+							</div>
+
+							<div class="submain_search_more">
+								<span onclick="moreSearchFrom();">+  검색옵션 더보기</span>
+								<span style="display: none;" onclick="moreSearchFrom();">-  검색옵션 닫기</span>
+							</div>
+
+							<div class="btn_area"><input type="submit" id="searchBtn" value="검색"></div>
+						</form>
+
+					</div>
+				</div>
+			</div>
+			<!-- 재검색 -->
+
+			<div id="breadcrumb" class="navi_area">
+				<div>Home > 판례</div>
+				<div class="group_indivi_btn">
+					di님 <em>|</em> 정회원(개인/법인관리자/법인서브) [~2017.07.07] <em>|</em><a href="">고객센터</a> <div class="btn-group">
+						<button type="button" class="btn btn-default _select">로그아웃</button>
+					</div>
+				</div>
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div id="container_inner">
+				<div class="left_container">
+					<!-- 필터 -->
+					<div class="results_filter">
+						<div class="filter_box">
+							<label>
+								<span class="toggle_switch">
+									<input type="checkbox" onclick="multiFilterOn()">
+									<span class="slider"></span>
+								</span>
+								<span class="multi_txt">멀티선택</span>
+							</label>
+
+							<div class="apply_btn mgt20 ">
+								<a class="btn_default btn_wh">다시선택</a>
+								<a class="btn_default btn_nv multi_filter_btn">선택적용</a>
+							</div>
+						</div>
+
+						<div class="filter_box">
+							<h4>판례</h4>
+							<a class="filter_box_toggle"></a>
+							<ul class="filter_list_block">
+								<li><label><input type="checkbox" />사건번호</label></li>
+								<li><label><input type="checkbox" />판시사항</label></li>
+								<li><label><input type="checkbox" />재판요지</label></li>
+								<li><label><input type="checkbox" />사건명</label></li>
+								<li><label><input type="checkbox" />전문</label></li>
+								<li><label><input type="checkbox" />참조조문</label></li>
+							</ul>
+						</div>
+
+						<div class="filter_box">
+							<h4>공간여부</h4>
+							<a class="filter_box_toggle"></a>
+							<ul class="filter_list_inline">
+								<li><label><input type="checkbox" />공간</label></li>
+								<li><label><input type="checkbox" />미공간</label></li>
+							</ul>
+						</div>
+
+						<div class="filter_box">
+							<h4>사건종류​</h4>
+							<a class="filter_box_toggle"></a>
+							<ul class="filter_list_inline">
+								<li><label><input type="checkbox" />헌법​</label></li>
+								<li><label><input type="checkbox" />민사​</label></li>
+								<li><label><input type="checkbox" />형사​</label></li>
+								<li><label><input type="checkbox" />가사​​</label></li>
+								<li><label><input type="checkbox" />행정​</label></li>
+								<li><label><input type="checkbox" />특허​</label></li>
+								<li><label><input type="checkbox" />선거​</label></li>
+							</ul>
+						</div>
+
+						<div class="filter_box">
+							<h4>당사자​</h4>
+							<a class="filter_box_toggle"></a>
+							<ul class="filter_list_inline">
+								<li><label><input type="checkbox" />결정계​​</label></li>
+								<li><label><input type="checkbox" />당사자계​​</label></li>
+							</ul>
+						</div>
+
+						<div class="filter_box">
+							<h4>심급구분​</h4>
+							<a class="filter_box_toggle"></a>
+							<ul class="filter_list_block">
+								<li><label><input type="checkbox" />특허심판원(심판소+항고심판소) </label></li>
+								<li><label><input type="checkbox" />특허법원​</label></li>
+								<li><label><input type="checkbox" />대법원​</label></li>
+							</ul>
+						</div>
+
+						<div class="filter_box">
+							<h4>심급구분​</h4>
+							<a class="filter_box_toggle"></a>
+							<ul class="filter_list_block tree">
+								<li class="close">
+									<input type="checkbox" id="eType1_a" name="eType1_a" value="1" onclick="chkSubCat_A('1')">
+									<label><em>처리 </em></label>
+									<ul style="display: none;">
+										<li class="open"><label><input type="checkbox" name="eType1" value="1000" onclick="chkSubCat('1')">가결(통과)</label></li>
+										<li><label><input type="checkbox" name="eType1" value="1001" onclick="chkSubCat('1')">대안반영</label></li>
+										<li><label><input type="checkbox" name="eType1" value="1002" onclick="chkSubCat('1')">부결</label></li>
+										<li><label><input type="checkbox" name="eType1" value="1003" onclick="chkSubCat('1')">기타</label></li>
+									</ul>
+								</li>
+								<input type="hidden" id="eType2_a" name="eType2_a">
+								<li>
+									<label><input type="checkbox" name="eType2" value="0"><em>계류</em></label>
+								</li>
+								<input type="hidden" id="eType3_a" name="eType3_a">
+								<li>
+									<label><input type="checkbox" name="eType3" value="2"><em>본회의부의</em></label>
+								</li>
+							</ul>
+						</div>
+
+						<div class="filter_box">
+							<h4>심급구분​</h4>
+							<a class="filter_box_toggle"></a>
+							<ul id="eType1_a" class="filter_list_block">
+								<li><label><input type="checkbox" name="eType1" value="440680">유형별 소장의 정리 </label></li>
+								<li><label><input type="checkbox" name="eType1" value="440676">신 민사집행 서식대전2(가압류,가처분) </label></li>
+								<li><label><input type="checkbox" name="eType1" value="440675">신 민사집행 서식대전1(민사집행) </label></li>
+								<li><label><input type="checkbox" name="eType1" value="465582">청구신청취지 작성방법 </label></li>
+								<li><label><input type="checkbox" name="eType1" value="440673">신 종합법률실무대전Ⅱ (보전처분, 강제집행, 주택/상가건물임대차보호법, 행정소송/행정심판) </label></li>
+								<li><label><input type="checkbox" name="eType1" value="466687">부동산등기실무대전(중) [제6판] </label></li>
+								<li><label><input type="checkbox" name="eType1" value="466688">부동산등기실무대전(하) [제6판] </label></li>
+								<li><label><input type="checkbox" name="eType1" value="466692">민사실무대전Ⅳ: 가압류·가처분 절차편 [제18판] </label></li>
+								<li><label><input type="checkbox" name="eType1" value="466689">민사실무대전Ⅰ: 소제기절차와 소장편 [제18판] </label></li>
+								<li><label><input type="checkbox" name="eType1" value="466686">부동산등기실무대전(상) [제6판] </label></li>
+								<li><label><input type="checkbox" name="eType1" value="465581">유형별로 본 답변서/준비서면 총서 </label></li>
+								<li><label><input type="checkbox" name="eType1" value="440671">내용증명/고소(발)장/진정서/탄원서 서식 </label></li>
+								<li><label><input type="checkbox" name="eType1" value="465579">가사소송 서식대전 </label></li>
+								<li><label><input type="checkbox" name="eType1" value="466691">민사실무대전Ⅲ: 민사집행 절차편 [제18판] </label></li>
+							</ul>
+						</div>
+
+						<div class="filter_box">
+							<h4>법원별</h4>
+							<a class="filter_box_toggle"></a>
+							<ul class="filter_list_block">
+								<li><label><input type="checkbox" />대법원</label></li>
+								<li><label><input type="checkbox" />대법원(전원합의체)</label></li>
+								<li><label><input type="checkbox" />헌법재판소</label></li>
+								<li><label><input type="checkbox" />행정법원</label></li>
+								<li><label><input type="checkbox" />고등법원</label></li>
+								<li><label><input type="checkbox" />지방법원</label></li>
+								<li><label><input type="checkbox" />특허법원</label></li>
+								<li><label><input type="checkbox" />기타</label></li>
+							</ul>
+						</div>
+
+						<div class="filter_box">
+							<h4>INDEX</h4>
+							<ul class="filter_list_inline list_type_text">
+								<li><a onclick="dic.goToSearchKorList('ㄱ','');">ㄱ</a></li>
+								<li><a onclick="dic.goToSearchKorList('ㄴ','');">ㄴ</a></li>
+								<li><a onclick="dic.goToSearchKorList('ㄷ','');">ㄷ</a></li>
+								<li><a onclick="dic.goToSearchKorList('ㄹ','');">ㄹ</a></li>
+								<li><a onclick="dic.goToSearchKorList('ㅁ','');">ㅁ</a></li>
+								<li><a onclick="dic.goToSearchKorList('ㅂ','');">ㅂ</a></li>
+								<li><a onclick="dic.goToSearchKorList('ㅅ','');">ㅅ</a></li>
+								<li><a onclick="dic.goToSearchKorList('ㅇ','');">ㅇ</a></li>
+								<li><a onclick="dic.goToSearchKorList('ㅈ','');">ㅈ</a></li>
+								<li><a onclick="dic.goToSearchKorList('ㅊ','');">ㅊ</a></li>
+								<li><a onclick="dic.goToSearchKorList('ㅋ','');">ㅋ</a></li>
+								<li><a onclick="dic.goToSearchKorList('ㅌ','');">ㅌ</a></li>
+								<li><a onclick="dic.goToSearchKorList('ㅍ','');">ㅍ</a></li>
+								<li><a onclick="dic.goToSearchKorList('ㅎ','');">ㅎ</a></li>
+							</ul>
+
+							<hr class="hr_line2">
+
+							<ul class="filter_list_inline list_type_text">
+								<li><a onclick="dic.goToSearchKorList('','A');">A</a></li>
+								<li><a onclick="dic.goToSearchKorList('','B');">B</a></li>
+								<li><a onclick="dic.goToSearchKorList('','C');">C</a></li>
+								<li><a onclick="dic.goToSearchKorList('','D');">D</a></li>
+								<li><a onclick="dic.goToSearchKorList('','E');">E</a></li>
+								<li><a onclick="dic.goToSearchKorList('','F');">F</a></li>
+								<li><a onclick="dic.goToSearchKorList('','G');">G</a></li>
+								<li><a onclick="dic.goToSearchKorList('','H');">H</a></li>
+								<li><a onclick="dic.goToSearchKorList('','I');">I</a></li>
+								<li><a onclick="dic.goToSearchKorList('','J');">J</a></li>
+								<li><a onclick="dic.goToSearchKorList('','K');">K</a></li>
+								<li><a onclick="dic.goToSearchKorList('','L');">L</a></li>
+								<li><a onclick="dic.goToSearchKorList('','M');">M</a></li>
+								<li><a onclick="dic.goToSearchKorList('','N');">N</a></li>
+								<li><a onclick="dic.goToSearchKorList('','O');">O</a></li>
+								<li><a onclick="dic.goToSearchKorList('','P');">P</a></li>
+								<li><a onclick="dic.goToSearchKorList('','Q');">Q</a></li>
+								<li><a onclick="dic.goToSearchKorList('','R');">R</a></li>
+								<li><a onclick="dic.goToSearchKorList('','S');">S</a></li>
+								<li><a onclick="dic.goToSearchKorList('','T');">T</a></li>
+								<li><a onclick="dic.goToSearchKorList('','U');">U</a></li>
+								<li><a onclick="dic.goToSearchKorList('','V');">V</a></li>
+								<li><a onclick="dic.goToSearchKorList('','W');">W</a></li>
+								<li><a onclick="dic.goToSearchKorList('','X');">X</a></li>
+								<li><a onclick="dic.goToSearchKorList('','Y');">Y</a></li>
+								<li><a onclick="dic.goToSearchKorList('','Z');">Z</a></li>
+							</ul>
+						</div>
+
+						<div class="filter_box">
+							<h4>검색결과</h4>
+							<ul class="filter_list_block lawyer">
+								<li>
+									<label>현직</label>
+									<select id="dJobCode" name="dJobCode" class="select_box" style="width:140px;">
+										<option value="00" selected="selected">전체</option>
+										<option value="1011">판사</option>
+										<option value="1013">검사</option>
+										<option value="1012">변호사</option>
+										<option value="1014">교수</option>
+										<option value="1018">사법연수원생</option>
+										<option value="1015">연구관</option>
+										<option value="1017">공무원</option>
+										<option value="1019">군법무관</option>
+										<option value="1053">헌법재판관</option>
+										<option value="1039">기타</option>
+									</select>
+								</li>
+								<li>
+									<label>시험종류</label>
+									<select name="dTestCode" id="dTestCode" class="select_box" style="width:140px;">
+										<option value="00" selected="selected">전체</option>
+										<option value="1020">사법시험</option>
+										<option value="1021">변호사시험</option>
+										<option value="1042">외국변호사시험</option>
+										<option value="1043">입법고시</option>
+										<option value="1044">기술고시</option>
+										<option value="1034">외무고시</option>
+										<option value="1035">행정고시</option>
+										<option value="1036">변리사시험</option>
+										<option value="1037">공인회계사시험</option>
+										<option value="1045">공인노무사시험</option>
+										<option value="1046">법무사시험</option>
+										<option value="1047">세무사시험</option>
+										<option value="1023">고등고시</option>
+										<option value="1048">고등고시사법과</option>
+										<option value="1049">고등고시행정과</option>
+										<option value="1050">고등고시기술과</option>
+										<option value="1022">군법무관임용시험</option>
+										<option value="1024">판/검사특별임용시험</option>
+										<option value="1026">간이법원판사임용시험</option>
+										<option value="1025">조선변호사시험</option>
+										<option value="1027">사법요원양성소입소시험</option>
+										<option value="1028">만주국고등문관시험</option>
+										<option value="1029">일본고등문관시험</option>
+									</select>
+								</li>
+								<li>
+									<label>시험회수</label>
+									<input type="number" id="dTestS" name="dTestS" value="" min="1" max="99" class="select_box"> ~ <input type="number" id="dTestE" name="dTestE" value="" min="1" max="99" class="select_box">
+								</li>
+								<hr class="hr_line2">
+								<li>
+									<label>연수원</label>
+									<input type="number" id="dTrainS" name="dTrainS" value="" min="1" max="99" class="select_box"> ~ <input type="number" id="dTrainE" name="dTrainE" value="" min="1" max="99" class="select_box">
+								</li>
+								<li>
+									<label>출생년도</label>
+									<input type="number" id="dBirthS" name="dBirthS" value="" min="1900" max="2025" class="select_box"> ~ <input type="number" id="dBirthE" name="dBirthE" value="" min="1900" max="2025" class="select_box">
+								</li>
+							</ul>
+						</div>
+
+						<div class="filter_box">
+							<h4>기간</h4>
+							<a class="filter_box_toggle"></a>
+							<ul class="filter_list_inline">
+								<li><label><input type="radio" name="dType2" checked>공포일자</label></li>
+								<li><label><input type="radio" name="dType2">시행일자</label></li>
+							</ul>
+							<ul class="filter_list_block">
+								<li><label><input type="radio" name="dType3" checked>전체</label></li>
+								<li><label><input type="radio" name="dType3">최근 1년</label></li>
+								<li><label><input type="radio" name="dType3">최근 2년</label></li>
+								<li><label><input type="radio" name="dType3">최근 3년</label></li>
+								<li><label><input type="radio" name="dType3">최근 5년</label></li>
+								<li><label><input type="radio" name="dType3">직접선택</label></li>
+								<li id="dDateDiv" class="detail_date" style="display: none;">
+									<input type="text" id="dDate1" name="dDate1" maxlength="8" title="시작일" class="select_box" placeholder="20211102"> ~ <input type="text" id="dDate2" name="dDate2" maxlength="8" title="종료일" class="select_box" placeholder="20221102">
+								</li>
+							</ul>
+						</div>
+
+						<div class="filter_box">
+							<label>
+								<span class="toggle_switch">
+									<input type="checkbox" onclick="multiFilterOn()">
+									<span class="slider"></span>
+								</span>
+								<span class="multi_txt">멀티선택</span>
+							</label>
+
+							<div class="apply_btn mgt20 ">
+								<a class="btn_default btn_wh">다시선택</a>
+								<a class="btn_default btn_nv multi_filter_btn">선택적용</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<article class="main_container">
+					<div class="main_container_inner">
+
+						<div class="content_total_info">
+							<a href="#" class="btn_default btn_nv re_search_btn" onclick="reModalToggle()">재검색</a>
+							<div class="txt">검색어 “개인정보 보호법”<span>에 대한 검색결과 </span></div>
+						</div>
+
+
+
+						<div id="search_results">
+
+
+							<div class="s_num_area">
+								검색결과 183 건 <small>1/10</small>
+
+							</div>
+
+							<div class="btn_option_outer">
+								<div class="btn_option_select">
+									<p class="blind">선택다운로드</p>
+									<input type="checkbox" id="chk_0" name="chk_0" value="0">
+									<div class="btn-group">
+										<button type="button" class="btn btn-default" onclick="service.listSave()">다운로드</button>
+									</div>
+								</div>
+
+								<div class="select_area">
+									<p class="blind">보기 개수 선택</p>
+									<select id="sListChecker" name="sListChecker">
+										<option value="10">10개</option>
+										<option value="20" selected="selected">20개</option>
+									</select>
+								</div>
+
+								<div class="btn_option">
+									<div class="btn-group">
+										<button type="button" class="btn btn-default _select" onclick="javascript:page.changeSorting(0);">정확도</button>
+										<button type="button" class="btn btn-default" onclick="javascript:page.changeSorting(1);">선고일 <i class="icon-sort-alpha-desc" data-icon=""></i></button>
+										<button type="button" class="btn btn-default" onclick="javascript:page.changeSorting(2);">인용</button>
+									</div>
+									<ul class="view_type_list _view_type_list">
+										<p class="blind">보기옵션 선택</p>
+										<li class="_preview"><span class="option_a" id="option_a">미리보기형</span></li>
+										<li class="_onlyTitle"><span class="option_b_on" id="option_b">상세보기형</span></li>
+									</ul>
+
+								</div>
+							</div>
+							<ol class="list btn_exist">
+								<li>
+									<input type="checkbox" id="chk_C00085954DD05263" name="chk" value="C00085954DD05263"><span class="list_num">1</span>
+									<div class="co_searchContent">
+										<h3>
+											<a href="../Info/ContentView?sid=C00085954DD05263" class="popup_view">
+												대법원 2022. 6. 16 선고 2022도1676 판결 【<marks>개인정보보호법</marks>위반】 <span>[공2022하, 1408]</span>
+											</a><br>
+										</h3>
+										<div class="btns"><i class="icon_listnview" data-icon="" onclick="javascript:page.showPreview('C00085954DD05263');"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p> [1] <marks>개인정보</marks>를 제공받은 자의 <marks>개인정보</marks> <marks>보호법</marks> 제71조 제2호 위반죄는 <marks>정보</marks>제공자가 법령위반으로 <marks>개인정보</marks>를 제공한다는 사정에 대한 인식 외에 '영리 또는 부정한 목적'을 범죄성립요건으로 하는 목적범인지 여부(적극) / <marks>개인정보</marks> <marks>보호법</marks> 제71조 제2호에서 '부정한 목적'의 의미 및 이에 해당하는지 판단하는 방법  <br>[2] 주택재개발정비사업 조합의 조합원인 피고인이 조합 임원 9명에 대한 해임안건이 담긴 해임 총회 개최사실을 알릴 목적으로 갑이 이전에 개최된 주민총회의 적정성을 검토하기 위해 제공받은 토지 등 소유자 명부 등을 바탕으로 작성하여 보관 중이던 조합원 명단을 제공받음으로써 부정한 목적으로 <marks>개인정보</marks>를 제공받았다는 이유로 <marks>개인정보</marks> <marks>보호법</marks> 위반으로 기소된 사안에서, '해임 총회 개최사실을 알릴 목적'이 사회통념상 부정하다고 단정하기 어렵다고 한 사례  </p></div>
+									</div>
+									<div id="func_C00085954DD05263" class="function_btn">
+										<a href="javascript:showOriginalView('../Info/ContentView?sid=C00085954DD05263_R5');"><span class="icon_function">판례히스토리</span></a>
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" id="chk_C0004E33D3E6DFA7" name="chk" value="C0004E33D3E6DFA7"><span class="list_num">2</span>
+									<div class="co_searchContent">
+										<h3>
+											<a href="../Info/ContentView?sid=C0004E33D3E6DFA7" class="popup_view">
+												울산지방법원 2022. 5. 17 자 2022고정98 결정 【<marks>개인정보보호법</marks>위반】
+											</a><br>
+										</h3>
+										<div class="btns"><i class="icon_listnview" data-icon="" onclick="javascript:page.showPreview('C0004E33D3E6DFA7');"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p> ..울 산 지 방 법 원 .. ..판 결 .. ..사 건 2022고정98 <marks>개인정보보호법</marks>위반 .. ..피 고 인..피고인은 휴대폰단말기 도매 판매 및 휴대폰 개통 업무 등 <marks>정보</marks>통신서비스를 제공하는 B울산유통점 소속 과장으로, 고객 <marks>개인정보</marks>를 처리하는 사람이다...<marks>개인정보</marks>처리자는 <marks>정보</marks>주체의 <marks>개인정보</marks>를 동의 없이 목적 외의 용도로 이용하거나 이를 제3자에게 제공하여서는 아니 된다.....<marks>개인정보</marks>인 성명과 휴대전화번호를 본래 수집하였던 목적 범위를 초과하여 이용하였다...<marks>개인정보보호법</marks> 제71조 제2호, 제18조 제1항, 벌금형 선택 ..</p></div>
+									</div>
+									<div id="func_C0004E33D3E6DFA7" class="function_btn">
+
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" id="chk_C0002EAF536D11F0" name="chk" value="C0002EAF536D11F0"><span class="list_num">3</span>
+									<div class="co_searchContent">
+										<h3>
+											<a href="../Info/ContentView?sid=C0002EAF536D11F0" class="popup_view">
+												수원지방법원성남지원 2022. 4. 27 선고 2022고단77 판결 【<marks>개인정보보호법</marks>위반】
+											</a><br>
+										</h3>
+										<div class="btns"><i class="icon_listnview" data-icon="" onclick="javascript:page.showPreview('C0002EAF536D11F0');"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>사 건 2022고단77 <marks>개인정보보호법</marks>위반 ..<marks>개인정보</marks>를 처리하거나 처리하였던 자는 업무상 알게 된 <marks>개인정보</marks>를 누설하거나 다른 사람이 이용하도록 제공하여서는 아니된다.....<marks>정보</marks>시스템인 ....<marks>개인정보</marks>를 권한 없이 E이 이용하도록 ..: 각 <marks>개인정보</marks> <marks>보호법</marks> 제71조 제5호, 제59조 제2호, 형법 제30조(징역형 선택) ..피고인 A은 자신의 업무상 권한을 남용하여, 일부 동료 공무원들의 <marks>개인</marks> <marks>정보</marks>를 무단으로 제공하였다...피고인 B은 자신의 지위를 남용하여, C시청 일부 공무원들의 <marks>개인</marks> <marks>정보</marks>를 무단으로 E 비서관에게 제공하였다...</p></div>
+									</div>
+									<div id="func_C0002EAF536D11F0" class="function_btn">
+
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" id="chk_C0004776E8D446EF" name="chk" value="C0004776E8D446EF"><span class="list_num">4</span>
+									<div class="co_searchContent">
+										<h3>
+											<a href="../Info/ContentView?sid=C0004776E8D446EF" class="popup_view">
+												전주지방법원 2022. 1. 19 선고 2021고단880 판결 【<marks>개인정보보호법</marks>위반】
+											</a><br>
+										</h3>
+										<div class="btns"><i class="icon_listnview" data-icon="" onclick="javascript:page.showPreview('C0004776E8D446EF');"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p><marks>개인정보</marks>를 처리하거나 처리하였던 자는 업무상 알게 된 <marks>개인정보</marks>를 누설하거나 권한 없이 다른 사람이 이용하도록 제공하여서는 아니 된다.....<marks>개인정보</marks>를 처리하는 D이 업무상 알게 된 <marks>개인정보</marks>를 권한 없이 피고인들이 이용하도록 제공하는 행..'민감<marks>정보</marks>' 중 하나로 규정하는 것은 국민의 정치적 소신과 자유를 보호하고, <marks>정보</marks> 주체의 자기<marks>정보</marks>를 스스로 통제할 수 있도록 하는 데 있다고 보인다... 상상적 경합검사는 이 사건 공소사실을 일죄로 기소하였으나, <marks>개인정보</marks> <marks>보호법</marks> 위반죄는 <marks>정보</marks>주체별로 각각 별개의 죄를 구성하는바(대법원 2017...</p></div>
+									</div>
+									<div id="func_C0004776E8D446EF" class="function_btn">
+
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" id="chk_C000ED1B8CE77B4F" name="chk" value="C000ED1B8CE77B4F"><span class="list_num">5</span>
+									<div class="co_searchContent">
+										<h3>
+											<a href="../Info/ContentView?sid=C000ED1B8CE77B4F" class="popup_view">
+												대법원 2022. 1. 14 선고 2018도18095 판결 【<marks>개인정보보호법</marks>위반】
+											</a><br>
+										</h3>
+										<div class="btns"><i class="icon_listnview" data-icon="" onclick="javascript:page.showPreview('C000ED1B8CE77B4F');"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p> ..대 법 원 .. ..제 2 부 .. ..판 결 .. ..사 건 2018도18095 <marks>개인정보보호법</marks>위반 .. ..피 고 인 피고인 .. ..상 고 인 검사 .. ..「<marks>개인정보</marks> <marks>보호법</marks>」 제71조 제2호, 제19조는 <marks>개인정보</marks>처리자로부터 <marks>개인정보</marks>를 제공받은 사람이 제공받은 목적 외의 용도로 이용하는 행위를 처벌하는데, 피고인이 이 사건 영상을 열람하던 중 휴대전화로 촬영한 행위를 위 규정의 이용으로 볼 수 없다고 보아, 이를 유죄로 판단한 제1심판결을 파기하고 무죄를 선고하였다...「<marks>개인정보</marks> <marks>보호법</marks>」 제71조 제2호, 제19조의 ..</p></div>
+									</div>
+									<div id="func_C000ED1B8CE77B4F" class="function_btn">
+										<a href="javascript:showOriginalView('../Info/ContentView?sid=C000ED1B8CE77B4F_R5');"><span class="icon_function">판례히스토리</span></a>
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" id="chk_C000FBDAD7207FD4" name="chk" value="C000FBDAD7207FD4"><span class="list_num">6</span>
+									<div class="co_searchContent">
+										<h3>
+											<a href="../Info/ContentView?sid=C000FBDAD7207FD4" class="popup_view">
+												서울북부지방법원 2022. 1. 14 선고 2021노884 판결 【<marks>개인정보보호법</marks>위반】
+											</a><br>
+										</h3>
+										<div class="btns"><i class="icon_listnview" data-icon="" onclick="javascript:page.showPreview('C000FBDAD7207FD4');"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>사 건 2021노884 <marks>개인정보보호법</marks>위반 ....<marks>개인정보</marks>의 종류 및 규모 등에 비추어 죄질이 가볍지 않은 점, 제공받은 <marks>개인정보</marks>의 주체인 조합원들이 피고인에 대한 처벌을 원하고 있는 점 등)과 유리한 정상(이사건 범행으로 2차적인 피해가 발생하지는 않은 것으로 보이는 점, 피고인에게 동종의범죄전력이 없고 2회의 벌금형 외에는 별다른 형사처벌을 받은 전력이 없는 점, 피고인이 이 사건 범행을 인정하면서 반성하고 있는 점 등)을 종합적으로 고려하여 피고인에 대한 형을 정하였고, 원심판결 선고 이후 새롭게 양형에 참작할 만한 특별한 ..</p></div>
+									</div>
+									<div id="func_C000FBDAD7207FD4" class="function_btn">
+										<a href="javascript:showOriginalView('../Info/ContentView?sid=C000FBDAD7207FD4_R5');"><span class="icon_function">판례히스토리</span></a>
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" id="chk_C0009BB600568B42" name="chk" value="C0009BB600568B42"><span class="list_num">7</span>
+									<div class="co_searchContent">
+										<h3>
+											<a href="../Info/ContentView?sid=C0009BB600568B42" class="popup_view">
+												대구지방법원 2021. 9. 28 자 2021고정657 결정 【<marks>개인정보보호법</marks>위반】
+											</a><br>
+										</h3>
+										<div class="btns"><i class="icon_listnview" data-icon="" onclick="javascript:page.showPreview('C0009BB600568B42');"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p><marks>개인정보</marks>를 처리하거나 처리하였던 자는 업무상 알게 된 <marks>개인정보</marks>를 누설하거나 권한 없이 다른 사람이 이용하도록 제공하는 행위를 하여서는 아니 된다... 그런데 위 규정에서 말하는 공공기관은 <marks>개인정보</marks> <marks>보호법</marks> 제2조 제6호, <marks>개인정보</marks> <marks>보호법</marks> 시행령 제2조에 따라 ..2) <marks>개인정보</marks> <marks>보호법</marks> 제17조 제1항 제2호는 <marks>개인정보</marks> <marks>보호법</marks> 제15조 제1항 제3호에 따라 <marks>개인정보</marks>를 수집한 것을 전제로 하는 규정으로 앞서 본바와 같이 공공기관이 아닌 피고인에게는 <marks>개인정보</marks> <marks>보호법</marks> 제15조 제1항 제3호가 적용될 수 없다.....<marks>개인정보</marks> <marks>보호법</marks> 제17조..</p></div>
+									</div>
+									<div id="func_C0009BB600568B42" class="function_btn">
+
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" id="chk_C000ACFF44531DF4" name="chk" value="C000ACFF44531DF4"><span class="list_num">8</span>
+									<div class="co_searchContent">
+										<h3>
+											<a href="../Info/ContentView?sid=C000ACFF44531DF4" class="popup_view">
+												청주지방법원 2021. 6. 3 선고 2020노497 판결 【<marks>개인정보보호법</marks>위반】
+											</a><br>
+										</h3>
+										<div class="btns"><i class="icon_listnview" data-icon="" onclick="javascript:page.showPreview('C000ACFF44531DF4');"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>..<marks>개인정보</marks>를 ..'임직원, 파견근로자, 시간제 근로자 등 <marks>개인정보</marks>처리자의 지휘ㆍ감독을 받아 <marks>개인정보</marks>를 처리하는 자'를 ..'<marks>개인정보</marks>처리자'는 아니지만 그 지휘ㆍ감독을 받아 <marks>개인정보</marks>를 처리하거나 처리하였던 자(즉 ..'<marks>개인정보</marks>취급자'가 아닌 순수한 <marks>개인</marks>이 <marks>개인정보</marks> 처리 업무와는 무관하게 우연히 타인의 <marks>개인정보</marks>를 취득ㆍ보유하게 되는 경우는 일상생활에서 흔히 일어날 수 있는데, 그 경우까지도 타인의 <marks>개인정보</marks>를 .. 내에 비치되어 있던 조합원 명부를 휴대전화로 촬영하여 조합원들의 성명, 전화번호 등 <marks>개인정보</marks>구 <marks>개인정보보호법</marks>(2020...</p></div>
+									</div>
+									<div id="func_C000ACFF44531DF4" class="function_btn">
+										<a href="javascript:showOriginalView('../Info/ContentView?sid=C000ACFF44531DF4_R5');"><span class="icon_function">판례히스토리</span></a>
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" id="chk_C000D0648F39EB02" name="chk" value="C000D0648F39EB02"><span class="list_num">9</span>
+									<div class="co_searchContent">
+										<h3>
+											<a href="../Info/ContentView?sid=C000D0648F39EB02" class="popup_view">
+												춘천지방법원 2021. 5. 28 선고 2020노1011 판결 【<marks>개인정보보호법</marks>위반】
+											</a><br>
+										</h3>
+										<div class="btns"><i class="icon_listnview" data-icon="" onclick="javascript:page.showPreview('C000D0648F39EB02');"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p> ..춘 천 지 방 법 원 .. ..제 2 형 사 부 .. ..판 결 .. ..사 건 2020노1011 <marks>개인정보보호법</marks>위반 .. ..피 고 인 A ..(66-1) .. ..항 소 인 피고인 .. ..검 사 .. ..변 호 인 .. ..판 결 선 고 2021... 5... 28.춘천지방법원원주지원2019고정27420201120판결원 심 판 결 춘천지방법원 원주지원 2020... 11... 20... 선고 2019고정274 판결 ..주 문 .. ..피고인의 항소를 기각한다... .. .. .. 이 유 .. ..1... 항소이유의 요지..</p></div>
+									</div>
+									<div id="func_C000D0648F39EB02" class="function_btn">
+										<a href="javascript:showOriginalView('../Info/ContentView?sid=C000D0648F39EB02_R5');"><span class="icon_function">판례히스토리</span></a>
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" id="chk_C00023638A1FB5C8" name="chk" value="C00023638A1FB5C8"><span class="list_num">10</span>
+									<div class="co_searchContent">
+										<h3>
+											<a href="../Info/ContentView?sid=C00023638A1FB5C8" class="popup_view">
+												울산지방법원 2020. 11. 25 자 2020고정536 결정 【<marks>개인정보보호법</marks>위반】
+											</a><br>
+										</h3>
+										<div class="btns"><i class="icon_listnview" data-icon="" onclick="javascript:page.showPreview('C00023638A1FB5C8');"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>사 건 2020고정536 <marks>개인정보보호법</marks>위반 ..<marks>개인정보</marks>처리자는 <marks>정보</marks>주체의 동의를 받지 아니하고 <marks>개인정보</marks>를 제3자에게 제공하여서는 아니된다.....<marks>개인정보</marks>를 .. 살피건대, 어떠한 행위가 <marks>개인정보</marks>의 제공인지 아니면 처리위탁인지는 <marks>개인정보</marks>의 취득 목적과 방법, 대가 수수 여부, <marks>정보</marks>주체 또는 이용자의 <marks>개인정보</marks> 보호 필요성에 미치는 영향 및 이러한 <marks>개인정보</marks>를 이용할 필요가 있는 자가 실질적으로 누구인지 등을 종합하여 판단하여야할 것이고(대법원 2017...<marks>개인정보</marks> <marks>보호법</marks> 제71조 제1호, 제17조 제1항 제1호, 벌금형 선택 ..</p></div>
+									</div>
+									<div id="func_C00023638A1FB5C8" class="function_btn">
+
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" id="chk_C0003E9F360C4304" name="chk" value="C0003E9F360C4304"><span class="list_num">11</span>
+									<div class="co_searchContent">
+										<h3>
+											<a href="../Info/ContentView?sid=C0003E9F360C4304" class="popup_view">
+												춘천지방법원원주지원 2020. 11. 20 자 2019고정274 결정 【<marks>개인정보보호법</marks>위반】
+											</a><br>
+										</h3>
+										<div class="btns"><i class="icon_listnview" data-icon="" onclick="javascript:page.showPreview('C0003E9F360C4304');"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p> ..춘천지방법원 원주지원 .. ..판 결 .. ..사 건 2019고정274 <marks>개인정보보호법</marks>위반 .. ..영상<marks>정보</marks>처리기기를 설치 운영함에 있어 설치 목적과 다른 목적으로 임의로 조작하거나 다른 곳을 비춰서는 아니 된다... 27.경까지 피고인 소유 위 토지에 농작물 보호 등 범죄 예방을 목적으로 설치해 둔 영상<marks>정보</marks>처리기기인 CCTV의 방향을 조작하여 고소인의 주택 내부가 촬영될 수 있도록 함으로써 영상<marks>정보</marks> 처리기기를 설치 목적과 달리 다른 곳을 비추게 하였다...<marks>개인정보</marks> <marks>보호법</marks> 제72조 제1호, 제25조 제5항(벌금형 선택) ..</p></div>
+									</div>
+									<div id="func_C0003E9F360C4304" class="function_btn">
+										<a href="javascript:showOriginalView('../Info/ContentView?sid=C0003E9F360C4304_R5');"><span class="icon_function">판례히스토리</span></a>
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" id="chk_C00062C8F7825460" name="chk" value="C00062C8F7825460"><span class="list_num">12</span>
+									<div class="co_searchContent">
+										<h3>
+											<a href="../Info/ContentView?sid=C00062C8F7825460" class="popup_view">
+												창원지방법원 2020. 10. 6 자 2020고정111 결정 【<marks>개인정보보호법</marks>위반】 <span>[각공2020하, 974]</span>
+											</a><br>
+										</h3>
+										<div class="btns"><i class="icon_listnview" data-icon="" onclick="javascript:page.showPreview('C00062C8F7825460');"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p> 경찰공무원인 피고인이, 경찰 내부 통합포털시스템인 '폴넷(POL NET)' 게시판에 甲 등 경찰공무원 22명이 작성한 댓글이 피고인의 명예를 훼손하였다는 이유로 이들을 고소하면서 경찰청 표준인사시스템인 'e사람'에 접속한 후 '직원조회' 메뉴에 성명을 입력하여 위 22명의 휴대전화번호를 알아낸 다음 이를 고소장에 기재하여 수사기관에 제출함으로써 <marks>개인정보</marks>를 처리하거나 처리하였던 자로서 업무상 알게 된 <marks>개인정보</marks>를 누설하고 권한 없이 <marks>개인정보</marks>를 유출하였다고 하여 <marks>개인정보</marks> <marks>보호법</marks> 위반으로 기소된 사안에서, 피고인의 행위가 <marks>개인정보</marks>의 누설이나 유출에 해당하지 않는다는 이유로 무죄를 선고한 사례  </p></div>
+									</div>
+									<div id="func_C00062C8F7825460" class="function_btn">
+
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" id="chk_C000EF72DA277575" name="chk" value="C000EF72DA277575"><span class="list_num">13</span>
+									<div class="co_searchContent">
+										<h3>
+											<a href="../Info/ContentView?sid=C000EF72DA277575" class="popup_view">
+												울산지방법원 2020. 8. 27 선고 2020노38 판결 【<marks>개인정보보호법</marks>위반】
+											</a><br>
+										</h3>
+										<div class="btns"><i class="icon_listnview" data-icon="" onclick="javascript:page.showPreview('C000EF72DA277575');"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>사 건 2020노38 <marks>개인정보보호법</marks>위반 ..피고인은 <marks>개인정보보호법</marks> 제59조 제2호에서 정한 ..<marks>개인정보</marks>를 처리하거나 처리했던 사람은 업무상 알게 된 <marks>개인정보</marks>를 누설하거나 권한 없이 다른 사람이 이용하도록 제공하는 행위를 해서는 안 된다...○○아파트 105동 401호 피고인의 집에서 피해자의 <marks>개인정보</marks>인 ..이로써 피고인은 업무상 알게 된 피해자의 <marks>개인정보</marks>를 권한 없이 다른 사람이 이용하도록 제공하였다...<marks>개인정보</marks> <marks>보호법</marks> 제71조 제5호, 제59조 제2호는 업무상 알게 된 <marks>개인정보</marks>를 누설하는 행위를 처벌하도록 규정하고 있다...</p></div>
+									</div>
+									<div id="func_C000EF72DA277575" class="function_btn">
+										<a href="javascript:showOriginalView('../Info/ContentView?sid=C000EF72DA277575_R5');"><span class="icon_function">판례히스토리</span></a>
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" id="chk_C000F1572671C236" name="chk" value="C000F1572671C236"><span class="list_num">14</span>
+									<div class="co_searchContent">
+										<h3>
+											<a href="../Info/ContentView?sid=C000F1572671C236" class="popup_view">
+												울산지방법원 2020. 8. 14 자 2020고정404 결정 【<marks>개인정보보호법</marks>위반】
+											</a><br>
+										</h3>
+										<div class="btns"><i class="icon_listnview" data-icon="" onclick="javascript:page.showPreview('C000F1572671C236');"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>사 건 2020고정404 <marks>개인정보보호법</marks>위반 ..<marks>개인정보</marks>를 처리하는 사람은 업무상 알게 된 <marks>개인정보</marks>를 누설하거나 권한 없이 다른사람이 이용하도록 제공하여서는 아니된다.....<marks>정보</marks>(가..◎◎교통이 위 <marks>정보</marks>주체의 성명, 주소, 치료병원, 진단명, 진단주수 등의 <marks>개인정보</marks>를 이용해 위 이피해 등을 상대로 교통사고 손해배상채무 부존재 확인의 소 제기에 사용하도록 제공하였다...이로써 피고인은 업무상 알게 된 <marks>개인정보</marks>를 누설하고, 권한 없이 다른 사람이 이용하도록 제공하였다...<marks>개인정보보호법</marks> 제71조 제5호, 제59조 제2호(벌금형 선택) ..</p></div>
+									</div>
+									<div id="func_C000F1572671C236" class="function_btn">
+
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" id="chk_C000B728B46132E4" name="chk" value="C000B728B46132E4"><span class="list_num">15</span>
+									<div class="co_searchContent">
+										<h3>
+											<a href="../Info/ContentView?sid=C000B728B46132E4" class="popup_view">
+												의정부지방법원고양지원 2020. 7. 23 자 2020고정269 결정 【<marks>개인정보보호법</marks>위반】
+											</a><br>
+										</h3>
+										<div class="btns"><i class="icon_listnview" data-icon="" onclick="javascript:page.showPreview('C000B728B46132E4');"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>..<marks>개인정보</marks>처리자'란 업무를 목적으로 <marks>개인정보</marks>파일을 운용하기 위하여 스스로 또는 다른 사람을 통하여 <marks>개인정보</marks>를 처리하는 .."<marks>개인정보</marks>처리자는 <marks>개인정보</marks>를 처리함에 있어서 <marks>개인정보</marks>가 안전하게 관리될 수 있도록 임직원, 파견근로자, 시간제근로자 등 <marks>개인정보</marks>처리자의 지휘ㆍ감독을 받아 <marks>개인정보</marks>를 처리하는 자에 대하여 적절한 관리ㆍ감독을 행하여야 한다."라고 규정한다...'<marks>개인정보</marks>처리자'를 의무주체로 규정하고 있는 <marks>개인정보</marks> <marks>보호법</marks> 제71조 제2호, 제18조 제1항(이 사건 공소사실의 적용법조)을 적용하여 처벌할 수 없다...</p></div>
+									</div>
+									<div id="func_C000B728B46132E4" class="function_btn">
+
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" id="chk_C000067A874D8758" name="chk" value="C000067A874D8758"><span class="list_num">16</span>
+									<div class="co_searchContent">
+										<h3>
+											<a href="../Info/ContentView?sid=C000067A874D8758" class="popup_view">
+												청주지방법원 2020. 5. 15 자 2020고정169 결정 【<marks>개인정보보호법</marks>위반】
+											</a><br>
+										</h3>
+										<div class="btns"><i class="icon_listnview" data-icon="" onclick="javascript:page.showPreview('C000067A874D8758');"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>..<marks>개</marks>..'거짓이나 부정한 방법으로' <marks>개인정보</marks>를 취득하지는 않았고, 피고인에게 범의도 존재하지 않는다고 주장한다... 이러한 사정에 비추어 보면, 설령 피고인의 활동에 공익적인 측면이 존재한다고 하더라도, 피고인이 자신의 주장이나 견해가 정당하다는 주관적인 판단 아래 이를 관철하고자, <marks>개인정보</marks> <marks>보호법</marks>이 규정하고 있는 <marks>개인정보</marks>의 수집ㆍ이용 등에 관한 적법절차를 도외시한 채 조합원의 <marks>개인정보</marks>를 무단으로 취득한 행위는 <marks>개인정보</marks> <marks>보호법</marks>에 반하는 위법한 행위로서 부정한 방법에 해당한다...<marks>개인정보보호법</marks> 제72조 제2호, 제59조 제1호 ..</p></div>
+									</div>
+									<div id="func_C000067A874D8758" class="function_btn">
+										<a href="javascript:showOriginalView('../Info/ContentView?sid=C000067A874D8758_R5');"><span class="icon_function">판례히스토리</span></a>
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" id="chk_C0006B1F78C8060D" name="chk" value="C0006B1F78C8060D"><span class="list_num">17</span>
+									<div class="co_searchContent">
+										<h3>
+											<a href="../Info/ContentView?sid=C0006B1F78C8060D" class="popup_view">
+												서울중앙지방법원 2019. 12. 12 선고 2019고단3278 판결 【<marks>개인정보보호법</marks>위반】
+											</a><br>
+										</h3>
+										<div class="btns"><i class="icon_listnview" data-icon="" onclick="javascript:page.showPreview('C0006B1F78C8060D');"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>'<marks>개인정보</marks>취급자'(법 제28조)에 해당함은 별론으로 하더라도 업무를 위하여 <marks>개인정보</marks> 집합물을 운용하는 ..'<marks>개인정보</marks>처리자로부터 <marks>개인정보</marks>를 제공받은 자'의 <marks>개인정보</marks> 이용, 제한 등에 관하여 규정하고 있다...'<marks>개인정보</marks>처리자로부터 <marks>개인정보</marks>를 제공받은 자' 이외에 법 제28조에서 <marks>개인정보</marks>처리자의 지휘ㆍ감독을 받아 <marks>개인정보</marks>를 처리하는 자, 즉 ..'<marks>개인정보</marks>를 처리하거나 처리하였던 자'에는, <marks>개인정보</marks>처리자, <marks>개인정보</marks>취급자가 포함되고,..'<marks>개인정보</marks>취급자'(법 제28조)에 해당함은 별론으로 하더라도 업무를 위하여 <marks>개인정보</marks> 집합물을 운용하는 ..</p></div>
+									</div>
+									<div id="func_C0006B1F78C8060D" class="function_btn">
+										<a href="javascript:showOriginalView('../Info/ContentView?sid=C0006B1F78C8060D_R5');"><span class="icon_function">판례히스토리</span></a>
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" id="chk_C000FF6058883E26" name="chk" value="C000FF6058883E26"><span class="list_num">18</span>
+									<div class="co_searchContent">
+										<h3>
+											<a href="../Info/ContentView?sid=C000FF6058883E26" class="popup_view">
+												춘천지방법원 2019. 12. 10 선고 2019고단581 판결 【<marks>개인정보보호법</marks>위반】
+											</a><br>
+										</h3>
+										<div class="btns"><i class="icon_listnview" data-icon="" onclick="javascript:page.showPreview('C000FF6058883E26');"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p><marks>개인정보</marks>를 처리하거나 처리하였던 자는 정당한 권한 없이 또는 허용된 권한을 초과하여 다른 사람의 <marks>개인정보</marks>를 훼손, 멸실, 변경, 위조 또는 유출하는 행위를 하여서는 아니 된다.....<marks>개인정보</marks>를 처리하거나 처리하였던 자는 정당한 권한 없이 또는 허용된 권한을 초과하여 다른 사람의 <marks>개인정보</marks>를 훼손, 멸실, 변경, 위조 또는 유출하는 행위를 하여서는 아니 된다'고 규정하고, 이를 위반할 경우 5년 이하의 징역 또는 5천만 원 이하의 벌금에 처 하게 된다(<marks>개인정보</marks> <marks>보호법</marks> 제71조 제6호), 위 각 법률의 구성요건적 행위는 행위 주체나 ..</p></div>
+									</div>
+									<div id="func_C000FF6058883E26" class="function_btn">
+
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" id="chk_C000D0238EB8CF24" name="chk" value="C000D0238EB8CF24"><span class="list_num">19</span>
+									<div class="co_searchContent">
+										<h3>
+											<a href="../Info/ContentView?sid=C000D0238EB8CF24" class="popup_view">
+												대법원 2019. 7. 25 선고 2019도3215 판결 【<marks>개인정보보호법</marks>위반】
+											</a><br>
+										</h3>
+										<div class="btns"><i class="icon_listnview" data-icon="" onclick="javascript:page.showPreview('C000D0238EB8CF24');"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p> ..대법원 .. ..제3부 .. ..판결 .. ..사건 2019도3215 <marks>개인정보보호법</marks>위반 .. ..피고인 A .. ..상고인 .. ..검사 .. ..판결선고 2019... 7... 25.서울서부지방법원2018노55620190214판결원심판결 서울서부지방법원 2019... 2... 14... 선고 2018노556 판결 ..주문 .. 원심판결 이유를 기록에 비추어 살펴보면, 원심의 판단에 논리와 경험의 법칙에 반하여 자유심증주의의 한계를 벗어나거나 <marks>개인정보</marks> <marks>보호법</marks>에서 정한 ..'<marks>개인정보</marks>처리자'에 관한 법리를 오해한 잘못이 없다...</p></div>
+									</div>
+									<div id="func_C000D0238EB8CF24" class="function_btn">
+										<a href="javascript:showOriginalView('../Info/ContentView?sid=C000D0238EB8CF24_R5');"><span class="icon_function">판례히스토리</span></a>
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" id="chk_C000B546729F92DE" name="chk" value="C000B546729F92DE"><span class="list_num">20</span>
+									<div class="co_searchContent">
+										<h3>
+											<a href="../Info/ContentView?sid=C000B546729F92DE" class="popup_view">
+												제주지방법원 2019. 6. 21 선고 2018고단3010 판결 【<marks>개인정보보호법</marks>위반】
+											</a><br>
+										</h3>
+										<div class="btns"><i class="icon_listnview" data-icon="" onclick="javascript:page.showPreview('C000B546729F92DE');"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p><marks>개인정보</marks>를 처리하거나 처리하였던 사람은 업무상 알게 된 <marks>개인정보</marks>를 누설하거나 권한 없이 다른 사람이 이용하도록 제공하는 행위를 하여서는 아니 된다.....<marks>개인정보</marks>를 누설하고 권한 없이 다른 사람이 이용하도록 제공하였다...누구든지 <marks>개인정보</marks>를 처리하거나 처리하였던 사람이 업무상 알게 된 <marks>개인정보</marks>를 누설하거나 권한 없이 다른 사람이 이용하도록 제공한다는 사정을 알면서도 영리 또는 부정한 목적으로 <marks>개인정보</marks>를 제공받아서는 아니 된다...: 각 <marks>개인정보</marks> <marks>보호법</marks> 제71조 제5호, 제59조 제2호(각 벌금형 선택) ....<marks>정보</marks>가 기재되어 있..</p></div>
+									</div>
+									<div id="func_C000B546729F92DE" class="function_btn">
+
+									</div>
+								</li>
+							</ol>
+							<script type="text/javascript">
+    <!--
+								$(function () {
+									$('.navigationLinks>a').click(function (e) {
+										e.preventDefault();
+									});
+
+									$('.navigationLinks>a.navPages').click(function () {
+										goToPage($.trim($(this).text()));
+									});
+
+									$('.navigationLinks>a.navFirst').click(function () {
+										goToPage('1');
+									});
+
+									$('.navigationLinks>a.navPrevious').click(function () {
+										goToPage(parseInt($.trim('1'), 10) - 1);
+									});
+
+									$('.navigationLinks>a.navNext').click(function () {
+										goToPage(parseInt($.trim('5'), 10) + 1);
+									});
+
+									$('.navigationLinks>a.navLast').click(function () {
+										goToPage(parseInt($.trim('10')));
+									});
+								});
+
+								//-->
+							</script>
+							<!-- paging -->
+							<div class="navigationLinks">
+								<span class="currentPage">1</span>
+								<a href="#" class="navPages">2</a>
+								<a href="#" class="navPages">3</a>
+								<a href="#" class="navPages">4</a>
+								<a href="#" class="navPages">5</a>
+								<a href="#" class="navNext"><i class="icon-1" data-icon=""></i></a>
+								<a href="#" class="navLast "><i class="icon-8" data-icon=""></i></a>
+							</div><!-- paging end-->
+						</div>
+					</div>
+					<script type="text/javascript">
+						<!--
+						$(function () {
+
+
+							$(window).scroll(function () {
+								var sclTop = $(this).scrollTop();
+								if (sclTop >= 112) {
+									//alert('here');
+									$(".preview_div").addClass("fixed_area");
+								} else {
+									$(".preview_div").removeClass("fixed_area");
+								}
+							});
+						});
+
+						//-->
+					</script>
+					<div class="main_container_view">
+						<div class="main_container_view_inner">
+							<div class=" preview_div">
+								<div class="fl"><i class="icon-fleg red"><span class="path1"></span><span class="path2"></span><span class="blind">폐기변경</span></i><i class="icon-10" data-icon="&#xe909;"><span class="blind">전원합의체</span></i></div>
+								<h3>대법원 2001. 3. 15. 선고 99두4594 전원합의체 판결[청산금부과처분취소] <span>[각공2014하,629 ]</span><span class="btn_newtap"><span class="hide">닫기</span><i class="icon-new-tab" data-icon="&#xea7e;"></i></span> <div class="btn_option_outer"><div class="btn_close">닫기</div></div></h3>
+								<!-- 내용시작 xml -->
+								<div class="function_btn"><a><span class="blue_bt">관련 판례 14건</span></a><a href=""><span class="blue_bt">관련 법령 13건</span></a></div>
+								<div class="ar">판결문 제공 : <a href="1">권형필</a> 변호사, <a href="1">권형필</a> 변호사</div>
+								<div class="case_info" id="view_content">
+									<div class="changed_case_info"><span>변경</span> <a href="5">대법원 2001. 3. 15. 선고 98두15597 전원합의체 판결</a>에 의하여 변경</div>
+									<a id="case_info" name="case_info" class="nopopup"></a><p class="c_tit_1" id="prPansi_t">판시사항</p><div class="c_con" id="prPansi">[1] 주택재개발사업에 대한 관리처분계획 인가와 공사완료가 된 상태에서 근거 법령인 <mark>도시</mark>재개발법이 개정되면서 달리 특별한 경과규정을 두지 않은 경우, 청산금 산정ㆍ부과의 근거가 되는 법령(=개정법령)  <br>[2] 지방자치단체가 사업시행자가 되어 시행하는 <mark>도시</mark>재개발사업의 경우, 청산금 산정방식에 관하여 '면적평가방식'을 규정한 조례가 '가격평가방식'을 규정한 <mark>도시</mark>재개발법령에 위배되는지 여부(적극) <br></div><a id="case_point" name="case_point" class="nopopup"></a><p class="c_tit_1" id="prSumm_t">
+										판결요지
+									</p><div class="c_con" id="prSumm">[1] 행정처분은 원칙적으로 처분시의 법령에 근거하여 행하여져야 하고, 법령의 개정으로 그 기준이 변경된 경우에는 달리 특별한 정함이 없는 한 처분시의 개정법령에서 규정하고 있는 기준이 적용되어야 하는바, 구 <mark>도시</mark>재개발법(1995. 12. 29. 법률 제5116호로 전문 개정되기 전의 것)에 의하여 주택재개발사업에 대한 관리처분계획 인가와 공사완료가 되었으나, 1995. 12. 29. 법률 제5116호로 전문 개정된 <span class="heightlight">도시</span>재개발법 및 1996. 6. 29. 대통령령 제15096호로 전문 개정된 같은법시행령은 청산금의 산정ㆍ부과와 관련하여 구 <span class="heightlight">도시</span>재개발법(1995. 12. 29. 법률 제5116호로 전문 개정되기 전의 것) 및 같은법시행령(1996. 6. 29. 대통령령 제15096호로 전문 개정되기 전의 것)의 관련 규정이 계속 적용된다고 볼 수 있는 경과규정을 두고 있지 아니하므로, 그 시행 후에 이루어진 청산금 산정ㆍ부과의 근거 법령은 1995. 12. 29. 법률 제5116호로 전문 개정된  <a href="javascript:hyperlink('F0B8894AACB94BD5BA5CB5D6B823D8FB|42')"><span class="heightlight">도시</span>재개발법 제42조</a> 와 1996. 6. 29. 대통령령 제15096호로 전문 개정된  <a href="javascript:hyperlink('B13535D79F294D18BAFE31D93A827995|45')">같은법시행령 제45조</a>  및  <a href="javascript:hyperlink('B13535D79F294D18BAFE31D93A827995|40')">제40조</a> 임이 분명하다.   </div>
+									<a name="hiscase_point" id="hiscase_point" class="nopopup"></a><p class="c_tit_1" id="prCont_t_5">재판경과</p><div class="c_con" id="prCont_5"><div class="not_this_case"><i class="icon-10" data-icon=""><span class="blind">전원합의체</span></i><a href="javascript:hyperlink('서울고등법원|98누8171')">서울고등법원 1999. 2. 10. 선고 98누8171 판결</a></div><div class="this_case"><a href="javascript:hyperlink('대법원|99두4594')">대법원 2001. 3. 15. 선고 99두4594 판결</a></div></div>
+									<a id="case_refer" name="case_refer" class="nopopup"></a><p class="c_tit_1" id="prCont_t_0">
+										참조판례
+									</p><div class="c_con" id="prCont_0">[1]  <a href="javascript:hyperlink('6D4B9F2777184E6A9E0F7E359707119A')">대법원 1984. 5. 22. 선고 84누77 판결(1984,520)</a> ,  <a href="javascript:hyperlink('A1111B51A49E4E779AB18353799DF288')">대법원 1996. 8. 20. 선고 95누10877 판결(1988,189)</a> ,  <a href="javascript:hyperlink('04EEB043F17C475AB99CF777C4DAC2B8')">대법원 2000. 3. 10. 선고 97누13818 판결(1992,1037) </a> <br>[2]  <a href="javascript:hyperlink('E5C251F99CA0438A9AEF366C1342BF29')">대법원 1995. 4. 25. 선고 93누17850 전원합의체 판결(공1988, 168)</a> ,  <a href="javascript:hyperlink('5F906DCC80174A119B1C2357D5130993')">대법원 1995. 6. 13. 선고 94누13626 전원합의체 판결(공1993하, 2098)</a> ,  <a href="javascript:hyperlink('대법원|2000두3917')">대법원 2001. 3. 15. 선고 2000두3917 전원합의체 판결</a> </div>
+									<a name="refcase_point" id="refcase_point" class="nopopup"></a><p class="c_tit_1" id="prCont_t_4">따름판례</p><div class="c_con" id="prCont_4"><a href="javascript:hyperlink('01D11FF019B74493A98AD4DA39CC0FE6')">대법원 2001. 10. 12. 선고 2001두274 판결</a>, <a href="javascript:hyperlink('E71788FE47094B178CE9988D213B13AA')">대법원 2002. 6. 25. 선고 2001두5125 판결</a>, <a href="javascript:hyperlink('769FF13215D340BA845E6D486931B3BC')">대법원 2005. 7. 29. 선고 2003두3550 판결</a>, <a href="javascript:hyperlink('17BA47EFE0D84349B1F9593ACE31B951')">대법원 2009. 4. 23. 선고 2008두8918 판결</a>, <a href="javascript:hyperlink('C9C4CF7D38214763B85A007B411A3D68')">대법원 2009. 4. 23. 선고 2008두17745 판결</a></div>
+									<a id="law_refer" name="law_refer" class="nopopup"></a><p class="c_tit_1" id="prCont_t_1">
+										참조법령
+									</p><div class="c_con" id="prCont_1">[1]  <a href="javascript:hyperlink('5E5CB15313894697A32587AFAE5DDE10|1')">행정소송법 제1조</a> [행정처분일반],  <a href="javascript:hyperlink('706ED873A5564EF4A9D297E5FFE1EF16|42')"><span class="heightlight">도시</span>재개발법(1995. 12. 29. 법률 제5116호로 전문 개정된 것) 제42조</a> , <a href="javascript:hyperlink('CC98285B9DE640B6B954DD1556626804|40')"><span class="heightlight">도시</span>재개발법시행령(1996. 6. 29. 대통령령 제15096호로 전문 개정된 것) 제40조</a> , <a href="javascript:hyperlink('CC98285B9DE640B6B954DD1556626804|45')">제45조</a> , <a href="javascript:hyperlink('706ED873A5564EF4A9D297E5FFE1EF16|53')">구 <span class="heightlight">도시</span>재개발법(1995. 12. 29. 법률 제5116호로 전문 개정되기 전의 것) 제53조</a> (  <a href="javascript:hyperlink('F0B8894AACB94BD5BA5CB5D6B823D8FB|42')">현행 제42조</a>  참조),  <a href="javascript:hyperlink('CC98285B9DE640B6B954DD1556626804|46')">구 <span class="heightlight">도시</span>재개발법시행령(1996. 6. 29. 대통령령 제15096호로 전문 개정되기 전의 것) 제46조</a> (  <a href="javascript:hyperlink('B13535D79F294D18BAFE31D93A827995|45')">현행 제45조</a>  참조),  <a href="javascript:hyperlink('CC98285B9DE640B6B954DD1556626804|60')">제60조</a> (  <a href="javascript:hyperlink('B13535D79F294D18BAFE31D93A827995|40')">현행 제40조</a>  참조) <br>[2]  <a href="javascript:hyperlink('706ED873A5564EF4A9D297E5FFE1EF16|42')"><span class="heightlight">도시</span>재개발법(1995. 12. 29. 법률 제5116호로 전문 개정된 것) 제42조</a> , <a href="javascript:hyperlink('CC98285B9DE640B6B954DD1556626804|40')"><span class="heightlight">도시</span>재개발법시행령(1996. 6. 29. 대통령령 제15096호로 전문 개정된 것) 제40조</a> , <a href="javascript:hyperlink('CC98285B9DE640B6B954DD1556626804|45')">제45조</a> , <a href="javascript:hyperlink('B15B623C23BF434985ADFECFEF22DEA1|15')">지방자치법 제15조</a> , <a href="javascript:hyperlink('5EB6CC3A84724A139A604AF7BE4F7238|117')">헌법 제117조 제1항</a> ,서울특별시용산구주택재개발사업시행조례  <a href="javascript:hyperlink('5EB6CC3A84724A139A604AF7BE4F7238|29')">제29조</a> ,  <a href="javascript:hyperlink('5EB6CC3A84724A139A604AF7BE4F7238|30')">제30조</a> </div><a name="case_entire" class="nopopup"></a><p class="c_tit_1" id="prCont_t_3">
+										전 문
+									</p><div class="c_con" id="prCont_3"><div class="c_tit_2" id="c_tit_2"><a id="case_plaintiff" name="case_plaintiff" class="nopopup"></a>【원고,피상고인】 박◎수 외 691인  (소송대리인 변호사 신▼택 외 1인) <br></div><div class="c_tit_2" id="c_tit_2"><a id="case_plaintiff" name="case_plaintiff" class="nopopup"></a>【피고,상고인】 서울특별시 용산구청장  (소송대리인 서초 법무법인 담당변호사 박▲기 외 4인) <br></div><div class="c_tit_2"></div><div class="c_tit_2"></div><div class="c_tit_2"><a id="case_entire_ori" name="case_entire_ori" class="nopopup"></a>【원심판결】  <a href="javascript:hyperlink('10B1E19645794D0686687FC5C02EDBA2')">서울고법 1999. 2. 10. 선고 98누8171 판결</a> </div><div class="c_tit_2"><a id="case_outcome" name="case_outcome" class="nopopup"></a>【주문】 <br>상고를 기각한다. 상고비용은 피고의 부담으로 한다. <br></div><div class="c_tit_3"><a id="case_reason" name="case_reason" class="nopopup"></a>【이유】 <br>상고이유를 본다.  <br></div><div class="c_tit_3"><a id="R02" name="R02" class="nopopup"></a>1. 원심판결 이유에 의하면 원심은, 서울 ○○구 ○○동1가 일대의 주택개량을 위한 이 사건 재개발사업의 시행에 관하여 1976. 9. 4.자로 당시 시행되던  <a href="javascript:hyperlink('DB8C45BB429E4619BF664EA2EB52549D|31')">구 <span class="heightlight">도시</span>계획법(1976. 12. 31. 법률 제2988호로 개정되기 전의 것) 제31조</a> 에 기한 실시계획 인가고시가 있은 후, 1976. 12. 31. 법률 제2968호로 제정된 <span class="heightlight">도시</span>재개발법이 1977. 7. 1.자로 시행됨에 따라 이 법에 기하여 1979. 8. 4.자로 관리처분계획 공람공고가, 1979. 10. 29.부터 1989. 12. 29.까지 사이에 18회에 걸쳐 관리처분계획 인가고시가 차례로 이루어지자, 1993. 12. 14. 공사완료 공고가 된 다음, 그 사업시행자로서 피고는 1996. 2. 26.자로 개정된 '서울특별시용산구주택재개발사업시행조례'(이하 '이 사건 조례'라 한다)가  <a href="javascript:hyperlink('DB8C45BB429E4619BF664EA2EB52549D|29')">제29조 제1항 제1호</a> 에서 "자력개발사업지구의 청산은 분양처분 고시 후 다음 각 호의 방법에 의한다. 1. 환지토지는 환지확정면적이 권리면적에 비하여 증감이 있는 경우 증감에 해당하는 토지면적에 상당하는 금액을 징수하거나 지급한다."고 규정하고,  <a href="javascript:hyperlink('DB8C45BB429E4619BF664EA2EB52549D|30')">제30조 제1항</a> 에서 " <a href="javascript:hyperlink('DB8C45BB429E4619BF664EA2EB52549D|29')">제29조 제1항 제1호 및 제2호</a>  규정에 의한 청산금은 분양처분시 징수ㆍ교부면적의 공사착수 전 가격에  <a href="javascript:hyperlink('421837C7C91C4652A73AA4F8D35D892F|46')">영 제46조</a> 의 비용을 가산한 가격으로 한다."고, 제4항에서 "제1항의 공사착수 전이라 함은 최초의 관리처분계획 인가 당시를 말한다."고 규정함으로써, 이 사건 재개발사업과 같이 사업시행자는 공공시설만을 정비하고 건축물은 토지 소유자가 관리처분계획에 따라 신축ㆍ정비하는 이른바 자력개발(自力開發) 방식의 재개발사업의 경우에 그 청산금을 가산면적과 감보율을 적용한 권리면적과 분양대지의 면적을 비교하여 그 과부족분이 있을 경우 그 면적의 가격을 관리처분계획 인가 당시를 기준시점으로 하여 산정하는 이른바 면적평가방식을 규정하고 있음을 근거로 하여, 1997. 4. 25. 분양처분을 거치고 이어 1997. 9. 14. 사업구역 내 토지 소유자들로서 종전토지에 대한 권리면적보다 큰 면적을 분양받은 원고들에 대하여 위와 같은 면적평가방식에 의하여 산정한 금액의 청산금을 부과하는 이 사건 처분을 한 사실을 인정한 다음, 1995. 12. 29. 법률 제5116호로 전문 개정된  <a href="javascript:hyperlink('F0B8894AACB94BD5BA5CB5D6B823D8FB|42')"><span class="heightlight">도시</span>재개발법(이하 이를 '신법'이라 하고, 개정 전의 <span class="heightlight">도시</span>재개발법을 '구법'이라 한다.) 제42조</a> 와 그 시행령인 1996. 6. 29. 대통령령 제15096호로 전문 개정된 시행 <a href="javascript:hyperlink('B13535D79F294D18BAFE31D93A827995|45')">령(이하 이를 '신시행령'이라 하고, 개정 전의 시행령을 '구시행령'이라 한다.) 제45조</a>  및  <a href="javascript:hyperlink('B13535D79F294D18BAFE31D93A827995|40')">제40조</a> 에서 재개발사업의 청산금 산정은 사업시행 고시가 있은 날을 기준으로 하여 종전의 토지 또는 건축물(이하 '종전토지'라 한다)의 가격과 그에 소정의 비용을 가산하여 산정하는 분양받은 대지 또는 건축시설(이하 '분양대지'라 한다)의 가격을 비교하여 그 차액을 청산금으로 하는 이른바 가격평가방식에 의하여야 하는 것으로 규정하고 있음에도, 이 사건 조례는 이러한 가격평가방식이 아닌 면적평가방식을 규정하고 있어 상위법령에 위배되는 무효인 규정이므로, 그에 기하여 청산금을 산정한 이 사건 처분은 위법하다는 이유로 그 취소를 구하는 원고들의 청구를 인용하였다.  <br></div><div class="c_tit_3"><a id="R03" name="R03" class="nopopup"></a>2. 행정처분은 원칙적으로 처분시의 법령에 근거하여 행하여져야 하고, 법령의 개정으로 그 기준이 변경된 경우에는 달리 특별한 정함이 없는 한 처분시의 개정법령에서 규정하고 있는 기준이 적용되어야 하는바(  <a href="javascript:hyperlink('6D4B9F2777184E6A9E0F7E359707119A')">대법원 1984. 5. 22. 선고 84누77 판결</a> ,  <a href="javascript:hyperlink('A1111B51A49E4E779AB18353799DF288')">1996. 8. 20. 선고 95누10877 판결</a> ,  <a href="javascript:hyperlink('04EEB043F17C475AB99CF777C4DAC2B8')">2000. 3. 10. 선고 97누13818 판결</a>  등 참조), 이 사건의 경우 신법 및 신시행령은 청산금의 산정ㆍ부과와 관련하여 구법 및 구시행령의 관련 규정이 계속 적용된다고 볼 수 있는 경과규정을 두고 있지 아니하므로, 그 시행 후에 이루어진 이 사건 처분에서의 청산금 산정ㆍ부과의 근거 법령은 신 <a href="javascript:hyperlink('F0B8894AACB94BD5BA5CB5D6B823D8FB|42')">법 제42조</a> 와 신시행 <a href="javascript:hyperlink('B13535D79F294D18BAFE31D93A827995|45')">령 제45조</a>  및  <a href="javascript:hyperlink('B13535D79F294D18BAFE31D93A827995|40')">제40조</a> 임이 분명하다.  <br>그런데 이들 신법 및 신시행령의 각 규정에 의하면, 재개발사업에서 청산금의 산정은 그 사업시행의 방식 여하를 불문하고 종전토지의 가격은 사업시행 고시가 있은 날을 기준으로 산정하고, 분양대지의 가격은 그 종전토지의 가격에 일정한 항목의 재개발사업비용을 가산하는 방식으로 산정하여 그 차액에 상당하는 금액을 청산금으로 하는 이른바 가격평가방식에 의하게 되어 있음이 명백함에도, 원심이 확정한 바와 같이, 이 사건 조례는 이와 달리 종전토지에 대하여 가산면적과 감보율을 적용하여 산출한 권리면적과 분양대지의 면적 자체를 비교하여 그 과부족분의 가격을 관리처분계획 인가 당시를 기준시점으로 하여 산정하는 이른바 면적평가방식을 규정하고 있음을 알 수 있다.  <br>종래 재개발사업지구 내의 토지는 재개발사업 시행의 결과 투입비용 이상의 가치 증가가 창출되는 것이 일반적인 현실이었음에 비추어 이 사건 조례상의 면적평가방식은 신법 및 신시행령 규정상의 가격평가방식과 비교할 때, 우선 사전 추산된 사업비 액수를 근거로 산출한 체비지 면적을 감보율의 적용에 의하여 분양대상에서 사전 제외시킴으로써 결과적으로 사업시행지역 내 토지 소유자들에 대한 분양대지의 면적을 축소시키게 되고, 또 가격평가방식에 의할 경우에는 분양대지의 가격에 가산되는 재개발사업비용 중 일부가 제외되기도 하는 점(신시행 <a href="javascript:hyperlink('B13535D79F294D18BAFE31D93A827995|45')">령 제45조 제2항 제5호</a>  참조) 등에 견주어 토지 소유자들에게 불리하다고 하지 않을 수 없는바, 지방자치단체가 사업시행자가 되어 시행하는 <mark>도시</mark>재개발사업의 경우에 조례로 토지, 건축물에 관한 권리의 가격평가방법, 관리처분계획 및 청산에 관한 사항 등을 포함하는 시행규정을 둘 수는 있되, 상위법령인 <mark>도시</mark>재개발법령의 규정 취지에 어긋나지 않아야 할 것이므로, 결국 위와 같이 모법의 위임 없이 모법에 규정된 내용을 토지 소유자들에게 불이익하게 변경하는 내용의 면적평가방식을 규정한 이 사건 조례는 상위법령에 위배되어 그 효력이 없고, 따라서 그에 기한 이 사건 부과처분은 이 사건 재개발사업의 시행방식과 관계없이 위법함을 면할 수 없다(  <a href="javascript:hyperlink('E5C251F99CA0438A9AEF366C1342BF29')">대법원 1995. 4. 25. 선고 93누17850</a>  전원합의체 판결,  <a href="javascript:hyperlink('5F906DCC80174A119B1C2357D5130993')">1995. 6. 13. 선고 94누13626</a>  전원합의체 판결 등 참조).  <br>같은 취지의 원심 판단은 정당하고, 거기에 상고이유에서 주장하는 바와 같은 법리오해 등의 위법이 있다고 할 수 없다. 재개발사업의 청산금 산정방법으로 면적평가방식이 허용됨을 전제로 하는 상고이유는 어느 것도 받아들일 수 없다.  <br></div><div class="c_tit_3"><a id="R04" name="R04" class="nopopup"></a>3. 그러므로 상고를 기각하고, 상고비용은 패소자의 부담으로 하기로 하여 관여 대법관 전원의 일치된 의견으로 주문과 같이 판결한다. <br></div><div class="c_tit_2-1"><a id="case_judge" name="case_judge" class="nopopup"></a>대법원장 최종영(재판장) 송진훈(주심) 서성 조무제 유지담 윤재식 이용우 배기원 강신욱 이규홍 이강국 손지열 박재윤 </div><div class="c_tit_2-2"><a name="case_byulpyo" class="nopopup"></a></div> </div>
+									<div class="inner_login_area">
+										<p class="hide">로그인</p>
+										<div class="main_noti">본 컨텐츠의 상세정보는 정회원 이상의 유료회원에게만 제공됩니다. </div>
+										<div class="gray_info">아직 로그인하지 않으셨습니다. <br>로그인 또는 회원가입 후 이용해 주시기 바랍니다. </div>
+										<div class="btn_area"><span>로그인</span><span>회원가입</span></div>
+										<!-- <div class="gray_info">현재 무료회원으로 로그인되어 있습니다. <br>유료전환 후 이용해 주시기 바랍니다 </div>
+								<div class="btn_area"><span>유료권한결제</span></div> -->
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+				<aside class="right_container">
+					<section>
+						<h4>최근 조회 자료</h4>
+						<ul>
+							<li><a href="1">대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span></a></li>
+							<li><a href="2">서울중앙지방법원 2017. 7. 4. 선고 2013가합80479 <span>[손해배상등]</span></a></li>
+							<li><a href="3">헌법재판소 2016. 2. 25. 선고 2013헌마626, 655, 2014헌마434(병합) <span>[행정사법 제9조 제2항 등 위헌확인 등]</span></a></li>
+							<li><a href="4">헌법재판소 2016. 2. 25. 선고 2015헌가11 <span>[도로교통법 제2조 제26호 위헌제청]</span></a></li>
+							<li><a href="5">헌법재판소 2016. 2. 25. 선고 2015헌가15 <span>[사립학교교직원 연금법 제41조 제2항 위헌제청]</span></a></li>
+							<!--
+					<li><a href="6">대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span></a></li>
+					<li><a href="7">서울중앙지방법원 2017. 7. 4. 선고 2013가합80479 <span>[손해배상등]</span></a></li>
+					<li><a href="8">헌법재판소 2016. 2. 25. 선고 2013헌마626, 655, 2014헌마434(병합) <span>[행정사법 제9조 제2항 등 위헌확인 등]</span></a></li>
+					<li><a href="9">헌법재판소 2016. 2. 25. 선고 2015헌가11 <span>[도로교통법 제2조 제26호 위헌제청]</span></a></li>
+					<li><a href="10">헌법재판소 2016. 2. 25. 선고 2015헌가15 <span>[사립학교교직원 연금법 제41조 제2항 위헌제청]</span></a></li>
+					<li><a href="0">1대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span></a></li>
+					-->
+						</ul>
+					</section>
+				</aside>
+			</div>
+		</div>
+		<footer>
+			<div class="etc_menu">
+				<div class="top_container">
+					<ul>
+						<li class="blind">기타 메뉴 </li>
+						<li>회사소개</li>
+						<li>광고 · 제휴문의</li>
+						<li>이용약관</li>
+						<li>개인정보 취급/처리 방침</li>
+						<li>법적고지</li>
+						<li>이메일 무단수집거부</li>
+					</ul>
+				</div>
+			</div>
+			<div class="top_container   _footer">
+				1. 콘텐츠의 명칭 : 법률정보 &nbsp;&nbsp; 2. 콘텐츠의 제작 및 표시 : 2006년 2월 17일(업그레이드 콘텐츠의 경우 갱신일) &nbsp;&nbsp; 3. 콘텐츠 제작자 : ㈜로앤비  &nbsp;&nbsp;  4. 콘텐츠의 이용조건 : <a href="/support/agree_use.asp" class="red_bott">이용약관</a> 및 로앤비 <a href="/support/serviceInfo_member.asp" class="red_bott">서비스안내</a>와 같음 (무단 복제금지) &nbsp;&nbsp;5. 콘텐츠의 보호기간 : ㈜로앤비 사이트의 모든 콘텐츠는 「콘텐츠산업 진흥법」에 따라 제작 또는 갱신일로부터 5년간 보호됨
+				<div>Thomson reuters</div>
+				<div>Copyright ⓒ 1998~2016 <b>LAWnB</b>. All Rights Reserved.</div>
+			</div>
+		</footer>
+		<script type="text/javascript">
+			setHeight_under();
+		</script>
+		<div id="individual_area" class="popup_win">
+			<div class="container_popup">
+				<div id="popup_myfolder" class="base_popup">
+					<!-- 나의폴더 -->
+					<div class="top_title ">
+						<span><i class="icon-" data-icon="&#xe930;"></i> 나의 폴더</span>
+						<div class="top_title_group">
+							<div class="btn-group"><button type="button" class="btn btn-default">전체보기</button></div>
+							<div class="btn_close_pop">닫기<i class="icon-close" data-icon="&#xe915;"></i></div>
+						</div>
+					</div>
+					<div class="cont_list">
+						<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span><em>폴더1 > 하위폴더2</em></p></a>
+						<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span><em>폴더1 > 하위폴더2</em></p></a>
+						<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span><em>폴더1 > 하위폴더2</em></p></a>
+						<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span><em>폴더1 > 하위폴더2</em></p></a>
+						<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span><em>폴더1 > 하위폴더2</em></p></a>
+						<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span><em>폴더1 > 하위폴더2</em></p></a>
+					</div>
+				</div>
+				<div id="popup_myinfo" class="base_popup">
+					<!-- 나의정보 -->
+					<div class="top_title">
+						<span><i class="icon-" data-icon="&#xe91d;"></i> 나의 정보</span>
+						<div class="top_title_group">
+							<div class="btn-group"><button type="button" class="btn btn-default">회원정보</button></div>
+							<div class="btn_close_pop">닫기<i class="icon-close" data-icon="&#xe915;"></i></div>
+						</div>
+					</div>
+					<div class="my_state">정회원 [ 2016.07.07 ~ <span>2017.07.07</span> ]  <a href="1">유료전환</a></div>
+					<div class="my_set_list">
+						<p>메일링 서비스</p>
+						<span>이메일 : san***@tsdsdfr.com<br> 메일링 서비스 신청 사항<br><span><input type="checkbox" id="1" name="1" checked="checked" onclick="return false;"> 비즈레터&nbsp;&nbsp;<input type="checkbox" id="" name="" onclick="return false;"> 마케팅 메일 <a href="2">관리</a></span></span>
+						<p>모바일 기기 등록 내역</p>
+						<span>휴대폰 번호 : 010-2634-**** <br>모바일 기기 등록 내역 <br><span>Sanna phone (2015-06-23)  <a href="2">삭제</a></span></span>
+						<p>법인 아이디 이용현황</p>
+						<span>서브 아이디 (유료 10개 / 무료 10개) <a href="2">관리</a> </span>
+					</div>
+					<div class="my_lawyer">
+						<p>나의 법조인 명록</p>
+						<div class="img"><img src="http://www.lawnb.com/data/peopdata/kimgaram20140410.bmp" alt="사진"></div>
+						<div class="basic_info"><a href="/list_view.html">강진석 姜珍錫</a>  <span>1999년생/ 여자 / (사법시험 50회 / 연수원 40기)</span><br><span>현직 : 변호사 / 법무법인 서울 </span></div>
+						<div class="lawyer_info">
+							<span>주요업무분야 <small><i class="icon-info" data-icon="" onmouseout="close_miju('Miju2')" onmouseover="open_miju('Miju2')"><span class="blind">안내</span><div id="Miju2" class="miju_box"><div class="miju_box_line">(변호사님이 주로 취급하는 업무로 선택한 분야입니다.)</div></div></i></small> : 금융/회사/건설/무역/해외투자/지적재산권</span>
+						</div>
+						<div class="ar text_ex ">[최근 업데이트 일자 : 2016.12.10] <a href="2">수정요청하기</a></div>
+					</div>
+				</div>
+				<div id="popup_history" class="base_popup">
+					<!-- 히스토리 -->
+					<div class="top_title ">
+						<span><i class="icon-" data-icon="&#xe91c;"></i> 최근 조회 컨텐츠</span>
+						<div class="top_title_group">
+							<div class="btn-group"><button type="button" class="btn btn-default">전체보기</button></div>
+							<div class="btn_close_pop">닫기<i class="icon-close" data-icon="&#xe915;"></i></div>
+						</div>
+					</div>
+					<div class="cont_list">
+						<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span></p></a>
+						<a href="1"><p>조세심판원 조심2015지1556, 2016.07.29 <span>[쟁점토지에 대한 지목변경 취득세 과세표준]</span></p></a>
+						<a href="1"><p>서울중앙지방법원 2017. 7. 4. 선고 2013가합80479 <span>[손해배상등]</span></p></a>
+						<a href="1"><p>헌법재판소 2016. 2. 25. 선고 2015헌가11 <span>[도로교통법 제2조 제26호 위헌제청]</span></p></a>
+						<a href="1"><p>대법원 2016. 5. 27. 선고 2014두8490 판결 <span>[도로점용허가처분무효확인등] 종국결과 [공2016하, 888 ]</span></p></a>
+						<a href="1"><p>대법원 2016. 3. 10. 선고 2013도11233 판결 <span>[배임수재ㆍ축산물가공처리법위반ㆍ사기ㆍ특정범죄가중처벌등에관한법률위반(조세)ㆍ조세범처벌법위반]</span></p></a>
+					</div>
+					<div class="noti_txt"><i class="icon-" data-icon="&#xe90d;"></i> 로앤비에서 제공하는 히스토리의 기본 수집 범위는 <strong>판례</strong>와 <strong>법령</strong> 서비스에 한정됩니다. <br>해당 범위는 아래의   설정버튼에서 변경 가능합니다.</div>
+					<div class="base_popup_set">
+						<div class="area_onoff">히스토리 <div class="btn-group"><button type="button" class="btn btn_orange _select">on</button><button type="button" class="btn btn-default">off</button></div></div>
+						<div class="btn_set"><div class="btn-group"><button type="button" class="btn btn-default">설정</button></div></div>
+					</div>
+				</div>
+				<div id="popup_login_ask" class="base_popup">
+					<!-- 로그인 -->
+					<div class="top_title">
+						<span><i class="icon-" data-icon="&#xe91d;"></i> 로그인</span>
+						<div class="top_title_group">
+							<div class="btn_close_pop">닫기<i class="icon-close" data-icon="&#xe915;"></i></div>
+						</div>
+					</div>
+					<div class="txt_info">
+						<div>로그인을 하시면 1:1문의내역 및 누락판결문 신청·나의 법조인명록 관련 요청사항·승소판결문 등록등에 대한 답변을 확인하실 수 있습니다.</div>
+						<div class="layer_login"><span>LAWnB 로그인</span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> 
+</div> 
+</body>
+</html>

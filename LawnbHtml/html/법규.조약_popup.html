@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" /> 
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="../js/commonjs.js?dddfs3"></script> 
+<script language="javascript">
+<!--
+ 
+		function resizeComment(){ 
+			setHeight();
+			$(".right_container").removeClass('slide_mov_right'); 
+		}
+
+
+		$(function () {
+			$("section .btn-group .btn").click(function(){  
+				if($('#right_control').css("display") == "block"){
+					$(".right_container").removeClass('add_border');
+					$(".right_container").addClass('slide_mov_right'); 
+					$(".right_container").removeClass('slide_mov');  
+					$('#right_control').removeClass('_up'); 
+				}
+				$("#title_result_tab .btn_close").show();
+				$("#title_result_tab .btn_reapprea").hide();
+				$("#title_result_tab").show(); 
+				$("#result_area").show();
+				$("#pdf_view").hide();
+				$("#view_content").hide(); 
+				setTimeout(function(){  
+					$("#result_area").addClass('slide_mov_bottom');    
+				}, 200);
+			});  
+
+			if($('.title_area h2').height() > 50){
+				$('h2 .more').show();
+			}else{ 
+				var expanded = false;
+				$('h2 .more').hide();
+			};
+			$('.more').click(function() {  
+				if (!expanded) {
+					$('.title_area h2').addClass("case_tit_hidden");
+					$('.btn_more_area').addClass("act");
+					$('.more').attr('title','판례제목열기');
+					resizeComment();
+					expanded = true;
+				} else {
+					$('.title_area h2').removeClass("case_tit_hidden");
+					$('.btn_more_area').removeClass("act");
+					$('.more').attr('title','판례제목닫기');
+					resizeComment();
+					expanded = false;
+					} 
+			});
+			
+			// 조약해당부분
+			$('.main_container_view_inner').css('max-width','840px');  // 국문만 있을경우 시작
+			$(".btn_option span").click(function(index){  
+				$('.btn_option span').addClass('disable'); 
+				 var idx = $(".btn_option span").index($(this)); 
+				$(".btn_option span").eq(idx).removeClass('disable');
+				if(idx == "2"){
+					$('.main_container_view_inner').css('max-width','none');
+					$('.doc_area').css('float','left').css('width','49.5%');
+					$('.doc_area').show();
+				}else{
+					$('.doc_area').hide();
+					$('.main_container_view_inner').css('max-width','840px'); 
+					$('.doc_area').css('float','none').css('width','100%'); 
+					$('.doc_area').eq(idx).show();
+				}
+
+			});
+			
+		});
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_popupContainer">
+	<div id="wrap" >
+		<header> 
+			<div class="top_container  ">  
+				<a href="/maf/poc/app/homepage"><h1>로앤비</h1></a>
+				<div class="function_area">
+					<p class="hide">기타기능버튼들</p> 
+					<div>
+						<span><i class="icon-plus" data-icon="&#xea0a;"></i></span> 
+						<span><i class="icon-plus" data-icon="&#xea0b;"></i></span>
+						<br><span>글자크기</span>
+					</div>
+					<a href="#"> 
+						<span><i class="icon-printer" data-icon="&#xe954;"></i></span>
+						<span>인쇄</span>
+					</a>
+					<a href="#"> 
+						<span><i class="icon-download3" data-icon="&#xe9c7;"></i></span>
+						<span>파일저장</span>
+					</a>
+					<a href="#"> 
+						<span><i class="icon-mail2" data-icon="&#xe90c;"></i></span>
+						<span>메일</span>
+					</a>
+					<a href="#">
+						<span><i class="icon-share2" data-icon="&#xea82;"></i></span>
+						<span>공유</span>
+					</a>
+				</div>
+			</div>        	
+		</header> 
+		<div id="container" class="law onlycon">  
+			<div id="breadcrumb" class="navi_area"> 
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div class="title_area">  
+				<div class="btn_option"><span class="btn_kor_cont ">국문</span> <span class="btn_eng_cont disable ">영문</span> <span class="btn_both_cont disable">영문 | 국문</span></div>
+				<h2>대한민국 정부와 투르크메니스탄 정부 간의 소득에 대한 조세의 이중과세 방지와 탈세 예방을 위한 협약 <div class="btn_more_area"><button title="판례제목 닫기" class="more" ></button></div><br><span >ONVENTION BETWEEN THE GOVERNMENT OF THE REPUBLIC OF KOREA AND THE GOVERNMENT OF TURKMENISTAN FOR THE AVOIDANCE OF DOUBLE TAXATION AND THE PREVENTION OF FISCAL EVASION WITH RESPECT TO TAXES ON INCOME</span> </h2>
+				<div class="list_meta">발효일 : 2016.11.26, 투르크멘(투르크메니스탄), 제2323호, 2016.12.2 </div>
+			</div>
+			<div id="container_inner"> 
+				<div class="left_container"> 
+					<div class="table_index">
+						<h3 class="hide">조문목차</h3> 
+						<ul id="LiAddInfo">
+							<li><a href="#case_info">서문</a></li>
+							<li><a href="#case_point">제1조 대상인</a></li>
+							<li><a href="#law_refer">제2조 대상조세</a></li>
+							<li><a href="#law_refer">제3조 일반적 정의</a></li>
+							<li><a href="#law_refer">제4조 거주자</a></li>
+							<li><a href="#law_refer">제5조 고정사업장</a></li>
+						</ul> 
+					</div>
+				</div>
+				<article class="main_container">  
+					 <div class="main_container_view">
+						<div class="main_container_view_inner">
+							  
+							<div class=" doc_area" id="kor_area">  
+								<p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span style="line-height: 160%; ">국제원자력기구 사무국장이 외무부장관에게 보내온 각서</span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt 55pt"><span lang="EN-US" style="line-height: 160%; ">1960</span><span style="line-height: 160%; ">년<span lang="EN-US">9</span>월<span lang="EN-US">7</span>일</span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt 55pt"><span lang="EN-US" style="line-height: 160%; ">L/320</span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt 55pt"><span lang="EN-US"><font size="2" face="바탕">&nbsp;</font></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt 55pt"><span style="line-height: 160%; ">각 하</span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span style="line-height: 160%; ">국제원자력기구의 기술원조 계획에 의한 보건물리학 분야에 있어서<span lang="EN-US"> 6</span>개월간 전문가용역과 확대기술원조계획에 의한 방사성 광물채굴분야에 있어서<span lang="EN-US"> 7</span>개월간 전문가 용역에 관한 귀국정부 요청에 관하여 국제원자력기구와 대한민국정부간에 행하여진 교섭에 관하여 본관은 이들 전문가의 용역에 관한 규정을 적용토록 하는 조항을 각하에게 제의하는 영광을 가지는 바입니다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span style="line-height: 160%; ">보건물리학분야에 있어서 전문가의 직무는 다음과 같습니다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span style="line-height: 160%; ">방사성 방각에 관한 규칙과 규정을 작성하고 방사능의 측정 및 검사절차의 설립<span lang="EN-US">, </span>필림<span lang="EN-US">-</span>뺏지의 제조 및 관계용역을 포함하여<span lang="EN-US"> 100</span>킬로왓트<span lang="EN-US"> &quot;</span>트리가 말크<span lang="EN-US"> II&quot;</span>원자로를 보유하는 원자력쎈터의 보건물리학부문의 기구에 원조할 것입니다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span style="line-height: 160%; ">방사성광물 채굴분야에 있어서 전문가의 직무는<span lang="EN-US"> &quot;</span>우라늄<span lang="EN-US">&quot;</span>과<span lang="EN-US"> &quot;</span>벨리움<span lang="EN-US">&quot;</span>의 시굴을 조직화함에 있어서 한국지질조사소를 원조할 것입니다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; text-indent: -15pt; margin: 0cm 0cm 0pt 70pt"><span lang="EN-US" style="line-height: 160%; ">1. </span><span style="line-height: 160%; ">동 기구와 대한민국정부는 본각서에 규정된 동 기구가 제공하는 원조에 관계되는 한 국제연합문서<span lang="EN-US"> TAB/R. 251/Rev. 1, </span>에 규정되었으며<span lang="EN-US"> 1958</span>년<span lang="EN-US">6</span>월<span lang="EN-US">19</span>일자로 귀국정부가 가입한<span lang="EN-US"> &quot;</span>개정된 기본협정<span lang="EN-US">&quot;</span>의 규정을 적용할 것이며 그 사본<span lang="EN-US">1</span>통을 별첨합니다<span lang="EN-US">. </span>본 각서<span lang="EN-US">2</span>항에 규정된 규정에 비추어<span lang="EN-US"> &quot;</span>개정된 기본협정<span lang="EN-US">&quot; </span>제<span lang="EN-US">5</span>조 제<span lang="EN-US">1</span>항은 적용되지 아니하며 본각서<span lang="EN-US">3</span>항에 규정된 바와 같이 제<span lang="EN-US">3</span>조 제<span lang="EN-US">1</span>항이 효력을 가집니다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; text-indent: -15pt; margin: 0cm 0cm 0pt 70pt"><span lang="EN-US" style="line-height: 160%; ">2. </span><span style="line-height: 160%; ">본각서에서 규정된 원조에 관련이 있는 한 대한민국정부는 동 기구<span lang="EN-US">, </span>그의 소유물<span lang="EN-US">, </span>기금<span lang="EN-US">, </span>자산 또는 전문가를 포함하는 기구의 직원에 대하여<span lang="EN-US"> 1959</span>년<span lang="EN-US">7</span>월<span lang="EN-US">1</span>일자로 동 기구이사회가 승인한<span lang="EN-US">(INFCIRC/9/Rev. 1) </span>국제원자력기구의 특권과 면제에 관한 협정<span lang="EN-US">(</span>별첨 사본<span lang="EN-US">1</span>통<span lang="EN-US">)</span>의 규정을 적용한다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; text-indent: -15pt; margin: 0cm 0cm 0pt 70pt"><span lang="EN-US" style="line-height: 160%; ">3. </span><span style="line-height: 160%; ">동 기구는<span lang="EN-US"> &quot;</span>개정된 기본협정<span lang="EN-US">&quot; </span>제<span lang="EN-US">3</span>조 제<span lang="EN-US">1</span>항에 따라 원조에 필요한 비용을 전부 지불한다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; text-indent: -15pt; margin: 0cm 0cm 0pt 70pt"><span lang="EN-US" style="line-height: 160%; ">4. </span><span style="line-height: 160%; ">정부는 추가로 다음과 같은 의무를 가진다<span lang="EN-US">. </span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; text-indent: -20pt; margin: 0cm 0cm 0pt 90pt"><span lang="EN-US" style="line-height: 160%; ">(1) </span><span style="line-height: 160%; ">본각서에 규정된 원조는 여하한 군사적 목적을 촉진함에 이 방법을 사용해서는 아니된다<span lang="EN-US">. </span>동계획의 성질에 비추어 볼 때 국제원자력기구 협약 제<span lang="EN-US">7</span>조 제<span lang="EN-US">A</span>항<span lang="EN-US"> 1</span>호 및<span lang="EN-US"> 3</span>호<span lang="EN-US">-7</span>호에서 규정된 바와 같이 기구의 안전책을 필요로 하지 아니한다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; text-indent: -20pt; margin: 0cm 0cm 0pt 90pt"><span lang="EN-US" style="line-height: 160%; ">(2) </span><span style="line-height: 160%; ">본각서에서 규정된 시행과정에 있어 동기구자신의 운영에 적용하기 위하여 동 기구가 허용하는 모든 적절한 보건과 안전의 표준에 맞는 것을 보장하는 조치가 취하여져야 한다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; text-indent: -15pt; margin: 0cm 0cm 0pt 70pt"><span lang="EN-US" style="line-height: 160%; ">5. </span><span style="line-height: 160%; ">본각서로부터 또는 본각서에 관련하여 동 기구와 대한민국정부간에 발생한 분쟁으로서 협상 또는 기타 합의방법의 해결에 의하여 해결될 수 없는 것은 동 기구 또는 대한민국정부의 요청으로 중재에 회부되어야 한다<span lang="EN-US">. </span>동 기구 사무국장과 대한민국 외무부장관은 각각<span lang="EN-US">1</span>인을 중재인을 지명하여야 하며 이에 지명된<span lang="EN-US"> 2</span>인의 중재인은 의장이 될 제<span lang="EN-US">3</span>자를 지명하여야 한다<span lang="EN-US">. </span>당사자가 중재요청후<span lang="EN-US"> 30</span>일이내에 중재인을 지명하지 못하거나 이미 지명된<span lang="EN-US"> 2</span>인의 중재인이<span lang="EN-US"> 15</span>일이내에 제<span lang="EN-US">3</span>자의 중재인을 지명치 못할 경우에는 당사자는 국제연합 사무총장에게 그 지명을 요청할 수 있다<span lang="EN-US">. </span>중재의 절차는 중재인들이 결정하여야 하며 중재비용은 중재인의 산정에 따라 당사자가 부담한다<span lang="EN-US">.</span>중재인은 다수결투표에 의하여 결정을 지우며 또한<span lang="EN-US"> 2</span>표가 의결정수를 이룬다<span lang="EN-US">. </span>중재판정서는 중재판정에 기초가 되는 이유서를 첨부하여야 하며 당사국은 이를 논쟁의 최종판결문으로 수락하여야 한다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span style="line-height: 160%; ">전기조항과 조건을 귀하의 정부가 만족한다면 본관은 귀정부가 본각서의 내용을 수락하는 공식의 확인서한을 바라오며 본각서의 교환으로서 국제원자력기구와 대한민국정부를 구속시키는 협정을 구성할 것입니다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span style="line-height: 160%; ">본관의 최고의 경의를 표합니다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span lang="EN-US"><font size="2" face="바탕">&nbsp;</font></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt 55pt"><span style="line-height: 160%; ">사무국장</span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt 55pt"><span style="line-height: 160%; ">스텔링 콜</span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span lang="EN-US"><font size="2" face="바탕">&nbsp;</font></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span lang="EN-US"><font size="2" face="바탕">&nbsp;</font></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span style="line-height: 160%; ">외무부차관이 국제원자력기구 사무국장에게 보낸 회답각서</span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt 55pt"><span lang="EN-US" style="line-height: 160%; ">1961</span><span style="line-height: 160%; ">년<span lang="EN-US">5</span>월<span lang="EN-US">15</span>일</span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt 55pt"><span lang="EN-US" style="line-height: 160%; ">IR-436</span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span lang="EN-US"><font size="2" face="바탕">&nbsp;</font></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt 55pt"><span style="line-height: 160%; ">각 하</span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span style="line-height: 160%; ">본관은 국제원자력기구로부터 그의 기술원조계획에 의하여 대한민국정부에 제공된 전문가 용역에 대한 조건과 규정에 관한 귀하의<span lang="EN-US"> <st1:date w:st="on" o:ls="trans" year="1960" month="9" day="7">1960<span lang="EN-US"><span lang="EN-US">년9</span></span><span lang="EN-US"><span lang="EN-US">월7</span></span><span lang="EN-US"><span lang="EN-US">일</span></span></st1:date></span> 공한<span lang="EN-US"> L-320</span>호 및 본관의<span lang="EN-US"> <st1:date w:st="on" o:ls="trans" year="1961" month="1" day="18">1961<span lang="EN-US"><span lang="EN-US">년1</span></span><span lang="EN-US"><span lang="EN-US">월18</span></span><span lang="EN-US"><span lang="EN-US">일</span></span></st1:date><span lang="EN-US">자</span></span> 공한<span lang="EN-US"> IR-436</span>호에 대하여 언급하는 영광을 가지는 바입니다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span style="line-height: 160%; ">본관은 대한민국정부가 국제원자력기구의 정규 기술원조계획에 의하여<span lang="EN-US"> 1960</span>년<span lang="EN-US">7</span>월<span lang="EN-US">2</span>일이후에 대한민국에 배치한 보건물리학 전문가에 대하여<span lang="EN-US"> '</span>개정된 기본협정<span lang="EN-US">'</span>과<span lang="EN-US"> '</span>국제원자력기구의 특권과 면제에 관한 협정<span lang="EN-US">'</span>의 규정을 현재 적용하고 있음을 귀하에게 통고함을 기쁘게 생각하는 바입니다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span style="line-height: 160%; ">본교환각서는 상기협정의 적용에 관하여 국제원자력기구와 대한민국정부간의 협정을 구성할 것입니다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span style="line-height: 160%; ">각하에게 본관의 최대의 경의를 표하는 바입니다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt 55pt"><span style="line-height: 160%; ">외무부장관을 대리하여</span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt 55pt"><span style="line-height: 160%; ">방교국장</span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt 55pt"><span style="line-height: 160%; ">최 운 상</span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt 55pt"><span style="line-height: 160%; ">스델링 콜 각하</span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt 55pt"><span style="line-height: 160%; ">국제원자력기구 사무국장</span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt 55pt"><span style="line-height: 160%; ">비엔나</span><span lang="EN-US"></span>
+            
+		 
+
+							</div>
+							<div class="doc_area" id="eng_area">  
+								<p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span style="line-height: 160%; ">국제원자력기구 사무국장이 외무부장관에게 보내온 각서</span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt 55pt"><span lang="EN-US" style="line-height: 160%; ">1960</span><span style="line-height: 160%; ">년<span lang="EN-US">9</span>월<span lang="EN-US">7</span>일</span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt 55pt"><span lang="EN-US" style="line-height: 160%; ">L/320</span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt 55pt"><span lang="EN-US"><font size="2" face="바탕">&nbsp;</font></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt 55pt"><span style="line-height: 160%; ">각 하</span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span style="line-height: 160%; ">국제원자력기구의 기술원조 계획에 의한 보건물리학 분야에 있어서<span lang="EN-US"> 6</span>개월간 전문가용역과 확대기술원조계획에 의한 방사성 광물채굴분야에 있어서<span lang="EN-US"> 7</span>개월간 전문가 용역에 관한 귀국정부 요청에 관하여 국제원자력기구와 대한민국정부간에 행하여진 교섭에 관하여 본관은 이들 전문가의 용역에 관한 규정을 적용토록 하는 조항을 각하에게 제의하는 영광을 가지는 바입니다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span style="line-height: 160%; ">보건물리학분야에 있어서 전문가의 직무는 다음과 같습니다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span style="line-height: 160%; ">방사성 방각에 관한 규칙과 규정을 작성하고 방사능의 측정 및 검사절차의 설립<span lang="EN-US">, </span>필림<span lang="EN-US">-</span>뺏지의 제조 및 관계용역을 포함하여<span lang="EN-US"> 100</span>킬로왓트<span lang="EN-US"> &quot;</span>트리가 말크<span lang="EN-US"> II&quot;</span>원자로를 보유하는 원자력쎈터의 보건물리학부문의 기구에 원조할 것입니다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span style="line-height: 160%; ">방사성광물 채굴분야에 있어서 전문가의 직무는<span lang="EN-US"> &quot;</span>우라늄<span lang="EN-US">&quot;</span>과<span lang="EN-US"> &quot;</span>벨리움<span lang="EN-US">&quot;</span>의 시굴을 조직화함에 있어서 한국지질조사소를 원조할 것입니다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; text-indent: -15pt; margin: 0cm 0cm 0pt 70pt"><span lang="EN-US" style="line-height: 160%; ">1. </span><span style="line-height: 160%; ">동 기구와 대한민국정부는 본각서에 규정된 동 기구가 제공하는 원조에 관계되는 한 국제연합문서<span lang="EN-US"> TAB/R. 251/Rev. 1, </span>에 규정되었으며<span lang="EN-US"> 1958</span>년<span lang="EN-US">6</span>월<span lang="EN-US">19</span>일자로 귀국정부가 가입한<span lang="EN-US"> &quot;</span>개정된 기본협정<span lang="EN-US">&quot;</span>의 규정을 적용할 것이며 그 사본<span lang="EN-US">1</span>통을 별첨합니다<span lang="EN-US">. </span>본 각서<span lang="EN-US">2</span>항에 규정된 규정에 비추어<span lang="EN-US"> &quot;</span>개정된 기본협정<span lang="EN-US">&quot; </span>제<span lang="EN-US">5</span>조 제<span lang="EN-US">1</span>항은 적용되지 아니하며 본각서<span lang="EN-US">3</span>항에 규정된 바와 같이 제<span lang="EN-US">3</span>조 제<span lang="EN-US">1</span>항이 효력을 가집니다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; text-indent: -15pt; margin: 0cm 0cm 0pt 70pt"><span lang="EN-US" style="line-height: 160%; ">2. </span><span style="line-height: 160%; ">본각서에서 규정된 원조에 관련이 있는 한 대한민국정부는 동 기구<span lang="EN-US">, </span>그의 소유물<span lang="EN-US">, </span>기금<span lang="EN-US">, </span>자산 또는 전문가를 포함하는 기구의 직원에 대하여<span lang="EN-US"> 1959</span>년<span lang="EN-US">7</span>월<span lang="EN-US">1</span>일자로 동 기구이사회가 승인한<span lang="EN-US">(INFCIRC/9/Rev. 1) </span>국제원자력기구의 특권과 면제에 관한 협정<span lang="EN-US">(</span>별첨 사본<span lang="EN-US">1</span>통<span lang="EN-US">)</span>의 규정을 적용한다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; text-indent: -15pt; margin: 0cm 0cm 0pt 70pt"><span lang="EN-US" style="line-height: 160%; ">3. </span><span style="line-height: 160%; ">동 기구는<span lang="EN-US"> &quot;</span>개정된 기본협정<span lang="EN-US">&quot; </span>제<span lang="EN-US">3</span>조 제<span lang="EN-US">1</span>항에 따라 원조에 필요한 비용을 전부 지불한다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; text-indent: -15pt; margin: 0cm 0cm 0pt 70pt"><span lang="EN-US" style="line-height: 160%; ">4. </span><span style="line-height: 160%; ">정부는 추가로 다음과 같은 의무를 가진다<span lang="EN-US">. </span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; text-indent: -20pt; margin: 0cm 0cm 0pt 90pt"><span lang="EN-US" style="line-height: 160%; ">(1) </span><span style="line-height: 160%; ">본각서에 규정된 원조는 여하한 군사적 목적을 촉진함에 이 방법을 사용해서는 아니된다<span lang="EN-US">. </span>동계획의 성질에 비추어 볼 때 국제원자력기구 협약 제<span lang="EN-US">7</span>조 제<span lang="EN-US">A</span>항<span lang="EN-US"> 1</span>호 및<span lang="EN-US"> 3</span>호<span lang="EN-US">-7</span>호에서 규정된 바와 같이 기구의 안전책을 필요로 하지 아니한다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; text-indent: -20pt; margin: 0cm 0cm 0pt 90pt"><span lang="EN-US" style="line-height: 160%; ">(2) </span><span style="line-height: 160%; ">본각서에서 규정된 시행과정에 있어 동기구자신의 운영에 적용하기 위하여 동 기구가 허용하는 모든 적절한 보건과 안전의 표준에 맞는 것을 보장하는 조치가 취하여져야 한다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; text-indent: -15pt; margin: 0cm 0cm 0pt 70pt"><span lang="EN-US" style="line-height: 160%; ">5. </span><span style="line-height: 160%; ">본각서로부터 또는 본각서에 관련하여 동 기구와 대한민국정부간에 발생한 분쟁으로서 협상 또는 기타 합의방법의 해결에 의하여 해결될 수 없는 것은 동 기구 또는 대한민국정부의 요청으로 중재에 회부되어야 한다<span lang="EN-US">. </span>동 기구 사무국장과 대한민국 외무부장관은 각각<span lang="EN-US">1</span>인을 중재인을 지명하여야 하며 이에 지명된<span lang="EN-US"> 2</span>인의 중재인은 의장이 될 제<span lang="EN-US">3</span>자를 지명하여야 한다<span lang="EN-US">. </span>당사자가 중재요청후<span lang="EN-US"> 30</span>일이내에 중재인을 지명하지 못하거나 이미 지명된<span lang="EN-US"> 2</span>인의 중재인이<span lang="EN-US"> 15</span>일이내에 제<span lang="EN-US">3</span>자의 중재인을 지명치 못할 경우에는 당사자는 국제연합 사무총장에게 그 지명을 요청할 수 있다<span lang="EN-US">. </span>중재의 절차는 중재인들이 결정하여야 하며 중재비용은 중재인의 산정에 따라 당사자가 부담한다<span lang="EN-US">.</span>중재인은 다수결투표에 의하여 결정을 지우며 또한<span lang="EN-US"> 2</span>표가 의결정수를 이룬다<span lang="EN-US">. </span>중재판정서는 중재판정에 기초가 되는 이유서를 첨부하여야 하며 당사국은 이를 논쟁의 최종판결문으로 수락하여야 한다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span style="line-height: 160%; ">전기조항과 조건을 귀하의 정부가 만족한다면 본관은 귀정부가 본각서의 내용을 수락하는 공식의 확인서한을 바라오며 본각서의 교환으로서 국제원자력기구와 대한민국정부를 구속시키는 협정을 구성할 것입니다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span style="line-height: 160%; ">본관의 최고의 경의를 표합니다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span lang="EN-US"><font size="2" face="바탕">&nbsp;</font></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt 55pt"><span style="line-height: 160%; ">사무국장</span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt 55pt"><span style="line-height: 160%; ">스텔링 콜</span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span lang="EN-US"><font size="2" face="바탕">&nbsp;</font></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span lang="EN-US"><font size="2" face="바탕">&nbsp;</font></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span style="line-height: 160%; ">외무부차관이 국제원자력기구 사무국장에게 보낸 회답각서</span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt 55pt"><span lang="EN-US" style="line-height: 160%; ">1961</span><span style="line-height: 160%; ">년<span lang="EN-US">5</span>월<span lang="EN-US">15</span>일</span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt 55pt"><span lang="EN-US" style="line-height: 160%; ">IR-436</span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span lang="EN-US"><font size="2" face="바탕">&nbsp;</font></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt 55pt"><span style="line-height: 160%; ">각 하</span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span style="line-height: 160%; ">본관은 국제원자력기구로부터 그의 기술원조계획에 의하여 대한민국정부에 제공된 전문가 용역에 대한 조건과 규정에 관한 귀하의<span lang="EN-US"> <st1:date w:st="on" o:ls="trans" year="1960" month="9" day="7">1960<span lang="EN-US"><span lang="EN-US">년9</span></span><span lang="EN-US"><span lang="EN-US">월7</span></span><span lang="EN-US"><span lang="EN-US">일</span></span></st1:date></span> 공한<span lang="EN-US"> L-320</span>호 및 본관의<span lang="EN-US"> <st1:date w:st="on" o:ls="trans" year="1961" month="1" day="18">1961<span lang="EN-US"><span lang="EN-US">년1</span></span><span lang="EN-US"><span lang="EN-US">월18</span></span><span lang="EN-US"><span lang="EN-US">일</span></span></st1:date><span lang="EN-US">자</span></span> 공한<span lang="EN-US"> IR-436</span>호에 대하여 언급하는 영광을 가지는 바입니다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span style="line-height: 160%; ">본관은 대한민국정부가 국제원자력기구의 정규 기술원조계획에 의하여<span lang="EN-US"> 1960</span>년<span lang="EN-US">7</span>월<span lang="EN-US">2</span>일이후에 대한민국에 배치한 보건물리학 전문가에 대하여<span lang="EN-US"> '</span>개정된 기본협정<span lang="EN-US">'</span>과<span lang="EN-US"> '</span>국제원자력기구의 특권과 면제에 관한 협정<span lang="EN-US">'</span>의 규정을 현재 적용하고 있음을 귀하에게 통고함을 기쁘게 생각하는 바입니다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span style="line-height: 160%; ">본교환각서는 상기협정의 적용에 관하여 국제원자력기구와 대한민국정부간의 협정을 구성할 것입니다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt"><span style="line-height: 160%; ">각하에게 본관의 최대의 경의를 표하는 바입니다<span lang="EN-US">.</span></span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt 55pt"><span style="line-height: 160%; ">외무부장관을 대리하여</span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt 55pt"><span style="line-height: 160%; ">방교국장</span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt 55pt"><span style="line-height: 160%; ">최 운 상</span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt 55pt"><span style="line-height: 160%; ">스델링 콜 각하</span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt 55pt"><span style="line-height: 160%; ">국제원자력기구 사무국장</span><span lang="EN-US"></span>
+<br/><p class="hstyle0" align="left" style="text-align: left; margin: 0cm 0cm 0pt 55pt"><span style="line-height: 160%; ">비엔나</span><span lang="EN-US"></span>
+            
+		 
+
+							</div> 
+						</div>
+					 </div>
+				</article> 
+				<aside class="right_container">  
+				</aside>
+			</div>
+    	</div>  
+		<div id="bg_screen"></div> 
+	</div>
+		<script type="text/javascript">   
+			setHeight();
+		</script>
+</div> 
+</body>
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../js/commonjs.js?sDDD"></script>
+<script language="javascript">
+<!--
+  $(document).ready(function () { 
+	 
+});
+	function resizeComment(){ 
+			setHeight_under();
+			 
+			if($('.right_container').hasClass('add_border')){
+				$(".right_container").removeClass('slide_mov_right'); 
+			}else{
+				if($('#container').hasClass('list-view')){
+					$(".right_container").addClass('slide_mov_right'); 
+				}else{
+					$(".right_container").removeClass('slide_mov_right'); 
+				}
+			}
+		}
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_mainContainer">
+	<div id="wrap" >
+		<header>
+		<div class="top_container ">
+			<h1>로앤비</h1>
+			<div id="t_search" class="search_container">
+				<h2>통합검색 영역</h2>
+				<div class="search_inner">
+					<form  action="" > 
+					<div class="search_left hide">
+						<label class="hide">통합검색  </label>
+					</div>
+					<div class="search_center">
+						<input type="search" name="" id="" >
+					</div>
+					<div class="search_right"><span  class="more_btn">more</span></div>
+					<div id="searchButton" class="search_btn"><i class="icon-" data-icon="&#xe910;"></i><span class="hide">검색</span></div> 
+					</form>
+					<div class="btn_search_result"><i class="icon-table" data-icon="&#xea71;"></i><span class="hide">검색결과 맵 보기</span></div>
+				</div>
+				<div class="search_layer_outer" >
+					<div class="search_layer" >
+						<div class="search_layer_list _done ">
+							<!-- <div class="txt_info">최근검색어저장 기능이 OFF 상태에 있습니다.<br>이용을 원하시면 하단의 최근검색어저장 상태를 ON으로 변경해주세요. </div> 
+							<ul>
+								<li>공정거래법 위반으로 인한 손해액의 산정방법과 주요 쟁점으로 <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+							</ul>-->
+							<ul>
+								<li><strong>대법</strong>원인터넷등기소<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+								<li><strong>대법</strong>원나의사건검색</li>
+								<li><strong>대법</strong>원법원경매정보</li>
+								<li><strong>대법</strong>원전자가족관계</li>
+								<li><strong>대법</strong>원경매</li>
+								<li><strong>대법</strong>원인터넷등기소<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+								<li><strong>대법</strong>원나의사건검색<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+								<li><strong>대법</strong>원법원경매정보</li>
+								<li><strong>대법</strong>원전자가족관계</li>
+								<li><strong>대법</strong>원경매</li>
+							</ul> 
+							<div class="expend_result" onclick="">
+								<p>법무법인(유한) 태평양어쩌고 저쩌고</p>
+								<span>주소 : [050-50] 서울시 광진구 디지털로 272, 한신 IT타워 611호<br>대표전화 : 02-2204-2114</span>
+								<div class="dirct_go">바로가기</div>
+							</div>
+						</div>
+						<!-- <div class="noti_txt"><i class="icon-" data-icon="&#xe90d;"></i> 공용 PC에서는 개인정보보호를 위하여 반드시 로그아웃을 해주세요.</div> -->
+						<div class="search_layer_foot">
+							<div class="fl">기록삭제</div>
+							<div class="fr">최근검색어저장 <div class="btn-group"><button type="button" class="btn btn_orange _select">ON</button><button type="button" class="btn btn-default">OFF</button></div> 자동완성 <div class="btn-group"><button type="button" class="btn btn_orange _select">ON</button><button type="button" class="btn btn-default">OFF</button></div>
+							</div>						
+						</div>
+					</div>
+					
+					
+				</div>
+			</div>
+			<div id="indiv_area" class="indiv_container">
+				<span alt="나의폴더">나의폴더<i class="icon-myfolder" data-icon="&#xe91a;"></i></span>
+				<span alt="히스토리">히스토리<i class="icon-history" data-icon="&#xe916;"></i></span>
+				<span alt="알림설정">알림설정<i class="icon-alert" data-icon="&#xe918;"></i><em>9+</em></span>
+				<span alt="질문내역">문의내역<i class="icon-question" data-icon="&#xe919;"></i></span>
+				<span alt="나의정보">나의정보<i class="icon-myinfo" data-icon="&#xe917;"></i></span>
+			</div>
+		</div>
+		<nav> 
+			<dl id="main_menu" class="mmenu">
+				<dt class="blind">메인 메뉴</dt> 
+				<dd>
+					<a href="#"><span>판례</span></a>
+				</dd>
+				<dd class="currentTab" >
+					<a href="#"><span>법규</span></a>
+				</dd>
+				<dd>
+					<a href="#"><span>심판·결정·해석</span></a>
+				</dd>
+				<dd >
+					<a href="#"><span>문헌</span></a>
+				</dd>
+				<dd>
+					<a href="#"><span>법조인</span></a>
+				</dd>
+				<dd>
+					<a href="#"><span>기업법무</span></a>
+				</dd>
+				<dd>
+					<a href="#"><span>서식</span></a>
+				</dd>
+				<dd>
+					<a href="#"><span>뉴스·칼럼</span></a>
+				</dd>
+			</dl>  
+		</nav>
+	</header>
+		<div class="submenu_group" style="">
+			<div>
+				<dl>
+					<dd><a href="">판례</a></dd>
+					<dd><a href="">판례디렉토리</a></dd> 
+				</dl>
+				<dl>
+					<dd><a href="">법령</a></dd>
+					<dd><a href="">행정규칙</a></dd>
+					<dd><a href="">입법동향</a></dd>
+					<dd><a href="">조약</a></dd>
+				</dl>
+				<dl>
+					<dd><a href="">특허 심판례</a></dd>
+					<dd><a href="">결정례</a></dd>
+					<dd><a href="">유권해석</a></dd>
+				</dl>
+				<dl>
+					<dd><a href="">논문평석</a></dd>
+					<dd><a href="">주석서</a></dd>
+					<dd><a href="">E-book</a></dd>
+					<dd><a href="">법률용어</a></dd>
+				</dl>
+				<dl>
+					<dd><a href="">법조인명록</a></dd>
+					<dd><a href="">조직도</a></dd>
+					<dd><a href="">법률사무소</a></dd>
+					<dd>법조기관 안내</dd>
+				</dl>
+				<dl>
+					<dd>로펌 리포트</dd>
+					<dd>세무정보</dd>
+					<dd>기업정보</dd>
+				</dl>
+				<dl>
+					<dd>법률서식</dd>
+					<dd>비즈폼 서식</dd>
+				</dl>
+				<dl>
+					<dd>뉴스</dd>
+					<dd>칼럼</dd>
+				</dl>
+			</div> 
+		</div>
+		<div id="container" class="lawyer">
+			<div id="breadcrumb" class="navi_area">
+				<div>Home > 법조인 > 법조인명록</div>
+				<div class="group_indivi_btn"><a href="">로그인</a><a href="">개인화님</a> </div>
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div id="container_inner">
+				<div class="left_container"> 
+					<section>
+						<h4>검색결과 정리</h4>
+						<div class="check_area">   
+							<p>
+							<label>시험종류</label>
+							<select name="sType5" id="sType5">
+								<option value="0" selected="selected">전체</option> 
+								<option value="1">대법원</option>
+								<option value="2">대법원(전원합의체)</option>
+								<option value="3">헌법재판소</option>
+								<option value="4">행정법원</option>
+								<option value="5">고등법원</option>
+								<option value="6">지방법원</option>
+								<option value="7">특허법원</option>
+								<option value="8">기타</option>
+							</select>  
+							</p>
+							<p>
+							<label>시험회수</label> 
+							<input type="number" id="sTestS" name="sTestS" min="0" max="9999" class="w_auto"> ~ <input type="number" id="sTestE" name="sTestE" min="0" max="9999" class="w_auto">
+							</p>
+							<hr>
+							<p>
+							<label>연수원</label> 
+							<input type="number" id="sTestS" name="sTestS" min="0" max="9999" class="w_auto"> ~ <input type="number" id="sTestE" name="sTestE" min="0" max="9999" class="w_auto"> 
+							</p>
+							<p>
+							<label>출생년도</label> 
+							<input type="number" id="sTestS" name="sTestS" min="0" max="9999" class="w_auto"> ~ <input type="number" id="sTestE" name="sTestE" min="0" max="9999" class="w_auto">
+							</p>
+							<p class="submit_area"><span id="arrangeBtn">적용</span><span class="_cancel"><i class="icon-16" data-icon="&#xe90e;"></i>적용취소</span></p>
+						</div>
+					</section>
+				</div>
+				<article class="main_container"> 
+					<div class="main_container_inner">
+						<div class="search_div">
+							<form id="searchForm" method="post" action=" ">
+							<div class="detail_area_open " style="display:block"> 
+								<ul>
+									<li class="fill">
+										<label>분야</label>
+										<select id="sJob" name="sJob"    >
+										  <option value="" selected>민사</option>
+										  <option value="판사">형사</option> 
+										</select> 
+									</li> 
+								</ul>
+							</div>  
+							<div class="detail_area"> 
+							</div>
+							<div class="btn_area"><input type="submit" id="searchBtn" value="검색"> <span class="_cancel"><i class="icon-16" data-icon="&#xe90e;"></i>입력초기화</span></div> 
+							</form>
+						</div>
+						<div id="search_results">
+							<div class="s_num_area">검색결과 11,001건 <small>1/1000</small></div>
+							<div class="btn_option_outer"> 
+								<div class="select_area"> 
+									<p class="blind">보기 개수 선택</p>
+									<select id="" name=""  >
+										<option value="">10개</option>
+										<option value="" selected>20개</option>
+										<option value="">50개</option>
+									</select>
+								</div>
+								<div class="btn_option"> 
+									<div class="btn-group" data-toggle="buttons-checkbox">
+										<button type="button" class="btn btn-default _select">이름 <i class="icon-sort-alpha-desc" data-icon="&#xea48;"></i></button> <button type="button" class="btn btn-default">연령 <i class="icon-sort-numeric-asc" data-icon="&#xea4a;"></i></button> <button type="button" class="btn btn-default">사법시험횟수 <i class="icon-sort-numeric-asc" data-icon="&#xea4a;"></i></button> 
+									</div>	
+									<!-- <ul class="view_type_list _view_type_list">
+										<p class="blind">보기옵션 선택</p>
+										<li class="_preview"><a href="#" class="option_a" id="option_a" >미리보기형</a></li>
+										<li class="_onlyTitle"><a href="#" class="option_b_on" id="option_b">상세보기형</a></li>
+									</ul> -->
+								</div>
+							</div>
+							<ol class="list btn_exist lawyer"> 
+								<li>
+									<span class="list_num">1</span> 
+									<div class="img"><img  src="http://www.lawnb.com/data/peopdata/kimgaram20140410.bmp" alt="사진"><div></div></div>                            
+									<div class="co_searchContent">  
+										<h3> <a href="/list_view.html">강진석 姜珍錫</a>  <span>1999년생/ 여자 / 사법시험 35회</span></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary">
+											 <span>현직 : 변호사(대표번호사) / 법무법인 서울 / 특허파트 / 상표부 </span> 
+										</div>
+										<!-- <div class="co_searchResults_summary">
+											 <ul>
+												<li>대법원 2006. 10. 19. 선고 2005도3909 전원합의체 판결 【증거인멸·직무유기】</li>
+												<li>대법원 2006. 10. 19. 선고 2005도3909 전원합의체 판결 【증거인멸·직무유기】</li>
+												<li>대법원 2006. 10. 19. 선고 2005도3909 전원합의체 판결 【증거인멸·직무유기】</li>
+											 </ul>
+										</div> -->
+										<div class="function_btn"><a href=""><span class="blue_bt">승소판례<em>13</em>건</span></a><a href=""><span class="blue_bt">논믄/기고<em>23</em>건</span></a><a href=""><span class="icon_function">네비게이션</span></a></div> 
+									</div>
+								</li> 
+								<li>
+									<span class="list_num">1</span>         
+										<div class="img"><img  src="http://www.lawnb.com/data/peopdata/songinwook20130204.jpg" alt="사진"><div></div></div>                    
+									<div class="co_searchContent">
+										<h3><a href="#">김강산(金江山)</a> <span>1972년생  / 여자 / 사법시험 41회</span></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div> 
+										<div class="co_searchResults_summary">
+											 <span>현직 : 교수 / 서울대학교 법과대학 </span> 
+										</div>  
+										<div class="function_btn"><a href=""><span class="icon_function">네비게이션</span></a></div> 
+									</div>
+								</li>  
+								<li>
+									<span class="list_num">1</span>       
+										<div class="img"><img  src="http://www.lawnb.com/data/peopdata/kimhyojeon_20091222.jpg" alt="사진"><div></div></div>                      
+									<div class="co_searchContent">
+										<h3><a href="#">김효전(金孝全)</a> <span>1972년생 / 남자 / 변호사시험 2회</span></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div> 
+										<div class="co_searchResults_summary"> 
+											 <span> </span> 
+										</div>  
+										<div class="function_btn"><a href=""><span class="icon_function">네비게이션</span></a></div> 
+									</div>
+								</li>  
+								<li>
+									<span class="list_num">1</span>       
+									<div class="img"><img  src="http://www.lawnb.com/data/peopdata/ShimJaeguk20160216.jpg" alt="사진"><div></div>
+									</div>                      
+									<div class="co_searchContent">
+										<h3><a href="#">심재국(沈載國)</a> <span>1981년생 / 남자 / 변호사시험 3회</span></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div> 
+										<div class="co_searchResults_summary"> 
+											  <span>&nbsp;<!-- 공백이 꼭 필요... 밑에 리스트 때문에... --></span> 
+										</div>  
+										<div class="function_btn"><a href=""><span class="blue_bt">승소판례<em>62</em>건</span></a><a href=""><span class="icon_function">네비게이션</span></a></div> 
+									</div>
+								</li>  
+							</ol>
+							<div class="navigationLinks">				        									
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=0" class="navFirst hiddenLink "><i class="icon-7" data-icon="&#xe911;"></i></a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=-1" class="navPrevious hiddenLink "><i class="icon-2" data-icon="&#xe901;"></i></a>
+								<span class="currentPage">1</span>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navPages">2</a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=2" class="navPages">3</a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=3" class="navPages">4</a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navNext"><i class="icon-1" data-icon="&#xe900;"></i></a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=13" class="navLast "><i class="icon-8" data-icon="&#xe907;"></i></a>
+							</div>
+						 </div>
+					 </div>
+					 <div class="main_container_view">
+						<div class="main_container_view_inner">
+							<h3>심재국(沈載國, Hong, Gildong)<span class="btn_newtap"><span class="hide">닫기</span><i class="icon-new-tab" data-icon="&#xea7e;"></i></span>
+							<div class="btn_option btn_navi"><span>법조인네비게이션</span></div><div class="btn_option_outer"><div class="btn_close">닫기</div></div>
+							</h3> 
+							<div id="view_content">
+							<div class="img"><img  src="http://www.lawnb.com/data/peopdata/kimgaram20140410.bmp" alt="사진"><div></div></div>
+							<div class="lawyer_info _default"><span><em>1999년생</em><em>여자</em><em>사법시험 50회</em><em>연수원 40기</em><br>현직 : <em>변호사(파트너 변호사) </em><em>법무법인 서울</em><em>특허파트</em><em>상표부</em> </span>
+							</div>
+							<div class="lawyer_info"><span>이메일 : jenna.jeon@tr.com</span><br><span>전화번호 : </span><br><span>주소 : </span><br><span>홈페이지 : </span><br><span>전문분야 <small><i class="icon-info" data-icon="&#xe90d;" onmouseout="close_miju('Miju1')" onmouseover="open_miju('Miju1')"><span class="blind">안내</span><div id="Miju1"  class="miju_box"><div class="miju_box_line">(대한변호사협회에서 10년이상의 경력을 인정한 분야입니다.)</div></div></i></small> : 해상</span><br><span>주요업무분야 <small><i class="icon-info" data-icon="&#xe90d;" onmouseout="close_miju('Miju2')" onmouseover="open_miju('Miju2')"><span class="blind">안내</span><div id="Miju2"  class="miju_box"><div class="miju_box_line">(변호사님이 주로 취급하는 업무로 선택한 분야입니다.)</div></div></i></small> : 금융/회사/건설/무역/해외투자/지적재산권/보험/해상/항공/중재</span><br><span>교과목 <small><i class="icon-info" data-icon="&#xe90d;" onmouseout="close_miju('Miju3')" onmouseover="open_miju('Miju3')"><span class="blind">안내</span><div id="Miju3"  class="miju_box"><div class="miju_box_line">(대학 또는 로스쿨에서 가르치는 과목입니다.)</div></div></i></small> : 금융/회사/건설/무역/해외투자/지적재산권/보험/해상/항공/중재</span></div>
+							<div class="lawyer_info">
+								<p>현직 정보</p>
+								<ul>
+									<li><span>직업/직책</span>변호사</li>
+									<li><span>직업/직책</span>변호사</li>
+									<li><span>직업/직책</span>변호사</li>
+									<li><span>직업/직책</span>변호사</li>
+									<li class="_ful"><span>직업/직책</span>변호사</li>
+									<li><span>직업/직책</span>변호사</li>
+									<li><span>직업/직책</span>변호사</li>
+									<li class="_ful"><span>직업/직책</span>변호사</li>
+								</ul> 
+							</div>
+							<div class="lawyer_info">
+								<p>겸직 정보</p>
+								<ul>
+									<li><span>직업/직책</span>변호사</li>
+									<li><span>직업/직책</span>변호사</li>
+									<li><span>직업/직책</span>변호사</li>
+									<li><span>직업/직책</span>변호사</li>
+									<li class="_ful"><span>직업/직책</span>변호사</li>
+									<li><span>직업/직책</span>변호사</li>
+									<li><span>직업/직책</span>변호사</li>
+									<li class="_ful"><span>직업/직책</span>변호사</li>
+								</ul> 
+							</div>
+							<div class="login_check_area">
+								<p class="hide">로그인체크</p>
+								<div>로그인하세요</div>
+							</div> 
+							</div>
+						</div>
+					 </div>
+				</article> 
+				<aside class="right_container">
+					 
+					<section >
+						<h4>법조인 검색 히스토리</h4>
+						<ul>
+							<li><a href="1" >김철수, 태평양</a></li>
+							<li><a href="1" >김철수, 변호사</a></li>
+							<li><a href="1" >태평양, 변리사, 사법시험 15회 ~ 27회</a></li>
+							<li><a href="1" >사법시험 11회~11회, 서울대학교, 졸업연도 1998~ 1998</a></li> 
+						</ul>  
+					</section>
+					<section >
+						<h4>법조인 조회 히스토리</h4>
+						<ul>
+							<li><a href="1">심재국</a>/ 1981년생 / 사법시험 35회<br>현직 : 변호사(대표번호사)</li> 
+							<li><a href="1">강진석</a>/ 1999년생/ 변호사시험 5회<br>현직 : 변호사(대표번호사)</li> 
+							<li><a href="1">Mary Jane</a> <br>현직 : 외국변호사 / 법무법인 감동</li> 
+						</ul>  
+					</section>
+					
+				</aside>
+			</div>
+    	</div>
+		<footer>
+			<div class="etc_menu"> 
+				<div class="top_container">  
+					<ul>	
+						<li class="blind">기타 메뉴 </li>
+						<li>회사소개</li>
+						<li>광고 · 제휴문의</li>
+						<li>이용약관</li>
+						<li>개인정보 취급/처리 방침</li>
+						<li>법적고지</li>
+						<li>이메일 무단수집거부</li>
+					</ul>
+				</div>
+			</div>  
+			<div class="top_container   _footer"> 	   
+				1. 콘텐츠의 명칭 : 법률정보 &nbsp;&nbsp; 2. 콘텐츠의 제작 및 표시 : 2006년 2월 17일(업그레이드 콘텐츠의 경우 갱신일) &nbsp;&nbsp; 3. 콘텐츠 제작자 : ㈜로앤비  &nbsp;&nbsp;  4. 콘텐츠의 이용조건 : <a href="/support/agree_use.asp" class="red_bott">이용약관</a> 및 로앤비 <a href="/support/serviceInfo_member.asp" class="red_bott">서비스안내</a>와 같음 (무단 복제금지) &nbsp;&nbsp;5. 콘텐츠의 보호기간 : ㈜로앤비 사이트의 모든 콘텐츠는 「콘텐츠산업 진흥법」에 따라 제작 또는 갱신일로부터 5년간 보호됨
+				<div>Thomson reuters</div>
+				<div>Copyright ⓒ 1998~2016 <b>LAWnB</b>. All Rights Reserved.</div>
+			</div>            
+		</footer>
+		<div id="bg_screen"></div>
+		<script type="text/javascript">  
+			setHeight_under();			
+		</script>
+	</div>
+</div> 
+</body>
+</html>

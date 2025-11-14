@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../js/commonjs.js?sdd"></script>
+<script language="javascript">
+<!--
+	 
+	function resizeComment(){ 
+			setHeight_under();
+			$(".right_container").removeClass('slide_mov_right'); 
+		}
+	$(function () {
+			$('.law .submain_group.title').on('click', '.btn_more', function(){  
+				$("#lawbook_info_popup").show();  
+				$(".base_popup").show();
+			});
+			$('.law .submain_group.title').on('click', '.btn_close_pop', function(){  
+				$("#lawbook_info_popup").hide();  
+				$(".base_popup").hide();
+			});
+	});
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_mainContainer">
+	<div id="wrap" >
+		<header> 
+			<div class="top_container  ">  
+				<a href="/maf/poc/app/homepage"><h1>로앤비</h1></a>
+				<div id="t_search" class="search_container">
+					<h2>통합검색 영역</h2>
+					<div class="search_inner">
+						<form  action="" > 
+						<div class="search_left">
+							통합검색
+						</div>
+						<div class="search_center">
+							<input type="search" name="" id="" >
+						</div>
+						<div class="search_right"><span  class="more_btn">more</span></div>
+						<input type="button" value="Search " id="searchButton" class="search_btn">
+						</form>
+					</div>
+				</div>
+				<div id="indiv_area" class="indiv_container">
+					<span alt="나의폴더">나의폴더<i class="icon-myfolder" data-icon="&#xe91a;"></i></span>
+					<span alt="히스토리">히스토리<i class="icon-history" data-icon="&#xe916;"></i></span>
+					<span alt="알림설정">알림설정<i class="icon-alert" data-icon="&#xe918;"></i><em>9+</em></span>
+					<span alt="질문내역">문의내역<i class="icon-question" data-icon="&#xe919;"></i></span>
+					<span alt="나의정보">나의정보<i class="icon-myinfo" data-icon="&#xe917;"></i></span>
+				</div>
+			</div>
+			<nav> 
+				<dl id="main_menu" class="mmenu">
+					<dt class="blind">메인 메뉴</dt> 
+					<dd>
+						<a href="#"><span>판례</span></a>
+					</dd>
+					<dd class="currentTab" >
+						<a href="#"><span>법규</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>심판·결정·해석</span></a>
+					</dd>
+					<dd >
+						<a href="#"><span>문헌</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>법조인</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>기업법무</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>서식</span></a>
+					</dd>
+					<dd>
+						<a href="#"><span>뉴스·칼럼</span></a>
+					</dd>
+				</dl>      
+			</nav>        	
+		</header> 
+		<div class="submenu_group" style="">
+			<div>
+				<dl>
+					<dd><a href="">판례</a></dd>
+					<dd><a href="">판례디렉토리</a></dd> 
+				</dl>
+				<dl>
+					<dd><a href="">법령</a></dd>
+					<dd><a href="">행정규칙</a></dd>
+					<dd><a href="">입법동향</a></dd>
+					<dd><a href="">조약</a></dd>
+				</dl>
+				<dl>
+					<dd><a href="">특허 심판례</a></dd>
+					<dd><a href="">결정례</a></dd>
+					<dd><a href="">유권해석</a></dd>
+				</dl>
+				<dl>
+					<dd><a href="">논문평석</a></dd>
+					<dd><a href="">주석서</a></dd>
+					<dd><a href="">E-book</a></dd>
+					<dd><a href="">법률용어</a></dd>
+				</dl>
+				<dl>
+					<dd><a href="">법조인명록</a></dd>
+					<dd><a href="">조직도</a></dd>
+					<dd><a href="">법률사무소</a></dd>
+					<dd>법조기관 안내</dd>
+				</dl>
+				<dl>
+					<dd>로펌 리포트</dd>
+					<dd>세무정보</dd>
+					<dd>기업정보</dd>
+				</dl>
+				<dl>
+					<dd>법률서식</dd>
+					<dd>비즈폼 서식</dd>
+				</dl>
+				<dl>
+					<dd>뉴스</dd>
+					<dd>칼럼</dd>
+				</dl>
+			</div>
+			<div class="ad_area">ss</div>
+		</div>
+		<div id="container" class="two-con submain law">
+			<div id="breadcrumb" class="navi_area">
+				<div>Home > 법규 > 법령</div>
+				<div class="group_indivi_btn"><a href="">로그인</a><a href="">개인화님</a> </div>
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div id="container_inner">
+				<div class="left_container">  
+				</div>
+				<article class="main_container"> 
+					<div class="main_container_inner">
+						<div id="search_submain" class="submain_group">
+							<h3>법령 검색</h3>
+							<div class="search_div">
+								<form id="searchForm" method="post" action="CaseList">
+								<div class="search_input">
+									<label>기본검색</label>
+									<input type="search" id="sWord" name="sWord"  placeholder="검색어">
+									<div class="except">
+									<input type="search" name="sWord1" placeholder="제외어">
+									</div>
+								</div> 
+								<ol class="check_area mgl10">
+									<li><input type="radio" class="sType2List" value="0"><label>현행 </label></li>
+									<li><input type="radio" class="sType2List" value="32"><label>현행+연혁+폐지</label></li> 
+								</ol> 
+								<div class="detail_area_open _open" id="detail_area">
+									<ul>
+										<li>
+											<label>법령명</label>
+											<input type="text" id="sWorkArea" name="sWorkArea" >
+										</li>
+										<li class="half">
+											<label>조문제목</label>
+											<input type="text" id="sWorkArea" name="sWorkArea" >
+										</li>
+										<li class="half">
+											<label>조문내용</label>
+											<input type="text" id="sWorkArea" name="sWorkArea" >
+										</li>
+										<li class="half">
+											<label>부칙</label>
+											<input type="text" id="sWorkArea" name="sWorkArea" >
+										</li>
+										<li class="half">
+											<label>별표서식명</label>
+											<input type="text" id="sWorkArea" name="sWorkArea" >
+										</li> 
+									</ul> 
+									<ul class="third_search">
+										<li><label for="sSubWord1">검색범위</label>
+											<ul>
+												<li><label for="sSubWord1">법령종류</label><input type="checkbox" name="CAT1" checked="" onclick="cat_click1('0')" value="0">전체&nbsp;&nbsp;<input type="checkbox" name="CAT1" checked="" onclick="cat_click1('1')" value="1">법률&nbsp;&nbsp;<input type="checkbox" name="CAT1" checked="" onclick="cat_click1('2')" value="2">대통령령&nbsp;&nbsp;<input type="checkbox" name="CAT1" checked="" onclick="cat_click1('2')" value="2">총리령/부령&nbsp;&nbsp;<input type="checkbox" name="CAT1" checked="" onclick="cat_click1('2')" value="2">기타</li>
+												  
+												<li class="mgt10 ">
+													<label>일자 </label><input type="radio" id="" name="">공포일자&nbsp;&nbsp;<input type="radio" id="" name="">시행일자 &nbsp;&nbsp;
+													<input type="number" id="sUnivS" name="sUnivS" title="시작일" style="width:80px" placeholder="20160101"> ~ <input type="number" id="sUnivE" name="sUnivE" title="종료일" style="width:80px" placeholder="20161231"> <div class="btn-group"><button type="button" class="btn btn-square ">최근 1년</button> <button type="button" class="btn btn-square">최근 3년</button> <button type="button" class="btn btn-square">최근 5년</button></div>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</div>	
+								<div class="btn_area"><input type="submit" id="searchBtn" value="검색"> <span class="_cancel"><i class="icon-16" data-icon="&#xe90e;"></i>입력초기화</span></div>
+								</form>
+							</div> 
+						</div>
+						<div  class="submain_group title"> 
+							<h3>나의 법규집<div class="btn_more">사용방법 안내</div></h3> 
+							<ul class="directory_list mylaw">
+								<li><em  class="favi_icon"><i class="icon-star starfull" ></i></em><a href="1" >국제도로 면세통과 증서의 담보하에 행하는 화물 국제도로 면세통과 증서의 담보하에 행하는 화물</a></li>
+								<li><em  class="favi_icon"><i class="icon-star starfull" ></i></em><a href="2">민사소송법</a></li>
+								<li><em  class="favi_icon"><i class="icon-star starfull" ></i></em><a href="3">특허법 </a></li>
+								<li><em  class="favi_icon"><i class="icon-star starfull" ></i></em><a href="4">특허법 시행령</a></li> 
+								<li><em  class="favi_icon"><i class="icon-star starfull" ></i></em><a href="5">도로교통법</a></li>
+								<li><em  class="favi_icon"><i class="icon-star starfull" ></i></em><a href="5">민법</a></li>
+								<li><em  class="favi_icon"><i class="icon-star starfull" ></i></em><a href="5">형법</a></li> 
+							</ul>
+							<div class="info_lawbook">아직 등록된 나의 법규가 없습니다. <br>나의 법규집에 법규를 입력해 두면 보다 편리하게 본문으로 이동할 수 있습니다. <br>나의 법규집은 법령, 행정규칙 및 조약 본문 상단에서 선택할 수 있으며, 법규는 30개까지 지정할 수 있습니다. 
+							</div>
+							<div class="popup_win" id="lawbook_info_popup">
+								<div  class="base_popup2">
+									<div class="top_title " >
+										<span>사용방법 안내</span>
+										<div class="top_title_group"> 
+											<div class="btn_close_pop">닫기<i class="icon-close" data-icon="&#xe915;"></i></div>
+										</div>
+									</div>
+									<div class="info">나의 법규집에 법규를 입력해 두면 보다 편리하게 본문으로 이동할 수 있습니다. <br><br>나의 법규집은 법령, 행정규칙 및 조약 본문팝업화면의 상단 별표를 클릭해 선택할 수 있습니다. <br><br>법규, 행정규칙, 조약 각각 30개까지 지정할 수 있습니다.</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="main_container_view">
+						<div class="main_container_view_inner">
+							 
+						</div>
+					</div>
+				</article> 
+				<aside class="right_container">
+					<section class="calc_info">  
+						<h4>LAWnB 검색연산자 안내<span class="btn_more"><i class="icon_open"  ></i>열기</span></h4> 
+						<div>
+							<table>
+								<tr>
+									<td width="50%"><span>AND 검색</span><br>이사회 감사<br>이사회 & 감사<br>이사회 AND 감사</td>
+									<td>"이사회"와 "감사"가 모두 포함된 문서</td>
+								</tr>
+								<tr>
+									<td ><span>OR 검색</span><br>이사회 + 감사<br>이사회 OR 감사</td>
+									<td>"이사회"와 "감사" 중 어느 하나라도 포함된 문서</td>
+								</tr>
+								<tr>
+									<td ><span>NOT 검색</span><br>[검색어]이사회 <br>[제외어]감사<br>이사회 ! 감사</td>
+									<td>"이사회"가 포함되어 있는 문서 중 "감사"가 포함되지 않은 문서</td>
+								</tr>
+								<tr>
+									<td ><span>EQUAL 검색</span><br>“이사회 감사”</td>
+									<td>"이사회 감사" 라는 검색어와 완전히 일치하는 구문이 있는 문서</td>
+								</tr>
+								<tr>
+									<td ><span>NEAR 검색</span><br>“이사회 감사”~10</td>
+									<td>"이사회"와 "감사" 사이에 문자가 10글자 이하인 문서</td>
+								</tr>
+							</table>
+						</div>
+					</section> 
+					<section  >  
+						<div class="right_button">법조인명록 등록 / 수정</div>
+						<div class="right_button">승소판결문 등록</div> 
+					</section> 
+					<section >
+						<h4>최근 통과의안 </h4>
+						<ul>
+							<li><a href="21" >[2005190] 병역법 일부개정법률안(대안)(국방위원장)</li> 
+							<li><a href="21" >[2005192] 제348회국회(임시회) 회기결정의 건(국회운영위원장)</li> 
+							<li><a href="21" >[2005190] 병역법 일부개정법률안(대안)(국방위원장)</li> 
+							<li><a href="21" >[2005192] 제348회국회(임시회) 회기결정의 건(국회운영위원장)</li> 
+							<li><a href="21" >[2005190] 병역법 일부개정법률안(대안)(국방위원장)</li> 
+							<li><a href="21" >[2005192] 제348회국회(임시회) 회기결정의 건(국회운영위원장)</li> 
+							<li><a href="21" >[2005190] 병역법 일부개정법률안(대안)(국방위원장)</li> 
+							<li><a href="21" >[2005192] 제348회국회(임시회) 회기결정의 건(국회운영위원장)</li> 
+							<li><a href="21" >[2005190] 병역법 일부개정법률안(대안)(국방위원장)</li> 
+							<li><a href="21" >[2005192] 제348회국회(임시회) 회기결정의 건(국회운영위원장)</li> 
+						</ul>   
+					</section>
+				</aside>
+			</div>
+    	</div>
+		<footer>
+			<div class="etc_menu"> 
+				<div class="top_container">  
+					<ul>	
+						<li class="blind">기타 메뉴 </li>
+						<li>회사소개</li>
+						<li>광고 · 제휴문의</li>
+						<li>이용약관</li>
+						<li>개인정보 취급/처리 방침</li>
+						<li>법적고지</li>
+						<li>이메일 무단수집거부</li>
+					</ul>
+				</div>
+			</div>  
+			<div class="top_container   _footer"> 	   
+				1. 콘텐츠의 명칭 : 법률정보 &nbsp;&nbsp; 2. 콘텐츠의 제작 및 표시 : 2006년 2월 17일(업그레이드 콘텐츠의 경우 갱신일) &nbsp;&nbsp; 3. 콘텐츠 제작자 : ㈜로앤비  &nbsp;&nbsp;  4. 콘텐츠의 이용조건 : <a href="/support/agree_use.asp" class="red_bott">이용약관</a> 및 로앤비 <a href="/support/serviceInfo_member.asp" class="red_bott">서비스안내</a>와 같음 (무단 복제금지) &nbsp;&nbsp;5. 콘텐츠의 보호기간 : ㈜로앤비 사이트의 모든 콘텐츠는 「콘텐츠산업 진흥법」에 따라 제작 또는 갱신일로부터 5년간 보호됨
+				<div>Thomson reuters</div>
+				<div>Copyright ⓒ 1998~2016 <b>LAWnB</b>. All Rights Reserved.</div>
+			</div>       
+		</footer>
+		<div id="bg_screen"></div>
+		<script type="text/javascript">  
+			setHeight_under();			  
+		</script>
+	</div>
+</div> 
+</body>
+</html>

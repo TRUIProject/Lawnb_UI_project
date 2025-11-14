@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+	<meta name="viewport" content="width=1140">
+	<title> 로앤비 </title>
+	<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+	<link rel="stylesheet" type="text/css" href="../css/_next_default.css" />
+	<link rel="stylesheet" type="text/css" href="../css/_next_layout.css" />
+	<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />
+	<script src="../Scripts/lib/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="../js/commonjs.js?sdd"></script>
+	<script language="javascript">
+<!--
+
+		function resizeComment() {
+			setHeight_under();
+			$(".right_container").removeClass('slide_mov_right');
+		}
+		var expanded = false;
+		function showCheckboxes() {
+			if (!expanded) {
+				$("#checkboxes").show();
+				expanded = true;
+			} else {
+				$("#checkboxes").hide();
+				expanded = false;
+			}
+		}
+
+		$(document).ready(function () {
+			$('.submain_tap li a').click(function () {
+				$('.submain_tap li').not(this).removeClass('active');
+				$(this).parent('li').addClass('active');
+			});
+		});
+
+
+		function mainTap1() {
+			$('._tab1').show();
+			$('._tab2').hide();
+            $('._tab3').hide();
+		};
+
+		function mainTap2() {
+			$('._tab1').hide();
+			$('._tab2').show();
+            $('._tab3').hide();
+		};
+
+        function mainTap3() {
+            $('._tab1').hide();
+            $('._tab2').hide();
+            $('._tab3').show();
+		};
+
+		function moreSearchFrom() {
+			$('.submain_search._option').toggle();
+			$('.submain_search_more span').toggle();
+		};
+
+		//-->
+	</script>
+
+</head>
+
+<body onresize="resizeComment();">
+	<div id="co_mainContainer" class="nomobile">
+		<div id="wrap" class="">
+			<header>
+				<div class="top_container  ">
+					<a href="/"><h1>로앤비 1</h1></a>
+					<div id="t_search" class="search_container">
+						<h2>통합검색 영역</h2>
+						<div class="search_inner">
+							<form method="post" id="totalSearchForm" action="../Info/ContentTotal" onsubmit="return getTotalSearch();">
+								<div class="search_left hide">
+									<label class="hide">통합검색  </label>
+								</div>
+								<div class="search_center">
+									<input type="search" id="qu" name="qu" value="" title="통합검색" autocomplete="off">
+								</div>
+								<div class="search_right">
+									<span class="more_btn"><i class="icon-more" data-icon=""></i><span class="hide">more</span></span>
+
+									<!-- 검색 연산자 -->
+									<div class="calc_btn">
+										<i class="icon-info" data-icon="" onclick="searchCalcInfo();" alt="검색연산자 안내">
+											<span class="blind">검색 연산자 안내</span>
+										</i>
+									</div>
+								</div>
+								<div id="searchButton" class="search_btn"><i class="icon-" data-icon=""></i><span class="hide">검색</span></div>
+							</form>
+						</div>
+
+						<div class="btn_search_result"><i class="icon-" data-icon=""></i><span>통합검색 결과 맵&ZeroWidthSpace;</span></div>
+						<div class="search_layer_outer" style="display: none;">
+							<div class="search_layer" style="display: none;">
+								<div class="search_layer_list _done ">
+									<div class="txt_info" style="display:none"> </div>
+									<ul>
+									</ul>
+									<div id="result_target"></div>
+								</div>
+								<div class="noti_txt"><i class="icon-" data-icon=""></i> 공용 PC에서는 개인정보보호를 위하여 반드시 로그아웃을 해주세요.</div>
+								<div class="search_layer_foot">
+									<div class="fl" onclick="setDeleteWord()">기록삭제</div>
+									<div class="fr">
+										최근검색어저장 <div class="btn-group"><button type="button" class="btn btn_orange _select" onclick="setLatestWordChk('0')">ON</button><button type="button" class="btn btn-default" onclick="setLatestWordChk('1')">OFF</button></div>
+										자동완성 <div class="btn-group"><button type="button" class="btn btn_orange _select" onclick="setSuggestWordChk('0')">ON</button><button type="button" class="btn btn-default" onclick="setSuggestWordChk('1')">OFF</button></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="layer_calc_outer" style="display: none;">
+							<div class="box_calc_info">
+								<h3>LAWnB 검색연산자 안내</h3>
+								<div class="box_calcDL">
+									<dl>
+										<dt>AND</dt>
+										<dd>
+											<span>"이사회"와 "감사"가 모두 포함된 문서</span>
+											<span>- 예시) 이사회 감사, 이사회 AND 감사</span>
+										</dd>
+									</dl>
+									<dl>
+										<dt>OR</dt>
+										<dd>
+											<span>"이사회"와 "감사" 중 어느 하나라도 포함된 문서</span>
+											<span>- 예시) 이사회 OR 감사</span>
+										</dd>
+									</dl>
+									<dl>
+										<dt>NOT</dt>
+										<dd>
+											<span>"이사회"가 포함되고 "감사"가 포함되지 않은 문서</span>
+											<span>- 예시) [검색어]이사회 [제외어]감사, 이사회 NOT 감사</span>
+										</dd>
+									</dl>
+									<dl>
+										<dt>EQUAL</dt>
+										<dd>
+											<span>"이사회 감사"라는 검색어와 완전일치하는 구문이 있는 문서</span>
+											<span>- 예시) “이사회 감사”</span>
+										</dd>
+									</dl>
+									<dl>
+										<dt>NEAR </dt>
+										<dd>
+											<span>"이사회"와 "감사" 사이에 단어(형태소)가 10개 이하인 문서</span>
+											<span>- 예시) “이사회 감사”~10</span>
+										</dd>
+									</dl>
+								</div>
+							</div>
+						</div>
+
+
+
+					</div>
+					<script type="text/javascript">
+						$(document).ready(function () {
+							// 2022.04 UI 개선 수정 작업
+							if ("Success" == "Success" || "" == "Success") {
+								if (localStorage.getItem("mySearchOnOff") != null) {
+									//console.log("localstorage - " + localStorage.getItem("mySearchOnOff"));
+									chgMySearchOnOff(localStorage.getItem("mySearchOnOff"));
+								}
+								else {
+									//console.log("myLawnbSearchOnOff - " + localStorage.getItem("mySearchOnOff"));
+									//localStorage.setItem("mySearchOnOff", "Y");
+									chgMySearchOnOff("Y");
+								}
+							}
+							else {
+								chgMySearchOnOff("N");
+							}
+						});
+					</script>
+					<div id="indiv_area" class="indiv_container">
+						<span alt="나의 검색" onclick="javascript:mydesk.myPersonalization('MYSEARCH'); return false;" id="spanMySearch">
+							나의검색
+							<!-- 2022.04 UI 개선 수정 작업-->
+							<!--<em class="icon_mySearch_on">ON</em>-->
+							<em class="icon_mySearch_on">ON</em>
+							<i class="newic-mysearch_main"></i>
+						</span>
+
+						<span alt="나의폴더" onclick="javascript:mydesk.myPersonalization('MY01'); return false;">나의폴더<i class="icon-icon_myfolder" data-icon=""></i></span>
+						<span alt="하이라이트&amp;메모" onclick="javascript:mydesk.myPersonalization('MYHIGHLIGHT'); return false;" class="indiv_highlight">하이라이트&amp;메모<i class="newic-h_light"></i></span>
+						<span alt="히스토리" onclick="javascript:mydesk.myPersonalization('MY02'); return false;">히스토리<i class="icon-icon_history" data-icon=""></i></span>
+						<span alt="알림설정" onclick="javascript:mydesk.myPersonalization('MY03'); return false;">
+							알림<i class="icon-icon_alert" data-icon=""></i>
+							<em id="alertCount" style="display: none;">0</em>
+						</span>
+						<span alt="질문내역" onclick="javascript:Questions('B01'); return false;">문의내역<i class="icon-icon_question" data-icon=""></i></span>
+						<span alt="나의정보" onclick="javascript:MyInfo(); return false;">나의정보<i class="icon-icon_myinfo" data-icon=""></i></span>
+					</div>
+
+
+				</div>
+				<nav>
+					<div class="nav_menuBox">
+						<dl id="main_menu" class="mmenu">
+							<dd>
+								<a href="#"><span>판례</span><i class="icon_open"></i></a>
+								<ul class="menu_sub">
+									<li><a href="../Info/ContentMain/Case">판례&ZeroWidthSpace;</a></li>
+									<li><a href="/html/판례.천자평석_submain.html">천자평석</a></li>
+									<li><a href="/html/판례.판례연구_submain.html">판례연구</a></li>
+								</ul>
+							</dd>
+							<dd>
+								<a href="#"><span>법규</span><i class="icon_open"></i></a>
+								<ul class="menu_sub">
+									<li><a href="../Info/ContentMain/Law">법령</a></li>
+									<li><a href="../Info/ContentMain/AdminRule">행정규칙</a></li>
+									<li><a href="../Info/ContentMain/LawMake">입법동향</a></li>
+									<li><a href="../Info/ContentMain/Treaty">조약</a></li>
+								</ul>
+							</dd>
+							<dd>
+								<a href="#"><span>심판·결정·해석</span><i class="icon_open"></i></a>
+								<ul class="menu_sub">
+									<li><a href="../Info/ContentMain/PatentCase">특허심판례</a></li>
+									<li><a href="../Info/ContentMain/AdminCase">결정례</a></li>
+									<li><a href="../Info/ContentMain/InterpretRule">유권해석</a></li>
+								</ul>
+							</dd>
+							<dd>
+								<a href="#"><span>주석서</span><i class="icon_open"></i></a>
+								<ul class="menu_sub">
+									<li><a href="../Info/ContentMain/Jusuk">기본법 주석서</a></li>
+									<li><a href="../Info/ContentMain/ONJU">온주&ZeroWidthSpace;</a></li>
+								</ul>
+							</dd>
+							<dd>
+								<a href="#"><span>문헌</span><i class="icon_open"></i></a>
+								<ul class="menu_sub">
+									<li><a href="../Info/ContentMain/Doc">논문</a></li>
+									<li><a href="/html/문헌.저널_submain.html">저널</a></li>
+									<li><a href="/html/문헌.글로벌법제동향_submain.html">글로벌법제동향</a></li>
+									<li><a href="../Info/ContentMain/LawDic">법률사전</a></li>
+									<!--<li><a href="../Info/ContentMain/Ebook">(X예정)E-book</a></li>-->
+								</ul>
+							</dd>
+							<dd>
+								<a href="#"><span>법조인</span><i class="icon_open"></i></a>
+								<ul class="menu_sub">
+									<li><a href="../Info/ContentMain/Lawyer">법조인명록</a></li>
+									<li><a href="../Info/ContentMain/Org">조직도</a></li>
+									<li><a href="../Info/ContentMain/LawFirm">로펌</a></li>
+									<li><a href="../Info/ContentMain/OrgInfo">법조기관</a></li>
+								</ul>
+							</dd>
+							<dd>
+								<a href="#"><span>기업법무</span><i class="icon_open"></i></a>
+								<ul class="menu_sub">
+									<li><a href="../Info/ContentMain/LawFirmReport">로펌 리포트</a></li>
+									<li><a href="../Info/ContentMain/Tax">세무·인사</a></li>
+									<li><a href="../Info/ContentMain/BizInfo">기업정보</a></li>
+									<li><a href="../Info/ContentMain/Sosong">소송비용계산</a></li>
+								</ul>
+							</dd>
+							<dd>
+								<a href="#"><span>서식</span><i class="icon_open"></i></a>
+								<ul class="menu_sub">
+									<li><a href="../Info/ContentMain/LawForm">전문법률서식</a></li>
+									<li><a href="../Info/ContentMain/BizForm">비즈폼 서식</a></li>
+								</ul>
+							</dd>
+							<dd>
+								<a href="#"><span>뉴스·칼럼</span><i class="icon_open"></i></a>
+								<ul class="menu_sub">
+									<li><a href="../Info/ContentMain/News">뉴스</a></li>
+									<li><a href="../Info/ContentMain/Column">칼럼</a></li>
+									<li><a href="Index">LAWnB Editor</a></li>
+								</ul>
+							</dd>
+							<dd class="btn_menu_all">
+								<a href="#" onclick="showAllMenu();">메뉴 전체보기  <i></i></a>
+							</dd>
+						</dl>
+						<div class="box_menu_all">
+							<div class="btn_close_pop" onclick="showAllMenu();">닫기<i class="icon-close" data-icon=""></i></div>
+							<ul>
+								<!--<li><strong>판례</strong></li>-->
+								<li><a href="../Info/ContentMain/Case">판례</a></li>
+							</ul>
+							<ul>
+								<!--<li><strong>법규</strong></li>-->
+								<li><a href="../Info/ContentMain/Law">법령</a></li>
+								<li><a href="../Info/ContentMain/AdminRule">행정규칙</a></li>
+								<li><a href="../Info/ContentMain/LawMake">입법동향</a></li>
+								<li><a href="../Info/ContentMain/Treaty">조약</a></li>
+							</ul>
+							<ul>
+								<!-- <li><strong>심판·결정·해석</strong></li>-->
+								<li><a href="../Info/ContentMain/PatentCase">특허심판례</a></li>
+								<li><a href="../Info/ContentMain/AdminCase">결정례</a></li>
+								<li><a href="../Info/ContentMain/InterpretRule">유권해석</a></li>
+							</ul>
+							<ul>
+								<!-- <li><strong>문헌</strong></li>-->
+								<li><a href="../Info/ContentMain/Doc">평석·논문</a></li>
+								<li><a href="../Info/ContentMain/Jusuk">주석서</a></li>
+								<li><a href="../Info/ContentMain/Ebook">E-book</a></li>
+								<li><a href="../Info/ContentMain/LawDic">법률사전</a></li>
+							</ul>
+							<ul>
+								<!-- <li><strong>법조인</strong></li>-->
+								<li><a href="../Info/ContentMain/Lawyer">법조인명록</a></li>
+								<li><a href="../Info/ContentMain/Org">조직도</a></li>
+								<li><a href="../Info/ContentMain/LawFirm">법률사무소</a></li>
+								<li><a href="../Info/ContentMain/OrgInfo">법조기관 안내</a></li>
+							</ul>
+							<ul>
+								<!-- <li><strong>기업법무</strong></li>-->
+								<li><a href="../Info/ContentMain/LawFirmReport">로펌 리포트</a></li>
+								<li><a href="../Info/ContentMain/Tax">세무·인사</a></li>
+								<li><a href="../Info/ContentMain/BizInfo">기업정보</a></li>
+								<li><a href="../Info/ContentMain/Sosong">소송비용계산</a></li>
+							</ul>
+							<ul>
+								<!-- <li><strong>서식</strong></li>-->
+								<li><a href="../Info/ContentMain/LawForm">전문법률서식</a></li>
+								<li><a href="../Info/ContentMain/BizForm">비즈폼 서식</a></li>
+							</ul>
+							<ul>
+								<!-- <li><strong>뉴스·칼럼</strong></li> -->
+								<li><a href="../Info/ContentMain/News">뉴스</a></li>
+								<li><a href="../Info/ContentMain/Column">칼럼</a></li>
+								<li><a href="Index">LAWnB Editor</a></li>
+							</ul>
+							<ul>
+								<!-- <li><strong>온주</strong></li>-->
+								<li><a href="../Info/ContentMain/ONJU">온주</a></li>
+							</ul>
+							<ul>
+								<li><a href="javascript:OnetoOneContactUs('B02');">판결문 등재신청&ZeroWidthSpace;</a></li>
+								<li><a href="javascript:showOriginalView('/Lawyer/Management/');">법조인명록 등록/수정&ZeroWidthSpace;</a></li>
+								<li><a href="javascript:OnetoOneContactUs('B04');">승소판결문 등록&ZeroWidthSpace;</a></li>
+								<li><a href="javascript:OnetoOneContactUs('B01');">1:1문의&ZeroWidthSpace;</a></li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+
+			</header>
+
+
+
+			<script type="text/javascript" src="/Scripts/Editor/Index.js?v=2022060147"></script>
+			<script type="text/javascript">
+				var LEM_No = '';
+				var editorKeyword = '';
+				$(document).ready(function () {
+					SetTitle();
+				});
+
+				// 임시 추가
+				$(document).ready(function () {
+					$('.move_month span').click(function () {
+						$(this).addClass('active');
+						$(this).siblings().removeClass('active');
+					});
+				});
+			</script>
+
+			<input type="hidden" id="hdnIsTablet" value="N">
+			<div id="container" class="two-con submain news">
+				<div id="breadcrumb" class="navi_area">
+					<div><a href="/">Home</a> <i class="icon-" data-icon=""></i> 뉴스·칼럼 : <a href="Index">LAWnB Editor</a></div>
+
+					<div class="group_indivi_btn">
+						<span>queenzerg님</span> |
+						<span>Professional ( 개인회원 ) [~2100-12-31] </span>
+						|
+						<a href="/Support/SupportMain" target="Support_center">고객센터</a>
+						<a href="/Login/Logout/" class="btn_logout" onclick="javascript:localStorage.removeItem('mySearchOnOff');">로그아웃</a>
+					</div>
+
+					<span id="right_control" style="display: none;"><i class="icon-2" data-icon=""><span class="blind">오른쪽 영역</span></i></span>
+
+				</div>
+				<h2 class="display_pc" style="line-height: 45px; font-size: 24px; margin-bottom: 12px; margin-left: 13px; text-align: left;">뉴스</h2>
+				<div id="container_inner">
+					<div class="left_container" style="width: 380px; display:block;">
+						<!-- add -->
+						<section>
+							<div class="move_month" id="result_tab"><div><i class="icon-2" data-icon="" onclick="SetDate('2021');"><span class="blind">이전년도</span></i>2022<i class="icon-2 disabled" data-icon=""><span class="blind">다음년도</span></i></div><ul><li><a href="#" onclick="javascript:GetDefaultData('202201',0,'','D'); return false;">1월 <span style="display:none">(4)</span></a></li><li><a href="#" onclick="javascript:GetDefaultData('202202',0,'','D'); return false;">2월 <span style="display:none">(3)</span></a></li><li><a href="#" onclick="javascript:GetDefaultData('202203',0,'','D'); return false;">3월 <span style="display:none">(6)</span></a></li><li><a href="#" onclick="javascript:GetDefaultData('202204',0,'','D'); return false;">4월 <span style="display:none">(5)</span></a></li><li class="this-page"><a href="#" onclick="javascript:GetDefaultData('202205',0,'','D'); return false;">5월 <span style="display:none">(1)</span></a></li><li style="color: #ddd;">6월 <span style="display:none">(0)</span></li><li style="color: #ddd;">7월 <span style="display:none">(0)</span></li><li style="color: #ddd;">8월 <span style="display:none">(0)</span></li><li style="color: #ddd;">9월 <span style="display:none">(0)</span></li><li style="color: #ddd;">10월 <span style="display:none">(0)</span></li><li style="color: #ddd;">11월 <span style="display:none">(0)</span></li><li style="color: #ddd;">12월 <span style="display:none">(0)</span></li></ul></div>
+						</section>
+						<section id="MonthlyIssue"><h4>LAWnB Editor</h4><div class="mgt10 pr">2022년 05월의 다른 이슈 <span>열기</span></div><ul><li><a href="#" onclick="javascript:GetDefaultData('','287','','I'); return false;">보이스피싱범이 피해자 명의 '공동인증서'로 비대면 대출받은 경우… 금융사 책임은?</a></li> </ul></section>                <section>
+							<h4 id="KeywordTitle">2022년 05월의 키워드</h4>
+							<p id="KeywordLayer"><span onclick="javascript:GetDefaultData('', 0, '보이스피싱', 'K'); return false;">보이스피싱</span> <span onclick="javascript:GetDefaultData('', 0, '공동인증서', 'K'); return false;">공동인증서</span> <span onclick="javascript:GetDefaultData('', 0, '비대면대출', 'K'); return false;">비대면대출</span> <span onclick="javascript:GetDefaultData('', 0, '전자서명', 'K'); return false;">전자서명</span> <span class="KeywordLevel1" onclick="javascript:GetDefaultData('', 0, '비대면실명확인', 'K'); return false;">비대면실명확인</span> </p>
+						</section>
+					</div>
+					<article class="main_container" style="margin-right: 0px; margin-left: 380px !important;">
+						<div class="main_container_inner">
+							<div class="issue_result_list" id="TopIssue" style="display: none;"></div><!-- Top Issue -->
+
+							<div class="submain_issue">
+								<div class="issue_tit" id="TitleIssue">보이스피싱범이 피해자 명의 '공동인증서'로 비대면 대출받은 경우… 금융사 책임은?</div>
+								<div class="issue_comment"><div id="SummaryIssue"><img src="/lbimg/LawnbEditor/2022/0509/200881.PNG" class="img">공인인증서가 폐지된 후 '공동인증서'에 의한 비대면 대출에서 금융사는 금융실명법 등에 따라 대출신청자의 본인여부를 엄격히 확인할 의무가 있다는 판결이 나왔다.</div></div>
+								<span class="date" id="RegDateIssue">Edit Date : 2022-05-09</span>
+							</div>
+
+							<div id="search_results" class="submain_block">
+								<ul class="list_type_box type_issue line2">
+									<li>
+										<a onclick="javascript:PopupIssue('N0009B08DC7862BF');return false;">
+											<span id="span_N0009B08DC7862BF">뉴스</span>
+											<div class="issue_h2">[판결] 보이스피싱범이 피해자 명의 '공동인증서'로 비대면 대출받은 경우… 금융사 책임은?</div>
+											<div class="issue_content"> 금융사, 신청자 본인여부 엄격 확인 의무 있다 공인인증서가 폐지된 후 ..'공동인증서'에 의한 비대면 대출에서 금융사는 금융실명법 등에 따라 대출신청자의 본인여부를 엄격히 확인할 의무가 있다는 판결이 나왔다... 법원은 특히 금융사가 본인확인 의무를 이행했는지 판단하는 기준으로 금융위원회의 ..'비대면 실명확인 방안'을 제시했는데, 향후 보이스..</div>
+										</a>
+									</li>
+									<li>
+										<a onclick="javascript:PopupIssue('N0009B08DC7862BF');return false;">
+											<span id="span_N0009B08DC7862BF">뉴스</span>
+											<div class="issue_h2">[판결] 보이스피싱범이 피해자 명의 '공동인증서'로 비대면 대출받은 경우… 금융사 책임은?</div>
+											<div class="issue_content"> 금융사, 신청자 본인여부 엄격 확인 의무 있다 공인인증서가 폐지된 후 ..'공동인증서'에 의한 비대면 대출에서 금융사는 금융실명법 등에 따라 대출신청자의 본인여부를 엄격히 확인할 의무가 있다는 판결이 나왔다... 법원은 특히 금융사가 본인확인 의무를 이행했는지 판단하는 기준으로 금융위원회의 ..'비대면 실명확인 방안'을 제시했는데, 향후 보이스..</div>
+										</a>
+									</li>
+									<li>
+										<a onclick="javascript:PopupIssue('N0009B08DC7862BF');return false;">
+											<span id="span_N0009B08DC7862BF">뉴스</span>
+											<div class="issue_h2">[판결] 보이스피싱범이 피해자 명의 '공동인증서'로 비대면 대출받은 경우… 금융사 책임은?</div>
+											<div class="issue_content"> 금융사, 신청자 본인여부 엄격 확인 의무 있다 공인인증서가 폐지된 후 ..'공동인증서'에 의한 비대면 대출에서 금융사는 금융실명법 등에 따라 대출신청자의 본인여부를 엄격히 확인할 의무가 있다는 판결이 나왔다... 법원은 특히 금융사가 본인확인 의무를 이행했는지 판단하는 기준으로 금융위원회의 ..'비대면 실명확인 방안'을 제시했는데, 향후 보이스..</div>
+										</a>
+									</li>
+									<li>
+										<a onclick="javascript:PopupIssue('N0009B08DC7862BF');return false;">
+											<span id="span_N0009B08DC7862BF">뉴스</span>
+											<div class="issue_h2">[판결] 보이스피싱범이 피해자 명의 '공동인증서'로 비대면 대출받은 경우… 금융사 책임은?</div>
+											<div class="issue_content"> 금융사, 신청자 본인여부 엄격 확인 의무 있다 공인인증서가 폐지된 후 ..'공동인증서'에 의한 비대면 대출에서 금융사는 금융실명법 등에 따라 대출신청자의 본인여부를 엄격히 확인할 의무가 있다는 판결이 나왔다... 법원은 특히 금융사가 본인확인 의무를 이행했는지 판단하는 기준으로 금융위원회의 ..'비대면 실명확인 방안'을 제시했는데, 향후 보이스..</div>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<!-- Bottom Issue -->
+
+						</div>
+						<div class="main_container_view"> </div>
+					</article>
+					<aside class="right_container">
+						<section id="result_tab"></section>
+
+					</aside>
+				</div>
+				<div class="btn_top_box" style="margin-left: 1195.14px;"><div class="btn_top">Top</div></div>
+			</div>
+
+			<footer>
+
+				<div class="etc_menu">
+					<div class="top_container main">
+						<ul>
+							<li><a href="http://company.lawnb.com/" target="_blank">회사소개/제품소개</a></li>
+							<li><a href="../Support/SupportPolicy?sTab=0" target="Support_center">이용약관</a></li>
+							<li><a href="../Support/SupportPolicy?sTab=5" target="Support_center">개인정보 취급/처리 방침</a></li>
+							<li><a href="../Support/SupportPolicy?sTab=2" target="Support_center">청소년 보호정책</a></li>
+							<li><a href="../Support/SupportPolicy?sTab=4" target="Support_center">법적고지</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="top_container   _footer">
+					1. 콘텐츠의 명칭 : 법률정보 &nbsp;&nbsp; 2. 콘텐츠의 제작 및 표시 : 2006년 2월 17일(업그레이드 콘텐츠의 경우 갱신일) &nbsp;&nbsp; 3. 콘텐츠 제작자 : ㈜로앤비  &nbsp;&nbsp;  4. 콘텐츠의 이용조건 : <a href="/Support/SupportPolicy">이용약관</a> 및 로앤비 <a href="/Support/SupportScale">서비스안내</a>와 같음 (무단 복제금지) &nbsp;&nbsp;5. 콘텐츠의 보호기간 : ㈜로앤비 사이트의 모든 콘텐츠는 「콘텐츠산업 진흥법」에 따라 제작 또는 갱신일로부터 5년간 보호됨
+					<div>Thomson reuters</div>
+					<div>Copyright ⓒ 1998~2022 <b>LAWnB</b>. All Rights Reserved.</div>
+				</div>
+			</footer>
+			<div id="bg_screen" style="height: 962px;">
+				<div class="loading_img"><img src="/images/tr_img_loading_re.gif?v=2022060147"></div>
+				<div id="onju_academy_alert" class="alert_content onju_academy_alert">
+					<div class="sesscion_tit">
+						대학에서 온주를 구독하고 있지 않아서 직접 이용할 수 없으며, <br>RISS 사이트(<a href="https://www.riss.kr" target="_blank">http://www.riss.kr</a>)를 통해서 <br>오후6시~익일 오전9시까지 이용할 수 있습니다.
+						<div class="close_btn"><i class="icon-" data-icon=""><span class="blind">닫기</span></i></div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="popup_kerisalert_area">
+				<div class="kerisalert_are_inner">
+					<div class="inner_login_area">
+						<p class="hide">kriss 시간외 이용불가 안내문구</p>
+						<div class="main_noti">RISS 서비스 이용 가능시간이 아닙니다. </div>
+						<div class="gray_info mgt20">
+							RISS를 통한 로앤비 이용시간은 오후 6시 이후부터 익일 오전 9시까지입니다.
+							<br>서비스 이용가능시간에 다시 이용해 주시기 바랍니다.
+						</div>
+						<div class="btn_area mgt20"><span onclick="close_keris_check();" style="cursor:pointer;font-weight:bold">로앤비 메인 <em style="font-weight:normal;font-size:smaller">(비로그인 이용)</em></span></div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 개인화 알림 상세보기 -->
+			<div id="alert_add_keyw"></div>
+			<!--// 개인화 알림 상세보기 //-->
+			<script type="text/javascript">
+				setHeight_under();
+			</script>
+			<!-- 비즈레터 구독신청 -->
+			<div class="popup_win" style="display:none;" id="BizLetterLayer">
+				<div id="letter_set" style="width:40%">
+					<div class="top_title al">
+						<span>비즈레터 구독신청</span>
+						<div class="top_title_group">
+							<div class="btn_close_pop" onclick="$('#BizLetterLayer').hide();">닫기<i class="icon-close" data-icon=""></i></div>
+						</div>
+					</div>
+					<div class="seperation_group">
+						<div class="letterset_info">
+							<strong>비즈레터</strong> - 최근 법률 이슈와 관련된 로앤비가 보유하고 있는 각종 콘텐츠(판례,법령, 논문 등)를 메일로 제공해 드립니다.
+						</div>
+						<div class="seperation_div" style="width:50%;border-right:0">
+							로앤비 개인/법인 회원인 경우
+							<div class="gray_info">
+								로앤비 ID가 있으시면 통합회원 사이트에 로그인 후 회원정보 &gt; ID관리의 메일링서비스 부분에서 비즈레터 구독을 신청할 수 있습니다.
+							</div>
+							<span class="btn" onclick="MoveMembers('');$('#BizLetterLayer').hide();">내 메일링 서비스 설정</span>
+						</div>
+						<div class="seperation_div">
+							비회원/IP(전용)회원인 경우
+							<div class="gray_info " style="height:110px">로앤비 ID가 없으시면 비회원 메일링 서비스 신청을 통해 비즈레터를 구독을 신청할 수 있습니다. </div>
+							<span class="btn" onclick="MoveMembers('Member/NonMemberMailing');$('#BizLetterLayer').hide();">비회원 메일링 서비스 신청</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="case_comment_info" class="popup_win">
+				<div class="base_popup" style="display:block">
+					<!-- 천자평석위원 -->
+					<div class="title">
+						<span>로앤비 천자평석 집필위원을 모십니다.</span>
+						<div class="btn_close_pop">닫기<i class="icon-close" data-icon=""></i></div>
+					</div>
+					<div class="cont_list">
+						<div class="detail_info">
+							방대한 종합법률정보를 보유, 제공하는 로앤비에서 주요 판례에 대한 평석을 작성해 주실 법률전문가를 모십니다. 우수한 법률전문가님의 많은 신청 바랍니다.
+							<div class="gray_info mgt10">
+								- 자격요건: 판사, 검사, 변호사, 법학교수, 법 관련 박사학위 소지자 등 법률분야 경력 5년 이상<br>- 신청방법: 전화 또는 이메일 문의<br>- 신청문의: 웹마스터  / datacenter.lawnb@tr.com
+							</div>
+							<p class="mgt20 ac" style="font-size:17px;border-top:1px solid #eee;padding-top:10px"><strong>로앤비 천자평석 집필 약관</strong></p>
+							<div>
+								<div class="normal"><em>제1조</em>(목적)  <br>  이 약관은 천자평석의 집필자가 주식회사 로앤비(이하 "로앤비"라 함)에 천자평석을 제공함에 있어 집필자와 로앤비간의 권리의무관계 및 필요한 사항을 정함에 목적이 있습니다. </div>
+								<div class="normal"><em>제2조</em>(용어의 정의)  <br>  이 약관에서 “천자평석”이라 함은 하나의 판례 또는 관련된 여러 판례를 대상으로 사실관계 요약 및 이에관한 평석을 작성한 콘텐츠를 의미합니다.</div>
+								<div class="normal"><em>제3조</em>(저작권의 귀속)  <br>  로앤비에 등록 된 천자평석의 저작권은 원칙적으로 집필자에게 귀속됩니다. 다만 저작재산권 중 전송권과 데이터베이스 기타 디지털 자료의 제작 및 배포에 관한 권리는 로앤비에 귀속됩니다. </div>
+								<div class="normal"><em>제4조</em>(저작권 분쟁)  <br>  등록된 천자평석이 제3자의 저작권을 침해한 것으로 말미암아 발생하는 모든 법적 분쟁에 대한 책임은 해당 천자평석을 제공한 집필자에게 있습니다. </div>
+								<div class="normal"><em>제5조</em>(원고료의 지급 등)  <br>  1. 로앤비에 제공한 천자평석이 최근 5년 이내에 선고된 판결을 대상으로 작성한 것이면<br>- 천자평석 1편당 5만원의 원고료가 지급됩니다. (익월말까지 집필자의 은행계좌로 지급됨)<br>- 로앤비 법조인정보에 천자평석 위원으로 표시해 드립니다.<br>2. 그 이전의 판결을 대상으로 작성된 것이면 원고료 지급은 없으나 로앤비 법조인정보에 천자평석 위원으로 표시해 드립니다. </div>
+								<div class="normal"><em>제6조</em>(천자평석의 수정 및 등록)  <br>  1. 집필자는 본인이 작성한 천자평석이 로앤비 사이트에 등록된 이후에도 필요한 경우 로앤비에 수정 요청을 할 수 있습니다.<br>2. 천자평석 내용 중 글자의 오기(誤記)는 로앤비에서 임의로 수정할 수 있습니다.<br>3. 콘텐츠의 적정한 관리를 위해 천자평석 월 최대 등록건수가 제한 될 수 있습니다.<br>4. 이미 등록된 천자평석과 내용이 상당부분 비슷하거나 기타 사유가 있을 경우 등록이 거절 될 수 있습니다. </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="individual_area" class="popup_win">
+				<div class="container_popup">
+					<div id="popup_login_ask" class="base_popup">
+						<!-- 개인화로그인전 -->
+						<div class="top_title ">
+							<span><i class="icon-" data-icon=""></i> 로그인</span>
+							<div class="top_title_group">
+								<div class="btn_close_pop">닫기<i class="icon-close" data-icon=""></i></div>
+							</div>
+						</div>
+					</div> <!-- 개인화로그인전 -->
+					<div id="divMySearch"></div> <!-- 나의 검색 -->
+					<div id="personal_results"></div> <!-- 히스토리 --><!-- 하이라이트 --><!-- 나의폴더 --><!-- 알림 -->
+
+					<div id="popup_myinfo" class="base_popup">
+						<div class="top_title">
+							<span><i class="icon-" data-icon=""></i> 나의 정보</span>
+							<div class="top_title_group">
+								<div class="btn-group"><button type="button" class="btn btn-default" onclick="javascript:MoveMembers('');return false;">회원정보</button></div>
+								<div class="btn_close_pop">닫기<i class="icon-close" data-icon=""></i></div>
+							</div>
+						</div>
+						<div class="my_state">
+							Professional
+							[ ~ <span>2100-12-31</span> ]
+							<a href="#" onclick="javascript:MoveMembers('');return false;" target="member_regist">유료권한 설정</a>
+						</div>
+
+						<div class="my_set_list">
+
+							<p id="my_info_mailing_title_layer" style="display:none;">메일링 서비스</p>
+							<span id="my_info_email_mailing_layer"></span>
+							<p id="my_info_mobile_title_layer" style="display:none;">모바일 기기 등록 정보</p>
+							<span class="gr_area" id="my_info_mobile_layer" style="display:none;"></span>
+							<p id="my_info_corp_title_layer" style="display:none;">법인 아이디 이용현황</p>
+							<span id="my_info_corp_layer" style="display:none;"></span>
+							<span id="my_info_sub_layer" style="display:none;"> / </span>
+						</div>
+						<div class="my_lawyer">
+							<div id="my_info_my_lawyer_layer" style="display:none;"></div>
+							<div>
+								<div id="my_info_login_layer" style="display:none;">
+									<div>
+										<div class="ac">
+											<div class="btn-group mgt10">
+												<span class="btn btn-default bt-login" onclick="showOriginalView('/Lawyer/Management/');return false;">나의 법조인정보 관리</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div> <!-- 나의정보 -->
+				</div>
+			</div>
+
+
+			<div id="search_map">
+				<div class="map_inner">
+					<div class="top_title">
+						<span><i class="icon-" data-icon=""></i> 통합검색 결과 맵</span>
+						<div class="top_title_group">
+							<div class="btn_close_pop">닫기<i class="icon-close" data-icon=""></i></div>
+						</div>
+					</div>
+					<div class="txt_info"><strong>“”</strong>에 대한 각 메뉴별 검색결과로 이동합니다. </div>
+					<table>
+						<thead>
+							<tr>
+								<th>판례</th>
+								<th>법규</th>
+								<th>심판·결정·해석</th>
+								<th>문헌</th>
+								<th>기업법무</th>
+								<th>서식</th>
+								<th>뉴스·칼럼</th>
+								<th>온주</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="td_totalcnt" onclick="goToCollection('C000')">판례<br><span id="tc_C000">(0)</span></td>
+								<td class="td_totalcnt" onclick="goToCollection('L000')">법령<br><span id="tc_L000">(0)</span></td>
+								<td class="td_totalcnt" onclick="goToCollection('I001')">특허심판례<br><span id="tc_I001">(0)</span></td>
+								<td class="td_totalcnt" onclick="goToCollection('D000')">평석·논문<br><span id="tc_D000">(0)</span></td>
+								<td class="td_totalcnt" onclick="goToCollection('P011')">로펌 리포트<br><span id="tc_P011">(0)</span></td>
+								<td class="td_totalcnt" onclick="goToCollection('F001')">전문법률서식<br><span id="tc_F001">(0)</span></td>
+								<td class="td_totalcnt" onclick="goToCollection('N000')">뉴스<br><span id="tc_N000">(0)</span></td>
+								<td class="td_totalcnt" onclick="goToCollection('J001')">온주<br><span id="tc_J001">(0)</span></td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td>
+								<td class="td_totalcnt" onclick="goToCollection('L006')">행정규칙<br><span id="tc_L006">(0)</span></td>
+								<td class="td_totalcnt" onclick="goToCollection('I002')">결정례<br><span id="tc_I002">(0)</span></td>
+								<td class="td_totalcnt" onclick="goToCollection('D021')">주석서<br><span id="tc_D021">(0)</span></td>
+								<td class="td_totalcnt" onclick="goToCollection('B002')">세무·인사<br><span id="tc_B002">(0)</span></td>
+								<td class="td_totalcnt" onclick="goToCollection('F002')">비즈폼 서식<br><span id="tc_F002">(0)</span></td>
+								<td class="td_totalcnt" onclick="goToCollection('N001')">칼럼<br><span id="tc_N001">(0)</span></td>
+								<td>&nbsp;</td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td>
+								<td class="td_totalcnt" onclick="goToCollection('L005')">입법동향<br><span id="tc_L005">(0)</span></td>
+								<td class="td_totalcnt" onclick="goToCollection('I003')">유권해석<br><span id="tc_I003">(0)</span></td>
+								<td class="td_totalcnt" onclick="goToCollection('D022')">E-Book<br><span id="tc_D022">(0)</span></td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td>
+								<td class="td_totalcnt" onclick="goToCollection('L007')">조약<br><span id="tc_L007">(0)</span></td>
+								<td>&nbsp;</td>
+								<td class="td_totalcnt" onclick="goToCollection('D013')">법률사전<br><span id="tc_D013">(0)</span></td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class=" mgl10 mgt10" id="divMySearchGuide" style="display:none;">
+						“나의 검색”이 활성화되어, 설정한 메뉴에 대한 검색결과만 표기됩니다.  메뉴 설정은 “나의 검색 설정”을 통해서 추가·삭제가 가능합니다.
+					</div>
+				</div>
+			</div>
+		</div>
+		<input type="hidden" id="hdnUniversityYN" value="">
+	</div> 
+</body>
+</html>

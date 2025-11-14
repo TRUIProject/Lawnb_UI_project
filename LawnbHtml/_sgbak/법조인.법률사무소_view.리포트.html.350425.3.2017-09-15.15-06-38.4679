@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../js/commonjs.js?s"></script>
+<script language="javascript">
+<!--
+ 
+	function resizeComment(){ 
+			if($('.right_container').hasClass('add_border')){
+				$(".right_container").removeClass('slide_mov_right'); 
+			}else{
+				if($('#container').hasClass('list-view')){
+					$(".right_container").addClass('slide_mov_right'); 
+				}else{
+					$(".right_container").removeClass('slide_mov_right'); 
+				}
+			}
+			setHeight_under();
+		}
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_mainContainer">
+	<div id="wrap" >
+		<header> 
+			<div class="top_container  ">  
+				<a href="/maf/poc/app/homepage"><h1>로앤비</h1></a>
+				<div id="t_search" class="search_container">
+					<h2>통합검색 영역</h2>
+					<div class="search_inner">
+						<form  action="" > 
+						<div class="search_left hide">
+							<label class="hide">통합검색  </label>
+						</div>
+						<div class="search_center">
+							<input type="search" name="" id="" >
+						</div>
+						<div class="search_right"><span  class="more_btn">more</span></div>
+						<div id="searchButton" class="search_btn"><i class="icon-" data-icon="&#xe910;"></i><span class="hide">검색</span></div> 
+						</form>
+						<div class="btn_search_result"><i class="icon-table" data-icon="&#xea71;"></i><span class="hide">검색결과 맵 보기</span></div>
+					</div>
+					<div class="search_layer_outer" >
+					<div class="search_layer" >
+						<div class="search_layer_list _done ">
+							<!-- <div class="txt_info">최근검색어저장 기능이 OFF 상태에 있습니다.<br>이용을 원하시면 하단의 최근검색어저장 상태를 ON으로 변경해주세요. </div> 
+							<ul>
+								<li>공정거래법 위반으로 인한 손해액의 산정방법과 주요 쟁점으로 <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+							</ul>-->
+							<ul>
+								<li><strong>대법</strong>원인터넷등기소<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+								<li><strong>대법</strong>원나의사건검색</li>
+								<li><strong>대법</strong>원법원경매정보</li>
+								<li><strong>대법</strong>원전자가족관계</li>
+								<li><strong>대법</strong>원경매</li>
+								<li><strong>대법</strong>원인터넷등기소<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+								<li><strong>대법</strong>원나의사건검색<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+								<li><strong>대법</strong>원법원경매정보</li>
+								<li><strong>대법</strong>원전자가족관계</li>
+								<li><strong>대법</strong>원경매</li>
+							</ul> 
+							<div class="expend_result" onclick="">
+								<p>법무법인(유한) 태평양어쩌고 저쩌고</p>
+								<span>주소 : [050-50] 서울시 광진구 디지털로 272, 한신 IT타워 611호<br>대표전화 : 02-2204-2114</span>
+								<div class="dirct_go">바로가기</div>
+							</div>
+						</div>
+						<!-- <div class="noti_txt"><i class="icon-" data-icon="&#xe90d;"></i> 공용 PC에서는 개인정보보호를 위하여 반드시 로그아웃을 해주세요.</div> -->
+						<div class="search_layer_foot">
+							<div class="fl">기록삭제</div>
+							<div class="fr">최근검색어저장 <div class="btn-group"><button type="button" class="btn btn_orange _select">ON</button><button type="button" class="btn btn-default">OFF</button></div> 자동완성 <div class="btn-group"><button type="button" class="btn btn_orange _select">ON</button><button type="button" class="btn btn-default">OFF</button></div>
+							</div>						
+						</div>
+					</div> 
+					</div>
+				</div>
+				<div id="indiv_area" class="indiv_container">
+					<span alt="나의폴더">나의폴더<i class="icon-myfolder" data-icon="&#xe91a;"></i></span>
+					<span alt="히스토리">히스토리<i class="icon-history" data-icon="&#xe916;"></i></span>
+					<span alt="알림설정">알림설정<i class="icon-alert" data-icon="&#xe918;"></i><em>9+</em></span>
+					<span alt="질문내역">문의내역<i class="icon-question" data-icon="&#xe919;"></i></span>
+					<span alt="나의정보">나의정보<i class="icon-myinfo" data-icon="&#xe917;"></i></span>
+				</div>
+			</div>
+			<nav> 
+				<dl id="main_menu" class="mmenu">
+					<dt class="blind">메인 메뉴</dt> 
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=IAED6CC08DD364059AB193CEAF31A4AB0&amp;stnew=true"><span>판례</span></a>
+					</dd>
+					<dd class="currentTab" >
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I0F5DD49BE2B544DBB7414874EC787E80&amp;stnew=true"><span>법규</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=ICAA980E9234848FEA6D0DA62432279E0&amp;stnew=true"><span>심판·결정·해석</span></a>
+					</dd>
+					<dd >
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I247AD0D84D9B4429B617C8D9F8388C8F&amp;stnew=true"><span>문헌</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I661610C9A2C749D6A4221A93502B0170&amp;stnew=true"><span>법조인</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I574B9F7164CB11E498DB8B09B4F043E0&amp;stnew=true"><span>기업법무</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I66693AFFED274970AC53A686AAA123C0&amp;stnew=true"><span>서식</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocHelp?docguid=WLAWLNEXT"><span>뉴스·칼럼</span></a>
+					</dd>
+				</dl>   
+			</nav>        	
+		</header> 
+		<div id="container" class="lawyer">
+			<div id="breadcrumb" class="navi_area">
+				<div>Home > 법조인 > 법률사무소</div>
+				<div class="group_indivi_btn"><a href="">로그인</a><a href="">개인화님</a> </div>
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div id="container_inner">
+				<div class="left_container"> 
+					<section id="result_tab"> 
+						<h4 class="hide">법률사무소 메뉴</h4>
+						<ul>
+							<li><a href="gf">기본정보</a></li>
+							<li><a href="fd">구성원정보</a></li>
+							<li><a href="sfd">법률사무소 소식</a></li> 
+							<li><a href="fd">업무사례</a></li>
+							<li class="this-page"><a href="fd">리포트</a></li>
+						</ul>
+					</section> 
+				</div>
+				<article class="main_container"> 
+					<div class="main_container_inner"> 
+						<div id="search_results">
+							<h2 class="dark_line">법무법인 한우리</h2>
+							<div class="case_info mgt10 lawfirm">
+								<p>리포트</p>
+								<div class="small_search_outbox"><!-- small search -->
+									<div class="small_search_inbox">
+										<select id="sJob" name="sJob"    >
+										  <option value="">전체</option>
+										  <option value=" ">분야</option> 
+										  <option value=" ">제목</option> 
+										  <option value=" ">본문</option> 
+										</select> 
+										<input type="search" name="" > <input type="button" value="검색 " id="searchButton_s" class="btn _search"></div>
+								</div>
+							</div>
+							<div class="s_num_area mgt10">21건 <small>1/1000</small></div>
+							<div class="btn_option_outer"> 
+								<div class="select_area"> 
+									<p class="blind">보기 개수 선택</p>
+									<select id="" name=""  >
+										<option value="">10개</option>
+										<option value="" selected>20개</option>
+										<option value="">50개</option>
+									</select>
+								</div>
+								<div class="btn_option"> 
+									<div class="btn-group" data-toggle="buttons-checkbox">
+										<button type="button" class="btn btn-default _select">최신순 <i class="icon-sort-alpha-desc" data-icon="&#xea4a;"></i></button> <button type="button" class="btn btn-default">정확도순</button>  
+									</div>	
+									<ul class="view_type_list _view_type_list">
+										<p class="blind">보기옵션 선택</p>
+										<li class="_preview"><a href="#" class="option_a" id="option_a" >미리보기형</a></li>
+										<li class="_onlyTitle"><a href="#" class="option_b_on" id="option_b">상세보기형</a></li>
+									</ul>
+								</div>
+							</div>
+							<ol class="list btn_exist lawyer"> 
+							<li>
+								<span class="list_num">1</span>  
+								<div class="co_searchContent">  
+									<h3> <a href="/list_view.html">[공정거래]  대가 지급 사실을 공개하지 않은 4개 사업자의 부당광고 제재 건[법무법인(유한) 태평양]</a>  <span class="list_meta">2014. 06. 11</span></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+									<div class="co_searchResults_summary">
+										 <span>공정위는 블로그 운영자들에게 경제적 대가를 지급하고 상품 등의 추천·보증글을 게재하면서 그 지급 사실을 공개하지 않은 4개 사업자에 대하여 시정명령 및 총 3억 900만 원의 과징금을 부과하기로 결정하였습니다.</span> 
+									</div>  
+								</div>
+							</li> 
+							<li>
+								<span class="list_num">1</span>                     
+								<div class="co_searchContent">
+									<h3> <a href="/list_view.html">[공정거래]  대가 지급 사실을 공개하지 않은 4개 사업자의 부당광고 제재 건</a>  <span class="list_meta">2014. 06. 11</span></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+									<div class="co_searchResults_summary">
+										 <span>공정위는 블로그 운영자들에게 경제적 대가를 지급하고 상품 등의 추천·보증글을 게재하면서 그 지급 사실을 공개하지 않은 4개 사업자에 대하여 시정명령 및 총 3억 900만 원의 과징금을 부과하기로 결정하였습니다.</span> 
+									</div>    
+								</div>
+							</li>  
+							<li>
+								<span class="list_num">1</span>        
+								<div class="co_searchContent">
+									<h3> <a href="/list_view.html">[공정거래]  대가 지급 사실을 공개하지 않은 4개 사업자의 부당광고 제재 건</a>  <span class="list_meta">2014. 06. 11</span></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+									<div class="co_searchResults_summary">
+										 <span>공정위는 블로그 운영자들에게 경제적 대가를 지급하고 상품 등의 추천·보증글을 게재하면서 그 지급 사실을 공개하지 않은 4개 사업자에 대하여 시정명령 및 총 3억 900만 원의 과징금을 부과하기로 결정하였습니다.</span> 
+									</div>  
+								</div>
+							</li>  
+							<li>
+								<span class="list_num">1</span>      
+								<div class="co_searchContent">
+									<h3> <a href="/list_view.html">[공정거래]  대가 지급 사실을 공개하지 않은 4개 사업자의 부당광고 제재 건</a>  <span class="list_meta">2014. 06. 11</span></h3><div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+									<div class="co_searchResults_summary">
+										 <span>공정위는 블로그 운영자들에게 경제적 대가를 지급하고 상품 등의 추천·보증글을 게재하면서 그 지급 사실을 공개하지 않은 4개 사업자에 대하여 시정명령 및 총 3억 900만 원의 과징금을 부과하기로 결정하였습니다.</span> 
+									</div>   
+								</div>
+							</li>  
+						</ol>
+						<div class="navigationLinks">				        									
+							<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=0" class="navFirst hiddenLink "><i class="icon-7" data-icon="&#xe911;"></i></a>
+							<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=-1" class="navPrevious hiddenLink "><i class="icon-2" data-icon="&#xe901;"></i></a>
+							<span class="currentPage">1</span>
+							<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navPages">2</a>
+							<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=2" class="navPages">3</a>
+							<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=3" class="navPages">4</a>
+							<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navNext"><i class="icon-1" data-icon="&#xe900;"></i></a>
+							<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=13" class="navLast "><i class="icon-8" data-icon="&#xe907;"></i></a>
+						</div>
+						 </div> 
+					 </div>
+					 <div class="main_container_view">
+						<div class="main_container_view_inner">
+							  
+						</div>
+					 </div> 
+				</article> 
+				<aside class="right_container">
+					<section style="padding-top:20px"> 
+						<h4 class="hide">법조인 기타메뉴</h4>
+						<p><a href="1">승소판결문 등록</a></p>
+						<p><a href="1">법조인명록 등록 / 수정</a></p>
+						<p><a href="1">법률사무소 등록 / 수정</a></p> 
+					</section>
+					<section >
+						<h4>법률사무소 구성원
+							<div class="btn-group fr"  >
+							  <button type="button" class="btn btn-default">전체보기</button> 
+							</div>
+						</h4>
+						<dl class="lawyer_area">
+							<dt><div class="img"><img src="../images/main_img_lawyer_3.png" ></div></dt>
+							<dd><a href="1">최용문</a><div>변호사시험 1회</dd>
+							<dd>
+								<ul>
+									<li>변호사(파트너 변호사)</li> 
+									<li><span>업무분야</span>저작권,엔터테인먼트 ,dddddd</li>
+								</ul> 
+							</dd>
+							<dt><div class="img"><img src="../images/main_img_lawyer_3.png" ></div></dt>
+							<dd><a href="1">최용문</a><div>변호사시험 1회</dd>
+							<dd>
+								<ul>
+									<li>변호사(파트너 변호사)</li> 
+									<li ><span>업무분야</span>저작권,엔터테인먼트 ,dddddd</li>
+								</ul> 
+							</dd>
+							<dt><div class="img"><img src="../images/main_img_lawyer_3.png" ></div></dt>
+							<dd><a href="1">최용문</a><div>변호사시험 1회</dd>
+							<dd>
+								<ul>
+									<li>변호사(파트너 변호사)</li> 
+									<li><span>업무분야</span>저작권,엔터테인먼트 ,dddddd</li>
+								</ul> 
+							</dd>
+							<dt><div class="img"><img src="../images/main_img_lawyer_3.png" ></div></dt>
+							<dd><a href="1">최용문</a><div>변호사시험 1회</dd>
+							<dd>
+								<ul>
+									<li>변호사(파트너 변호사)</li> 
+									<li><span>업무분야</span>저작권,엔터테인먼트 ,저작권,엔터테인먼트 저작권,엔터테인먼트</li>
+								</ul> 
+							</dd>
+						</dl> 
+					</section>
+				</aside>
+			</div>
+    	</div>
+		<footer>
+			<div class="etc_menu"> 
+				<div class="top_container">  
+					<ul>	
+						<li class="blind">기타 메뉴 </li>
+						<li>회사소개</li>
+						<li>광고 · 제휴문의</li>
+						<li>이용약관</li>
+						<li>개인정보 취급/처리 방침</li>
+						<li>법적고지</li>
+						<li>이메일 무단수집거부</li>
+					</ul>
+				</div>
+			</div>  
+			<div class="top_container   _footer"> 	   
+				1. 콘텐츠의 명칭 : 법률정보 &nbsp;&nbsp; 2. 콘텐츠의 제작 및 표시 : 2006년 2월 17일(업그레이드 콘텐츠의 경우 갱신일) &nbsp;&nbsp; 3. 콘텐츠 제작자 : ㈜로앤비  &nbsp;&nbsp;  4. 콘텐츠의 이용조건 : <a href="/support/agree_use.asp" class="red_bott">이용약관</a> 및 로앤비 <a href="/support/serviceInfo_member.asp" class="red_bott">서비스안내</a>와 같음 (무단 복제금지) &nbsp;&nbsp;5. 콘텐츠의 보호기간 : ㈜로앤비 사이트의 모든 콘텐츠는 「콘텐츠산업 진흥법」에 따라 제작 또는 갱신일로부터 5년간 보호됨
+				<div>Thomson reuters</div>
+				<div>Copyright ⓒ 1998~2016 <b>LAWnB</b>. All Rights Reserved.</div>
+			</div>           
+		</footer>
+		<div id="bg_screen"></div>
+		<script type="text/javascript">  
+			setHeight_under();		 
+		</script>
+	</div>
+</div> 
+</body>
+</html>

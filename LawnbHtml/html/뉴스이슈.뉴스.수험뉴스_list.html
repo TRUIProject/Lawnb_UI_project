@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../js/commonjs.js?sdd"></script>
+<script language="javascript">
+<!--
+
+    $(document).ready(function () {
+       
+        $('.tap_news_title li a').click(function () {
+            $('.tap_news_title li').siblings().removeClass('active');
+            $(this).parent('li').addClass('active');
+        });
+
+	});
+
+    function newsTap1() {
+        $('.block_main_news').show();
+        $('.block_main_academy').hide();
+    }
+
+    function newsTap2() {
+        $('.block_main_news').hide();
+        $('.block_main_academy').show();
+	}
+
+	function resizeComment(){ 
+			setHeight_under();
+			$(".right_container").removeClass('slide_mov_right'); 
+		}
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_mainContainer">
+	<div id="wrap" >
+		<header>
+			<div class="top_container ">
+				<h1>로앤비1</h1>
+				<div id="t_search" class="search_container">
+					<h2>통합검색 영역</h2>
+					<div class="search_inner">
+						<form method="post" id="totalSearchForm" action="Info/ContentTotal" onsubmit="return getTotalSearch();">
+							<div class="search_left hide">
+								<label class="hide">통합검색  </label>
+							</div>
+							<div class="search_center">
+								<input type="search" id="qu" name="qu" title="통합검색" autocomplete="off">
+							</div>
+							<div class="search_right">
+								<span class="more_btn"><i class="icon-more" data-icon=""></i><span class="hide">more</span></span>
+
+								<!-- 검색 연산자 -->
+								<i class="icon-info" data-icon="" onclick="searchCalcInfo();" alt="검색연산자 안내">
+									<span class="blind">검색 연산자 안내</span>
+								</i>
+							</div>
+							<div id="searchButton" class="search_btn"><i class="icon-" data-icon=""></i><span class="hide">검색</span></div>
+						</form>
+					</div>
+					<!-- 모바일 체크 할것 -->
+					<div class="btn_search_result"><i class="icon-" data-icon=""></i><span>통합검색 결과 맵&ZeroWidthSpace;</span></div>
+					<div class="search_layer_outer" style="display: none;">
+						<div class="search_layer" style="display: none;">
+							<div class="search_layer_list _done ">
+								<div class="txt_info" style="display:none"></div>
+								<ul>
+								</ul>
+								<div id="result_target"></div>
+							</div>
+						</div>
+					</div>
+					<div class="layer_calc_outer" style="display: none;">
+						<div class="box_calc_info">
+							<h3>LAWnB 검색연산자 안내</h3>
+							<div class="box_calcDL">
+								<dl>
+									<dt>AND</dt>
+									<dd>
+										<span>"이사회"와 "감사"가 모두 포함된 문서</span>
+										<span>- 예시) 이사회 감사, 이사회 AND 감사</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>OR</dt>
+									<dd>
+										<span>"이사회"와 "감사" 중 어느 하나라도 포함된 문서</span>
+										<span>- 예시) 이사회 OR 감사</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>NOT</dt>
+									<dd>
+										<span>"이사회"가 포함되고 "감사"가 포함되지 않은 문서</span>
+										<span>- 예시) [검색어]이사회 [제외어]감사, 이사회 NOT 감사</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>EQUAL</dt>
+									<dd>
+										<span>"이사회 감사"라는 검색어와 완전일치하는 구문이 있는 문서</span>
+										<span>- 예시) “이사회 감사”</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>NEAR </dt>
+									<dd>
+										<span>"이사회"와 "감사" 사이에 단어(형태소)가 10개 이하인 문서</span>
+										<span>- 예시) “이사회 감사”~10</span>
+									</dd>
+								</dl>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+				<div id="indiv_area" class="indiv_container">
+					<span alt="나의 검색" onclick="MYSEARCH();">
+						나의검색
+						<em class="icon_mySearch_on">ON</em>
+						<i class="newic-mysearch_main"></i>
+					</span>
+					<span alt="나의폴더" onclick="MyFolder();">나의폴더<i class="icon-icon_myfolder" data-icon=""></i></span>
+					<span alt="하이라이트/메모" onclick="MyHighlight();">하이라이트&메모<i class="newic-h_light"></i></span>
+					<span alt="히스토리" onclick="MyHistory();">히스토리<i class="icon-icon_history" data-icon=""></i></span>
+					<span alt="알림설정" onclick="MyAlert();">
+						알림<i class="icon-icon_alert" data-icon=""></i>
+						<em id="alertCount" style="display: none;">0</em>
+					</span>
+					<span alt="문의내역">문의내역<i class="icon-icon_question" data-icon=""></i></span>
+					<span alt="나의정보" onclick="MyInfo();">나의정보<i class="icon-icon_myinfo" data-icon=""></i></span>
+				</div>
+
+			</div>
+
+			<nav style="background: none;">
+				<div class="nav_menuBox">
+					<dl id="main_menu" class="mmenu">
+						<dd>
+							<a href="Info/ContentMain/Case"><span>판례</span></a>
+						</dd>
+						<dd>
+							<a href="#"><span>법규</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="Info/ContentMain/Law">법령</a></li>
+								<li><a href="Info/ContentMain/AdminRule">행정규칙</a></li>
+								<li><a href="Info/ContentMain/LawMake">입법동향</a></li>
+								<li><a href="Info/ContentMain/Treaty">조약</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>심판·결정·해석</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="Info/ContentMain/PatentCase">특허심판례</a></li>
+								<li><a href="Info/ContentMain/AdminCase">결정례</a></li>
+								<li><a href="Info/ContentMain/InterpretRule">유권해석</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>문헌</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="Info/ContentMain/Doc">논문·평석</a></li>
+								<li><a href="Info/ContentMain/Jusuk">주석서</a></li>
+								<li><a href="Info/ContentMain/Ebook">E-book</a></li>
+								<li><a href="Info/ContentMain/LawDic">법률사전</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>법조인</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="Info/ContentMain/Lawyer">법조인명록</a></li>
+								<li><a href="Info/ContentMain/Org">조직도</a></li>
+								<li><a href="Info/ContentMain/LawFirm">법률사무소</a></li>
+								<li><a href="Info/ContentMain/OrgInfo">법조기관 안내</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>기업법무</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="Info/ContentMain/LawFirmReport">로펌 리포트</a></li>
+								<li><a href="Info/ContentMain/BizInfo">기업정보</a></li>
+								<li><a href="Info/ContentMain/Sosong">소송비용계산</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>서식</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="Info/ContentMain/LawForm">전문법률서식</a></li>
+								<li><a href="Info/ContentMain/BizForm">비즈폼 서식</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>뉴스·칼럼</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="Info/ContentMain/News">뉴스</a></li>
+								<li><a href="Info/ContentMain/Column">칼럼</a></li>
+								<!-- <li><a href="/Editor/Index">LAWnB Editor</a></li> -->
+							</ul>
+						</dd>
+						<dd>
+							<a href="Info/ContentMain/ONJU"><span>온주</span></a>
+						</dd>
+						<dd class="btn_menu_all">
+							<a href="#" onclick="showAllMenu();">메뉴 전체보기  <i></i></a>
+						</dd>
+					</dl>
+					<div class="box_menu_all">
+						<div class="btn_close_pop" onclick="showAllMenu();">닫기<i class="icon-close" data-icon=""></i></div>
+						<ul>
+							<!--<li><strong>판례</strong></li>-->
+							<li><a href="Info/ContentMain/Case">판례</a></li>
+						</ul>
+						<ul>
+							<!--<li><strong>법규</strong></li>-->
+							<li><a href="Info/ContentMain/Law">법령</a></li>
+							<li><a href="Info/ContentMain/AdminRule">행정규칙</a></li>
+							<li><a href="Info/ContentMain/LawMake">입법동향</a></li>
+							<li><a href="Info/ContentMain/Treaty">조약</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>심판·결정·해석</strong></li>-->
+							<li><a href="Info/ContentMain/PatentCase">특허심판례</a></li>
+							<li><a href="Info/ContentMain/AdminCase">결정례</a></li>
+							<li><a href="Info/ContentMain/InterpretRule">유권해석</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>문헌</strong></li>-->
+							<li><a href="Info/ContentMain/Doc">평석·논문</a></li>
+							<li><a href="Info/ContentMain/Jusuk">주석서</a></li>
+							<li><a href="Info/ContentMain/Ebook">E-book</a></li>
+							<li><a href="Info/ContentMain/LawDic">법률사전</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>법조인</strong></li>-->
+							<li><a href="Info/ContentMain/Lawyer">법조인명록</a></li>
+							<li><a href="Info/ContentMain/Org">조직도</a></li>
+							<li><a href="Info/ContentMain/LawFirm">법률사무소</a></li>
+							<li><a href="Info/ContentMain/OrgInfo">법조기관 안내</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>기업법무</strong></li>-->
+							<li><a href="Info/ContentMain/LawFirmReport">로펌 리포트</a></li>
+							<li><a href="Info/ContentMain/BizInfo">기업정보</a></li>
+							<li><a href="Info/ContentMain/Sosong">소송비용계산</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>서식</strong></li>-->
+							<li><a href="Info/ContentMain/LawForm">전문법률서식</a></li>
+							<li><a href="Info/ContentMain/BizForm">비즈폼 서식</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>뉴스·칼럼</strong></li> -->
+							<li><a href="Info/ContentMain/News">뉴스</a></li>
+							<li><a href="Info/ContentMain/Column">칼럼</a></li>
+							<!-- <li><a href="/Editor/Index">LAWnB Editor</a></li> -->
+						</ul>
+						<ul>
+							<!-- <li><strong>온주</strong></li>-->
+							<li><a href="Info/ContentMain/ONJU">온주</a></li>
+						</ul>
+						<ul>
+							<li><a href="javascript:OnetoOneContactUs('B02');">판결문 등재신청&ZeroWidthSpace;</a></li>
+							<li><a href="javascript:showOriginalView('/Lawyer/Management/');">법조인명록 등록/수정&ZeroWidthSpace;</a></li>
+							<li><a href="javascript:OnetoOneContactUs('B04');">승소판결문 등록&ZeroWidthSpace;</a></li>
+							<li><a href="javascript:OnetoOneContactUs('B01');">1:1문의&ZeroWidthSpace;</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+
+		</header> 
+		
+		<div id="container" class="two-con  submain news">
+			<div id="breadcrumb" class="navi_area">
+				<div>Home > 뉴스·칼럼 > <a href="1">뉴스</a></div>
+				<div class="group_indivi_btn"><a href="">로그인</a><a href="">개인화님</a> </div>
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div id="container_inner">
+				<div class="left_container">  
+				</div>
+				<article class="main_container"> 
+					<div class="main_container_inner">
+						<div id="search_submain" class="submain_group">
+							<h3>뉴스
+								<div class="small_search_outbox"><!-- small search -->
+									<div class="small_search_inbox"> 
+										<input type="search" name="" placeholder="뉴스 검색" > <input type="button" value="검색 " id="searchButton_s" class="btn _search"> <em>|</em> <span>언론사별 뉴스보기</span>
+									</div>
+								</div>
+							</h3>
+							<div class="search_div">
+								<div class="tap_news_title">
+									<ul>
+										<li class="active"><a onclick="newsTap1()">수험뉴스</a></li>
+										<li><a onclick="newsTap2()">기출문제</a></li>
+									</ul>
+								</div>
+
+								<div class="news_colum_top block_main_news">
+									<div class="news_A">
+										<div class="news_D">
+											<a href="ContentView?sid=N000B75A0E930F69" class="popup_view">4년 만에 법학적성시험(LEET) 전국 순회 설명회 개최 </a><div>법률신문 <em>2023.04.05</em></div>
+											법학전문대학원협의회(이사장 이상경)는 11일부터 다음 달 3일까지 전국 13개 대학에서 법학적성시험(LEET) 전국 순회 설명회를 연다고 밝혔다... 로스쿨 진학을 희망하는 학생들이 학원에서 값비싼 사교육을 받지 않고 스스로 법학적성시험을 준비할 수 있도록 돕겠다는..
+										</div>
+										<dl>
+											<dt><img src="https://pre.lawnb.com/lbimg/2023/0328/dimg040001.jpg"></dt>
+											<dd><a href="ContentView?sid=N00008AFEFEF41C8" class="popup_view">로스쿨 합격자, 여성 52.46%… 처음으로 남성 추월 </a><div>법률신문 <em>2023.03.28</em></div></dd>
+										</dl>
+										<dl>
+											<dt><img src="https://pre.lawnb.com/lbimg/2023/0316/dimg025047.jpg"></dt>
+											<dd><a href="ContentView?sid=N0009E5789A1E98D" class="popup_view">로스쿨협의회, 24일 '법학전문대학원 발전 방안' 심포지엄 </a><div>법률신문 <em>2023.03.16</em></div></dd>
+										</dl>
+										<div class="colum_other_outer mgt20">
+											<div class="colum_other">
+												<p>법률뉴스 <span onclick="goSubMainList(0)">전체보기</span></p>
+												<ul>
+													<li><div class="thumb_s"><img src="https://pre.lawnb.com/lbimg/2023/0411/dimg093810.jpg" style="width: 100%;"></div><a href="ContentView?sid=N000FEF98FF29C07" class="popup_view">광주고법, 청구이의 사건 승소 1심결정 변경 변호사보수 1/2감액 결정 </a><span>로이슈 <em>2023.04.11</em></span></li>
+													<li><div class="thumb_s"><img src="https://pre.lawnb.com/lbimg/2023/0411/dimg024518.jpg" style="width: 100%;"></div><a href="ContentView?sid=N00053FAD5248E5E" class="popup_view">대검 "1301 검찰콜센터, 변호사 접근성 개선" </a><span>법률신문 <em>2023.04.11</em></span></li>
+												</ul>
+											</div>
+											<div class="colum_other">
+												<p>화제의 법조인<span onclick="goSubMainList(2)">전체보기</span></p>
+												<ul>
+													<li><div class="thumb_s"><img src="https://pre.lawnb.com/lbimg/2023/0403/dimg111039.jpg" style="width: 100%;"></div><a href="ContentView?sid=N000164737E4A543" class="popup_view">[인터뷰] 법무법인 오킴스 “시대 변화 감지해 자문 제공”…첨단 산업분야에 강점 </a><span>법률신문 <em>2023.04.03</em></span></li>
+													<li><div class="thumb_s"><img src="https://pre.lawnb.com/lbimg/2023/0327/dimg114110.jpg" style="width: 100%;"></div><a href="ContentView?sid=N0005339FA3A253D" class="popup_view">[인터뷰] 새변 “2040 청년들이 체감하는 입법 제안할 것” </a><span>법률신문 <em>2023.03.27</em></span></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div id="search_results" class="news_C newslist">
+										<ul>
+											<li><div class="thumb_s"><img src="https://pre.lawnb.com/lbimg/2023/0223/lawnb043816_s.jpg" style="width: 100%;"></div><a href="../Info/ContentView?sid=N0004C64D8EF69F9" class="popup_view">헌재, 코로나19 확진환자의 변시 응시 금지 등 법무부공고 위헌 </a><span>로이슈 <em>2023.02.23</em></span></li>
+											<li><div class="thumb_s"><img src="https://pre.lawnb.com/lbimg/2023/0223/dimg060207.jpg" style="width: 100%;"></div><a href="../Info/ContentView?sid=N000062FAFA67828" class="popup_view">"코로나19 확진자 변호사시험 응시 제한… 법무부 공고 위헌" </a><span>법률신문 <em>2023.02.23</em></span></li>
+											<li><div class="thumb_s"><img src="https://pre.lawnb.com/lbimg/2023/0223/lawnb043028_s.jpg" style="width: 100%;"></div><a href="../Info/ContentView?sid=N0000A2B9415AB27" class="popup_view">헌재 "코로나19 확진자 변호사시험 금지는 위헌" </a><span>연합뉴스 <em>2023.02.23</em></span></li>
+											<li><div class="thumb_s"><img src="https://pre.lawnb.com/lbimg/2023/0206/dimg100713.jpg" style="width: 100%;"></div><a href="../Info/ContentView?sid=N0001653D979AA53" class="popup_view">변협, 25개 로스쿨 중 16곳 ‘부적합’… 로스쿨 “반발” </a><span>법률신문 <em>2023.02.04</em></span></li>
+											<li><div class="thumb_s"><img src="https://pre.lawnb.com/lbimg/2023/0202/lawnb115500_s.jpg" style="width: 100%;"></div><a href="../Info/ContentView?sid=N00056EFE78A842E" class="popup_view">변협, 국내 로스쿨 25곳 중 16곳 부정 평가 </a><span>연합뉴스 <em>2023.02.02</em></span></li>
+											<li><div class="thumb_s"><img src="https://pre.lawnb.com/lbimg/2023/0131/dimg105433.jpg" style="width: 100%;"></div><a href="../Info/ContentView?sid=N0003B17FE5050D8" class="popup_view">로스쿨協, "변협 평가위원회는 인증 적법성 판단기관 아냐" </a><span>법률신문 <em>2023.01.30</em></span></li>
+											<li><div class="thumb_s"><img src="https://pre.lawnb.com/lbimg/2023/0130/dimg105933.jpg" style="width: 100%;"></div><a href="../Info/ContentView?sid=N0007BBD9ABBCC48" class="popup_view">제39회 입법고시 14명 선발…전산직 신설 </a><span>법률신문 <em>2023.01.27</em></span></li>
+											<li><div class="thumb_s"><img src="https://pre.lawnb.com/lbimg/2023/0119/dimg022305.jpg" style="width: 100%;"></div><a href="../Info/ContentView?sid=N0003D40CFDB2649" class="popup_view">2024학년도 법학적성시험(LEET), 7월 23일 시행 </a><span>법률신문 <em>2023.01.19</em></span></li>
+											<li><div class="thumb_s"><img src="https://pre.lawnb.com/lbimg/2023/0119/dimg091750.jpg" style="width: 100%;"></div><a href="../Info/ContentView?sid=N0004B3B97B0EE36" class="popup_view">법무부, 제12회 변호사시험 시행…응시율 89.3%기록 </a><span>로이슈 <em>2023.01.18</em></span></li>
+											<li><div class="thumb_s"><img src="https://pre.lawnb.com/lbimg/2023/0119/dimg101006.jpg" style="width: 100%;"></div><a href="../Info/ContentView?sid=N000440432340F83" class="popup_view">제12회 변호사시험, 3255명 응시… '1700명' 내외 뽑는다 </a><span>법률신문 <em>2023.01.18</em></span></li>
+										</ul>
+
+										<!-- paging -->
+										<div class="navigationLinks">
+											<span class="currentPage">1</span>
+											<a href="#" class="navPages">2</a>
+											<a href="#" class="navPages">3</a>
+											<a href="#" class="navPages">4</a>
+											<a href="#" class="navPages">5</a>
+											<a href="#" class="navNext"><i class="icon-1" data-icon=""></i></a>
+											<a href="#" class="navLast "><i class="icon-8" data-icon=""></i></a>
+										</div><!-- paging end-->
+									</div>
+								</div>
+
+
+								<div class="news_colum_top block_main_academy">
+									<div class="news_A">
+										<div class="news_D">
+											<a href="ContentView?sid=N000B75A0E930F69" class="popup_view">4년 만에 법학적성시험(LEET) 전국 순회 설명회 개최 </a><div>법률신문 <em>2023.04.05</em></div>
+											법학전문대학원협의회(이사장 이상경)는 11일부터 다음 달 3일까지 전국 13개 대학에서 법학적성시험(LEET) 전국 순회 설명회를 연다고 밝혔다... 로스쿨 진학을 희망하는 학생들이 학원에서 값비싼 사교육을 받지 않고 스스로 법학적성시험을 준비할 수 있도록 돕겠다는..
+										</div>
+										<dl>
+											<dt><img src="https://pre.lawnb.com/lbimg/2023/0328/dimg040001.jpg"></dt>
+											<dd><a href="ContentView?sid=N00008AFEFEF41C8" class="popup_view">로스쿨 합격자, 여성 52.46%… 처음으로 남성 추월 </a><div>법률신문 <em>2023.03.28</em></div></dd>
+										</dl>
+										<dl>
+											<dt><img src="https://pre.lawnb.com/lbimg/2023/0316/dimg025047.jpg"></dt>
+											<dd><a href="ContentView?sid=N0009E5789A1E98D" class="popup_view">로스쿨협의회, 24일 '법학전문대학원 발전 방안' 심포지엄 </a><div>법률신문 <em>2023.03.16</em></div></dd>
+										</dl>
+										<div class="colum_other_outer mgt20">
+											<div class="colum_other">
+												<p>법률뉴스 <span onclick="goSubMainList(0)">전체보기</span></p>
+												<ul>
+													<li><div class="thumb_s"><img src="https://pre.lawnb.com/lbimg/2023/0411/dimg093810.jpg" style="width: 100%;"></div><a href="ContentView?sid=N000FEF98FF29C07" class="popup_view">광주고법, 청구이의 사건 승소 1심결정 변경 변호사보수 1/2감액 결정 </a><span>로이슈 <em>2023.04.11</em></span></li>
+													<li><div class="thumb_s"><img src="https://pre.lawnb.com/lbimg/2023/0411/dimg024518.jpg" style="width: 100%;"></div><a href="ContentView?sid=N00053FAD5248E5E" class="popup_view">대검 "1301 검찰콜센터, 변호사 접근성 개선" </a><span>법률신문 <em>2023.04.11</em></span></li>
+												</ul>
+											</div>
+											<div class="colum_other">
+												<p>화제의 법조인<span onclick="goSubMainList(2)">전체보기</span></p>
+												<ul>
+													<li><div class="thumb_s"><img src="https://pre.lawnb.com/lbimg/2023/0403/dimg111039.jpg" style="width: 100%;"></div><a href="ContentView?sid=N000164737E4A543" class="popup_view">[인터뷰] 법무법인 오킴스 “시대 변화 감지해 자문 제공”…첨단 산업분야에 강점 </a><span>법률신문 <em>2023.04.03</em></span></li>
+													<li><div class="thumb_s"><img src="https://pre.lawnb.com/lbimg/2023/0327/dimg114110.jpg" style="width: 100%;"></div><a href="ContentView?sid=N0005339FA3A253D" class="popup_view">[인터뷰] 새변 “2040 청년들이 체감하는 입법 제안할 것” </a><span>법률신문 <em>2023.03.27</em></span></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div id="search_results" class="news_C newslist">
+										<ul>
+											<li><a href="../Info/ContentView?sid=N00594C36FD45CFA" class="popup_view">1회 -13회 법조윤리시험기출문제 및 최종정답입니다. </a><span>시험자료실 <em>2023.03.22</em></span></li>
+											<li><a href="../Info/ContentView?sid=N005AD77E620C5ED" class="popup_view">1회~12회 변호사시험 기출문제 및 선택형 최종정답입니다. </a><span>시험자료실 <em>2023.03.21</em></span></li>
+											<li><a href="../Info/ContentView?sid=N005B3CE25F74844" class="popup_view">제12회 변호사시험 선택형 최종 정답 공개 </a><span>변호사시험 <em>2023.02.16</em></span></li>
+											<li><a href="../Info/ContentView?sid=N005827ABDCADAFD" class="popup_view">제1회 ~ 제12회 변호사시험 기록형 입니다. </a><span>변호사시험 <em>2023.02.06</em></span></li>
+											<li><a href="../Info/ContentView?sid=N005F4C9A6B216C5" class="popup_view">제1회 ~제11회 변호사시험 시험위원 명단 </a><span>변호사시험 <em>2023.01.19</em></span></li>
+											<li><a href="../Info/ContentView?sid=N0052D9B5E02A804" class="popup_view">2023년도 제12회 변호사시험 기출문제(기록형 등재) </a><span>변호사시험 <em>2023.01.14</em></span></li>
+											<li><a href="../Info/ContentView?sid=N005FCE66F0357BD" class="popup_view">2023년도 제12회 변호사시험 정답가안 </a><span>변호사시험 <em>2023.01.14</em></span></li>
+											<li><a href="../Info/ContentView?sid=N005EC88D211F059" class="popup_view">2022년도 제13회 법조윤리시험 정답 확정 </a><span>법조윤리시험 <em>2022.08.19</em></span></li>
+											<li><a href="../Info/ContentView?sid=N005007F2EA31E84" class="popup_view">2022년도 제13회 법조윤리시험 정답가안 </a><span>법조윤리시험 <em>2022.08.06</em></span></li>
+											<li><a href="../Info/ContentView?sid=N005F65972A02E64" class="popup_view">2022년도 제13회 법조윤리시험문제 </a><span>법조윤리시험 <em>2022.08.06</em></span></li>
+										</ul>
+										<script type="text/javascript">
+    <!--
+											$(function () {
+												$('.navigationLinks>a').click(function (e) {
+													e.preventDefault();
+												});
+
+												$('.navigationLinks>a.navPages').click(function () {
+													goToPage($.trim($(this).text()));
+												});
+
+												$('.navigationLinks>a.navFirst').click(function () {
+													goToPage('1');
+												});
+
+												$('.navigationLinks>a.navPrevious').click(function () {
+													goToPage(parseInt($.trim('1'), 10) - 1);
+												});
+
+												$('.navigationLinks>a.navNext').click(function () {
+													goToPage(parseInt($.trim('5'), 10) + 1);
+												});
+
+												$('.navigationLinks>a.navLast').click(function () {
+													goToPage(parseInt($.trim('19')));
+												});
+											});
+
+											//-->
+										</script>
+										<!-- paging -->
+										<div class="navigationLinks">
+											<span class="currentPage">1</span>
+											<a href="#" class="navPages">2</a>
+											<a href="#" class="navPages">3</a>
+											<a href="#" class="navPages">4</a>
+											<a href="#" class="navPages">5</a>
+											<a href="#" class="navNext"><i class="icon-1" data-icon=""></i></a>
+											<a href="#" class="navLast "><i class="icon-8" data-icon=""></i></a>
+										</div><!-- paging end-->
+									</div>
+								</div>
+
+
+							</div> 
+						</div> 
+					</div>
+					<div class="main_container_view">
+						<div class="main_container_view_inner">
+							 
+						</div>
+					</div>
+				</article> 
+				<aside class="right_container">
+					<section>
+						<h4>
+							주요 뉴스 속 판례
+							<div class="btn-group fr">
+								<button type="button" class="btn btn-default" onclick="goSubMainList(3)">전체보기</button>
+							</div>
+						</h4>
+						<ul>
+							<li><a href="ContentView?sid=N000FEF98FF29C07" class="popup_view">광주고법, 청구이의 사건 승소 1심결정 변경 변호사보수 1/2감액 결정 </a><span> 로이슈  / 2023.04.11</span></li>
+							<li><a href="ContentView?sid=N000B0788846C895" class="popup_view">[판결] 술 취해 경찰 폭행한 예비 검사, 1심서 벌금형 선고유예 </a><span> 법률신문  / 2023.04.11</span></li>
+							<li><a href="ContentView?sid=N00040D3F306FE73" class="popup_view">다단계 사기업체 자료로 과세…법원 "신빙성 있다면 적법" </a><span> 연합뉴스  / 2023.04.10</span></li>
+							<li><a href="ContentView?sid=N000FF11C33DA68C" class="popup_view">[판결] "안기부의 재일유학생 간첩 사건 관련자에 대한 수사발표, 보도자료 배포, 지명수배, 불법구금 중 일부만 과거사정리법 적용 부정 못해" </a><span> 법률신문  / 2023.04.10</span></li>
+							<li><a href="ContentView?sid=N0007D823BF62969" class="popup_view">[법률구조]전주지법“사기에 의한 혼인이므로 취소…위자료도 지급하라” </a><span> 로이슈  / 2023.04.10</span></li>
+							<li><a href="ContentView?sid=N0005B99A4FF4623" class="popup_view">[판결] "'한강 몸통 시신' 유족 구조금, 장대호 배상금서 공제" </a><span> 법률신문  / 2023.04.10</span></li>
+							<li><a href="ContentView?sid=N00026BB7DD94A33" class="popup_view">허락 없이 남의 건물서 음주 측정…대법 "거부 가능" </a><span> 연합뉴스  / 2023.04.07</span></li>
+							<li><a href="ContentView?sid=N000E0280F4E62D5" class="popup_view">[판결] 신탁된 전두환 오산 땅 공매대금 55억 원, 추징 가능해져 </a><span> 법률신문  / 2023.04.07</span></li>
+							<li><a href="ContentView?sid=N0000115AA7919A4" class="popup_view">윤미향 배우자, 변희재 상대 민사소송 2심도 패소 </a><span> 연합뉴스  / 2023.04.07</span></li>
+							<li><a href="ContentView?sid=N00013C4107459AA" class="popup_view">대구고법, 범죄단체의 존속·유지를 목적으로 자금 모집 동성로파 조직원 무죄 파기 유죄 </a><span> 로이슈  / 2023.04.07</span></li>
+						</ul>
+					</section>
+					<section>
+						<div class="loading_area" style="display: none;"><img src="/images/tr_img_loading_re.gif?v=2022060222"></div>
+						<h4>News and Insight from REUTERS</h4>
+						<ul id="latestList">
+							<li style="">
+								<a href="/Info/ContentView?sid=N003I596c65c0a24611eda898877e70182e82" class="popup_view">Canaccord Genuity to acquire Mercer's Canadian private wealth business</a><br><span>2023.02.01 | REUTERS</span><br>(Reuters) - Canada's financial services firm Canaccord Genuity Group Inc said on Wednesday it would acquire Mercer's private wealth business in the country for an undisclosed sum.The deal, which is expected to close within the next three ...
+							</li>
+							<li style="display: none;">
+								<a href="/Info/ContentView?sid=N003Ib9b08dd0a23711edbd74c64e0864e969" class="popup_view">Tesla directors to testify in 'funding secured' trial</a><br><span>2023.02.01 | REUTERS</span><br>(Reuters) - Tesla Inc board members are expected to take the stand on Wednesday to defend against claims that Elon Musk misled investors when he tweeted in 2018 he had "funding secured" to take the company private. The trial in San ...
+							</li>
+							<li style="display: none;">
+								<a href="/Info/ContentView?sid=N003Ie28f4ba0a23d11ed9193d62662f08665" class="popup_view">Law firms Womble and BDB Pitmans call off merger talks</a><br><span>2023.02.01 | REUTERS LEGAL</span><br>(Reuters) - Global law firm Womble Bond Dickinson and smaller U.K. firm BDB Pitmans have abandoned merger talks after "extensive discussions," the firms said in a joint statement Wednesday."Both firms have decided that the best path forward ...
+							</li>
+							<li style="display: none;">
+								<a href="/Info/ContentView?sid=N003I566f7970a24611ed83beadaf03054479" class="popup_view">Morgan Stanley PE unit acquires environmental services firm Apex Companies</a><br><span>2023.02.01 | REUTERS</span><br>(Reuters) - Morgan Stanley's private equity arm that focuses on middle-market companies said on Wednesday it had acquired environmental services and consulting firm Apex Companies.Morgan Stanley Capital Partners said the current owner of ...
+							</li>
+							<li style="display: none;">
+								<a href="/Info/ContentView?sid=N003I61aac210a24411ed9842c03a15f2feb2" class="popup_view">Biden cooperating with federal search for classified documents at Delaware beach house -statement</a><br><span>2023.02.01 | REUTERS</span><br>WASHINGTON (Reuters) -The U.S. Justice Department is conducting a planned search of Joe Biden's Delaware beach house with the president's cooperation, his lawyer said on Wednesday."We agreed to cooperate," Biden's personal lawyer, Bob ...
+							</li>
+							<li style="display: none;">
+								<a href="/Info/ContentView?sid=N003I61aa73f0a24411ed9c9df0e1dbab9426" class="popup_view">Bankman-Fried barred from contacting FTX employees, using Signal</a><br><span>2023.02.02 | REUTERS</span><br>NEW YORK (Reuters) -A U.S. judge on Wednesday temporarily barred FTX founder Sam Bankman-Fried from contacting current or former employees of the cryptocurrency exchange or his Alameda Research hedge fund, and from using encrypted messaging ...
+							</li>
+						</ul>
+						<div class="more_view"><span class="_this"></span><span></span><span></span><span></span><span></span><span></span></div>
+					</section>
+				</aside>
+			</div>
+    	</div>
+		<footer>
+			<div class="etc_menu"> 
+				<div class="top_container">  
+					<ul>	
+						<li class="blind">기타 메뉴 </li>
+						<li>회사소개</li>
+						<li>광고 · 제휴문의</li>
+						<li>이용약관</li>
+						<li>개인정보 취급/처리 방침</li>
+						<li>법적고지</li>
+						<li>이메일 무단수집거부</li>
+					</ul>
+				</div>
+			</div>  
+			<div class="top_container   _footer"> 	   
+				1. 콘텐츠의 명칭 : 법률정보 &nbsp;&nbsp; 2. 콘텐츠의 제작 및 표시 : 2006년 2월 17일(업그레이드 콘텐츠의 경우 갱신일) &nbsp;&nbsp; 3. 콘텐츠 제작자 : ㈜로앤비  &nbsp;&nbsp;  4. 콘텐츠의 이용조건 : <a href="/support/agree_use.asp" class="red_bott">이용약관</a> 및 로앤비 <a href="/support/serviceInfo_member.asp" class="red_bott">서비스안내</a>와 같음 (무단 복제금지) &nbsp;&nbsp;5. 콘텐츠의 보호기간 : ㈜로앤비 사이트의 모든 콘텐츠는 「콘텐츠산업 진흥법」에 따라 제작 또는 갱신일로부터 5년간 보호됨
+				<div>Thomson reuters</div>
+				<div>Copyright ⓒ 1998~2016 <b>LAWnB</b>. All Rights Reserved.</div>
+			</div>       
+		</footer>
+		<div id="bg_screen"></div>
+		<script type="text/javascript">  
+			setHeight_under();			  
+		</script>
+	</div>
+</div> 
+</body>
+</html>

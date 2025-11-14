@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+	<meta name="viewport" content="width=1140">
+	<title> 로앤비 </title>
+	<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+	<link rel="stylesheet" type="text/css" href="../css/_next_layout.css" />
+	<link rel="stylesheet" type="text/css" href="../css/_next_default.css" />
+	<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript" src="../js/commonjs.js?sdd"></script>
+	<script language="javascript">
+<!--
+
+		function resizeComment() {
+			setHeight_under();
+			$(".right_container").removeClass('slide_mov_right');
+		}
+		//-->
+	</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_mainContainer">
+	<div id="wrap" >
+		<header>
+			<div class="top_container ">
+				<h1>로앤비1</h1>
+				<div id="t_search" class="search_container">
+					<h2>통합검색 영역</h2>
+					<div class="search_inner">
+						<form method="post" id="totalSearchForm" action="Info/ContentTotal" onsubmit="return getTotalSearch();">
+							<div class="search_left hide">
+								<label class="hide">통합검색  </label>
+							</div>
+							<div class="search_center">
+								<input type="search" id="qu" name="qu" title="통합검색" autocomplete="off">
+							</div>
+							<div class="search_right">
+								<span class="more_btn"><i class="icon-more" data-icon=""></i><span class="hide">more</span></span>
+
+								<!-- 검색 연산자 -->
+								<i class="icon-info" data-icon="" onclick="searchCalcInfo();" alt="검색연산자 안내">
+									<span class="blind">검색 연산자 안내</span>
+								</i>
+							</div>
+							<div id="searchButton" class="search_btn"><i class="icon-" data-icon=""></i><span class="hide">검색</span></div>
+						</form>
+					</div>
+					<!-- 모바일 체크 할것 -->
+					<div class="btn_search_result"><i class="icon-" data-icon=""></i><span>통합검색 결과 맵&ZeroWidthSpace;</span></div>
+					<div class="search_layer_outer" style="display: none;">
+						<div class="search_layer" style="display: none;">
+							<div class="search_layer_list _done ">
+								<div class="txt_info" style="display:none"></div>
+								<ul>
+								</ul>
+								<div id="result_target"></div>
+							</div>
+						</div>
+					</div>
+					<div class="layer_calc_outer" style="display: none;">
+						<div class="box_calc_info">
+							<h3>LAWnB 검색연산자 안내</h3>
+							<div class="box_calcDL">
+								<dl>
+									<dt>AND</dt>
+									<dd>
+										<span>"이사회"와 "감사"가 모두 포함된 문서</span>
+										<span>- 예시) 이사회 감사, 이사회 AND 감사</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>OR</dt>
+									<dd>
+										<span>"이사회"와 "감사" 중 어느 하나라도 포함된 문서</span>
+										<span>- 예시) 이사회 OR 감사</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>NOT</dt>
+									<dd>
+										<span>"이사회"가 포함되고 "감사"가 포함되지 않은 문서</span>
+										<span>- 예시) [검색어]이사회 [제외어]감사, 이사회 NOT 감사</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>EQUAL</dt>
+									<dd>
+										<span>"이사회 감사"라는 검색어와 완전일치하는 구문이 있는 문서</span>
+										<span>- 예시) “이사회 감사”</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>NEAR </dt>
+									<dd>
+										<span>"이사회"와 "감사" 사이에 단어(형태소)가 10개 이하인 문서</span>
+										<span>- 예시) “이사회 감사”~10</span>
+									</dd>
+								</dl>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+				<div id="indiv_area" class="indiv_container">
+					<span alt="나의 검색" onclick="MYSEARCH();">
+						나의검색
+						<em class="icon_mySearch_on">ON</em>
+						<i class="newic-mysearch_main"></i>
+					</span>
+					<span alt="나의폴더" onclick="MyFolder();">나의폴더<i class="icon-icon_myfolder" data-icon=""></i></span>
+					<span alt="하이라이트/메모" onclick="MyHighlight();">하이라이트&메모<i class="newic-h_light"></i></span>
+					<span alt="히스토리" onclick="MyHistory();">히스토리<i class="icon-icon_history" data-icon=""></i></span>
+					<span alt="알림설정" onclick="MyAlert();">
+						알림<i class="icon-icon_alert" data-icon=""></i>
+						<em id="alertCount" style="display: none;">0</em>
+					</span>
+					<span alt="문의내역">문의내역<i class="icon-icon_question" data-icon=""></i></span>
+					<span alt="나의정보" onclick="MyInfo();">나의정보<i class="icon-icon_myinfo" data-icon=""></i></span>
+				</div>
+
+			</div>
+
+			<nav style="background: none;">
+				<div class="nav_menuBox">
+					<dl id="main_menu" class="mmenu">
+						<dd>
+							<a href="Info/ContentMain/Case"><span>판례</span></a>
+						</dd>
+						<dd>
+							<a href="#"><span>법규</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="Info/ContentMain/Law">법령</a></li>
+								<li><a href="Info/ContentMain/AdminRule">행정규칙</a></li>
+								<li><a href="Info/ContentMain/LawMake">입법동향</a></li>
+								<li><a href="Info/ContentMain/Treaty">조약</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>심판·결정·해석</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="Info/ContentMain/PatentCase">특허심판례</a></li>
+								<li><a href="Info/ContentMain/AdminCase">결정례</a></li>
+								<li><a href="Info/ContentMain/InterpretRule">유권해석</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>문헌</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="Info/ContentMain/Doc">논문·평석</a></li>
+								<li><a href="Info/ContentMain/Jusuk">주석서</a></li>
+								<li><a href="Info/ContentMain/Ebook">E-book</a></li>
+								<li><a href="Info/ContentMain/LawDic">법률사전</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>법조인</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="Info/ContentMain/Lawyer">법조인명록</a></li>
+								<li><a href="Info/ContentMain/Org">조직도</a></li>
+								<li><a href="Info/ContentMain/LawFirm">법률사무소</a></li>
+								<li><a href="Info/ContentMain/OrgInfo">법조기관 안내</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>기업법무</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="Info/ContentMain/LawFirmReport">로펌 리포트</a></li>
+								<li><a href="Info/ContentMain/BizInfo">기업정보</a></li>
+								<li><a href="Info/ContentMain/Sosong">소송비용계산</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>서식</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="Info/ContentMain/LawForm">전문법률서식</a></li>
+								<li><a href="Info/ContentMain/BizForm">비즈폼 서식</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>뉴스·칼럼</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="Info/ContentMain/News">뉴스</a></li>
+								<li><a href="Info/ContentMain/Column">칼럼</a></li>
+								<!-- <li><a href="/Editor/Index">LAWnB Editor</a></li> -->
+							</ul>
+						</dd>
+						<dd>
+							<a href="Info/ContentMain/ONJU"><span>온주</span></a>
+						</dd>
+						<dd class="btn_menu_all">
+							<a href="#" onclick="showAllMenu();">메뉴 전체보기  <i></i></a>
+						</dd>
+					</dl>
+					<div class="box_menu_all">
+						<div class="btn_close_pop" onclick="showAllMenu();">닫기<i class="icon-close" data-icon=""></i></div>
+						<ul>
+							<!--<li><strong>판례</strong></li>-->
+							<li><a href="Info/ContentMain/Case">판례</a></li>
+						</ul>
+						<ul>
+							<!--<li><strong>법규</strong></li>-->
+							<li><a href="Info/ContentMain/Law">법령</a></li>
+							<li><a href="Info/ContentMain/AdminRule">행정규칙</a></li>
+							<li><a href="Info/ContentMain/LawMake">입법동향</a></li>
+							<li><a href="Info/ContentMain/Treaty">조약</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>심판·결정·해석</strong></li>-->
+							<li><a href="Info/ContentMain/PatentCase">특허심판례</a></li>
+							<li><a href="Info/ContentMain/AdminCase">결정례</a></li>
+							<li><a href="Info/ContentMain/InterpretRule">유권해석</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>문헌</strong></li>-->
+							<li><a href="Info/ContentMain/Doc">평석·논문</a></li>
+							<li><a href="Info/ContentMain/Jusuk">주석서</a></li>
+							<li><a href="Info/ContentMain/Ebook">E-book</a></li>
+							<li><a href="Info/ContentMain/LawDic">법률사전</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>법조인</strong></li>-->
+							<li><a href="Info/ContentMain/Lawyer">법조인명록</a></li>
+							<li><a href="Info/ContentMain/Org">조직도</a></li>
+							<li><a href="Info/ContentMain/LawFirm">법률사무소</a></li>
+							<li><a href="Info/ContentMain/OrgInfo">법조기관 안내</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>기업법무</strong></li>-->
+							<li><a href="Info/ContentMain/LawFirmReport">로펌 리포트</a></li>
+							<li><a href="Info/ContentMain/BizInfo">기업정보</a></li>
+							<li><a href="Info/ContentMain/Sosong">소송비용계산</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>서식</strong></li>-->
+							<li><a href="Info/ContentMain/LawForm">전문법률서식</a></li>
+							<li><a href="Info/ContentMain/BizForm">비즈폼 서식</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>뉴스·칼럼</strong></li> -->
+							<li><a href="Info/ContentMain/News">뉴스</a></li>
+							<li><a href="Info/ContentMain/Column">칼럼</a></li>
+							<!-- <li><a href="/Editor/Index">LAWnB Editor</a></li> -->
+						</ul>
+						<ul>
+							<!-- <li><strong>온주</strong></li>-->
+							<li><a href="Info/ContentMain/ONJU">온주</a></li>
+						</ul>
+						<ul>
+							<li><a href="javascript:OnetoOneContactUs('B02');">판결문 등재신청&ZeroWidthSpace;</a></li>
+							<li><a href="javascript:showOriginalView('/Lawyer/Management/');">법조인명록 등록/수정&ZeroWidthSpace;</a></li>
+							<li><a href="javascript:OnetoOneContactUs('B04');">승소판결문 등록&ZeroWidthSpace;</a></li>
+							<li><a href="javascript:OnetoOneContactUs('B01');">1:1문의&ZeroWidthSpace;</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+
+		</header> 
+		<div class="submenu_group" style="">
+				<div>
+					<dl>
+						<dd><a href="">판례</a></dd>
+						<dd><a href="">판례디렉토리</a></dd>
+						<dd><a href="">판례속보</a></dd>
+					</dl>
+					<dl>
+						<dd><a href="">법령</a></dd>
+						<dd><a href="">행정규칙</a></dd>
+						<dd><a href="">입법동향</a></dd>
+						<dd><a href="">조약</a></dd>
+					</dl>
+					<dl>
+						<dd><a href="">특허 심판례</a></dd>
+						<dd><a href="">결정례</a></dd>
+						<dd><a href="">유권해석</a></dd>
+					</dl>
+					<dl>
+						<dd><a href="">논문평석</a></dd>
+						<dd><a href="">주석서</a></dd>
+						<dd><a href="">E-book</a></dd>
+						<dd><a href="">법률용어</a></dd>
+					</dl>
+					<dl>
+						<dd><a href="">법조인명록</a></dd>
+						<dd><a href="">조직도</a></dd>
+						<dd><a href="">법률사무소</a></dd>
+						<dd>법조기관 안내</dd>
+					</dl>
+					<dl>
+						<dd>로펌 리포트</dd>
+						<dd>세무정보</dd>
+						<dd>기업정보</dd>
+					</dl>
+					<dl>
+						<dd>법률서식</dd>
+						<dd>비즈폼 서식</dd>
+					</dl>
+					<dl>
+						<dd>뉴스</dd>
+						<dd>칼럼</dd>
+					</dl>
+				</div>
+				<div class="ad_area">ss</div>
+			</div>
+		<div id="container" class="two-con  submain news">
+			<div id="breadcrumb" class="navi_area">
+				<div>Home > 뉴스·칼럼 > <a href="1">뉴스</a></div>
+				<div class="group_indivi_btn"><a href="">로그인</a><a href="">개인화님</a> </div>
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div id="container_inner">
+				<div class="left_container">
+				</div>
+				<article class="main_container">
+					<div class="main_container_inner">
+						<div id="search_submain" class="submain_group">
+							<h3>
+								뉴스
+								<div class="small_search_outbox">
+									<!-- small search -->
+									<div class="small_search_inbox">
+										<input type="search" name="" placeholder="뉴스 검색"> <input type="button" value="검색 " id="searchButton_s" class="btn _search">
+									</div>
+								</div>
+							</h3>
+							<div class="search_div">
+								<div class="news_today_title">세계법제동향</div>
+								<div class="news_colum_top">
+									<div class="news_A">
+										<div class="news_D">
+											<a href="ContentView?sid=N000EBC1B01190F4" class="popup_view">공정위, 특고 대상 갑질 심사지침 보완…노무제공자로 명칭 변경 </a><div>연합뉴스 <em>2023.05.24</em></div>
+											공정거래위원회 ..[연합뉴스TV 제공] 공정거래위원회가 특수형태 근로종사자(특고) 등에 대한 사업자들의 ..'갑질' 여부를 심사할 때 기준이 되는 지침을 새로 마련한다고 24일 밝혔다... 공정위는 ..'노무제공자에 대한 거래상 지위 남용행위 심사지침' 제정안을 이..
+										</div>
+										<dl>
+											<dt><img src="https://lawnb.com/lbimg/2023/0524/lawnb111816_s.jpg"></dt>
+											<dd><a href="ContentView?sid=N000BE31C4358B33" class="popup_view">미필 남성 국가배상액, 여성과 같아진다…'예상 복무기간' 포함 </a><div>연합뉴스 <em>2023.05.24</em></div></dd>
+										</dl>
+										<dl>
+											<dt><img src="https://lawnb.com/lbimg/2023/0524/lawnb090727_s.jpg"></dt>
+											<dd><a href="ContentView?sid=N0003FA5B210856E" class="popup_view">대법 "보증금 떼여도 새 세입자 구하기 협조해야 지연이자 지급" </a><div>연합뉴스 <em>2023.05.24</em></div></dd>
+										</dl>
+										<div class="colum_other_outer mgt20">
+											<div class="colum_other">
+												<p>수험뉴스 <span onclick="goSubMainList(1)">전체보기</span></p>
+												<ul>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0502/lawnb094718_s.jpg" style="width: 100%;"></div><a href="ContentView?sid=N000C431AD6A87B9" class="popup_view">법무부, 제12회 변호사시험 합격자 76명 검사로 신규임용 </a><span>로이슈 <em>2023.05.01</em></span></li>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0502/lawnb021944_s.jpg" style="width: 100%;"></div><a href="ContentView?sid=N00037AA5F2425B5" class="popup_view">로스쿨 출신 검사 76명 임용…역대 최다 </a><span>연합뉴스 <em>2023.05.01</em></span></li>
+												</ul>
+											</div>
+											<div class="colum_other">
+												<p>화제의 법조인<span onclick="goSubMainList(2)">전체보기</span></p>
+												<ul>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0504/dimg102913.jpg" style="width: 100%;"></div><a href="ContentView?sid=N00090BCB86971F3" class="popup_view">[인터뷰] “헌법재판관으로서의 시간은 성찰의 시간”… 이석태 전 헌법재판관 퇴임 인터뷰 </a><span>법률신문 <em>2023.05.04</em></span></li>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0403/dimg111039.jpg" style="width: 100%;"></div><a href="ContentView?sid=N000164737E4A543" class="popup_view">[인터뷰] 법무법인 오킴스 “시대 변화 감지해 자문 제공”…첨단 산업분야에 강점 </a><span>법률신문 <em>2023.04.03</em></span></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+
+									<div id="search_results" class="news_C newslist">
+										<ul>
+											<li><div class="thumb_world"><img src="../images/flag/FR.png"></div><a href="../Info/ContentView?sid=N0001A4D4979BBC1" class="popup_view">'전세사기 특별법' 국토위 통과…내일 본회의 처리 예정 </a><span>유럽연합(EU) / European Union (EU) /  <em>2023.05.24</em></span></li>
+											<li><div class="thumb_world"><img src="../images/flag/CN.png"></div><a href="../Info/ContentView?sid=N000E8C5405CBD9C" class="popup_view">대법원, 연장근로수당 미지급 근로기준법위반 무죄 원심 파기환송 </a><span>동북아시아 / 중국 (China)  /  <em>2023.05.24</em></span></li>
+											<li><div class="thumb_world"><img src="../images/flag/JP.png"></div><a href="../Info/ContentView?sid=N0005F3B64087792" class="popup_view">[법률구조]대구지법, 항소심도 "휴대폰 판매점 업주가 실질적 사용자" </a><span>동북아시아 / 일본 (Japan)  /  <em>2023.05.24</em></span></li>
+											<li><div class="thumb_world"><img src="../images/flag/RU.png"></div><a href="../Info/ContentView?sid=N0001C77C9D0BD7F" class="popup_view">금융위, 개인연금 세제혜택 소득별 효과 분석한다 </a><span>국제기구 / 유럽연합(EU) European Union (EU) /  <em>2023.05.24</em></span></li>
+											<li><div class="thumb_world"><img src="../images/flag/VN.png"></div><a href="../Info/ContentView?sid=N0004877544BCF9A" class="popup_view">인권위 "피의자 포승 묶인 모습 노출 말아야" </a><span>국제기구 / 유럽연합(EU) European Union (EU) /  <em>2023.05.24</em></span></li>
+											<li><div class="thumb_world"><img src="../images/flag/FR.png"></div><a href="../Info/ContentView?sid=N0001A4D4979BBC1" class="popup_view">'전세사기 특별법' 국토위 통과…내일 본회의 처리 예정 </a><span>국제기구 / 유럽연합(EU) European Union (EU) /  <em>2023.05.24</em></span></li>
+											<li><div class="thumb_world"><img src="../images/flag/CN.png"></div><a href="../Info/ContentView?sid=N000E8C5405CBD9C" class="popup_view">대법원, 연장근로수당 미지급 근로기준법위반 무죄 원심 파기환송 </a><span>국제기구 / 유럽연합(EU) European Union (EU) /  <em>2023.05.24</em></span></li>
+											<li><div class="thumb_world"><img src="../images/flag/JP.png"></div><a href="../Info/ContentView?sid=N0005F3B64087792" class="popup_view">[법률구조]대구지법, 항소심도 "휴대폰 판매점 업주가 실질적 사용자" </a><span>국제기구 / 유럽연합(EU) European Union (EU) /  <em>2023.05.24</em></span></li>
+											<li><div class="thumb_world"><img src="../images/flag/RU.png"></div><a href="../Info/ContentView?sid=N0001C77C9D0BD7F" class="popup_view">금융위, 개인연금 세제혜택 소득별 효과 분석한다 </a><span>국제기구 / 유럽연합(EU) European Union (EU) /  <em>2023.05.24</em></span></li>
+											<li><div class="thumb_world"><img src="../images/flag/VN.png"></div><a href="../Info/ContentView?sid=N0004877544BCF9A" class="popup_view">인권위 "피의자 포승 묶인 모습 노출 말아야" </a><span>국제기구 / 유럽연합(EU) European Union (EU) /  <em>2023.05.24</em></span></li>
+										</ul>
+										<!-- paging -->
+										<div class="navigationLinks">
+											<span class="currentPage">1</span>
+											<a href="#" class="navPages">2</a>
+											<a href="#" class="navPages">3</a>
+											<a href="#" class="navPages">4</a>
+											<a href="#" class="navPages">5</a>
+											<a href="#" class="navNext"><i class="icon-1" data-icon=""></i></a>
+											<a href="#" class="navLast "><i class="icon-8" data-icon=""></i></a>
+										</div><!-- paging end-->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="main_container_view">
+						<div class="main_container_view_inner">
+
+						</div>
+					</div>
+				</article>
+
+				<aside class="right_container">
+					<section>
+						<h4>
+							주요 뉴스 속 판례
+							<div class="btn-group fr">
+								<button type="button" class="btn btn-default" onclick="goSubMainList(3)">전체보기</button>
+							</div>
+						</h4>
+						<ul>
+							<li><a href="ContentView?sid=N0003FA5B210856E" class="popup_view">대법 "보증금 떼여도 새 세입자 구하기 협조해야 지연이자 지급" </a><span> 연합뉴스  / 2023.05.24</span></li>
+							<li><a href="ContentView?sid=N000E8C5405CBD9C" class="popup_view">대법원, 연장근로수당 미지급 근로기준법위반 무죄 원심 파기환송 </a><span> 로이슈  / 2023.05.24</span></li>
+							<li><a href="ContentView?sid=N0005F3B64087792" class="popup_view">[법률구조]대구지법, 항소심도 "휴대폰 판매점 업주가 실질적 사용자" </a><span> 로이슈  / 2023.05.24</span></li>
+							<li><a href="ContentView?sid=N000DF88C140EC96" class="popup_view">고시원서 살며 수시로 일한 총무 근로시간은 </a><span> 연합뉴스  / 2023.05.23</span></li>
+							<li><a href="ContentView?sid=N00015C33CF4AA02" class="popup_view">[판결] 'H.O.T. 상표권 침해 소송' 김경욱 前 SM대표 최종 패소 </a><span> 법률신문  / 2023.05.23</span></li>
+							<li><a href="ContentView?sid=N000075D0F57367B" class="popup_view">부산지법, 15개업체 하도급대금 최저입찰금액보다 낮게 책정 원청·대표 각 벌금 3억원 </a><span> 로이슈  / 2023.05.23</span></li>
+							<li><a href="ContentView?sid=N0001D66C42A1EAA" class="popup_view">[판결] '일감 몰아주기' 하이트진로 박태영 사장, 2심도 징역형 집행유예 </a><span> 법률신문  / 2023.05.23</span></li>
+							<li><a href="ContentView?sid=N00067CE0BB9F349" class="popup_view">대구지법, 무단횡단 보행자 사망사고 무죄 원심 파기 유죄 </a><span> 로이슈  / 2023.05.23</span></li>
+							<li><a href="ContentView?sid=N0003E7478835EAD" class="popup_view">대법 "보험사 구상권보다 피해자 직접 청구권이 우선" </a><span> 연합뉴스  / 2023.05.22</span></li>
+							<li><a href="ContentView?sid=N000474980C724C7" class="popup_view">bhc본사 비판했다고 계약 해지…법원 "본사, 1억 배상" </a><span> 연합뉴스  / 2023.05.22</span></li>
+						</ul>
+					</section>
+					<section>
+						<div class="loading_area" style="display: none;"><img src="/images/tr_img_loading_re.gif?v=2022060151" alt=""></div>
+						<h4>
+							REUTERS News
+							<div class="btn-group fr">
+								<button type="button" class="btn btn-default" onclick="goSubMainList(3)">전체보기</button>
+							</div>
+						</h4>
+						<ul>
+							<li><a href="#" class="popup_view">Senate panel hails rare unity on Biden nominee for 5th Circuit judge </a><span> 2023.04.11 | REUTERS LEGAL</span></li>
+							<li><a href="#" class="popup_view">Senate panel hails rare unity on Biden nominee for 5th Circuit judge </a><span> 2023.04.11 | REUTERS LEGAL</span></li>
+							<li><a href="#" class="popup_view">Senate panel hails rare unity on Biden nominee for 5th Circuit judge </a><span> 2023.04.11 | REUTERS LEGAL</span></li>
+							<li><a href="#" class="popup_view">Senate panel hails rare unity on Biden nominee for 5th Circuit judge </a><span> 2023.04.11 | REUTERS LEGAL</span></li>
+							<li><a href="#" class="popup_view">Senate panel hails rare unity on Biden nominee for 5th Circuit judge </a><span> 2023.04.11 | REUTERS LEGAL</span></li>
+							<li><a href="#" class="popup_view">Senate panel hails rare unity on Biden nominee for 5th Circuit judge </a><span> 2023.04.11 | REUTERS LEGAL</span></li>
+						</ul>
+						<div class="more_view"><span class="_this"></span><span></span><span></span><span></span><span></span><span></span></div>
+					</section>
+				</aside>
+			</div>
+    	</div>
+		<footer>
+			<div class="etc_menu"> 
+				<div class="top_container">  
+					<ul>	
+						<li class="blind">기타 메뉴 </li>
+						<li>회사소개</li>
+						<li>광고 · 제휴문의</li>
+						<li>이용약관</li>
+						<li>개인정보 취급/처리 방침</li>
+						<li>법적고지</li>
+						<li>이메일 무단수집거부</li>
+					</ul>
+				</div>
+			</div>  
+			<div class="top_container   _footer"> 	   
+				1. 콘텐츠의 명칭 : 법률정보 &nbsp;&nbsp; 2. 콘텐츠의 제작 및 표시 : 2006년 2월 17일(업그레이드 콘텐츠의 경우 갱신일) &nbsp;&nbsp; 3. 콘텐츠 제작자 : ㈜로앤비  &nbsp;&nbsp;  4. 콘텐츠의 이용조건 : <a href="/support/agree_use.asp" class="red_bott">이용약관</a> 및 로앤비 <a href="/support/serviceInfo_member.asp" class="red_bott">서비스안내</a>와 같음 (무단 복제금지) &nbsp;&nbsp;5. 콘텐츠의 보호기간 : ㈜로앤비 사이트의 모든 콘텐츠는 「콘텐츠산업 진흥법」에 따라 제작 또는 갱신일로부터 5년간 보호됨
+				<div>Thomson reuters</div>
+				<div>Copyright ⓒ 1998~2016 <b>LAWnB</b>. All Rights Reserved.</div>
+			</div>       
+		</footer>
+		<div id="bg_screen"></div>
+		<script type="text/javascript">  
+			setHeight_under();			  
+		</script>
+	</div>
+</div> 
+</body>
+</html>

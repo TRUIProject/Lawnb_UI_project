@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+	<meta name="viewport" content="width=1140">
+	<title> 로앤비 </title>
+	<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+	<link rel="stylesheet" type="text/css" href="../css/_next_layout.css" />
+	<link rel="stylesheet" type="text/css" href="../css/_next_default.css" />
+	<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />
+	<script src="../Scripts/lib/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="../js/commonjs.js?sdd"></script>
+	<script language="javascript">
+<!--
+
+		function resizeComment() {
+			setHeight_under();
+			$(".right_container").removeClass('slide_mov_right');
+		}
+		var expanded = false;
+		function showCheckboxes() {
+			if (!expanded) {
+				$("#checkboxes").show();
+				expanded = true;
+			} else {
+				$("#checkboxes").hide();
+				expanded = false;
+			}
+		}
+
+		$(document).ready(function () {
+			$('.submain_tap li a').click(function () {
+				$('.submain_tap li').not(this).removeClass('active');
+				$(this).parent('li').addClass('active');
+			});
+
+            $('#result_tab ul li').click(function () {
+				$(this).addClass('this-page');
+                $(this).siblings().removeClass('this-page');
+            });
+            
+		});
+
+		function mainTap1() {
+            $('._tab1').show();
+			$('._tab2').hide();
+			$('._tab3').hide();
+			$('._tab4').hide();
+			$('._tab5').hide();
+			$('._tab6').hide();
+			$('._tab7').hide();
+            $('._tab8').hide();
+		};
+
+        function mainTap2() {
+            $('._tab1').hide();
+            $('._tab2').show();
+            $('._tab3').hide();
+            $('._tab4').hide();
+            $('._tab5').hide();
+            $('._tab6').hide();
+            $('._tab7').hide();
+            $('._tab8').hide();
+		};
+
+        function mainTap3() {
+            $('._tab1').hide();
+            $('._tab2').hide();
+            $('._tab3').show();
+            $('._tab4').hide();
+            $('._tab5').hide();
+            $('._tab6').hide();
+            $('._tab7').hide();
+            $('._tab8').hide();
+		};
+
+        function mainTap4() {
+            $('._tab1').hide();
+            $('._tab2').hide();
+            $('._tab3').hide();
+            $('._tab4').show();
+            $('._tab5').hide();
+            $('._tab6').hide();
+            $('._tab7').hide();
+            $('._tab8').hide();
+		};
+
+        function mainTap5() {
+            $('._tab1').hide();
+            $('._tab2').hide();
+            $('._tab3').hide();
+            $('._tab4').hide();
+            $('._tab5').show();
+            $('._tab6').hide();
+            $('._tab7').hide();
+            $('._tab8').hide();
+        };
+
+        function mainTap6() {
+            $('._tab1').hide();
+            $('._tab2').hide();
+            $('._tab3').hide();
+            $('._tab4').hide();
+            $('._tab5').hide();
+            $('._tab6').show();
+            $('._tab7').hide();
+            $('._tab8').hide();
+		};
+
+        function mainTap7() {
+            $('._tab1').hide();
+            $('._tab2').hide();
+            $('._tab3').hide();
+            $('._tab4').hide();
+            $('._tab5').hide();
+            $('._tab6').hide();
+            $('._tab7').show();
+            $('._tab8').hide();
+        };
+
+        function mainTap8() {
+            $('._tab1').hide();
+            $('._tab2').hide();
+            $('._tab3').hide();
+            $('._tab4').hide();
+            $('._tab5').hide();
+            $('._tab6').hide();
+            $('._tab7').hide();
+            $('._tab8').show();
+        };
+
+		function moreSearchFrom() {
+			$('.submain_search._option').toggle();
+			$('.submain_search_more span').toggle();
+		};
+
+		//-->
+	</script>
+
+	<style type="text/css">
+		/* 소스 꼭 다시 짜야 함 */
+		.news_box { display:flex; flex-wrap:wrap; justify-content: space-between;}
+		.news_box h3 {width:100%; margin-bottom:10px;}
+		.news_box .btn_more {top: 10px;  right: 0; color:#7f7f7f; }
+		.news_box .news_title {font-size:16px; color:#005da2; line-height: 1.6; text-decoration:none;}
+		.news_box span {color:#7f7f7f; display:block; font-size: 12px; line-height: 1.8;}
+		.news_box .indivi li p { color: #7f7f7f; line-height: 1.8; display: -webkit-box;  overflow: hidden; text-overflow: ellipsis; -webkit-line-clamp: 2; -webkit-box-orient: vertical;}
+		.news_box a:hover  { text-decoration-line:none !important;}
+		.news_box a:hover .news_title { text-decoration:underline;}
+		.news_header {width: calc(50% - 20px);}
+		.news_list {width: calc(50% - 20px); position:relative; margin-bottom:40px;}
+		.news_header .thumb_img {margin-top: 4px; height:300px; overflow:hidden;  }
+		.news_header .thumb_img img { height:100%; min-width:100%;}
+		.news_header .news_title {-webkit-line-clamp: 2; margin-top:10px; display: -webkit-box; overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical;}
+		.news_list.header_list li .news_title {-webkit-line-clamp: 2; }
+		.news_list.header_list li .thumb_s { width:100px; height:75px;}
+
+		.news_main_flex { display: flex; flex-wrap: wrap; justify-content: space-between;} 
+		.news_main_flex > div {margin-bottom:20px;}
+        .news_exam, .news_exam_prev, .news_lawyer {padding-right:0px;}
+        .news_exam, .news_lawyer, .news_today, .news_exam_prev, .news_academy, .news_world {width: calc(50% - 10px);}
+        .news_today_title span {right:0px;}
+        .small_search_inbox { padding:0;}
+        .submain_group h3 { padding:0;}
+		.news_today_title, .news_main_bot.title h3, .news_box h3:after { border-bottom:none !important;}
+		.news_main_bot.title h3:after {border-bottom:1px solid #ccc;}
+        .news_today_top {margin-top:10px;}
+        .news_F {margin-top:10px;}
+        .news_main_bot a {font-weight:normal;}
+
+        .thumb_s, .thumb_world {width:80px; height:53px;}
+		.thumb_world img { width:55px;}
+        .news_F li a {-webkit-line-clamp: 1;}
+        
+	</style>
+</head>
+
+<body onresize="resizeComment();">
+	<div id="co_mainContainer">
+		<div id="wrap">
+			<header>
+				<div class="top_container ">
+					<h1>로앤비1</h1>
+					<div id="t_search" class="search_container">
+						<h2>통합검색 영역</h2>
+						<div class="search_inner">
+							<form method="post" id="totalSearchForm" action="Info/ContentTotal" onsubmit="return getTotalSearch();">
+								<div class="search_left hide">
+									<label class="hide">통합검색  </label>
+								</div>
+								<div class="search_center">
+									<input type="search" id="qu" name="qu" title="통합검색" autocomplete="off">
+								</div>
+								<div class="search_right">
+									<span class="more_btn"><i class="icon-more" data-icon=""></i><span class="hide">more</span></span>
+
+									<!-- 검색 연산자 -->
+									<i class="icon-info" data-icon="" onclick="searchCalcInfo();" alt="검색연산자 안내">
+										<span class="blind">검색 연산자 안내</span>
+									</i>
+								</div>
+								<div id="searchButton" class="search_btn"><i class="icon-" data-icon=""></i><span class="hide">검색</span></div>
+							</form>
+						</div>
+						<!-- 모바일 체크 할것 -->
+						<div class="btn_search_result"><i class="icon-" data-icon=""></i><span>통합검색 결과 맵&ZeroWidthSpace;</span></div>
+						<div class="search_layer_outer" style="display: none;">
+							<div class="search_layer" style="display: none;">
+								<div class="search_layer_list _done ">
+									<div class="txt_info" style="display:none"></div>
+									<ul>
+									</ul>
+									<div id="result_target"></div>
+								</div>
+							</div>
+						</div>
+						<div class="layer_calc_outer" style="display: none;">
+							<div class="box_calc_info">
+								<h3>LAWnB 검색연산자 안내</h3>
+								<div class="box_calcDL">
+									<dl>
+										<dt>AND</dt>
+										<dd>
+											<span>"이사회"와 "감사"가 모두 포함된 문서</span>
+											<span>- 예시) 이사회 감사, 이사회 AND 감사</span>
+										</dd>
+									</dl>
+									<dl>
+										<dt>OR</dt>
+										<dd>
+											<span>"이사회"와 "감사" 중 어느 하나라도 포함된 문서</span>
+											<span>- 예시) 이사회 OR 감사</span>
+										</dd>
+									</dl>
+									<dl>
+										<dt>NOT</dt>
+										<dd>
+											<span>"이사회"가 포함되고 "감사"가 포함되지 않은 문서</span>
+											<span>- 예시) [검색어]이사회 [제외어]감사, 이사회 NOT 감사</span>
+										</dd>
+									</dl>
+									<dl>
+										<dt>EQUAL</dt>
+										<dd>
+											<span>"이사회 감사"라는 검색어와 완전일치하는 구문이 있는 문서</span>
+											<span>- 예시) “이사회 감사”</span>
+										</dd>
+									</dl>
+									<dl>
+										<dt>NEAR </dt>
+										<dd>
+											<span>"이사회"와 "감사" 사이에 단어(형태소)가 10개 이하인 문서</span>
+											<span>- 예시) “이사회 감사”~10</span>
+										</dd>
+									</dl>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+					<div id="indiv_area" class="indiv_container">
+						<span alt="나의 검색" onclick="MYSEARCH();">
+							나의검색
+							<em class="icon_mySearch_on">ON</em>
+							<i class="newic-mysearch_main"></i>
+						</span>
+						<span alt="나의폴더" onclick="MyFolder();">나의폴더<i class="icon-icon_myfolder" data-icon=""></i></span>
+						<span alt="하이라이트/메모" onclick="MyHighlight();">하이라이트&메모<i class="newic-h_light"></i></span>
+						<span alt="히스토리" onclick="MyHistory();">히스토리<i class="icon-icon_history" data-icon=""></i></span>
+						<span alt="알림설정" onclick="MyAlert();">
+							알림<i class="icon-icon_alert" data-icon=""></i>
+							<em id="alertCount" style="display: none;">0</em>
+						</span>
+						<span alt="문의내역">문의내역<i class="icon-icon_question" data-icon=""></i></span>
+						<span alt="나의정보" onclick="MyInfo();">나의정보<i class="icon-icon_myinfo" data-icon=""></i></span>
+					</div>
+				</div>
+
+				<nav style="background: none;">
+					<div class="nav_menuBox">
+						<dl id="main_menu" class="mmenu">
+							<dd>
+								<a href="Info/ContentMain/Case"><span>판례</span></a>
+							</dd>
+							<dd>
+								<a href="#"><span>법규</span><i class="icon_open"></i></a>
+								<ul class="menu_sub">
+									<li><a href="Info/ContentMain/Law">법령</a></li>
+									<li><a href="Info/ContentMain/AdminRule">행정규칙</a></li>
+									<li><a href="Info/ContentMain/LawMake">입법동향</a></li>
+									<li><a href="Info/ContentMain/Treaty">조약</a></li>
+								</ul>
+							</dd>
+							<dd>
+								<a href="#"><span>심판·결정·해석</span><i class="icon_open"></i></a>
+								<ul class="menu_sub">
+									<li><a href="Info/ContentMain/PatentCase">특허심판례</a></li>
+									<li><a href="Info/ContentMain/AdminCase">결정례</a></li>
+									<li><a href="Info/ContentMain/InterpretRule">유권해석</a></li>
+								</ul>
+							</dd>
+							<dd>
+								<a href="#"><span>문헌</span><i class="icon_open"></i></a>
+								<ul class="menu_sub">
+									<li><a href="Info/ContentMain/Doc">논문·평석</a></li>
+									<li><a href="Info/ContentMain/Jusuk">주석서</a></li>
+									<li><a href="Info/ContentMain/Ebook">E-book</a></li>
+									<li><a href="Info/ContentMain/LawDic">법률사전</a></li>
+								</ul>
+							</dd>
+							<dd>
+								<a href="#"><span>법조인</span><i class="icon_open"></i></a>
+								<ul class="menu_sub">
+									<li><a href="Info/ContentMain/Lawyer">법조인명록</a></li>
+									<li><a href="Info/ContentMain/Org">조직도</a></li>
+									<li><a href="Info/ContentMain/LawFirm">법률사무소</a></li>
+									<li><a href="Info/ContentMain/OrgInfo">법조기관 안내</a></li>
+								</ul>
+							</dd>
+							<dd>
+								<a href="#"><span>기업법무</span><i class="icon_open"></i></a>
+								<ul class="menu_sub">
+									<li><a href="Info/ContentMain/LawFirmReport">로펌 리포트</a></li>
+									<li><a href="Info/ContentMain/BizInfo">기업정보</a></li>
+									<li><a href="Info/ContentMain/Sosong">소송비용계산</a></li>
+								</ul>
+							</dd>
+							<dd>
+								<a href="#"><span>서식</span><i class="icon_open"></i></a>
+								<ul class="menu_sub">
+									<li><a href="Info/ContentMain/LawForm">전문법률서식</a></li>
+									<li><a href="Info/ContentMain/BizForm">비즈폼 서식</a></li>
+								</ul>
+							</dd>
+							<dd>
+								<a href="#"><span>뉴스·칼럼</span><i class="icon_open"></i></a>
+								<ul class="menu_sub">
+									<li><a href="Info/ContentMain/News">뉴스</a></li>
+									<li><a href="Info/ContentMain/Column">칼럼</a></li>
+									<!-- <li><a href="/Editor/Index">LAWnB Editor</a></li> -->
+								</ul>
+							</dd>
+							<dd>
+								<a href="Info/ContentMain/ONJU"><span>온주</span></a>
+							</dd>
+							<dd class="btn_menu_all">
+								<a href="#" onclick="showAllMenu();">메뉴 전체보기  <i></i></a>
+							</dd>
+						</dl>
+						<div class="box_menu_all">
+							<div class="btn_close_pop" onclick="showAllMenu();">닫기<i class="icon-close" data-icon=""></i></div>
+							<ul>
+								<!--<li><strong>판례</strong></li>-->
+								<li><a href="Info/ContentMain/Case">판례</a></li>
+							</ul>
+							<ul>
+								<!--<li><strong>법규</strong></li>-->
+								<li><a href="Info/ContentMain/Law">법령</a></li>
+								<li><a href="Info/ContentMain/AdminRule">행정규칙</a></li>
+								<li><a href="Info/ContentMain/LawMake">입법동향</a></li>
+								<li><a href="Info/ContentMain/Treaty">조약</a></li>
+							</ul>
+							<ul>
+								<!-- <li><strong>심판·결정·해석</strong></li>-->
+								<li><a href="Info/ContentMain/PatentCase">특허심판례</a></li>
+								<li><a href="Info/ContentMain/AdminCase">결정례</a></li>
+								<li><a href="Info/ContentMain/InterpretRule">유권해석</a></li>
+							</ul>
+							<ul>
+								<!-- <li><strong>문헌</strong></li>-->
+								<li><a href="Info/ContentMain/Doc">평석·논문</a></li>
+								<li><a href="Info/ContentMain/Jusuk">주석서</a></li>
+								<li><a href="Info/ContentMain/Ebook">E-book</a></li>
+								<li><a href="Info/ContentMain/LawDic">법률사전</a></li>
+							</ul>
+							<ul>
+								<!-- <li><strong>법조인</strong></li>-->
+								<li><a href="Info/ContentMain/Lawyer">법조인명록</a></li>
+								<li><a href="Info/ContentMain/Org">조직도</a></li>
+								<li><a href="Info/ContentMain/LawFirm">법률사무소</a></li>
+								<li><a href="Info/ContentMain/OrgInfo">법조기관 안내</a></li>
+							</ul>
+							<ul>
+								<!-- <li><strong>기업법무</strong></li>-->
+								<li><a href="Info/ContentMain/LawFirmReport">로펌 리포트</a></li>
+								<li><a href="Info/ContentMain/BizInfo">기업정보</a></li>
+								<li><a href="Info/ContentMain/Sosong">소송비용계산</a></li>
+							</ul>
+							<ul>
+								<!-- <li><strong>서식</strong></li>-->
+								<li><a href="Info/ContentMain/LawForm">전문법률서식</a></li>
+								<li><a href="Info/ContentMain/BizForm">비즈폼 서식</a></li>
+							</ul>
+							<ul>
+								<!-- <li><strong>뉴스·칼럼</strong></li> -->
+								<li><a href="Info/ContentMain/News">뉴스</a></li>
+								<li><a href="Info/ContentMain/Column">칼럼</a></li>
+								<!-- <li><a href="/Editor/Index">LAWnB Editor</a></li> -->
+							</ul>
+							<ul>
+								<!-- <li><strong>온주</strong></li>-->
+								<li><a href="Info/ContentMain/ONJU">온주</a></li>
+							</ul>
+							<ul>
+								<li><a href="javascript:OnetoOneContactUs('B02');">판결문 등재신청&ZeroWidthSpace;</a></li>
+								<li><a href="javascript:showOriginalView('/Lawyer/Management/');">법조인명록 등록/수정&ZeroWidthSpace;</a></li>
+								<li><a href="javascript:OnetoOneContactUs('B04');">승소판결문 등록&ZeroWidthSpace;</a></li>
+								<li><a href="javascript:OnetoOneContactUs('B01');">1:1문의&ZeroWidthSpace;</a></li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+
+			</header>
+			<div id="container" class="news">
+				<div id="breadcrumb" class="navi_area">
+					<div><a href="/">Home</a> <i class="icon-" data-icon=""></i> 뉴스·칼럼 : <a href="News">뉴스</a></div>
+
+					<div class="group_indivi_btn">
+						<a href="https://member.lawnb.com/" target="member_regist">회원가입</a> |
+						<a href="/Support/SupportMain" target="Support_center">고객센터</a>
+						<a href="/Login/Index/" class="btn_logout">로그인</a>
+					</div>
+
+					<span id="right_control" style="display: none;"><i class="icon-2" data-icon=""><span class="blind">오른쪽 영역</span></i></span>
+
+				</div>
+				<div id="container_inner">
+					<div class="left_container" style="">
+						<section id="result_tab">
+							<h4 class="hide">조직 종류</h4>
+							<ul>
+								<li class="this-page" onclick="mainTap1()">뉴스홈</li>
+								<li onclick="mainTap2()">법률뉴스</li>
+								<li onclick="mainTap3()">뉴스 속 판례</li>
+								<li onclick="mainTap4()">Reuters News</li>
+								<li onclick="mainTap5()">화제의 법조인</li>
+								<li onclick="mainTap6()">수험뉴스</li>
+								<li onclick="mainTap7()">기출문제</li>
+								<li onclick="mainTap8()">세계법제동향</li>
+							</ul>
+						</section>
+					</div>
+					<article class="main_container" style="height: 1223.41px;">
+						<div class="main_container_inner">
+							<div id="search_submain" class="submain_group">
+								<h3>
+									<em>뉴스 </em>
+									<div class="small_search_outbox">
+										<!-- small search -->
+										<form id="searchForm" method="post">
+											<input type="hidden" id="sPage" name="sPage" value="1">
+											<input type="hidden" id="sList" name="sList" value="10">
+											<input type="hidden" id="sCode" name="sCode" value="N000">
+											<input type="hidden" id="sViewPage" name="sViewPage" value="2">
+											<input type="hidden" id="sType" name="sType" value="0">
+											<input type="hidden" id="sCat" name="sCat">
+											<input type="hidden" id="sSubType" name="sSubType" value="0">
+											<div class="small_search_inbox">
+												<input type="search" id="sWord" name="sWord" placeholder="뉴스 검색" onkeypress="if(event.keyCode==13) return goSearchList(0);"> <input type="button" value="검색 " id="searchButton_s" class="btn _search" onclick="return goSearchList(0);">
+											</div>
+										</form>
+									</div>
+								</h3>
+							</div>
+
+
+
+							<div class="submain_group title news_main_bot _tab1">
+								<div class="news_box">
+									<h3>오늘의 주요 법률뉴스</h3>
+									<span onclick="goSubMainList(0)" class="btn_more">전체보기</span>
+									<div class="news_header">
+										<a href="../ContentView?sid=N00065C0FA564F2C" class="popup_view">
+											<div class="thumb_img"><img src="https://lawnb.com/lbimg/2023/0623/lawnb095355_s.jpg" alt=""></div>
+											<div class="news_title">납품대금 연동제 '90일 이하'·'1억원 이하' 계약은 적용 예외 </div>
+											<span>연합뉴스 <em>2022.10.11</em></span>
+										</a>
+									</div>
+									<div class="news_list header_list">
+										<ul>
+											<li>
+												<a href="../ContentView?sid=N000B6043D64A308" class="popup_view">
+													<div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0623/dimg101331.jpg" alt="" style="width: 100%;"></div>
+													<div class="news_title">외국인 유학생 재정능력 심사 완화…시간제 취업도 확대 </div>
+													<span>연합뉴스 <em>2023.06.23</em></span>
+												</a>
+											</li>
+											<li>
+												<a href="../ContentView?sid=N000E39A422CCB5F" class="popup_view">
+													<div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0623/dimg011248.jpg" alt="" style="width: 100%;"></div>
+													<div class="news_title">[판결] '국회 앞 8차로 점거 경찰 폭행' 민주노총 간부들, 벌금형 확정 </div>
+													<span>법률신문 <em>2023.06.23</em></span>
+												</a>
+											</li>
+											<li>
+												<a href="../ContentView?sid=N000C24417E1A3E4" class="popup_view">
+													<div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0623/dimg090312.jpg" alt="" style="width: 100%;"></div>
+													<div class="news_title">[판결] 호사카 유지 교수, 위안부 관련 시민단체 상대 명예훼손 소송에서 일부승소 </div>
+													<span>법률신문 <em>2023.06.23</em></span>
+												</a>
+											</li>
+											<li>
+												<a href="../ContentView?sid=N000DF8BE0202E3B" class="popup_view">
+													<div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0622/dimg090727.jpg" alt="" style="width: 100%;"></div>
+													<div class="news_title">(단독)[판결] 법원, “변호사에게 상속재산 10% 자문료 지급은 부당” </div>
+													<span>법률신문 <em>2023.06.22</em></span>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="news_main_flex">
+									<div class="news_world fl">
+										<h3>세계법제동향<span onclick="goSubMainList(2)">전체보기</span></h3>
+										<div class="news_F">
+											<ul>
+												<li><div class="thumb_world"><img src="../images/flag/FR.png" alt=""></div><a href="../ContentView?sid=N000305F2BE2A0FB" class="popup_view">	중국, 티베트 「칭장고원 생태보호법」 제정 new </a><span><em>2023.04.10</em></span></li>
+												<li><div class="thumb_world"><img src="../images/flag/CN.png" alt=""></div><a href="../ContentView?sid=N00040D3F306FE73" class="popup_view">러시아, 연방군에서 복무하는 외국인의 러시아 국적 취득 절차 간소화 new </a><span><em>2023.04.10</em></span></li>
+												<li><div class="thumb_world"><img src="../images/flag/JP.png" alt=""></div><a href="../ContentView?sid=N00040D3F306FE73" class="popup_view">다단계 사기업체 자료로 과세…법원 "신빙성 있다면 적법" </a><span><em>2023.04.10</em></span></li>
+												<li><div class="thumb_world"><img src="../images/flag/RU.png" alt=""></div><a href="../ContentView?sid=N00040D3F306FE73" class="popup_view">다단계 사기업체 자료로 과세…법원 "신빙성 있다면 적법" </a><span><em>2023.04.10</em></span></li>
+												<li><div class="thumb_world"><img src="../images/flag/VN.png" alt=""></div><a href="../ContentView?sid=N00040D3F306FE73" class="popup_view">다단계 사기업체 자료로 과세…법원 "신빙성 있다면 적법" </a><span><em>2023.04.10</em></span></li>
+											</ul>
+										</div>
+									</div>
+
+									<div class="news_exam fl">
+										<h3>화재의 법조인<span onclick="goSubMainList(2)">전체보기</span></h3>
+										<div class="news_F">
+											<ul>
+												<li><div class="thumb_s"><img src="https://lawnb.com/lbImg/2023/0403/dimg111039.jpg" style="height: 100%; width: 100%;"></div><a href="../Info/ContentView?sid=N000164737E4A543" class="popup_view">[인터뷰] 법무법인 오킴스 “시대 변화 감지해 자문 제공”…첨단 산업분야에 강점 </a><span>법률신문 <em>2023.04.03</em></span></li>
+												<li><div class="thumb_s"><img src="https://lawnb.com/lbImg/2023/0327/dimg114110.jpg" style="height: 100%; width: 100%;"></div><a href="../Info/ContentView?sid=N0005339FA3A253D" class="popup_view">[인터뷰] 새변 “2040 청년들이 체감하는 입법 제안할 것” </a><span>법률신문 <em>2023.03.27</em></span></li>
+												<li><div class="thumb_s"><img src="https://lawnb.com/lbImg/2023/0323/dimg101822.jpg" style="height: 100%; width: 100%;"></div><a href="../Info/ContentView?sid=N0003FAC66026FB8" class="popup_view">[인터뷰] 이완규 법제처장 “헌법정신 부합하는 결정 항상 고려…행정에 실질적 법치주의 구현” </a><span>법률신문 <em>2023.03.23</em></span></li>
+												<li><div class="thumb_s"><img src="https://lawnb.com/lbImg/2023/0313/dimg104344.jpg" style="height: 100%; width: 100%;"></div><a href="../Info/ContentView?sid=N000E9810B316AE6" class="popup_view">[파견검사의 세계][인터뷰] 홍정연 고용노동부 파견검사 “중대재해 수사도 적법절차 중요” </a><span>법률신문 <em>2023.03.13</em></span></li>
+												<li><div class="thumb_s"><img src="https://lawnb.com/lbImg/2023/0313/dimg104621.jpg" style="height: 100%; width: 100%;"></div><a href="../Info/ContentView?sid=N000104D3682C4AB" class="popup_view">[파견검사의 세계][인터뷰] 전영우 금융감독원 파견검사 “금감원, 검찰, 금융위의 가교 역할” </a><span>법률신문 <em>2023.03.13</em></span></li>
+											</ul>
+										</div>
+									</div>
+
+									<div class="news_academy fl">
+										<h3>수험뉴스 <span onclick="goSubMainList(1)">전체보기</span></h3>
+										<div class="news_F">
+											<ul>
+												<li><div class="thumb_s"><img src="https://lawnb.com/lbImg/2023/0502/dimg113659.jpg" style="width: 100%;"></div><a href="../Info/ContentView?sid=N000998CC8F948B1" class="popup_view">로스쿨 출신 '재판연구원' 125명 임용… 성균관대 18명 최다 배출 </a><span>법률신문 <em>2023.05.01</em></span></li>
+												<li><div class="thumb_s"><img src="https://lawnb.com/lbImg/2023/0502/dimg013931.jpg" style="width: 100%;"></div><a href="../Info/ContentView?sid=N000E4B4DE325B58" class="popup_view">변호사시험 12회 합격자 76명 검사 임용…비법학 전공자 93.4% </a><span>법률신문 <em>2023.05.01</em></span></li>
+												<li><div class="thumb_s"><img src="https://lawnb.com/lbImg/2023/0502/lawnb024249_s.jpg" style="width: 100%;"></div><a href="../Info/ContentView?sid=N0008C58C72280D3" class="popup_view">전국 법원, 로스쿨 출신 재판연구원 125명 임용 </a><span>연합뉴스 <em>2023.05.01</em></span></li>
+												<li><div class="thumb_s"><img src="https://lawnb.com/lbImg/2023/0421/dimg015636.jpg" style="width: 100%;"></div><a href="../Info/ContentView?sid=N000DA3EE3068F9C" class="popup_view">제12회 변호사시험 합격자 '1725명' 발표…합격률 '53%' </a><span>법률신문 <em>2023.04.21</em></span></li>
+												<li><div class="thumb_s"><img src="https://lawnb.com/lbImg/2023/0421/lawnb092436_s.jpg" style="width: 100%;"></div><a href="../Info/ContentView?sid=N0006861ED53F181" class="popup_view">제12회 변호사시험 합격자 1,725명 발표 </a><span>로이슈 <em>2023.04.20</em></span></li>
+											</ul>
+										</div>
+									</div>
+
+									<div class="news_exam fl">
+										<h3>Reuters News<span onclick="goSubMainList(2)">전체보기</span></h3>
+										<div class="news_F">
+											<ul>
+												<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/news/reuters_news/I7945c590105e134_s.jpg" style="width: 100%;"></div><a href="../Info/ContentView?sid=N003I7945c590105e11ee907c8771255e0c9f" class="popup_view">Boies Schiller adds two lawyers in L.A. following European hires </a><span>REUTERS LEGAL / David Thomas /  <em>2023.06.22</em></span></li>
+												<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/news/reuters_news/I1eaf0f601063126_s.jpg" style="height: 100%; width: 100%;"></div><a href="../Info/ContentView?sid=N003I1eaf0f60106311eea00af4e39500d865" class="popup_view">Challenge to abortion clinic 'buffer zone' law rejected by US court </a><span>REUTERS LEGAL / New York /  <em>2023.06.22</em></span></li>
+												<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/news/reuters_news/Icbff15101064117_s.jpg" style="height: 100%; width: 100%;"></div><a href="../Info/ContentView?sid=N003Icbff1510106411ee9c99b1d1a999a385" class="popup_view">Grupo Mexico defends legality of San Martin mine operations after U.S. labor complaint </a><span>REUTERS / Aurora Ellis /  <em>2023.06.22</em></span>	</li>
+												<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/news/reuters_news/I338cdc601058142_s.jpg" style="height: 100%; width: 100%;"></div><a href="../Info/ContentView?sid=N003I338cdc60105811eebcb7ac0bc92cdefc" class="popup_view">Orrick&nbsp;public finance team joins Jackson Walker in Houston </a><span>REUTERS LEGAL / Chinekwu Osakwe /  <em>2023.06.22</em></span></li>
+												<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/news/reuters_news/I4a56b6700f93156_s.jpg" style="height: 100%; width: 100%;"></div> <a href="../Info/ContentView?sid=N003I4a56b6700f9311ee9104c296149d14a6" class="popup_view">Dentons intellectual property leader takes 15-lawyer team to BCLP </a><span>REUTERS LEGAL / David Thomas /  <em>2023.06.21</em></span></li>
+											</ul>
+										</div>
+									</div>
+
+								</div>
+
+
+							</div>
+
+							<div class="submain_group _tab2" style="display:none">
+								<div class="news_colum_top">
+									<div class="news_A">
+
+										<div class="news_D">
+											<a href="ContentView?sid=N000E337ACA71167" class="popup_view">산재보험 확대…여러 업체서 일하는 배달·대리기사도 적용 </a><div>연합뉴스 <em>2023.06.20</em></div>
+											국무회의서 산업재해보상보험법 시행령 개정안 등 심의·의결 지난 5일 정부서울청사에서 열린 국무회의 ..[연합뉴스 자료 사진] 다음 달부터 여러 업체에서 일하는 배달·대리기사 등 노무 제공자한테도 산재보험이 적용된다... 고용노동부에 따르면 ..
+										</div>
+										<dl>
+											<dt><img src="https://lawnb.com/lbImg/2023/0620/lawnb093309_s.jpg"></dt>
+											<dd><a href="ContentView?sid=N000AB8C449CD6E6" class="popup_view">공공기관 데이터 공유 의무화…법원·국회사무처도 포함 </a><div>연합뉴스 <em>2023.06.20</em></div></dd>
+										</dl>
+										<dl>
+											<dt><img src="https://lawnb.com/lbImg/2023/0620/lawnb113436_s.jpg"></dt>
+											<dd><a href="ContentView?sid=N000CEEFEDFE0163" class="popup_view">공정위, M&amp;A 신고 의무 완화…PEF 설립·일부 임원 겸임 등 면제 </a><div>연합뉴스 <em>2023.06.20</em></div></dd>
+										</dl>
+										<div class="colum_other_outer mgt20">
+											<div class="colum_other">
+												<p>수험뉴스 <span onclick="goSubMainList(1)">전체보기</span></p>
+												<ul>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbImg/2023/0616/dimg091537.jpg" style="width: 100%;"></div><a href="ContentView?sid=N0005D970428CF05" class="popup_view">법무부, 변호사시험 장애 응시자 편의지원 개선 </a><span>로이슈 <em>2023.06.15</em></span></li>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbImg/2023/0616/dimg095257.jpg" style="width: 100%;"></div><a href="ContentView?sid=N0009143CA576B5F" class="popup_view">법무부, 변호사시험 장애 응시자 편의 지원 확대 방안 발표 </a><span>법률신문 <em>2023.06.15</em></span></li>
+												</ul>
+											</div>
+											<div class="colum_other">
+												<p>화제의 법조인<span onclick="goSubMainList(2)">전체보기</span></p>
+												<ul>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbImg/2023/0601/dimg095303.jpg" style="width: 100%;"></div><a href="ContentView?sid=N00097FFC9EBFE65" class="popup_view">[인터뷰] ‘디지털전도사’ 강민구 고법부장판사, “한국 법조, 생성형 AI 기술 신속히 도입해야” </a><span>법률신문 <em>2023.05.31</em></span></li>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbImg/2023/0504/dimg102913.jpg" style="width: 100%;"></div><a href="ContentView?sid=N00090BCB86971F3" class="popup_view">[인터뷰] “헌법재판관으로서의 시간은 성찰의 시간”… 이석태 전 헌법재판관 퇴임 인터뷰 </a><span>법률신문 <em>2023.05.04</em></span></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+
+									<div id="search_results" class="news_C newslist">
+										<ul>
+											<li><div class="thumb_s"><img src="https://lawnb.com/lbImg/2023/0620/lawnb023309_s.jpg" style="width: 100%;"></div><a href="../Info/ContentView?sid=N000202DC560EE0E" class="popup_view">5개 연안도시 NGO "오염수 방류, 국제해양법재판소 제소해야" </a><span>연합뉴스 <em>2023.06.30</em></span></li>
+											<li><div class="thumb_s"><img src="https://lawnb.com/lbImg/2023/0620/lawnb011257_s.jpg" style="width: 100%;"></div><a href="../Info/ContentView?sid=N000AD10D0CF73BC" class="popup_view">"차량 결함 의심"…급발진 사망사고 주장 운전자 '무죄' </a><span>연합뉴스 <em>2023.06.20</em></span></li>
+											<li><div class="thumb_s"><img src="https://lawnb.com/lbImg/2023/0620/dimg024140.jpg" style="width: 100%;"></div><a href="../Info/ContentView?sid=N000767399821A87" class="popup_view">[판결] 과거 사건 압수물을 새로운 사건 증거로… 대법, "위법한 증거수집" </a><span>법률신문 <em>2023.06.20</em></span></li>
+											<li><div class="thumb_s"><img src="https://lawnb.com/lbImg/2023/0620/lawnb090836_s.jpg" style="width: 100%;"></div><a href="../Info/ContentView?sid=N00089528F660A01" class="popup_view">시중은행에 외환 출납 가능한 외화금고 설치…EDCF 효율적 집행 </a><span>연합뉴스 <em>2023.06.20</em></span></li>
+											<li><div class="thumb_s"><img src="https://lawnb.com/lbImg/2023/0620/lawnb091053_s.jpg" style="width: 100%;"></div><a href="../Info/ContentView?sid=N000FC19315758DE" class="popup_view">해수욕장 알박기 금지…해수욕장법 시행령 개정안 국무회의 통과 </a><span>연합뉴스 <em>2023.06.20</em></span></li>
+											<li><div class="thumb_s"><img src="https://lawnb.com/lbImg/2023/0620/lawnb092836_s.jpg" style="width: 100%;"></div><a href="../Info/ContentView?sid=N000B160814981F6" class="popup_view">대법원, '자유로운 의사결정을 할 수 없는 상태'서 사망한 것이라고 보기 어렵다는 원심 파기 환송 </a><span>로이슈 <em>2023.06.20</em></span></li>
+											<li><div class="thumb_s"><img src="https://lawnb.com/lbImg/2023/0620/dimg104155.jpg" style="height: 100%; width: 100%;"></div><a href="../Info/ContentView?sid=N000CF3FD35FCA89" class="popup_view">소상공인 디지털 전환 촉진 빅데이터 플랫폼 구축 본격화 </a><span>연합뉴스 <em>2023.06.20</em></span></li>
+											<li><div class="thumb_s"><img src="https://lawnb.com/lbImg/2023/0620/dimg015342.jpg" style="height: 100%; width: 100%;"></div><a href="../Info/ContentView?sid=N000060FD2570EE0" class="popup_view">부산시설공단 전현직 근로자 43명 임금피크제 무효 소송서 승소 </a><span>연합뉴스 <em>2023.06.20</em></span></li>
+											<li><div class="thumb_s"><img src="https://lawnb.com/lbImg/2023/0620/lawnb032040_s.jpg" style="height: 100%; width: 100%;"></div><a href="../Info/ContentView?sid=N0000BE4A1D18D5D" class="popup_view">'반의사 불벌죄 폐지' 스토킹 처벌 강화법 법사위 통과 </a><span>연합뉴스 <em>2023.06.20</em></span></li>
+											<li><div class="thumb_s"><img src="https://lawnb.com/lbImg/2023/0620/lawnb093637_s.jpg" style="height: 100%; width: 100%;"></div><a href="../Info/ContentView?sid=N0005DA2F12947BB" class="popup_view">소멸시효, 권리에도 유통기한 존재 </a><span>로이슈 <em>2023.06.20</em></span></li>
+										</ul>
+
+										<!-- paging -->
+										<div class="navigationLinks">
+											<span class="currentPage">1</span>
+											<a href="#" class="navPages">2</a>
+											<a href="#" class="navPages">3</a>
+											<a href="#" class="navPages">4</a>
+											<a href="#" class="navPages">5</a>
+											<a href="#" class="navNext"><i class="icon-1" data-icon=""></i></a>
+											<a href="#" class="navLast "><i class="icon-8" data-icon=""></i></a>
+										</div><!-- paging end-->
+									</div>
+								</div>
+							</div>
+
+							<div class="submain_group _tab3" style="display:none;">
+								<div class="news_colum_top">
+									<div class="news_A">
+										<div class="colum_other_outer ">
+											<div class="colum_other">
+												<p>법률뉴스 <span onclick="goSubMainList(0)">전체보기</span></p>
+												<ul>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0620/lawnb090639_s.jpg" style="width: 100%;"></div><a href="ContentView?sid=N000E337ACA71167" class="popup_view">산재보험 확대…여러 업체서 일하는 배달·대리기사도 적용 </a><span>연합뉴스 <em>2023.06.20</em></span></li>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0620/lawnb093309_s.jpg" style="width: 100%;"></div><a href="ContentView?sid=N000AB8C449CD6E6" class="popup_view">공공기관 데이터 공유 의무화…법원·국회사무처도 포함 </a><span>연합뉴스 <em>2023.06.20</em></span></li>
+												</ul>
+											</div>
+											<div class="colum_other">
+												<p>수험뉴스 <span onclick="goSubMainList(1)">전체보기</span></p>
+												<ul>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0616/dimg091537.jpg" style="width: 100%;"></div><a href="ContentView?sid=N0005D970428CF05" class="popup_view">법무부, 변호사시험 장애 응시자 편의지원 개선 </a><span>로이슈 <em>2023.06.15</em></span></li>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0616/dimg095257.jpg" style="width: 100%;"></div><a href="ContentView?sid=N0009143CA576B5F" class="popup_view">법무부, 변호사시험 장애 응시자 편의 지원 확대 방안 발표 </a><span>법률신문 <em>2023.06.15</em></span></li>
+												</ul>
+											</div>
+											<div class="colum_other">
+												<p>화제의 법조인<span onclick="goSubMainList(2)">전체보기</span></p>
+												<ul>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0601/dimg095303.jpg" style="width: 100%;"></div><a href="ContentView?sid=N00097FFC9EBFE65" class="popup_view">[인터뷰] ‘디지털전도사’ 강민구 고법부장판사, “한국 법조, 생성형 AI 기술 신속히 도입해야” </a><span>법률신문 <em>2023.05.31</em></span></li>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0504/dimg102913.jpg" style="width: 100%;"></div><a href="ContentView?sid=N00090BCB86971F3" class="popup_view">[인터뷰] “헌법재판관으로서의 시간은 성찰의 시간”… 이석태 전 헌법재판관 퇴임 인터뷰 </a><span>법률신문 <em>2023.05.04</em></span></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+
+									<div id="search_results" class="news_C newslist">
+										<ul>
+											<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0620/lawnb011257_s.jpg" style="width: 100%;"></div><a href="../Info/ContentView?sid=N000AD10D0CF73BC" class="popup_view">"차량 결함 의심"…급발진 사망사고 주장 운전자 '무죄' </a><span>연합뉴스 <em>2023.06.20</em></span></li>
+											<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0620/dimg024140.jpg" style="width: 100%;"></div><a href="../Info/ContentView?sid=N000767399821A87" class="popup_view">[판결] 과거 사건 압수물을 새로운 사건 증거로… 대법, "위법한 증거수집" </a><span>법률신문 <em>2023.06.20</em></span></li>
+											<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0620/lawnb092836_s.jpg" style="width: 100%;"></div><a href="../Info/ContentView?sid=N000B160814981F6" class="popup_view">대법원, '자유로운 의사결정을 할 수 없는 상태'서 사망한 것이라고 보기 어렵다는 원심 파기 환송 </a><span>로이슈 <em>2023.06.20</em></span></li>
+											<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0620/dimg015342.jpg" style="width: 100%;"></div><a href="../Info/ContentView?sid=N000060FD2570EE0" class="popup_view">부산시설공단 전현직 근로자 43명 임금피크제 무효 소송서 승소 </a><span>연합뉴스 <em>2023.06.20</em></span></li>
+											<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0620/dimg093852.jpg" style="height: 100%;"></div><a href="../Info/ContentView?sid=N0008D7A8251F1BA" class="popup_view">울산지법, 진로문제로 아들과 언쟁 자신의 집에 불지른 아버지 '집유' </a><span>로이슈 <em>2023.06.20</em></span></li>
+											<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0620/lawnb111036_s.jpg" style="width: 100%;"></div><a href="../Info/ContentView?sid=N000C228CCA48D92" class="popup_view">'조민 포르쉐' 가세연 무죄…"사실아니지만 명예훼손 아냐" </a><span>연합뉴스 <em>2023.06.20</em></span></li>
+											<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0620/dimg111954.jpg" style="width: 100%;"></div><a href="../Info/ContentView?sid=N000F5F33A69518C" class="popup_view">'동료를 멧돼지로 오인사격해 사망' 엽사 2심도 금고형 </a><span>연합뉴스 <em>2023.06.20</em></span></li>
+											<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0620/dimg111636.jpg" style="width: 100%;"></div><a href="../Info/ContentView?sid=N0004B892393E89B" class="popup_view">가림막 없이 치매노인 기저귀 간 보호사…법원 "성적 학대" </a><span>연합뉴스 <em>2023.06.20</em></span></li>
+											<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0620/dimg112113.jpg" style="width: 100%;"></div><a href="../Info/ContentView?sid=N0007E8AA41340D8" class="popup_view">팬데믹에 '샤워금지' 뿔난 의사…허위고소 했다가 벌금형 </a><span>연합뉴스 <em>2023.06.20</em></span></li>
+											<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0620/dimg012316.jpg" style="height: 100%;"></div><a href="../Info/ContentView?sid=N0006EC1B67DAE61" class="popup_view">부산지법, 최저가 입찰금액보다 낮게 하도급 대금결정 동일스위트 법인 벌금 1억5000만원 </a><span>로이슈 <em>2023.06.20</em></span></li>
+										</ul>
+
+										<!-- paging -->
+										<div class="navigationLinks">
+											<span class="currentPage">1</span>
+											<a href="#" class="navPages">2</a>
+											<a href="#" class="navPages">3</a>
+											<a href="#" class="navPages">4</a>
+											<a href="#" class="navPages">5</a>
+											<a href="#" class="navNext"><i class="icon-1" data-icon=""></i></a>
+											<a href="#" class="navLast "><i class="icon-8" data-icon=""></i></a>
+										</div><!-- paging end-->
+									</div>
+								</div>
+							</div>
+
+							<div class="submain_group _tab4" style="display:none;">
+								<div class="news_colum_top">
+									<div class="news_A">
+
+										<div class="news_D">
+											<a href="ContentView?sid=N000E337ACA71167" class="popup_view">산재보험 확대…여러 업체서 일하는 배달·대리기사도 적용 </a><div>연합뉴스 <em>2023.06.20</em></div>
+											국무회의서 산업재해보상보험법 시행령 개정안 등 심의·의결 지난 5일 정부서울청사에서 열린 국무회의 ..[연합뉴스 자료 사진] 다음 달부터 여러 업체에서 일하는 배달·대리기사 등 노무 제공자한테도 산재보험이 적용된다... 고용노동부에 따르면 ..
+										</div>
+										<div class="colum_other_outer mgt20">
+											<div class="colum_other">
+												<p>법률뉴스 <span onclick="goSubMainList(0)">전체보기</span></p>
+												<ul>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0620/lawnb090639_s.jpg" style="width: 100%;"></div><a href="ContentView?sid=N000E337ACA71167" class="popup_view">산재보험 확대…여러 업체서 일하는 배달·대리기사도 적용 </a><span>연합뉴스 <em>2023.06.20</em></span></li>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0620/lawnb093309_s.jpg" style="width: 100%;"></div><a href="ContentView?sid=N000AB8C449CD6E6" class="popup_view">공공기관 데이터 공유 의무화…법원·국회사무처도 포함 </a><span>연합뉴스 <em>2023.06.20</em></span></li>
+												</ul>
+											</div>
+											<div class="colum_other">
+												<p>화제의 법조인<span onclick="goSubMainList(2)">전체보기</span></p>
+												<ul>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0601/dimg095303.jpg" style="width: 100%;"></div><a href="ContentView?sid=N00097FFC9EBFE65" class="popup_view">[인터뷰] ‘디지털전도사’ 강민구 고법부장판사, “한국 법조, 생성형 AI 기술 신속히 도입해야” </a><span>법률신문 <em>2023.05.31</em></span></li>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0504/dimg102913.jpg" style="width: 100%;"></div><a href="ContentView?sid=N00090BCB86971F3" class="popup_view">[인터뷰] “헌법재판관으로서의 시간은 성찰의 시간”… 이석태 전 헌법재판관 퇴임 인터뷰 </a><span>법률신문 <em>2023.05.04</em></span></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+
+									<div id="search_results" class="news_C newslist">
+										<ul>
+											<li>
+												<div class="thumb_s"><img src="https://lawnb.com/lbimg/news/reuters_news/Ie66033400726121_s.jpg" style="width: 100%;"></div>                    <a href="../Info/ContentView?sid=N003Ie6603340072611ee9a8dc507f528639c" class="popup_view">American, JetBlue urge US judge to allow them to keep codeshare arrangements </a><span>REUTERS / David Shepardson /  <em>2023.06.10</em></span>
+											</li>
+											<li>
+												<div class="thumb_s"><img src="https://lawnb.com/lbimg/news/reuters_news/Ifbd7ded006e5126_s.jpg" style="width: 100%;"></div>                    <a href="../Info/ContentView?sid=N003Ifbd7ded006e511ee874380b15700ad74" class="popup_view">Apple, Amazon must face consumer lawsuit over iPhone, iPad prices - US judge </a><span>REUTERS / Mike Scarcella /  <em>2023.06.10</em></span>
+											</li>
+											<li>
+												<div class="thumb_s"><img src="https://lawnb.com/lbimg/news/reuters_news/Ibd9858d00720129_s.jpg" style="width: 100%;"></div>                    <a href="../Info/ContentView?sid=N003Ibd9858d0072011ee938acf299a81dafd" class="popup_view">FTX customer names will not be revealed by bankruptcy court </a><span>REUTERS / Rosalba O'Brien /  <em>2023.06.10</em></span>
+											</li>
+											<li>
+												<div class="thumb_s"><img src="https://lawnb.com/lbimg/news/reuters_news/Ia007b8100707152_s.jpg" style="width: 100%;"></div>                    <a href="../Info/ContentView?sid=N003Ia007b810070711eea080ea5b768d5baa" class="popup_view">Georgia slot machine company enters bankruptcy to cut $500 million debt </a><span>REUTERS / Dietrich Knauth /  <em>2023.06.10</em></span>
+											</li>
+											<li>
+												<div class="thumb_s"><img src="https://lawnb.com/lbimg/news/reuters_news/I1d5e424006e8119_s.jpg" style="width: 100%;"></div>                    <a href="../Info/ContentView?sid=N003I1d5e424006e811ee806cc222462c9c90" class="popup_view">Jeffrey Epstein victims demand new deposition of JPMorgan CEO Dimon </a><span>REUTERS / Jonathan Stempel /  <em>2023.06.10</em></span>
+											</li>
+											<li>
+												<div class="thumb_s"><img src="https://lawnb.com/lbimg/news/reuters_news/Ifbd805e006e5132_s.jpg" style="width: 100%;"></div>                    <a href="../Info/ContentView?sid=N003Ifbd805e006e511ee9ca3e91d96435f52" class="popup_view">Law firm Mishcon settles UK lawsuit over $4 million fee dispute </a><span>REUTERS / Sam Tobin /  <em>2023.06.10</em></span>
+											</li>
+											<li>
+												<div class="thumb_s"><img src="https://lawnb.com/lbimg/news/reuters_news/Ic21f2600070b136_s.jpg" style="width: 100%;"></div>                    <a href="../Info/ContentView?sid=N003Ic21f2600070b11ee9a8dc507f528639c" class="popup_view">Marvel settles with four artists in superhero copyright fight </a><span>REUTERS / Blake Brittain /  <em>2023.06.10</em></span>
+											</li>
+											<li>
+												<div class="thumb_s"><img src="https://lawnb.com/lbimg/news/reuters_news/I5d6dfa50072f112_s.jpg" style="width: 100%;"></div>                    <a href="../Info/ContentView?sid=N003I5d6dfa50072f11ee99eadf4a4e992704" class="popup_view">Quotes- Reactions to charges against Donald Trump in classified documents case </a><span>REUTERS / Leslie Adler /  <em>2023.06.10</em></span>
+											</li>
+											<li>
+												<div class="thumb_s"><img src="https://lawnb.com/lbimg/news/reuters_news/Ic2295f30070b143_s.jpg" style="width: 100%;"></div>                    <a href="../Info/ContentView?sid=N003Ic2295f30070b11ee9a8dc507f528639c" class="popup_view">US Chamber of Commerce sues over government's drug pricing power </a><span>REUTERS LEGAL / Bill Berkrot /  <em>2023.06.10</em></span>
+											</li>
+											<li>
+												<div class="thumb_s"><img src="https://lawnb.com/lbimg/news/reuters_news/I2a02e21006ea17_s.jpg" style="width: 100%;"></div>                    <a href="../Info/ContentView?sid=N003I2a02e21006ea11eea080ea5b768d5baa" class="popup_view">Viasat asks judge to boot Gibson Dunn from patent case after lawyer hire </a><span>REUTERS LEGAL / Blake Brittain /  <em>2023.06.10</em></span>
+											</li>
+										</ul>
+
+										<!-- paging -->
+										<div class="navigationLinks">
+											<span class="currentPage">1</span>
+											<a href="#" class="navPages">2</a>
+											<a href="#" class="navPages">3</a>
+											<a href="#" class="navPages">4</a>
+											<a href="#" class="navPages">5</a>
+											<a href="#" class="navNext"><i class="icon-1" data-icon=""></i></a>
+											<a href="#" class="navLast "><i class="icon-8" data-icon=""></i></a>
+										</div><!-- paging end-->
+									</div>
+								</div>
+							</div>
+
+							<div class="submain_group _tab5" style="display:none">
+								<div class="news_colum_top">
+									<div class="news_A">
+
+										<div class="colum_other_outer mgt20">
+											<div class="colum_other">
+												<p>법률뉴스 <span onclick="goSubMainList(0)">전체보기</span></p>
+												<ul>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0620/lawnb090639_s.jpg" style="width: 100%;"></div><a href="ContentView?sid=N000E337ACA71167" class="popup_view">산재보험 확대…여러 업체서 일하는 배달·대리기사도 적용 </a><span>연합뉴스 <em>2023.06.20</em></span></li>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0620/lawnb093309_s.jpg" style="width: 100%;"></div><a href="ContentView?sid=N000AB8C449CD6E6" class="popup_view">공공기관 데이터 공유 의무화…법원·국회사무처도 포함 </a><span>연합뉴스 <em>2023.06.20</em></span></li>
+												</ul>
+											</div>
+											<div class="colum_other">
+												<p>수험뉴스 <span onclick="goSubMainList(1)">전체보기</span></p>
+												<ul>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0616/dimg091537.jpg" style="width: 100%;"></div><a href="ContentView?sid=N0005D970428CF05" class="popup_view">법무부, 변호사시험 장애 응시자 편의지원 개선 </a><span>로이슈 <em>2023.06.15</em></span></li>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0616/dimg095257.jpg" style="width: 100%;"></div><a href="ContentView?sid=N0009143CA576B5F" class="popup_view">법무부, 변호사시험 장애 응시자 편의 지원 확대 방안 발표 </a><span>법률신문 <em>2023.06.15</em></span></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+
+									<div id="search_results" class="news_C newslist">
+										<ul>
+											<li>
+												<div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0601/dimg095303.jpg" style="width: 100%;"></div>                    <a href="../Info/ContentView?sid=N00097FFC9EBFE65" class="popup_view">[인터뷰] ‘디지털전도사’ 강민구 고법부장판사, “한국 법조, 생성형 AI 기술 신속히 도입해야” </a><span>법률신문 <em>2023.05.31</em></span>
+											</li>
+											<li>
+												<div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0504/dimg102913.jpg" style="width: 100%;"></div>                    <a href="../Info/ContentView?sid=N00090BCB86971F3" class="popup_view">[인터뷰] “헌법재판관으로서의 시간은 성찰의 시간”… 이석태 전 헌법재판관 퇴임 인터뷰 </a><span>법률신문 <em>2023.05.04</em></span>
+											</li>
+											<li>
+												<div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0403/dimg111039.jpg" style="width: 100%;"></div>                    <a href="../Info/ContentView?sid=N000164737E4A543" class="popup_view">[인터뷰] 법무법인 오킴스 “시대 변화 감지해 자문 제공”…첨단 산업분야에 강점 </a><span>법률신문 <em>2023.04.03</em></span>
+											</li>
+											<li>
+												<div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0327/dimg114110.jpg" style="width: 100%;"></div>                    <a href="../Info/ContentView?sid=N0005339FA3A253D" class="popup_view">[인터뷰] 새변 “2040 청년들이 체감하는 입법 제안할 것” </a><span>법률신문 <em>2023.03.27</em></span>
+											</li>
+											<li>
+												<div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0323/dimg101822.jpg" style="width: 100%;"></div>                    <a href="../Info/ContentView?sid=N0003FAC66026FB8" class="popup_view">[인터뷰] 이완규 법제처장 “헌법정신 부합하는 결정 항상 고려…행정에 실질적 법치주의 구현” </a><span>법률신문 <em>2023.03.23</em></span>
+											</li>
+											<li>
+												<div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0313/dimg104344.jpg" style="width: 100%;"></div>                    <a href="../Info/ContentView?sid=N000E9810B316AE6" class="popup_view">[파견검사의 세계][인터뷰] 홍정연 고용노동부 파견검사 “중대재해 수사도 적법절차 중요” </a><span>법률신문 <em>2023.03.13</em></span>
+											</li>
+											<li>
+												<div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0313/dimg104621.jpg" style="width: 100%;"></div>                    <a href="../Info/ContentView?sid=N000104D3682C4AB" class="popup_view">[파견검사의 세계][인터뷰] 전영우 금융감독원 파견검사 “금감원, 검찰, 금융위의 가교 역할” </a><span>법률신문 <em>2023.03.13</em></span>
+											</li>
+											<li>
+												<div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0313/dimg104926.jpg" style="width: 100%;"></div>                    <a href="../Info/ContentView?sid=N000D087C53AFCF3" class="popup_view">[파견검사의 세계][인터뷰] 김형원 UNODC 파견검사, “해외 파견 검사, 늘어야” </a><span>법률신문 <em>2023.03.13</em></span>
+											</li>
+											<li>
+												<div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0309/dimg103956.jpg" style="width: 100%;"></div>                    <a href="../Info/ContentView?sid=N0008FED28C256CA" class="popup_view">[인터뷰] SM엔터 신주 및 전환사채 발행금지 가처분 승소로 이끈 법무법인 화우 </a><span>법률신문 <em>2023.03.09</em></span>
+											</li>
+											<li>
+												<div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0223/dimg105819.jpg" style="width: 100%;"></div>                    <a href="../Info/ContentView?sid=N000249F132860AD" class="popup_view">[인터뷰] ‘창립 20주년 화우’ 정진수 대표 “고객 신뢰도 1등 지향… 시장 바꾸는 플레이메이커로” </a><span>법률신문 <em>2023.02.23</em></span>
+											</li>
+										</ul>
+										<!-- paging -->
+										<div class="navigationLinks">
+											<span class="currentPage">1</span>
+											<a href="#" class="navPages">2</a>
+											<a href="#" class="navPages">3</a>
+											<a href="#" class="navPages">4</a>
+											<a href="#" class="navPages">5</a>
+											<a href="#" class="navNext"><i class="icon-1" data-icon=""></i></a>
+											<a href="#" class="navLast "><i class="icon-8" data-icon=""></i></a>
+										</div><!-- paging end-->
+									</div>
+								</div>
+							</div>
+
+							<div class="submain_group _tab6" style="display:none">
+								<div class="news_colum_top">
+									<div class="news_A">
+
+										<div class="news_D">
+											<a href="ContentView?sid=N0005D970428CF05" class="popup_view">법무부, 변호사시험 장애 응시자 편의지원 개선 </a><div>로이슈 <em>2023.06.15</em></div>
+											8월 5일 시행 예정인 제14회 법조윤리시험부터 개선방안 적용 법무부 법무부는 법조인 선발･양성 개선 TF 논의, 장애 응시자 및 장애인단체 등의 의견 수렴 등을 거쳐 장애 응시자 편의지원 개선방안을 마련했다고 15일 밝혔다... 법조인 선발･양성 개선 TF는 20..
+										</div>
+										<dl>
+											<dt><img src="https://lawnb.com/lbimg/2023/0616/dimg095257.jpg"></dt>
+											<dd><a href="ContentView?sid=N0009143CA576B5F" class="popup_view">법무부, 변호사시험 장애 응시자 편의 지원 확대 방안 발표 </a><div>법률신문 <em>2023.06.15</em></div></dd>
+										</dl>
+										<dl>
+											<dt><img src="https://lawnb.com/lbimg/2023/0615/dimg035635.jpg"></dt>
+											<dd><a href="ContentView?sid=N000096E93C3F6B6" class="popup_view">법무부, 변시 장애응시자에 추가시간 더 연장 </a><div>연합뉴스 <em>2023.06.15</em></div></dd>
+										</dl>
+										<div class="colum_other_outer mgt20">
+											<div class="colum_other">
+												<p>법률뉴스 <span onclick="goSubMainList(0)">전체보기</span></p>
+												<ul>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0620/lawnb090639_s.jpg" style="width: 100%;"></div><a href="ContentView?sid=N000E337ACA71167" class="popup_view">산재보험 확대…여러 업체서 일하는 배달·대리기사도 적용 </a><span>연합뉴스 <em>2023.06.20</em></span></li>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0620/lawnb093309_s.jpg" style="width: 100%;"></div><a href="ContentView?sid=N000AB8C449CD6E6" class="popup_view">공공기관 데이터 공유 의무화…법원·국회사무처도 포함 </a><span>연합뉴스 <em>2023.06.20</em></span></li>
+												</ul>
+											</div>
+											<div class="colum_other">
+												<p>화제의 법조인<span onclick="goSubMainList(2)">전체보기</span></p>
+												<ul>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0601/dimg095303.jpg" style="width: 100%;"></div><a href="ContentView?sid=N00097FFC9EBFE65" class="popup_view">[인터뷰] ‘디지털전도사’ 강민구 고법부장판사, “한국 법조, 생성형 AI 기술 신속히 도입해야” </a><span>법률신문 <em>2023.05.31</em></span></li>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0504/dimg102913.jpg" style="width: 100%;"></div><a href="ContentView?sid=N00090BCB86971F3" class="popup_view">[인터뷰] “헌법재판관으로서의 시간은 성찰의 시간”… 이석태 전 헌법재판관 퇴임 인터뷰 </a><span>법률신문 <em>2023.05.04</em></span></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+
+									<div id="search_results" class="news_C newslist">
+										<ul>
+											<li>
+												<div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0524/lawnb051448_s.jpg" style="width: 100%;"></div>                    <a href="../Info/ContentView?sid=N0006A70F34E3D6D" class="popup_view">변협, '법학 경시대회' 계획 일주일만에 철회 </a><span>연합뉴스 <em>2023.05.24</em></span>
+											</li>
+											<li>
+												<div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0502/dimg113659.jpg" style="width: 100%;"></div>                    <a href="../Info/ContentView?sid=N000998CC8F948B1" class="popup_view">로스쿨 출신 '재판연구원' 125명 임용… 성균관대 18명 최다 배출 </a><span>법률신문 <em>2023.05.01</em></span>
+											</li>
+											<li>
+												<div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0502/dimg013931.jpg" style="width: 100%;"></div>                    <a href="../Info/ContentView?sid=N000E4B4DE325B58" class="popup_view">변호사시험 12회 합격자 76명 검사 임용…비법학 전공자 93.4% </a><span>법률신문 <em>2023.05.01</em></span>
+											</li>
+											<li>
+												<div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0502/lawnb024249_s.jpg" style="width: 100%;"></div>                    <a href="../Info/ContentView?sid=N0008C58C72280D3" class="popup_view">전국 법원, 로스쿨 출신 재판연구원 125명 임용 </a><span>연합뉴스 <em>2023.05.01</em></span>
+											</li>
+											<li>
+												<div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0502/lawnb094718_s.jpg" style="width: 100%;"></div>                    <a href="../Info/ContentView?sid=N000C431AD6A87B9" class="popup_view">법무부, 제12회 변호사시험 합격자 76명 검사로 신규임용 </a><span>로이슈 <em>2023.05.01</em></span>
+											</li>
+											<li>
+												<div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0502/lawnb021944_s.jpg" style="width: 100%;"></div>                    <a href="../Info/ContentView?sid=N00037AA5F2425B5" class="popup_view">로스쿨 출신 검사 76명 임용…역대 최다 </a><span>연합뉴스 <em>2023.05.01</em></span>
+											</li>
+											<li>
+												<div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0421/dimg015636.jpg" style="width: 100%;"></div>                    <a href="../Info/ContentView?sid=N000DA3EE3068F9C" class="popup_view">제12회 변호사시험 합격자 '1725명' 발표…합격률 '53%' </a><span>법률신문 <em>2023.04.21</em></span>
+											</li>
+											<li>
+												<div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0421/dimg114717.jpg" style="width: 100%;"></div>                    <a href="../Info/ContentView?sid=N0003364B89E086E" class="popup_view">올해 변호사시험 합격자 1천725명…합격률 53% </a><span>연합뉴스 <em>2023.04.20</em></span>
+											</li>
+											<li>
+												<div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0421/lawnb092436_s.jpg" style="width: 100%;"></div>                    <a href="../Info/ContentView?sid=N0006861ED53F181" class="popup_view">제12회 변호사시험 합격자 1,725명 발표 </a><span>로이슈 <em>2023.04.20</em></span>
+											</li>
+											<li>
+												<div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0406/dimg095145.jpg" style="height: 100%;"></div>                    <a href="../Info/ContentView?sid=N000B75A0E930F69" class="popup_view">4년 만에 법학적성시험(LEET) 전국 순회 설명회 개최 </a><span>법률신문 <em>2023.04.05</em></span>
+											</li>
+										</ul>
+										<!-- paging -->
+										<div class="navigationLinks">
+											<span class="currentPage">1</span>
+											<a href="#" class="navPages">2</a>
+											<a href="#" class="navPages">3</a>
+											<a href="#" class="navPages">4</a>
+											<a href="#" class="navPages">5</a>
+											<a href="#" class="navNext"><i class="icon-1" data-icon=""></i></a>
+											<a href="#" class="navLast "><i class="icon-8" data-icon=""></i></a>
+										</div><!-- paging end-->
+									</div>
+								</div>
+							</div>
+
+							<div class="submain_group _tab7" style="display:none;">
+								
+								<div class="news_colum_top">
+									<div class="news_A">
+
+										<div class="news_D">
+											<a href="ContentView?sid=N0005D970428CF05" class="popup_view">법무부, 변호사시험 장애 응시자 편의지원 개선 </a><div>로이슈 <em>2023.06.15</em></div>
+											8월 5일 시행 예정인 제14회 법조윤리시험부터 개선방안 적용 법무부 법무부는 법조인 선발･양성 개선 TF 논의, 장애 응시자 및 장애인단체 등의 의견 수렴 등을 거쳐 장애 응시자 편의지원 개선방안을 마련했다고 15일 밝혔다... 법조인 선발･양성 개선 TF는 20..
+										</div>
+										<dl>
+											<dt><img src="https://lawnb.com/lbimg/2023/0616/dimg095257.jpg"></dt>
+											<dd><a href="ContentView?sid=N0009143CA576B5F" class="popup_view">법무부, 변호사시험 장애 응시자 편의 지원 확대 방안 발표 </a><div>법률신문 <em>2023.06.15</em></div></dd>
+										</dl>
+										<dl>
+											<dt><img src="https://lawnb.com/lbimg/2023/0615/dimg035635.jpg"></dt>
+											<dd><a href="ContentView?sid=N000096E93C3F6B6" class="popup_view">법무부, 변시 장애응시자에 추가시간 더 연장 </a><div>연합뉴스 <em>2023.06.15</em></div></dd>
+										</dl>
+										<div class="colum_other_outer mgt20">
+											<div class="colum_other">
+												<p>법률뉴스 <span onclick="goSubMainList(0)">전체보기</span></p>
+												<ul>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0620/lawnb090639_s.jpg" style="width: 100%;"></div><a href="ContentView?sid=N000E337ACA71167" class="popup_view">산재보험 확대…여러 업체서 일하는 배달·대리기사도 적용 </a><span>연합뉴스 <em>2023.06.20</em></span></li>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0620/lawnb093309_s.jpg" style="height: 100%;"></div><a href="ContentView?sid=N000AB8C449CD6E6" class="popup_view">공공기관 데이터 공유 의무화…법원·국회사무처도 포함 </a><span>연합뉴스 <em>2023.06.20</em></span></li>
+												</ul>
+											</div>
+											<div class="colum_other">
+												<p>화제의 법조인<span onclick="goSubMainList(2)">전체보기</span></p>
+												<ul>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0601/dimg095303.jpg" style="width: 100%;"></div><a href="ContentView?sid=N00097FFC9EBFE65" class="popup_view">[인터뷰] ‘디지털전도사’ 강민구 고법부장판사, “한국 법조, 생성형 AI 기술 신속히 도입해야” </a><span>법률신문 <em>2023.05.31</em></span></li>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0504/dimg102913.jpg" style="width: 100%;"></div><a href="ContentView?sid=N00090BCB86971F3" class="popup_view">[인터뷰] “헌법재판관으로서의 시간은 성찰의 시간”… 이석태 전 헌법재판관 퇴임 인터뷰 </a><span>법률신문 <em>2023.05.04</em></span></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+
+									<div id="search_results" class="news_C newslist">
+										<ul>
+											<li>
+												<a href="../Info/ContentView?sid=N0053190D08100D4" class="popup_view">제12회 변호사시험 공법 기록형 </a><span>법무부 / 변호사시험 / <em>2023.01.14</em></span>
+											</li>
+											<li>
+												<a href="../Info/ContentView?sid=N0053190D08130D4" class="popup_view">제12회 변호사시험 공법 사례형 </a><span>법무부 / 변호사시험 / <em>2023.01.14</em></span>
+											</li>
+											<li>
+												<a href="../Info/ContentView?sid=N005D66BAC994BDC" class="popup_view">제12회 변호사시험 공법 선택형 </a><span>법무부 / 변호사시험 / <em>2023.01.14</em></span>
+											</li>
+											<li>
+												<a href="../Info/ContentView?sid=N00507C465223F81" class="popup_view">제12회 변호사시험 민사법 기록형 </a><span>법무부 / 변호사시험 / <em>2023.01.14</em></span>
+											</li>
+											<li>
+												<a href="../Info/ContentView?sid=N005ECCADDEA3D6A" class="popup_view">제12회 변호사시험 민사법 사례형 </a><span>법무부 / 변호사시험 / <em>2023.01.14</em></span>
+											</li>
+											<li>
+												<a href="../Info/ContentView?sid=N005BFAA8AF0FCC9" class="popup_view">제12회 변호사시험 민사법 선택형 </a><span>법무부 / 변호사시험 / <em>2023.01.14</em></span>
+											</li>
+											<li>
+												<a href="../Info/ContentView?sid=N00579305C0A8F5F" class="popup_view">제12회 변호사시험 선택과목 사례형 </a><span>법무부 / 변호사시험 / <em>2023.01.14</em></span>
+											</li>
+											<li>
+												<a href="../Info/ContentView?sid=N00530DB8C706495" class="popup_view">제12회 변호사시험 선택형 정답 </a><span>법무부 / 변호사시험 / <em>2023.01.14</em></span>
+											</li>
+											<li>
+												<a href="../Info/ContentView?sid=N005F132EAAC3215" class="popup_view">제12회 변호사시험 형사법 기록형 </a><span>법무부 / 변호사시험 / <em>2023.01.14</em></span>
+											</li>
+											<li>
+												<a href="../Info/ContentView?sid=N005F73FA784CD9F" class="popup_view">제12회 변호사시험 형사법 사례형 </a><span>법무부 / 변호사시험 / <em>2023.01.14</em></span>
+											</li>
+										</ul>
+										
+										<!-- paging -->
+										<div class="navigationLinks">
+											<span class="currentPage">1</span>
+											<a href="#" class="navPages">2</a>
+											<a href="#" class="navPages">3</a>
+											<a href="#" class="navPages">4</a>
+											<a href="#" class="navPages">5</a>
+											<a href="#" class="navNext"><i class="icon-1" data-icon=""></i></a>
+											<a href="#" class="navLast "><i class="icon-8" data-icon=""></i></a>
+										</div><!-- paging end-->
+									</div>
+								</div>
+							</div>
+
+							<div class="submain_group _tab8" style="display:none;">
+								<div class="news_colum_top">
+									<div class="news_A">
+
+										<div class="news_D">
+											<a href="ContentView?sid=N000E337ACA71167" class="popup_view">산재보험 확대…여러 업체서 일하는 배달·대리기사도 적용 </a><div>연합뉴스 <em>2023.06.20</em></div>
+											국무회의서 산업재해보상보험법 시행령 개정안 등 심의·의결 지난 5일 정부서울청사에서 열린 국무회의 ..[연합뉴스 자료 사진] 다음 달부터 여러 업체에서 일하는 배달·대리기사 등 노무 제공자한테도 산재보험이 적용된다... 고용노동부에 따르면 ..
+										</div>
+										<div class="colum_other_outer mgt20">
+											<div class="colum_other">
+												<p>법률뉴스 <span onclick="goSubMainList(0)">전체보기</span></p>
+												<ul>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0620/lawnb090639_s.jpg" style="width: 100%;"></div><a href="ContentView?sid=N000E337ACA71167" class="popup_view">산재보험 확대…여러 업체서 일하는 배달·대리기사도 적용 </a><span>연합뉴스 <em>2023.06.20</em></span></li>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0620/lawnb093309_s.jpg" style="width: 100%;"></div><a href="ContentView?sid=N000AB8C449CD6E6" class="popup_view">공공기관 데이터 공유 의무화…법원·국회사무처도 포함 </a><span>연합뉴스 <em>2023.06.20</em></span></li>
+												</ul>
+											</div>
+											<div class="colum_other">
+												<p>화제의 법조인<span onclick="goSubMainList(2)">전체보기</span></p>
+												<ul>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0601/dimg095303.jpg" style="width: 100%;"></div><a href="ContentView?sid=N00097FFC9EBFE65" class="popup_view">[인터뷰] ‘디지털전도사’ 강민구 고법부장판사, “한국 법조, 생성형 AI 기술 신속히 도입해야” </a><span>법률신문 <em>2023.05.31</em></span></li>
+													<li><div class="thumb_s"><img src="https://lawnb.com/lbimg/2023/0504/dimg102913.jpg" style="width: 100%;"></div><a href="ContentView?sid=N00090BCB86971F3" class="popup_view">[인터뷰] “헌법재판관으로서의 시간은 성찰의 시간”… 이석태 전 헌법재판관 퇴임 인터뷰 </a><span>법률신문 <em>2023.05.04</em></span></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+
+									<div id="search_results" class="news_C newslist">
+										<ul>
+											<li>
+												<div class="thumb_world"><img src="../images/flag/CN.png"></div>                    <a href="../Info/ContentView?sid=N0061401DA2BA07A" class="popup_view">중국, 생성형 인공지능(AI) 규제 입법 추진 </a><span>동북아시아 / 중국 The People’s Republic of China (P.R.C.) (CN) /  <em>2023.06.14</em></span>
+											</li>
+											<li>
+												<div class="thumb_world"><img src="../images/flag/DE.png"></div>                    <a href="../Info/ContentView?sid=N006F00D87212DE9" class="popup_view">독일, 가스‧난방‧전기 요금 상한제 도입 </a><span>서유럽 / 독일 Germany (DE) /  <em>2023.06.01</em></span>
+											</li>
+											<li>
+												<div class="thumb_world"><img src="../images/flag/RU.png"></div>                    <a href="../Info/ContentView?sid=N006A28B70D09498" class="popup_view">러시아, 연방군에서 복무하는 외국인의 러시아 국적 취득 절차 간소화 </a><span>러시아·중앙아시아 / 러시아 Russia (RU) /  <em>2023.06.01</em></span>
+											</li>
+											<li>
+												<div class="thumb_world"><img src="../images/flag/CN.png"></div>                    <a href="../Info/ContentView?sid=N006D863DDEF769D" class="popup_view">중국, 티베트 「칭장고원 생태보호법」 제정 </a><span>동북아시아 / 중국 The People’s Republic of China (P.R.C.) (CN) /  <em>2023.05.22</em></span>
+											</li>
+											<li>
+												<div class="thumb_world"><img src="../images/flag/JP.png"></div>                    <a href="../Info/ContentView?sid=N00681455180E884" class="popup_view">일본, 「GX추진법」 성립 </a><span>동북아시아 / 일본 Japan (JP) /  <em>2023.05.19</em></span>
+											</li>
+											<li>
+												<div class="thumb_world"><img src="../images/flag/VN.png"></div>                    <a href="../Info/ContentView?sid=N006984DA48F5ECE" class="popup_view">베트남, 「진단·치료법」 개정 </a><span>남아시아태평양 / 베트남 Vietnam (VN) /  <em>2023.05.18</em></span>
+											</li>
+											<li>
+												<div class="thumb_world"><img src="../images/flag/FR.png"></div>                    <a href="../Info/ContentView?sid=N0068639CD45DC79" class="popup_view">프랑스, 신규 원자로 건설 촉진 법안 국회 심의 통과 </a><span>서유럽 / 프랑스 France (FR) /  <em>2023.05.12</em></span>
+											</li>
+											<li>
+												<div class="thumb_world"><img src="../images/flag/MY.png"></div>                    <a href="../Info/ContentView?sid=N006CBCB8B26DD4F" class="popup_view">말레이시아, 의무 사형 선고를 폐지하는 법안 통과 </a><span>남아시아태평양 / 말레이시아 Malaysia (MY) /  <em>2023.04.20</em></span>
+											</li>
+											<li>
+												<div class="thumb_world"><img src="../images/flag/WD.png"></div>                    <a href="../Info/ContentView?sid=N006AAB47424A282" class="popup_view">세계 각국의 소상공인 기준 </a><span>국제기구 / World World (WD) /  <em>2023.04.20</em></span>
+											</li>
+											<li>
+												<div class="thumb_world"><img src="../images/flag/TH.png"></div>                    <a href="../Info/ContentView?sid=N0066F4BBFD3FBFE" class="popup_view">태국, 「1998년 근로보호법」 일부 개정 </a><span>남아시아태평양 / 태국 Kingdom of Thailand (TH) /  <em>2023.04.19</em></span>
+											</li>
+										</ul>
+										<!-- paging -->
+										<div class="navigationLinks">
+											<span class="currentPage">1</span>
+											<a href="#" class="navPages">2</a>
+											<a href="#" class="navPages">3</a>
+											<a href="#" class="navPages">4</a>
+											<a href="#" class="navPages">5</a>
+											<a href="#" class="navNext"><i class="icon-1" data-icon=""></i></a>
+											<a href="#" class="navLast "><i class="icon-8" data-icon=""></i></a>
+										</div><!-- paging end-->
+									</div>
+								</div>
+							</div>
+
+							<div class="news_right">청소년보호 책임자 : 김진숙, 기사배열 책임자 : 장경미 ㅣ <a href="/Support/SupportPolicy?popupYn=Y&amp;sTab=3">기사배열정책</a></div>
+						</div>
+						<div class="main_container_view">
+							<div class="main_container_view_inner">
+								
+
+							</div>
+						</div>
+					</article>
+					<aside class="right_container">
+						<section>
+							<h4>
+								주요 뉴스 속 판례
+								<div class="btn-group fr">
+									<button type="button" class="btn btn-default" onclick="goSubMainList(3)">전체보기</button>
+								</div>
+							</h4>
+							<ul>
+								<li><a href="../ContentView?sid=N000FEF98FF29C07" class="popup_view">광주고법, 청구이의 사건 승소 1심결정 변경 변호사보수 1/2감액 결정 </a><span> 로이슈  / 2023.04.11</span></li>
+								<li><a href="../ContentView?sid=N000B0788846C895" class="popup_view">[판결] 술 취해 경찰 폭행한 예비 검사, 1심서 벌금형 선고유예 </a><span> 법률신문  / 2023.04.11</span></li>
+								<li><a href="../ContentView?sid=N00040D3F306FE73" class="popup_view">다단계 사기업체 자료로 과세…법원 "신빙성 있다면 적법" </a><span> 연합뉴스  / 2023.04.10</span></li>
+								<li><a href="../ContentView?sid=N000FF11C33DA68C" class="popup_view">[판결] "안기부의 재일유학생 간첩 사건 관련자에 대한 수사발표, 보도자료 배포, 지명수배, 불법구금 중 일부만 과거사정리법 적용 부정 못해" </a><span> 법률신문  / 2023.04.10</span></li>
+								<li><a href="../ContentView?sid=N0007D823BF62969" class="popup_view">[법률구조]전주지법“사기에 의한 혼인이므로 취소…위자료도 지급하라” </a><span> 로이슈  / 2023.04.10</span></li>
+								<li><a href="../ContentView?sid=N0005B99A4FF4623" class="popup_view">[판결] "'한강 몸통 시신' 유족 구조금, 장대호 배상금서 공제" </a><span> 법률신문  / 2023.04.10</span></li>
+								<li><a href="../ContentView?sid=N00026BB7DD94A33" class="popup_view">허락 없이 남의 건물서 음주 측정…대법 "거부 가능" </a><span> 연합뉴스  / 2023.04.07</span></li>
+								<li><a href="../ContentView?sid=N000E0280F4E62D5" class="popup_view">[판결] 신탁된 전두환 오산 땅 공매대금 55억 원, 추징 가능해져 </a><span> 법률신문  / 2023.04.07</span></li>
+								<li><a href="../ContentView?sid=N0000115AA7919A4" class="popup_view">윤미향 배우자, 변희재 상대 민사소송 2심도 패소 </a><span> 연합뉴스  / 2023.04.07</span></li>
+								<li><a href="../ContentView?sid=N00013C4107459AA" class="popup_view">대구고법, 범죄단체의 존속·유지를 목적으로 자금 모집 동성로파 조직원 무죄 파기 유죄 </a><span> 로이슈  / 2023.04.07</span></li>
+							</ul>
+						</section>
+						<!-- 로이터 뉴스
+						<section>
+							<div class="loading_area" style="display: none;"><img src="/images/tr_img_loading_re.gif?v=2022060151" alt=""></div>
+							<h4>
+								REUTERS News
+								<div class="btn-group fr">
+									<button type="button" class="btn btn-default" onclick="goSubMainList(3)">전체보기</button>
+								</div>
+							</h4>
+							<ul>
+								<li><a href="#" class="popup_view">Senate panel hails rare unity on Biden nominee for 5th Circuit judge </a><span> 2023.04.11 | REUTERS LEGAL</span></li>
+								<li><a href="#" class="popup_view">Senate panel hails rare unity on Biden nominee for 5th Circuit judge </a><span> 2023.04.11 | REUTERS LEGAL</span></li>
+								<li><a href="#" class="popup_view">Senate panel hails rare unity on Biden nominee for 5th Circuit judge </a><span> 2023.04.11 | REUTERS LEGAL</span></li>
+								<li><a href="#" class="popup_view">Senate panel hails rare unity on Biden nominee for 5th Circuit judge </a><span> 2023.04.11 | REUTERS LEGAL</span></li>
+								<li><a href="#" class="popup_view">Senate panel hails rare unity on Biden nominee for 5th Circuit judge </a><span> 2023.04.11 | REUTERS LEGAL</span></li>
+								<li><a href="#" class="popup_view">Senate panel hails rare unity on Biden nominee for 5th Circuit judge </a><span> 2023.04.11 | REUTERS LEGAL</span></li>
+							</ul>
+							<div class="more_view"><span class="_this"></span><span></span><span></span><span></span><span></span><span></span></div>
+						</section>
+							-->
+					</aside>
+
+				</div>
+				<div class="btn_top_box" style="margin-left: 1415.55px;"><div class="btn_top">Top</div></div>
+			</div>
+			<footer>
+				<div class="etc_menu">
+					<div class="top_container">
+						<ul>
+							<li class="blind">기타 메뉴 </li>
+							<li>회사소개</li>
+							<li>광고 · 제휴문의</li>
+							<li>이용약관</li>
+							<li>개인정보 취급/처리 방침</li>
+							<li>법적고지</li>
+							<li>이메일 무단수집거부</li>
+						</ul>
+					</div>
+				</div>
+				<div class="top_container   _footer">
+					1. 콘텐츠의 명칭 : 법률정보 &nbsp;&nbsp; 2. 콘텐츠의 제작 및 표시 : 2006년 2월 17일(업그레이드 콘텐츠의 경우 갱신일) &nbsp;&nbsp; 3. 콘텐츠 제작자 : ㈜로앤비  &nbsp;&nbsp;  4. 콘텐츠의 이용조건 : <a href="/support/agree_use.asp" class="red_bott">이용약관</a> 및 로앤비 <a href="/support/serviceInfo_member.asp" class="red_bott">서비스안내</a>와 같음 (무단 복제금지) &nbsp;&nbsp;5. 콘텐츠의 보호기간 : ㈜로앤비 사이트의 모든 콘텐츠는 「콘텐츠산업 진흥법」에 따라 제작 또는 갱신일로부터 5년간 보호됨
+					<div>Thomson reuters</div>
+					<div>Copyright ⓒ 1998~2016 <b>LAWnB</b>. All Rights Reserved.</div>
+				</div>
+			</footer>
+			<div id="bg_screen"></div>
+			<script type="text/javascript">
+				setHeight_under();
+			</script>
+		</div>
+	</div>
+</body>
+</html>

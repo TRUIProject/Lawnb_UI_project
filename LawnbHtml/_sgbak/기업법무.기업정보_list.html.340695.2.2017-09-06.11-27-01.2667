@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../js/commonjs.js?1"></script>
+<script language="javascript">
+<!--
+ 
+$(document).ready(function () { 
+	
+	
+}); 	
+	function resizeComment(){ 
+			if($('.right_container').hasClass('add_border')){
+				$(".right_container").removeClass('slide_mov_right'); 
+			}else{
+				if($('#container').hasClass('list-view')){
+					$(".right_container").addClass('slide_mov_right'); 
+				}else{
+					$(".right_container").removeClass('slide_mov_right'); 
+				}
+			}
+			setHeight_under();
+		}
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_mainContainer">
+	<div id="wrap" >
+		<header> 
+			<div class="top_container  ">  
+				<a href="/maf/poc/app/homepage"><h1>로앤비</h1></a>
+				<div id="t_search" class="search_container">
+					<h2>통합검색 영역</h2>
+					<div class="search_inner">
+						<form  action="" > 
+						<div class="search_left hide">
+							<label class="hide">통합검색  </label>
+						</div>
+						<div class="search_center">
+							<input type="search" name="" id="" >
+						</div>
+						<div class="search_right"><span  class="more_btn">more</span></div>
+						<div id="searchButton" class="search_btn"><i class="icon-" data-icon="&#xe910;"></i><span class="hide">검색</span></div> 
+						</form>
+						<div class="btn_search_result"><i class="icon-table" data-icon="&#xea71;"></i><span class="hide">검색결과 맵 보기</span></div>
+					</div>
+					<div class="search_layer_outer" >
+					<div class="search_layer" >
+						<div class="search_layer_list _done ">
+							<!-- <div class="txt_info">최근검색어저장 기능이 OFF 상태에 있습니다.<br>이용을 원하시면 하단의 최근검색어저장 상태를 ON으로 변경해주세요. </div> 
+							<ul>
+								<li>공정거래법 위반으로 인한 손해액의 산정방법과 주요 쟁점으로 <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+							</ul>-->
+							<ul>
+								<li><strong>대법</strong>원인터넷등기소<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+								<li><strong>대법</strong>원나의사건검색</li>
+								<li><strong>대법</strong>원법원경매정보</li>
+								<li><strong>대법</strong>원전자가족관계</li>
+								<li><strong>대법</strong>원경매</li>
+								<li><strong>대법</strong>원인터넷등기소<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+								<li><strong>대법</strong>원나의사건검색<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+								<li><strong>대법</strong>원법원경매정보</li>
+								<li><strong>대법</strong>원전자가족관계</li>
+								<li><strong>대법</strong>원경매</li>
+							</ul> 
+							<div class="expend_result" onclick="">
+								<p>법무법인(유한) 태평양어쩌고 저쩌고</p>
+								<span>주소 : [050-50] 서울시 광진구 디지털로 272, 한신 IT타워 611호<br>대표전화 : 02-2204-2114</span>
+								<div class="dirct_go">바로가기</div>
+							</div>
+						</div>
+						<!-- <div class="noti_txt"><i class="icon-" data-icon="&#xe90d;"></i> 공용 PC에서는 개인정보보호를 위하여 반드시 로그아웃을 해주세요.</div> -->
+						<div class="search_layer_foot">
+							<div class="fl">기록삭제</div>
+							<div class="fr">최근검색어저장 <div class="btn-group"><button type="button" class="btn btn_orange _select">ON</button><button type="button" class="btn btn-default">OFF</button></div> 자동완성 <div class="btn-group"><button type="button" class="btn btn_orange _select">ON</button><button type="button" class="btn btn-default">OFF</button></div>
+							</div>						
+						</div>
+					</div> 
+					</div>
+				</div>
+				<div id="indiv_area" class="indiv_container">
+					<span alt="나의폴더">나의폴더<i class="icon-myfolder" data-icon="&#xe91a;"></i></span>
+					<span alt="히스토리">히스토리<i class="icon-history" data-icon="&#xe916;"></i></span>
+					<span alt="알림설정">알림설정<i class="icon-alert" data-icon="&#xe918;"></i><em>9+</em></span>
+					<span alt="질문내역">문의내역<i class="icon-question" data-icon="&#xe919;"></i></span>
+					<span alt="나의정보">나의정보<i class="icon-myinfo" data-icon="&#xe917;"></i></span>
+				</div>
+			</div>
+			<nav> 
+				<dl id="main_menu" class="mmenu">
+					<dt class="blind">메인 메뉴</dt> 
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=IAED6CC08DD364059AB193CEAF31A4AB0&amp;stnew=true"><span>판례</span></a>
+					</dd>
+					<dd class="currentTab" >
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I0F5DD49BE2B544DBB7414874EC787E80&amp;stnew=true"><span>법규</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=ICAA980E9234848FEA6D0DA62432279E0&amp;stnew=true"><span>심판·결정·해석</span></a>
+					</dd>
+					<dd >
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I247AD0D84D9B4429B617C8D9F8388C8F&amp;stnew=true"><span>문헌</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I661610C9A2C749D6A4221A93502B0170&amp;stnew=true"><span>법조인</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I574B9F7164CB11E498DB8B09B4F043E0&amp;stnew=true"><span>기업법무</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I66693AFFED274970AC53A686AAA123C0&amp;stnew=true"><span>서식</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocHelp?docguid=WLAWLNEXT"><span>뉴스·칼럼</span></a>
+					</dd>
+				</dl>   
+			</nav>        	
+		</header> 
+		<div id="container" class="two-con company_info biz">
+			<div id="breadcrumb" class="navi_area">
+				<div>Home > 기업법무 > <a href="1">기업정보</a></div>
+				<div class="group_indivi_btn"><a href="">로그인</a><a href="">개인화님</a> </div>
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div id="container_inner">
+				<div class="left_container">  
+					 
+				</div>
+				<article class="main_container"> 
+					<div class="main_container_inner">
+						<div class="search_div">
+						<form id="searchForm" method="post" action="CaseList">
+							<div class="search_input">
+								<input type="search" id="sWord" name="sWord"  placeholder="기업명,  대표자명, 사업자등록번호 입력"> 
+							</div>   
+							<div class="btn_area"><input type="submit" id="searchBtn" value="검색"> <span class="_cancel"><i class="icon-16" data-icon="&#xe90e;"></i>입력초기화</span></div>
+							<p>“가사소송 대리”, 제외어 “손해배상” 검색결과입니다.  </p>
+						</form>
+						</div>
+						<div id="search_results">
+							<div class="s_num_area">검색결과 21건 <small>1/1000</small></div>
+							<div class="btn_option_outer"> 
+								<div class="select_area"> 
+									<p class="blind">보기 개수 선택</p>
+									<select id="" name=""  >
+										<option value="">10개</option>
+										<option value="" selected>20개</option>
+										<option value="">50개</option>
+									</select>
+								</div> 
+							</div>
+							<ol class="list btn_exist  ">
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>							 
+									<div class="co_searchContent">
+										<h3><a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">삼성에스디에스(주)</a> <span class="list_meta">정유성</span></h3>
+										<div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>서울 송파구 올림픽로35길 125 / 컴퓨터 프로그래밍 서비스업</p></div>
+									</div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">2</span>						 
+									<div class="co_searchContent">  
+										<h3><a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">삼성전자(주) <span class="list_meta">권오현/윤부근/신종균</span></h3>
+										<div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>경기 수원시 영통구 삼성로 129 / 이동전화기 제조업</p></div> 
+									 </div>
+								</li>
+								<li>
+									<input type="checkbox" name=""><span class="list_num">1</span>
+									<div class="co_searchContent"> 
+										<h3><a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">삼성물산(주)</a> <span class="list_meta">권오현/윤부근/신종균</span></h3>
+										<div class="btns"><i class="icon_listnview" data-icon="&#xe90f;"><span class="blind">미리보기</span></i></div>
+										<div class="co_searchResults_summary"><p>경기 수원시 영통구 삼성로 129 / 이동전화기 제조업</p></div> 
+									 </div>
+								</li> 
+							</ol>
+							<div class="navigationLinks">				        									
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=0" class="navFirst hiddenLink "><i class="icon-7" data-icon="&#xe911;"></i></a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=-1" class="navPrevious hiddenLink "><i class="icon-2" data-icon="&#xe901;"></i></a>
+								<span class="currentPage">1</span>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navPages">2</a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=2" class="navPages">3</a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=3" class="navPages">4</a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navNext"><i class="icon-1" data-icon="&#xe900;"></i></a>
+								<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=13" class="navLast "><i class="icon-8" data-icon="&#xe907;"></i></a>
+							</div>
+						 </div> 
+					 </div>
+					 <div class="main_container_view">
+						<div class="main_container_view_inner">
+							<h3>삼성에스디에스(주) <span class="btn_newtap"><span class="hide">새창열기</span><i class="icon-new-tab" data-icon="&#xea7e;"></i></span> <div class="btn_option_outer"><div class="btn_close">닫기</div></div></h3>
+							<!-- 내용시작 xml -->
+							<div class="case_info" id="view_content"> 
+								<p class="c_tit_1" id="prPansi_t">기업개요</p>
+								<div class="lawyer_info">
+									<ul> 
+										<li>
+											<span>기업명</span> d 
+										</li>
+										<li>
+											<span>설립일자</span> &nbsp; <!-- 데이터 없으면 &nbsp; 처리 -->
+										</li>
+										<li>
+											<span>사업자번호 </span> 200062827272662 
+										</li>
+										<li>
+											<span>대표자명</span>  d
+										</li> 
+										<li class="_ful">
+											<span>홈페이지</span> &nbsp;
+										</li>
+										<li class="_ful">
+											<span>종업원수</span> 30명 (기준일자 : 7/26/2017)
+										</li> 
+										<li>
+											<span>기업형태</span> &nbsp;
+										</li> 
+										<li>
+											<span>상장일자</span> &nbsp;
+										</li> 
+										<li>
+											<span>휴폐업</span> &nbsp;
+										</li> 
+										<li>
+											<span>휴폐업일자</span> &nbsp;
+										</li> 
+										<li class="_ful">
+											<span>본사 주소</span> (우편번호) 지번주소<br>TEL: 02-000-0000 FAX: 02-0000-0000 
+										</li>
+										<li class="_ful">
+											<span>공장 주소</span> (우편번호) 지번주소<br>TEL: 02-000-0000 FAX: 02-0000-0000 
+										</li>
+										<li class="_ful">
+											<span>영업소 주소</span> (우편번호) 지번주소<br>TEL: 02-000-0000 FAX: 02-0000-0000 
+										</li>
+										<li class="_ful">
+											<span>표준산업분류</span> &nbsp;
+										</li>
+										<li class="_ful">
+											<span>주요상품</span> &nbsp;
+										</li> 
+										<li>
+											<span>업종명</span> &nbsp;
+										</li>  
+										<li>
+											<span>주력업체</span> &nbsp;
+										</li>  
+										<li>
+											<span>주거래은행</span> &nbsp;
+										</li> 
+										<li >
+											<span>결산월</span> &nbsp;
+										</li> 
+										<li class="_ful">
+											<span>특기사항</span> &nbsp;
+										</li> 
+									</ul>
+								</div>
+								<p class="c_tit_1" id="prPansi_t">주요 재무상황</p>
+								<div class="c_con" style="padding-left:0"> 
+									<table>
+										<thead>
+										<tr>
+											<th>결산일자</th>
+											<th>자산총액</th>
+											<th>부채총액</th>
+											<th>매출액</th>
+											<th>영업이익</th>
+											<th>순이익</th>
+										</tr>
+										</thead>
+										<tbody>
+										<tr>
+											<td>2004909</td>
+											<td>2017-01-02</td>
+											<td>이찬열  </td>
+											<td>의안원문  </td>
+											<td>제20대 </td>
+											<td></td>
+										</tr>
+										</tbody>
+									</table>  
+									<div class="text_ex">- 감사의견</div>
+									<div class="mgl10">가어라ㅓ라머라어랑러이라ㅣ알;알이러어라엄라러ㅑ애ㅓㅑㅐ</div>
+								</div> 
+								<p class="c_tit_1" id="prPansi_t">주요주주 (기준일자 : 0000.00.00)</p>
+								<div class="c_con" style="padding-left:0"> 
+									<table>
+										<thead>
+										<tr>
+											<th>주주명</th>
+											<th>주식구분</th>
+											<th>소유주식수</th>
+											<th>지분율</th>
+											<th>대주주와의 관계</th>
+										</tr>
+										</thead>
+										<tbody>
+										<tr>
+											<td>2004909</td>
+											<td>2017-01-02</td>
+											<td>이찬열  </td>
+											<td>의안원문  </td> 
+											<td></td>
+										</tr>
+										</tbody>
+									</table>   
+								</div> 
+								<p class="c_tit_1" id="prPansi_t">관계사현황 (기준일자 : 0000.00.00)</p>
+								<div class="c_con" style="padding-left:0"> 
+									<table>
+										<thead>
+										<tr>
+											<th>기업체명(대표자명)</th>
+											<th>업종</th>
+											<th>총자산</th>
+											<th>자기자본</th>
+											<th>매출액</th>
+											<th>순이익</th>
+										</tr>
+										</thead>
+										<tbody>
+										<tr>
+											<td>2004909</td>
+											<td>2017-01-02</td>
+											<td>이찬열  </td>
+											<td>의안원문  </td> 
+											<td></td>
+											<td></td>
+										</tr>
+										</tbody>
+									</table>   
+								</div> 
+								<p class="c_tit_1" id="prPansi_t">산업개요</p>
+								<div class="mgl10">가어라ㅓ라머라어랑러이라ㅣ알;알이러어라엄라러ㅑ애ㅓㅑㅐ</div>
+								<p class="c_tit_1" id="prPansi_t">산업부도율/ 산업연체율 / 산업휴폐업율</p>
+								<div class="mgl10">가어라ㅓ라머라어랑러이라ㅣ알;알이러어라엄라러ㅑ애ㅓㅑㅐ</div>
+								<p class="c_tit_1" id="prPansi_t">산업 내 선도기업</p>
+								<div class="mgl10">가어라ㅓ라머라어랑러이라ㅣ알;알이러어라엄라러ㅑ애ㅓㅑㅐ</div>
+							 </div>
+						</div>
+					 </div>
+				</article> 
+				<aside class="right_container"> 
+					<section > 
+						<h4>최근 조회 기업정보</h4>
+						<ul> 
+							<li><a href="1" >로앤비</a></li> 
+							<li><a href="1" >삼성전자</a></li>
+							<li><a href="1" >나이스 평가정보원</a></li>
+							<li><a href="1" >삼성물산</a></li>
+							<li><a href="1" >현대건설</a></li>
+						</ul>  
+					</section> 
+				</aside>
+			</div>
+    	</div>
+		<footer>
+			<div class="etc_menu"> 
+				<div class="top_container">  
+					<ul>	
+						<li class="blind">기타 메뉴 </li>
+						<li>회사소개</li>
+						<li>광고 · 제휴문의</li>
+						<li>이용약관</li>
+						<li>개인정보 취급/처리 방침</li>
+						<li>법적고지</li>
+						<li>이메일 무단수집거부</li>
+					</ul>
+				</div>
+			</div>  
+			<div class="top_container   _footer"> 	   
+				1. 콘텐츠의 명칭 : 법률정보 &nbsp;&nbsp; 2. 콘텐츠의 제작 및 표시 : 2006년 2월 17일(업그레이드 콘텐츠의 경우 갱신일) &nbsp;&nbsp; 3. 콘텐츠 제작자 : ㈜로앤비  &nbsp;&nbsp;  4. 콘텐츠의 이용조건 : <a href="/support/agree_use.asp" class="red_bott">이용약관</a> 및 로앤비 <a href="/support/serviceInfo_member.asp" class="red_bott">서비스안내</a>와 같음 (무단 복제금지) &nbsp;&nbsp;5. 콘텐츠의 보호기간 : ㈜로앤비 사이트의 모든 콘텐츠는 「콘텐츠산업 진흥법」에 따라 제작 또는 갱신일로부터 5년간 보호됨
+				<div>Thomson reuters</div>
+				<div>Copyright ⓒ 1998~2017 <b>LAWnB</b>. All Rights Reserved.</div>
+			</div>           
+		</footer>
+		<div id="bg_screen"></div>
+		<script type="text/javascript">  
+			setHeight_under();		 
+		</script>
+	</div>
+</div> 
+</body>
+</html>

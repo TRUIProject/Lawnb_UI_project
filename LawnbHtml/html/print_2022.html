@@ -1,0 +1,187 @@
+<html lang="ko"><head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+    <meta name="viewport" content="width=1140">
+    <title> 로앤비 </title>
+    <link rel="shortcut icon" href="/images/favicon_tr.ico">
+    <link href="../css/_next_default.css?v=2022051903" rel="stylesheet" type="text/css">
+    <link href="../css/_next_law.css?v=2022051903" rel="stylesheet" type="text/css">
+    <link href="../css/_next_layout.css?v=2022051903" rel="stylesheet" type="text/css">
+    <link href="../css/icon-style.css?v=2022051903" rel="stylesheet" type="text/css">
+    <script src="../Scripts/lib/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <script src="../Scripts/common/commonAjax.js?v=2022051903" type="text/javascript"></script>
+    <script src="../Scripts/common/commonjs.js?v=2022051903" type="text/javascript"></script>
+    <script src="../Scripts/member/login/Session.js?v=2022051903" type="text/javascript"></script>
+    <script src="../Scripts/common/storage.js?v=2022051903" type="text/javascript"></script>
+
+    <!-- 경고창 팝업 -->
+    <script type="text/javascript">
+        function layerModalID() {
+            $('#divPrintAlert_ID').toggle();
+        }
+        function layerModalIP() {
+            $('#divPrintAlert_IP').toggle();
+        }
+        function Myoungjo() {
+            $('.onlycon ').toggleClass('Myoungjo');
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;700&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+<div id="co_popupContainer" class="print_mode">
+    <div id="wrap">
+        <header>
+            <div class="top_container  ">
+                    <a href="#"><h1>로앤비</h1><img alt="tr_logo_lawnb_print" class="tr_logo_lawnb_print" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMC4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCA4MCAzMCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgODAgMzA7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtmaWxsOiMwQjBEMTc7fQ0KPC9zdHlsZT4NCjxyZWN0IHg9IjQ2IiB5PSI0LjgiIGNsYXNzPSJzdDAiIHdpZHRoPSIwLjciIGhlaWdodD0iMTIuNCIvPg0KPGc+DQoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTMwLjUsMTUuM3YtNC4xYzAtMC43LTAuMy0xLjEtMS0xLjFjLTAuOSwwLTEuNCwwLjYtMS40LDEuN3YzLjVoLTEuNlY4LjlIMjhWMTBjMC4zLTAuNywxLTEuMiwyLTEuMg0KCQljMS41LDAsMi4xLDAuOCwyLjEsMi4ydjQuNEwzMC41LDE1LjNMMzAuNSwxNS4zeiBNMzMuNiw2LjVoMy45YzEuNiwwLDIuNSwwLjgsMi41LDIuMWMwLDEtMC41LDEuOC0xLjYsMi4yDQoJCWMxLjEsMC4yLDEuOSwwLjksMS45LDIuMWMwLDEuNC0xLjEsMi40LTIuOCwyLjRoLTMuOUMzMy42LDE1LjMsMzMuNiw2LjUsMzMuNiw2LjV6IE0zNy4xLDEwLjJjMC45LDAsMS40LTAuNiwxLjQtMS4zDQoJCWMwLTAuNy0wLjUtMS4xLTEuNC0xLjFoLTEuOHYyLjRMMzcuMSwxMC4yTDM3LjEsMTAuMnogTTM3LjMsMTRjMSwwLDEuNC0wLjUsMS40LTEuM2MwLTAuNy0wLjUtMS4yLTEuNS0xLjJoLTJWMTRIMzcuM3ogTTEsNi41aDEuNg0KCQl2Ny40aDR2MS40SDFWNi41eiBNMTAuMyw2LjVoMS45bDIuOSw4LjhoLTEuNWwtMC42LTIuMUg5LjZMOSwxNS4zSDcuNUwxMC4zLDYuNXogTTEwLjEsMTEuOWgyLjRMMTEuMyw4TDEwLjEsMTEuOXogTTIyLjMsMTIuNg0KCQlsMS42LTYuMWgxLjdsLTIuNiw4LjhoLTEuNGwtMS43LTdsLTEuNyw3aC0xLjRMMTQsNi41aDEuN2wxLjcsNi4xbDEuNS02LjFoMS44TDIyLjMsMTIuNnoiLz4NCgk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMi4zLDEuN3YxLjlIMS44VjEuN0gxLjFWMS4yaDEuOHYwLjRIMi4zeiBNMy40LDEuMmgwLjV2MC45aDAuOVYxLjJoMC41djIuM0g0Ljl2LTFIMy45djFIMy40VjEuMnogTTcsMS4yDQoJCWMwLjgsMCwxLjEsMC41LDEuMSwxLjJTNy43LDMuNiw3LDMuNlM1LjgsMy4xLDUuOCwyLjRTNi4yLDEuMiw3LDEuMnogTTcuNiwyLjRjMC0wLjUtMC4yLTAuOC0wLjYtMC44Yy0wLjQsMC0wLjYsMC4zLTAuNiwwLjgNCgkJUzYuNSwzLjIsNywzLjJTNy42LDIuOSw3LjYsMi40eiBNOC41LDEuMkg5bDAuNywxLjVsMC43LTEuNUgxMXYyLjNoLTAuNVYyLjJsLTAuNSwxSDkuNUw5LDIuMnYxLjNIOC41VjEuMnogTTEyLjQsMy42DQoJCWMtMC4zLDAtMC42LTAuMS0wLjgtMC4yTDExLjYsM2MwLjIsMC4xLDAuNSwwLjIsMC43LDAuMmMwLjMsMCwwLjQtMC4xLDAuNC0wLjNjMC0wLjItMC4xLTAuMi0wLjUtMC4zYy0wLjUtMC4xLTAuOC0wLjMtMC44LTAuNw0KCQljMC0wLjYsMC40LTAuNywwLjktMC43YzAuMywwLDAuNiwwLjEsMC44LDAuMmwtMC4xLDAuNGMtMC4yLTAuMS0wLjUtMC4yLTAuNy0wLjJjLTAuMywwLTAuNCwwLjEtMC40LDAuMmMwLDAuMiwwLjEsMC4yLDAuNSwwLjMNCgkJYzAuNSwwLjEsMC44LDAuMywwLjgsMC43QzEzLjMsMy4zLDEzLDMuNiwxMi40LDMuNnogTTE0LjgsMS4yYzAuOCwwLDEuMSwwLjUsMS4xLDEuMnMtMC40LDEuMi0xLjEsMS4yYy0wLjgsMC0xLjEtMC41LTEuMS0xLjINCgkJUzE0LDEuMiwxNC44LDEuMnogTTE1LjQsMi40YzAtMC41LTAuMi0wLjgtMC42LTAuOHMtMC42LDAuMy0wLjYsMC44czAuMiwwLjgsMC42LDAuOFMxNS40LDIuOSwxNS40LDIuNHogTTE2LjMsMS4yaDAuNWwxLDEuNVYxLjINCgkJaDAuNXYyLjNoLTAuNWwtMS0xLjV2MS41aC0wLjVDMTYuMywzLjYsMTYuMywxLjIsMTYuMywxLjJ6IE0yMS41LDIuN2wwLjYsMC45aC0wLjZsLTAuNS0wLjhoLTAuNHYwLjhIMjBWMS4yaDEuMQ0KCQlDMjEuNywxLjIsMjIsMS41LDIyLDJDMjIsMi4zLDIxLjgsMi42LDIxLjUsMi43eiBNMjEuMSwxLjZoLTAuNXYwLjdoMC41YzAuMiwwLDAuNC0wLjEsMC40LTAuNEMyMS40LDEuOCwyMS4zLDEuNiwyMS4xLDEuNnoNCgkJIE0yMi41LDEuMmgxLjZ2MC40SDIzdjAuNWgxdjAuNGgtMXYwLjVoMS4xdjAuNGgtMS42VjEuMnogTTI2LjYsMi43YzAsMC41LTAuMywwLjktMSwwLjljLTAuNywwLTEtMC40LTEtMC45VjEuMmgwLjV2MS41DQoJCWMwLDAuMywwLjIsMC41LDAuNSwwLjVzMC41LTAuMiwwLjUtMC41VjEuMmgwLjVMMjYuNiwyLjdMMjYuNiwyLjd6IE0yOC4yLDEuN3YxLjloLTAuNVYxLjdIMjdWMS4yaDEuOHYwLjRIMjguMnogTTI5LjMsMS4yaDEuNg0KCQl2MC40aC0xLjF2MC41aDF2MC40aC0xdjAuNWgxLjF2MC40aC0xLjZWMS4yeiBNMzIuOCwyLjdsMC42LDAuOWgtMC42bC0wLjUtMC44aC0wLjR2MC44aC0wLjVWMS4yaDEuMWMwLjUsMCwwLjgsMC4zLDAuOCwwLjgNCgkJQzMzLjMsMi4zLDMzLjEsMi42LDMyLjgsMi43eiBNMzIuNCwxLjZoLTAuNXYwLjdoMC41YzAuMiwwLDAuNC0wLjEsMC40LTAuNEMzMi44LDEuOCwzMi43LDEuNiwzMi40LDEuNnogTTM0LjYsMy42DQoJCWMtMC4zLDAtMC42LTAuMS0wLjgtMC4yTDMzLjksM2MwLjIsMC4xLDAuNSwwLjIsMC43LDAuMmMwLjMsMCwwLjQtMC4xLDAuNC0wLjNjMC0wLjItMC4xLTAuMi0wLjUtMC4zYy0wLjUtMC4xLTAuOC0wLjMtMC44LTAuNw0KCQljMC0wLjYsMC40LTAuNywwLjktMC43YzAuMywwLDAuNiwwLjEsMC44LDAuMmwtMC4xLDAuNGMtMC4yLTAuMS0wLjUtMC4yLTAuNy0wLjJjLTAuMywwLTAuNCwwLjEtMC40LDAuMmMwLDAuMiwwLjEsMC4yLDAuNSwwLjMNCgkJYzAuNSwwLjEsMC44LDAuMywwLjgsMC43QzM1LjUsMy4zLDM1LjIsMy42LDM0LjYsMy42eiIvPg0KPC9nPg0KPGc+DQoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTU0LjEsMTEuOVY5LjJoNS40VjcuNUg1NWMtMC4xLDAtMC4zLDAtMC40LDBjLTAuMiwwLTAuMywwLTAuNCwwVjYuOWMwLjIsMCwwLjMsMCwwLjUsMGMwLjEsMCwwLjMsMCwwLjQsMA0KCQloNS4yYzAsMC4xLDAsMC4zLDAsMC40YzAsMC4yLDAsMC4zLDAsMC41djEuOWgtNS40djEuN2g0LjhjMC4yLDAsMC4zLDAsMC41LDBzMC4zLDAsMC41LDBWMTJjLTAuMiwwLTAuMywwLTAuNSwwDQoJCWMtMC4xLDAtMC4zLDAtMC41LDBoLTIuMXYxLjloMi40YzAuMywwLDAuNSwwLDAuOCwwYzAuMywwLDAuNSwwLDAuOCwwdjAuNmMtMC4zLDAtMC41LDAtMC44LDBjLTAuMywwLTAuNSwwLTAuOCwwaC01LjQNCgkJYy0wLjMsMC0wLjUsMC0wLjgsMGMtMC4zLDAtMC41LDAtMC44LDB2LTAuNmMwLjMsMCwwLjUsMCwwLjgsMGMwLjMsMCwwLjUsMCwwLjgsMGgyLjR2LTEuOUw1NC4xLDExLjlMNTQuMSwxMS45eiIvPg0KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik02Mi41LDguMWMwLjEtMC4zLDAuMy0wLjUsMC40LTAuOGMwLjItMC4yLDAuNC0wLjQsMC43LTAuNWMwLjMtMC4xLDAuNS0wLjIsMC44LTAuMmMwLjMsMCwwLjYsMC4xLDAuOCwwLjINCgkJYzAuMywwLjEsMC41LDAuMywwLjcsMC41YzAuMiwwLjIsMC4zLDAuNSwwLjQsMC44YzAuMSwwLjMsMC4yLDAuNiwwLjIsMC45YzAsMC4zLTAuMSwwLjctMC4yLDAuOWMtMC4xLDAuMy0wLjMsMC41LTAuNCwwLjcNCgkJYy0wLjIsMC4yLTAuNCwwLjQtMC43LDAuNWMtMC4zLDAuMS0wLjUsMC4yLTAuOCwwLjJjLTAuMywwLTAuNi0wLjEtMC44LTAuMmMtMC4zLTAuMS0wLjUtMC4zLTAuNy0wLjVjLTAuMi0wLjItMC4zLTAuNS0wLjQtMC43DQoJCWMtMC4xLTAuMy0wLjItMC42LTAuMi0wLjlDNjIuNCw4LjcsNjIuNCw4LjQsNjIuNSw4LjF6IE02My40LDEwLjNjMC4zLDAuMywwLjYsMC41LDEsMC41YzAuNCwwLDAuOC0wLjIsMS0wLjVzMC40LTAuOCwwLjQtMS4zDQoJCXMtMC4xLTEtMC40LTEuM2MtMC4zLTAuMy0wLjYtMC41LTEtMC41Yy0wLjQsMC0wLjgsMC4yLTEsMC41QzYzLjEsOCw2Myw4LjUsNjMsOVM2My4xLDEwLDYzLjQsMTAuM3ogTTYzLjksMTMuMmMwLTAuMSwwLTAuMywwLTAuNA0KCQljMC0wLjEsMC0wLjMsMC0wLjRoMC43YzAsMC4xLDAsMC4zLDAsMC40YzAsMC4xLDAsMC4zLDAsMC40djEuN2g0LjVjMC4yLDAsMC4zLDAsMC41LDBjMC4yLDAsMC40LDAsMC42LDB2MC42Yy0wLjIsMC0wLjQsMC0wLjYsMA0KCQljLTAuMiwwLTAuNCwwLTAuNSwwaC01LjJWMTMuMnogTTY5LjQsOC44VjcuN2MwLTAuMiwwLTAuNCwwLTAuNnMwLTAuNCwwLTAuNmgwLjhjMCwwLjIsMCwwLjQsMCwwLjZjMCwwLjIsMCwwLjQsMCwwLjZ2NC40DQoJCWMwLDAuMiwwLDAuNCwwLDAuNmMwLDAuMiwwLDAuNCwwLDAuNmgtMC44YzAtMC4yLDAtMC40LDAtMC42YzAtMC4yLDAtMC40LDAtMC42VjkuM0g2OHYyLjZjMCwwLjIsMCwwLjQsMCwwLjZzMCwwLjQsMCwwLjZoLTAuNw0KCQljMC0wLjIsMC0wLjQsMC0wLjZjMC0wLjIsMC0wLjQsMC0wLjZWNy44YzAtMC4yLDAtMC40LDAtMC42YzAtMC4yLDAtMC40LDAtMC42aDAuN2MwLDAuMiwwLDAuNCwwLDAuNmMwLDAuMiwwLDAuNCwwLDAuNnYwLjlINjkuNHoNCgkJIi8+DQoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTc2LjQsMTMuM2gtNC4zVjhjMC0wLjIsMC0wLjQsMC0wLjVjMC0wLjIsMC0wLjMsMC0wLjVoMC43YzAsMC4yLDAsMC40LDAsMC41YzAsMC4yLDAsMC4zLDAsMC41djEuNGgyLjlWOA0KCQljMC0wLjIsMC0wLjQsMC0wLjVzMC0wLjMsMC0wLjVoMC43YzAsMC4yLDAsMC40LDAsMC41YzAsMC4yLDAsMC4zLDAsMC41Qzc2LjQsOCw3Ni40LDEzLjMsNzYuNCwxMy4zeiBNNzUuOCw5LjloLTIuOXYyLjhoMi45VjkuOXoNCgkJIE03OS4xLDE0LjljMCwwLjIsMCwwLjUsMCwwLjdoLTAuOGMwLTAuMiwwLTAuNSwwLTAuN2MwLTAuMiwwLTAuNSwwLTAuN1Y3LjhjMC0wLjIsMC0wLjUsMC0wLjdzMC0wLjUsMC0wLjdoMC44YzAsMC4yLDAsMC41LDAsMC43DQoJCWMwLDAuMiwwLDAuNSwwLDAuN3Y2LjRDNzkuMSwxNC40LDc5LjEsMTQuNyw3OS4xLDE0Ljl6Ii8+DQo8L2c+DQo8L3N2Zz4NCg=="></a>
+            <div class="function_area">
+                <label>
+                    <span class="font_size_print">명조체</span>
+                    <span class="toggle_switch">
+                        <input type="checkbox" onclick="Myoungjo();">
+                        <span class="slider"></span>
+                    </span>
+                </label>
+                <!--<button onclick="initStorageIP();" style="margin-right:5px;background-color:azure;">Init Part</button>
+    <button onclick="initAllStorageIP();" style="margin-right:5px;background-color:azure;">Init All</button>-->
+                <p class="hide">기타기능버튼들</p>
+                <span class="font_size_print"><em class="font-p"><i class="icon-plus" data-icon=""></i></em> 글자크기 <em class="font-m"><i class="icon-minus" data-icon=""></i></em></span>
+                <button onclick="fnPrint()">인쇄</button>
+                <button onclick="fnPrintClose()">취소</button>
+            </div>
+            </div>
+        </header>
+
+        <!-- 경고창 팝업 소스 -->
+        <div class="alert_bg" id="divPrintAlert_ID" style="display:none;">
+            <div class="alert_content">
+                <div class="sesscion_tit">
+                    <div class="alert_icon">
+                        <i class="icon-" data-icon=""></i>
+                    </div>
+                    <div class="alert_text">
+                        <div>
+                            대량 인쇄를 통한 부정사용이 의심되는 이용패턴이 감지되었습니다.<br>
+                            보안상의 이유로 30분 동안 온주 인쇄가 중단되오니 양해바랍니다.<br>
+                            귀하의 정보가 외부에 노출되어 사용되고 있을 수 있으므로 실제 사용자 이용여부를 확인해주시기 바랍니다.<br><br>
+                            ※ 정상접속이 확인되어 인쇄가 중단되는 시간(30분)전에 중단 해제가 필요한 경우 아래 정보를 기재하여 하단 로앤비 담당자에게 보내주시기 바랍니다.<br><br>
+                        </div>
+                        <div>
+                            - ID정보 <br>
+                            - 사용자명 <br>
+                            - 이용 주석서명 <br>
+                            - 사용자 이용내용 확인여부 (Y/N)<br><br>
+                        </div>
+                        <div>
+                            로앤비 담당자 : 정경률 부장&nbsp; <a href="mailto:cs_lawnb@thomsonreuters.com">cs_lawnb@thomsonreuters.com</a>, 02) 6467-5500
+                        </div>
+                    </div>
+                </div>
+                <div class="btn_area_normal mgt10">
+                    <a class="btn" onclick="layerModalID();">닫기</a>
+                </div>
+            </div>
+        </div>
+        <div class="alert_bg" id="divPrintAlert_IP" style="display:none;">
+            <div class="alert_content">
+                <div class="sesscion_tit">
+                    <div class="alert_icon">
+                        <i class="icon-" data-icon=""></i>
+                    </div>
+                    <div class="alert_text">
+                        <div>
+                            대량 인쇄를 통한 부정사용이 의심되는 이용패턴이 감지되었습니다.<br>
+                            귀 기관의 IP 정보가 외부에 노출되어 사용되고 있을 수 있으므로 실제 사용자 이용여부를 확인해주시기 바랍니다.<br><br>
+                            보안상의 이유로 30분 동안 온주 인쇄가 중단되오니 양해바랍니다.<br><br>
+                            ※ 정상접속이 확인되어 인쇄가 중단되는 시간(30분)전에 중단 해제가 필요한 경우 아래 정보를 기재하여 하단 로앤비 담당자에게 보내주시기 바랍니다.<br>
+                            <span style="text-decoration:underline;">(ID Code의 경우 하단에 생성된 정보를 그대로 복사해주세요.)</span><br><br>
+                        </div>
+                        <div>
+                            - 기관명 <br>
+                            - 사용자명 <br>
+                            - 이용 주석서명 <br>
+                            - 사용자 이용내용 확인여부 (Y/N)<br>
+                            - ID Code :  <span id="spanRandomIPUserCode" style="color:#ff0000;"></span><br><br>
+                        </div>
+                        <div>
+                            로앤비 담당자 : 정경률 부장&nbsp; <a href="mailto:cs_lawnb@thomsonreuters.com">cs_lawnb@thomsonreuters.com</a>, 02) 6467-5500
+                        </div>
+                    </div>
+                </div>
+                <div class="btn_area_normal mgt10">
+                    <a class="btn" onclick="layerModalIP();">닫기</a>
+                </div>
+            </div>
+        </div>
+        <script src="/Scripts/sub/printBinding.js?v=2022051903" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+
+        if ("D007" == "J001") {
+            if ("0" == "1") {
+                initOnjuQuotePrintHtml("", "");
+            }
+            else {
+                initOnjuPrintHtml("", "");
+            }            
+        }
+        else {
+            initPrintHtml();
+        }
+        inputFolderMemoHtml('');
+    });
+</script>
+
+    <div id="container" class="law onlycon">
+        <div class="title_area" style="">  		
+        <h2 style="font-size: 18px;">[천자평석] 2016. 2. 5. 개정되기 전의 구 상증세법 시행령 제31조 제6항이 무효인지</h2>
+        <div class="meta_area">[대상판례] <a href="ContentView?sid=C000EAB62C1FD3F5" class="popup_view">전원합의체 대법원 2021. 9. 9 선고 2019두35695 전원합의체 판결 [증여세부과처분취소]</a></div>
+        <div class="meta_area">유철형 / 행정분야 / 2021.09.23 </div>
+	</div>
+            <div id="container_inner">
+                <div class="left_container">
+                </div>
+                <article class="main_container">
+                    <div class="main_container_view">
+                        <div class="main_container_view_inner">									 
+                    <div id="title_result_tab" class="result_tab"><div>관련정보 </div> 
+					<div class="btn_option_outer"><div class="btn_close">X</div></div>
+					<div class="btn_option_outer"><div class="btn_reapprea">검색결과 보기</div></div>
+					</div>
+					<div id="result_area" class="popup_mov_area">  
+                        <div id="result_sep"></div> 
+						<div class="list_order_pr">
+									
+						</div> 
+						<ol class="list myfolder_total"> <!--나의폴더-->
+									
+						</ol>
+						<div class="navigationLinks">				        									
+						</div> 
+					</div>               
+                    <div id="view_content" style="">  
+					    <!--?xml version="1.0" encoding="utf-16"?--><b> 1. 사실관계</b><br>가. 원고들은 그 부모와 함께 주식회사 ○○과 주식회사 △△(이하 ‘이 사건 각 회사’라 한다)의 발행주식 전부를 소유하고 있다.<br>나. 피고들은 원고들의 아버지 소외인이 2014년과 2015년에 이 사건 각 회사에 금전을 무상으로 대여함으로써 주주인 원고들이 구 「상속세 및 증여세법」(2014. 1. 1. 법률 제12168호로 개정되어 2015. 12. 15. 법률 제13557호로 개정되기 전의 것, 이하 ‘2014년 개정 상증세법’이라 한다) 제41조에서 정한 이익을 얻었다고 보아, 구 「상속세 및 증여세법 시행령」(2014. 2. 21. 대통령령 제25195호로 개정되어 2016. 2. 5. 대통령령 제26960호로 개정되기 전의 것, 이하 ‘2014년 개정 상증세법 시행령’이라 한다) 제31조 제6항에 따라 증여재산가액을 산정하여, 각각 원고들에게 2014. 1. 1.자 및 2015. 1. 1.자 증여분에 대한 증여세를 부과하였다(이하 ‘이 사건 각 처분’이라 한다).<br><b>2. 이 사건의 쟁점</b><br>이 사건의 쟁점은 2016. 2. 5. 대통령령 제26960호로 개정되기 전의 구 상증세법 시행령 제31조 제6항이 무효인지 여부이다.<br><b>3. 대상 판결의 요지</b><br>가. 2014년 개정 전 상증세법 시행령 제31조 제6항의 무효를 선언한 대법원 판결과<br>관련 법령의 개정<br>(1) 대법원 판결<br>(가) 구 「상속세 및 증여세법」(2010. 1. 1. 법률 제9916호로 개정되기 전의 것, 이하 ‘2010년 개정 전 상증세법’이라 한다) 제41조 제1항은 ‘결손금이 있거나 휴업 또는 폐업 중인 법인(특정법인)의 주주 등과 특수관계에 있는 자가 당해 특정법인과 재산 또<br>는 용역을 무상제공하는 거래 등을 통하여 당해 특정법인의 주주 등이 이익을 얻은 경<br>우에는 그 이익에 상당하는 금액을 당해 특정법인의 주주 등의 증여재산가액으로 한다’고 규정하였고, 같은 조 제2항의 위임에 따른 구 「상속세 및 증여세법 시행령」(2003. 12. 30. 대통령령 제18177호로 개정되어 2014. 2. 21. 대통령령 제25195호로 개정되기 전의 것, 이하 ‘2014년 개정 전 상증세법 시행령’이라 한다) 제31조 제6항은 법 제41조 제1항의 이익을 특정법인의 증여재산가액 등에 그 최대주주 등의 주식 등 비율을 곱하여 계산하도록 규정하였다.<br>대법원 2009. 3. 19. 선고 2006두19693 전원합의체 판결은 2010년 개정 전 상증세법 제41조 제1항이 특정법인과 일정한 거래를 통하여 최대주주 등이 이익을 얻은 경우에 이를 전제로 그 이익의 계산만을 시행령에 위임하고 있음에도, 2014년 개정 전 상증세법 시행령 제31조 제6항은 특정법인이 얻은 이익을 바로 주주 등이 얻은 이익이라고 보고 증여재산가액을 계산하도록 하였다는 등의 이유로, 위 시행령 조항이 모법의 규정 취지에 반할 뿐만 아니라 그 위임범위를 벗어난 것으로서 무효라고 판단하였다.<br>(나) 구 「상속세 및 증여세법」(2010. 1. 1. 법률 제9916호로 개정되어 2014. 1. 1. 법률 제12168호로 개정되기 전의 것, 이하 ‘2014년 개정 전 상증세법’이라 한다) 제41조 제1항은 특정법인의 주주 등이 ‘이익을 얻은 경우’라는 기존의 문구를 ‘대통령령으로 정하는 이익을 얻은 경우’로 변경하였으나, 대법원이 위와 같이 무효라고 판단한 2014년 개정 전 상증세법 시행령 제31조 제6항은 2014. 2. 21. 대통령령 제25195호로 개정되기 전까지 그대로 유지되었다.<br>대법원 2017. 4. 20. 선고 2015두45700 전원합의체 판결은 위  대법원 2006두19693 판결과 사실상 같은 취지에서 2014년 개정 전 상증세법 제41조 제1항의 위임에 따른 2014년 개정 전 상증세법 시행령 제31조 제6항 역시 모법의 규정 취지에 반할 뿐만 아니라 그 위임범위를 벗어난 것으로서 무효라고 판단하였다.<br>(2) 2014년 관련 법령의 개정과 그 내용<br>(가) 2014년 개정 상증세법 제41조 제1항은 ‘결손금이 있거나 휴업․폐업 중인 법인 또는 제45조의3 제1항에 따른 지배주주와 그 친족이 지배하는 영리법인(특정법인)의 주주 등의 특수관계인이 그 특정법인과 재산이나 용역을 무상으로 제공하는 거래 등을 하여 그 특정법인의 주주 등이 대통령령으로 정하는 이익을 얻은 경우에는 그 이익에 상당하는 금액을 그 특정법인의 주주 등의 증여재산가액으로 한다’고 규정하였다. 위 조항은 2014년 개정 전 상증세법 제41조 제1항과 동일하게 규정하면서, 특정법인으로 ‘법 제45조의3 제1항에 따른 지배주주와 그 친족이 지배하는 영리법인’을 추가하였다.<br>(나) 이에 따라 2014년 개정 상증세법 시행령 제31조 제6항은 법 제41조 제1항에서 ‘대통령령으로 정하는 이익’이란 “증여재산가액 등에서 ‘특정법인의 법인세법 제55조 제1항에 따른 산출세액(같은 법 제55조의2에 따른 토지 등 양도소득에 대한 법인세액은 제외한다)에서 법인세액의 공제․감면액을 뺀 금액에 각 사업연도의 소득금액에서 그 증여재산가액 등이 차지하는 비율(1을 초과하는 경우에는 1로 한다)을 곱하여 계산한 금액’을 공제한 금액에 그 최대주주 등의 주식 등의 비율을 곱하여 계산한 금액(해당 금액이 1억 원 이상인 경우로 한정한다)”을 말한다고 규정하였다.<br>나. 상고이유 제2점에 관하여<br>(1) 2014년 개정 상증세법 시행령 제31조 제6항의 무효 여부에 관한 판단<br>(가) 조세법률주의 원칙은 과세요건 등 국민의 납세의무에 관한 사항을 국민의 대표기관인 국회가 제정한 법률로써 규정하여야 하고, 그 법률을 집행하는 경우에도 이를 엄격하게 해석ㆍ적용하여야 하며, 행정편의적인 확장해석이나 유추적용을 허용하지 아니함을 뜻한다. 그러므로 법률의 위임 없이 명령 또는 규칙 등 행정입법으로 과세요건 등에 관한 사항을 규정하거나 법률에 규정된 내용을 함부로 유추ㆍ확장하는 내용의 해석규정을 마련하는 것은 조세법률주의 원칙에 위배된다(대법원 2007. 5. 17. 선고 2006두8648 전원합의체 판결 참조).<br>(나) 이러한 법리에 비추어 살펴보면, 2014년 개정 상증세법 시행령 제31조 제6항은 모법인 2014년 개정 상증세법 제41조 제1항의 규정 취지에 반할 뿐만 아니라 그 위임범위를 벗어난 것으로서 무효라고 봄이 타당하다. 그 이유는 다음과 같다.<br>1) 2014년 개정 상증세법 제41조 제4항은 특정법인의 범위를 확대하였을 뿐 나머지 과세요건에 대하여는 개정 전과 동일하게 규정하고 있으므로 여전히 특정법인에 대한 재산의 무상제공 등으로 인하여 그 주주 등이 상증세법상 증여재산에 해당하는 이익을 얻었음을 전제로 하는 규정으로 보아야 하고, 재산의 무상제공 등의 상대방이 특정법인인 이상 그로 인하여 주주 등이 얻을 수 있는 이익은 그가 보유하고 있는 특정법인 주식 등의 가액 증가분 외에 다른 것을 상정하기 어렵다.<br>2) 따라서 2014년 개정 상증세법 제41조 제1항은 그 문언의 일부 개정에도 불구하고 개정 전과 마찬가지로 재산의 무상제공 등 특정법인과 거래를 통하여 그 주주 등이 이익을 얻었음을 전제로 하여 그 이익, 즉 ‘주주 등이 보유한 특정법인 주식 등의 가액증가분’의 정당한 계산방법에 관한 사항만을 대통령령에 위임한 규정이라고 볼 것이다.<br>3) 한편 특정법인의 주주 등과 특수관계에 있는 자가 특정법인에 재산을 증여하는 거래를 하였더라도 그 거래를 전후하여 주주 등이 보유한 주식 등의 가액이 증가하지 않은 경우에는 그로 인하여 그 주주 등이 얻은 이익이 없으므로 2014년 개정 상증세법 제41조 제1항에 근거하여 증여세를 부과할 수는 없다고 보아야 한다. 설령 위와 같은 거래를 전후하여 주주 등이 보유한 주식 등의 가액이 증가하였다고 하더라도 특정법인에 대한 증여재산가액이 그 주식 등의 가액 증가분을 초과할 경우 그 초과분에 대하여는 그 주주 등이 얻은 이익이 없다고 보아야 하므로 그 부분에 대하여 증여세를 부과할 수 없음은 마찬가지이다.<br>4) 그런데 2014년 개정 상증세법 시행령 제31조 제6항은 2014년 개정 상증세법 제41조 제1항이 특정법인의 범위를 확대함에 따라 해당 거래와 관련하여 법인의 소득금액에 대한 법인세와 그 주주 등의 이익에 대한 증여세가 함께 부과될 수 있음을 고려하여 증여재산가액에서 특정법인이 부담하는 법인세 중 일정액을 공제하는 것으로 그 내용이 일부 변경되었다 그러나 위 시행령 조항이 특정법인에 대한 재산의 무상제공거래 등이 있으면 그 자체로 주주 등이 이익을 얻은 것으로 간주하여 주주 등이 실제로 얻은 이익의 유무나 다과와 무관하게 증여세 납세의무를 부담하도록 정하고 있는 것은 2014년 개정 전 상증세법 시행령 제31조 제6항과 동일하다.<br>5) 결국 2014년 개정 상증세법 시행령 제31조 제6항 역시 모법인 2014년 개정 상증세법 제41조 제1항의 규정 취지에 반할 뿐만 아니라 그 위임범위를 벗어나 조세법률주의 원칙에 따라 마땅히 국회가 법률로 정하여야 할 사항인 과세요건을 창설한 것으로서 무효라고 봄이 타당하다.<br>(다) 같은 취지에서 원심이 2014년 개정 상증세법 시행령 제31조 제6항이 무효라고 판단한 것은 앞서 본 법리에 따른 것으로서 정당하다.<br>(2) 2014년 증여분에 대한 증여세 부과처분의 위법 여부에 관한 판단<br>원심은 판시와 같은 이유를 들어, 이 사건 각 처분 중 2014년 증여분에 대한 증여세부과처분은 소외인의 이 사건 각 회사에 대한 금전 무상대여로 2014. 1. 1. 원고들에 대한 이익의 증여가 있는 것으로 보아 이루어진 것인데, 위 증여일 당시에는 무효인 2014년 개정 전 상증세법 시행령 제31조 제6항이 시행되고 있었을 뿐이므로, 위 부과처분은 2014년 개정 상증세법 제41조에서 확장한 특정법인과 관련한 과세를 위한 시행령이 마련되지 않은 상태에서 과세를 위한 요건을 시행령에 위임한 위 법 규정만을 근거로 이루어진 것으로, 조세법률주의 원칙이나 소급과세금지원칙 등에 비추어 위법하다고 판단하였다. 원심이 인정한 사실을 관련 규정과 법리에 비추어 살펴보면, 원심의 이러한 판단은 정당하다.<br>(3) 2015년 증여분에 대한 증여세 부과처분의 위법 여부에 관한 판단<br>(가) 원심은 다음과 같은 이유를 들어 이 사건 각 처분 중 2015년 증여분에 대한 증여세 부과처분은 무효인 2014년 개정 상증세법 시행령 제31조 제6항을 근거로 한 것이어서 위법하다고 판단하였다.<br>1) 2015년 증여분에 대한 증여세 부과처분은 2015. 1. 1. 원고들에 대한 이익의 증여가 있다고 보아 이루어진 것인데, 당시 시행 중이던 2014년 개정 상증세법 시행령 제31조 제6항은 모법인 2014년 개정 상증세법 제41조 제1항의 규정 취지에 반할 뿐만 아니라 그 위임범위를 벗어난 것이어서 무효이다. 따라서 2014년 개정 상증세법 제41조 제1항의 ‘대통령령으로 정하는 이익’인 특정법인의 주주 등이 보유한 특정법인 주식등의 가액 증가분 산정방법은 대통령령에 구체적으로 정함이 없는 공백상태가 된다.<br>2) 이러한 경우에는 조세법률주의 원칙에 따라 증여세를 과세할 수 없다고 보아야 한다. 이와 달리 특정법인의 주주 등이 보유한 특정법인 주식 등의 가액 증가분을 산정하기 위하여 상증세법상 보충적 평가방법 등을 적용하는 것은 2014년 개정 상증세법 제41조 제1, 2항의 ‘대통령령으로 정하는 이익을 얻은 경우 그 이익에 상당하는 금액을 그 특정법인의 주주 등의 증여재산가액으로 하고, 그 계산 등은 대통령령으로 정한다’는 법문을 함부로 유추․확장하는 것으로서 조세법률주의에 반한다.<br>(나) 관련 규정과 법리에 비추어 보면 원심의 이러한 판단은 정당하다.<br><b>4. 대상 판결에 대하여</b><br>가. 관련 규정의 개정 경위<br><b>(1) 2003. 12. 30. 법률 제7010호로 개정되어 2010. 1. 1. 법률 제9916호로 개정되기 전의 </b><b>구 상증세법 제41조</b><br>① 결손금이 있거나 휴업 또는 폐업중인 법인(이하 이 조에서 ”특정법인“이라 한다)의 주주 또는 출자자와 특수관계에 있는 자가 당해 특정법인과 다음 각호의 1에 해당하는 거래를 통하여 당해 특정법인의 주주 또는 출자자가 이익을 얻은 경우에는 그 이익에 상당하는 금액을 당해 특정법인의 주주 또는 출자자의 증여재산가액으로 한다.<br>1. 재산 또는 용역을 무상제공하는 거래<br>2. 재산 또는 용역을 통상적인 거래관행에 비추어 볼 때 현저히 낮은 대가로 양도·제공하는 거래<br>3. 재산 또는 용역을 통상적인 거래관행에 비추어 볼 때 현저히 높은 대가로 양도·제공받는 거래<br>4. 기타 제1호 내지 제3호와 유사한 거래로서 대통령령이 정하는 거래<br>② 제1항에 규정하는 특정법인, 특수관계에 있는 자, 특정법인의 주주 또는 출자자가 얻은 이익의 계산, 현저히 낮은 대가 및 현저히 높은 대가의 범위에 관하여는 대통령령이 정하는 바에 의한다.<br><b>(2) 2003. 12. 30. 대통령령 제18177호로 개정되어 2014. 2. 21. 대통령령 제25195호로 개정되기 전의</b> <b>구 상증세법 시행령 </b><b>제31조 제6항</b><br>⑥ 법 제41조 제1항의 규정에 의한 이익은 다음 각호의 1에 해당하는 이익(제1항 제1호의 규정에 해당하는 법인의 경우에는 당해 결손금을 한도로 한다)에 제5항에 규정된 자의 주식 또는 출자지분의 비율을 곱하여 계산한 금액(당해 금액이 1억원 이상인 경우에 한한다)으로 한다. <br>1. 재산을 증여하거나 당해 법인의 채무를 면제·인수 또는 변제하는 경우에는 증여재산가액 또는 그 면제·인수 또는 변제로 인하여 얻는 이익에 상당하는 금액<br>2. 제1호 외의 경우에는 제3항의 규정에 의한 시가와 대가와의 차액에 상당하는 금액<br><b>(3) 2010. 1. 1. 법률 제9916호로 개정되어 2011. 12. 31. 법률 제11130호로 개정되기 전의 </b><b>구 상증세법 제41조</b><br>① 결손금이 있거나 휴업 또는 폐업 중인 법인(이하 이 조에서 “특정법인”이라 한다)의 주주 또는 출자자와 특수관계에 있는 자가 그 특정법인과 다음 각 호의 어느 하나에 해당하는 거래를 하여 그 특정법인의 주주 또는 출자자가 대통령령으로 정하는 이익을 얻은 경우에는 그 이익에 상당하는 금액을 그 특정법인의 주주 또는 출자자의 증여재산가액으로 한다.<br>1. 재산이나 용역을 무상으로 제공하는 거래<br>2. 재산이나 용역을 통상적인 거래 관행에 비추어 볼 때 현저히 낮은 대가로 양도·제공하는 거래<br>3. 재산이나 용역을 통상적인 거래 관행에 비추어 볼 때 현저히 높은 대가로 양도·제공받는 거래<br>4. 그 밖에 제1호부터 제3호까지의 거래와 유사한 거래로서 대통령령으로 정하는 거래<br>② 제1항에 따른 특정법인, 특수관계에 있는 자, 특정법인의 주주 또는 출자자가 얻은 이익의 계산, 현저히 낮은 대가 및 현저히 높은 대가의 범위는 대통령령으로 정한다.<br><b>(4) 2014. 1. 1. 법률 제12168호로 개정된 </b><b>구 상증세법 제41조</b><br>① 결손금이 있거나 휴업·폐업 중인 법인 또는 제45조의3 제1항에 따른 지배주주와 그 친족이 지배하는 영리법인(이하 이 조에서 "특정법인"이라 한다)의 대통령령으로 정하는 주주 또는 출자자의 특수관계인이 그 특정법인과 다음 각 호의 어느 하나에 해당하는 거래를 하여 그 특정법인의 주주 또는 출자자가 대통령령으로 정하는 이익을 얻은 경우에는 그 이익에 상당하는 금액을 그 특정법인의 주주 또는 출자자의 증여재산가액으로 한다.<br>1. 재산이나 용역을 무상으로 제공하는 거래<br>2. 재산이나 용역을 통상적인 거래 관행에 비추어 볼 때 현저히 낮은 대가로 양도·제공하는 거래<br>3. 재산이나 용역을 통상적인 거래 관행에 비추어 볼 때 현저히 높은 대가로 양도·제공받는 거래<br>4. 그 밖에 제1호부터 제3호까지의 거래와 유사한 거래로서 대통령령으로 정하는 거래<br>② 제1항에 따른 특정법인, 특정법인의 주주 또는 출자자가 얻은 이익의 계산, 현저히 낮은 대가 및 현저히 높은 대가의 범위는 대통령령으로 정한다.<br><b>(5) 2014. 2. 21. 대통령령 제25195호로 개정된 </b><b>구 상증세법 시행령 제31조</b><br>⑥ 법 제41조 제1항 각 호 외의 부분에서 “대통령령으로 정하는 이익”이란 제1호의 금액에서 제2호의 금액을 뺀 금액에 제3호의 비율을 곱하여 계산한 금액(해당 금액이 1억원 이상인 경우로 한정한다)을 말한다. <br>1. 다음 각 목의 구분에 따른 금액<br>가. 재산을 증여하거나 해당 법인의 채무를 면제·인수 또는 변제하는 경우: 증여재산가액 또는 그 면제·인수 또는 변제로 인하여 얻는 이익에 상당하는 금액<br>나. 가목 외의 경우: 제3항에 따른 시가와 대가와의 차액에 상당하는 금액<br>2. 가목의 금액에 나목의 비율을 곱하여 계산한 금액<br>가. 특정법인의 「법인세법」 제55조 제1항에 따른 산출세액(같은 법 제55조의2에 따른 토지등 양도소득에 대한 법인세액은 제외한다)에서 법인세액의 공제·감면액을 뺀 금액<br>나. 제1호에 따른 이익이 특정법인의 「법인세법」 제14조에 따른 각 사업연도의 소득금액에서 차지하는 비율(1을 초과하는 경우에는 1로 한다)<br>3. 다음 각 목의 구분에 따른 비율<br>가. 제1항 제1호 및 제2호에 해당하는 특정법인의 경우: 그 특정법인의 최대주주등의 주식등의 비율<br><b>나. 제1항 제3호에 해당하는 특정법인의 경우: 그 특정법인의 지배주주등의 주식보유비율<br>(6) 2015. 12. 15. 법률 제13557호로 개정된 </b><b>상증세법 제45조의5</b><br>① 다음 각 호의 어느 하나에 해당하는 법인(이하 이 조 및 제68조에서 "특정법인"이라 한다)의 대통령령으로 정하는 주주등(이하 이 조에서 "특정법인의 주주등"이라 한다)과 대통령령으로 정하는 특수관계에 있는 자가 그 특정법인과 제2항에 따른 거래를 하는 경우에는 그 특정법인의 이익에 특정법인의 주주등의 주식보유비율을 곱하여 계산한 금액을 그 특정법인의 주주등이 증여받은 것으로 본다.<br>1. 대통령령으로 정하는 결손금이 있는 법인<br>2. 증여일 현재 휴업 또는 폐업 상태인 법인<br>3. 증여일 현재 제1호 및 제2호에 해당하지 아니하는 법인으로서 제45조의3 제1항에 따른 지배주주와 그 친족의 주식보유비율이 100분의 50 이상인 법인<br>② 제1항에 따른 거래는 다음 각 호의 어느 하나에 해당하는 것으로 한다.<br>1. 재산이나 용역을 무상으로 제공하는 것<br>2. 재산이나 용역을 통상적인 거래 관행에 비추어 볼 때 현저히 낮은 대가로 양도·제공하는 것<br>3. 재산이나 용역을 통상적인 거래 관행에 비추어 볼 때 현저히 높은 대가로 양도·제공받는 것<br>4. 그 밖에 제1호부터 제3호까지의 거래와 유사한 거래로서 대통령령으로 정하는 것<br>③ 제1항에 따른 증여일의 판단, 특정법인의 이익의 계산, 현저히 낮은 대가와 현저히 높은 대가의 범위 및 그 밖에 필요한 사항은 대통령령으로 정한다.<br><b>(7) 2016. 2. 5. 대통령령 제26960호로 개정된 </b><b>상증세법 시행령 제34조의4</b><br>④ 법 제45조의5 제1항에서 “특정법인의 이익”이란 제1호의 금액에서 제2호의 금액을 뺀 금액을 말한다. <br>1. 다음 각 목의 구분에 따른 금액<br>가. 재산을 증여하거나 해당 법인의 채무를 면제·인수 또는 변제하는 경우: 증여재산가액 또는 그 면제·인수 또는 변제로 인하여 해당 법인이 얻는 이익에 상당하는 금액<br>나. 가목 외의 경우: 제7항에 따른 시가와 대가와의 차액에 상당하는 금액<br>2. 가목의 금액에 나목의 비율을 곱하여 계산한 금액<br>가. 특정법인의 「법인세법」 제55조 제1항에 따른 산출세액(같은 법 제55조의2에 따른 토지등 양도소득에 대한 법인세액은 제외한다)에서 법인세액의 공제·감면액을 뺀 금액<br>나. 제1호에 따른 이익이 특정법인의 「법인세법」 제14조에 따른 각 사업연도의 소득금액에서 차지하는 비율(1을 초과하는 경우에는 1로 한다)<br>⑤ 법 제45조의5 제1항을 적용할 때 특정법인의 주주등이 증여받은 것으로 보는 경우는 제4항에 따른 특정법인의 이익에 다음 각 호의 구분에 따른 비율을 곱하여 계산한 금액이 1억원 이상인 경우로 한정한다.<br>1. 법 제45조의5 제1항 제1호 또는 제2호에 해당하는 특정법인의 경우: 그 특정법인의 최대주주등의 주식등의 비율<br>2. 법 제45조의5 제1항 제3호에 해당하는 특정법인의 경우: 그 특정법인의 지배주주등의 주식보유비율<br><b>(8) 2019. 12. 31. 법률 제16846호로 개정된 </b><b>상증세법 제45조의5</b><br>① 지배주주와 그 친족(이하 이 조에서 "지배주주등"이라 한다)이 직접 또는 간접으로 보유하는 주식보유비율이 100분의 30 이상인 법인(이하 이 조 및 제68조에서 "특정법인"이라 한다)이 지배주주의 특수관계인과 다음 각 호에 따른 거래를 하는 경우에는 거래한 날을 증여일로 하여 그 특정법인의 이익에 특정법인의 지배주주등의 주식보유비율을 곱하여 계산한 금액을 그 특정법인의 지배주주등이 증여받은 것으로 본다. <br>1. 재산 또는 용역을 무상으로 제공받는 것<br>2. 재산 또는 용역을 통상적인 거래 관행에 비추어 볼 때 현저히 낮은 대가로 양도·제공받는 것<br>3. 재산 또는 용역을 통상적인 거래 관행에 비추어 볼 때 현저히 높은 대가로 양도·제공하는 것 4. 그 밖에 제1호부터 제3호까지의 거래와 유사한 거래로서 대통령령으로 정하는 것<br>② 제1항에 따른 증여세액이 지배주주등이 직접 증여받은 경우의 증여세 상당액에서 특정법인이 부담한 법인세 상당액을 차감한 금액을 초과하는 경우 그 초과액은 없는 것으로 본다.<br><b>(9) 특정법인과의 거래를 통한 이익의 증여와 관련한 규정은 위와 같이 여러 차례 개정되었다. 그 경위를 요약하면 아래와 같다.</b><br>(가)  대법원 2009. 3. 19. 선고 2006두19693 전원합의체 판결은 2003. 12. 30. 대통령령 제18177호로 개정되어 2014. 2. 21. 대통령령 제25195호로 개정되기 전의 구 상증세법 시행령 제31조 제6항에 대해, ‘개정 법 제41조는 특정법인과의 재산의 무상제공 등 거래를 통하여 최대주주 등이 ‘이익을 얻은 경우’에 이를 전제로 그 ‘이익의 계산’만을 시행령에 위임하고 있음에도, 개정 시행령 제31조 제6항은 특정법인이 얻은 이익이 바로 ‘주주 등이 얻은 이익’이 된다고 보아 증여재산가액을 계산하도록 하고 있고, 또한 개정 법 제41조 제1항에 의하면 특정법인에 대한 재산의 무상제공 등이 있더라도 주주 등은 실제로 이익을 얻은 바 없다면 증여세 부과대상에서 제외될 수 있으나, 개정 시행령 제31조 제6항은 특정법인에 재산의 무상제공 등이 있다면 그 자체로 주주 등이 이익을 얻은 것으로 간주하여 증여세 납세의무를 부담하게 되므로, 결국 개정 시행령 제31조 제6항의 규정은 모법인 개정 법 제41조 제1항, 제2항의 규정취지에 반할 뿐 아니라 그 위임범위를 벗어난 것으로서 무효‘라고 판시하였다.<br>위와 같이 위 시행령 제31조 제6항이 무효로 되자, 정부는 2010. 1. 1. 법률 제9916호로 개정된 구 상증세법 제41조 제1항 본문 중 “특정법인의 주주 또는 출자자가 이익을 얻은 경우에는”을 “특정법인의 주주 또는 출자자가 대통령령으로 정하는 이익을 얻은 경우에는”으로 개정하여 위임근거를 신설하였다. 그러나  대법원 2009. 3. 19. 선고 2006두19693 전원합의체 판결이 무효로 판단한 2003. 12. 30. 대통령령 제18177호로 개정되어 2014. 2. 21. 대통령령 제25195호로 개정되기 전까지 시행된 구 상증세법 시행령 제31조 제6항은 그대로 유지하였다. 즉, 법률에 위임근거만 신설한 것이다.<br>(나) 그 후인 2014. 1. 1. 법률 제12168호로 개정된 구 상증세법 제41조 제1항은 특정법인의 범위를 일부 영리법인까지 포함하는 내용으로 개정되었다. 즉, 과거에는 “결손금이 있거나 휴업 또는 폐업중인 법인”만을 특정법인으로 하였으나, 영리법인을 통한 이익의 증여에 대해서도 과세필요성이 있다는 지적에 따라 특정법인의 범위에 결손금이 있거나 휴업 또는 폐업중인 법인 이외에 “제45조의3 제1항<div id="Miju1" class="miju_num" onmouseover="open_miju('Mi1')" onmouseout="close_miju('Mi1')"><span>1)</span><div id="Mi1" class="miju_box" style="display:none"><div class="miju_box_line">① 법인의 사업연도 매출액(「법인세법」 제43조의 기업회계기준에 따라 계산한 매출액을 말한다. 이하 이 조에서 같다) 중에서 그 법인의 지배주주와 대통령령으로 정하는 특수관계에 있는 법인(이하 이 조에서 "특수관계법인"이라 한다)에 대한 매출액이 차지하는 비율(이하 이 조에서 "특수관계법인거래비율"이라 한다)이 그 법인의 업종 등을 고려하여 대통령령으로 정하는 비율(이하 이 조에서 "정상거래비율"이라 한다)을 초과하는 경우에는 그 법인(이하 이 조 및 제68조에서 "수혜법인"이라 한다)의 지배주주와 그 지배주주의 친족[수혜법인의 발행주식총수 또는 출자총액에 대하여 직접 또는 간접으로 보유하는 주식보유비율이 대통령령으로 정하는 보유비율(이하 이 조에서 "한계보유비율"이라 한다)을 초과하는 주주에 한정한다. 이하 이 조에서 같다]이 다음 계산식에 따라 계산한 이익(이하 이 조 및 제55조에서 "증여의제이익"이라 한다)을 각각 증여받은 것으로 본다.<span class="miju_box_close"></span></div></div></div>에 따른 지배주주와 그 친족이 지배하는 영리법인”을 추가하였다. <br>(다) 2014. 1. 1. 법률 제12168호로 개정된 구 상증세법 제41조 제1항의 특정법인에 일부 영리법인을 포함하는 내용으로 법률이 개정됨에 따라 같은 법 시행령의 증여재산가액 산정방식이 개정되었다. 즉, 개정 전에는 증여재산가액을 특정법인이 증여받은 재산가액 또는 채무면제·인수 또는 변제로 인하여 얻은 이익에 특수관계인의 지분율을 곱하는 방식으로 산정하였다. 그런데, 2014. 2. 21. 대통령령 제25195호로 개정된 구 상증세법 시행령 제31조는 위 (5)항에서 본 바와 같은 내용으로 증여재산가액 산정방식을 변경하였다.<br>(라) 2015. 12. 15. 법률 제13557호로 개정된 상증세법 제45조의5는 특정법인과의 거래를 통한 증여재산가액 산정규정을 증여의제규정으로 전환하였다. 2003. 12. 30. 법률 제7010호로 개정되기 전의 증여의제 규정으로 다시 돌아간 것이다. 그리고 특정법인의 주주등이 증여받은 것으로 의제되는 금액의 산정방식에 대해서는 종전과 같은 내용으로 2016. 2. 5. 대통령령 제26960호로 개정된 상증세법 시행령 제34조의4에 규정하였다.<br>(마) 2019. 12. 31. 법률 제16846호로 개정된 현행 상증세법 제45조의5는 특정법인의 결손 여부 등에 따라 과세대상 법인과 과세대상 주주를 구분하여 과세하던 방식에서 결손·흑자법인 구분을 폐지하고 과세대상 법인과 주주를 일원화하였다. 즉, 과세대상 법인을 지배주주등의 지분율이 30% 이상인 법인으로 하고, 과세대상 주주를 지배주주등으로 일원화하였다.<br>나. 관련 판례<br>2003. 12. 30. 법률 제7010호로 개정되어 2010. 1. 1. 법률 제9916호로 개정되기 전의 구 상증세법 제41조는 증여세 과세요건규정이 아니라 증여재산가액 산정에 관한 예시규정이었다. 구 상증세법 제41조에 따른 이익의 산정방식을 규정한 2003. 12. 30. 대통령령 제18177호로 개정되어 2014. 2. 21. 대통령령 제25195호로 개정되기 전의 구 상증세법 시행령 제31조 제6항에 대해서는 아래와 같이 대법원에서 조세법률주의 원칙 위반을 이유로 두 차례에 걸쳐 무효 판결이 선고되었다.<br>(1)  대법원 2009. 3. 19. 선고 2006두19693 전원합의체 판결<br>구 상증세법(2003. 12. 30. 법률 제7010호로 개정된 것, 이하 ‘개정 법’이라 한다) 제41조는 특정법인과의 재산의 무상제공 등 거래를 통하여 최대주주 등이 ‘이익을 얻은 경우’에 이를 전제로 그 ‘이익의 계산’만을 시행령에 위임하고 있음에도, 구 상증세법 시행령(2003. 12. 30. 대통령령 제18177호로 개정되어 2004. 1. 1.부터 시행된 것, 이하 ‘개정 시행령’이라 한다) 제31조 제6항은 특정법인이 얻은 이익이 바로 ‘주주 등이 얻은 이익’이 된다고 보아 증여재산가액을 계산하도록 하고 있고, 또한 개정 법 제41조 제1항에 의하면 특정법인에 대한 재산의 무상제공 등이 있더라도 주주 등은 실제로 이익을 얻은 바 없다면 증여세 부과대상에서 제외될 수 있으나 개정 시행령 제31조 제6항은 특정법인에 재산의 무상제공 등이 있다면 그 자체로 주주 등이 이익을 얻은 것으로 간주하여 증여세 납세의무를 부담하게 되므로, 결국 개정 시행령 제31조 제6항의 규정은 모법인 개정 법 제41조 제1항, 제2항의 규정취지에 반할 뿐 아니라 그 위임범위를 벗어난 것으로서 무효라고 봄이 상당하다.<br>구 상증세법(2002. 12. 18. 법률 제6780호로 개정되기 전의 것, 이하 ‘개정 전 법’이라 한다) 제41조 제1항의 규정에 의한 특정법인의 주주 등이 증여받은 것으로 보는 이익의 계산과 관련하여, 구 상증세법 시행령(2003. 12. 30. 대통령령 제18177호로 개정되기 전의 것, 이하 ‘개정 전 시행령’이라 한다) 제31조 제6항은 증여재산가액이나 채무면제 등으로 얻는 이익에 상당하는 금액(제1호)으로 인하여 ‘증가된 주식 또는 출자지분 1주당 가액’에 해당 최대주주 등의 주식수를 곱하여 계산하도록 규정하고 있는바, 여기서 ‘증가된 주식 등의 1주당 가액’은 증여 등의 거래를 전후한 주식 등의 가액을 비교하여 산정하는 것이 타당할 것이다. 이 경우 주식 등의 가액을 산정하기 위하여 재산의 가액을 평가함에 있어 그 시가를 산정하기 어려운 경우 개정 전 법 제63조 제1항 제1호 (다)목, 개정 전 시행령 제54조 소정의 보충적 평가방법에 따라 1주당 가액을 산정한 결과 그 가액이 증여 등 거래를 전후하여 모두 부수(負數)인 경우에는 증가된 주식 등의 1주당 가액은 없는 것으로 보는 것이 합리적이라 할 것이며, 거래를 전후하여 1주당 가액이 부수로 산정되는데도 증여재산가액 또는 채무면제액 등 거래로 인한 가액만을 주식수로 나누어 산정하거나 단순히 부수의 절대치가 감소하였다는 이유로 주식 등의 1주당 가액이 증가된 것으로 보는 것은 증여세가 부과되는 재산의 가액평가에 관한 관계 규정을 전혀 감안하지 아니하는 결과가 되어 관계 규정의 해석상 허용될 수 없다(대법원 2003. 11. 28. 선고 2003두4249 판결 등 참조).<br>(2)  대법원 2017. 4. 20. 선고 2015두45700 전원합의체 판결<br>2010. 1. 1. 법률 제9916호로 개정된 구 상증세법(2011. 12. 31. 법률 제11130호로 개정되기 전의 것, 이하 ‘상증세법’이라고 한다) 제41조 제1항(이하 ‘개정 법률 조항’이라고 한다)은 종전에 특정법인의 주주 등이 ‘이익을 얻은 경우’라고만 하던 것을 ‘대통령령으로 정하는 이익을 얻은 경우’로 그 문언이 일부 변경되었으나, 구 상증세법 시행령(2003. 12. 30. 대통령령 제18177호로 개정되어 2014. 2. 21. 대통령령 제25195호로 개정되기 전의 것) 제31조 제6항(이하 ‘이 사건 시행령 조항’이라 한다)은 2014. 2. 21. 대통령령 제25195호로 개정되기 전까지 그대로 존치되어 왔다.<br>개정 법률 조항은 그 문언의 일부 개정에도 불구하고 개정 전 법률 조항과 마찬가지로 재산의 무상제공 등 특정법인과의 거래를 통하여 특정법인의 주주 등이 이익을 얻었음을 전제로 하여 그 이익, 즉 ‘주주 등이 보유한 특정법인 주식 등의 가액 증가분’의 정당한 계산방법에 관한 사항만을 대통령령에 위임한 규정이라고 볼 것이다. 따라서 특정법인의 주주 등과 특수관계에 있는 자가 특정법인에 재산을 증여하는 거래를 하였더라도 그 거래를 전후하여 주주 등이 보유한 주식 등의 가액이 증가하지 않은 경우에는 그로 인하여 그 주주 등이 얻은 증여 이익이 없으므로 개정 법률 조항에 근거하여 증여세를 부과할 수는 없다고 보아야 한다. 그런데, 이 사건 시행령 조항은 특정법인에 재산의 무상제공 등이 있으면 그 자체로 주주 등이 이익을 얻은 것으로 간주함으로써, 주주 등이 실제로 얻은 이익의 유무나 다과와 무관하게 증여세 납세의무를 부담하도록 정하고 있으므로, 결국 이 사건 시행령 조항은 모법인 개정 법률 조항의 규정취지에 반할 뿐만 아니라 그 위임범위를 벗어난 것으로서 2010. 1. 1. 상증세법 개정에도 불구하고 여전히 무효라고 봄이 타당하다.<br>다. 대상 판결의 의의<br>대법원 2009. 3. 19. 선고 2006두19693 전원합의체 판결로 2003. 12. 30. 대통령령 제18177호로 개정된 구 상증세법 시행령 제31조 제6항이 무효로 되자, 정부는 2010. 1. 1. 법률 제9916호로 개정된 구 상증세법 제41조 제1항 본문에 “특정법인의 주주 또는 출자자가 대통령령으로 정하는 이익을 얻은 경우에는”이라고 개정하여 위임근거를 마련하였다. 그리고 2014. 2. 21. 대통령령 제25195호로 구 상증세법 시행령이 개정되기 전까지 위 2006두19693 전원합의체 판결이 무효라고 판단한 위 시행령 제31조 제6항이 그대로 유지되었다. 그러나  대법원 2017. 4. 20. 선고 2015두45700 전원합의체 판결은 2014. 2. 21. 개정시까지 유지된 위 시행령 제31조 제6항을 무효라고 판시하였다.<br>대상 판결은 2014. 2. 21. 개정된 상증세법 시행령 제31조 제6항이 2014년 개정 상증세법 제41조 제1항의 규정 취지에 반하는지, 그 위임범위를 벗어난 것인지 여부를 쟁점으로 삼아 판단하였다. 대상 판결은, 2014년 개정 상증세법 제41조 제1항은 그 문언의 일부 개정에도 불구하고 개정 전과 마찬가지로 특정법인과의 거래를 통하여 특정법인의 주주 등이 이익을 얻었음을 전제로 하여 그 이익, 즉, ‘주주 등이 보유한 특정법인 주식 등의 가액 증가분’의 정당한 계산방법에 관한 사항만을 대통령령에 위임한 규정이고, 따라서 그 거래를 전후하여 주주 등이 보유한 주식 등의 가액이 증가하지 않은 경우에는 증여 이익이 없으므로 증여세를 과세할 수 없고, 설령 위와 같은 거래를 전후하여 주주 등이 보유한 주식 등의 가액이 증가하였다고 하더라도 특정법인에 대한 증여재산가액이 그 주식 등의 가액 증가분을 초과할 경우 그 초과분에 대하여는 그 주주 등이 얻은 이익이 없다고 보아야 하므로 그 부분에 대하여 증여세를 부과할 수 없다고 판시하였다. <br>대상 판결은 2014년 개정된 상증세법 시행령 제31조 제6항도 종전과 동일한 이유로 무효라고 판단하였다. 즉, 대법원은 2014년 개정 상증세법 제41조 제1항의 적용시 특정법인의 주주 등이 보유한 주식의 가치가 음수(-)이거나 거래 전후로 주식가치의 변동이 없는 경우에는 주주가 실제로 얻은 이익이 없으므로 증여세를 과세할 수 없다는 입장이다.<br>한편, 2015. 12. 15. 법률 제13557호로 개정된 현행 상증세법 제45조의5는 특정법인과의 거래를 통한 이익의 증여규정을 증여의제규정으로 변경하였다. 즉, 현행 상증세법 제45조의5는 증여재산가액 산정에 관한 예시규정이 아니라, 특정법인이 특수관계인과의 거래로 얻은 이익에 특정법인의 지배주주등의 주식보유비율을 곱하여 계산한 금액이 증여의제이익이라고 법률에서 명시하고 있다. 2015. 12. 15. 개정 이후 증여의제규정으로 전환된 현행법의 경우 종전 판례를 적용할 수 있는지가 문제이다. 위 2015두45700 전원합의체 판결과 대상 판결은 모두 상증세법에서 직접 증여의제이익을 규정하지 않고, 시행령에서 증여의제이익을 산정하도록 한 법령하에서 특정법인과의 거래를 통하여 주주 등이 실제로 이익을 얻었음을 전제로 한 판단이었다. 따라서 주주가 실제로 이익을 얻었음을 전제로 하는 것이 아니라, 특정법인이 이익을 얻은 경우에 주주가 주식보유비율에 따른 이익을 얻은 것으로 법률에서 증여의제이익을 명시하고 있는 현행 상증세법 제45조의5의 해석에는 종전 판결들이 적용되기 어려울 것으로 보인다. 이러한 현행 규정에 대해서는 실제로 이익을 얻은 사실이 없음에도 불구하고 특정법인이 이익을 얻는 거래를 한 경우 특정법인의 지배주주등에게 증여로 의제하여 증여세를 과세하는 것이 헌법상 재산권 침해 금지나 과잉금지 원칙(비례의 원칙) 등에 위반되는 것이 아니냐는 위헌 논란이 제기될 수 있다.<div class="mi_content">1)① 법인의 사업연도 매출액(「법인세법」 제43조의 기업회계기준에 따라 계산한 매출액을 말한다. 이하 이 조에서 같다) 중에서 그 법인의 지배주주와 대통령령으로 정하는 특수관계에 있는 법인(이하 이 조에서 "특수관계법인"이라 한다)에 대한 매출액이 차지하는 비율(이하 이 조에서 "특수관계법인거래비율"이라 한다)이 그 법인의 업종 등을 고려하여 대통령령으로 정하는 비율(이하 이 조에서 "정상거래비율"이라 한다)을 초과하는 경우에는 그 법인(이하 이 조 및 제68조에서 "수혜법인"이라 한다)의 지배주주와 그 지배주주의 친족[수혜법인의 발행주식총수 또는 출자총액에 대하여 직접 또는 간접으로 보유하는 주식보유비율이 대통령령으로 정하는 보유비율(이하 이 조에서 "한계보유비율"이라 한다)을 초과하는 주주에 한정한다. 이하 이 조에서 같다]이 다음 계산식에 따라 계산한 이익(이하 이 조 및 제55조에서 "증여의제이익"이라 한다)을 각각 증여받은 것으로 본다.</div>					
+                    </div>
+			</div>
+                    </div>
+                </article>
+                <aside class="right_container">
+                    <section>
+                    </section>
+                </aside>
+
+            </div>
+    </div>
+
+
+    </div> 
+</div> 
+
+
+</body></html>

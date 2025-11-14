@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../js/commonjs.js?13D"></script>
+<script language="javascript">
+<!--
+  $(document).ready(function () { 
+		$(".s_unit ul li").each(function(index){  
+			$(this).find('span').height($(this).height()); 
+		});
+		$(".center_index").height($(".main_container").height());
+		$(".tree ol ol ").hide();
+		
+});
+	function resizeComment(){ 
+			setHeight_under();
+			 
+			if($('.right_container').hasClass('add_border')){
+				$(".right_container").removeClass('slide_mov_right'); 
+			}else{
+				if($('#container').hasClass('list-view')){
+					$(".right_container").addClass('slide_mov_right'); 
+				}else{
+					$(".right_container").removeClass('slide_mov_right'); 
+				}
+			}
+		}
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_mainContainer">
+	<div id="wrap" >
+		<header> 
+			<div class="top_container  ">  
+				<a href="/maf/poc/app/homepage"><h1>로앤비</h1></a>
+				<div id="t_search" class="search_container">
+					<h2>통합검색 영역</h2>
+					<div class="search_inner">
+						<form  action="" > 
+						<div class="search_left">
+							통합검색
+							<ul>
+								<li>통합검색</li>
+								<li>판례</li>
+								<li>법령</li>
+								<li>ㅇㅇㅇ</li>
+							</ul>
+							<span  class="more_btn">more</span>
+						</div>
+						<div class="search_center">
+							<input type="search" name="" id="" >
+						</div>
+						<div class="search_right"><span  class="more_btn">more</span></div>
+						<input type="button" value="Search " id="searchButton" class="search_btn">
+						</form>
+					</div>
+				</div>
+				<div id="indiv_area" class="indiv_container">
+					<span alt="히스토리"><a href="/maf/poc/app/homepage">히스토리</a></span>
+					<span alt="즐겨찾기">즐겨찾기</span>
+					<span alt="나의폴더">나의폴더</span>
+					<span alt="알림설정">알림설정</span>
+					<span alt="나의정보">나의정보</span>
+				</div>
+			</div>
+			<nav> 
+				<dl id="main_menu" class="mmenu">
+					<dt class="blind">메인 메뉴</dt> 
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=IAED6CC08DD364059AB193CEAF31A4AB0&amp;stnew=true"><span>판례</span></a>
+					</dd>
+					<dd class="currentTab" >
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I0F5DD49BE2B544DBB7414874EC787E80&amp;stnew=true"><span>법규</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=ICAA980E9234848FEA6D0DA62432279E0&amp;stnew=true"><span>심판·결정·해석</span></a>
+					</dd>
+					<dd >
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I247AD0D84D9B4429B617C8D9F8388C8F&amp;stnew=true"><span>문헌</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I661610C9A2C749D6A4221A93502B0170&amp;stnew=true"><span>법조인</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I574B9F7164CB11E498DB8B09B4F043E0&amp;stnew=true"><span>기업법무</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocectory?ndd=1&amp;tocguid=I66693AFFED274970AC53A686AAA123C0&amp;stnew=true"><span>서식</span></a>
+					</dd>
+					<dd>
+						<a href="/maf/api/tocHelp?docguid=WLAWLNEXT"><span>뉴스·칼럼</span></a>
+					</dd>
+				</dl>   
+			</nav>        	
+		</header> 
+		<div id="container" class="lawyer list_two-con">
+			<div id="breadcrumb" class="navi_area">
+				<div>Home > 법조인 > 조직도</div>
+				<div class="group_indivi_btn"><a href="">로그인</a><a href="">개인화님</a> </div>
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div id="container_inner">
+				<div class="left_container"> 
+					<section id="result_tab"> 
+						<h4 class="hide">조직 종류</h4>
+						<ul>
+							<li><a href="fd">헌법재판소</a></li>
+							<li class="this-page"><a href="gf">법원</a></li>
+							<li><a href="fd">검찰청</a></li>
+							<li><a href="fd">법학전문 대학원</a></li>
+							<li><a href="fd">법과대학</a></li>
+						</ul>
+					</section>
+					
+				</div>
+				<article class="main_container"> 
+					<div class="main_container_inner"> 
+						<div class="center_index">
+							<section>
+								<h4 class="hide">group</h4>
+								<div><a href="2">대법원</a></div>  
+								<p><a href="3">법원행정처</a></p>
+								<p><a href="44">법원공무원 교육원</a></p>
+								<p><a href="4">사법연수원</a></p>
+								<p><a href="4">법원도서관</a></p>
+								<ol class="check_area tree mgl10">
+									<li><a href="1">서울고등법원</a>
+										<ol>
+											<li><a href="1">서울중앙지방법원</a></li>
+											<li><a href="1">서울가정법원</a></li>
+											<li><a href="1">서울행정법원</a></li>
+											<li><a href="1">서울동부지방법원</a></li>
+											<li><a href="1">서울남부지방법원</a></li>
+											<li><a href="1">서울북부지방법원</a></li>
+											<li><a href="1">서울서부지방법원</a></li>
+											<li><a href="1">의정부지방법원</a>
+												<ol>
+												<li><a href="1">고양지원</a></li>
+												</ol>
+											</li> 
+											<li><a href="1">인천지방법원</a>
+												<ol>
+												<li><a href="1">부천지원</a></li>
+												</ol>
+											</li>
+											<li><a href="1">인천가정법원</a></li>
+											<li><a href="1">수원지방법원</a>
+												<ol>
+												<li><a href="1">성남지원</a></li>
+												<li><a href="1">여주지원</a></li>
+												<li><a href="1">평택지원</a></li>
+												<li><a href="1">안산지원</a></li>
+												<li><a href="1">안양지원</a></li>
+												</ol>
+											</li>
+											<li><a href="1">춘천지방법원</a>
+												<ol>
+												<li><a href="1">강릉지원</a></li>
+												<li><a href="1">원주지원</a></li>
+												<li><a href="1">속초지원</a></li>
+												<li><a href="1">영월지원</a></li>
+												</ol>
+											</li>
+										</ol>
+									</li>
+									<li><a href="1">대전고등법원</a>
+										<ol>
+											<li><a href="1">대전지방법원</a></li>
+											<li><a href="1">청주지방법원</a></li>
+											<li><a href="1">대전가정법원</a></li>
+										</ol>
+									</li>
+									<li><a href="1">대구고등법원</a>
+										<ol>
+											<li><a href="1">대구지방법원</a></li>
+											<li><a href="1">대구가정법원</a></li>
+										</ol>
+									</li>
+									<li><a href="1">부산고등법원</a>
+										<ol>
+											<li><a href="1">부산지방법원</a></li>
+											<li><a href="1">울산지방법원</a></li>
+											<li><a href="1">창원지방법원</a></li>
+											<li><a href="1">부산가정법원</a></li>
+										</ol>
+									</li>
+									<li><a href="1">광주고등법원</a>
+										<ol>
+											<li><a href="1">광주지방법원</a></li>
+											<li><a href="1">전주지방법원</a></li>
+											<li><a href="1">광주가정법원</a></li>
+											<li><a href="1">제주지방법원</a></li>
+										</ol>
+									</li>
+								</ol>
+							</section>
+						</div>
+						<div class="center_view">
+							<h2 class="submain_group dark_line">서울고등법원
+								<div class="btn_more"><a href=""><span><i class="icon-printer" data-icon="&#xe954;"></i>인쇄</span></a> <a href=""><span>법조기관 관할표</span></a></div>
+							</h2>
+							<div class="submain_group title organi">
+								<h3>기본정보<span class="btn_more">(업데이트 기준일 : 2016.9.23)</span></h3>
+								<div class="lawyer_info"><span>대표전화 : 02-530-1114</span><br><span>주소 : [065-94] 서울시 서초구 서초중앙로 157</span><br><span>관할구역 :  서울특별시, 인천광역시, 경기도, 강원도</span></div>
+							</div>
+							<div class="submain_group title organi">
+								<h3>부서별 전화번호</h3>
+								<div class="lawyer_info tel">
+									<span>제1민사부(전자소송/노동) : 02-530-1214</span>
+									<span>제2민사부(전자소송/노동) : 02-530-1215</span>
+									<span>제2민사부(전자소송/노동) : 02-530-1215</span>
+									<span>제40민사부(전자소송/항고),제50민사부(항고) : 02-530-1249</span>
+									<span>제2행정부(토지수용/공정거래)[제22형사부]) : 02-530-2368</span>
+									<span>제2민사부(전자소송/노동) : 02-530-1215</span>
+									<span>[원외재판부]춘천 제1민사부ㆍ가사,형사,항고,행정 : 02-530-1215</span>
+									<span>제2민사부(전자소송/노동) : 02-530-1215</span>
+									<span>제2민사부(전자소송/노동) : 02-530-1215</span>
+									<span>제2민사부(전자소송/노동) : 02-530-1215</span> 
+								</div>
+							</div>
+							<div class="submain_group title organi">
+								<h3>구성원정보</h3>
+								<div class="lawyer_info"><span>법원장 : <a href="1">심상철</a> (11기)</span><br><span>수석부장판사 : <a href="1">성낙송</a> (11기)</span></div> 
+							</div>
+							<div class="submain_group organi">
+								<div class="lawyer_info organi_title"><p>민사부</p></div>
+								<div class="lawyer_info small_unit">
+									<div class="s_unit">
+										<span>민사1부(노동)</span>
+										<ul>
+											<li><span>부장판사 :</span> <a href="1">김상환</a> (20기)</li>
+											<li><span>판사 :</span> <a href="1">이영창</a> (28기)</li>
+											<li><span>판사 :</span> <a href="1">이영창</a> (29기)</li>
+											<li><span>판사 :</span> <a href="1">이영창</a> (29기)</li>
+										</ul>
+									</div>
+									<div class="s_unit">
+										<span>민사1부(지적재산권)</span>
+										<ul>
+											<li><span>부장판사 :</span> <a href="1">김상환</a> (20기)</li>
+											<li><span>판사 :</span> <a href="1">이영창</a> (28기)  <em>[민사40부(항고)/조정총괄부/형사20부]</em></li>
+											<li><span>판사 :</span> <a href="1">이영창</a> (29기)</li>
+											<li><span>판사 :</span> <a href="1">이영창</a> (29기)</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="submain_group organi">
+								<div class="lawyer_info organi_title"><p>특별부</p></div>
+								<div class="lawyer_info small_unit">
+									<div class="s_unit">
+										<span>춘천재판부(제1 민사·형사·가사·행정·신청)</span>
+										<ul>
+											<li><span>부장판사 :</span> <a href="1">김재호</a> (21기)<em>[춘천재판부(제1 민사·형사·가사·행정·신청)/춘천재판부(제3 민사·형사·가사·행정·항고)]</em></li>
+											<li><span>판사 :</span> <a href="1">유기웅</a> (28기)</li>
+											<li><span>판사 :</span> <a href="1">박병규</a> (35기)<em>[춘천재판부(제1 민사·형사·가사·행정·신청)/춘천재판부(제2 민사·형사·가사·행정·항고)/춘천재판부(제3 민사·형사·가사·행정·항고)]</em></li>
+											<li><span>판사 :</span> <a href="1">박성구</a> (29기)</li>
+										</ul>
+									</div>
+									<div class="s_unit">
+										<span>춘천재판부(제2 민사·형사·가사·행정·항고)</span>
+										<ul>
+											<li><span>부장판사 :</span> <a href="1">김명수</a> (15기)<em>[춘천재판부(제2 민사·형사·가사·행정·항고)/춘천재판부(민사조정)]</em></li>
+											<li><span>판사 :</span> <a href="1">박병규</a> (28기)<em>[춘천재판부(제1 민사·형사·가사·행정·신청)/춘천재판부(제2 민사·형사·가사·행정·항고)/춘천재판부(제3 민사·형사·가사·행정·항고)]</em></li>
+											<li><span>판사 :</span> <a href="1">이희경</a> (39기)<em>[춘천재판부(제2 민사·형사·가사·행정·항고)/춘천재판부(제3 민사·형사·가사·행정·항고)]</em></li>
+										</ul>
+									</div>
+									<div class="s_unit">
+										<span>춘천재판부(제3 민사·형사·가사·행정·항고)</span>
+										<ul>
+											<li><span>부장판사 :</span> <a href="1">김재호</a> (21기)<em>[춘천재판부(제1 민사·형사·가사·행정·신청)/춘천재판부(제3 민사·형사·가사·행정·항고)]</em></li>
+											<li><span>판사 :</span> <a href="1">박병규</a> (28기)<em>[춘천재판부(제1 민사·형사·가사·행정·신청)/춘천재판부(제2 민사·형사·가사·행정·항고)/춘천재판부(제3 민사·형사·가사·행정·항고)]</em></li>
+											<li><span>판사 :</span> <a href="1">이희경</a> (39기)<em>[춘천재판부(제2 민사·형사·가사·행정·항고)/춘천재판부(제3 민사·형사·가사·행정·항고)]</em></li>
+										</ul>
+									</div>
+									<div class="s_unit">
+										<span>춘천재판부(민사조정)</span>
+										<ul>
+											<li><span>부장판사 :</span> <a href="1">김명수</a> (15기)<em>[춘천재판부(제2 민사·형사·가사·행정·항고)/춘천재판부(민사조정)]</em></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					 
+					 </div>
+					 <div class="main_container_view">
+						<div class="main_container_view_inner">
+							 
+						</div>
+					 </div>
+				</article> 
+				<aside class="right_container">
+					 
+				</aside>
+			</div>
+    	</div>
+		<footer>
+			<div class="etc_menu"> 
+				<div class="top_container">  
+					<ul>	
+						<li class="blind">기타 메뉴 </li>
+						<li>회사소개</li>
+						<li>광고 · 제휴문의</li>
+						<li>이용약관</li>
+						<li>개인정보 취급/처리 방침</li>
+						<li>법적고지</li>
+						<li>이메일 무단수집거부</li>
+					</ul>
+				</div>
+			</div>  
+			<div class="top_container   _footer"> 	   
+				1. 콘텐츠의 명칭 : 법률정보 &nbsp;&nbsp; 2. 콘텐츠의 제작 및 표시 : 2006년 2월 17일(업그레이드 콘텐츠의 경우 갱신일) &nbsp;&nbsp; 3. 콘텐츠 제작자 : ㈜로앤비  &nbsp;&nbsp;  4. 콘텐츠의 이용조건 : <a href="/support/agree_use.asp" class="red_bott">이용약관</a> 및 로앤비 <a href="/support/serviceInfo_member.asp" class="red_bott">서비스안내</a>와 같음 (무단 복제금지) &nbsp;&nbsp;5. 콘텐츠의 보호기간 : ㈜로앤비 사이트의 모든 콘텐츠는 「콘텐츠산업 진흥법」에 따라 제작 또는 갱신일로부터 5년간 보호됨
+				<div>Thomson reuters</div>
+				<div>Copyright ⓒ 1998~2016 <b>LAWnB</b>. All Rights Reserved.</div>
+			</div>            
+		</footer>
+		<div id="bg_screen"></div>
+		<script type="text/javascript">  
+			setHeight_under();			
+		</script>
+	</div>
+</div> 
+</body>
+</html>

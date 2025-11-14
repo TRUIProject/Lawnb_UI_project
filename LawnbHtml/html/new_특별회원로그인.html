@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<link rel="stylesheet" type="text/css" href="../css/_next_login.css">
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../js/commonjs.js?s"></script> 
+<script language="javascript">
+	$(document).ready(function () {
+		$(".title_use p i").click(function(){ 
+			var idx = $(".title_use p i").index($(this)); 
+			$("#container iframe").eq(idx).toggle(); 
+		});
+	});
+</script>
+</head>
+
+<body>
+<div id="wrap" class="login special_member" >
+	<header>
+		<h1 title="로앤비 "><img src="../images/space.gif"  alt="로앤비  " /> </h1>  
+	</header>
+	<div id="container">
+		<div class="inner">
+			<h2>약관 동의 및 회원정보 입력</h2>   
+			<div class="blue_box al">
+				안녕하세요. Aabbbccc님 
+				<ul >
+					<li>회원님의 ID는 <U>법인회원 Sub ID</U> / <U>단체회원을 위한 특별 ID</U> 입니다. </li>
+					<li>아직 약관동의 및 회원정보 입력이 되지 않았으니 실제 ID를 사용하시는 분의 정보를 입력해 주시기 바랍니다.</li>
+				</ul> 
+				<!-- <div class="mgl10 mgt10">로앤비는 정보통신망 이용촉진 및 정보보호 등에 관한 법률 및 동법 시행령 등에 따라 통합회원 이용약관 및 개인정보수집 및 이용에 관한 회원님들의 동의를 받고 있습니다. <br>회원님은 아직 로앤비 이용약관 또는 마케팅활용 동의에 대해 확인하시지 않아 확인 후에 로그인 및 사이트 이용이 가능합니다. 아래의 내용을 충분히 확인하신 후 동의해 주시기 바랍니다. </div> -->
+
+
+			</div>
+			<div class="mgt20"> 
+				<div class="total_tit">통합회원 이용약관 및 개인정보 수집/활용 동의
+					<div class="check_new"><input type="checkbox" name="ck_totalagree" id="ck_totalagree"> <label>전체동의</label></div></div>
+				<p>선택항목은 동의하지 않아도 회원가입이 가능합니다.</p>
+
+				<div class="title_use">
+					<p><em>로앤비 통합회원</em> 이용약관 <i data-icon="&#xe903" class="icon_updown"></i></p>
+					<div class="check_new"><input type="checkbox" name="ck_Eyakguan" id="ck_Eyakguan"> <label>동의(필수)</label></div>
+				</div> 
+				<iframe width="100%" height="155" src="/Template/Terms1.htm?v201608" style="display:none"></iframe>
+
+				<div class="title_use">
+					<p><em>개인정보</em> [필수항목]에 대한 수집 및 이용 안내 <i data-icon="&#xe903" class="icon_updown"></i></p>
+					<div class="check_new"><input type="checkbox" name="ck_Echiguep" id="ck_Echiguep"> <label>동의(필수)</label></div>
+				</div>
+				<iframe width="100%" height="100" src="/Template/Terms2.htm" style="display:none"></iframe>
+				 
+				<div class="title_use">
+					<p><em>개인정보</em> [선택항목]에 대한 수집 및 이용 안내 <i data-icon="&#xe903" class="icon_updown"></i></p>
+					<div class="check_new"><input type="checkbox" name="ck_Syakguan" id="ck_Syakguan"> <label>동의(선택)</label></div>
+				</div>
+				<iframe width="100%" height="100" src="/Template/Terms2-2.htm" style="display:none"></iframe>
+
+
+				<div class="title_use">
+					<p><em>마케팅</em> 활용 동의 <i data-icon="&#xe903" class="icon_updown"></i></p>
+					<div class="check_new"><input type="checkbox" name="ck_ADyakguan" id="ck_ADyakguan"> <label>동의(선택)</label></div>
+				</div>
+				<iframe width="100%" height="100" src="/Template/Terms2-3.htm" style="display:none"></iframe>  
+			</div>
+			
+			<h2>사용자 정보 입력</h2>   
+			<div class="mgt20"> 
+				<p class="star">표시는 필수항목이며, 이름과 아이디(ID)는 가입 후 변경할 수 없습니다.</p>
+				<p class="mgl10">입력정보는 법인 Main ID로 가입됩니다. 가입 후 회원정보 관리에서 법인 내 다른 사용자를 위해 Sub ID를 생성할 수 있습니다.</p>
+				<table class="input_table" summary="회원기본정보 입력표">
+					<tbody><tr>
+						<th class="star">이름</th>
+						<td colspan="3"><input type="text" name="Name" id="Name" title="이름" maxlength="20">
+						<div class="txt_warning mgt7">- 이름을 입력해 주세요. - 이름에는 ( ., -, , )을 제외한 특수문자를 사용할 수 없습니다. - 이름은 ____글자이내로 입력할 수 있습니다. </div>
+						</td>
+					</tr>  
+					<tr>
+						<th class="star">비밀번호</th>
+						<td colspan="3"><input id="Passwd" maxlength="10" name="Passwd" type="password" placeholder="6~12자 영문/숫자"> <input id="IPasswd" maxlength="10" name="IPasswd" type="password" placeholder="비밀번호 확인">
+						
+						<div class="txt_blue mgt7">- 비밀번호 입력과 확인이 일치합니다.</div> 
+						<div class="txt_warning mgt7">- 비밀번호를 입력해 주세요. - 6~12자 영문/숫자로 입력해 주세요. -비밀번호에는 특수문자를 사용할 수 없습니다. -비밀전호 확인 란에 한번 더 입력해 주세요. -비밀번호 입력과 확인이 일치하지 않습니다. </div>
+						</td> 
+					</tr>
+					<tr>
+						<th class="star">생일</th>
+						<td colspan="3">
+						<select id="Birth3" name="Birth3" style="width :65px"><option value="">년</option> 
+							<option value="1958">1958</option>
+							<option value="1959">1959</option>
+							<option value="1960">1960</option>
+							<option value="1961">1961</option>
+							<option value="1962">1962</option>
+							<option value="1963">1963</option>
+							<option value="1964">1964</option>
+							<option value="1965">1965</option>
+							<option value="1966">1966</option>
+							<option value="1967">1967</option>
+							<option value="1968">1968</option>
+							<option value="1969">1969</option>
+							<option value="1970">1970</option>
+							<option value="1971">1971</option>
+							<option value="1972">1972</option>
+							<option value="1973">1973</option>
+							<option value="1974">1974</option>
+							<option value="1975">1975</option>
+							<option value="1976">1976</option>
+							<option value="1977">1977</option>
+							<option value="1978">1978</option>
+							<option value="1979">1979</option>
+							<option value="1980">1980</option>
+							<option value="1981">1981</option>
+							<option value="1982">1982</option>
+							<option value="1983">1983</option>
+							<option value="1984">1984</option>
+							<option value="1985">1985</option>
+							<option value="1986">1986</option>
+							<option value="1987">1987</option>
+							<option value="1988">1988</option>
+							<option value="1989">1989</option>
+							<option value="1990">1990</option>
+							<option value="1991">1991</option>
+							<option value="1992">1992</option>
+							<option value="1993">1993</option>
+							<option value="1994">1994</option>
+							<option value="1995">1995</option>
+							<option value="1996">1996</option>
+							<option value="1997">1997</option>
+							<option value="1998">1998</option>
+							<option value="1999">1999</option>
+							<option value="2000">2000</option>
+							<option value="2001">2001</option>
+							<option value="2002">2002</option>
+							<option value="2003">2003</option>
+							<option value="2004">2004</option>
+							<option value="2005">2005</option>
+							<option value="2006">2006</option>
+							<option value="2007">2007</option>
+							<option value="2008">2008</option>
+							<option value="2009">2009</option>
+							<option value="2010">2010</option>
+							<option value="2011">2011</option>
+							<option value="2012">2012</option>
+							<option value="2013">2013</option>
+							<option value="2014">2014</option>
+							<option value="2015">2015</option>
+							<option value="2016">2016</option>
+							</select>
+												<select id="Birth1" name="Birth1" style="width :65px"><option value="">월</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							</select>
+												<select id="Birth2" name="Birth2" style="width :65px"><option value="">일</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">31</option>
+							</select>
+						<input checked="checked" id="Blunar" name="Blunar" type="radio" value="1">양력
+						<input id="Blunar" name="Blunar" type="radio" value="0">음력
+
+						<div class="txt_warning mgt7">- 생년월일을 정확히 입력해 주세요. - 양력/음력을 선택해 주세요.</div>
+						</td>
+					</tr>
+					<tr>
+						<th class="star">직업</th>
+						<td colspan="3"><select id="Jobcd" name="Jobcd" style="width :135px"><option value="">선택</option>
+							<option value="d05">판사</option>
+							<option value="d06">검사</option>
+							<option value="d04">변호사</option>
+							<option value="d19">교수</option>
+							<option value="d02">회사원</option>
+							<option value="d03">공무원</option>
+							<option value="d12">사법연수원생</option>
+							<option value="d20">법학전문대학원생</option>
+							<option value="d13">군법무관</option>
+							<option value="d21">공익법무관</option>
+							<option value="d08">변리사</option>
+							<option value="d07">법무사</option>
+							<option value="d22">그외 전문직</option>
+							<option value="d01">학생</option>
+							<option value="d16">기타</option>
+							</select>
+							<div class="txt_warning mgt7">- 직업을 선택해 주세요.</div>
+						</td>
+					</tr>
+					<tr>
+						<th class="star">소속</th>
+						<td><input id="CompanyName" maxlength="20" name="CompanyName" style="width :93px" type="text" value="">
+							<div class="txt_warning mgt7">- 직장, 학교 등의 소속을 입력해 주세요. </div>
+						</td>
+						<th>부서 </th>
+						<td><input id="Office" maxlength="20" name="Office" style="width :93px" type="text" value=""></td>
+					</tr>
+					<tr>
+						<th>일반전화번호</th>
+						<td colspan="3"><input id="Hphone" maxlength="15" name="Hphone" type="text" value="">
+							<div class="txt_warning mgt7">- 숫자만 입력해 주세요.</div>
+						</td>
+					</tr>
+					<tr>
+						<th>주소</th>
+						<td colspan="3"><input id="Post1" name="Post1" onclick="MM_NewAddrOpenLayer('show','post_layer2');" readonly="True" style="width :60px" type="text" value=""> - <input id="Post2" name="Post2" onclick="MM_NewAddrOpenLayer('show','post_layer2');" readonly="True" style="width :60px" type="text" value=""> <input id="Naddress" type="button" class="gray_btn" onclick="MM_NewAddrOpenLayer('show','post_layer2')" title="도로주소우편번호찾기" value="도로주소"> <input id="Oaddress" type="button" class="gray_btn" onclick="MM_OldAddrOpenLayer('show','post_layer');" title=" 지번주소우편번호찾기" value="지번주소"><br>
+						<input id="Address1" name="Address1" onclick="MM_NewAddrOpenLayer('show','post_layer2');" readonly="True" style="width:300px;margin-top:5px" type="text" value=""> <input id="Address2" maxlength="30" name="Address2" style="width:235px;margin-top:5px" placeholder="상세주소 입력" type="text" value="">
+						<div class="post_layer" id="post_layer"> 
+							<p>지번주소 우편번호찾기</p><div class="close_btn" onclick="MM_OldAddrOpenLayer('hide','post_layer')">닫기</div>
+							<div class="input_area"> <span class="star mgl5">지역선택</span>
+								<div id="Oldsidosel" style="width:120px; display:inline">
+								<select id="Oldsido_sel" name="Oldsido_sel" style="width:120px" onchange="javascript:SiGunGuGetAddress(this,'O')">
+								<option value="0" selected="selected">--시도--</option>
+								</select></div>
+								<div id="Oldsigungusel" style="width:130px; display:inline">
+								<select name="Oldsigungu_sel" id="Oldsigungu_sel" style="width:130px" onchange="javascript:DongGetAddress(this)">
+								<option value="0" selected="selected">--시군구--</option>
+								<option value="0"></option>
+								</select></div><div class="mgt5 mgl5"><span class="star mg15">동이름&nbsp;&nbsp;</span>
+								<div id="DongNamesel" style="width:130px; display:inline">
+								<select name="DongName" id="DongName" style="width:130px">
+								<option value="0" selected="selected">--동 이 름--</option>
+								<option value="0"></option>
+								</select></div>
+								<span class="pdl7">번지번호</span>
+								<input id="OldBasicNumber" maxlength="5" name="OldBasicNumber" style="width:30px" type="text" value="">-<input id="OldPartNumber" maxlength="5" name="OldPartNumber" style="width:30px" type="text" value="">
+								<input id="SearchOldAddr" type="button" value="검색" class="gray_btn" style="margin-left:10px">
+							</div>
+							</div>
+							<div class="post_scroll_out" style="height:170px"> 
+								<ul id="ResultAddress">
+									<li><span class="star mgl5 text_ex">표시는 필수항목이며 반드시 입력하셔야 합니다.</span></li>
+								</ul>
+								<div class="ac mgt5 paging" id="ResultAddresspaging">
+								</div>
+							</div>
+						</div>
+						<div class="post_layer" id="post_layer2"> 
+							<p>도로주소 우편번호찾기</p><div class="close_btn" onclick="MM_NewAddrOpenLayer('hide','post_layer2')">닫기</div>
+							<div class="input_area"> <span class="star mgl5">지역선택</span>
+								<div id="sidosel" style="width:120px; display:inline">
+								<select id="sido_sel" name="sido_sel" style="width:120px" onchange="javascript:SiGunGuGetAddress(this,'N')">
+								<option value="0" selected="selected">--시도--</option>
+								</select></div>
+								<div id="sigungusel" style="width:130px; display:inline">
+								<select name="sigungu_sel" id="sigungu_sel" style="width:130px">
+								<option value="0" selected="selected">--시군구--</option>
+								<option value="0"></option>
+								</select></div>
+								<div class="mgt5 mgl5"><span class="star">도 로 명</span>
+								<input id="RoadName" maxlength="15" name="RoadName" style="width:120px" type="text" value="">
+								<span class="pdl7">건물번호</span>
+								<input id="BasicNumber" maxlength="5" name="BasicNumber" style="width:30px" type="text" value="">-<input id="PartNumber" maxlength="5" name="PartNumber" style="width:30px" type="text" value="">
+								<input id="SearchNewAddr" type="button" value="검색" class="gray_btn" style="margin-left:10px"></div>
+							</div>
+							<div class="post_scroll_out" style="height:170px"> 
+								<ul id="ResultAddress2">
+									<li><span class="star mgl5">표시는 필수항목이며 반드시 입력하셔야 합니다.</span></li>
+								</ul>
+								<div class="ac mgt5 paging" id="ResultAddresspaging2"> </div>     
+							</div>
+						</div>
+							
+							<div class="txt_warning mgt7">- 국내 주소는 우편번호를 검색해서 입력해 주세요.</div>
+						</td>
+					</tr>
+				</tbody></table>
+				</div>
+				<h2>연락처 정보 입력</h2>  
+				<div class="mgt10">
+				<p class="info_txt_inner mgt10  txt_blue">아래에 기재하는 휴대폰과 이메일로 <span class="u">결제정보, 이용기간만료 안내, PC인증번호, 임시비밀번호</span> 등 로앤비 이용에 중요한 정보들을 보내드리니 반드시 실제 이용하고 있는 정보를 기재하여 주시기 바랍니다.</p>
+				<table class="input_table" summary="회원기본정보 입력표"> 
+					<tbody><tr>
+						<th class="star">휴대폰</th>
+						<td colspan="3">
+						<select name="Hcellphone1" id="Hcellphone1" title="휴대폰" style="width:50px" onchange="changeCheck(0);">
+							<option value="010" selected="selected">010</option>
+							<option value="011">011</option>
+							<option value="016">016</option>
+							<option value="017">017</option>
+							<option value="018">018</option>
+							<option value="019">019</option>
+						</select> - <input id="Hcellphone2" maxlength="4" name="Hcellphone2" onkeydown="changeCheck(0);" style="width :75px" type="text" value="">  - <input id="Hcellphone3" maxlength="4" name="Hcellphone3" onkeydown="changeCheck(0);" style="width :75px" type="text" value="">  
+						</td>
+					</tr>
+					<tr>
+						<th class="star" rowspan="2">이메일</th>
+						<td colspan="3">
+							<input id="Email1" maxlength="20" name="Email1" onkeydown="changeCheck(1);" style="width:64px" type="text" value=""> @ <input id="Email2" maxlength="20" name="Email2" onkeydown="changeCheck(1);" style="width:97px" type="text" value="">
+							 <select name="SelEmail" id="SelEmail" title="이메일" style="width:100px" onchange="changeCheck(1);">
+								<option value="" selected="selected">직접입력</option>
+								<option value="naver.com">naver.com</option>
+								<option value="paran.com">paran.com</option>
+								<option value="gmail.com">gmail.com</option>
+								<option value="yahoo.co.kr">yahoo.co.kr</option>
+								<option value="chollian.net">chollian.net</option>
+								<option value="hotmail.com">hotmail.com</option>
+								<option value="nate.com">nate.com</option>
+								<option value="dreamwiz.com">dreamwiz.com</option>
+								<option value="empal.com">empal.com</option>
+							</select>   
+						</td>
+					</tr>
+					<tr> 
+						<td colspan="3">정기 메일링 서비스 선택  [ 안내보기 ]
+						<div class="mgt5"><input checked="checked" id="IsBizLetter" name="IsBizLetter" type="checkbox" value="true"><input name="IsBizLetter" type="hidden" value="false">비즈레터 <input checked="checked" id="IsEduLetter" name="IsEduLetter" type="checkbox" value="true"><input name="IsEduLetter" type="hidden" value="false">교육센터안내메일  
+							<input checked="checked" id="IsEduLetter" name="IsEduLetter" type="checkbox" value="true"><input name="IsEduLetter" type="hidden" value="false">온주 소식
+							<input checked="checked" id="IsAdLetter" name="IsAdLetter" type="checkbox" value="true"><input name="IsAdLetter" type="hidden" value="false">마케팅 메일
+
+						</div></td>
+					</tr> 
+				</tbody></table>
+				</div>
+			</div>
+			<div class="final_area"><span id="imgconfirm">확인</span></div>
+	 
+	</div>
+	<div id="footer">
+		<div class="copy_area"> 
+			Copyright@ <em>LAW</em>n<em>B</em>. All Rights Reserved. <div class="img_tr"><img src="../images/logo_tr.gif "></div>
+		</div>   
+	</div>
+</div>
+</body>
+</html>

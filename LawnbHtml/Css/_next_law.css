@@ -1,0 +1,282 @@
+﻿@charset "utf-8";
+
+.title_area #tab_area{margin-bottom:-10px;height:20px}
+.title_area #tab_area a{display:inline-block;padding:0 15px;font-weight:bold;border-top:1px solid #ccc;border-left:1px solid #ccc;border-right:1px solid #ccc;line-height:29px;margin-right:5px}
+.title_area #tab_area a.on{background-color:#005da2;color:#fff;border:1px solid #005da2;border-bottom:2px solid #005da2}
+.title_area #tab_area a.off{background-color:#fff;color:#555}
+.newold_left,.newold_right{width:50%;float: left}
+.newold_left.title{background-color:rgba(255,89,0,0.4);text-align: center;height: 35px;font-weight:bold;color:#fff}
+.newold_right.title{background-color:rgba(0,93,162,0.4);text-align: center;height: 35px;font-weight:bold;color:#fff}
+.popup_history{position:relative}
+.popup_history .miju_box_line{text-indent:0}
+.lawtitle_content {font-size: 18px;line-height: 150%;font-weight:bold;text-align: center;border: 3px solid #e5e5e5;padding: 10px 0;background-color: #fff}
+.lawtitle_content select{width:70%;height:25px}
+.lawtitle_content span{font-weight:normal;font-size:smaller}
+.popup_law {width: 100%}
+.new_normal {padding: 5px 15px;text-align: left;vertical-align: top;background-color: #f7fefe;text-indent:-20px;padding-left:35px;border-top:2px solid #fff}
+tr .new_normal:first-child {background-color: #fef7fe;width:50%}
+tr .new_normal:first-child span {background-color: #f9d9f9}
+.new_normal span {text-decoration: underline;background-color: #c9f0f4}
+.newold_jo {background-color: #faf4f4;border: 1px solid #f3dada;height: 195px !important;overflow:auto;padding:10px}
+.newold_right .newold_jo { background-color: #eff5fa;border: 1px solid #e2ebf3}
+.active_d1 {font-weight:bold}
+.active_d1 a{font-weight:normal}
+.active_d1 > a[href="#"]{font-weight:bold;display:block;margin-top:10px}
+.active_d1 > a[href="#"]:first-of-type{margin-top:0}
+.regulation li ul{margin-left:0px}
+.regulation li ul li{padding-left:6px}
+#tit_area, #tree_area {display:flex; flex-wrap:nowrap;}
+#tit_area .box_third, #tit_area .box_50 {border: 3px solid #e5e5e5;/*문제없으면 지울것 margin: 3px 0;*/background: #fff;text-align: center;position:relative}
+#tit_area:after, #tree_area:after, .jo_group:after{display: block;clear: both;height: 1px;margin-top: -1px;content: ''}
+#tit_area .box_third.point {border-color: #60534f}
+#tit_area .box_third div{text-indent:0 !important}
+#tit_area .box_third div p, #tit_area .box_50 div p {font-size: 18px;font-weight: bold;padding: 5px 0}
+#tit_area .box_third div.crit{cursor:pointer;padding-top:15px;font-size:smaller;position:absolute;top:0;left:0;width:30px;background-color:#eee;height:100%}
+#tit_area .box_third div.crit + div{padding-left:30px;}
+.tie_third {display:flex; flex-wrap:nowrap;}
+.tie_third .history_hlist h4 {display:inline-block; font-size:small; margin-right:5px;}
+#contnet_2 {position: relative;overflow: hidden}
+#wrapper_sam_no {overflow: auto}
+.jo_group:first-child {border-top: 0}
+.jo_group {display:flex; flex-wrap:nowrap; overflow: hidden}
+#law_area .box_third, #law_area .box_50 {padding: 5px;padding-left: 10px}
+.jo_group .box_third, .jo_group .box_50 {position: relative;line-height: 180%}
+.jo_group div {float: left;}
+.box_third .tree li button,.newold_left .tree li button,.newold_right .tree li button{left:-7px;width:12px;height:12px;vertical-align:middle;line-height:0;margin-top:5px;border: 1px solid #7d7d7d;}
+.box_third.joView{text-indent:-20px;padding-left:30px;overflow-y:auto} 
+.mi_jo{color:#005da2;font-size:smaller}
+.box_third {width:100%; position:relative;}
+.box_third img{max-width:100%}
+#tit_area .box_third > div, #tit_area .box_50 > div {text-align: center;font-size: 14px;line-height: 150%; padding:20px 0;}
+.tree .regulation li.active_d1 a, .tree .regulation li.active_d0 a {font-weight: bold;color: #005da2}
+.tree .regulation li.comment a {font-weight: normal !important;color: #333 !important}
+.jo_group {border-top: 1px dotted #c3c3c3}
+#total_group .box_third{text-indent:-20px;padding-left:30px;padding-right:0} 
+.table_index .regulation li{background:none;text-indent:10px;}
+.table_index ul.regulation{margin-left:5px} 
+.tree.table_index button{left:0;top:9px;text-indent:0;border:1px solid #7f7f7f;background-color:#7f7f7f;color:#fff;width:13px;height:13px;line-height:1px;z-index:2}
+.tree .regulation .active_d1 a{font-weight:bold;color:#ff5900 !important;}
+.regulation li.comment a{font-weight:normal;color:#333}
+.regulation li span{font-weight:bold}
+.regulation li span.mi{font-weight:normal;font-size:smaller;color:#7f7f7f}
+.tNav .regulation .tNavToggle{position: absolute;z-index: 10;top: 0;left:0;width: 13px;height: 19px;padding: 0;overflow: hidden;border: 0;vertical-align: middle;text-indent: 17px;}
+.relative_law{text-align:right;padding-left:5px;position:relative;min-height:33px}
+.relative_law .detail_area{margin-top:2px}
+.relative_law .btn{font-size:13px;color:#585858;background-color:#fafafa;border: 1px solid #f1f1f1;padding:0 15px;line-height:170%;position:absolute;top:10px;right:0}
+.relative_law_view{margin-top:10px;text-align:left;display:none}
+.relative_law_view ul {background-color:#fafafa;padding:10px;border:1px solid #f1f1f1 }
+.relative_law_view .tit{font-size:smaller;font-weight:bold;color:#585858}
+.relative_law_view li{font-size:smaller;line-height:180%;padding:5px 0 5px 15px}
+.new_reg{background-color:#f1f8f9 !important;padding-right:10px} 
+.dp1 span{font-weight:normal;font-size:16px}
+.law.onlycon .case_info{width:50%}
+.law.onlycon table{border-collapse:collapse;border:1px solid #ccc}
+.law.onlycon table td{vertical-align:top;border-top:1px solid  #ccc;border-left:1px solid  #ccc;padding:5px 10px}
+.law.onlycon table td.new_normal{padding-left:30px}
+.law.onlycon table td:first-child{border-left:0;background-color:#f0f0f0}
+.law.onlycon table th:first-child{border-right:1px solid #ccc;background-color:#f0f0f0}
+.law.onlycon table th,.law.onlycon table td.title{text-align:center}
+.law.onlycon table td.title{padding:10px 0;font-weight:bold}
+.law .case_sign {display:none}
+.law .case_sign table, .case_sign_law  {margin: 0 auto;width: 80%;margin-bottom: 10px;margin-top: 20px;}
+.law .case_sign table tr th { background-color: #f0f0f0;text-align:center}
+.law .case_sign table tr td:last-child,.law .case_sign table tr th:last-child{display:none}
+.law .case_sign table tr td:first-child,.law .case_sign table tr th:first-child{display:none}
+.law .case_sign table caption{font-weight:bold;margin-bottom: 5px;display:none}  
+.law .case_sign table{border-collapse:collapse;border:1px solid #ccc}
+.law .case_sign table td{vertical-align:top;border-top:1px solid  #ccc;border-left:1px solid  #ccc;padding:5px 10px}
+.law .case_sign table td.new_normal{padding-left:30px}
+.law .case_sign table td:first-child{border-left:0;background-color:#f0f0f0}
+.law .case_sign table th:first-child{border-right:1px solid #ccc;background-color:#f0f0f0}
+
+.onlycon #right_control{display:none !important}
+.table_index li.comment {width: 100%;display: block;overflow: hidden; white-space: nowrap;text-overflow: ellipsis}
+.mobile .table_index li.comment {width: 100%;display: block;overflow:auto ; white-space: inherit;text-overflow: inherit}
+.level_law_title{margin:10px;margin-bottom:0}
+section .level_law_title{margin:15px;margin-bottom:0;display:none}
+section .table_index ul.regulation{margin-top:5px}
+.level_law_title strong{color:#ff5900}
+.law_level{position:relative}
+.law_level ul,.law_level li{position:relative}
+.law_level li:before{position:absolute;display:block;content:'';z-index:1;left:7px;top:14px;width:5px;height:1px;background-color:#a9a9a9}
+.table_index .tree li li:after{position:absolute;display:block;content:'';z-index:1;left:6px;top:0;bottom:0;background-color:#a9a9a9;width:1px;}
+.table_index .tree li li:last-of-type:after,.right_container .table_index .law_level li li:last-of-type:after{height:15px}
+.table_index .onju_index.tree li li:after{display:none}
+.law_level li ul {margin-left: 5px}
+.right_container .law_level ul,.right_container .law_level{padding:0}
+.right_container .law_level li ul li:after{position:absolute;display:block;content:'';z-index:1;left:4px;top:0;bottom:0;background-color:#a9a9a9;width:1px}
+.right_container .table_index .law_level li li:after{left:12px}
+.right_container .table_index .law_level li li:before{left:12px;width:10px}
+.tree .regulation.law_level li.comment a.last_law{color:#0083bf !important;font-weight:normal !important}
+.tree .regulation.law_level li.comment a.last_law + ul a{font-weight:normal !important}
+.close ul{ display:none} 
+.tree .regulation.law_level li a{font-weight:bold !important}
+.tree .regulation.law_level li a span{font-weight:normal !important}
+.regulation.noindent li{text-indent:0 !important}
+#co_popupContainer .main_container_view .newold_jo ul.regulation li a{color:#333 !important}
+.new_normal img{max-width:100%}
+.compare_container{display:none;position:absolute;width:80%;height:50%;background-color:#fff;border:1px solid rgba(0,0,0,0.2);overflow:hidden;top:0;left:0;margin-left:10%;margin-top:15%;z-index:10000000}
+.compare_inner .fl{width:50%;position:relative}
+.compare_inner .lawtitle_content{font-size:16px}
+.compare_content{overflow-y:auto;width:100%;font-size:15px;line-height:160%}
+.compare_inner .left_btn{cursor: pointer;padding-top: 15px;font-size: smaller;position: absolute;top: 0;left: 0;width: 30px;background-color: #eee;height: 100%;}
+.compare_inner .left_btn.right{right:0;left:inherit}
+.icon_fixed{position:absolute;left:0;width:24px;padding-right:1px;border-right:1px solid #ddd;height:100%;top:0;text-align:right}
+.new_normal:first-of-type .icon_fixed{left:0}
+.new_normal{position:relative}
+#iSelType_p, #iSelType1_p, #iSelType2_p{width:80px} 
+.add_title + .normal{margin-top:0}
+.add_title{margin-top:10px;font-weight:bold}
+.related_jo .normal > .normal{height:30px;overflow:hidden;position:relative}
+.related_jo .normal > .normal.open{height:auto;overflow:unset}
+.related_jo .tNavToggle{border: 1px solid #b5b5b5;padding: 0 3px;margin-right:5px}
+.law_nick {display: inline;font-size: smaller;padding-left: 5px;}
+.table_index li a._this{background-color: #dce4ec;}
+.table_index li.no_content a{color:#7f7f7f !important}
+
+/*온주표지*/
+.onju_front_page p{font-size:28px;font-weight:bold;text-align:center;background-color:#005da2;color:#fff;box-sizing: border-box;}
+.onju_front_page p span{line-height:140%}
+.onju_front_page p + div{border-top:1px solid #eee;padding:20px 0;text-align:left;border-bottom:1px solid #eee;padding-left:10px}
+.onju_front_page p + div ul{padding-left:10px}
+.onju_front_page p + div li span{font-weight:bold;padding-right:5px}
+.onju_front_page p + div li span:before{content:'\00B7';padding-right:5px}
+.front_writers{text-indent:-75px;padding-left:75px}
+.onju_front_page .btn-default{line-height:160%}
+/*온주목차*/
+.onju_index_popup #listing,.onju_index_popup .list{margin-top:10px;padding-left:10px} 
+.onju_index_popup .title_1{font-weight:bold;font-size:17px}
+.onju_index_popup .title_2{padding-left:20px}
+.onju_index_popup .title_3{padding-left:40px}
+.onju_index_popup .title_4{padding-left:60px}
+.onju_index_popup .title_5{padding-left:60px}
+/*온주본문*/
+.edit_box{position:relative;padding: 0 40px 10px 0;}
+.edit_box .grayname{position:absolute;right:0;top:5px;width:40px;text-align:center}
+.edit_box .title_1{font-size:1.8em;padding: 30px 0 0 0;font-weight:bold;}
+.edit_box .title_2{font-size:1.5em;font-weight:bold;padding: 20px 0 0 0;}
+.edit_box .title_3{font-size:1.3em;font-weight:bold;padding: 20px 0 0 0;}
+.edit_box .title_4{font-size:1.1em;font-weight:bold;padding: 20px 0 0 0;}
+.edit_box .title_5{font-weight:bold;padding: 20px 0 0 0;}
+.edit_box .title_6{font-weight:bold;padding: 20px 0 0 0;}
+.edit_box .title_7{font-weight:bold;padding: 20px 0 0 0;} /* 타이틀 간격, 들여쓰기 변경 */
+.title_1 div.miju_num .miju_box_line, .title_2 div.miju_num .miju_box_line, .title_3 div.miju_num .miju_box_line, .title_4 div.miju_num .miju_box_line, .title_5 div.miju_num .miju_box_line{text-indent:0 !important}
+.box_gray{border: 1px solid rgb(202, 201, 201); padding: 5px 10px; background-color: rgb(247, 247, 247);}
+.miju{padding-top: 20px;border-top:1px dotted #ccc; margin-top: 20px;margin-right: 47px;}
+.onju .miju{margin-right:0}
+.txt_red{color:#dd0000;font-weight:bold}
+.txt_blue{color:#0066cc;font-weight:bold}
+.onju_preview_onju table {position:relative;width:100%; border: 1px solid #a2a2a2; border-collapse: collapse;margin: 0}
+.onju_preview_onju table th {text-align: center; background-color:#eee;}
+.onju_preview_onju table td {padding:10px;}
+.onju_preview_onju table td img {margin:0px !important;}
+.outside_writer{display:none}
+
+/*편집화면*/
+#View_admin_onjuwriter {position: absolute;top: 0;left: 240px;width: calc(100% - 240px - 27% - 20px);height: 40px;background-color: #585858;color: #fff;z-index: 10;line-height: 30px}
+#View_admin_onjuwriter div:first-of-type{position:absolute;left:10px;top:5px}
+
+.print_samdan { display: none;}
+.print_mode .crit, .print_mode #tree_area {display: none !important}
+.print_mode .jo_group{overflow:visible}
+.print_mode .box_third.joView{padding-right:10px;border-right:1px solid #ccc;min-height:5px}
+.print_mode .box_third.joView:last-child{border-right:0;padding-right:0}
+.print_mode tr td.new_normal:first-child{border-right:1px solid #ccc}
+.print_mode #NewOldContID .new_normal .icon_fixed{display:none}
+.print_mode .lawtitle_content select{display:none}
+.print_mode .print_samdan {display: table;width: 100%; border-collapse: separate}
+.print_mode #tit_area div.box_third {display:none}
+.print_mode #tit_area td.box_third_print {float: none;width:33.33%;border: 3px solid #e5e5e5; margin: 3px 0; background: #fff; text-align: center;}
+.print_mode #tit_area td.box_third_print.point { border-color: #60534f }
+.print_mode #tit_area td.box_third_print p { font-size: 18px;font-weight: bold;padding: 5px 0}
+.print_mode #tit_area td.box_third_print div { font-size: 14px;line-height: 150%;}
+
+
+/*#container_inner { overflow:initial;}*/
+.flex_box { width:100%; display:flex; flex-wrap:nowrap; position:relative; height:0;}
+.flex_box > div {width:100%;  text-align:center; position:relative;}
+.flex_box > div .flex_close {position:absolute; top:-28px; right:0; font-family: 'mini'; font-size:11px; width:46px; line-height:24px; height:26px; cursor:pointer; background:#fff; border:1px solid #ddd;}
+.flex_box > div .flex_close::after {content:'\e901 접기'; }
+.flex_box > div .flex_close:hover {background:#eee;}
+.flex_box > div .flex_close.on {right:-22px; background:#144b78;  border: 1px solid #144b78;}
+.flex_box > div .flex_close.on::after {content:'\e900 열기'; color:#fff;}
+.flex_box > div .flex_close.on:hover {background:#005da2;}
+   
+.flex_box > .flex_open {display:none; position: absolute; left: 50%; top: -24px; width:30px; height:22px; margin-left: -15px; cursor:pointer;}
+.flex_box > .flex_open:hover {background:#eee;}
+.flex_1, .flex_2, .flex_3 {outline:1px solid #ddd; transition:0.2s;}
+.flex_hide {width: 0% !important;  padding: 0px !important;  transition: 0.2s;  overflow: hidden;  border: 0 !important;}
+.box_third_history .flex_hide {display:none;}
+#tit_area .flex_hide {max-height:130px;}
+.box_third_history {background-color:#efefef;}
+.box_third_search {max-height:77px;}
+.box_third_search .small_search_inbox input[type="search"] {width: calc(100% - 52px);}
+.box_third_search .school_search div {padding:0 35px 0 0; }
+.box_third_search .small_search_inbox {background-color: #f1f8f9;}
+.box_third_search .small_search_checkbox { font-size:13px;}
+.box_third_search .small_search_checkbox input {vertical-align:text-top;}
+.box_third_search .school_search {left: 4px; top: 43px; width: calc(100% - 14px); height:300px;}
+.box_third_search.search_hidden {height:0; display:none;}
+
+.tie_third .history_hlist {max-height: 85px; overflow-y: auto;}
+.tie_third .history_hlist > span {overflow: hidden; white-space: nowrap; text-overflow: ellipsis; word-wrap: break-word; width: 97px; padding-right:15px; position: relative;  vertical-align: text-top; margin:0 5px 0 0;}
+.tie_third .history_hlist > span.on {outline:1px solid #005da2}
+.tie_third .history_hlist > span > em { position:absolute; right:5px;}
+
+.search_filter_button {border: 1px solid #eee; display: inline-block; padding: 5px 10px; background:#fff; position: absolute; right: 30px; top: 10px; font-size: 13px; line-height: initial; cursor:pointer; z-index:10;}
+.search_filter_button::after {content:'필터'; display:inline-block;}
+.search_filter_button.on { background:#005da2; color:#fff;}
+.search_filter_button.on::after {content:'필터적용 결과';}
+.search_filter_button:hover {border: 1px solid #005da2;}
+.info_search_filter {position: absolute; top: 11px; right: 125px; background:#000; color:#fff; padding: 0 10px; font-size: small; line-height: 200%; border-radius: 5px; display:inline-block;}
+.info_search_filter::after {content: '';position: absolute;right: 0;top: 50%;width: 0;height: 0;border: 8px solid transparent;border-left-color: #000;border-right: 0;margin-top: -8px;margin-right: -6px;}
+.icon_info_search {position: absolute; top: 9px; right: 100px; color: #999; cursor:pointer;}
+.third_region_filter {line-height:initial; font-size:14px; background: #fafafa; height: 100%; z-index: 10001; position: absolute; top: 0; left: -280px; text-align: left; width: 280px; padding:20px; backface-visibility: hidden;   transition: 0.3s; overflow-y:auto;}
+.third_region_filter.on {left:0;  transition:0.2s;}
+.third_region_filter .close_region_filter { position:absolute; top:10px; right:10px; cursor:pointer;}
+.third_region_filter > .input_area {margin: 10px 0;}
+.third_region_filter > .input_area h4 {margin-bottom:10px;}
+.third_region_filter > .input_area input {width: 100%; border: 1px solid #a9a9a9;  border-radius: 0; padding:5px; margin-bottom:10px;}
+.third_region_filter .tree > li {margin-bottom:10px;}
+.third_region_filter .tree li {padding-left: 16px;}
+.third_region_filter .tree li button { margin-top:0; border:none; left: 0px;}
+.third_region_filter .tree li label {vertical-align:middle;}
+.region_filter_bg {display:none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10000; background: rgba(0,0,0,0.3); }
+.region_filter_bg.on {display:block;}
+.region_new_popup {position: absolute;  top: 5px;  right: 5px; width: 18px; font-size: 18px; height: 18px; display: inline-block; line-height: 14px; cursor: pointer;}
+.region_new_popup:hover {color:#ddd}
+.btn_change_search { position: absolute; top: 0; left: 0; width: 145px; height: 22px; line-height: 22px; text-align: center; font-size: 13px; cursor: pointer; background: #e5e5e5; text-decoration: none; color: #005da2;}
+.btn_change_search.on {background-color:#005da2; color:#fff !important;}
+
+#co_popupContainer .old_new .popup_mov_area1 { display: block; padding: 15px 20px; margin: 0;}
+#co_popupContainer .old_new .popup_mov_area1 .list_header { padding: 5px 10px; background-color: #f1f8f9; margin-top:35px; font-size: small;}
+#co_popupContainer .old_new .popup_mov_area1 .list_header .right { float:right;}
+#co_popupContainer .old_new .popup_mov_area1 .list {padding-top:0px;}
+#co_popupContainer .old_new .popup_mov_area1 .list li { display: flex; align-items: center; justify-content: space-between;}
+#co_popupContainer .old_new .co_searchContent { margin-left: 0px !important; width: 80%; padding:5px 0 0 10px;}
+#co_popupContainer .old_new .co_searchContent h3 { margin-bottom:0 !important;}
+#co_popupContainer .old_new .co_oldnew_region {width: 20%; text-align: right; font-size: smaller; color: #777; line-height: 150%; padding-right:10px}
+/*#wrapper_lawcomp, #wrapper_lawcomp2, #result_area {transition: 0.5s;}*/
+
+.toggle_search {position: absolute; right: calc(2.5% - 25px); z-index: 20; width: 20px; height:22px; top:101px; border:1px solid #ccc; cursor:pointer;}
+.toggle_search:hover {background:#eee;}
+
+/* */
+.local_law .old_new .jo_group div {float: initial;}
+.local_law .old_new .jo_group > .box_third {padding: 5px 15px 5px 15px !important;}
+.local_law .old_new .jo_group > .box_third.flex_hide {padding:5px 0 !important;}
+.local_law .old_new .box_third.joView {text-indent:initial;}
+.local_law .old_new .box_third_search .school_search div {padding: 8px 40px 8px 0;  line-height: 1.8;}
+.local_law .main_container {overflow: hidden !important;}
+.local_law .old_new .no_search_result {border: none; line-height: 150%; color: #999; padding-top: 80px;}
+
+@media screen and (max-width:480px) {
+    .mobile .law.onlycon table td:first-child{background-color:#fff}
+    .mobile .law.onlycon table td.gray{background-color:#f0f0f0}
+    .mobile .law.onlycon table td .normal{padding-left: 10px;text-indent:-10px}
+    #lawMap{margin-bottom:50px}
+    .mobile .law.onlycon.eng table tr td:last-child{display:none}
+    .mobile .law .btn_set{float:none;text-align:right}
+    .mobile .onju_front_page p + div ul{padding-left:0}
+    
+}

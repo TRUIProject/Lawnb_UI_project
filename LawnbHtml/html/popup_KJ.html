@@ -1,0 +1,1086 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+	<meta name="viewport" content="width=1140">
+	<title> 로앤비 </title>
+	<link rel="stylesheet" type="text/css" href="../css/_next_default.css" />
+	<link rel="stylesheet" type="text/css" href="../css/_next_layout.css" />
+	<link rel="stylesheet" type="text/css" href="../css/_next_law.css" />
+	<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />
+	<script src="../Scripts/lib/jquery-3.4.1.min.js"></script>
+	<script src="../Scripts/common/commonjs.js"></script>
+	<script language="javascript">
+<!--
+
+		function resizeComment() {
+			setHeight();
+			$(".right_container").removeClass('slide_mov_right');
+		}
+		$(document).ready(function () {
+			$(".popup_mov_area").height($('.main_container').height() - 37);
+			$("#searchButton_s").click(function () {
+				$("#title_result_tab").show();
+				$("#title_result_tab").css('z-index', '100');
+				$("#title_result_tab .btn_close").show();
+				$("#title_result_tab .btn_reapprea").hide();
+				$("#result_area").show();
+				$("#result_area").css('z-index', '100');
+				setTimeout(function () {
+					$("#result_area").addClass('slide_mov_bottom');
+					$("#pdf_view").css('padding-top', '37px');
+				}, 200);
+			});
+
+			$("#related_comment .btn").click(function () {
+				$("#related_comment_tab").show();
+				$("#related_comment_tab .btn_close").show();
+				$("#related_comment_tab").css('z-index', '100');
+				$("#related_comment_result").css('z-index', '100');
+				$("#related_comment_result").show();
+				setTimeout(function () {
+					$("#related_comment_result").addClass('slide_mov_bottom');
+					$("#pdf_view").css('padding-top', '37px');
+				}, 200);
+			});
+
+			$('.onju_index li a').click(function () {
+				$(this).addClass('_this');
+				$('.onju_index li a').not(this).removeClass('_this');
+			});
+		});
+
+		function open_onjuindex() {
+			$('.onju_index_popup').show();
+			$('#view_sub_content').hide();
+			$('#view_content').show();
+
+			$('p .btn_close').click(function () {
+				$('.onju_index_popup').hide();
+			});
+		}
+
+		function open_onjupublisher() {
+			$('#view_sub_content').show();
+			$('#view_content').hide();
+
+			$('p .btn_close').click(function () {
+				$('#view_sub_content').hide();
+				$('#view_content').show();
+			});
+		}
+		function open_outsider_publisher() {
+			$('#view_sub_content2').show();
+			$('#view_sub_content').hide();
+
+			$('p .btn_close').click(function () {
+				$('#view_sub_content2').hide();
+			});
+		}
+
+		function open_onjuquot() {
+			$('#view_quot').show();
+
+			$('p .btn_close').click(function () {
+				$('#view_quot').hide();
+			});
+		}
+
+		function open_onjucomment() {
+			$('#view_comment').show();
+
+			$('p .btn_close').click(function () {
+				$('#view_comment').hide();
+			});
+		}
+
+		function showPreview1(OBJ) {
+			$(OBJ).parent('.normal').toggleClass('div_close');
+		}
+
+		function showPreview2(OBJ) {
+			$(OBJ).next().slideToggle();
+		}
+
+		function pPage1() {
+			$('.p_page1').show();
+			$('.p_page2').hide();
+			$('.p_page3').hide();
+            $('.p_page4').hide();
+            $('.p_page5').hide();
+			$('#bg_screen').show();
+			setTimeout(function () {
+				$('#bg_screen').hide();
+			}, 500);
+            $('.lawyer-layer').hide();
+            $('#view_content').show();
+		}
+
+		function pPage2() {
+			$('.p_page1').hide();
+			$('.p_page2').show();
+			$('.p_page3').hide();
+            $('.p_page4').hide();
+            $('.p_page5').hide();
+			$('#bg_screen').show();
+			setTimeout(function () {
+				$('#bg_screen').hide();
+			}, 500);
+            $('.lawyer-layer').hide();
+            $('#view_content').show();
+		}
+
+		function pPage3() {
+			$('.p_page1').hide();
+			$('.p_page2').hide();
+			$('.p_page3').show();
+			$('.p_page4').hide();
+            $('.p_page5').hide();
+			$('#bg_screen').show();
+			setTimeout(function () {
+				$('#bg_screen').hide();
+			}, 500);
+            $('.lawyer-layer').hide();
+            $('#view_content').show();
+		}
+
+        function pPage4() {
+            $('.p_page1').hide();
+            $('.p_page2').hide();
+            $('.p_page3').hide();
+			$('.p_page4').show();
+			$('.p_page5').hide();
+            $('#bg_screen').show();
+            setTimeout(function () {
+                $('#bg_screen').hide();
+			}, 500);
+            $('.lawyer-layer').hide();
+            $('#view_content').show();
+        }
+		//-->
+
+        function pPage5() {
+            $('.p_page1').hide();
+            $('.p_page2').hide();
+            $('.p_page3').hide();
+			$('.p_page4').hide();
+            $('.p_page5').show();
+            $('#bg_screen').show();
+            setTimeout(function () {
+                $('#bg_screen').hide();
+            }, 500);
+            $('.lawyer-layer').hide();
+            $('#view_content').show();
+        }
+		//-->
+
+		setTimeout(function () {
+			$('#bg_screen').hide();
+		}, 1000);
+
+        function ourTeam() {
+            $('.lawyer-layer').show();
+            $('#view_content').hide();
+        }
+
+        function ourTeamClose() {
+            $('.lawyer-layer').hide();
+            $('#view_content').show();
+        }
+	</script>
+
+	<style type="text/css">
+		a {
+			cursor: pointer;
+		}
+
+		.p_page1 {
+			display: block;
+		}
+
+		.p_page2 {
+			display: none;
+		}
+
+		.p_page3 {
+			display: none;
+		}
+
+        .p_page4 {
+            display: none;
+        }
+        .p_page5 {
+            display: none;
+        }
+		.doc_content {
+			padding-top: 20px
+		}
+
+		._this {
+			color: #005da2;
+			background-color: inherit !important;
+			font-weight: bolder !important;
+		}
+        .onju_front_page p {
+            line-height: 230px !important
+        }
+
+        .edit_box #direct_area {
+            margin: 20px 0 20px 0;
+        }
+
+        .edit_box #direct_area .direct_main h3 {
+            float: left;
+            width: calc(101% - 100px);
+			margin-left:10px;
+        }
+
+        .edit_box  .lawyer .main_area .img {
+            margin-top: 10px;
+        }
+
+        #direct_area {
+            padding-top: 0;
+            background: #fafafa;
+        }
+        .list li::after{ 
+			display:block;
+			clear:both;
+			content:'';
+        }
+        .mPeople {
+            float: left;
+            width: 630px;
+            margin-left: 20px !important;
+        }
+
+        #co_popupContainer .onju .img + .co_searchContent > .co_searchResults_summary {
+			background:#fafafa;
+        }
+	</style>
+</head>
+
+<body onresize="resizeComment();">
+	<div id="co_popupContainer">
+		<div id="wrap">
+			<header>
+				<div class="top_container  ">
+					<a href="/maf/poc/app/homepage"><h1>로앤비</h1></a>
+					<div class="function_area">
+						<p class="hide">기타기능버튼들</p>
+						<a href="#" id="inner_search">
+							<span><i class="icon-folder" data-icon="&#xe90f;"></i></span>
+							<span>본문검색</span>
+						</a>
+						<div id="search_word">
+							<span style="padding-right:0" onclick="moveFindMarks('P')"><i class="icon-left" data-icon="&#xe901;"></i></span>
+							<span onclick="checkMarking()">
+								<i class="icon-checkbox-unchecked "></i>
+							</span>
+							<span style="padding-left:0" onclick="moveFindMarks('N')"><i class="icon-right" data-icon="&#xe900;"></i></span>
+							<br><span>검색어</span>
+						</div>
+						<div>
+							<span class="font-p"><i class="icon-plus" data-icon="&#xea0a;"></i></span>
+							<span class="font-m"><i class="icon-minus" data-icon="&#xea0b;"></i></span>
+							<br><span>글자크기</span>
+						</div>
+						<a href="#" id="alert_set" class=" " onclick=" ">
+							<span><i class="icon-alert" data-icon="&#xe91b;"></i></span>
+							<span id="alertSetting">알림설정</span>
+						</a>
+						<a href="#" id="pring_set">
+							<span><i class="icon-printer" data-icon="&#xe954;"></i></span>
+							<span>인쇄</span>
+						</a>
+						<a href="#">
+							<span><i class="icon-download3" data-icon="&#xe9c7;"></i></span>
+							<span>파일저장</span>
+						</a>
+						<a href="#" id="cont_share">
+							<span><i class="icon-share2" data-icon="&#xea82;"></i></span>
+							<span>공유</span>
+						</a>
+					</div>
+				</div>
+			</header>
+			<div id="container" class="onju">
+				<div class="container_hide">
+					<button id="left_wide"><i class="icon_list" data-icon=""><span class="blind">목차 넓게보기</span></i></button>
+					<button id="left_hide"><i class="icon_list" data-icon=""><span class="blind">목차 없애기</span></i></button>
+				</div>
+				<div id="breadcrumb" class="navi_area">
+					<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+				</div>
+				<div class="title_area">
+					<h2><em class="favi_add"><i class="icon-star"></i></em>사례를 통한 지식재산권 이해하기</h2>
+					<div class="meta_area">
+						김앤장 법률사무소/ 지식재산권 / 2022.08.10.
+					</div>
+				</div>
+				<div id="container_inner">
+					<div class="left_container">
+						<div class="small_search_inbox">
+							<input type="search" name="" placeholder="도서내 검색" style="width:69%"> <input type="button" value="검색 " id="searchButton_s" class="btn _search">
+						</div>
+						<div class="table_index">
+							<h3>목차</h3>
+							<ul class="tree onju_index ">
+								<li><a onclick="pPage1()" class="_this">실무법 표지</a></li>
+								<li>
+									제1부 지식재산권법의 지위
+									<ol>
+										<li><a onclick="pPage2()">1. 지식재산권법의 발달과 학습의 필요성​</a> </li>
+										<li><a>2. 지식재산권법과 다른 영역의 법률과의 관계</a> </li>
+									</ol>
+								</li>
+								<li>
+									제2부 지식재산의 상호관계
+									<ol>
+										<li><a>1. 특허법과 실용신안법의 관계​</a> </li>
+										<li><a>2. 지색재산권의 중첩적 보호 문제​</a></li>
+										<li><a>3. 부정경쟁방지법과 지식재산권법의 관계​</a></li>
+									</ol>
+								</li>
+								<li>
+									제3부 사례를 통한 이해
+									<ol>
+										<li>
+											<a>[특허]</a>
+											<ol>
+												<li><a>1. '삼성전자vs Apple' 삼성의 침해소송 기각시킨 사례</a></li>
+												<li><a>2. 특허존속기간이 연장된 특허권의 효력범위에 관한 판단기준을 밝힌 최초의 대법원 판결을 이끌어낸 사례</a></li>
+												<li><a>3. 외국임상시험 기간을 존속기간 연장기간으로부터 제외할 근거가 없다고 판단한 최초의 사례</a></li>
+												<li><a onclick="pPage3()">4. 프로드러그가 물질특허의 권리범위에 속하는지를 다룬 최초의 사례</a></li>
+											</ol>
+										</li>
+										<li>
+											<a>[상표·디자인·부정경쟁]</a>
+											<ol>
+												<li><a>1. 서울연인 단팥빵 사건에서 ‘부정경쟁행위금지 및 손해배상’ 인정 최초 판결</a></li>
+												<li><a>2. Chanel의 클래식, 2.55 가방 “제품 외관이 부정경쟁방지법상 보호 대상＂최초 사례</a></li>
+												<li><a>3. 유명 아이돌 그룹 매니져의 그룹이름 무단상표 등록에 대한 상표등록 무효화 사례</a></li>
+											</ol>
+										</li>
+									</ol>
+								</li>
+								<li>
+									제4부 Q&A
+									<ol>
+										<li><a onclick="pPage4()">1. 프로야구 응원가의  저작권 침해여부</a></li>
+										<li><a onclick="pPage5()">2. 특허권 포기 시 원부에 미등록된 실시권자의 동의 필요 여부</a></li>
+									</ol>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<article class="main_container">
+						<div class="main_container_view">
+							<div class="main_container_view_inner">
+
+								<!-- 레이어 -->
+								<div class="lawyer-layer" style="display: none;">
+									<div class="result_tab" style="display: block;">
+										<div>관련정보 </div>
+										<div class="btn_option_outer"><div class="btn_close" onclick="ourTeamClose()">X</div></div>
+										<div class="btn_option_outer"><div class="btn_reapprea" style="display: none;">검색결과 보기</div></div>
+									</div>
+									<div id="result_area" class="popup_mov_area slide_mov_bottom" style="display: block;">
+										<ol class="list myfolder_total"></ol>
+										<ol class="list">
+											<li>
+												<span class="list_num">1</span>
+												<div class="img pic60"><img src="/lbimg/peopdata/yangyoungjun20180912.jpg" alt="사진"></div>
+												<div class="co_searchContent mPeople">
+													<h3> <a href="/Info/ContentView?sid=P00088AF0F3DB8D0" class="popup_view">양영준 梁英俊</a></h3>
+													<div>
+														<span>
+															김·장 법률사무소의 양영준 변호사는 특허, 실용신안, 디자인, 영업비밀, 상표, 저작권, 도메인 등 지식재산권 전 분야에서 30년 이상의 경력을 가진, 김·장 법률사무소 지식재산권 그룹의 대표 변호사입니다. 전기, 전자, 화학, 제약, 바이오, 기계 등 각종 기술 분야에 걸쳐서 특허, 실용신안, 영업비밀 등 기술 관련 지식재산권의 침해 소송, 특허청의 심판, 무역위원회 절차 등 각종 분쟁사건을 지휘하여 왔으며, 특히 영어, 일본어를 유창하게 구사하여 국제 특허 분쟁이나 영업비밀 침해 사건에 경험이 많습니다. 또한, 특허 및 노하우에 관한 국제 라이센싱, 특허 및 노하우 확보 및 보호 전략, 지식재산권 구매, 양도, 평가 등 지식재산권에 관련된 자문 업무도 다양하게 수행하고 있습니다. 
+														</span>
+													</div>
+													<div class="co_searchResults_summary">
+														<span>현직 : 변호사  / 김앤장 법률사무소</span> / 특허 / 상표 / 엔터테인먼트
+													</div>
+												</div>
+											</li>
+											<li>
+												<span class="list_num">2</span>
+												<div class="img pic60"><img src="/lbimg/peopdata/jangducksoon20180626.jpg" alt="사진"></div>
+												<div class="co_searchContent mPeople">
+													<h3> <a href="/Info/ContentView?sid=P00059C8181350E4" class="popup_view">장덕순 張悳淳</a></h3>
+													<div>
+														<span>
+															장덕순 변호사는 김·장 법률사무소의 지식재산권 그룹과 미국 그룹 소속으로, 지식재산권 소송, 국제중재·소송,  그리고 공정거래, 기업인수 · 합병 등과 관련한 다양한 분쟁을 주로 다루고 있습니다. 또한, 지식재산 관련 거래, 라이선스 계약 협상 등에도 많은 경험을 가지고 있습니다.
+														</span>
+													</div>
+													<div class="co_searchResults_summary">
+														<span>현직 : 변호사  / 김앤장 법률사무소</span> / 지적재산권법 / 특허 / 상표 / 엔터테인먼트
+													</div>
+												</div>
+											</li>
+
+											<li>
+												<span class="list_num">3</span>
+												<div class="img pic60"><img src="/lbimg/peopdata/hansangwook20180912.jpg" alt="사진"></div>
+												<div class="co_searchContent mPeople">
+													<h3> <a href="/Info/ContentView?sid=P000FFAFABA0C314" class="popup_view">한상욱 韓相郁</a></h3>
+													<div>
+														<span>
+															한상욱 변호사는 김·장 법률사무소의 지식재산권 그룹과 일본 그룹 소속으로, 지식재산권 소송, 영업비밀 소송, 그리고 부정경쟁방지법, 저작권법 등과 관련한 다양한 분쟁을 주로 다루고 있습니다. 또한, 지식재산 관련 거래, 라이선스 계약 협상 등에도 많은 경험을 가지고 있습니다.
+														</span>
+													</div>
+													<div class="co_searchResults_summary">
+														<span>현직 : 변호사  / 김앤장 법률사무소</span> / 특허
+													</div>
+												</div>
+											</li>
+
+											<li>
+												<span class="list_num">4</span>
+												<div class="img pic60"><img src="/lbimg/peopdata/wonyuseok20180830.jpg" alt="사진"></div>
+												<div class="co_searchContent mPeople">
+													<h3> <a href="/Info/ContentView?sid=P000AEA4E1242DE9" class="popup_view">원유석 元裕錫</a></h3>
+													<div>
+														<span>
+															김·장 법률사무소의 원유석 변호사는 소송, 지적재산권, 영업비밀, 제조물 책임, 도산기업회생, 기업형사 등의 분야에서 법률자문을 제공하고 있으며, 특히 민사, 형사, 행정, 특허사건의 소송을 주로 수행하고 있습니다.
+														</span>
+													</div>
+													<div class="co_searchResults_summary">
+														<span>현직 : 변호사  / 김앤장 법률사무소</span> 
+													</div>
+												</div>
+											</li>
+
+											<li>
+												<span class="list_num">5</span>
+												<div class="img pic60"><img src="/lbimg/peopdata/parkdeongsoo20180910.jpg" alt="사진"></div>
+												<div class="co_searchContent mPeople">
+													<h3> <a href="/Info/ContentView?sid=P0004A71D2BCBB64" class="popup_view">박성수 朴晟秀</a></h3>
+													<div>
+														<span>
+															김·장 법률사무소의 박성수 변호사는 지식재산권 소송, 국제중재·소송 그리고 프라이버시 · 정보보호, 영업비밀 · 기업정보보호 등의 업무를 수행하고 있습니다.
+														</span>
+													</div>
+													<div class="co_searchResults_summary">
+														<span>현직 : 변호사  / 김앤장 법률사무소</span>
+													</div>
+												</div>
+											</li>
+
+											<li>
+												<span class="list_num">6</span>
+												<div class="img pic60"><img src="/lbimg/peopdata/youngsun_you20170308.jpg" alt="사진"></div>
+												<div class="co_searchContent mPeople">
+													<h3> <a href="/Info/ContentView?sid=P0001159C7762F5B" class="popup_view">유영선 柳英善</a></h3>
+													<div>
+														<span>
+															김·장 법률사무소의 유영선 변호사는 민·형사 일반 소송 업무와 지식재산권, 영업비밀·기업정보 보호, 제조물책임(PL) 관련 소송 및 자문 업무를 수행하고 있습니다. 
+														</span>
+													</div>
+													<div class="co_searchResults_summary">
+														<span>현직 : 변호사  / 김앤장 법률사무소</span>
+													</div>
+												</div>
+											</li>
+										</ol>
+									</div>
+								</div>
+
+								<div id="view_content">
+									<div class="onju_front_page p_page1" style="position:relative;">
+										<p style="position:relative; height: 400px;  border: 1px solid rgb(221, 221, 221); color: rgb(0, 93, 162); text-align: left; padding:17px 0 0 60px; font-size: 40px; background: url(../Images/lawnbnext/bg_practical_test.jpg) no-repeat rgb(255, 255, 255) !important;">
+
+											사례를 통한 지식재산권 이해하기
+											<span style="position: absolute; left: 0; bottom: 0px; display: block; font-size: 14px; color: #fff; font-weight: initial; padding: 28px; background: rgba(0, 0, 0, 0.5);">
+												KIM&CHANG 지식재산권 그룹은 Chambers & Partners, Managing Intellectual Property, The Legal 500 등 세계적으로 권위 있는 법률미디어의 평가에서 한국의 지식재산권 분야 리더로서의 지위와 명성을 지속적으로 인정받고 있으며, 고객의 목표를 실현하는데 필요한 최적의 법률서비스를 원스톱으로 제공할 수 있는 고도의 역량과 경험을 갖추고 있습니다
+											</span>
+										</p>
+
+
+										<div>
+											<ul>
+												<li><span>집필 : </span>김앤장 법률사무소</li>
+												<li class="front_writers">
+													<span>집필위원</span>
+													<a href="https://www.lawnb.com/Info/ContentView?sid=P00088AF0F3DB8D0" class="popup_view">양영준 </a>변호사,
+													<a href="https://www.lawnb.com/Info/ContentView?sid=P00059C8181350E4" class="popup_view">장덕순 </a>변호사,
+													<a href="https://www.lawnb.com/Info/ContentView?sid=P000FFAFABA0C314" class="popup_view">한상욱 </a>변호사,
+													<a href="https://www.lawnb.com/Info/ContentView?sid=P000AEA4E1242DE9" class="popup_view">원유석 </a>변호사,
+													<a href="https://www.lawnb.com/Info/ContentView?sid=P0004A71D2BCBB64" class="popup_view">박성수 </a>변호사
+												</li>
+												<li><span>분야</span>지식재산권​</li>
+											</ul>
+										</div>
+										<div class="mgt10 ar"><img src="http://www.lawnb.com/images/tr_mail_logo_tr.png" style="width:320px;"></div>
+									</div>
+
+									<div id="commentCont" class="onju_preview_onju p_page2">
+
+										<div class="viewmode">
+											<a name="1"></a>
+											<div class="edit_box">
+												<div class="grayname">
+												</div>
+												<div id="title_1" name="title_1" class="title_1">
+													제1부 지식재산권법의 지위
+												</div>
+											</div>
+											<a name="2"></a>
+
+											<div class="edit_box">
+												<div class="grayname">
+												</div>
+												<div id="title_2" name="title_2" class="title_2">제1장 지식재산권법의 발달과 학습의 필요성</div>
+											</div>
+
+											<a name="3"></a>
+											<div class="edit_box">
+												<div class="grayname"></div>
+												<div id="doc_content" name="doc_content" class="doc_content">
+													지식재산권법이란 사람의 정신적 창작물에 관한 권리의 발생 ·변경 · 소멸의 모든 사항을 규정한 일련의 법규를 총칭하는 말이다. 따라서 지식재산권법이라는 고유명사의 단행법이 있는 것도 아니고, 지식재산권에 관한 법률을 한꺼번에 지칭하는 말로써 정확하게는 "지식재산에 관한 일체의 법률"이라고 하는 것이 보다 정확한 표현이다. 우리가 일반적으로 지식재산권법에 속한다고 보는 것으로는 특허법 · 실용신안법 · 디자인법 · 상표법 · 저작권법 · 컴퓨터프로그램법 · 반도체집적회로의 배치설계에 관한 법률 등이 있다. <br /><br />
+													이들 지재권법은 각 지식재산권에 따라 역사적 배경과 변천사항이 같지 아니하다. 대체적으로 문명 선진국일수록 이들 지식재산에 관한 법률이 일찍부터 발전되어 왔다. 그리고 인류문명의 금속한 발전으로 교통 · 통신수단이 빠르게 발달됨에 따라 상품교역이 전 세계에 걸쳐 빈번하게 이루어지면서, 세계가 지구촌이라는 하나의 시장으로 통합되어 가고 있다. 따라서 국제 무역에서의 보호주의 정책은 그 의미가 퇴색될 수밖에 없고, 모든 상거래를 포함한 대부분의 생활여역에서 개방화 · 국제화 · 자유화가 급속히 추진되는 실정이다. 그럼에도 각국의 보호주의적 색채가 오히려 강화되고 있는데 그것이 바로 지식재산권 영역이다.<br /><br />
+													이러한 추세가 유지될 경우 유형의 물질적 상품거래에 의한 부의 축적보다는 무형의 지식재산에 의한 세계시장 확보가 국가부강의 주된 요건이 될 것임에 틀림없다. 따라서 이제까지 형식적으로만 존재하였던 지식재산권에 관한 법률 등에 관한 관심과 연구 및 교육은 더욱 심도 있게 이루어져야 하고, 우리의 지식재산의 육성 · 보호와 외국의 지식재산권의 침해예방 등에 관한 관심이 높아져야만 한다.그러므로 앞으로 경제적 가치의 창출에 관심이 있는 사람이라면 전문 분야에 관계없이 누구나 지식재산권법에 관한 지식을 습득해야 한다는 사실을 강조하지 않을 수 없다.
+												</div>
+											</div>
+										</div>
+
+									</div>
+
+									<div class="onju_preview_onju p_page3">
+										<div class="viewmode">
+											<a name="1"></a>
+											<div class="edit_box">
+												<div class="grayname">
+												</div>
+												<div id="title_1" name="title_1" class="title_1">
+													제3부 사례를 통한 이해
+												</div>
+											</div>
+											<a name="2"></a>
+											<div class="edit_box">
+												<div class="grayname">
+												</div>
+												<div id="title_2" name="title_2" class="title_2"> 4. 프로드러그가 물질특허의 권리범위에 속하는지를 다룬 최초의 사례​</div>
+											</div>
+											<a name="3"></a>
+											<div class="edit_box">
+												<div class="grayname"></div>
+												<div id="doc_content" name="doc_content" class="doc_content">
+													최근 특허법원은 유효성분(다파글리플로진, AstraZeneca의 제2형 당뇨병 치료제로서 블록버스터 제품인 포시가정의 유효성분)의 프로드러그 에스테르를 사용한 제네릭 의약품이 다파글리플로진 물질특허의 권리범위에 속한다고 판결하였습니다. 특히 이번 판결은 물질특허 출원에 대한 심사 과정 중 특허청으로부터 ‘프로드러그 에스테르’라는 용어가 불명확하다는 거절이유를 받고 그 용어를 삭제한 사정이 있었음에도 위와 같이 판단하였다는 점에서 더욱 주목됩니다. <br /><br />
+													본 사건은 ‘염 변경’을 통해 물질특허를 회피하려던 제네릭사들의 전략이 실패한 이후 프로드러그를 통해 물질특허의 회피를 시도한 새로운 사례로서, ‘프로드러그’가 유효성분 물질특허의 권리범위에 속하는지가 쟁점이 된 국내 최초의 사례입니다.<br /><br />
+													프로드러그’란 ‘의약품의 유효성분을 이루는 활성모핵에 잔기(moiety)가 부가된 화합물로서, 투여 후 체내에서 원래의 유효성분으로 분해되어 그 유효성분에 의해 약리활성을 나타내는 화합물’을 가리키며, 일반적으로 유효성분이 그 자체로는 생체이용률 등에 문제가 있어 제품화하기 어려운 경우, 이러한 문제점을 개선하기 위한 목적으로 개발됩니다. 동아ST는 특허심판원에 (1) 동아ST의 프로드러그는 다파글리플로진과 화학 구조식에 차이가 있고 (2) ‘프로드러그 에스테르’는 다파글리플로진 물질특허의 출원 과정 중 권리범위로부터 의식적으로 제외되었다는 이유로 다파글리플로진 물질특허에 대한 소극적 권리범위 확인심판을 제기하였고, 특허심판원은 동아ST의 손을 들어주었습니다.<br /><br />
+													그러나 특허법원은 특허심판원의 심결을 뒤집고, 동아ST의 프로드러그 에스테르는 다파글리플로진 물질특허의 균등범위에 속한다는 판결을 내렸습니다. 즉, 동아ST의 프로드러그는 문언상 다파글리플로진 물질특허의 권리범위에 속하지 않는다고 하더라도, 특허발명과 동일한 과제해결원리를 사용하여 실질적으로 동일한 작용효과를 나타내고, 통상의 기술자가 다파글리플로진을 동아ST의 프로드러그로 변경하는 것이 용이하며, 동아ST의 프로드러그가 공지기술로부터 용이하게 발명할 수 있는 것도 아니고 또한 특허출원 절차에서 청구범위로부터 의식적으로 제외된 것도 아니라는 이유로 균등범위에 속한다고 판단하였습니다.
+												</div>
+											</div>
+
+										</div>
+
+									</div>
+
+									<div class="onju_preview_onju p_page4">
+										<div class="viewmode">
+											<a name="1"></a>
+											<div class="edit_box">
+												<div class="grayname">
+												</div>
+												<div id="title_1" name="title_1" class="title_1">
+													제4부 Q&A
+												</div>
+											</div>
+											<a name="2"></a>
+											<div class="edit_box">
+												<div class="grayname">
+												</div>
+												<div id="title_2" name="title_2" class="title_2">
+													1. 프로야구 응원가의  저작권 침해여부
+												</div>
+											</div>
+											<a name="3"></a>
+											<div class="edit_box">
+												<div class="grayname"></div>
+												<div id="doc_content" name="doc_content" class="doc_content">
+													<div><strong>Q.</strong> <strong>야구 응원가의 경우 유명 대중가요를 변형하여 사용하는데  사소한 변형을 넘어 기존 악곡을 실질적으로 바꾼 편곡에 해당한다고 할 수 있나요?</strong> </div>
+
+
+
+													<hr style="margin-top: 20px; border-top: 1px solid #ccc; display:block;" />
+													<div class="title_3">
+														전문가 답변
+													</div>
+													<!-- 변호사 정보 -->
+													<div id="direct_area">
+														<div class="direct_area_inner">
+															<input type="hidden" id="lbTid" name="lbTid" value="P000FFAFABA0C314">
+															<div class="direct_main lawyer">
+																<div class="main_area">
+																	<div class="img"><img src="/lbimg/peopdata/hansangwook20180912.jpg" alt="사진"></div>
+																	<h3>
+																		<a href="../Info/ContentView?sid=P000FFAFABA0C314" class="popup_view">한상욱 韓相郁</a><br>
+																		<span>
+																			한상욱 변호사는 김·장 법률사무소의 지식재산권 그룹과 미국 그룹 소속으로, 지식재산권 소송, 국제중재·소송,  그리고 공정거래, 기업인수 · 합병 등과 관련한 다양한 분쟁을 주로 다루고 있습니다. 또한, 지식재산 관련 거래, 라이선스 계약 협상 등에도 많은 경험을 가지고 있습니다.
+																		</span>
+																	</h3>
+																</div>
+															</div>
+														</div>
+													</div>
+
+													<div>
+														<p><strong>A.</strong> 프로야구 구단들이 대중가요를 일부 이용하여 야구경기 중 응원가로 사용한 행위가 대중가요의 작곡가, 작사가들에 대한 동일성유지권, 2차적저작물작성권을 침해하지 않는다는 서울고등법원 판결이 선고되었다(서울고등법원 2021. 10. 21. 선고 2019나2016985 판결). 종래 판결 중엔 음악저작물에 대한 동일성유지권 침해 판단에 있어, 원 저작물의 사소한 개변이 가해지더라도 곧바로 동일성유지권 침해, 2차적저작물작성권 침해에 해당한다고 판단하는 사례들이 있었으나, 이번 판결은 저작물의 성질이나 그 이용의 목적 및 형태 등에 비추어 부득이하다고 인정되는 경우에는 동일성유지권 침해, 2차적저작물작성권 침해가 모두 성립하지 않을 수 있다는 점을 확인한 것에 의의가 있다. <br /><br /></p>
+														<div class="title_3">
+															사건의 배경
+														</div>
+														<p>
+															이 사건 피고를 비롯한 프로야구 구단들은 20여년 전부터 대중들에게 잘 알려진 대중가요의 악곡 부분을 몇 개 소절의 박자를 간소화하거나 템포를 빠르게 하는 등 일부를 변형하고, 가사 부분은 구단, 선수에 맞도록 새롭게 창작하는 방식으로 사용하여 왔다. 각 프로야구 구단들을 대표하여 KBOP는 2001년경부터 한국음악저작권협회 등 음악저작물 신탁관리협회들과 음악저작물을 프로야구 경기장에서 사용하는 대가로 입장료 수입의 일정 비율을 사용료로 지급하는 계약을 체결하고 갱신하여 왔다. <br /><br />
+															원고들은 프로야구 구단이 응원가로 사용한 대중가요의 작곡가 또는 작사가들로, 프로야구 구단들이 신탁관리협회들로부터 사용 허락을 받은 것은 원 저작물을 그대로 프로야구 경기장에서 사용하는 것인데 무단으로 악곡, 가사를 일부 변경, 편곡 또는 개사하는 행위는 동일성유지권, 2차적저작물작성권을 침해하는 행위이고, 원고들의 성명을 표시하지 않은 행위는 성명표시권을 침해한다고 주장하였다.
+														</p>
+													</div>
+												</div>
+											</div>
+
+										</div>
+
+									</div>
+
+
+									<div class="onju_preview_onju p_page5">
+										<div class="viewmode">
+											<a name="1"></a>
+											<div class="edit_box">
+												<div class="grayname">
+												</div>
+												<div id="title_1" name="title_1" class="title_1">
+													제4부 Q&A
+												</div>
+											</div>
+											<a name="2"></a>
+											<div class="edit_box">
+												<div class="grayname">
+												</div>
+												<div id="title_2" name="title_2" class="title_2">
+													2. 특허권 포기 시 원부에 미등록된 실시권자의 동의 필요 여부
+												</div>
+											</div>
+											<a name="3"></a>
+											<div class="edit_box">
+												<div class="grayname"></div>
+												<div id="doc_content" name="doc_content" class="doc_content">
+													<div>
+														<strong>Q.</strong> 
+														<strong>
+														특허권 등의 포기에 등록원부에 등로되어 있지 않은 실시권자의 동의가 필요한가요?
+														</strong>
+													</div>
+													<hr style="margin-top: 20px; border-top: 1px solid #ccc; display:block;" />
+													<div class="title_3">
+														변호사 답변
+													</div>
+													<!-- 변호사 정보 -->
+													<div id="direct_area">
+														<div class="direct_area_inner">
+															<input type="hidden" id="lbTid" name="lbTid" value="P000FFAFABA0C314">
+															<div class="direct_main lawyer">
+																<div class="main_area">
+																	<div class="img"><img src="/lbimg/peopdata/jangducksoon20180626.jpg" alt="사진"></div>
+																	<h3>
+																		<a href="/Info/ContentView?sid=P00059C8181350E4" class="popup_view">장덕순 張悳淳</a><br>
+																		<span>
+																			장덕순 변호사는 김·장 법률사무소의 지식재산권 그룹과 미국 그룹 소속으로, 지식재산권 소송, 국제중재·소송,  그리고 공정거래, 기업인수 · 합병 등과 관련한 다양한 분쟁을 주로 다루고 있습니다. 또한, 지식재산 관련 거래, 라이선스 계약 협상 등에도 많은 경험을 가지고 있습니다.
+																		</span>
+																	</h3>
+																</div>
+															</div>
+														</div>
+													</div>
+
+													<div>
+														<div class="title_5">
+															A. 처리지침
+														</div>
+														<p>
+															- 특허권 등을 포기하기 위해서는 특허권자는 전용실시권자, 질권자, 통상실시권자의 동의를 얻어야 하고(특허법 제119조), 등록에 이해관계가 있는 제3자가 있을 때에는 그 승낙서 또는 그에 대항할 수 있는 재판의 등본을 첨부(특허권 등의 등록령 제48조) 해야 한다. <br /><br />
+
+															- 말소에 대하여 등록에 이해관계가 있는 제3자라 함은 등록원부 기록의 형식상 손해를 받을 염려가 있는 후순위 권리권자를 의미하는 것이지 실질적인 손해발생의 염려 유무는 불문하는데, 이는 방식심사관은 형식적 심사권만 있을 뿐 실질적 심사권은 없어서 실체법상의 권리 유무를 조사하는 것이 불가능하므로 원부의 기록 형식만으로 판단할 수 밖에 없기 때문이다.<br /><br />
+
+															- 대법원 판결에서도 이해관계가 있는제3자란 손해를 입을 우려가 있다는 것이 기존의 등기부 기재에 의하여 형식적으로 인정되는 사람이라고 보고 있다.<br /><br />
+
+															- 또한 통상실시권은 전용시시권과 달리 등록이 없더라도 특허권자 등과 계약에 의해 효력은 발생하나 제3자에게 대항할 수 없으므로(특허법 제118조) 등록원부에기재되어 있지 않은 통상실시권자의 동의서는 특허권 포기의 요건이 아니다.<br /><br />
+														</p>
+													</div>
+												</div>
+											</div>
+
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</article>
+
+
+					<aside class="right_container">
+
+						<section>
+							<div style="margin: 10px; cursor: pointer;" ">
+								<p style="border: 1px solid #eee; background-color: #fff; text-align: center; box-sizing: border-box; margin: 0; padding: 20px 0;">
+									<a href="https://www.lawnb.com/Info/ContentMain/LawFirm" class="popup_view">
+										<img src="https://pre.lawnb.com/images/lawnbnext/temp_kimjang.jpg" alt="">
+									</a>
+								</p>
+								<div style="display: inline-block; width: 100%; font-weight: bold; height: 32px; overflow: hidden; line-height: 16px; padding: 8px 0; text-align: center; color: #fff; background-color: #a5a5a5; font-size: 14px; letter-spacing: -1px;">
+									<a href="https://www.lawnb.com/Info/ContentMain/LawFirm" style="color:#fff !important;" class="popup_view">
+										김앤장 법률사무소
+									</a>
+								</div>
+							</div>
+							<div class="btn_group ">
+								<a class="onlyone onju"><span>발간사</span></a>
+							</div>
+							<div class="btn_group ">
+								<a class="onlyone"  style="background: #005da2;" onclick="window.open('popup_ask_KJ.html', 'askPopup','width=700, height=600'); return false"><span style="color:#fff;">Ask a Questions</span></a>
+							</div>
+							<div class="btn_group ">
+								<a class="onlyone onju" onclick="ourTeam()" style="background: #005da2;"><span  style="color:#fff;">Our Team</span></a>
+							</div>
+
+						</section>
+						<section>
+							<h4>출판일</h4>
+							<ul>
+								<li>
+									2022.8.10.
+								</li>
+							</ul>
+						</section>
+
+						<div class="p_page1">
+							<div id="addInfoDiv">
+								<section>
+									<h4>
+										집필위원 <em>총 5건</em>
+										<div class="btn-group fr">
+											<button type="button" class="btn btn-default" onclick="view.addInfoList('C000')">전체보기</button>
+										</div>
+									</h4>
+									<dl class="lawyer_area">
+										<dt><div class="img"><img src="https://www.lawnb.com/lbimg/peopdata/yangyoungjun20180912.jpg"></div></dt>
+										<dd>
+											<a href="https://www.lawnb.com/Info/ContentView?sid=P00088AF0F3DB8D0" class="popup_view">양영준 梁英俊</a><br>변호사<br />
+											<span class="text_ex">소속</span>
+											법무법인 김앤장
+										</dd>
+
+										<dt><div class="img"><img src="https://www.lawnb.com/lbimg/peopdata/jangducksoon20180626.jpg"></div></dt>
+										<dd>
+											<a href="https://www.lawnb.com/Info/ContentView?sid=P00059C8181350E4" class="popup_view">장덕순 張悳淳</a><br>변호사<br />
+											<span class="text_ex">소속</span>
+											법무법인 김앤장
+										</dd>
+
+										<dt><div class="img"><img src="https://www.lawnb.com/lbimg/peopdata/hansangwook20180912.jpg"></div></dt>
+										<dd>
+											<a href="https://www.lawnb.com/Info/ContentView?sid=P000FFAFABA0C314" class="popup_view">한상욱 韓相郁</a><br>변호사<br />
+											<span class="text_ex">소속</span>
+											법무법인 김앤장
+										</dd>
+
+										<dt><div class="img"><img src="https://www.lawnb.com/lbimg/peopdata/wonyuseok20180830.jpg"></div></dt>
+										<dd>
+											<a href="https://www.lawnb.com/Info/ContentView?sid=P000AEA4E1242DE9" class="popup_view">원유석 元裕錫</a><br>변호사<br />
+											<span class="text_ex">소속</span>
+											법무법인 김앤장
+										</dd>
+
+										<dt><div class="img"><img src="https://www.lawnb.com/lbimg/peopdata/parkdeongsoo20180910.jpg"></div></dt>
+										<dd>
+											<a href="https://www.lawnb.com/Info/ContentView?sid=P0004A71D2BCBB64" class="popup_view">박성수 朴晟秀</a><br>변호사<br />
+											<span class="text_ex">소속</span>
+											법무법인 김앤장
+										</dd>
+
+										<dt><div class="img"><img src="https://www.lawnb.com/lbimg/peopdata/youngsun_you20170308.jpg"></div></dt>
+										<dd>
+											<a href="https://www.lawnb.com/Info/ContentView?sid=P0001159C7762F5B" class="popup_view">유영선 柳英善</a><br>변호사<br />
+											<span class="text_ex">소속</span>
+											법무법인 김앤장
+										</dd>
+									</dl>
+								</section>
+								<section>
+									<h4>
+										관련법령 <em>총 1건</em>
+										<div class="btn-group fr"></div>
+									</h4>
+									<ul>
+										<li><a href="https://www.lawnb.com/Info/ContentView?sid=L000FADBCC5557B0">지식재산기본법</a></li>
+									</ul>
+								</section>
+								<section>
+									<h4>
+										관련소식
+										<div class="btn-group fr"></div>
+									</h4>
+									<ul>
+										<li><a>11명의 Global Leader 선정 - WWL: IP 2022 _ 2022.07.08</a></li>
+										<li><a>LG화학의 솔루블 OLED 소재 관련 특허무효심판 1심 승소 _ 2022.07.06</a></li>
+									</ul>
+								</section>
+							</div>
+						</div>
+
+
+						<div class="p_page2">
+							<section>
+								<h4>관련 온주</h4>
+								<ul>
+									<li>
+										<a href="https://www.lawnb.com/Info/ContentView?sid=J001001455_105258_0" class="popup_view">특허법</a>
+									</li>
+									<li>
+										<a>상표법</a>
+									</li>
+									<li>
+										<a>디자인보호법</a>
+									</li>
+								</ul>
+							</section>
+							<section>
+								<h4>
+									관련 판례​ <em>총 3건</em>
+								</h4>
+								<ul>
+									<li><a href="https://www.lawnb.com/Info/ContentView?sid=C000DFF20C1A53FD" class="popup_view">대법원 2015. 5. 21 선고 2014후768 전원합의체 판결 [권리범위확인(특)] [공2015하, 909]</a></li>
+									<li><a href="https://www.lawnb.com/Info/ContentView?sid=C000D5D029237954" class="popup_view">대법원 2019. 1. 31 선고 2017다289903 판결 [손해배상(지)] [공2019상,622]</a></li>
+									<li><a>대법원 2012. 8. 30 선고 2010다70520, 70537 판결 【손해배상(지)ㆍ손해배상(지) 】</a></li>
+									<li><a>대법원 2012. 8. 23 선고 2010후3424 판결 【등록무효(특)】 [공2012하, 1629]</a></li>
+								</ul>
+							</section>
+							<section>
+								<h4>
+									관련소식
+									<div class="btn-group fr"></div>
+								</h4>
+								<ul>
+									<li><a>11명의 Global Leader 선정 - WWL: IP 2022 _ 2022.07.08</a></li>
+									<li><a>LG화학의 솔루블 OLED 소재 관련 특허무효심판 1심 승소 _ 2022.07.06</a></li>
+								</ul>
+							</section>
+							<section>
+								<h4>
+									관련 레터​ <em>총 1건</em>
+								</h4>
+								<ul>
+									<li><a>기업지배구조보고서 가이드라인 개정의 내용 및 시사점​</a></li>
+								</ul>
+							</section>
+							<section>
+								<h4>
+									연구동향 <em>총 1건</em>
+								</h4>
+								<ul>
+									<li><a>A closer look at investment due diligence in South Korea and the K-Taxonomy​</a></li>
+								</ul>
+							</section>
+
+						</div>
+
+						<div class="p_page3">
+
+							<section>
+								<h4>관련 온주</h4>
+								<ul>
+									<li>
+										<a href="https://www.lawnb.com/Info/ContentView?sid=J001001455_105384_0" class="popup_view">
+											[온주] 특허법 / 제95조 [허가등에 따른 존속기간이 연장된 경우의 특허권의 효력]
+										</a>
+									</li>
+								</ul>
+							</section>
+							<section>
+								<h4>
+									관련 판례​ <em>총 4건</em>
+								</h4>
+								<ul>
+									<li><a href="https://www.lawnb.com/Info/ContentView?sid=C000DD53CEF6B6F3​" class="popup_view">특허법원 2022. 2. 17 선고 2020허5832 판결 [권리범위확인(특)]</a></li>
+									<li><a href="https://www.lawnb.com/Info/ContentView?sid=C000534D418861FF" class="popup_view">특허법원 2019. 12. 20 선고 2017허3607 판결 【권리범위확인(특)】</a></li>
+									<li><a href="https://www.lawnb.com/Info/ContentView?sid=C000C10483CFE303" class="popup_view">특허법원 2017. 5. 26 선고 2016허4818 판결 【권리범위확인(특)】</a></li>
+									<li><a href="https://www.lawnb.com/Info/ContentView?sid=C00053864EFD5850" class="popup_view">특허법원 2017. 2. 7 선고 2016허3372 판결 【권리범위확인(특)】</a></li>
+								</ul>
+							</section>
+
+							<section>
+								<h4>관련 법조인 ​</h4>
+								<dl class="lawyer_area">
+									<dt><div class="img"><img src="https://www.lawnb.com/lbimg/peopdata/gilyoungmin20180528.jpg"></div></dt>
+									<dd>
+										<a href="https://www.lawnb.com/Info/ContentView?sid=P00088AF0F3DB8D0" class="popup_view">양영준 梁英俊</a><br>변호사<br />
+										<span class="text_ex">소속</span>
+										법무법인 김앤장
+									</dd>
+									<dt><div class="img"><img src="https://www.lawnb.com/lbimg/peopdata/jangducksoon20180626.jpg"></div></dt>
+									<dd>
+										<a href="https://www.lawnb.com/Info/ContentView?sid=P00059C8181350E4" class="popup_view">장덕순 張悳淳</a><br>변호사<br />
+										<span class="text_ex">소속</span>
+										법무법인 김앤장
+									</dd>
+
+									<dt><div class="img"><img src="https://www.lawnb.com/lbimg/peopdata/hansangwook20180912.jpg"></div></dt>
+									<dd>
+										<a href="https://www.lawnb.com/Info/ContentView?sid=P000FFAFABA0C314" class="popup_view">한상욱 韓相郁</a><br>변호사<br />
+										<span class="text_ex">소속</span>
+										법무법인 김앤장
+									</dd>
+								</dl>
+							</section>
+
+							<section>
+								<h4>
+									관련 레터​ <em>총 1건</em>
+								</h4>
+								<ul>
+									<li><a>기업지배구조보고서 가이드라인 개정의 내용 및 시사점​</a></li>
+								</ul>
+							</section>
+
+							<section>
+								<h4>
+									연구동향 <em>총 1건</em>
+								</h4>
+								<ul>
+									<li><a>A closer look at investment due diligence in South Korea and the K-Taxonomy​</a></li>
+								</ul>
+							</section>
+						</div>
+
+						<div class="p_page4">
+							<section>
+								<h4>관련 온주</h4>
+								<ul>
+									<li>
+										<a href="https://www.lawnb.com/Info/ContentView?sid=J001001178_70712_0" class="popup_view">
+											[온주] 저작권법 / 제13조 [동일성유지권]
+										</a>
+									</li>
+								</ul>
+							</section>
+							<section>
+								<h4>
+									관련 판례​ <em>총 3건</em>
+								</h4>
+								<ul>
+									<li><a href="https://www.lawnb.com/Info/ContentView?sid=C000DD53CEF6B6F3​" class="popup_view">특허법원 2022. 2. 17 선고 2020허5832 판결 [권리범위확인(특)]</a></li>
+									<li><a href="https://www.lawnb.com/Info/ContentView?sid=C000534D418861FF" class="popup_view">특허법원 2019. 12. 20 선고 2017허3607 판결 【권리범위확인(특)】</a></li>
+									<li><a href="https://www.lawnb.com/Info/ContentView?sid=C000C10483CFE303" class="popup_view">특허법원 2017. 5. 26 선고 2016허4818 판결 【권리범위확인(특)】</a></li>
+								</ul>
+							</section>
+
+							<section>
+								<h4>Answers​</h4>
+								<dl>
+									<li><a href="https://www.lawnb.com/Info/ContentView?sid=C000DD53CEF6B6F3​" class="popup_view">특허권 포기 시 원부에 미등록된 실시권자의 동의 필요 여부</a></li>
+								</dl>
+							</section>
+
+							<section>
+								<h4>
+									관련문헌 <em>총 4건</em>
+								</h4>
+								<ul>
+									<li><a href="https://www.lawnb.com/Info/ContentView?sid=D0014B8204156BDA" class="popup_view">[학회논문] EU DSM 저작권지침에서의 온라인 콘텐츠 공유 서비스제공자의 책임​</a></li>
+									<li><a>[학회논문] EU DSM 저작권지침에서의 온라인 콘텐츠 공유 서비스제공자의 책임</a></li>
+									<li><a>[학회논문] 동일성유지권의 비판적 고찰</a></li>
+									<li><a>[학회논문] 저작권법상 패러디의 보호</a></li>
+								</ul>
+							</section>
+
+							<section>
+								<h4>
+									관련 뉴스 <em>총 3건</em>
+								</h4>
+								<ul>
+									<li><a href="https://www.lawnb.com/Info/ContentView?sid=N00026430DEBF6C7" class="popup_view">작곡가들, '삼성 응원가 소송' 2심 일부승소…실익은 크지 않아 연합뉴스 / 2021.10.22​</a></li>
+									<li><a href="https://www.lawnb.com/Info/ContentView?sid=N00000907D161E77" class="popup_view">[판결] '수인한도 넘지않아'… 프로야구장 응원 소음 등 피해 첫 소송서 주민 패소​</a></li>
+									<li><a href="https://www.lawnb.com/Info/ContentView?sid=N000C30FB93C6612" class="popup_view">프로야구 응원가 '저작권 침해'… 법정으로 가나 법률신문 / 2017.08.10​</a></li>
+								</ul>
+							</section>
+						</div>
+
+						<div class="p_page5">
+							<section>
+								<h4>관련 온주</h4> 
+								<ul>
+									<li>
+										<a href="https://www.lawnb.com/Info/ContentView?sid=J001001455_105413_0" class="popup_view">
+											[온주] 특허법 118조
+										</a>
+									</li>
+									<li>
+										<a href="https://www.lawnb.com/Info/ContentView?sid=J001001455_105414_0" class="popup_view">
+											[온주] 특허법 119조
+										</a>
+									</li>
+								</ul>
+							</section>
+							<section>
+								<h4>
+									관련 판례​ 
+								</h4>
+								<ul>
+									<li>
+										<a href="https://www.lawnb.com/Info/ContentView?sid=C000D21085594DB3​" class="popup_view">
+											대법원 1997.9.30 선고  95다39526 판결 【 가등기회복등기등】
+										</a>
+									</li>
+									<li><a>대법원 1987. 5. 26. 선고 85다카2203 판결(공1987, 1049)</a></li>
+								</ul>
+							</section>
+
+							<section>
+								<h4>관련 법조인 ​</h4>
+								<dl class="lawyer_area">
+									<dt><div class="img"><img src="https://www.lawnb.com/lbimg/peopdata/jangducksoon20180626.jpg"></div></dt>
+									<dd>
+										<a href="https://www.lawnb.com/Info/ContentView?sid=P00059C8181350E4" class="popup_view">장덕순 張悳淳</a><br>변호사<br />
+										<span class="text_ex">소속</span>
+										법무법인 김앤장
+									</dd>
+								</dl>
+							</section>
+
+
+
+							<section>
+								<h4>
+									관련 뉴스 
+								</h4>
+								<ul>
+									<li><a>부정경쟁방지법 제2조제1호(카)목의 판단기준을 제시한 대법원 결정 및 판결 법률신문 / 2020.07.03</a></li>
+								</ul>
+							</section>
+
+							<section>
+								<h4>
+									연구동향 
+								</h4>
+								<ul>
+									<li><a href="https://www.lawnb.com/Info/ContentView?sid=D0014B8204156BDA" class="popup_view">일본 변리사회 Patent지 제75권 제6호 - 한국 변리사의 일본 지적재산업계 취업도전 - 해외인재 채용의 장점과 어려움은 무엇인가?</a></li>
+								</ul>
+							</section>
+						</div>
+
+
+					</aside>
+				</div>
+			</div>
+		</div>
+		<div id="bg_screen" style="display:block;"><div class="loading_img" style="display:block;"><img src="https://www.lawnb.com/images/tr_img_loading_re.gif"></div></div>
+		<script type="text/javascript">
+			setHeight();
+		</script>
+	</div> 
+</body>
+</html>

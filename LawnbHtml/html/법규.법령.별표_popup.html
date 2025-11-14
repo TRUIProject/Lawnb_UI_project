@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />  
+<link rel="stylesheet" type="text/css" href="../css/_next_law.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" /> 
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="../js/commonjs.js?dddfs3"></script> 
+<script language="javascript">
+<!--
+ 
+		function resizeComment(){ 
+			setHeight();
+			$(".right_container").removeClass('slide_mov_right'); 
+		}
+
+ 
+        var expanded = false; 
+		function showCheckboxes() {
+		  var checkboxes = document.getElementById("checkboxes");
+		  if (!expanded) {
+			checkboxes.style.display = "block";
+			expanded = true;
+		  } else {
+			checkboxes.style.display = "none";
+			expanded = false;
+		  }
+		} 
+		$(function () {
+			$("section .btn-group .btn").click(function(){  
+				if($('#right_control').css("display") == "block"){
+					$(".right_container").removeClass('add_border');
+					$(".right_container").addClass('slide_mov_right'); 
+					$(".right_container").removeClass('slide_mov');  
+					$('#right_control').removeClass('_up'); 
+				}
+				$("#title_result_tab .btn_close").show();
+				$("#title_result_tab .btn_reapprea").hide();
+				$("#title_result_tab").show(); 
+				$("#result_area").show();
+				$("#pdf_view").hide();
+				$("#view_content").hide(); 
+				setTimeout(function(){  
+					$("#result_area").addClass('slide_mov_bottom');    
+				}, 200);
+			});  
+			
+			var i = 0; 
+			$('.relative_law .btn').click(function(){
+				var x_object = $(this).parent().find('.relative_law_view');  
+				
+				if(i=="0"){ 
+					$(x_object).show(); 
+					$(this).children('i').removeClass('icon_open').addClass('icon_close'); 
+					i=1;
+				}else{	  
+					$(x_object).hide(); 
+					$(this).children('i').addClass('icon_open').removeClass('icon_close'); 
+					 i=0;
+				}
+				setHeight();
+			 });
+
+		});
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_popupContainer">
+	<div id="wrap" >
+		<header> 
+			<div class="top_container  ">  
+				<a href="/maf/poc/app/homepage"><h1>로앤비</h1></a>
+				<div class="function_area">
+					<p class="hide">기타기능버튼들</p> 
+					<div>
+						<span><i class="icon-plus" data-icon="&#xea0a;"></i></span> 
+						<span><i class="icon-plus" data-icon="&#xea0b;"></i></span>
+						<br><span>글자크기</span>
+					</div>
+					<a href="#"> 
+						<span><i class="icon-printer" data-icon="&#xe954;"></i></span>
+						<span>인쇄</span>
+					</a>
+					<a href="#"> 
+						<span><i class="icon-download3" data-icon="&#xe9c7;"></i></span>
+						<span>파일저장</span>
+					</a>
+					<a href="#"> 
+						<span><i class="icon-mail2" data-icon="&#xe90c;"></i></span>
+						<span>메일</span>
+					</a>
+					<a href="#">
+						<span><i class="icon-share2" data-icon="&#xea82;"></i></span>
+						<span>공유</span>
+					</a>
+				</div>
+			</div>        	
+		</header> 
+		<div id="container" class="law"> 
+			<div class="container_hide">
+				<button  id="left_wide"><i class="icon_list" data-icon="&#xe900;"><span class="blind">목차 넓게보기</span></i></button>
+				<button  id="left_hide"><i class="icon_list" data-icon="&#xe901;"><span class="blind">목차 없애기</span></i></button> 
+			</div>
+			<div id="breadcrumb" class="navi_area"> 
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div class="title_area">  
+				<div class="lawhistory_area btn_option">연혁선택
+					<div class="selectBox" onclick="showCheckboxes()">
+						<select>
+						<option>입법연혁</option>
+						</select>
+						<div class="overSelect"></div>
+					</div>
+					<div id="checkboxes" class="hide_check" >
+						  <div class="no_start">법률 제14496호 일부개정 [미시행]</div>
+						  <div>법률 제14496호 일부개정 2016.12.27 [시행일 2017.1.1]</div>
+						  <div>법률 제14496호 일부개정 2016.12.27 [시행일 2017.1.1]</div>
+						  <div>법률 제14496호 일부개정 2016.12.27 [시행일 2017.1.1]</div>
+						  <div>법률 제14496호 일부개정 2016.12.27 [시행일 2017.1.1]</div>
+					  </div>
+				</div>
+				<h2>국제도로 면세통과 증서의 담보하에 행하는 화물</h2>
+				<div class="meta_area">법률 제14496호 일부개정 2016.12.27 [시행일 2017.1.1]</div>
+			</div>
+			<div id="container_inner"> 
+				<div class="left_container"> 
+					<div class="table_index tree">
+						<h3 class="hide">조문목차</h3>  
+						<ul id="law_tree_list" class="regulation"><!--?xml version="1.0" encoding="UTF-16"?-->
+							<li class="active_d1 open"><a href="#">제1장 총칙 [개정 2009.1.30]</a><ul><li class="comment" title=""><a href="javascript:Move_jo('J1')"><span>제1조</span> (목적)</a></li><li class="comment" title=""><a href="javascript:Move_jo('J2')"><span>제2조</span> (적용 대상)</a></li><li class="comment" title=""><a href="javascript:Move_jo('J3')"><span>제3조</span> (정의)</a></li><li class="comment" title=""><a href="javascript:Move_jo('J4')"><span>제4조</span> (대외거래의 원활화 촉진 등)</a></li><li class="comment" title=""><a href="javascript:Move_jo('J5')"><span>제5조</span> (환율)</a></li><li class="comment" title=""><a href="javascript:Move_jo('J6')"><span>제6조</span> (외국환거래의 정지 등)</a></li><li class="comment" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J6')"><span>제6조</span> (외국환거래의 정지 등)</a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li><li class="comment" title=""><a href="javascript:Move_jo('J7')"><span>제7조</span> (채권의 회수명령)</a></li><li class="comment last" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J7')"><span>제7조</span> </a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li></ul></li><li class="active_d1 open"><a href="#">제2장 외국환업무취급기관 등 [개정 2009.1.30]</a><ul><li class="comment" title=""><a href="javascript:Move_jo('J8')"><span>제8조</span> (외국환업무의 등록 등)</a>
+								<ul>
+									<li><a href="javascript:Move_jo('J8')"><span>제8조</span> (외국환업무의 등록 등)</a></li>
+								</ul>
+							</li>
+							<li class="comment" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J8')"><span>제8조</span> (외국환업무의 등록 등)</a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li><li class="comment" title=""><a href="javascript:Move_jo('J9')"><span>제9조</span> (외국환중개업무 등)</a></li><li class="comment" title=""><a href="javascript:Move_jo('J10')"><span>제10조</span> (업무상의 확인의무)</a></li><li class="comment" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J10')"><span>제10조</span> (업무상의 의무)</a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li><li class="comment" title=""><a href="javascript:Move_jo('J11')"><span>제11조</span> (업무의 감독과 건전성 규제 등)</a></li><li class="comment" title=""><a href="javascript:Move_jo('J11X2')"><span>제11조의2</span> (외환건전성부담금)</a></li><li class="comment" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J11X2')"><span>제11조의2</span> (외환건전성부담금)</a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li><li class="comment" title=""><a href="javascript:Move_jo('J11X3')"><span>제11조의3</span> (부담금의 징수 및 이의신청)</a></li><li class="comment" title=""><a href="javascript:Move_jo('J12')"><span>제12조</span> (인가의 취소 등)</a></li><li class="comment" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J12')"><span>제12조</span> (인가의 취소 등)</a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li><li class="comment last" title=""><a href="javascript:Move_jo('J12X2')"><span>제12조의2</span> (과징금)</a></li></ul></li><li class="active_d1 open"><a href="#">제3장 외국환평형기금 [개정 2009.1.30]</a><ul><li class="comment" title=""><a href="javascript:Move_jo('J13')"><span>제13조</span> (외국환평형기금)</a></li><li class="comment last" title=""><a href="javascript:Move_jo('J14')"><span>제14조</span> (외국환평형기금 채권의 원리금 상환)</a></li></ul></li><li class="active_d1 open"><a href="#">제4장 지급과 거래 [개정 2009.1.30]</a><ul><li class="comment" title=""><a href="javascript:Move_jo('J15')"><span>제15조</span> (지급절차 등)</a></li><li class="comment" title=""><a href="javascript:Move_jo('J16')"><span>제16조</span> (지급 또는 수령의 방법의 신고)</a></li><li class="comment" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J16')"><span>제16조</span> (지급 또는 수령의 방법의 신고)</a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li><li class="comment" title=""><a href="javascript:Move_jo('J17')"><span>제17조</span> (지급수단 등의 수출입 신고)</a></li><li class="comment" title=""><a href="javascript:Move_jo('J18')"><span>제18조</span> (자본거래의 신고 등)</a></li><li class="comment last" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J18')"><span>제18조</span> (자본거래의 신고 등)</a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li></ul></li><li class="active_d1 open"><a href="#">제5장 보칙 [개정 2009.1.30]</a><ul><li class="comment" title=""><a href="javascript:Move_jo('J19')"><span>제19조</span> (경고 및 거래정지 등)</a></li><li class="comment" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J19')"><span>제19조</span> (경고 및 거래정지 등)</a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li><li class="comment" title=""><a href="javascript:Move_jo('J20')"><span>제20조</span> (보고·검사)</a></li><li class="comment" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J20')"><span>제20조</span> (보고·검사)</a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li><li class="comment" title=""><a href="javascript:Move_jo('J21')"><span>제21조</span> (국세청장 등에게의 통보 등)</a></li><li class="comment" title=""><a href="javascript:Move_jo('J22')"><span>제22조</span> (외국환거래의 비밀보장)</a></li><li class="comment" title=""><a href="javascript:Move_jo('J23')"><span>제23조</span> (권한의 위임·위탁 등)</a></li><li class="comment" title=""><a href="javascript:Move_jo('J24')"><span>제24조</span> (전자문서에 의한 허가 등)</a></li><li class="comment" title=""><a href="javascript:Move_jo('J25')"><span>제25조</span> (사무처리 등)</a></li><li class="comment last" title=""><a href="javascript:Move_jo('J26')"><span>제26조</span> (다른 법률과의 관계)</a></li></ul></li><li class="active_d1 open"><a href="#">제6장 벌칙 [개정 2009.1.30]</a><ul><li class="comment" title=""><a href="javascript:Move_jo('J27')"><span>제27조</span> (벌칙)</a></li><li class="comment" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J27')"><span>제27조</span> (벌칙)</a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li><li class="comment" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J27X2')"><span>제27조의2</span> (벌칙)</a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li><li class="comment" title=""><a href="javascript:Move_jo('J28')"><span>제28조</span> (벌칙)</a></li><li class="comment" title=""><a href="javascript:Move_jo('J29')"><span>제29조</span> (벌칙)</a></li><li class="comment" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J29')"><span>제29조</span> (벌칙)</a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li><li class="comment" title=""><a href="javascript:Move_jo('J30')"><span>제30조</span> (몰수·추징)</a></li><li class="comment" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J30')"><span>제30조</span> (몰수·추징)</a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li><li class="comment" title=""><a href="javascript:Move_jo('J31')"><span>제31조</span> (양벌규정)</a></li><li class="comment" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J31')"><span>제31조</span> (양벌규정)</a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li><li class="comment" title=""><a href="javascript:Move_jo('J32')"><span>제32조</span> (과태료)</a></li><li class="comment last" title="[미시행 조문 : 2017. 07. 18 시행]"><a href="javascript:Move_jo('J32')"><span>제32조</span> (과태료)</a><span class="mi">[미시행 조문 : 2017. 07. 18 시행]</span></li></ul></li><li class="active_d0 last open"><a href="#">부칙</a><ul><li class="comment"><a href="javascript:Move_jo('b1')">부 칙[1998. 9.16  제5550호]</a></li><li class="comment"><a href="javascript:Move_jo('b2')">부 칙[2000.10.23  제6277호]</a></li><li class="comment"><a href="javascript:Move_jo('b3')">부 칙[2000.12.29  제6316호]</a></li><li class="comment"><a href="javascript:Move_jo('b4')">부 칙[2005.12.14 ]</a></li><li class="comment"><a href="javascript:Move_jo('b5')">부 칙[2006.10. 4  제8050호]</a></li><li class="comment"><a href="javascript:Move_jo('b6')">부 칙[2007. 1.26  제8266호]</a></li><li class="comment"><a href="javascript:Move_jo('b7')">부 칙[2007. 8. 3  제8635호]</a></li><li class="comment"><a href="javascript:Move_jo('b8')">부 칙[2008. 2.29  제8863호]</a></li><li class="comment"><a href="javascript:Move_jo('b9')">부 칙[2009.1.30 제9351호]</a></li><li class="comment"><a href="javascript:Move_jo('b10')">부 칙[2009.1.30  제9374호(외국인투자 촉진법)]</a></li><li class="comment"><a href="javascript:Move_jo('b11')">부 칙[2009.4.1 제9617호(신용정보의 이용 및 보호에 관한 법률)]</a></li><li class="comment"><a href="javascript:Move_jo('b12')">부 칙[2011.4.30 제10618호]</a></li><li class="comment"><a href="javascript:Move_jo('b13')">부 칙[2012.3.21 제11407호(금융위원회의 설치 등에 관한 법률)]</a></li><li class="comment"><a href="javascript:Move_jo('b14')">부 칙[2016.3.2 제14047호]</a></li><li class="comment last"><a href="javascript:Move_jo('b15')">부 칙[2017.1.17 제14525호]</a></li></ul></li></ul>
+					</div>
+				</div>
+				<article class="main_container">  
+					 <div class="main_container_view">
+						<div class="main_container_view_inner">
+							<!-- 관련정보 레이어 시작 -->
+							<div id="title_result_tab" class="result_tab">관련정보 
+								<div class="btn_option_outer"><div class="btn_close">X</div></div>
+								<div class="btn_option_outer"><div class="btn_reapprea">검색결과 보기</div></div>
+							</div>
+							<div id="result_area" class="popup_mov_area">  
+								<!-- <div class="popup_title"><h3>판례속보 요약정보</h3></div>
+								<div>법원의 판례속보, 주요법원판결, 언론보도판결 등에 기재된 요약정보입니다. </div> -->
+
+
+								<div id="result_sep"><a href="1" class="_this">논문평석(21건)</a><a href="2">리포트(21건)</a><a href="3">주석서(21건)</a><a href="4">칼럼(21건)</a><a href="3">유사판례(21건)</a>
+								</div>
+								<div class="list_order_pr">
+									<div class="btn_option_outer"> 
+										<div class="select_area"> 
+											<p class="blind">보기 개수 선택</p>
+											<select id="" name=""  >
+												<option value="">10개</option>
+												<option value="" selected>20개</option>
+												<option value="">50개</option>
+											</select>
+										</div>
+										<div class="select_area"> 
+											<p class="blind">대상판례 선택</p>
+											<select id="" name=""  style="width:80px">
+												<option value="">전체 </option>
+												<option value="" selected>대상판례</option>
+												<option value="">본문내 관련판례</option>
+											</select>
+										</div>
+									</div>
+								</div> 
+								<ol class="list">
+									<li>
+										<span class="list_num">1</span>							 
+										<div class="co_searchContent">
+											<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[대상판례/본문내 관련판례][학회논문] 개별 행정법상 "이의신청제도"의 현황 검토</a><br><span>Legal Practice Study : Study on objection systems in several administrative laws</span><br><span class="list_meta">하경효(Kyung Hyo Ha), 하경효(Kyung Hyo Ha)/ 안암법학회/ 안암법학 <54>/ 2014/ 30Page </span></h3>  
+										</div>
+									</li>
+									<li>
+										<span class="list_num">1</span>							 
+										<div class="co_searchContent">
+											<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[대상판례/본문내 관련판례] [판례연구] 리스트 표시 개별 행정법상 "이의신청제도"의 현황 검토</a><br><span class="list_meta">하경효(Kyung Hyo Ha), 하경효(Kyung Hyo Ha)/ 형사판례 연구 21 / 2015.12.14 / 30Page </span></h3>  
+										</div>
+									</li>
+									<li>
+										<span class="list_num">1</span>							 
+										<div class="co_searchContent">
+											<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[대상판례/본문내 관련판례] [실무논문] 리스트 표시 개별 행정법상 "이의신청제도"의 현황 검토</a><br><span>Legal Practice Study : Study on objection systems in several administrative laws</span><br><span class="list_meta">하경효(Kyung Hyo Ha), 하경효(Kyung Hyo Ha)/ 법률신문 / 논문 / 2013.10.21 / txt </span></h3>  
+										</div>
+									</li>
+									<li>
+										<span class="list_num">1</span>							 
+										<div class="co_searchContent">
+											<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[학회논문] 개별 행정법상 "이의신청제도"의 현황 검토</a><br><span>Legal Practice Study : Study on objection systems in several administrative laws</span><br><span class="list_meta">하경효(Kyung Hyo Ha), 하경효(Kyung Hyo Ha)/ 안암법학회/ 안암법학 <54>/ 2014/ 30Page </span></h3>  
+										</div>
+									</li>
+									<li>
+										<span class="list_num">1</span>							 
+										<div class="co_searchContent">
+											<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[학회논문] 개별 행정법상 "이의신청제도"의 현황 검토</a><br><span>Legal Practice Study : Study on objection systems in several administrative laws</span><br><span class="list_meta">하경효(Kyung Hyo Ha), 하경효(Kyung Hyo Ha)/ 안암법학회/ 안암법학 <54>/ 2014/ 30Page </span></h3>  
+										</div>
+									</li>
+								</ol>
+								<div class="navigationLinks">				        									
+									<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=0" class="navFirst hiddenLink "><i class="icon-7" data-icon="&#xe911;"></i></a>
+									<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=-1" class="navPrevious hiddenLink "><i class="icon-2" data-icon="&#xe901;"></i></a>
+									<span class="currentPage">1</span>
+									<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navPages">2</a>
+									<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=2" class="navPages">3</a>
+									<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=3" class="navPages">4</a>
+									<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navNext"><i class="icon-1" data-icon="&#xe900;"></i></a>
+									<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=13" class="navLast "><i class="icon-8" data-icon="&#xe907;"></i></a>
+								</div> 
+							</div> <!-- 관련정보 레이어끝 -->
+							<div class="case_info"  id="view_content"> 
+							 
+							<div class="normal"  >별표서식 차로에 따른 통행차의 기준(제16조제1항 및 제39조제1항 관련)<br>
+								<div class="ar">
+									<div class="btn-group">
+									  <button type="button" class="btn btn-square">PDF로 보기</button> 
+									  <button type="button" class="btn btn-square">TXT로보기</button>  
+									</div>
+									<div class="btn-group"> 
+									  <button type="button" class="btn btn-square">PDF 다운로드</button> 
+									  <button type="button" class="btn btn-square">HWP 다운로드</button>  
+									</div>
+								</div>
+							</div>
+								 <embed  name="plugin" id="pdf_view_lawdoc" src="hoisa_5_1_75_78.pdf"   type="application/pdf" wmode="transparent" wmode='Opaque'></embed>
+							</div> 
+						</div>
+					 </div>
+				</article> 
+				<aside class="right_container">
+					<section>
+						<div class="btn_group">
+							<a href="#"  ><span>3단비교</span></a><a href="#"  ><span>신구조문비교</span></a>
+						</div>
+						<div class="btn_group"> 
+							<a href="#" ><span>변경조문</span></a> <a href="#" ><span>별표서식</span></a> <a href="#" ><span>제&middot;개정이유</span></a> <a href="#" ><span>제&middot;개정문</span></a> <a href="#" ><span>전자관보</span></a> <a href="#" ><span>영문법령</span></a>
+						</div>
+					</section>
+					<section> 
+						<ul>
+							<li><a href="2" >[주석서] 개인정보보호법</a></li>  
+							<li><a href="4" >[E-Book] 개인정보법 해설</a></li>  
+							<li><a href="4" >[온주] 개인정보보호법</a></li>  
+						</ul>
+					</section>
+					<section>
+						<h4>담당부처 전화번호</h4>
+						<ul>
+							<li style="font-size:smaller">농림축산식품부(농촌정책과), 044-201-1518, 1519<br>농림축산식품부(농업기반과), 044-201-1857</li>   
+						</ul>  
+					</section> 
+					<section>
+						<h4>법령체계도 
+							<div class="btn-group fr"  >
+							  <button type="button" class="btn btn-default">전체보기</button> 
+							</div>
+						</h4>
+						<div class="table_index tree">
+							<ul class="regulation">
+								<li class="active_d1 open"><a href="#">상하위법</a>
+									<ul>
+										<li><a href="ss">개인정보보호법</a></li>
+										<li><a href="#">농어촌정비법시행령</a></li>
+										<li><a href="">농어촌정비겁시행규칙</a></li>
+									</ul>
+								</li>  
+								<li class="active_d1 "><a href="">행정규칙 (23건)</a></li>  
+								<li class="active_d1 open"><a href="">관계법령</a>
+									<ul>
+										<li><a href="">농어촌 특별법</a></li>
+										<li><a href="">농어촌도로정비법</a></li>
+									</ul>
+								</li>    
+							</ul> 
+						</div>
+					</section> 
+					<section>
+						<h4>입법동향
+							<div class="btn-group fr"  >
+							  <button type="button" class="btn btn-default">전체보기</button> 
+							</div>
+						</h4>
+						<ul>
+							<li><span class="label-icon gray ">계류</span> <a href="2" >[2005089] 가맹사업거래의 공정화에 관한 법률 일부개정법률안(정인화의원 등 11인)</a></li>  
+							<li><span class="label-icon gray">공포</span> <a href="4" >[2005089] 가맹사업거래의 공정화에 관한 법률 일부개정법률안(정인화의원 등 11인)</a></li>  
+						</ul>
+					</section> 
+				</aside>
+			</div>
+    	</div>  
+		<div id="bg_screen"></div> 
+	</div>
+		<script type="text/javascript">   
+			setHeight();
+		</script>
+</div> 
+</body>
+</html>

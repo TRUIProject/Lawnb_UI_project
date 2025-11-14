@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" />
+<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<link rel="stylesheet" type="text/css" href="../css/guide.css" />
+<script type="text/javascript" src="../js/jquery.js?2.00"></script><script type="text/javascript" src="../js/jquery-ui.min.js?2.00"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<style>
+	.color-box{display:inline-block;width:200px;vertical-align:top}
+	.color-box div{margin-top:10px}
+</style>
+<script language="javascript">
+<!--
+	$(document).ready(function () {
+		$(".icon_listnview").click(function(){ 
+			$(".main_container_view").addClass('slide_mov');
+			$("#container").addClass('list-view ');
+		}); 
+		$(".main_container_view").click(function(){ 
+			$(".main_container_view").removeClass('slide_mov');
+			$("#container").removeClass('list-view');
+		}); 
+
+		if($(".left_container").height() > $(".main_container").height()){
+			$(".main_container").height($(".left_container").height());
+		}
+
+		 $('.view_type_list').on('click', '#option_a', function () {
+            $("#option_a").attr('class', 'option_a_on');
+            $("#option_b").attr('class', 'option_b');
+            $(".list").addClass('type-a');
+           
+        });
+
+        $('.view_type_list').on('click', '#option_b', function () {
+            $("#option_a").attr('class', 'option_a');
+            $("#option_b").attr('class', 'option_b_on');
+            $(".list").removeClass('type-a');
+                      
+        });
+	}); 
+//-->
+</script>
+</head>
+
+<body>
+<div id="co_mainContainer">
+	<div id="wrap" >
+		<header> 
+			<div class="top_container  ">  
+				<a href="/maf/poc/app/homepage"><h1>로앤비</h1></a>
+				<div id="t_search" class="search_container">
+					<h2>통합검색 영역</h2> 
+				</div>
+			</div>
+			<nav> 
+				<dl id="main_menu" class="mmenu" style="text-align: left;">
+					<dt class="blind">메인 메뉴</dt> 
+					<dd>
+						<a href="./componets.html"><span>component</span></a>
+					</dd>
+					<dd class="currentTab" >
+						<a href="./color.html"><span>color</span></a>
+					</dd>
+					<dd>
+						<a href="./icon.html"><span>icon</span></a>
+					</dd> 
+				</dl>  
+			</nav>       
+		</header> 
+		<div id="container" class="onlycon doc"> 
+			<div class="left_container"  > 
+				<div class="table_index"> 
+					<h3>Color</h3>
+					<h3>Icon-text</h3>
+				</div>
+			</div>
+			<div class="main_container">
+			<div style="padding:20px 40px">
+				<h2  >Color Palette</h2>
+				<section> 
+					<div class="color-box" >
+						 <div style="background-color:#212121;height:35px;width:190px;border:1px solid #212121"></div>
+						 <div><strong>HEX</strong> <code>#212121</code> </div>
+						 <div><strong>USAGE:</strong> <br>Titles<br>Body text<br>Button text<br>Grid text</div> 
+					</div>
+					<div class="color-box">
+						 <div style="background-color:#144b78;height:35px;width:190px;border:1px solid #212121"></div>
+						 <div><strong>HEX</strong> <code>#144b78</code> </div>
+						 <div><strong>USAGE:</strong> <br>Headers</div> 
+					</div>
+					<div class="color-box">
+						 <div style="background-color:#3a688e;height:35px;width:190px;border:1px solid #212121"></div>
+						 <div><strong>HEX</strong> <code>#3a688e</code> </div>
+						 <div><strong>USAGE:</strong> <br>Nav background</div> 
+					</div>
+					<div class="color-box">
+						 <div style="background-color:#fff;height:35px;width:190px;border:1px solid #212121"></div>
+						 <div><strong>HEX</strong> <code>#fff</code> </div>
+						 <div><strong>USAGE:</strong> <br>Body background</div> 
+					</div> 
+					<br>
+					<div class="color-box">
+						 <div style="background-color:#FA6400;height:35px;width:190px;border:1px solid #212121"></div>
+						 <div><strong>HEX</strong> <code>#FA6400</code> </div>
+						 <div><strong>USAGE:</strong> <br>Primary button</div> 
+					</div> 
+					<div class="color-box">
+						 <div style="background-color:#005da2;height:35px;width:190px;border:1px solid #212121"></div>
+						 <div><strong>HEX</strong> <code>#005da2</code> </div>
+						 <div><strong>USAGE:</strong> <br>Text link </div> 
+					</div> 
+					<div class="color-box">
+						 <div style="background-color:#585858;height:35px;width:190px;border:1px solid #212121"></div>
+						 <div><strong>HEX</strong> <code>#585858</code> </div>
+						 <div><strong>USAGE:</strong> <br>Medium gray text<br>icon background</div> 
+					</div> 
+					<br>
+					<br>
+					<br> 
+					<div class="color-box">
+						 <div style="background-color:#fafafa;height:35px;width:190px;border:1px solid #212121"></div>
+						 <div><strong>HEX</strong> <code>#fafafa</code> </div>
+						 <div><strong>USAGE:</strong> <br>right,left area background</div> 
+					</div> 
+					<div class="color-box">
+						 <div style="background-color:#f0f0f0;height:35px;width:190px;border:1px solid #212121"></div>
+						 <div><strong>HEX</strong> <code>#f0f0f0</code> </div>
+						 <div><strong>USAGE:</strong> <br>navigation area,<BR>login area</div> 
+					</div> 
+					<div class="color-box">
+						 <div style="background-color:#e6e6e6;height:35px;width:190px;border:1px solid #212121"></div>
+						 <div><strong>HEX</strong> <code>#e6e6e6</code> </div>
+						 <div><strong>USAGE:</strong> <br>line(title,list)</div> 
+					</div> 
+					<div class="color-box">
+						 <div style="background-color:#dcdcdc;height:35px;width:190px;border:1px solid #212121"></div>
+						 <div><strong>HEX</strong> <code>#dcdcdc</code> </div>
+						 <div><strong>USAGE:</strong> <br>line(grid left,right,btn)</div> 
+					</div> 
+					<br>
+					<div class="color-box">
+						 <div style="background-color:#ccc;height:35px;width:190px;border:1px solid #212121"></div>
+						 <div><strong>HEX</strong> <code>#ccc</code> </div>
+						 <div><strong>USAGE:</strong> <br>line(grid center),<br>select box</div> 
+					</div> 
+					<div class="color-box">
+						 <div style="background-color:#a9a9a9;height:35px;width:190px;border:1px solid #212121"></div>
+						 <div><strong>HEX</strong> <code>#a9a9a9</code> </div>
+						 <div><strong>USAGE:</strong> <br>optional input ,<br>sub button,<br>paging box background,<br>btn over </div> 
+					</div>  
+					<div class="color-box">
+						 <div style="background-color:#7f7f7f;height:35px;width:190px;border:1px solid #212121"></div>
+						 <div><strong>HEX</strong> <code>#7f7f7f</code> </div>
+						 <div><strong>USAGE:</strong> <br>main input,<br>text color-visited <br>icon background ,<br>본문내 login </div> 
+					</div> 
+					
+					
+					<br>
+					
+					<div class="color-box">
+						 <div style="background-color:#f1f8f9;height:35px;width:190px;border:1px solid #212121"></div>
+						 <div><strong>HEX</strong> <code>#f1f8f9</code> </div>
+						 <div><strong>USAGE:</strong> <br>function background</div> 
+					</div> 
+					<!-- <div class="color-box">
+						 <div style="background-color:#e7ebf2;height:35px;width:190px;border:1px solid #212121"></div>
+						 <div><strong>HEX</strong> <code>#e7ebf2</code> </div>
+						 <div><strong>USAGE:</strong> <br>function bar color</div> 
+					</div>  -->
+					<div class="color-box">
+						 <div style="background-color:#dce4ec;height:35px;width:190px;border:1px solid #212121"></div>
+						 <div><strong>HEX</strong> <code>#dce4ec</code> </div>
+						 <div><strong>USAGE:</strong> <br>icon background</div> 
+					</div>  
+					<br>
+					<div class="color-box">
+						 <div style="background-color:#0083bf;height:35px;width:190px;border:1px solid #212121"></div>
+						 <div><strong>HEX</strong> <code>#0083bf</code> </div>
+						 <div><strong>USAGE:</strong> <br>icon background</div> 
+					</div> 
+					<div class="color-box">
+						 <div style="background-color:#ff8000;height:35px;width:190px;border:1px solid #212121"></div>
+						 <div><strong>HEX</strong> <code>#ff8000</code> </div>
+						 <div><strong>USAGE:</strong> <br>icon background(paging)</div> 
+					</div> 
+					<div class="color-box">
+						 <div style="background-color:#c24141;height:35px;width:190px;border:1px solid #212121"></div>
+						 <div><strong>HEX</strong> <code>#c24141</code> </div>
+						 <div><strong>USAGE:</strong> <br>icon background</div> 
+					</div> 
+					<!-- <div class="color-box">
+						 <div style="background-color:#8751ae;height:35px;width:190px;border:1px solid #212121"></div>
+						 <div><strong>HEX</strong> <code>#8751ae</code> </div>
+						 <div><strong>USAGE:</strong> <br>icon background</div> 
+					</div>  -->
+					<div class="color-box">
+						 <div style="background-color:#6e9934;height:35px;width:190px;border:1px solid #212121"></div>
+						 <div><strong>HEX</strong> <code>#6e9934</code> </div>
+						 <div><strong>USAGE:</strong> <br>icon background</div> 
+					</div> 
+					<br><br>
+				</section>
+				 </div>
+			</div> 
+			<div class="right_container">ss</div>  
+    	</div>
+	</div>
+</div> 
+</body>
+</html>

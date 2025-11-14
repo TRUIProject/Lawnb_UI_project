@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css"> 
+<meta name="viewport" content="width=1140">
+<title> 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" /> 
+<link rel="stylesheet" type="text/css" href="../css/test.css" />  
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../js/commonjs.js?s"></script>
+<script language="javascript">
+<!--
+	$(document).ready(function () { 
+		
+		$(".icon_listnview").click(function(){ 
+			$(".main_container_view").addClass('slide_mov');
+			$("#container").addClass('list-view ');
+			$(".main_container ol").removeClass('btn_exist');
+			 $("#option_a").attr('class', 'option_a_on');
+            $("#option_b").attr('class', 'option_b');
+            $(".list").addClass('type-a');
+			$(".right_container").addClass('slide_mov_right');
+			$("#right_control").css('display','block');
+			  setHeight_under();
+		}); 
+		
+		$("#right_control").click(function(){  //오른쪽 영역 레이어로 올리기
+			 if ($(".add_border").length > 0) {  
+				$(".right_container").removeClass('add_border');
+				$(".right_container").addClass('slide_mov_right'); 
+				$(".right_container").removeClass('slide_mov');  
+				$(this).removeClass('_up');
+			}
+			else{
+				$(".right_container").removeClass('slide_mov_right');
+				$(".right_container").addClass('slide_mov');  
+				$(".right_container").addClass('add_border'); 
+				$(this).addClass('_up');
+			}
+			 setHeight_under();
+		});   
+
+		$(".main_container_view .btn_close").click(function(){ 
+			$(".main_container_view").removeClass('slide_mov');
+			$("#container").removeClass('list-view');
+			$(".main_container ol").addClass('btn_exist');
+			$(".right_container").removeClass('slide_mov_right');
+			$(".right_container").removeClass('add_border');
+			if( document.body.clientWidth > 1270){
+				$("#right_control").css('display','none');
+				 
+			}
+		}); 
+ 
+
+		 $('.view_type_list').on('click', '#option_a', function () {
+            $("#option_a").attr('class', 'option_a_on');
+            $("#option_b").attr('class', 'option_b');
+            $(".list").addClass('type-a');
+           setHeight_under();
+        });
+
+        $('.view_type_list').on('click', '#option_b', function () {
+            $("#option_a").attr('class', 'option_a');
+            $("#option_b").attr('class', 'option_b_on');
+            $(".list").removeClass('type-a');
+            setHeight_under();           
+        });
+	});
+	function resizeComment(){ 
+			setHeight_under();
+			$(".right_container").removeClass('slide_mov_right'); 
+		}
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+ 
+                                    <select id="sTest" name="sTest" style="height:25px ">
+								        <option value="">전체</option>
+								        <option value="사법시험">사법시험</option>
+								        <option value="변호사시험">변호사시험</option>
+								        <option value="군법무관임용시험">군법무관임용시험</option>
+								        <option value="고등고시">고등고시</option>
+								        <option value="판/검사특별임용시험">판/검사특별임용시험</option>
+								        <option value="조선변호사시험">조선변호사시험</option>
+								        <option value="간이법원판사임용시험">간이법원판사임용시험</option>
+								        <option value="사법요원양성소입소시험">사법요원양성소입소시험</option>
+								        <option value="만주국고등문관시험">만주국고등문관시험</option>
+								        <option value="일본고등문관시험">일본고등문관시험</option> 
+							        </select>
+ 
+</body>
+</html>

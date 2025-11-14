@@ -1,0 +1,924 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title>온주 - 로앤비 </title>  
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../Scripts/common/commonjs.js"></script>
+<script language="javascript">
+	 
+	function resizeComment(){ 
+			setHeight_under();
+			$(".right_container").removeClass('slide_mov_right'); 
+		}
+	var expanded = false; 
+	function showCheckboxes() { 
+	  if (!expanded) {
+		$("#checkboxes").show();
+		expanded = true;
+	  } else {
+		$("#checkboxes").hide();
+		expanded = false;
+	  }
+	} 
+
+	$(document).ready(function () {
+
+        $('.onju #quote_search.submain_group.title').on('click', '.btn_more', function () { //온주 
+            $("#onju_quote_info").show();
+			$(".base_popup2").show();
+		});
+        $('.onju #my_onju_collect.submain_group.title').on('click', '.btn_more', function () { //온주 
+            $("#onju_myonju_info").show();
+            $(".base_popup2").show();
+        });
+		$('.onju .submain_group.title').on('click', '.btn_close_pop', function () {
+			$(".popup_win.onju_info_popup").hide();
+			$(".base_popup2").hide();
+		});
+	});
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_mainContainer">
+	<div id="wrap" >
+		<header>
+			<div class="top_container ">
+				<h1>로앤비1</h1>
+				<div id="t_search" class="search_container">
+					<h2>통합검색 영역</h2>
+					<div class="search_inner">
+						<form method="post" id="totalSearchForm" action="Info/ContentTotal" onsubmit="return getTotalSearch();">
+							<div class="search_left hide">
+								<label class="hide">통합검색  </label>
+							</div>
+							<div class="search_center">
+								<input type="search" id="qu" name="qu" title="통합검색" autocomplete="off">
+							</div>
+							<div class="search_right">
+								<span class="more_btn"><i class="icon-more" data-icon=""></i><span class="hide">more</span></span>
+
+								<!-- 검색 연산자 -->
+								<i class="icon-info" data-icon="" onclick="searchCalcInfo();" alt="검색연산자 안내">
+									<span class="blind">검색 연산자 안내</span>
+								</i>
+							</div>
+							<div id="searchButton" class="search_btn"><i class="icon-" data-icon=""></i><span class="hide">검색</span></div>
+						</form>
+					</div>
+					<!-- 모바일 체크 할것 -->
+					<div class="btn_search_result"><i class="icon-" data-icon=""></i><span>통합검색 결과 맵&ZeroWidthSpace;</span></div>
+					<div class="search_layer_outer" style="display: none;">
+						<div class="search_layer" style="display: none;">
+							<div class="search_layer_list _done ">
+								<div class="txt_info" style="display:none"></div>
+								<ul>
+								</ul>
+								<div id="result_target"></div>
+							</div>
+						</div>
+					</div>
+					<div class="layer_calc_outer" style="display: none;">
+						<div class="box_calc_info">
+							<h3>LAWnB 검색연산자 안내</h3>
+							<div class="box_calcDL">
+								<dl>
+									<dt>AND</dt>
+									<dd>
+										<span>"이사회"와 "감사"가 모두 포함된 문서</span>
+										<span>- 예시) 이사회 감사, 이사회 AND 감사</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>OR</dt>
+									<dd>
+										<span>"이사회"와 "감사" 중 어느 하나라도 포함된 문서</span>
+										<span>- 예시) 이사회 OR 감사</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>NOT</dt>
+									<dd>
+										<span>"이사회"가 포함되고 "감사"가 포함되지 않은 문서</span>
+										<span>- 예시) [검색어]이사회 [제외어]감사, 이사회 NOT 감사</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>EQUAL</dt>
+									<dd>
+										<span>"이사회 감사"라는 검색어와 완전일치하는 구문이 있는 문서</span>
+										<span>- 예시) “이사회 감사”</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>NEAR </dt>
+									<dd>
+										<span>"이사회"와 "감사" 사이에 단어(형태소)가 10개 이하인 문서</span>
+										<span>- 예시) “이사회 감사”~10</span>
+									</dd>
+								</dl>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+				<div id="indiv_area" class="indiv_container">
+					<span alt="나의 검색" onclick="MYSEARCH();">
+						나의검색
+						<em class="icon_mySearch_on">ON</em>
+						<i class="newic-mysearch_main"></i>
+					</span>
+					<span alt="나의폴더" onclick="MyFolder();">나의폴더<i class="icon-icon_myfolder" data-icon=""></i></span>
+					<span alt="하이라이트/메모" onclick="MyHighlight();">하이라이트&메모<i class="newic-h_light"></i></span>
+					<span alt="히스토리" onclick="MyHistory();">히스토리<i class="icon-icon_history" data-icon=""></i></span>
+					<span alt="알림설정" onclick="MyAlert();">
+						알림<i class="icon-icon_alert" data-icon=""></i>
+						<em id="alertCount" style="display: none;">0</em>
+					</span>
+					<span alt="문의내역">문의내역<i class="icon-icon_question" data-icon=""></i></span>
+					<span alt="나의정보" onclick="MyInfo();">나의정보<i class="icon-icon_myinfo" data-icon=""></i></span>
+				</div>
+
+			</div>
+
+			<nav style="background: none;">
+				<div class="nav_menuBox">
+					<dl id="main_menu" class="mmenu">
+						<dd>
+							<a href="Info/ContentMain/Case"><span>판례</span></a>
+						</dd>
+						<dd>
+							<a href="#"><span>법규</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="Info/ContentMain/Law">법령</a></li>
+								<li><a href="Info/ContentMain/AdminRule">행정규칙</a></li>
+								<li><a href="Info/ContentMain/LawMake">입법동향</a></li>
+								<li><a href="Info/ContentMain/Treaty">조약</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>심판·결정·해석</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="Info/ContentMain/PatentCase">특허심판례</a></li>
+								<li><a href="Info/ContentMain/AdminCase">결정례</a></li>
+								<li><a href="Info/ContentMain/InterpretRule">유권해석</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>문헌</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="Info/ContentMain/Doc">논문·평석</a></li>
+								<li><a href="Info/ContentMain/Jusuk">주석서</a></li>
+								<li><a href="Info/ContentMain/Ebook">E-book</a></li>
+								<li><a href="Info/ContentMain/LawDic">법률사전</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>법조인</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="Info/ContentMain/Lawyer">법조인명록</a></li>
+								<li><a href="Info/ContentMain/Org">조직도</a></li>
+								<li><a href="Info/ContentMain/LawFirm">법률사무소</a></li>
+								<li><a href="Info/ContentMain/OrgInfo">법조기관 안내</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>기업법무</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="Info/ContentMain/LawFirmReport">로펌 리포트</a></li>
+								<li><a href="Info/ContentMain/BizInfo">기업정보</a></li>
+								<li><a href="Info/ContentMain/Sosong">소송비용계산</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>서식</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="Info/ContentMain/LawForm">전문법률서식</a></li>
+								<li><a href="Info/ContentMain/BizForm">비즈폼 서식</a></li>
+							</ul>
+						</dd>
+						<dd>
+							<a href="#"><span>뉴스·칼럼</span><i class="icon_open"></i></a>
+							<ul class="menu_sub">
+								<li><a href="Info/ContentMain/News">뉴스</a></li>
+								<li><a href="Info/ContentMain/Column">칼럼</a></li>
+								<!-- <li><a href="/Editor/Index">LAWnB Editor</a></li> -->
+							</ul>
+						</dd>
+						<dd>
+							<a href="Info/ContentMain/ONJU"><span>온주</span></a>
+						</dd>
+						<dd class="btn_menu_all">
+							<a href="#" onclick="showAllMenu();">메뉴 전체보기  <i></i></a>
+						</dd>
+					</dl>
+					<div class="box_menu_all">
+						<div class="btn_close_pop" onclick="showAllMenu();">닫기<i class="icon-close" data-icon=""></i></div>
+						<ul>
+							<!--<li><strong>판례</strong></li>-->
+							<li><a href="Info/ContentMain/Case">판례</a></li>
+						</ul>
+						<ul>
+							<!--<li><strong>법규</strong></li>-->
+							<li><a href="Info/ContentMain/Law">법령</a></li>
+							<li><a href="Info/ContentMain/AdminRule">행정규칙</a></li>
+							<li><a href="Info/ContentMain/LawMake">입법동향</a></li>
+							<li><a href="Info/ContentMain/Treaty">조약</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>심판·결정·해석</strong></li>-->
+							<li><a href="Info/ContentMain/PatentCase">특허심판례</a></li>
+							<li><a href="Info/ContentMain/AdminCase">결정례</a></li>
+							<li><a href="Info/ContentMain/InterpretRule">유권해석</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>문헌</strong></li>-->
+							<li><a href="Info/ContentMain/Doc">평석·논문</a></li>
+							<li><a href="Info/ContentMain/Jusuk">주석서</a></li>
+							<li><a href="Info/ContentMain/Ebook">E-book</a></li>
+							<li><a href="Info/ContentMain/LawDic">법률사전</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>법조인</strong></li>-->
+							<li><a href="Info/ContentMain/Lawyer">법조인명록</a></li>
+							<li><a href="Info/ContentMain/Org">조직도</a></li>
+							<li><a href="Info/ContentMain/LawFirm">법률사무소</a></li>
+							<li><a href="Info/ContentMain/OrgInfo">법조기관 안내</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>기업법무</strong></li>-->
+							<li><a href="Info/ContentMain/LawFirmReport">로펌 리포트</a></li>
+							<li><a href="Info/ContentMain/BizInfo">기업정보</a></li>
+							<li><a href="Info/ContentMain/Sosong">소송비용계산</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>서식</strong></li>-->
+							<li><a href="Info/ContentMain/LawForm">전문법률서식</a></li>
+							<li><a href="Info/ContentMain/BizForm">비즈폼 서식</a></li>
+						</ul>
+						<ul>
+							<!-- <li><strong>뉴스·칼럼</strong></li> -->
+							<li><a href="Info/ContentMain/News">뉴스</a></li>
+							<li><a href="Info/ContentMain/Column">칼럼</a></li>
+							<!-- <li><a href="/Editor/Index">LAWnB Editor</a></li> -->
+						</ul>
+						<ul>
+							<!-- <li><strong>온주</strong></li>-->
+							<li><a href="Info/ContentMain/ONJU">온주</a></li>
+						</ul>
+						<ul>
+							<li><a href="javascript:OnetoOneContactUs('B02');">판결문 등재신청&ZeroWidthSpace;</a></li>
+							<li><a href="javascript:showOriginalView('/Lawyer/Management/');">법조인명록 등록/수정&ZeroWidthSpace;</a></li>
+							<li><a href="javascript:OnetoOneContactUs('B04');">승소판결문 등록&ZeroWidthSpace;</a></li>
+							<li><a href="javascript:OnetoOneContactUs('B01');">1:1문의&ZeroWidthSpace;</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+
+		</header>  
+		<div class="submenu_group" style="">
+			<div>
+				<dl>
+					<dd><a href="">판례</a></dd>
+					<dd><a href="">판례디렉토리</a></dd> 
+				</dl>
+				<dl>
+					<dd><a href="">법령</a></dd>
+					<dd><a href="">행정규칙</a></dd>
+					<dd><a href="">입법동향</a></dd>
+					<dd><a href="">조약</a></dd>
+				</dl>
+				<dl>
+					<dd><a href="">특허 심판례</a></dd>
+					<dd><a href="">결정례</a></dd>
+					<dd><a href="">유권해석</a></dd>
+				</dl>
+				<dl>
+					<dd><a href="">논문평석</a></dd>
+					<dd><a href="">주석서</a></dd>
+					<dd><a href="">E-book</a></dd>
+					<dd><a href="">법률용어</a></dd>
+				</dl>
+				<dl>
+					<dd><a href="">법조인명록</a></dd>
+					<dd><a href="">조직도</a></dd>
+					<dd><a href="">법률사무소</a></dd>
+					<dd>법조기관 안내</dd>
+				</dl>
+				<dl>
+					<dd>로펌 리포트</dd>
+					<dd>세무정보</dd>
+					<dd>기업정보</dd>
+				</dl>
+				<dl>
+					<dd>법률서식</dd>
+					<dd>비즈폼 서식</dd>
+				</dl>
+				<dl>
+					<dd>뉴스</dd>
+					<dd>칼럼</dd>
+				</dl>
+			</div>
+			<div class="ad_area">ss</div>
+		</div>
+		<div id="container" class="two-con submain onju">
+			<div id="breadcrumb" class="navi_area">
+				<div><a href="/">Home</a> <i class="icon-" data-icon="&#xe900;"></i> <a href="">온주</a> </div>  
+				<div class="group_indivi_btn">
+					<span>minizero92님</span> |
+					<span>정회원 ( 법인(Main)회원 ) [~2021-08-26] </span>
+					|
+					<a href="/Support/SupportMain" target="Support_center">고객센터</a>
+					<a href="/Login/Logout/" class="btn_logout">로그아웃</a>
+				</div>
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div id="container_inner">
+				<div class="left_container">  
+				</div>
+				<article class="main_container"> 
+					<div class="main_container_inner">
+						<div id="search_submain" class="submain_group">
+							<h3>온주 검색</h3>
+							<div class="search_div">
+								<form id="searchForm" method="post" action="CaseList">
+									<div class="search_input">
+										<input type="search" id="sWord" name="sWord" placeholder="검색어">
+										<div class="except">
+											<input type="search" name="sWord1" placeholder="제외어">
+										</div>
+									</div>
+									<ol class="check_area">
+										<li><input type="checkbox" class="sType2List" value="0"><label>전체</label></li>
+										<li><input type="checkbox" class="sType2List" value="32"><label>주석서 본문</label></li>
+										<li><input type="checkbox" class="sType2List" value="16"><label>법령 본문</label></li>
+										<li><input type="checkbox" class="sType2List" value="8"><label>집필자</label> <em class="text_ex fnob"><i class="icon-16 va" data-icon="&#xe90d;"></i> 집필자 검색은 ‘집필자명’이 완전히 일치할 경우에 제공됩니다.</em></li>
+									</ol>
+									<div class="detail_area_open _open" id="detail_area">
+										<ul>
+											<li>
+												<label>주석서명</label>
+												<div class="pr">
+													<div class="selectBox" onclick="showCheckboxes()">
+														<select id="cType3" name="cType3">
+															<option>전체</option>
+														</select>
+														<div class="overSelect"></div>
+													</div>
+													<div id="checkboxes" class="hide_check nolaw">
+														<div><input type="checkbox" id="" name="" value="">전체</div>
+														<div><input type="checkbox" id="" name="" value="1">대법원 </div>
+														<div><input type="checkbox" id="" name="" value="2">대법원(전원합의체) </div>
+														<div><input type="checkbox" id="" name="" value="3">헌법재판소 </div>
+														<div><input type="checkbox" id="" name="" value="4">행정법원 </div>
+														<div><input type="checkbox" id="" name="" value="5">고등법원 </div>
+														<div><input type="checkbox" id="" name="" value="6">지방법원 </div>
+														<div><input type="checkbox" id="" name="" value="7">특허법원 </div>
+														<div><input type="checkbox" id="" name="" value="8">기타 </div>
+													</div>
+												</div>
+											</li>
+										</ul> 
+									</div>
+									<div class="btn_area"><input type="submit" id="searchBtn" value="검색"> <span class="_cancel"><i class="icon-16" data-icon="&#xe90e;"></i>입력초기화</span></div>
+								</form>
+							</div> 
+						</div>
+						<div class="submain_group title" id="quote_search">
+							<h3>
+								인용주석서 확인
+								<div class="btn_more">사용방법 안내</div>
+							</h3>
+							<div class="onju_quote_search">
+								<ul>
+									<li style="width:40%">
+										<label>주석서명</label>
+										<input type="text" id="sName" name="sName" placeholder="개인정보보호법"  >
+									</li>
+									<li style="width:30%">
+										<label>조문번호</label>
+										<input type="text" id="sWork" name="sWork" placeholder="제2조">
+									</li> 
+									<li>
+										<label>출판일자</label>
+										<input type="text" id="sWorkArea" name="sWorkArea" placeholder="20210101" style="width:100px">
+									</li>
+									<li><span class="btn" onclick="window.open('./온주.인용검색팝업.html', '', 'width=700,height=670,toolbar=0,menubar=0,location=0,status=1,scrollbars=no,resizable=1,left=0,top=0');return false;">확인</span></li>
+								</ul>
+							</div>
+							<div class="popup_win onju_info_popup" id="onju_quote_info" >
+								<div class="base_popup2"  >
+									<div class="top_title ">
+										<span>사용방법 안내</span>
+										<div class="top_title_group">
+											<div class="btn_close_pop">닫기<i class="icon-close" data-icon=""></i></div>
+										</div>
+									</div>
+									<div class="info">
+										문서에 인용된 온주 주석서의 내용을 조회할 수 있습니다.<br /><br />
+										주석서 고유번호에 포함된 "주석서명, 조문번호, 출판일자"를 입력해주세요.
+									</div>
+								</div>
+							</div>
+						</div> 
+						<div class="submain_group title" id="my_onju_collect">
+							<h3>
+								나의 온주
+								<div class="btn_more">사용방법 안내</div>
+							</h3>
+							<div class="popup_win onju_info_popup" id="onju_myonju_info">
+								<div class="base_popup2">
+									<div class="top_title ">
+										<span>사용방법 안내</span>
+										<div class="top_title_group">
+											<div class="btn_close_pop">닫기<i class="icon-close" data-icon=""></i></div>
+										</div>
+									</div>
+									<div class="info">
+										자주 이용하는 온주 주석서를 등록해 두면 보다 편리하게 본문으로 이동할 수 있습니다.<br /><br />
+										나의 온주 등록은 온주 주석서 본문 페이지 상단에 별표(☆)를 클릭해 선택할 수 있습니다.<br /><br />
+										등록 가능한 주석서 개수는 최대 14개입니다.
+									</div>
+								</div>
+							</div>
+							<div class="info_lawbook">
+								아직 등록된 나의 온주가 없습니다.<br />
+								자주 이용하는 온주 주석서를 등록해 두면 보다 편리하게 본문으로 이동할 수 있습니다.<br />
+								나의 온주 등록은 온주 주석서 본문 페이지 상단에 별표(☆)를 클릭해 선택할 수 있으며, 최대 14개까지 지정할 수 있습니다. 
+							</div>
+							<ul class="directory_list mylaw">
+								<li>
+									<em class="favi_icon"><i class="icon-star starfull" onclick="mydesk.setMyLawCollection('L000001248', 'LD')"></i></em>
+									<a href="../ContentView?sid=L000001248" class="popup_view">주택임대차보호법</a> 
+								</li>
+								<li>
+									<em class="favi_icon"><i class="icon-star starfull" onclick="mydesk.setMyLawCollection('L0062A76153D08C3', 'LD')"></i></em>
+									<a href="../ContentView?sid=L0062A76153D08C3" class="popup_view">디자인보호법</a>
+								</li>
+								<li>
+									<em class="favi_icon"><i class="icon-star starfull" onclick="mydesk.setMyLawCollection('L000009410', 'LD')"></i></em>
+									<a href="../ContentView?sid=L000009410" class="popup_view">도시 및 주거환경정비법</a> 
+								</li>
+								<li>
+									<em class="favi_icon"><i class="icon-star starfull" onclick="mydesk.setMyLawCollection('L0070EB412C988E5', 'LD')"></i></em>
+									<a href="../ContentView?sid=L0070EB412C988E5" class="popup_view">
+										국토의계획및이용에관한법률
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="submain_group title">
+							<!-- 온주 주석서 리스트 -->
+							<h3>
+								온주 주석서 리스트
+							</h3>
+							<div class="all_onju">
+								<ul class="onju_main_index">
+									<li><a href="#가">가</a></li>
+									<li><a href="#나">나</a></li>
+									<li><a href="#다">다</a></li>
+									<li><a href="#마">마</a></li>
+									<li><a href="#바">바</a></li>
+									<li><a href="#사">사</a></li>
+									<li><a href="#아">아</a></li>
+									<li><a href="#자">자</a></li>
+									<li><a href="#차">차</a></li>
+									<li><a href="#카">카</a></li>
+									<li><a href="#타">타</a></li>
+									<li><a href="#파">파</a></li>
+									<li><a href="#하">하</a></li>
+								</ul>
+
+								<dl>
+									<dt>가<a name="가"></a></dt>
+									<!-- J001001246|0|1
+			0 : LAWNB_LAWID
+			1 : LAWNB_LAWNAME
+			2 : LAW_ONJU_TYPE_NAME
+			3 : LAWNB_LAWNAME_ORDER
+			-->
+									<dd>
+										<a href="/Info/ContentView?sid=J001009367_0_0" class="popup_view">가맹사업거래의공정화에관한법률</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001010444_0_0" class="popup_view">가족관계의등록등에관한법률</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001011357_0_0" class="popup_view">개인정보보호법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001001823_0_0" class="popup_view">건축법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001001761_0_0" class="popup_view">고용보험법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001001212_0_0" class="popup_view">공탁법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001001556_0_0" class="popup_view">관세법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001000695_0_0" class="popup_view">국가를당사자로하는계약에관한법률</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001001586_0_0" class="popup_view">국세기본법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001001585_0_0" class="popup_view">국세징수법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001000603_0_0" class="popup_view">국제조세조정에관한법률</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001009294_0_0" class="popup_view">국토의계획및이용에관한법률</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001001629_0_0" class="popup_view">군인사법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001001624_0_0" class="popup_view">군형법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001001872_0_0" class="popup_view">근로기준법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001009252_0_0" class="popup_view">근로복지기본법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001009883_0_0" class="popup_view">근로자퇴직급여보장법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001013704_0_0" class="popup_view">금융소비자보호에관한법률</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001000549_0_0" class="popup_view">금융실명거래및비밀보장에관한법률</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001012338_0_0" class="popup_view">금융회사의지배구조에관한법률</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001010356_0_0" class="popup_view">기간제및단시간근로자보호등에관한법률</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001013179_0_0" class="popup_view">기업구조조정촉진법</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>나<a name="나"></a></dt>
+									<!-- J001001246|0|1
+			0 : LAWNB_LAWID
+			1 : LAWNB_LAWNAME
+			2 : LAW_ONJU_TYPE_NAME
+			3 : LAWNB_LAWNAME_ORDER
+			-->
+									<dd>
+										<a href="/Info/ContentView?sid=J001000130_0_0" class="popup_view">남녀고용평등과일ㆍ가정양립지원에관한법률</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001000143_0_0" class="popup_view">노동조합및노동관계조정법</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>다<a name="다"></a></dt>
+									<!-- J001001246|0|1
+			0 : LAWNB_LAWID
+			1 : LAWNB_LAWNAME
+			2 : LAW_ONJU_TYPE_NAME
+			3 : LAWNB_LAWNAME_ORDER
+			-->
+									<dd>
+										<a href="/Info/ContentView?sid=J001011491_0_0" class="popup_view">대규모유통업에서의거래공정화에관한법률</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001002024_0_0" class="popup_view">도시개발법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001009410_0_0" class="popup_view">도시및주거환경정비법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001001591_0_0" class="popup_view">독점규제및공정거래에관한법률</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001001871_0_0" class="popup_view">디자인보호법</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>마<a name="마"></a></dt>
+									<!-- J001001246|0|1
+			0 : LAWNB_LAWID
+			1 : LAWNB_LAWNAME
+			2 : LAW_ONJU_TYPE_NAME
+			3 : LAWNB_LAWNAME_ORDER
+			-->
+									<dd>
+										<a href="/Info/ContentView?sid=J001001706_0_0" class="popup_view">민법</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>바<a name="바"></a></dt>
+									<!-- J001001246|0|1
+			0 : LAWNB_LAWID
+			1 : LAWNB_LAWNAME
+			2 : LAW_ONJU_TYPE_NAME
+			3 : LAWNB_LAWNAME_ORDER
+			-->
+									<dd>
+										<a href="/Info/ContentView?sid=J001010107_0_0" class="popup_view">방위사업법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001001563_0_0" class="popup_view">법인세법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001001571_0_0" class="popup_view">부가가치세법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001001697_0_0" class="popup_view">부동산등기법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001001178_0_0" class="popup_view">부동산실권리자명의등기에관한법률</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001000308_0_0" class="popup_view">부정경쟁방지및영업비밀보호에관한법률</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>사<a name="사"></a></dt>
+									<!-- J001001246|0|1
+			0 : LAWNB_LAWID
+			1 : LAWNB_LAWNAME
+			2 : LAW_ONJU_TYPE_NAME
+			3 : LAWNB_LAWNAME_ORDER
+			-->
+									<dd>
+										<a href="/Info/ContentView?sid=J001001766_0_0" class="popup_view">산업안전보건법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001001760_0_0" class="popup_view">산업재해보상보험법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001009276_0_0" class="popup_view">상가건물임대차보호법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001001561_0_0" class="popup_view">상속세및증여세법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001001565_0_0" class="popup_view">소득세법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001001540_0_0" class="popup_view">신용정보의이용및보호에관한법률</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001001246_0_0" class="popup_view">신탁법</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>아<a name="아"></a></dt>
+									<!-- J001001246|0|1
+			0 : LAWNB_LAWID
+			1 : LAWNB_LAWNAME
+			2 : LAW_ONJU_TYPE_NAME
+			3 : LAWNB_LAWNAME_ORDER
+			-->
+									<dd>
+										<a href="/Info/ContentView?sid=J001000536_0_0" class="popup_view">여신전문금융업법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001001525_0_0" class="popup_view">외국환거래법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001009938_0_0" class="popup_view">우주개발진흥법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001010404_0_0" class="popup_view">이자제한법</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>자<a name="자"></a></dt>
+									<!-- J001001246|0|1
+			0 : LAWNB_LAWID
+			1 : LAWNB_LAWNAME
+			2 : LAW_ONJU_TYPE_NAME
+			3 : LAWNB_LAWNAME_ORDER
+			-->
+									<dd>
+										<a href="/Info/ContentView?sid=J001001746_0_0" class="popup_view">자동차손해배상보장법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001010513_0_0" class="popup_view">자본시장과금융투자업에관한법률</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001000519_0_0" class="popup_view">자산유동화에관한법률</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001000798_0_0" class="popup_view">저작권법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001001733_0_0" class="popup_view">전기통신사업법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001010199_0_0" class="popup_view">전자금융거래법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001002000_0_0" class="popup_view">전자문서및전자거래기본법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001009318_0_0" class="popup_view">전자상거래등에서의소비자보호에관한법률</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001009413_0_0" class="popup_view">전자서명법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001000030_0_0" class="popup_view">정보통신망이용촉진및정보보호등에관한법률</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001002039_0_0" class="popup_view">제조물책임법</a>
+										<span class="label-icon">신간</span>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001001583_0_0" class="popup_view">조세범처벌법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001000641_0_0" class="popup_view">조세범처벌절차법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001001584_0_0" class="popup_view">조세특례제한법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001009873_0_0" class="popup_view">종합부동산세법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001001809_0_0" class="popup_view">주택법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001001248_0_0" class="popup_view">주택임대차보호법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001013993_0_0" class="popup_view">중대재해처벌등에관한법률</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001011177_0_0" class="popup_view">지방세기본법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001001649_0_0" class="popup_view">지방세법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001012708_0_0" class="popup_view">지방세징수법</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001010002_0_0" class="popup_view">지방자치단체를당사자로하는계약에관한법률</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001001262_0_0" class="popup_view">집합건물의소유및관리에관한법률</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>차<a name="차"></a></dt>
+									<!-- J001001246|0|1
+			0 : LAWNB_LAWID
+			1 : LAWNB_LAWNAME
+			2 : LAW_ONJU_TYPE_NAME
+			3 : LAWNB_LAWNAME_ORDER
+			-->
+									<dd>
+										<a href="/Info/ContentView?sid=J001009930_0_0" class="popup_view">채무자회생및파산에관한법률</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>카<a name="카"></a></dt>
+									<!-- J001001246|0|1
+			0 : LAWNB_LAWID
+			1 : LAWNB_LAWNAME
+			2 : LAW_ONJU_TYPE_NAME
+			3 : LAWNB_LAWNAME_ORDER
+			-->
+									<dd>
+										<a href="/Info/ContentView?sid=J001012266_0_0" class="popup_view">클라우드컴퓨팅발전및이용자보호에관한법률</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>타<a name="타"></a></dt>
+									<!-- J001001246|0|1
+			0 : LAWNB_LAWID
+			1 : LAWNB_LAWNAME
+			2 : LAW_ONJU_TYPE_NAME
+			3 : LAWNB_LAWNAME_ORDER
+			-->
+									<dd>
+										<a href="/Info/ContentView?sid=J001009244_0_0" class="popup_view">특정금융거래정보의보고및이용등에관한법률</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001001455_0_0" class="popup_view">특허법</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>파<a name="파"></a></dt>
+									<!-- J001001246|0|1
+			0 : LAWNB_LAWID
+			1 : LAWNB_LAWNAME
+			2 : LAW_ONJU_TYPE_NAME
+			3 : LAWNB_LAWNAME_ORDER
+			-->
+									<dd>
+										<a href="/Info/ContentView?sid=J001000122_0_0" class="popup_view">파견근로자보호등에관한법률</a>
+									</dd>
+									<dd>
+										<a href="/Info/ContentView?sid=J001002011_0_0" class="popup_view">표시ㆍ광고의공정화에관한법률</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>하<a name="하"></a></dt>
+									<!-- J001001246|0|1
+			0 : LAWNB_LAWID
+			1 : LAWNB_LAWNAME
+			2 : LAW_ONJU_TYPE_NAME
+			3 : LAWNB_LAWNAME_ORDER
+			-->
+									<dd>
+										<a href="/Info/ContentView?sid=J001001590_0_0" class="popup_view">하도급거래공정화에관한법률</a>
+									</dd>
+								</dl>
+							</div>
+						</div>
+					</div>
+					<div class="main_container_view">
+						<div class="main_container_view_inner">
+							 
+						</div>
+					</div>
+				</article> 
+				<aside class="right_container">
+					<section class="calc_info">
+						<h4>LAWnB 검색연산자 안내<span class="btn_more"><i class="icon_open"></i>열기</span></h4>
+						<div>
+							<table>
+								<tr>
+									<td><span>AND 검색</span><br>"이사회"와 "감사"가 모두 포함된 문서<div>예시) 이사회 감사, 이사회 & 감사, 이사회 AND 감사</div></td>
+								</tr>
+								<tr>
+									<td><span>OR 검색</span><br>"이사회"와 "감사" 중 어느 하나라도 포함된 문서<div>예시) 이사회 + 감사, 이사회 OR 감사</div></td>
+								</tr>
+								<tr>
+									<td><span>NOT 검색</span><br>"이사회"가 포함되어 있는 문서 중 "감사"가 포함되지 않은 문서<div>예시) [검색어]이사회 [제외어]감사 ,이사회 ! 감사</div></td>
+								</tr>
+								<tr>
+									<td><span>EQUAL 검색</span><br>"이사회 감사" 라는 검색어와 완전히 일치하는 구문이 있는 문서<div>예시) “이사회 감사”</div></td>
+								</tr>
+								<tr>
+									<td><span>NEAR 검색</span><br>"이사회"와 "감사" 사이에 문자가 10글자 이하인 문서<div>예시) “이사회 감사”~10</div></td>
+								</tr>
+							</table>
+						</div>
+					</section>
+					<section>
+						<h4>신간/개정 주석서</h4>
+						<div class="noti_onju_special"><span class="label-icon">신간</span> <span class="label-icon green">기본법</span> <a href="/Info/ContentView?sid=J001001706_0_0" class="popup_view">민법</a></div>
+						<ul class="noti_onju_list"><li><div><span class="label-icon  ">신간</span></div><a href="/Info/ContentView?sid=J001013704_0_0" class="popup_view">금융소비자보호에관한법률</a></li><li><div><span class="label-icon  ">신간</span></div><a href="/Info/ContentView?sid=J001002039_0_0" class="popup_view">제조물책임법</a></li><li><div><span class="label-icon  ">신간</span></div><a href="/Info/ContentView?sid=J001012417_0_0" class="popup_view">대리점거래의공정화에관한법률</a></li><li><div><span class="label-icon  ">신간</span></div><a href="/Info/ContentView?sid=J001000129_0_0" class="popup_view">최저임금법</a></li><li><div><span class="label-icon  ">개정판</span></div><a href="/Info/ContentView?sid=J001001591_0_0" class="popup_view">독점규제및공정거래에관한법률</a></li><li><div><span class="label-icon  ">개정판</span></div><a href="/Info/ContentView?sid=J001001590_0_0" class="popup_view">하도급거래공정화에관한법률</a></li><li><div><span class="label-icon  ">개정판</span></div><a href="/Info/ContentView?sid=J001001561_0_0" class="popup_view">상속세및증여세법</a></li><li><div><span class="label-icon  ">개정판</span></div><a href="/Info/ContentView?sid=J001009883_0_0" class="popup_view">근로자퇴직급여보장법</a></li><li><div><span class="label-icon  ">개정판</span></div><a href="/Info/ContentView?sid=J001010356_0_0" class="popup_view">기간제및단시간근로자보호등에관한법률</a></li><li><div><span class="label-icon  ">개정판</span></div><a href="/Info/ContentView?sid=J001000695_0_0" class="popup_view">국가를당사자로하는계약에관한법률</a></li></ul>
+					</section>
+					<section>
+						<div class=" btn_group">
+							<a href="./온주.집필위원.html" target="_blank" class="popup_view">온주 편집위원 소개</a>
+							<a href="./온주.집필위원.html" target="_blank" class="popup_view">온주 집필위원 소개</a>
+						</div> 
+					</section> 
+				</aside>
+			</div>
+    	</div>
+		<footer>
+			<div class="etc_menu"> 
+				<div class="top_container">  
+					<ul>	
+						<li class="blind">기타 메뉴 </li>
+						<li>회사소개</li> 
+						<li>이용약관</li>
+						<li>개인정보 취급/처리 방침</li>
+						<li>법적고지</li>
+						<li>이메일 무단수집거부</li>
+					</ul>
+				</div>
+			</div>  
+			<div class="top_container   _footer"> 	   
+				1. 콘텐츠의 명칭 : 법률정보 &nbsp;&nbsp; 2. 콘텐츠의 제작 및 표시 : 2006년 2월 17일(업그레이드 콘텐츠의 경우 갱신일) &nbsp;&nbsp; 3. 콘텐츠 제작자 : ㈜로앤비  &nbsp;&nbsp;  4. 콘텐츠의 이용조건 : <a href="/support/agree_use.asp" class="red_bott">이용약관</a> 및 로앤비 <a href="/support/serviceInfo_member.asp" class="red_bott">서비스안내</a>와 같음 (무단 복제금지) &nbsp;&nbsp;5. 콘텐츠의 보호기간 : ㈜로앤비 사이트의 모든 콘텐츠는 「콘텐츠산업 진흥법」에 따라 제작 또는 갱신일로부터 5년간 보호됨
+				<div>Thomson reuters</div>
+				<div>Copyright ⓒ 1998~2016 <b>LAWnB</b>. All Rights Reserved.</div>
+			</div>       
+		</footer>
+		<div id="bg_screen"></div>
+		<script type="text/javascript">  
+			setHeight_under();			  
+		</script>
+	</div>
+</div> 
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="../js/commonjs.js"></script>
+<script language="javascript">
+<!--
+ 
+		function resizeComment(){ 
+			setHeight();
+			$(".right_container").removeClass('slide_mov_right'); 
+		}
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_popupContainer">
+	<div id="wrap" >
+		<header> 
+			<div class="top_container  ">  
+				<a href="/maf/poc/app/homepage"><h1>로앤비</h1></a>
+				<div class="function_area">
+					<p class="hide">기타기능버튼들</p>
+					<a href="#" class="helight"> 
+						<span><i class="icon-checkbox-unchecked" data-icon="&#xea53;"></i></span>
+						<span>검색어하이라이트</span>
+					</a>
+					<div>
+						<span><i class="icon-plus" data-icon="&#xea0a;"></i></span> 
+						<span><i class="icon-plus" data-icon="&#xea0b;"></i></span>
+						<br><span>글자크기</span>
+					</div>
+					<a href="#"> 
+						<span><i class="icon-attachment" data-icon="&#xe9cd;"></i></span>
+						<span>스크랩</span>
+					</a>
+					<a href="#"> 
+						<span><i class="icon-printer" data-icon="&#xe954;"></i></span>
+						<span>인쇄</span>
+					</a>
+					<a href="#"> 
+						<span><i class="icon-download3" data-icon="&#xe9c7;"></i></span>
+						<span>파일저장</span>
+					</a>
+					<a href="#"> 
+						<span><i class="icon-mail2" data-icon="&#xe90c;"></i></span>
+						<span>메일</span>
+					</a>
+					<a href="#">
+						<span><i class="icon-share2" data-icon="&#xea82;"></i></span>
+						<span>공유</span>
+					</a>
+				</div>
+			</div>        	
+		</header> 
+		<div id="container" class="lawyer "> 
+			<div id="breadcrumb" class="navi_area"> 
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div class="title_area"> 
+				<div class="btn_option"><span  >법조인네비게이션</span></div> 
+				<h2>심재국(Hong, Gildong), 沈載國</h2> 
+			</div>
+			<div id="container_inner">
+				<div class="left_container">   
+					 <div class="table_index  "> 
+						<ul  >
+							<li><a href="#case_info">기본정보</a></li>
+							<li><a href="#case_point">현직정보</a></li>
+							<li><a href="#law_refer">겸직정보</a></li>
+							<li><a href="#law_refer">시험정보</a></li>
+							<li><a href="#law_refer">학교정보</a></li>
+							<li><a href="#law_refer">경력정보</a></li>
+							<li><a href="#law_refer">사회활동</a></li>
+							<li><a href="#law_refer">기타</a>
+								<ul>
+									<li><a href="#R02">수상/임명</a></li>
+									<li><a href="#R011">자문실적</a></li>
+									<li><a href="#R012">출신지역</a></li> 
+								</ul>
+							</li>
+							<li><a href="#law_refer">승소판례</a></li>
+							<li><a href="#law_refer">논문기고</a></li>
+						</ul> 
+					</div>
+				</div>
+				<article class="main_container">  
+					 <div class="main_container_view">
+						<div class="main_container_view_inner">
+							<div class="img"><img  src="http://www.lawnb.com/data/peopdata/kimgaram20140410.bmp" alt="사진"></div>
+							<div class="lawyer_info _default"><span>1999년생/ 여자 / (사법시험 50회 / 연수원 40기) / 사망</span><br><span>현직 : 변호사 / 법무법인 서울 / 특허파트 / 상표부</span></div>
+
+							<div class="lawyer_info"><span>이메일 : jenna.jeon@tr.com</span><br><span>전화번호 : </span><br><span>주소 : </span><br><span>전문분야 <small><i class="icon-info" data-icon="&#xe90d;" onmouseout="close_miju('Miju1')" onmouseover="open_miju('Miju1')"><span class="blind">안내</span><div id="Miju1"  class="miju_box"><div class="miju_box_line">(대한변호사협회에서 10년이상의 경력을 인정한 분야입니다.)</div></div></i></small> : 해상</span><br><span>주요업무분야 <small><i class="icon-info" data-icon="&#xe90d;" onmouseout="close_miju('Miju2')" onmouseover="open_miju('Miju2')"><span class="blind">안내</span><div id="Miju2"  class="miju_box"><div class="miju_box_line">(변호사님이 주로 취급하는 업무로 선택한 분야입니다.)</div></div></i></small> : 금융/회사/건설/무역/해외투자/지적재산권/보험/해상/항공/중재</span><br><span>교과목 <small><i class="icon-info" data-icon="&#xe90d;" onmouseout="close_miju('Miju3')" onmouseover="open_miju('Miju3')"><span class="blind">안내</span><div id="Miju3"  class="miju_box"><div class="miju_box_line">(대학 또는 로스쿨에서 가르치는 과목입니다.)</div></div></i></small> : 금융/회사/건설/무역/해외투자/지적재산권/보험/해상/항공/중재</span></div>
+							
+							<div class="lawyer_info">
+								<p>현직 정보</p>
+								<ul>
+									<li><span>소속</span><a href="1" >법무법인 동감</a></li>
+									<li><span>직업/직책</span>변호사/대표변호사</li>
+									<li><span>조직</span>지적재산권 파트</li> 
+									<li><span>부서</span>특허부</li>
+									<li><span>전화번호</span>02-222-2222</li>
+									<li><span>팩스번호</span>02-222-2222</li>
+									<li class="_ful"><span>근무지역</span>서울/서초구</li>
+									<li class="_ful"><span>자격범위</span>미국 캘리포니아 주</li>
+									<li class="_ful"><span>주소</span>서울시 서초구 서초동 법원로 1 대영빌딩 3층 법무법인 동감</li>
+								</ul> 
+							</div>
+							<div class="lawyer_info">
+								<p>겸직 정보</p>
+								<ul>
+									<li><span>소속</span><a href="1"  >법무법인 동감</a></li>
+									<li><span>직업/직책</span>변호사/대표변호사</li>
+									<li><span>조직</span>지적재산권 파트</li> 
+									<li><span>부서</span>특허부</li>
+									<li><span>전화번호</span>02-222-2222</li>
+									<li><span>팩스번호</span>02-222-2222</li>
+									<li class="_ful"><span>근무지역</span>서울/서초구</li>
+									<li class="_ful"><span>자격범위</span>미국 캘리포니아 주</li>
+									<li class="_ful"><span>주소</span>서울시 서초구 서초동 법원로 1 대영빌딩 3층 법무법인 동감</li>
+								</ul> 
+							</div>
+							<div class="lawyer_info">
+								<p>시험 정보</p>
+								<ul>
+									<li><span>시험종류</span>사법시험</li>
+									<li><span>회수(연도)</span><a href="10">10회</a></li>
+									<li><span>시험종류</span>공인회계사시험</li>
+									<li><span>회수(연도)</span>1999년</li>
+									<li class="_ful"><span>사법연수원</span><a href="20">20기</a></li> 
+								</ul> 
+							</div>
+							<div class="lawyer_info">
+								<p>학교 정보</p> 
+								<ul class="school">
+									<li><span>학교명</span></li>
+									<li><span>입학년도</span></li>
+									<li><span>졸업년도</span></li>
+									<li><a href="1">한국고등학교</a></li>
+									<li>1988.3</li> 
+									<li>1988.3</li> 
+									<li><a href="1">한국대학교</a></li>
+									<li>1988.3</li> 
+									<li>1988.3</li> 
+									<li><a href="1">서울대학교 법과대학 법학과 대학원 / 석사</a></li>
+									<li>1988.3</li> 
+									<li>&nbsp;</li> <!-- 학교/경력/사회활동는 데이타가 없으면 공백꼭 넣어야함 -->
+									<li><a href="1">미국 California Western School of Law(M.C.L.) / 석사 </a></li>
+									<li>1988.3</li> 
+									<li>&nbsp;</li> 
+								</ul>  
+							</div>
+							<div class="lawyer_info">
+								<p>경력정보</p> 
+								<ul class="school">
+									<li><span>소속</span></li>
+									<li><span>시작년월</span></li>
+									<li><span>종료년도</span></li>
+									<li><a href="1">수도군단 / 검찰관 (현재)</a></li>
+									<li>1988.3</li> 
+									<li>1988.3</li> 
+									<li>소속 / 조직 / 부서 / 직책</li>
+									<li>1988.3</li> 
+									<li>1988.3</li> 
+									<li><a href="1">법무법인(유한) 태평양</a>/ 파트너 변호사</li>
+									<li>1988.3</li> 
+									<li>&nbsp;</li> <!-- 학교는 데이타가 없으면 공백꼭 넣어야함 --> 
+								</ul>  
+							</div>
+							<div class="lawyer_info">
+								<p>사회활동</p> 
+								<ul class="school">
+									<li><span>활동</span></li>
+									<li><span>시작년월</span></li>
+									<li><span>종료년도</span></li>
+									<li>서울 중소기업 연합회 고문변호사</li>
+									<li>1988.3</li> 
+									<li>1988.3</li> 
+									<li>서울 중소기업 연합회 고문변호사</li>
+									<li>1988.3</li> 
+									<li>1988.3</li> 
+									<li>서울 중소기업 연합회 고문변호사</li>
+									<li>1988.3</li> 
+									<li>&nbsp;</li> <!-- 학교는 데이타가 없으면 공백꼭 넣어야함 --> 
+								</ul>  
+							</div>
+							<div class="lawyer_info">
+								<p>기타</p> 
+								<div class="level_court etc"><em>수상/임명</em> 
+									<div class="case_list">
+										<span>서울경찰서 정의구현 시민상 대상 (1889.2)</span><br>
+										<span><a href="ㄴ"  class="nopopup">1994년도 부가가치세법 판례회고(조세법연구 I, 1995)</a></span> 
+									</div>
+								</div>
+								<div class="level_court etc"><em>자문실적</em> 
+									<div class="case_list">
+										<span>중부지방국세청(2001.9~2002.6)</span><br>
+										<span>재정경제부 세제실(2003.11~2008.6)</span><br>
+										<span>국세청(2006.6~ )</span><br>
+										<span>서울시 교원단체 총연합회(2007.11~ )</span><br>
+										<span>제주 국제자유도시개발센터 투자유치(2007~ )</span><br>
+									</div>
+								</div>
+								<div class="level_court etc"><em>출신지역</em> : 서울
+								</div>
+							</div>
+							<div class="lawyer_info"  >
+								<p>승소판례 총 134건</p>
+								<div class="level_court"><em>헌법재판소</em>
+									<div class="case_list">
+										<span><a href="ㄴ"  >헌법재판소 2012. 5.31. 선고 2009헌바123 구 조세감면규제법 부칙 제23조 위헌소원</a></span><br>
+										<span><a href="ㄴ" >헌법재판소 대법원 2016. 6. 9. 선고 2015도19626 판결 【식품위생법위반ㆍ축산물위생관리법위반ㆍ식품ㆍ의약품분야시험ㆍ검사등에관한법률위반】 [공2016하, 966 ]</a></span><br>
+										<span><a href="ㄴ"  >헌법재판소 2012. 5.31. 선고 2009헌바123 구 조세감면규제법 부칙 제23조 위헌소원</a></span><br>
+										<span><a href="ㄴ" >헌법재판소 2012. 5.31. 선고 2009헌바123 구 조세감면규제법 부칙 제23조 위헌소원</a></span><br>
+										<span>
+										<a href="ㄴ"  >헌법재판소 2012. 5.31. 선고 2009헌바123 구 조세감면규제법 부칙 제23조 위헌소원</a></span>
+									</div>
+								</div>
+
+								<div class="level_court"><em>대법원</em>
+									<div class="case_list">
+										<span><a href="ㄴ" >대법원 2012. 5.31. 선고 2009헌바123 구 조세감면규제법 부칙 제23조 위헌소원</a></span><br>
+										<span><a href="ㄴ" >대법원 대법원 2016. 6. 9. 선고 2015도19626 판결 【식품위생법위반ㆍ축산물위생관리법위반ㆍ식품ㆍ의약품분야시험ㆍ검사등에관한법률위반】 [공2016하, 966 ]</a></span><br>
+										<span><a href="ㄴ"  >대법원 2012. 5.31. 선고 2009헌바123 구 조세감면규제법 부칙 제23조 위헌소원</a></span><br>
+										<span><a href="ㄴ" >대법원 2012. 5.31. 선고 2009헌바123 구 조세감면규제법 부칙 제23조 위헌소원</a></span><br>
+										<span>
+										<a href="ㄴ"  >대법원 2012. 5.31. 선고 2009헌바123 구 조세감면규제법 부칙 제23조 위헌소원</a></span>
+									</div>
+								</div>
+								<div class="level_court"><em>서울고등법원</em>
+									<div class="case_list">
+										<span><a href="ㄴ"  >서울고등법원 2012. 5.31. 선고 2009헌바123 구 조세감면규제법 부칙 제23조 위헌소원</a></span><br>
+										<span><a href="ㄴ"  >서울고등법원 대법원 2016. 6. 9. 선고 2015도19626 판결 【식품위생법위반ㆍ축산물위생관리법위반ㆍ식품ㆍ의약품분야시험ㆍ검사등에관한법률위반】 [공2016하, 966 ]</a></span><br>
+										<span><a href="ㄴ" >서울고등법원 2012. 5.31. 선고 2009헌바123 구 조세감면규제법 부칙 제23조 위헌소원</a></span><br>
+										<span><a href="ㄴ" >서울고등법원 2012. 5.31. 선고 2009헌바123 구 조세감면규제법 부칙 제23조 위헌소원</a></span><br>
+										<span>
+										<a href="ㄴ"  >헌법재판소 2012. 5.31. 선고 2009헌바123 구 조세감면규제법 부칙 제23조 위헌소원</a></span>
+									</div>
+								</div>
+							</div>
+							<div class="lawyer_info">
+								<p>논문/기고</p> 
+								<div class="other_list">
+									<span><a href="ㄴ"  class="nopopup">[천자평석] 1994년도 부가가치세법 판례회고(조세법연구 I, 1995)</a></span>
+									<span><a href="ㄴ"  class="nopopup">[천자평석] 1994년도 부가가치세법 판례회고(조세법연구 I, 1995)</a></span> 
+								</div>
+							</div>
+						</div>
+					 </div>
+				</article> 
+				<aside class="right_container">
+					<section >
+						<h4>법조인 네비게이션</h4>
+						<ul>
+							<li><a href="1"  >한국 고등학교 (1999년 졸업)</a><br><a href="1"  >한국 대학교, 학과 (1999년 입학)</a></li> 
+						</ul>
+					</section>
+					<section class="direct_s">
+						<h4>온주 <span>실무중심, 조문별 온라인 법령해설서</span></h4> 
+						<ul> 
+							<li><strong>심재국 변호사</strong>님은 온주 집필진입니다.</li>
+							<li>담당분야 : 노동, 금융, 공정거래<br>담당법령 : <a href="">근로기준법</a>, <a href="">노동조합및노동관계조정법</a></li> 
+						</ul>
+					</section>
+					<section class="direct_s">
+						<h4>교육센터 <span>기업법무 전문 실무노하우 전수 기관</span></h4> 
+						<ul> 
+							<li><strong>심재국 변호사</strong>님의 강좌 안내</li>
+							<li><a href="1" >[오프라인] 라이센스계약 법률실무</a><br>교육기간 : 03.22 ~ 03.23 (6시간)</li> 
+							<li><a href="1" >[온라인] 지적재산권과 라이센스 실무전략</a><br>교육시간 : 총 14강 약 9시간</li> 
+						</ul>
+					</section>
+					<section >
+						<h4>승소판례 <em>총 134건</em> 
+							<div class="btn-group fr" >
+							  <button type="button" class="btn btn-default">전체보기</button> 
+							</div>
+						</h4>
+						<ul>
+							<li><a href="ㅇ"  >헌법재판소 2012. 5.31. 선고 2009헌바123 구 조세감면규제법 부칙 제23조 위헌소원</a></li>  
+							<li><a href="ㄴ" >대법원 2009. 1.15. 선고 2006두14926 취득세등부과처분취소</a></li>  
+							<li><a href="ㄹ" >서울고등법원 2015. 7. 8. 선고 2014누66719 법인세부과처분취소 </a></li>  
+							<li><a href="ㅎ" >헌법재판소 2012. 5.31. 선고 2009헌바123 구 조세감면규제법 부칙 제23조 위헌소원</a></li>  
+						</ul>  
+					</section>
+					<section >
+						<h4>논문기고  
+							<div class="btn-group fr" >
+							  <button type="button" class="btn btn-default" >전체보기</button> 
+							</div>
+						</h4>
+						<ul>
+							<li><a href="1" class="nopopup">[천자평석] 1994년도 부가가치세법 판례회고(조세법연구 I, 1995)</a></li>  
+							<li><a href="32" class="nopopup">[논문평석] 증여세와 담보물권의 우선순위(조세법연구 V, 1999)</a></li>   
+						</ul>  
+					</section>
+				</aside>   
+			</div>
+    	</div> 
+		<div id="bg_screen"></div> 
+	</div>
+		<script type="text/javascript">   
+			setHeight();
+		</script>
+</div> 
+</body>
+</html>

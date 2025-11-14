@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+    <meta name="viewport" content="width=1140">
+    <title> 로앤비 </title>
+    <link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+    <link rel="stylesheet" type="text/css" href="../../css/_next_default.css?v2" />
+    <link rel="stylesheet" type="text/css" href="../../css/_next_layout_old.css?dd" />
+    <link rel="stylesheet" type="text/css" href="../../css/_next_funtion.css?s" />
+    <link rel="stylesheet" type="text/css" href="../../css/icon-style.css" />
+    <script src="../../Scripts/lib/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/common/commonjs.js?d26"></script>
+    <script language="javascript">
+<!--
+        $(document).ready(function () {
+            if ($(".afolder").length > 0) {
+                $(".afolder").each(function (index) {
+                    if (index + 1 > 5) {
+                        $(".afolder").eq(index).hide();
+                    }
+                });
+            }
+        });
+
+        function myFolderMemoSave() {
+            var i = $(".txtMemo").index($(this).index());
+            //var sCont = $(".txtMemo").eq(i).val();
+            alert(i);
+            //alert(sCont);
+        }
+
+        var targetList = 0;
+        function goUpDownList(t) {
+        }
+
+
+        function resizeComment() {
+            setHeight();
+            $(".right_container").removeClass('slide_mov_right');
+        }
+        function email_edit() {
+            $("#popup_share").hide();
+            $("#popup_email").show();
+        }
+
+        $(function () {
+            $('.memo_btn').on('click', '.memo_all_view', function () { //개인화 메모전체보기
+                $("#title_result_tab div:first-child").text('담은폴더 전체보기');
+                $("#title_result_tab .btn_close").show();
+                $("#title_result_tab .btn_reapprea").hide();
+                $("#title_result_tab").show();
+                $(".myfolder_total").show();
+                $("#result_area").show();
+                $("#pdf_view").hide();
+                $("#view_content").hide();
+                $('.relate_list').hide();
+                $('.myfolder_total').show();
+                $(".list_order_pr").hide();
+                $("#result_sep").hide();
+                setTimeout(function () {
+                    $("#result_area").addClass('slide_mov_bottom');
+                }, 200);
+            });
+
+
+            $("section .btn-group .btn").click(function () {
+                if ($('#right_control').css("display") == "block") {
+                    $(".right_container").removeClass('add_border').addClass('slide_mov_right').removeClass('slide_mov');
+                    $('#right_control').removeClass('_up');
+                }
+                $("#title_result_tab div:first-child").text('관련정보');
+                $("#title_result_tab .btn_close").show();
+                $("#title_result_tab .btn_reapprea").hide();
+                $("#title_result_tab").show();
+                $("#result_area").show();
+                $('.relate_list').show();
+                $('.myfolder_total').hide();
+                $("#pdf_view").hide();
+                $("#view_content").hide();
+                setTimeout(function () {
+                    $("#result_area").addClass('slide_mov_bottom');
+                }, 200);
+            });
+
+            if ($('.title_area h2').height() > 50) {
+                $('h2 .more').show();
+            } else {
+                var expanded = false;
+                $('h2 .more').hide();
+            };
+            $('.more').click(function () {
+                if (!expanded) {
+                    $('.title_area h2').addClass("case_tit_hidden");
+                    $('.btn_more_area').addClass("act");
+                    $('.more').attr('title', '판례제목열기');
+                    resizeComment();
+                    expanded = true;
+                } else {
+                    $('.title_area h2').removeClass("case_tit_hidden");
+                    $('.btn_more_area').removeClass("act");
+                    $('.more').attr('title', '판례제목닫기');
+                    resizeComment();
+                    expanded = false;
+                }
+            });
+            $('.afolder').on('click', '.btn-right', function () {
+
+                var index = $('.btn-right').index($(this));
+                //alert(index);
+                $('.memo_text').each(function (i) {
+                    if (i == index) {
+                        if ($('.memo_text').eq(index).css("display") == "none")
+                            $('.memo_text').eq(i).show();
+                        else
+                            $('.memo_text').eq(i).hide();
+                    }
+                    else {
+                        $('.memo_text').eq(i).hide();
+                    }
+                });
+            });
+
+            $('.function_area').on('click', '#inner_search', function () {
+                $(this).hide();
+                $('#search_word').hide();
+                $('.inner_search_div').css('display', 'inline-block');
+
+
+                $('.inner_search_div').on('click', '.inner_search_close', function () {
+                    $('.inner_search_div').hide();
+                    $('#search_word').css('display', 'inline-block');
+                    $('#inner_search').css('display', 'inline-block');
+                });
+            });
+
+            $('.function_area').on('click', '.btn_inner_search_get', function () {
+                $('#view_content').hide();
+                $('#view_sub_content').show();
+
+                $('.btn_close').click(function () {
+                    $('#view_content').show();
+                    $('#view_sub_content').hide();
+                });
+            });
+        });
+        //-->
+    </script>
+    <script>
+        function layout2Title() {
+            $('.legal_layout_title').toggle();
+        }
+
+        function layout2Wing() {
+            $('#container').toggleClass('case100');
+        }
+
+        function layout2Text() {
+            $('#view_content').toggleClass('case_info2');
+        }
+
+        function layout2Myoungjo() {
+            $('.main_container_view_inner ').toggleClass('Myoungjo');
+        }
+
+        function layout2large() {
+            $('.main_container_view_inner ').toggleClass('font-Large');
+        }
+
+        function layout2Background1() {
+            $('.main_container_view').toggleClass('main_container_view_back1');
+        }
+
+        function layout2Background2() {
+            $('.main_container_view').toggleClass('main_container_view_back2');
+        }
+
+        function layout2Background3() {
+            $('.main_container_view').toggleClass('main_container_view_back3');
+        }
+
+        function layout2mgBox() {
+            $('.main_container_view_inner').toggleClass('case_mgBox');
+        }
+
+        function layout2mgBox2() {
+            $('.main_container_view_inner').toggleClass('case_mgBox2');
+        }
+
+
+        function layout2mgBox0() {
+            $('.main_container_view_inner').toggleClass('case_mgBox0');
+        }
+
+    </script>
+
+    <style type="text/css">
+
+
+        @import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap');
+
+
+        .case100 {
+            width: 100% !important;
+        }
+
+
+
+        /* 판례 가독성 업데이트 */
+
+        /* 판례 내부 폰트 _ 나중에 case_info2를 case_info로 바꾸기 */
+        .case_info2 .c_tit_1 {
+            margin-top: 60px;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: 20px;
+        }
+
+        .case_info2 .c_tit_2 {
+            line-height: 220%;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .case_info2 .c_tit_2-2 {
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        .case_info2 .c_tit_3 {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .case_info2 .c_tit_4 {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .case_info2 p {
+            position: relative;
+            display: block;
+            padding-left: 0px;
+            background: none;
+            font-size: 1.3em;
+            font-weight: bold;
+            line-height: 220%; /* 배경 소스 없앨것  margin-top:19px; background:url(../images/tr_icon_blit_org.png) no-repeat 2px 15px;background-size:5px; */
+        }
+
+            .case_info2 p span {
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+
+            .case_info2 p:first-of-type {
+                margin-top: 0
+            }
+
+        .case_info2 .c_tit_3 {
+            margin-top: 20px;
+        }
+
+            .case_info2 .c_tit_3 table td {
+                text-align: justify;
+            }
+
+        .case_info2 #case_judge {
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+            display: block;
+            margin-top: 20px
+        }
+
+        .case_info2 .c_con {
+            padding-left: 0 !important;
+            line-height: 240%;
+        }
+
+            .case_info2 .c_con p {
+                background-image: none;
+                padding-left: 0;
+                margin-left: -15px;
+                margin-top: 10px;
+                padding-top: 10px;
+                border-top: none;
+            }
+
+        .case_info2 .fo11em {
+            font-size: 1.1em !important;
+            margin-bottom: 0 !important;
+        }
+
+            .case_info2 .fo11em:before {
+                content: ' ';
+            }
+
+        .case_info2 .c_con, .case_info2 .c_tit_3 {
+            text-align: justify
+        }
+
+        .case_info2 .c_tit_2-1 {
+            text-align: center;
+        }
+
+        /* 배경1 진한배경 */
+        .main_container_view_back1 {
+            background: #777 !important;
+        }
+
+            .main_container_view_back1 .main_container_view_inner {
+                background: #fff !important;
+                max-width: 840px;
+                padding: 20px 40px;
+            }
+
+        /* 배경2 중간배경 */
+        .main_container_view_back2 {
+            background: #ccc !important;
+        }
+
+            .main_container_view_back2 .main_container_view_inner {
+                background: #fff !important;
+                max-width: 840px;
+                padding: 20px 40px;
+            }
+
+        /* 배경3 진한배경 */
+        .main_container_view_back3 {
+            background: #fafafa !important;
+        }
+
+            .main_container_view_back3 .main_container_view_inner {
+                background: #fff !important;
+                max-width: 840px;
+                padding: 20px 40px;
+            }
+
+        /* 사이즈 760  */
+        .case_mgBox {
+            margin: 40px auto !important;
+            max-width: 760px !important;
+            padding: 40px !important;
+        }
+
+        /* 사이즈 760  */
+        .case_mgBox2 {
+            margin: 40px auto !important;
+            max-width: 700px !important;
+            padding: 40px !important;
+        }
+
+        /* 폰트 크게   */
+        .font-Large {
+            font-size: large;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&display=swap');
+
+        .Myoungjo h2, .Myoungjo .c_con, .Myoungjo .c_tit_1, .Myoungjo .c_tit_2, .Myoungjo .c_tit_2-1, .Myoungjo .c_tit_2-2, .Myoungjo .c_tit_3, .Myoungjo a {
+            font-family: 'Nanum Myeongjo', serif;
+            transform: rotate(0.04deg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+
+
+</head>
+
+<body onresize="resizeComment();">
+    <div id="co_popupContainer">
+        <div id="wrap">
+            <header>
+                <div class="top_container  ">
+                    <h1>로앤비</h1>
+                    <div class="function_area">
+                        <p class="hide">기타기능버튼들</p>
+                        <a href="#" id="inner_search">
+                            <span><i class="icon-folder" data-icon=""></i></span>
+                            <span>본문검색</span>
+                        </a>
+                        <div class="inner_search_div">
+                            <input type="search" id="txtContendViewSearchWord" placeholder="본문검색" onkeypress="if(event.keyCode==13) { contentViewSearchType('C000'); return false;}">
+                            <span class="btn_inner_search" onclick="contentViewSearchType('C000');"><i class="icon-folder" data-icon=""></i></span>
+                            <span class="btn_inner_updown"><i class="icon-ups" data-icon="" onclick="movePreviousWord();"></i> <br><i class="icon-downs" data-icon="" onclick="moveNextWord();"></i></span>
+                            <span class="inner_search_close" title="본문검색닫기" onclick="setRemoveHighlight('C000');"><i class="icon-close" data-icon=""></i></span>
+                        </div>
+                        <div id="search_word">
+                            <span style="padding-right:0" onclick="moveFindMarks('P')"><i class="icon-left" data-icon=""></i></span>
+                            <span onclick="checkMarking()">
+                                <i class="icon-checkbox-unchecked _checked"></i>
+                            </span>
+                            <span style="padding-left:0" onclick="moveFindMarks('N')"><i class="icon-right" data-icon=""></i></span>
+                            <br><span>검색어</span>
+                        </div>
+                        <div>
+                            <span class="font-p"><i class="icon-plus" data-icon=""></i></span>
+                            <span class="font-m"><i class="icon-minus" data-icon=""></i></span>
+                            <br><span>글자크기</span>
+                        </div>
+                        <input type="hidden" id="hdnSlawId" value="0">
+                        <input type="hidden" id="hdnStitle" value="대법원 1997. 5. 1 자 97마384 결정 [등기공무원처분에관한이의] [공97.7.1.[37],1811]">
+
+                        <a href="#" id="folder_put" onclick="mydesk.myPersonalization('VIEWMY01')">
+                            <span><i class="icon-folder" data-icon=""></i></span>
+                            <span>폴더담기</span>
+                        </a>
+                        <a href="#" id="pring_set" onclick="mydesk.myPersonalization('VIEWMY05')">
+                            <span><i class="icon-printer" data-icon=""></i></span>
+                            <span>인쇄</span>
+                        </a>
+                        <a href="#" id="save_set" onclick="mydesk.myPersonalization('VIEWMY06')">
+                            <span><i class="icon-download3" data-icon=""></i></span>
+                            <span>파일저장</span>
+                        </a>
+
+                        <a href="#" id="cont_share" onclick="mydesk.myPersonalization('VIEWMY07')">
+                            <span><i class="icon-share2" data-icon=""></i></span>
+                            <span>공유</span>
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+
+            <div id="container" class="case">
+                <div class="container_hide">
+                    <button id="left_wide"><i class="icon_list" data-icon="&#xe900;"><span class="blind">목차 넓게보기</span></i></button>
+                    <button id="left_hide"><i class="icon_list" data-icon="&#xe901;"><span class="blind">목차 없애기</span></i></button>
+                </div>
+                <div id="breadcrumb" class="navi_area">
+                    <span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+                </div>
+                <div class="title_area">
+                    <div class="btn_option">
+                        <span id="btnHistory" class="" onclick="caselaw.goToRefView('C000AA0DF44095FE_R5')">판례히스토리</span>
+                    </div>
+                    <h2>
+                        대법원 1997. 5. 1 자 97마384 결정 [등기공무원처분에관한이의]<span>[공97.7.1.[37],1811]</span>
+                        <div class="btn_more_area"><button title="판례제목 닫기" class="more" style="display: none;"></button></div>
+                    </h2>
+                    <div class="case_nick"></div>
+                </div>
+
+                <div id="container_inner">
+                    <div class="left_container">
+                        <div class="table_index">
+                            <h3>요약정보</h3>
+                            <ul id="LiAddInfo">
+                                <li><a href="#case_info">판시사항</a></li>
+                                <li><a href="#case_point">결정요지</a></li>
+                                <li><a href="#law_refer">참조조문</a></li>
+                                <li><a href="#hiscase_point">재판경과</a></li>
+                                <li><a href="#case_refer">참조판례</a></li>
+                                <li><a href="#refcase_point">따름판례</a></li>
+                            </ul>
+                            <h3>전문</h3>
+                            <ul>
+                                <li><a href="#case_plaintiff">당사자</a></li>
+                                <li><a href="#case_entire_ori">원심결정</a></li>
+                                <li><a href="#case_outcome">주문</a></li>
+                                <li>
+                                    <a href="#case_reason">이유</a>
+                                    <ul> </ul>
+                                </li>
+                                <li><a href="#case_judge">판사</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <article class="main_container">
+                        <div class="main_container_view">
+                            <div class="main_container_view_inner">
+
+
+                                <!-- 내부 타이틀 -->
+                                <div class="legal_layout_title" style="display:none;">
+                                    <div class="title_area" style="display:block; margin-bottom: 40px;">
+                                        <h2 style="margin-top: 30px; text-align: center; margin-bottom: 20px; font-size:1.4em;">
+                                            대법원 1997. 5. 1 자  97마384 결정 <br /> [등기공무원처분에관한이의] <br /><span>[공97.7.1.[37],1811]</span>
+                                            <div class="btn_more_area"><button title="판례제목 닫기" class="more" style="display: none;"></button></div>
+                                        </h2>
+                                        <div style=" overflow: hidden; ">
+                                            <div class="btn_option" style="display: none;">
+                                                <span id="btnHistory" class="" onclick="caselaw.goToRefView('C000AA0DF44095FE_R5')">판례히스토리</span>
+                                            </div>
+                                        </div>
+                                        <div class="case_nick"></div>
+                                    </div>
+                                </div>
+
+                                <div id="title_result_tab" class="result_tab">
+                                    <div>관련정보 </div>
+                                    <div class="btn_option_outer"><div class="btn_close">X</div></div>
+                                    <div class="btn_option_outer"><div class="btn_reapprea">검색결과 보기</div></div>
+                                </div>
+                                <div id="result_area" class="popup_mov_area">
+                                    <div id="result_sep"></div>
+                                    <div class="list_order_pr">
+
+                                    </div>
+                                    <ol class="list myfolder_total">
+                                        <!--나의폴더-->
+
+                                    </ol>
+                                    <div class="navigationLinks">
+                                    </div>
+                                </div>
+                                <div class="case_info" id="view_content">
+                                    <!--?xml version="1.0" encoding="utf-16"?--><a name="case_entire" class="nopopup"> </a>
+                                    <p class="c_tit_1" id="prCont_t_3"> 전 문<br> </p>
+                                    <div class="c_con" id="prCont_3">
+                                        <div class="c_tit_2" id="c_tit_2"><a id="case_plaintiff" name="case_plaintiff" class="nopopup"> </a>원 고 주식회사 글로벌위크네트<br></div>
+                                        <div class="c_tit_2" id="c_tit_2"><a id="case_plaintiff" name="case_plaintiff" class="nopopup"> </a>피 고 서울지방고용노동청 서울남부지청장<br></div>
+                                        <div class="c_tit_2">변론종결 2016.9.12.</div>
+                                        <div class="c_tit_2">판결선고 2016.11.14.</div>
+                                        <div class="c_tit_2"><a id="case_outcome" name="case_outcome" class="nopopup"> </a><br><div class="c_tit_1">주 문</div>1.원고의 청구를 기각한다.<br>2.소송비용은 원고가 부담한다.<br></div>
+                                        <div class="c_tit_2"><a id="case_purpose" name="case_purpose" class="nopopup"> </a><br><div class="c_tit_1">청구취지</div>피고가 2015.8.25. 원고에 대하여 한 1개월간의 사업정지처분을 취소한다.<br></div>
+                                        <div class="c_tit_3"><a id="case_reason" name="case_reason" class="nopopup"> </a><br><div class="c_tit_1">이 유</div></div>
+                                        <div class="c_tit_3"><a id="R02" name="R02" class="nopopup"></a>1.처분의 경위<br></div>
+                                        <div class="c_tit_3"><a id="R03" name="R03" class="nopopup"></a>가.원고는 해외취업을 원하는 구직자들과 해외취업대행계약을 체결하고, 그들이 캐나다, 호주 등 해외의 구인자와 사이에 고용계약이 성립되도록 알선하는 행위의 해외 취업알선업등을 영위하는 법인이다.<br></div>
+                                        <div class="c_tit_3"><a id="R04" name="R04" class="nopopup"></a>나.원고와 해외취업대행계약을 체결하였던 a,b,c(이하'a 등'이라 한다)은 2015.5.경 또는 2015.6.경 피고 측에게 원고가 a 등으로부터 금원을 지급받은 뒤 환불을 요구받았음에도 이에 응하지 않고 있어 직업안정성법을 위반하였음을 이유로 민원을 제기하였다.<br></div>
+                                        <div class="c_tit_3"><a id="R05" name="R05" class="nopopup"></a>다.피고는 2015.8.25. 원고에게, 원고가 <a href="/Info/ContentView?sid=L000005146_25_20160503" class="popup_view">직업안정법 시행령 제25조</a>를 위반하여 근로계약 체결 전에 소개 요금 등을 받은 경우에 해당함을 이유로 사업정지 1개월 처분을 하였다(이하'이 사건 처분'이라 한다).<br>[인정근거]다툼 없는 사실,갑 제1,2호증,을 제1호증(각 가지번호 포함)의 각 기재, 변론 전체의 취지<br></div>
+                                        <div class="c_tit_3"><a id="R06" name="R06" class="nopopup"></a>2.이 사건 처분의 적법 여부<br></div>
+                                        <div class="c_tit_3"><a id="R07" name="R07" class="nopopup"></a>가.원고의 주장<br>이 사건 처분은 아래와 같은 사유로 위법하다.<br>1)<a href="/Info/ContentView?sid=L000005146_25_20160503" class="popup_view">직업안정법 시행령 제25조 제6호</a>는 <a href="/Info/ContentView?sid=L000001765_19_20150120" class="popup_view">직업안정법 제19조 제3항</a>에 따른 요금을 구직자의 근로계약이 체결된 후에 받을 것으로 규정하여 모법에서 언급이 없는 요금 수령시기를 제한하고 있으니 이는 모법의 위임 범위를 벗어난 위헌적인 규정이다.<br>2)원고 a는 등과 사이에 취업비자 수속대행계약을 체결하고 a 등으로부터 수속대행료를 받아 이들의 비자수속을 대행한 것이지 <a href="/Info/ContentView?sid=L000001765_19_20150120" class="popup_view">직업안정법 제19조 제3항</a>, 「국외유료직업소개요금등 고시」(2010.1.13.노동부고시 제2010-4호, 이하'고시'라 한다)에 다른 소개요금을 받은 것이 아니다.<br>3)이 사건 처분으로 원고가 사실상 폐업에 이를 가능성이 농후한 점, 원고가 직업안정법 위반으로 단속받은 적이 없는 점 등에 비추어 보면, 이 사건 처분은 재량권을 일탈.남용하였다.<br></div>
+                                        <div class="c_tit_3"><a id="R08" name="R08" class="nopopup"></a>나.관계법령<br>별지 관계법령 기재와 같다.<br></div>
+                                        <div class="c_tit_3"><a id="R09" name="R09" class="nopopup"></a>다.<a href="/Info/ContentView?sid=L000005146_25_20160503" class="popup_view">직업안정법 시행령 제25조 제6호</a>의 위헌 여부<br>1)<a href="/Info/ContentView?sid=L000001765_19_20140520" class="popup_view">직업안정법(2015.1.20.법률 제13049호로 개정되기 전의 것, 이하 '직업안정법 '이라 한다) 제19조 제6항</a>에서 유료직업소개사업을 하는 자와 그 종사자의 준수사항을 대통령령에 위임하고 있고, 이에 따라 <a href="/Info/ContentView?sid=L000005146_25_20160503" class="popup_view">직업안정법 시행령 제25조</a>에서 그 준수사항을 구체적으로 열거하고 있는바, <a href="/Info/ContentView?sid=L000005146_25_20160503" class="popup_view">직업안정법 시행령 제25조</a>는 모법 위임규정에 존재한다(따라서 <a href="/Info/ContentView?sid=L000005146_25_20160503" class="popup_view">직업안정법 시행령 제25조</a>가 모법에 근거가 없어 위헌인 규정이라는 원고의 주장은 이유 없다).<br>2)다만, <a href="/Info/ContentView?sid=L000005146_19_20160503" class="popup_view">직업안정법 시행령 제19조 제6항</a>의 위임근거인 <a href="/Info/ContentView?sid=L000001765_19_20150120" class="popup_view">직업안정법 제19조 제6항</a>이 포괄위임입법금지원칙에 위반되는지 여부가 문제된다.<br>우리 헌법은 <a href="/Info/ContentView?sid=L000001765_75_20150120" class="popup_view">제75조</a>에서 '대통령은 법률에서 구체적으로 범위를 정하여 위임받은 사항과 법률을 집행하기 위하여 필요한 사항에 관하여 대통령령을 발할 수 있다"고 규정하여 위임입법의 근거를 마련하는 한편, 대통령령으로 입법할 수 있는 사항을 법률에서 구체적으로 범위를 정하여 위임받은 사항으로 한정함으로써 위임입법의 범위와 한계를 제시하고 잇다. 그런데 헌법에 의하여 위임입법이 용인되는 한계인 '법률에서 구체적으로 범위를 정하여 위임받은 사항'이라 함은 법률에 이미 대통령령으로 규정될 내용 및 범위의 기본사항이 구체적이고 명확하게 규정되어 있어서 누구라도 당해법률 그 자체로부터 대통령령에 규정될 내용의 개강을 예측할 수 있어야 하다는 것을 의미한다. 이러한 예측가능성의 유무는 당해 특정조항 하나만을 가지고 판단할 것은 아니고 관련 법 조항 전체를 유기적.체계적으로 종합 판단하여야 하며, 각 대상법률의 성질에 따라 구체적.개별적으로 검토하여야 한다.<br>위임입법의 위와 같은 구체성, 명확성의 요구 정도는 각종 법률이 규제하고자 하는 대상의 종류와 성질에 따라 달라질 것이지만, 특히 처벌법규나 조세법규와 같이 국민의 기본권을 직접적으로 제한하거나 침해할 소지가 있는 법규에서는 구체성, 명확성의 요구가 강화되어 그 위임의 요건과 범위가 일반적인 급부행정법규의 경우보다 더 엄격하게 제한적으로 규정되어야 하는 반면에 규율대상이 지극히 다양하거나 수시로 변화하는 성질의 것일 때에는 위임의 구체성, 명확성의 요건이 완화된다. <a href="/Info/ContentView?sid=L000001765_19_20150120" class="popup_view">직업안정법 제19조 제6항</a>의 경우 '준수사항'위반 효과가 과태로나 형사처벌이 아니라 사업정지 또는 등록.허가의 취소와 같은 행정적 제재라는 점에서 처벌조항의 위임한계가 문제되는 형법법규에 요구되는 정도로 엄격하게 위임의 요건과 범위를 규정하여야 하는 것은 아니다.<br>3)위와 같은 법리에 비추어 보건대, 경제상황 및 노동환경은 끊임없이 변화하고 있으며, 고용이 불안정하고 실업이 증가하는 현 상황에서 노동력 수급의 불균형을 해소하고 실업기간을 단축해 근로자(구직자)의 고용안정을 도모하기 위해서는 다양한 고용서비스의 역할이 강조되므로 직업안정법은 다른 법률에 비해 전문적이고 기술적일 뿐 아니라, 새로운 고용서비의 등장이나 근로자파견사업과 직업소개사업의 겸업등과 같은 기존 고용서비스의 변화된 형태 등 현실의 변화에 따른 신속하고 탄력적인 입법적 대응이 필요한 분야의 법률이다. 따라서 유료직업소개 서비스를 제공하는 사업자가 준수하여야 할 사항이라는 세부적이고 기술적인 규율을 국회에 맡기기보다는 전체적인 기준 및 개요를 법률에 대강만 정한 뒤 구체적이고 세부적인 사항은 변동 상황에 따른 탄력적 혹은 기술적 대응을 위하여 전문적.기술적 능력을 갖춘 행정부에서 상황의 변동에 따라 시의 적절하게 탄력적으로 대응할 수 있도록 하위 법령에 위임할 필요성이 인정된다.<br>또한, 직업안정법의 목적 및 민간고용서비스 사업자에게 요구되는 규율 내용, 즉 정당한 이유 없는 수리거부금지(<a href="/Info/ContentView?sid=L000001765_9_20150120" class="popup_view">제9조</a>), 근로조건의 명시(<a href="/Info/ContentView?sid=L000001765_10_20150120" class="popup_view">제10조</a>) , 적합한 직업소개(<a href="/Info/ContentView?sid=L000001765_11_20150120" class="popup_view">제11조</a>), 거짓 구인광고 금지(<a href="/Info/ContentView?sid=L000001765_34_20150120" class="popup_view">제34조</a>) 등을 유기적.체계적으로 살펴보면 <a href="/Info/ContentView?sid=L000001765_19_20150120" class="popup_view">직업안정법 제19조 제6항</a>에 따라 대통령령으로 정하여질 내용은 근로자에 대한 취업기회의 제공과 직업의 안정을 위하여 유료직업소개사업자 및 그 종사자가 준수하여야 할 구체적 사항이나 그 범주에서 벗어나지 아니한 사항에 관한 일반적 기준이 될 것이라고 충분히 예측할 수 있다( <a href="/Info/ContentView?sid=C000B9F135455748" class="popup_view">헌법재판소 2013.7.25.선고 2012헌바54 결정</a> 참조).<br>4)따라서 <a href="/Info/ContentView?sid=L000001765_19_20150120" class="popup_view">직업안정법 제19조 제6항</a>은 위임의 필요성과 예측가능성이 모두 인정되므로 포괄위임입법금지원칙에 위배되지 아니한바, 결국 이에 관한 원고의 주장은 이유 없다.<br></div>
+                                        <div class="c_tit_3"><a id="R010" name="R010" class="nopopup"></a>라.처분사유 존재 여부<br>1)갑 제4,5호증9각 가지번호 포함),을 제4 내지 7,12,14,15호증의 각 기재 및 변론 전체의 취지에 의하여 인정되는 다음과 같은 사정에 비추어 보면 ,원고는 a,c의 근로계약이 체결되기 전에 소개요금을 지급받았다고 봄이 타당하므로 이에 관한 원고의 주장은 이유 없다.<br>①원고는 a과 해외취업알선계약을 체결하고 a이 해외업체와 근로계약을 체결하기에 앞서 a으로부터 소개요금 명목으로 최소 6,060,000원을 지급받았다고 봄이 타당하다.<br>㉠원고와 a은 2012.7.18. a이 호주 현지업체 취업과 호주취업비자 취득을 위하여 원고가 업무대행을 하기로 하는 내용의 계약을 체결하면서, 그 계약기간을 계약금 납부시부터 a이 호주 현지업체와 고용계약이 완료된 시점까지로 정하였는바, 위 계약은 원고가 a으로부터 계약금을 지급받는 시기부터 효력이 발생하도록 되어 있다.<br>㉡원고와 a은 위 계약상 a이 원고에게 총 25,000호주달러(AUD) 를 지급하되, 1차로 계약 무렵에 10,000호달러를 2차로 457비자 신청이 15,000호주달러를 각 분납하기로 정하였는바, 결국 원고는 계약기간이 종료되기에 앞서 (457비자 신청시가 계약의 종기가 아님은 위 ㉠항에서 알 수 있다)a으로부터 모든 비용을 지급받는 구조의 계약을 체결한 것으로 볼 수 있다.<br>㉢원고가 a으로부터 받는 비용의 합계가 위 25,000호주달러가 전부이고, 위 계약 <a href="/Info/ContentView?sid=L000001765_7_20150120" class="popup_view">제7조</a>에서 취업과 비자취득과 관련된 필요경비(서류발급비, 이민성 접수비, 신체검사비, 정착비, 인지대,호주의료보험비, 항공료 등)는 a이 별도로 부담하기로 한 계약규정과 <a href="/Info/ContentView?sid=L000001765_8_20150120" class="popup_view">제8조 제1항</a>에서 원고의 귀책사유로 진행이 중단될 경우 비용 중 '190만원(수속비)'를 제외한 나머지 비용을 반환한다는 계약규정 등에 비추어 볼 때, 위 25,000호주 달러에는 필요경비가 제외돈 돈으로 원고의 ㅎ외취업알선 소개요금이 포함되어 있음을 알 수 있다.<br>㉣a은 위 계약에 따라 2012.8.16. 원고에게 6,060,000원을 계약금 명목으로 지급하였다.<br>㉤a은 원고가 호주 타일공 자격 취득을 위한 타일학원에 접수하기 위한 추가금액이 필요하다는 요구에 따라 2012.8.29. 원고에게 5,990,000원을 추가로 지급하였는바 위 6,060,000원은 타일학원 접수와 직접적으로 관련되지 않은 돈일 가능성이 크다.<br>㉥a은 현재까지 위 계약에 따라 원고의 알선에 의해 호주 현지업체와 근로계약을 체결하지 못하였고(원고 측이 피고의 조사 당시 진술한 내용에 의하더라도 a의 취업이 전화통화를 통하여 확정되었다고 주장하는 날 역시 위 6,060,000원을 지급받은 후인 2012.9.초순경이다).<br>②원고는 c과 해외취업알선계약을 체결하고 c이 해외업체와 근로계약을 체결하기에 앞서 a으로부터 소개요금 명목으로 최소 19,540,000원을 지급받았다고 봄이 타당하다.<br>㉠원고와 c은 2014.4.17. c의 호주 현지업체 취업과 호주취업비자 취득을 위하여 원고가 업무대행을 하기로 하는 내용의 계약을 체결하면서, 그 계약기간을 계약서 작성시부터 a이 호주 현지업레에 취업이 확정된 후 비자취득 완료시까지로 정하였다.<br>㉡원고와 c은 위 계약상 c이 원고에게 총 35,000호주달러를 지급하되, 1차로 계약 무렵에 20,000호주달러를 2차로 457비자 승인시 5,000호주달러를 3차로 호주 현지업체로부터 457비자 취득시 10,000호주달러를 각 분납하기로 정하였다.<br>㉢원고가 c으로부터 받은 비용의 합계가 위 35,000호주달러가 전부이고, 위 계약 <a href="/Info/ContentView?sid=L000001765_8_20150120" class="popup_view">제8조</a>에서 취업과 비자취득과 관련된 필요경비(서류발급비, 이민성 접수비, 신체검사비, 정착비, 인지대, 호주의료보험비, 항공료 등)는 a이 별도로 부담하기로 한 계약규정과 <a href="/Info/ContentView?sid=L000001765_7_20150120" class="popup_view">제7조 제1항</a>에서 원고의 귀책사유로 진행이 중단된 경우 비용 중 '190만원(국내수속비)'을 제외한 나머지 비용을 반환한다는 계약규정 등에 비추어 볼 때, 위 35,000호주달러에는 필요경비가 제외된 돈으로 원고의 해외취업알선 소개요금이 포함되어 있을 가능성이 크다.<br>㉣c은 위 계약에 따라 계약체결 직후인 2014.4.21. 원고에게 20,000호주달러에 해당하는 19,540,000원을 계약금 명목으로 지급하였는데, 위 금액이 전체 비용에서 차지하는 비율로 봤을 때 위 19,540,000원 전체를 필요경비 상당 조로 보기에는 무리가 있다.<br>㉤c은 현재까지 위 계약에 따라 원고의 알선에 의해 호주 현지업체와 근로계약을 체결하지 못하였다(피고의 조사 당시 원고 측 역시 c이 호주 현지업체로부터 고용확정을 받은 사실은 있으나 c과 호주 현지업체와 사이에 근로계약을 체결하지는 못하였다고 인정하고 있다).<br>2)다만, 갑 제3호증(가지번호 포함)의 각 기재 및 변론 전체의 취지 에 이하여 인정되는 다음과 같은 사정, 즉 ①원고와 b 의 캐나다 현지업체 취업과 취업비자 취득을 위하여 원고가 업무대행을 하기로 하는 내용의 계약이 체결된 날은 2014.2.18.일인데 b가 위 계약에 따라 원고에게 최초로 돈을 지급한 날은 그로부터 4개월이 경과한 2014.6.26.이어서 실제 b가 캐나다 현지의 미용업체에서 취업하여 근로한 이후 돈이 지급될 여지가 상당한 점(피고는 원고가 캐나다 현지 미용업체에서 근로하게 된 시점에 대하여 정확히 밝히고 있지 않다), ②b가 원고의 계약이행에 따라 캐나다 현지의 미용업체에 취업하여 근로자로 활동한 점(비록 b가 위 업체에서 무급으로 근무하던 기간 중에 퇴사하였다고 하더라도 b가 근로자로서 근무한 사정에 변동이 발생하는 것은 아니다), ③b가 원고에게 지급한 돈 중 실제 지급 명목대로 처리하지 않은 내역(원고가 b로부터 AIT 비용으로 2,500캐나다달러를 지급받았음에도 이를 처리하지 않았다는 부분)이 있고, 소개비용과 실비 명목의 비용으로 구분하지 않고 돈을 지급받았다는 측면에서 피고가 이 사건 처분 중 b부분을 한 것으로 보이지 b가 해외업체와 근로계약을 체결하기 앞서 소개비용을 받았다가 측면에서 이를 한 것으로 보이지 않는 점 등에 비추어 보면, 피고가 제출한 증거만으로 원고가 b가 해외업체와 근로계약을 체결하기에 앞서 b로부터 소개요금을 지급받았다는 점을 인정하기에 부족하고, 달리 이를 인정할 증거가 없는바, 이 사건 처분 중 b부분에 대하여는 그 처분사유가 존재하지 않는다.<br></div>
+                                        <div class="c_tit_3"><a id="R011" name="R011" class="nopopup"></a>마.재량권 일탈.남용 여부<br>앞에서 본 바와 같이 이 사건 처분 중 a,c 부분에 대한 처분사유는 인정되나, b 부분에 대한 처분사유는 인정되지 않아 이 사건 처분 당시의 처분사유에 일부 부존재 한 사정이 확인된다.<br>그러나 앞에서 본 <a href="/Info/ContentView?sid=L000001765_19_20150120" class="popup_view">직업안정법 제19조 제3항</a>, <a href="/Info/ContentView?sid=L000005146_25_20160503" class="popup_view">직업안정법 시행령 제25조 제6호</a>의 취지, 이 사건 처분 중 위에서 인정되는 처분사유만을 그 근거로 보더라도 1개월간의 사업정지처분이 관계 법령에서 정한 행정처분기준에 부합하는 점, 다른 유사 사례의 빈발을 막고 형평성을 유지하기 위해 관계 법령을 엄격하게 집행할 필요성이 큰 점 등 이 사건에 나타나는 제반 사정에 비추어 볼 떄, 원고가 주장하는 사정을 고려하더라도 이 사건 처분으로 인하여 원고가 입게 될 불이익보다 그로써 달성하려고 하는 공익 목적이 훨씬 크다고 할 것이므로, 이 사건 처분이 재량권을 일탈하거나 남용하였다고 볼 수 없다. 따라서 원고의 이 부분 주장도 이유 없다.<br></div>
+                                        <div class="c_tit_3"><a id="R012" name="R012" class="nopopup"></a>3.결론<br>원고의 청구는 이유 없어 이를 기각한다.<br></div>
+                                        <div class="c_tit_2-1"><a id="case_judge" name="case_judge" class="nopopup"> </a>판 사 송종환</div>
+                                        <div class="c_tit_2-2">
+                                            <a id="case_byulpyo" name="case_byulpyo" class="nopopup"></a>
+                                            <casebyulpyo id="divCaseByulpyoTxt"><img class="cImg" alt="" src="/lbimg/C000/2021/0822/lawnb_22112835379.jpg"></casebyulpyo>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="case_info" id="view_sub_content" style="display:none"></div>
+                                <input type="hidden" id="lbDid" name="lbDid" value="C000AA0DF44095FE">
+                                <input type="hidden" id="lbTid" name="lbTid" value="C000AA0DF44095FE">
+                                <input type="hidden" id="lbCol" name="lbCol">
+                                <input type="hidden" id="sList" name="sList" value="10">
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <aside class="right_container">
+                        <div id="myfolder_area"></div>
+                        <div id="addInfoDiv">
+
+                            <section>
+                                <h4>
+                                    판례 디자인 업데이트 버튼
+                                </h4>
+                                <ul>
+                                    <li><a href="#" onclick="layout2Wing();">좌우여백</a></li>
+                                    <li><a href="#" onclick="layout2Text();">[레이아웃] 크기정렬</a></li>
+                                    <li><a href="#" onclick="layout2Myoungjo();">[폰트] 명조체</a></li>
+                                    <li><a href="#" onclick="layout2large();">[폰트] 크게</a></li>
+                                    <li><a href="#" onclick="layout2Background1();">[배경] 어둡게</a></li>
+                                    <li><a href="#" onclick="layout2Background2();">[배경] 중간</a></li>
+                                    <li><a href="#" onclick="layout2Background3();">[배경]살짝</a></li>
+                                    <li><a href="#" onclick="layout2mgBox0();">[사이즈] 상단 여백만</a></li>
+                                    <li><a href="#" onclick="layout2mgBox();">[사이즈] 750</a></li>
+                                    <li><a href="#" onclick="layout2mgBox2();">[사이즈] 700</a></li>
+                                    <li><a href="#" onclick="layout2Title();">[타이틀] 상단</a></li>
+                                </ul>
+                            </section>
+
+                            <section>
+                                <h4>
+                                    관련주석서 <em>총 3건</em>
+                                    <div class="btn-group fr">
+                                    </div>
+                                </h4>
+                                <ul>
+                                    <li><a href="/Info/ContentView?sid=J001001697_92795_0" class="popup_view">[온주] 부동산등기법 / [제29조] 제2호</a></li>
+                                    <li><a href="/Info/ContentView?sid=J001001178_88264_0" class="popup_view">[온주] 부동산실권리자명의등기에관한법률 / 제12조 [실명등기의무 위반의 효력 등]</a></li>
+                                    <li><a href="/Info/ContentView?sid=D0211DF800C97420_100807" class="popup_view">[주석서] 물권법 / 부동산실권리자명의등기에관한법률 제6조 [이행강제금] </a></li>
+                                </ul>
+                            </section>
+                            <section>
+                                <h4>
+                                    관련논문·평석 <em>총 2건</em>
+                                    <div class="btn-group fr">
+                                    </div>
+                                </h4>
+                                <ul>
+                                    <li><a href="/Info/ContentView?sid=D0110EE414803DFE" class="popup_view">[판례연구] 소유권에 관한 판례: 소유권의 취득, 소유권의 내용과 범위, 공유, 건물의 구분소유, 명의신탁, 물권적 청구권 </a></li>
+                                    <li><a href="/Info/ContentView?sid=D011E0980605FF86" class="popup_view">[판례연구] 부동산실권리자명의등기에관한 법률상 명의신탁약정의 효력 </a></li>
+                                </ul>
+                            </section>
+                            <section>
+                                <h4>
+                                    유사판례 <em>총 20건</em>
+                                    <div class="btn-group fr">
+                                        <button type="button" class="btn btn-default" onclick="view.addInfoList('C000')">전체보기</button>
+                                    </div>
+                                </h4>
+                                <ul>
+                                    <li><a href="/Info/ContentView?sid=C000AB2735ECD1C3" class="popup_view">대법원 2009. 8. 20 선고 2008도12009 판결 【부동산실권리자명의등기에관한법률위반ㆍ횡령ㆍ건축법위반】 <span>[미간행]</span></a></li>
+                                    <li><a href="/Info/ContentView?sid=C000E1D81B3CBC46" class="popup_view">대법원 2008. 10. 23 선고 2008다43693 판결 【소유권이전등기】 <span>[공2008하,1598]</span></a></li>
+                                    <li><a href="/Info/ContentView?sid=C00036523C85BD5B" class="popup_view">대법원 2003. 5. 16 선고 2002다71252 판결 【소유권이전등기】</a></li>
+                                    <li><a href="/Info/ContentView?sid=C000721DAA7A3557" class="popup_view">대법원 2002. 12. 26 선고 2000다21123 판결 【소유권이전등기】 <span>[공2003.2.15.(172),452]</span></a></li>
+                                    <li><a href="/Info/ContentView?sid=C0008DB176070415" class="popup_view">대법원 2002. 10. 28 자 2001마1235 결정 【등기관의처분에관한이의】 <span>[공2003.1.15.(170),134]</span></a></li>
+                                </ul>
+                            </section>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+            <div id="bg_screen"></div>
+
+        </div>
+        <script type="text/javascript">
+            setHeight();
+        </script>
+    </div>
+</body>
+</html>

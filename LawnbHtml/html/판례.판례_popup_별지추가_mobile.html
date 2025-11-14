@@ -1,0 +1,660 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="Content-Style-Type" content="text/html">
+	<meta name="robots" content="noindex, nofollow">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,viewport-fit=cover" />
+	<link rel="shortcut icon" href="../images/favicon_tr.ico" />
+	<link href="../css/M_next_layout.css?v=2021110107" rel="stylesheet" type="text/css" />
+	<link href="../css/M_next_default.css?v=2021110107" rel="stylesheet" type="text/css" />
+	<link href="../css/icon-style.css?v=2021110107" rel="stylesheet" type="text/css" />
+	<script src="../Scripts/lib/jquery-3.4.1.min.js" type="text/javascript"></script>
+	<script src="../Scripts/common/commonAjax.js?v=2021110107" type="text/javascript"></script>
+	<script src="../Scripts/common/commonjs.js?v=2021110107" type="text/javascript"></script>
+	<script src="../Scripts/common/commonjs_Mobile.js?v=2021110107" type="text/javascript"></script>
+
+	<script type="text/javascript">
+
+		function resizeComment() {
+			reSettingHeight();
+			if ($('.wide_left').length > 0) {
+				$('#right_control').hide();
+				$('.right_container').addClass('slide_mov_right');
+			} else {
+				$(".right_container").removeClass('slide_mov_right');
+			}
+		}
+
+        $(function () {
+
+            var UserCode = uCode = "10418019";
+           
+            //제목 상단 고정
+            $(window).scroll(function (event) {
+                if ($(window).scrollTop() >= 50) {
+                    if ($('#container').outerHeight() - $('.title_area').outerHeight() > document.body.clientHeight) {
+                        $(".title_area").addClass('topfixed');
+                    }
+                } else {
+                    $(".title_area").removeClass('topfixed');
+                }
+            });
+
+
+        });
+
+
+		
+	</script>
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_popupContainer" class="mobile">
+	<div id="wrap">
+		<header>
+			<div class="top_container  ">
+				<h1></h1>
+				<div class="btn_close_pop"><i class="icon-close" data-icon=""></i></div>
+			</div>
+		</header>
+
+
+		<div id="container" class="case">
+			<div class="container_hide">
+				<button id="left_wide"><i class="icon_list" data-icon="&#xe900;"><span class="blind">목차 넓게보기</span></i></button>
+				<button id="left_hide"><i class="icon_list" data-icon="&#xe901;"><span class="blind">목차 없애기</span></i></button>
+			</div>
+
+			<div class="title_area">
+				<div class="btn_option"><span class="">판례히스토리</span></div>
+				<!-- <div class="fl"><i class="icon-10-1"><span class="path1" data-icon="&#xe905;"></span><span class="path2" data-icon="&#xe906;"></span><span class="blind">폐기변경</span></i><i class="icon-10" data-icon="&#xe909;"><span class="blind">전원합의체</span></i></div>-->
+				<h2>대법원 2001. 3. 15. 선고 99두4594 전원합의체 판결[청산금부과처분취소] <span>[공2004.5.1.[201],688]</span> <div class="btn_more_area"><button title="판례제목 닫기" class="more"></button></div></h2>
+				<div class="case_nick"><i class="icon-" data-icon="&#xe901;"></i>별칭사건명 별칭사건명 별칭사건명<i class="icon-" data-icon="&#xe900;"></i></div><!-- <div class="meta_area">저자/등록일/수정일/출처/언론사/카테고리 등(판례 이외의 컨텐츠에서 노출되는 메타정보 영역)</div> -->
+			</div>
+			<div class="mview_tab_area">
+				<span class="_this" data-id="R000">판결문</span>
+				<span data-id="R300" id="refQuickInfo" onclick="view.showSubContent('C000269476D8E7E1|R1');">판례속보</span>
+				<span data-id="R200" id="refInform" onclick="view.addInfoByMobile();">관련자료</span>
+				<span id="refHisInfo" onclick="caselaw.goToRefView('C000269476D8E7E1_R5')">히스토리</span>
+			</div>
+			<div id="container_inner">
+				<div class="left_container">
+					<div class="table_index">
+						<h3>요약정보</h3>
+						<ul id="LiAddInfo">
+							<li><a href="#case_info">판시사항</a></li>
+							<li><a href="#case_point">판결요지</a></li>
+							<li><a href="#law_refer">참조법령</a></li>
+						</ul>
+						<h3>전문</h3>
+						<ul>
+							<li><a href="#case_plaintiff">당사자</a></li>
+							<li><a href="#case_outcome">주문</a></li>
+							<li><a href="#case_purpose">청구취지</a></li>
+							<li>
+								<a href="#case_reason">이유</a>
+								<ul>
+									<li><a href="#R02" title="1.처분의 경위">1.처분의 경위</a></li>
+									<li><a href="#R011" title="2.본안전항변에 대한 판단">2.본안전항변에 대한 판단</a></li>
+									<li><a href="#R012" title="3.이 사건 처분의 적법 여부">3.이 사건 처분의 적법 여부</a></li>
+									<li><a href="#R022" title="4.결론">4.결론</a></li>
+								</ul>
+							</li>
+							<li><a href="#case_judge">판사</a></li>
+							<li><a href="#case_byulpyo">별지</a></li>
+						</ul>
+					</div>
+				</div>
+				<article class="main_container" style="height:13000px; overflow:auto;">
+					<div class="main_container_view">
+						<div class="main_container_view_inner">
+							<div id="title_result_tab" class="result_tab">
+								<div id="divTitle">관련정보 </div>
+								<div class="btn_option_outer"><div class="btn_close">X</div></div>
+								<div class="btn_option_outer"><div class="btn_reapprea">검색결과 보기</div></div>
+							</div>
+							<div id="result_area" class="popup_mov_area  " style="display: none">
+								<!-- <div class="popup_title"><h3>판례속보 요약정보</h3></div>
+		<div>법원의 판례속보, 주요법원판결, 언론보도판결 등에 기재된 요약정보입니다. </div> -->
+								<div id="result_sep">
+									<a href="1" class="_this">논문평석(21건)</a><a href="2">리포트(21건)</a><a href="3">주석서(21건)</a><a href="4">칼럼(21건)</a><a href="3">유사판례(21건)</a>
+								</div>
+								<div class="list_order_pr">
+									<div class="btn_option_outer">
+										<div class="select_area">
+											<p class="blind">보기 개수 선택</p>
+											<select id="" name="">
+												<option value="">10개</option>
+												<option value="" selected="">20개</option>
+												<option value="">50개</option>
+											</select>
+										</div>
+										<div class="select_area">
+											<p class="blind">대상판례 선택</p>
+											<select id="" name="" style="width:80px">
+												<option value="">전체 </option>
+												<option value="" selected="">대상판례</option>
+												<option value="">본문내 관련판례</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<ol class="list myfolder_total">
+									<li>
+										<span class="list_num">1</span>
+										<div class="co_searchContent">
+											<h3>
+												<i class="icon-memo" data-icon="" title="메모" onmouseover="open_miju('Miju1')" onmouseout="close_miju('Miju1')"></i> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">폴더1>하위폴더1</a>&nbsp;<span class="list_meta">2017.05.20</span>
+												<div id="Miju1" class="miju_box" style="display: none;"><div class="miju_box_line">(대한변호사협회에서 10년이상의 경력을 인정한 분야입니다.)</div></div>
+											</h3>
+										</div>
+									</li>
+									<li>
+										<span class="list_num">2</span>
+										<div class="co_searchContent">
+											<h3><a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">폴더1>하위폴더1</a>&nbsp;<span class="list_meta">2017.05.20</span></h3>
+										</div>
+									</li>
+								</ol>
+								<ol class="list relate_list">
+									<li>
+										<span class="list_num">1</span>
+										<div class="co_searchContent">
+											<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[대상판례/본문내 관련판례][학회논문] 개별 행정법상 "이의신청제도"의 현황 검토</a><br><span>Legal Practice Study : Study on objection systems in several administrative laws</span><br><span class="list_meta">하경효(Kyung Hyo Ha), 하경효(Kyung Hyo Ha)/ 안암법학회/ 안암법학 <54>/ 2014/ 30Page </span></h3>
+										</div>
+									</li>
+									<li>
+										<span class="list_num">1</span>
+										<div class="co_searchContent">
+											<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[대상판례/본문내 관련판례] [판례연구] 리스트 표시 개별 행정법상 "이의신청제도"의 현황 검토</a><br><span class="list_meta">하경효(Kyung Hyo Ha), 하경효(Kyung Hyo Ha)/ 형사판례 연구 21 / 2015.12.14 / 30Page </span></h3>
+										</div>
+									</li>
+									<li>
+										<span class="list_num">1</span>
+										<div class="co_searchContent">
+											<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[대상판례/본문내 관련판례] [실무논문] 리스트 표시 개별 행정법상 "이의신청제도"의 현황 검토</a><br><span>Legal Practice Study : Study on objection systems in several administrative laws</span><br><span class="list_meta">하경효(Kyung Hyo Ha), 하경효(Kyung Hyo Ha)/ 법률신문 / 논문 / 2013.10.21 / txt </span></h3>
+										</div>
+									</li>
+									<li>
+										<span class="list_num">1</span>
+										<div class="co_searchContent">
+											<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[학회논문] 개별 행정법상 "이의신청제도"의 현황 검토</a><br><span>Legal Practice Study : Study on objection systems in several administrative laws</span><br><span class="list_meta">하경효(Kyung Hyo Ha), 하경효(Kyung Hyo Ha)/ 안암법학회/ 안암법학 <54>/ 2014/ 30Page </span></h3>
+										</div>
+									</li>
+									<li>
+										<span class="list_num">1</span>
+										<div class="co_searchContent">
+											<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[학회논문] 개별 행정법상 "이의신청제도"의 현황 검토</a><br><span>Legal Practice Study : Study on objection systems in several administrative laws</span><br><span class="list_meta">하경효(Kyung Hyo Ha), 하경효(Kyung Hyo Ha)/ 안암법학회/ 안암법학 <54>/ 2014/ 30Page </span></h3>
+										</div>
+									</li>
+								</ol>
+								<div class="navigationLinks">
+									<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=0" class="navFirst hiddenLink "><i class="icon-7" data-icon="&#xe911;"></i></a>
+									<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=-1" class="navPrevious hiddenLink "><i class="icon-2" data-icon="&#xe901;"></i></a>
+									<span class="currentPage">1</span>
+									<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navPages">2</a>
+									<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=2" class="navPages">3</a>
+									<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=3" class="navPages">4</a>
+									<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navNext"><i class="icon-1" data-icon="&#xe900;"></i></a>
+									<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=13" class="navLast "><i class="icon-8" data-icon="&#xe907;"></i></a>
+								</div>
+							</div>
+
+
+							<div class="case_info" id="view_content" style="display: none">
+								<p> 본문 내 검색결과 100건 <span class="btn_close"></span></p>
+								<!--?xml version="1.0" encoding="utf-16"?--><a id="P5000200" name="P5000200">  </a><div class="normal"><em><a href="/Info/ContentView?sid=L0007572EAC4B8ED_2" class="popup_view">제2조</a></em>(가정법원의 관장 사항)  <br>① 다음 각 호의 사항(이하 "가사사건"이라 한다)에 대한 심리(審理)와 재판은 가정법원의 전속관할(專屬管轄)로 한다. [개정 2013.4.5, 2013.7.30, 2014.10.15, 2016.12.2 제14278호(<a href="/Info/ContentView?sid=L000001706_0_20171031" class="popup_view">민법</a>), 2017.10.31] [[시행일 2018.2.1]]<br>1. 가사소송사건<br>가. 가류(類) 사건<br>1) 혼인의 무효<br>2) 이혼의 무효<br>3) 인지(認知)의 무효<br>4) 친생자관계 존부 확인(親生子關係 存否 確認)<br>5) 입양의 무효<br>6) 파양(罷養)의 무효<br>나. 나류(類) 사건<br>1) 사실상 혼인관계 존부 확인<br>2) 혼인의 취소<br>3) 이혼의 취소<br>4) 재판상 이혼<br>5) 아버지의 결정<br>6) 친생부인(親生否認)<br>7) 인지의 취소<br>8) 인지에 대한 이의(異議)<br>9) 인지청구<br>10) 입양의 취소<br>11) 파양의 취소<br>12) 재판상 파양<br>13) 친양자(親養子) 입양의 취소<br>14) 친양자의 파양<br>다. 다류(類) 사건<br>1) 약혼 해제(解除) 또는 사실혼관계 부당 파기(破棄)로 인한 손해배상청구(제3자에 대한 청구를 포함한다) 및 원상회복의 청구<br>2) 혼인의 무효·취소, 이혼의 무효·취소 또는 이혼을 원인으로 하는 손해배상청구(제3자에 대한 청구를 포함한다) 및 원상회복의 청구<br>3) 입양의 무효·취소, 파양의 무효·취소 또는 파양을 원인으로 하는 손해배상청구(제3자에 대한 청구를 포함한다) 및 원상회복의 청구<br>4) <a href="/Info/ContentView?sid=L000001706_839X3_20171031" class="popup_view">「민법」 제839조의3</a>에 따른 재산분할청구권 보전을 위한 사해행위(詐害行爲) 취소 및 원상회복의 청구<br>2. 가사비송사건<br>가. 라류(類) 사건<br>1) <a href="/Info/ContentView?sid=L000001706_9_20171031" class="popup_view">「민법」 제9조제1항</a>, <a href="/Info/ContentView?sid=L000001706_11_20171031" class="popup_view">제11조</a>, <a href="/Info/ContentView?sid=L000001706_14X3_20171031" class="popup_view">제14조의3제2항</a> 및 <a href="/Info/ContentView?sid=L000001706_959X20_20171031" class="popup_view">제959조의20</a>에 따른 성년후견 개시의 심판과 그 종료의 심판<br>1)의2 <a href="/Info/ContentView?sid=L000001706_10_20171031" class="popup_view">「민법」 제10조제2항 및 제3항</a>에 따른 취소할 수 없는 피성년후견인의 법률행위의 범위 결정 및 그 변경<br>1)의3 <a href="/Info/ContentView?sid=L000001706_12_20171031" class="popup_view">「민법」 제12조제1항</a>, <a href="/Info/ContentView?sid=L000001706_14_20171031" class="popup_view">제14조</a>, <a href="/Info/ContentView?sid=L000001706_14X3_20171031" class="popup_view">제14조의3제1항</a> 및 <a href="/Info/ContentView?sid=L000001706_959X20_20171031" class="popup_view">제959조의20</a>에 따른 한정후견 개시의 심판과 그 종료의 심판<br>1)의4 <a href="/Info/ContentView?sid=L000001706_13_20171031" class="popup_view">「민법」 제13조제1항부터 제3항까지</a>의 규정에 따른 피한정후견인이 한정후견인의 동의를 받아야 하는 행위의 범위 결정과 그 변경 및 한정후견인의 동의를 갈음하는 허가<br>1)의5 <a href="/Info/ContentView?sid=L000001706_14X2_20171031" class="popup_view">「민법」 제14조의2</a>, <a href="/Info/ContentView?sid=L000001706_14X3_20171031" class="popup_view">제14조의3</a> 및 <a href="/Info/ContentView?sid=L000001706_959X20_20171031" class="popup_view">제959조의20</a>에 따른 특정후견의 심판과 그 종료의 심판<br>2) <a href="/Info/ContentView?sid=L000001706_22_20171031" class="popup_view">「민법」 제22조</a>부터 <a href="/Info/ContentView?sid=L000001706_26_20171031" class="popup_view">제26조까지</a>의 규정에 따른 부재자 재산의 관리에 관한 처분<br>2)의2 <a href="/Info/ContentView?sid=L000001706_909X2_20171031" class="popup_view">「민법」 제909조의2제5항</a>에 따라 친권자 또는 미성년후견인의 임무를 대행할 사람(이하 "임무대행자"라 한다)의 <a href="/Info/ContentView?sid=L000001706_25_20171031" class="popup_view">같은 법 제25조</a>에 따른 권한을 넘는 행위의 허가<br>3) <a href="/Info/ContentView?sid=L000001706_27_20171031" class="popup_view">「민법」 제27조</a>부터 <a href="/Info/ContentView?sid=L000001706_29_20171031" class="popup_view">제29조</a>까지의 규정에 따른 실종의 선고와 그 취소<br>4) <a href="/Info/ContentView?sid=L000001706_781_20171031" class="popup_view">「민법」 제781조제4항</a>에 따른 성(姓)과 본(本)의 창설 허가<br>5) <a href="/Info/ContentView?sid=L000001706_781_20171031" class="popup_view">「민법」 제781조제5항</a>에 따른 자녀의 종전 성과 본의 계속사용허가<br>6) <a href="/Info/ContentView?sid=L000001706_781_20171031" class="popup_view">「민법」 제781조제6항</a>에 따른 자녀의 성과 본의 변경허가<br>7) <a href="/Info/ContentView?sid=L000001706_829_20171031" class="popup_view">「민법」 제829조제2항</a> 단서에 따른 부부재산약정의 변경에 대한 허가<br>7)의2  <a href="/Info/ContentView?sid=L000001706_854X2_20171031" class="popup_view">「민법」 제854조의2</a>에 따른 친생부인의 허가<br>7)의3 <a href="/Info/ContentView?sid=L000001706_855X2_20171031" class="popup_view">「민법」 제855조의2제1항 및 제2항</a>에 따른 인지의 허가<br>8) <a href="/Info/ContentView?sid=L000001706_867_20171031" class="popup_view">「민법」 제867조</a>에 따른 미성년자의 입양에 대한 허가<br>8)의2 <a href="/Info/ContentView?sid=L000001706_873_20171031" class="popup_view">「민법」 제873조제2항</a>에 따라 준용되는 <a href="/Info/ContentView?sid=L000001706_867_20171031" class="popup_view">같은 법 제867조</a>에 따른 피성년후견인이 입양을 하거나 양자가 되는 것에 대한 허가<br>9) <a href="/Info/ContentView?sid=L000001706_871_20171031" class="popup_view">「민법」 제871조제2항</a>에 따른 부모의 동의를 갈음하는 심판<br>10) 삭제 [2013.7.30]<br>11) <a href="/Info/ContentView?sid=L000001706_906_20171031" class="popup_view">「민법」 제906조제1항</a> 단서에 따른 양자의 친족 또는 이해관계인의 파양청구에 대한 허가<br>12) <a href="/Info/ContentView?sid=L000001706_908X2_20171031" class="popup_view">「민법」 제908조의2</a>에 따른 친양자 입양의 허가<br>13) <a href="/Info/ContentView?sid=L000001706_909_20171031" class="popup_view">「민법」 제909조제2항</a> 단서에 따른 친권 행사 방법의 결정<br>13)의2 <a href="/Info/ContentView?sid=L000001706_909X2_20171031" class="popup_view">「민법」 제909조의2제1항부터 제5항까지</a>(<a href="/Info/ContentView?sid=L000001706_927X2_20171031" class="popup_view">같은 법 제927조의2제1항</a> 각 호 외의 부분 본문에 따라 준용되는 경우를 포함한다)에 따른 친권자의 지정, 미성년후견인의 선임 및 임무대행자의 선임<br>13)의3 <a href="/Info/ContentView?sid=L000001706_909X2_20171031" class="popup_view">「민법」 제909조의2제6항</a>에 따른 후견의 종료 및 친권자의 지정<br>14) <a href="/Info/ContentView?sid=L000001706_915_20171031" class="popup_view">「민법」 제915조</a> 및 <a href="/Info/ContentView?sid=L000001706_945_20171031" class="popup_view">제945조</a>(<a href="/Info/ContentView?sid=L000001706_948_20171031" class="popup_view">같은 법 제948조</a>에 따라 위 각 조항이 준용되는 경우를 포함한다)에 따른 감화(感化) 또는 교정기관에 위탁하는 것에 대한 허가<br>15) <a href="/Info/ContentView?sid=L000001706_918_20171031" class="popup_view">「민법」 제918조</a>(<a href="/Info/ContentView?sid=L000001706_956_20171031" class="popup_view">같은 법 제956조</a>에 따라 준용되는 경우를 포함한다)에 따른 재산관리인의 선임(選任) 또는 개임(改任)과 재산관리에 관한 처분<br>16) <a href="/Info/ContentView?sid=L000001706_921_20171031" class="popup_view">「민법」 제921조</a>(<a href="/Info/ContentView?sid=L000001706_949X3_20171031" class="popup_view">「민법」 제949조의3</a>에 따라 준용되는 경우를 포함한다)에 따른 특별대리인의 선임<br>17) <a href="/Info/ContentView?sid=L000001706_927_20171031" class="popup_view">「민법」 제927조</a>에 따른 친권자의 법률행위 대리권 및 재산관리권의 사퇴(辭退) 또는 회복에 대한 허가<br>17)의2 <a href="/Info/ContentView?sid=L000001706_927X2_20171031" class="popup_view">「민법」 제927조의2제2항</a>에 따른 친권자의 지정<br>17)의3 <a href="/Info/ContentView?sid=L000001706_931_20171031" class="popup_view">「민법」 제931조제2항</a>에 따른 후견의 종료 및 친권자의 지정<br>18) <a href="/Info/ContentView?sid=L000001706_932_20171031" class="popup_view">「민법」 제932조</a>, <a href="/Info/ContentView?sid=L000001706_936_20171031" class="popup_view">제936조제1항부터 제3항까지</a>, <a href="/Info/ContentView?sid=L000001706_940_20171031" class="popup_view">제940조</a>, <a href="/Info/ContentView?sid=L000001706_959X3_20171031" class="popup_view">제959조의3</a> 및 <a href="/Info/ContentView?sid=L000001706_959X9_20171031" class="popup_view">제959조의9</a>에 따른 미성년후견인·성년후견인·한정후견인·특정후견인의 선임 또는 변경<br>18)의2 <a href="/Info/ContentView?sid=L000001706_938_20171031" class="popup_view">「민법」 제938조제2항부터 제4항까지</a>의 규정에 따른 성년후견인의 법정대리권의 범위 결정과 그 변경 및 성년후견인이 피성년후견인의 신상에 관하여 결정할 수 있는 권한의 범위 결정과 그 변경<br>18)의3 <a href="/Info/ContentView?sid=L000001706_940X7_20171031" class="popup_view">「민법」 제940조의7</a>에 따라 준용되는 <a href="/Info/ContentView?sid=L000001206_940_20171031" class="popup_view">제940조</a>와 <a href="/Info/ContentView?sid=L000001706_940X3_20171031" class="popup_view">제940조의3</a>, <a href="/Info/ContentView?sid=L000001706_940X4_20171031" class="popup_view">제940조의4</a>, <a href="/Info/ContentView?sid=L000001706_959X5_20171031" class="popup_view">제959조의5</a> 및 <a href="/Info/ContentView?sid=L000001706_959X10_20171031" class="popup_view">제959조의10</a>에 따른 미성년후견감독인·성년후견감독인·한정후견감독인·특정후견감독인의 선임 또는 변경<br>19) <a href="/Info/ContentView?sid=L000001706_939_20171031" class="popup_view">「민법」 제939조</a>(<a href="/Info/ContentView?sid=L000001706_940X7_20171031" class="popup_view">「민법」 제940조의7</a>, <a href="/Info/ContentView?sid=L000001706_959X3_20171031" class="popup_view">제959조의3제2항</a>, <a href="/Info/ContentView?sid=L000001706_959X5_20171031" class="popup_view">제959조의5제2항</a>, <a href="/Info/ContentView?sid=L000001706_959X9_20171031" class="popup_view">제959조의9제2항</a>, <a href="/Info/ContentView?sid=L000001706_959X10_20171031" class="popup_view">제959조의10제2항</a>에 따라 준용되는 경우 및 <a href="/Info/ContentView?sid=L000001206_959X16_20171031" class="popup_view">제959조의16제3항</a>에 따라 준용되는 <a href="/Info/ContentView?sid=L000001206_940X7_20171031" class="popup_view">제940조의7</a>에 따라 다시 준용되는 경우를 포함한다)에 따른 미성년후견인·성년후견인·한정후견인·특정후견인·미성년후견감독인·성년후견감독인·한정후견감독인·특정후견감독인·임의후견감독인의 사임에 대한 허가<br>20) <a href="/Info/ContentView?sid=L000001706_941_20171031" class="popup_view">「민법」 제941조제1항</a> 단서(<a href="/Info/ContentView?sid=L000001706_948_20171031" class="popup_view">같은 법 제948조</a>에 따라 준용되는 경우를 포함한다)에 따른 후견인의 재산 목록 작성을 위한 기간의 연장허가<br>21) <a href="/Info/ContentView?sid=L000001706_947X2_20171031" class="popup_view">「민법」 제947조의2제2항</a>(<a href="/Info/ContentView?sid=L000001706_959X6_20171031" class="popup_view">「민법」 제959조의6</a>에 따라 준용되는 경우를 포함한다)에 따른 피성년후견인 또는 피한정후견인의 격리에 대한 허가 및 <a href="/Info/ContentView?sid=L000001706_947X2_20171031" class="popup_view">「민법」 제947조의2제4항</a>(<a href="/Info/ContentView?sid=L000001706_940X7_20171031" class="popup_view">「민법」 제940조의7</a>, <a href="/Info/ContentView?sid=L000001706_959X5_20171031" class="popup_view">제959조의5제2항</a> 및 <a href="/Info/ContentView?sid=L000001706_959X6_20171031" class="popup_view">제959조의6</a>에 따라 준용되는 경우를 포함한다)에 따른 피미성년후견인, 피성년후견인 또는 피한정후견인에 대한 의료행위의 동의에 대한 허가<br>21)의2 <a href="/Info/ContentView?sid=L000001706_947X2_20171031" class="popup_view">「민법」 제947조의2제5항</a>(<a href="/Info/ContentView?sid=L000001706_940X7_20171031" class="popup_view">「민법」 제940조의7</a>, <a href="/Info/ContentView?sid=L000001706_959X5_20171031" class="popup_view">제959조의5제2항</a> 및 <a href="/Info/ContentView?sid=L000001706_959X6_20171031" class="popup_view">제959조의6</a>에 따라 준용되는 경우를 포함한다)에 따른 피미성년후견인, 피성년후견인 또는 피한정후견인이 거주하는 건물 또는 그 대지에 대한 매도 등에 대한 허가<br>21)의3 <a href="/Info/ContentView?sid=L000001706_949X2_20171031" class="popup_view">「민법」 제949조의2</a>(<a href="/Info/ContentView?sid=L000001706_940X7_20171031" class="popup_view">「민법」 제940조의7</a>, <a href="/Info/ContentView?sid=L000001706_959X5_20171031" class="popup_view">제959조의5제2항</a>, <a href="/Info/ContentView?sid=L000001706_959X6_20171031" class="popup_view">제959조의6</a>, <a href="/Info/ContentView?sid=L000001706_959X10_20171031" class="popup_view">제959조의10제2항</a>, <a href="/Info/ContentView?sid=L000001706_959X12_20171031" class="popup_view">제959조의12</a>에 따라 준용되는 경우 및 <a href="/Info/ContentView?sid=L000001206_959X16_20171031" class="popup_view">제959조의16제3항</a>에 따라 준용되는 <a href="/Info/ContentView?sid=L000001206_940X7_20171031" class="popup_view">제940조의7</a>에 따라 다시 준용되는 경우를 포함한다)에 따른 여러 명의 성년후견인·한정후견인·특정후견인·성년후견감독인·한정후견감독인·특정후견감독인·임의후견감독인의 권한 행사에 관한 결정과 그 변경 또는 취소 및 성년후견인·한정후견인·특정후견인·성년후견감독인·한정후견감독인·특정후견감독인·임의후견감독인의 의사표시를 갈음하는 재판<br>21)의4 <a href="/Info/ContentView?sid=L000001706_950_20171031" class="popup_view">「민법」 제950조제2항</a>(<a href="/Info/ContentView?sid=L000001706_948_20171031" class="popup_view">「민법」 제948조</a> 및 <a href="/Info/ContentView?sid=L000001706_959X6_20171031" class="popup_view">제959조의6</a>에 따라 준용되는 경우를 포함한다)에 따른 미성년후견감독인·성년후견감독인·한정후견감독인의 동의를 갈음하는 허가<br>22) <a href="/Info/ContentView?sid=L000001706_954_20171031" class="popup_view">「민법」 제954조</a>(<a href="/Info/ContentView?sid=L000001706_948_20171031" class="popup_view">「민법」 제948조</a>, <a href="/Info/ContentView?sid=L000001706_959X6_20171031" class="popup_view">제959조의6</a> 및 <a href="/Info/ContentView?sid=L000001706_959X12_20171031" class="popup_view">제959조의12</a>에 따라 준용되는 경우를 포함한다)에 따른 피미성년후견인, 피성년후견인, 피한정후견인 또는 피특정후견인의 재산상황에 대한 조사 및 그 재산관리 등 후견임무 수행에 관하여 필요한 처분명령<br>22)의2 <a href="/Info/ContentView?sid=L000001706_909X2_20171031" class="popup_view">「민법」 제909조의2제5항</a>에 따라 준용되는 <a href="/Info/ContentView?sid=L000001706_954_20171031" class="popup_view">같은 법 제954조</a>에 따른 미성년자의 재산상황에 대한 조사 및 그 재산관리 등 임무대행자의 임무 수행에 관하여 필요한 처분명령<br>23) <a href="/Info/ContentView?sid=L000001706_955_20171031" class="popup_view">「민법」 제955조</a>(<a href="/Info/ContentView?sid=L000001706_940X7_20171031" class="popup_view">「민법」 제940조의7</a>, <a href="/Info/ContentView?sid=L000001706_948_20171031" class="popup_view">제948조</a>, <a href="/Info/ContentView?sid=L000001706_959X5_20171031" class="popup_view">제959조의5제2항</a>, <a href="/Info/ContentView?sid=L000001706_959X6_20171031" class="popup_view">제959조의6</a>, <a href="/Info/ContentView?sid=L000001706_959X10_20171031" class="popup_view">제959조의10제2항</a>, <a href="/Info/ContentView?sid=L000001706_959X12_20171031" class="popup_view">제959조의12</a>에 따라 준용되는 경우 및 <a href="/Info/ContentView?sid=L000001206_959X16_20171031" class="popup_view">제959조의16제3항</a>에 따라 준용되는 <a href="/Info/ContentView?sid=L000001206_940X7_20171031" class="popup_view">제940조의7</a>에 따라 다시 준용되는 경우를 포함한다)에 따른 미성년후견인·성년후견인·한정후견인·특정후견인·미성년후견감독인·성년후견감독인·한정후견감독인·특정후견감독인·임의후견감독인에 대한 보수(報酬)의 수여<br>24) <a href="/Info/ContentView?sid=L000001706_957_20171031" class="popup_view">「민법」 제957조제1항</a> 단서(<a href="/Info/ContentView?sid=L000001706_959X7_20171031" class="popup_view">「민법」 제959조의7</a> 및 <a href="/Info/ContentView?sid=L000001706_959X13_20171031" class="popup_view">제959조의13</a>에 따라 준용되는 경우를 포함한다)에 따른 후견 종료 시 관리계산기간의 연장허가<br>24)의2 <a href="/Info/ContentView?sid=L000001706_959X4_20171031" class="popup_view">「민법」 제959조의4</a>에 따른 한정후견인에게 대리권을 수여하는 심판과 그 범위 변경 및 한정후견인이 피한정후견인의 신상에 관하여 결정할 수 있는 권한의 범위 결정과 그 변경<br>24)의3 <a href="/Info/ContentView?sid=L000001706_959X8_20171031" class="popup_view">「민법」 제959조의8</a>에 따른 피특정후견인의 후원을 위하여 필요한 처분명령<br>24)의4 <a href="/Info/ContentView?sid=L000001706_959X11_20171031" class="popup_view">「민법」 제959조의11</a>에 따른 특정후견인에게 대리권을 수여하는 심판<br>24)의5 <a href="/Info/ContentView?sid=L000001706_959X16_20171031" class="popup_view">「민법」 제959조의16제3항</a>에 따라 준용되는 <a href="/Info/ContentView?sid=L000001206_940X7_20171031" class="popup_view">제940조의7</a>에 따라 다시 준용되는 <a href="/Info/ContentView?sid=L000001206_940_20171031" class="popup_view">제940조</a> 및 <a href="/Info/ContentView?sid=L000001706_959X15_20171031" class="popup_view">제959조의15제1항·제3항·제4항</a>에 따른 임의후견감독인의 선임 또는 변경<br>24)의6 <a href="/Info/ContentView?sid=L000001706_959X16_20171031" class="popup_view">「민법」 제959조의16제2항</a>에 따른 임의후견감독인에 대한 감독사무에 관한 보고 요구, 임의후견인의 사무 또는 본인의 재산상황에 대한 조사명령 또는 임의후견감독인의 직무에 관하여 필요한 처분명령<br>24)의7 <a href="/Info/ContentView?sid=L000001706_959X17_20171031" class="popup_view">「민법」 제959조의17제2항</a>에 따른 임의후견인의 해임<br>24)의8 <a href="/Info/ContentView?sid=L000001706_959X18_20171031" class="popup_view">「민법」 제959조의18제2항</a>에 따른 후견계약 종료의 허가<br>25) 삭제 [2013.4.5] [[시행일 2013.7.1]]<br>26) 삭제 [2013.4.5] [[시행일 2013.7.1]]<br>27) 삭제 [2013.4.5] [[시행일 2013.7.1]]<br>28) 삭제 [2013.4.5] [[시행일 2013.7.1]]<br>29) 삭제 [2013.4.5] [[시행일 2013.7.1]]<br>30) <a href="/Info/ContentView?sid=L000001706_1019_20171031" class="popup_view">「민법」 제1019조제1항</a> 단서에 따른 상속의 승인 또는 포기를 위한 기간의 연장허가<br>31) <a href="/Info/ContentView?sid=L000001706_1023_20171031" class="popup_view">「민법」 제1023조</a>(<a href="/Info/ContentView?sid=L000001706_1044_20171031" class="popup_view">같은 법 제1044조</a>에 따라 준용되는 경우를 포함한다)에 따른 상속재산 보존을 위한 처분<br>32) <a href="/Info/ContentView?sid=L000001706_1024_20171031" class="popup_view">「민법」 제1024조제2항</a>, <a href="/Info/ContentView?sid=L000001706_1030_20171031" class="popup_view">제1030조</a> 및 <a href="/Info/ContentView?sid=L000001706_1041_20171031" class="popup_view">제1041조</a>에 따른 상속의 한정승인신고 또는 포기신고의 수리(受理)와 한정승인 취소신고 또는 포기 취소신고의 수리<br>33) <a href="/Info/ContentView?sid=L000001706_1035_20171031" class="popup_view">「민법」 제1035조제2항</a>(<a href="/Info/ContentView?sid=L000001706_1040_20171031" class="popup_view">같은 법 제1040조제3항</a>, <a href="/Info/ContentView?sid=L000001706_1051_20171031" class="popup_view">제1051조제3항</a> 및 <a href="/Info/ContentView?sid=L000001706_1056_20171031" class="popup_view">제1056조제2항</a>에 따라 준용되는 경우를 포함한다) 및 <a href="/Info/ContentView?sid=L000001206_1113_20171031" class="popup_view">제1113조제2항</a>에 따른 감정인(鑑定人)의 선임<br>34) <a href="/Info/ContentView?sid=L000001706_1040_20171031" class="popup_view">「민법」 제1040조제1항</a>에 따른 공동상속재산을 위한 관리인의 선임<br>35) <a href="/Info/ContentView?sid=L000001706_1045_20171031" class="popup_view">「민법」 제1045조</a>에 따른 상속재산의 분리<br>36) <a href="/Info/ContentView?sid=L000001706_1047_20171031" class="popup_view">「민법」 제1047조</a>에 따른 상속재산 분리 후의 상속재산 관리에 관한 처분<br>37) <a href="/Info/ContentView?sid=L000001706_1053_20171031" class="popup_view">「민법」 제1053조</a>에 따른 관리인의 선임 및 그 공고와 재산관리에 관한 처분<br>38) <a href="/Info/ContentView?sid=L000001706_1057_20171031" class="popup_view">「민법」 제1057조</a>에 따른 상속인 수색(搜索)의 공고<br>39) <a href="/Info/ContentView?sid=L000001706_1057X2_20171031" class="popup_view">「민법」 제1057조의2</a>에 따른 상속재산의 분여(分與)<br>40) <a href="/Info/ContentView?sid=L000001706_1070_20171031" class="popup_view">「민법」 제1070조제2항</a>에 따른 유언의 검인(檢認)<br>41) <a href="/Info/ContentView?sid=L000001706_1091_20171031" class="popup_view">「민법」 제1091조</a>에 따른 유언의 증서 또는 녹음(錄音)의 검인<br>42) <a href="/Info/ContentView?sid=L000001706_1092_20171031" class="popup_view">「민법」 제1092조</a>에 따른 유언증서의 개봉<br>43) <a href="/Info/ContentView?sid=L000001706_1096_20171031" class="popup_view">「민법」 제1096조</a>에 따른 유언집행자의 선임 및 그 임무에 관한 처분<br>44) <a href="/Info/ContentView?sid=L000001706_1097_20171031" class="popup_view">「민법」 제1097조제2항</a>에 따른 유언집행자의 승낙 또는 사퇴를 위한 통지의 수리<br>45) <a href="/Info/ContentView?sid=L000001706_1104_20171031" class="popup_view">「민법」 제1104조제1항</a>에 따른 유언집행자에 대한 보수의 결정<br>46) <a href="/Info/ContentView?sid=L000001706_1105_20171031" class="popup_view">「민법」 제1105조</a>에 따른 유언집행자의 사퇴에 대한 허가<br>47) <a href="/Info/ContentView?sid=L000001706_1106_20171031" class="popup_view">「민법」 제1106조</a>에 따른 유언집행자의 해임<br>48) <a href="/Info/ContentView?sid=L000001706_1111_20171031" class="popup_view">「민법」 제1111조</a>에 따른 부담(負擔) 있는 유언의 취소<br>나. 마류(類) 사건<br>1) <a href="/Info/ContentView?sid=L000001706_826_20171031" class="popup_view">「민법」 제826조</a> 및 <a href="/Info/ContentView?sid=L000001706_833_20171031" class="popup_view">제833조</a>에 따른 부부의 동거·부양·협조 또는 생활비용의 부담에 관한 처분<br>2) <a href="/Info/ContentView?sid=L000001706_829_20171031" class="popup_view">「민법」 제829조제3항</a>에 따른 재산관리자의 변경 또는 공유재산(共有財産)의 분할을 위한 처분<br>3) <a href="/Info/ContentView?sid=L000001706_837_20171031" class="popup_view">「민법」 제837조</a> 및 <a href="/Info/ContentView?sid=L000001706_837X2_20171031" class="popup_view">제837조의2</a>(<a href="/Info/ContentView?sid=L000001706_843_20171031" class="popup_view">같은 법 제843조</a>에 따라 위 각 조항이 준용되는 경우 및 혼인의 취소 또는 인지를 원인으로 하는 경우를 포함한다)에 따른 자녀의 양육에 관한 처분과 그 변경, 면접교섭권(面接交涉權)의 처분 또는 제한·배제·변경<br>4) <a href="/Info/ContentView?sid=L000001706_839X2_20171031" class="popup_view">「민법」 제839조의2제2항</a>(<a href="/Info/ContentView?sid=L000001706_843_20171031" class="popup_view">같은 법 제843조</a>에 따라 준용되는 경우 및 혼인의 취소를 원인으로 하는 경우를 포함한다)에 따른 재산 분할에 관한 처분<br>5) <a href="/Info/ContentView?sid=L000001706_909_20171031" class="popup_view">「민법」 제909조제4항 및 제6항</a>(혼인의 취소를 원인으로 하는 경우를 포함한다)에 따른 친권자의 지정과 변경<br>6) <a href="/Info/ContentView?sid=L000001706_922X2_20171031" class="popup_view">「민법」 제922조의2</a>에 따른 친권자의 동의를 갈음하는 재판<br>7) <a href="/Info/ContentView?sid=L000001706_924_20171031" class="popup_view">「민법」 제924조</a>,<a href="/Info/ContentView?sid=L000001706_924X2_20171031" class="popup_view">제924조의2</a>,<a href="/Info/ContentView?sid=L000001706_925_20171031" class="popup_view">제925조</a> 및 <a href="/Info/ContentView?sid=L000001706_926_20171031" class="popup_view">제926조</a>에 따른 친권의 상실, 일시 정지, 일부 제한 및 그 실권 회복의 선고 또는 법률행위의 대리권과 재산관리권의 상실 및 그 실권 회복의 선고<br>8) <a href="/Info/ContentView?sid=L000001706_976_20171031" class="popup_view">「민법」 제976조</a> 부터 <a href="/Info/ContentView?sid=L000001706_978_20171031" class="popup_view">제978조</a>까지의 규정에 따른 부양(扶養)에 관한 처분<br>9) <a href="/Info/ContentView?sid=L000001706_1008X2_20171031" class="popup_view">「민법」 제1008조의2제2항 및 제4항</a>에 따른 기여분(寄與分)의 결정<br>10) <a href="/Info/ContentView?sid=L000001706_1013_20171031" class="popup_view">「민법」 제1013조제2항</a>에 따른 상속재산의 분할에 관한 처분<br>② 가정법원은 다른 법률이나 대법원규칙에서 가정법원의 권한으로 정한 사항에 대하여도 심리·재판한다.<br>③ 제2항의 사건에 관한 절차는 법률이나 대법원규칙으로 따로 정하는 경우를 제외하고는 라류 가사비송사건의 절차에 따른다.<br>[전문개정 2010.3.31]</div><a id="P5004400" name="P5004400">  </a><div class="normal"><em><a href="/Info/ContentView?sid=L0007572EAC4B8ED_44" class="popup_view">제44조</a></em>(관할 등)  <br>① 라류 가사비송사건은 다음 각 호의 가정법원이 관할한다. [개정 2013.4.5, 2017.10.31] [[시행일 2018.5.1: 제1호의2 단서]]<br>1. 다음 각 목의 어느 하나에 해당하는 사건은 사건 본인의 주소지의 가정법원<br>가. 삭제 [2013.4.5] [[시행일 2013.7.1]]<br>나. 실종에 관한 사건<br>다. 성(姓)과 본(本)의 창설에 관한 사건<br>라. 자녀의 종전 성과 본의 계속 사용에 관한 사건<br>마. 자녀의 성과 본의 변경에 관한 사건<br>1의2. 미성년후견·성년후견·한정후견·특정후견 및 임의후견에 관한 사건은 각 피후견인(피후견인이 될 사람을 포함한다)의 주소지의 가정법원. 다만, 성년후견·한정후견 개시의 심판, 특정후견의 심판, 미성년후견인·임의후견감독인 선임 심판이 각각 확정된 이후의 후견에 관한 사건은 후견개시 등의 심판을 한 가정법원(항고법원이 후견개시 등의 심판을 한 경우에는 그 제1심 법원인 가정법원)<br>2. 부재자의 재산관리에 관한 사건은 부재자의 마지막 주소지 또는 부재자의 재산이 있는 곳의 가정법원<br>3. 부부 사이의 재산약정의 변경에 관한 사건, 공동의 자녀에 대한 친권 행사방법의 결정사건은 <a href="/Info/ContentView?sid=L000001206_22_20171031" class="popup_view">제22조제1호부터 제3호</a>까지의 가정법원<br>3의2. 친생부인의 허가 및 인지의 허가에 관한 사건은 자녀의 주소지의 가정법원<br>4. 입양, 친양자 입양 또는 파양에 관한 사건은 양자·친양자의 주소지 또는 양자·친양자가 될 사람의 주소지의 가정법원<br>5. 친권에 관한 사건(부부 사이의 공동의 자녀에 대한 친권 행사방법의 결정사건은 제외한다)은 미성년자인 자녀의 주소지의 가정법원<br>6. 상속에 관한 사건은 상속 개시지(開始地)의 가정법원<br>7. 유언에 관한 사건은 상속 개시지의 가정법원. 다만, <a href="/Info/ContentView?sid=L000001706_1070_20171031" class="popup_view">「민법」 제1070조제2항</a>에 따른 유언의 검인(檢認) 사건은 상속 개시지 또는 유언자 주소지의 가정법원<br>8. 제1호부터 제7호까지에 해당되지 아니하는 사건은 대법원규칙으로 정하는 가정법원<br>② 가정법원은 피후견인의 이익을 위하여 필요한 경우에는 직권 또는 후견인, 후견감독인, 피후견인, 피후견인의 배우자·4촌 이내의 친족, 검사, 지방자치단체의 장의 신청에 따른 결정으로 제1항제1호의2 단서의 관할 가정법원을 피후견인의 주소지의 가정법원으로 변경할 수 있다. [신설 2017.10.31] [[시행일 2018.5.1]]<br>③ 변경신청을 기각하는 결정에 대하여는 신청인이, 변경결정에 대하여는 후견인, 후견감독인, 피후견인이 즉시항고를 할 수 있다. 변경결정의 즉시항고의 경우에는 집행정지의 효력이 있다. [신설 2017.10.31] [[시행일 2018.5.1]]<br>[전문개정 2010.3.31]<br>[본조제목개정 2017.10.31] [[시행일 2018.2.1]]</div><a id="P50045008" name="P50045008">  </a><div class="normal"><em><a href="/Info/ContentView?sid=L0007572EAC4B8ED_45X8" class="popup_view">제45조의8</a></em>(친생부인의 허가 및 인지의 허가 관련 심판에서의 진술 청취)  <br>① 가정법원은 다음 각 호의 어느 하나에 해당하는 심판을 하는 경우에는 어머니의 전 배우자와 그 성년후견인(성년후견인이 있는 경우에 한정한다)에게 의견을 진술할 기회를 줄 수 있다.<br>1. <a href="/Info/ContentView?sid=L000001706_854X2_20171031" class="popup_view">「민법」 제854조의2</a>에 따른 친생부인의 허가 심판<br>2. <a href="/Info/ContentView?sid=L000001706_855X2_20171031" class="popup_view">「민법」 제855조의2제1항 및 제2항</a>에 따른 인지의 허가 심판<br>② 제1항의 진술을 들을 때에는 심문하는 방법 외에도 가사조사관을 통한 조사나 서면조회 등의 방법으로 진술을 들을 수 있다.<br>[본조신설 2017.10.31 종전의 제45조의8은 제45조의9로 이동] [[시행일 2018.2.1]]</div><a id="P50045009" name="P50045009">  </a><div class="normal"><em><a href="/Info/ContentView?sid=L0007572EAC4B8ED_45X9" class="popup_view">제45조의9</a></em>(입양허가의 절차)  <br>① 가정법원은 입양의 허가 심판을 하는 경우에 다음 각 호의 사람의 의견을 들어야 한다. 다만, 그 사람이 의식불명, 그 밖의 사유로 자신의 의사를 표명할 수 없는 경우에는 그러하지 아니하다.<br>1. 양자가 될 사람(양자가 될 사람이 13세 이상인 경우만 해당한다)<br>2. 양자가 될 사람의 법정대리인 및 후견인<br>3. 양자가 될 사람의 부모(<a href="/Info/ContentView?sid=L000001706_870_20171031" class="popup_view">「민법」 제870조</a>에 따라 부모의 동의가 필요한 경우를 말한다)<br>4. 양자가 될 사람의 부모의 후견인<br>5. 양부모가 될 사람<br>6. 양부모가 될 사람의 성년후견인<br>② 가정법원은 양자가 될 사람의 복리를 위하여 필요하다고 인정하는 경우 다음 각 호의 구분에 따라 해당 자료를 제공할 것을 요청할 수 있다. 이 경우 자료 제공을 요청받은 기관은 정당한 사유가 없으면 이에 따라야 한다.<br>1. 양부모가 될 사람의 주소지 및 가족관계 등을 확인하기 위한 범위: 시장·군수·구청장에 대하여 주민등록표 등본·초본<br>2. 양부모가 될 사람의 소득을 확인하기 위한 범위: 국세청장에 대하여 근로소득자료 및 사업소득자료<br>3. 양부모가 될 사람의 범죄경력을 확인하기 위한 범위: 경찰청장에 대하여 범죄경력자료<br>4. 양부모가 될 사람이 양육능력과 관련된 질병이나 심신장애를 가지고 있는지 확인하기 위하여 특히 필요하다고 인정되는 범위: <a href="/Info/ContentView?sid=L000001788_0_20171031" class="popup_view">「의료법」</a>에 따른 의료기관의 장 또는 <a href="/Info/ContentView?sid=L000001971_0_20171031" class="popup_view">「국민건강보험법」</a>에 따른 국민건강보험공단의 장에 대하여 진료기록자료<br>[본조신설 2013.7.30]<br>[본조개정 2017.10.31 제45조의8에서 이동] [[시행일 2018.2.1]]<div class="byulpyo_mobile"><div><a href="#">별지1</a></div><div><a href="#">별지2</a></div></div></div>
+							</div>
+
+							<div class="case_info" id="view_sub_content" style="display: block;">
+
+								<!-- 별지 닫기 영역 -->
+								<div id="" class="result_tab_pdf">
+									<!--타이틀은 뺄게요 <div>별지</div>-->
+									<div class="btn_option_outer"><div class="btn_close_pdf">X</div></div>
+								</div>
+
+								<!-- 별지 PDF -->
+								<div id="pdf_view_etc" class="popup_mov_area slide_mov_bottom" style="display: block;">
+									<div id="pdf_view_other" class="pdfobject-container pdfobject-container">
+										<div style="height: 16400px; position: relative; overflow: auto;" class="ebook_iframe_div">
+											<iframe src="https://www.lawnb.com/App/PdfView/web/viewer.html" class="ebook_iframe" frameborder="0"></iframe>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+
+						</div>
+					</div>
+				</article>
+				<aside class="right_container">
+					<div id="result_myFolder">
+						<div class="memo_line">
+							<div class="afolder">
+								<em><i class="icon-16" data-icon="&#xe915;"></i></em><span class="foldername">상아폴더>하위1여기 이름이 어디까지 ㅇ나와야ㅕ 안잘리고</span> <span class="btn-right"><i class="icon_open"></i></span>
+								<div class="memo_text">
+									<textarea name="" id="txtMemo" class="txtMemo" placeholder="메모 250자 제한">1234</textarea>
+									<div class="btn-group  " style="margin:0 auto">
+										<button type="button" class="btn btn-default" style="width:80px" onclick="myFolderMemoSave()">저장</button>
+										<button type="button" class="btn btn-default" style="width:80px" onclick="myFolderMemoCancel()">취소</button>
+									</div>
+								</div>
+							</div>
+							<div class="afolder">
+								<em><i class="icon-16" data-icon="&#xe915;"></i></em><span class="foldername">상아폴더>하위2</span> <span class="btn-right"><i class="icon_plus"></i></span>
+								<div class="memo_text">
+									<textarea name="" id="txtMemo" class="txtMemo" placeholder="메모 250자 제한">5678</textarea>
+									<div class="btn-group  " style="margin:0 auto">
+										<button type="button" class="btn btn-default" style="width:80px" onclick="myFolderMemoSave()">저장</button>
+										<button type="button" class="btn btn-default" style="width:80px" onclick="myFolderMemoCancel()">취소</button>
+									</div>
+								</div>
+							</div>
+							<div class="afolder"><em><i class="icon-16" data-icon="&#xe915;"></i></em><span class="foldername">상아폴더>하위3</span> <span class="btn-right"><i class="icon_plus"></i></span></div>
+							<div class="afolder"><em><i class="icon-16" data-icon="&#xe915;"></i></em><span class="foldername">상아폴더>하위4</span> <span class="btn-right"><i class="icon_open"></i></span></div>
+							<div class="afolder"><em><i class="icon-16" data-icon="&#xe915;"></i></em><span class="foldername">상아폴더>하위5</span> <span class="btn-right"><i class="icon_open"></i></span></div>
+							<div class="afolder"><em><i class="icon-16" data-icon="&#xe915;"></i></em><span class="foldername">상아폴더>하위6</span> <span class="btn-right"><i class="icon_open"></i></span></div>
+							<div class="afolder"><em><i class="icon-16" data-icon="&#xe915;"></i></em><span class="foldername">상아폴더>하위7</span> <span class="btn-right"><i class="icon_open"></i></span></div>
+							<div class="afolder"><em><i class="icon-16" data-icon="&#xe915;"></i></em><span class="foldername">상아폴더>하위8</span> <span class="btn-right"><i class="icon_open"></i></span></div>
+						</div>
+						<div class="memo_btn">
+							<span onclick="goUpDownList(0)" class="noaction"><i class="icon_ " data-icon="&#xe903;"></i></span>
+							<span onclick="goUpDownList(1)"><i class="icon_ " data-icon="&#xe902;"></i></span>
+							<span class="memo_all_view">전체보기</span>
+						</div>
+					</div>
+					<section>
+						<div class="btn_group">
+							<a href="#" class="onlyone"><span>판례속보 요약정보</span></a>
+						</div>
+						<div class="btn_group">
+							<a href="#" class="onlyone"><span>영문판례</span></a>
+						</div>
+					</section>
+					<section>
+						<h4>판결문 제공</h4>
+						<ul>
+							<li><a href="#">권형필 변호사</a></li>
+						</ul>
+					</section>
+					<section>
+						<h4>
+							논문평석 <em>총 134건</em>
+							<div class="btn-group fr">
+								<button type="button" class="btn btn-default">전체보기</button>
+							</div>
+						</h4>
+						<ul>
+							<li><a href="2">헌법재판소 2012. 5.31. 선고 2009헌바123 구 조세감면규제법 부칙 제23조 위헌소원</a></li>
+							<li><a href="3">대법원 2009. 1.15. 선고 2006두14926 취득세등부과처분취소</a></li>
+							<li><a href="4">서울고등법원 2015. 7. 8. 선고 2014누66719 법인세부과처분취소 </a></li>
+							<li><a href="5">헌법재판소 2012. 5.31. 선고 2009헌바123 구 조세감면규제법 부칙 제23조 위헌소원</a></li>
+						</ul>
+					</section>
+					<section>
+						<h4>
+							<span onmouseout="close_miju('Miju_case')" onmouseover="open_miju('Miju_case')"><i class="icon-info case" data-icon="&#xe90d;"><span class="blind">안내</span><div id="Miju_case" class="miju_box"> <div class="miju_box_line">로앤비는 판결문 본문 내 주요 키워드를 시스템에서 분석하여 최대 20개의 유사판례를 추천해드립니다. 이용에 참고 부탁드립니다. </div></div></i></span> 유사판례 <em>총 134건</em>
+							<div class="btn-group fr">
+								<button type="button" class="btn btn-default">전체보기</button>
+							</div>
+						</h4>
+						<ul>
+							<li><a href="2">헌법재판소 2012. 5.31. 선고 2009헌바123 구 조세감면규제법 부칙 제23조 위헌소원</a></li>
+							<li><a href="3">대법원 2009. 1.15. 선고 2006두14926 취득세등부과처분취소</a></li>
+							<li><a href="4">서울고등법원 2015. 7. 8. 선고 2014누66719 법인세부과처분취소 </a></li>
+							<li><a href="5">헌법재판소 2012. 5.31. 선고 2009헌바123 구 조세감면규제법 부칙 제23조 위헌소원</a></li>
+						</ul>
+					</section>
+					<section>
+						<h4>
+							뉴스
+							<div class="btn-group fr">
+								<button type="button" class="btn btn-default">전체보기</button>
+							</div>
+						</h4>
+						<ul>
+							<li><a href="2">헌법재판소 2012. 5.31. 선고 2009헌바123 구 조세감면규제법 부칙 제23조 위헌소원</a></li>
+							<li><a href="3">대법원 2009. 1.15. 선고 2006두14926 취득세등부과처분취소</a></li>
+							<li><a href="4">서울고등법원 2015. 7. 8. 선고 2014누66719 법인세부과처분취소 </a></li>
+							<li><a href="5">헌법재판소 2012. 5.31. 선고 2009헌바123 구 조세감면규제법 부칙 제23조 위헌소원</a></li>
+						</ul>
+					</section>
+				</aside>
+			</div>
+		</div>
+		<div id="bg_screen"></div>
+		<div class="popup_footer">
+			<div id="first_btns" class="btns_left m1" onclick="mstorage.firstItem();">처음화면<i class="icon-" data-icon=""></i><i class="icon-f" data-icon=""></i></div>
+			<div id="prev_btns" class="btns_left m1" onclick="mstorage.prevItems();">이전화면<i class="icon-16" data-icon=""></i></div>
+			<div id="next_btns" class="btns_right m1 disabled" onclick="mstorage.nextItems();">다음화면<i class="icon-16" data-icon=""></i></div>
+			<div class="btns_reload m1" onclick="mstorage.reloadItem();">리로드<i class="icon-16" data-icon=""></i></div>
+			<div class="btns_top m1">top<i class="icon-16" data-icon=""></i></div>
+			<div class="btns_more m1">more<i class="icon-16" data-icon=""></i></div>
+			<div class="function_area">
+				<p>편의기능</p>
+				<!--- 본문내검색 시작 -->
+				<div href="#" id="inner_search">
+					<span><i class="icon-folder" data-icon=""></i></span>
+					<br><span>본문검색</span>
+				</div>
+				<div class="inner_search_div">
+					<input type="search" id="txtContendViewSearchWord" placeholder="본문검색" onkeypress="if(event.keyCode==13) { contentViewSearchType('C000'); return false;}">
+					<span class="btn_inner_search" onclick="contentViewSearchType('C000');"><i class="icon-folder" data-icon=""></i></span>
+					<span class="btn_inner_updown"><i class="icon-ups" data-icon="" onclick="movePreviousWord();"></i><br><i class="icon-downs" data-icon="" onclick="moveNextWord();"></i></span>
+					<!--모아보기 삭제-->
+					<span class="inner_search_close" title="본문검색닫기" onclick="setRemoveHighlight('C000');"><i class="icon-close" data-icon=""></i></span>
+				</div>
+				<!--- 본문내검색 끝 -->
+				<!-- 통검검색어 시작 -->
+				<div id="search_word">
+					<!-- id 값 추가 -->
+					<span style="padding-right:0" onclick="moveFindMarks('P')"><i class="icon-left" data-icon=""></i></span>
+					<span onclick="checkMarking()">
+						<i class="icon-checkbox-unchecked "></i>
+					</span>
+					<span style="padding-left:0" onclick="moveFindMarks('N')"><i class="icon-right" data-icon=""></i></span>
+					<br><span>검색어</span>
+				</div>
+				<div class="font_size">
+					<span class="font-p"><i class="icon-plus" data-icon=""></i></span>
+					<span class="font-m"><i class="icon-minus" data-icon=""></i></span>
+					<br><span>글자크기</span>
+				</div>
+				<div class="box">
+					<a href="#" id="folder_put" onclick="mydesk.myPersonalization('VIEWMY01')">
+						<span><i class="icon-folder" data-icon=""></i></span>
+						<span>폴더담기</span>
+					</a>
+					<a href="#" id="memo_put" onclick="mydesk.myPersonalization('VIEWMY10');">
+						<span><i class="icon-folder" data-icon=""></i></span>
+						<span>폴더메모</span>
+					</a>
+					<a href="#" id="save_set" onclick="mydesk.myPersonalization('VIEWMY06')" style="display: none;">
+						<span><i class="icon-download3" data-icon=""></i></span>
+						<span>PDF저장</span>
+					</a>
+
+
+					<a href="#" id="cont_share" onclick="popupShare('https://premobile.lawnb.com/Info/ContentView?sid=C000269476D8E7E1');">
+						<span><i class="icon-share2" data-icon=""></i></span>
+						<span>공유</span>
+					</a>
+				</div>
+				<div class="box_close">닫기</div>
+			</div>
+		</div>
+		<div id="individual_area" class="popup_win">
+			<div class="container_popup">
+				<div id="other_function_save" class="base_popup">
+					<div class="top_title ">
+						<span><i class="icon-" data-icon="&#xe9c7;"></i> 파일저장</span>
+						<div class="top_title_group">
+							<div class="btn_close_pop">닫기<i class="icon-close" data-icon="&#xe915;"></i></div>
+						</div>
+					</div>
+					<div class="pr">
+						<div class="function_set">
+							<div><strong>부가정보 표시 여부</strong></div>
+							<div class="mgt5">
+								<input type="checkbox" id="" name="">본문 내 링크 표시<br><input type="checkbox" id="" name="">나의 메모
+								<div class="gray gray_info mgt5">
+									<div class="info">해당 본문에 나의 메모가 있을 경우 메모도 함께 파일저장을 할 수 있습니다. </div>
+									<ul>
+										<li><input type="checkbox" id="" name="">전체 메모</li>
+										<li><input type="checkbox" id="" name="">기본폴더>하위폴더1 <i class="icon-memo" data-icon="&#xe924;" title="메모"></i></li>
+										<li><input type="checkbox" id="" name="">기본폴더>하위폴더12 <i class="icon-memo" data-icon="&#xe924;" title="메모"></i></li>
+									</ul>
+								</div>
+							</div>
+							<div class="mgt20"><strong>파일저장 범위</strong></div>
+							<div class="gray_info mgt5">
+								<!-- 판례 -->
+								<!-- <input type="checkbox" id="" name="" checked="checked" >전체  <input type="checkbox" id="" name=""  checked="checked">판시사항  <input type="checkbox" id="" name=""  checked="checked">재판요지 <input type="checkbox" id="" name=""  checked="checked">전문  -->
+								<!-- 조약 -->
+								<!-- <input type="checkbox" id="" name="" checked="checked" >한글 본문  <input type="checkbox" id="" name=""  checked="checked">영문 본문  -->
+								<!-- 법조인 -->
+								<!-- <ul>
+								<li><input type="checkbox" id="" name="">전체</li>
+								<li><input type="checkbox" id="" name="">기본, 현직, 시험, 학교, 경력, 사회활동 정보</li>
+								<li><input type="checkbox" id="" name="">승소판결</li>
+								<li><input type="checkbox" id="" name="">논문기고</li>
+							</ul> -->
+								<!-- 법령 -->
+								<ul>
+									<li><input type="checkbox" id="" name="">전체</li>
+									<li>
+										<input type="checkbox" id="" name="">범위 지정 <select name="" id="">
+											<option value="" selected="selected">1조</option>
+											<option value=""></option>
+										</select> ~ <select name="" id="">
+											<option value="" selected="selected">100조</option>
+											<option value=""></option>
+										</select>
+									</li>
+									<li>
+										<input type="checkbox" id="" name="">각조 지정 <input type="text" id="" name="" style="width:130px"> <select name="" id="">
+											<option value="" selected="selected">100조</option>
+											<option value=""></option>
+										</select>
+									</li>
+								</ul>
+							</div>
+							<div class="mgt20"><strong>파일 형식</strong></div>
+							<div class="gray_info mgt5">
+								<input type="checkbox" id="" name="" checked="checked">PDF   <input type="checkbox" id="" name="">MS Word  <input type="checkbox" id="" name="">TXT
+							</div>
+							<div class="ac mgt20">
+								<div class="btn-group  ">
+									<button type="button" class="btn   btn-square" style="width:80px">다운로드</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="other_function" class="base_popup">
+					<div class="top_title ">
+						<span><i class="icon-" data-icon="&#xe954;"></i> 인쇄</span>
+						<div class="top_title_group">
+							<div class="btn_close_pop">닫기<i class="icon-close" data-icon="&#xe915;"></i></div>
+						</div>
+					</div>
+					<div class="pr">
+						<div class="function_set">
+							<div><strong>부가정보 표시 여부</strong></div>
+							<div class="mgt5">
+								<input type="checkbox" id="" name="">나의 메모
+								<div class="gray gray_info mgt5">
+									<div class="info">해당 본문에 나의 메모가 있을 경우 메모도 함께 인쇄할 수 있습니다. </div>
+									<ul>
+										<li><input type="checkbox" id="" name="">전체 메모</li>
+										<li><input type="checkbox" id="" name="">기본폴더>하위폴더1 <i class="icon-memo" data-icon="&#xe924;" title="메모"></i></li>
+										<li><input type="checkbox" id="" name="">기본폴더>하위폴더12 <i class="icon-memo" data-icon="&#xe924;" title="메모"></i></li>
+									</ul>
+								</div>
+								<div class="text_ex mgt5">해당 본문 페이지에서 검색어 하이라이트의 제공 여부가 인쇄물에 그대로 반영됩니다. 인쇄물에 하이라이트를 표시하지 않으려면 본문 페이지에서 노란 버튼을 클릭하여 하이라이트를 제거한 뒤에 인쇄해주세요. </div>
+							</div>
+							<div class="mgt20"><strong>인쇄 범위</strong></div>
+							<div class="gray_info mgt5">
+								<!-- 판례 -->
+								<!-- <input type="checkbox" id="" name="" checked="checked" >전체  <input type="checkbox" id="" name=""  checked="checked">판시사항  <input type="checkbox" id="" name=""  checked="checked">재판요지 <input type="checkbox" id="" name=""  checked="checked">전문  -->
+								<!-- 조약 -->
+								<!-- <input type="checkbox" id="" name="" checked="checked" >한글 본문  <input type="checkbox" id="" name=""  checked="checked">영문 본문  -->
+								<!-- 법조인 -->
+								<!-- <ul>
+								<li><input type="checkbox" id="" name="">전체</li>
+								<li><input type="checkbox" id="" name="">기본, 현직, 시험, 학교, 경력, 사회활동 정보</li>
+								<li><input type="checkbox" id="" name="">승소판결</li>
+								<li><input type="checkbox" id="" name="">논문기고</li>
+							</ul> -->
+								<!-- 법령 -->
+								<ul>
+									<li><input type="checkbox" id="" name="">전체</li>
+									<li>
+										<input type="checkbox" id="" name="">범위 지정 <select name="" id="">
+											<option value="" selected="selected">1조</option>
+											<option value=""></option>
+										</select> ~ <select name="" id="">
+											<option value="" selected="selected">100조</option>
+											<option value=""></option>
+										</select>
+									</li>
+									<li>
+										<input type="checkbox" id="" name="">각조 지정 <input type="text" id="" name="" style="width:130px"> <select name="" id="">
+											<option value="" selected="selected">100조</option>
+											<option value=""></option>
+										</select>
+									</li>
+								</ul>
+							</div>
+							<div class="ac mgt20">
+								<div class="btn-group  ">
+									<button type="button" class="btn   btn-square" style="width:80px">인쇄</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div id="popup_folder" class="base_popup">
+					<div class="top_title ">
+						<span><i class="icon-" data-icon="&#xe930;"></i> 폴더 담기</span>
+						<div class="top_title_group">
+							<div class="btn-group"><button type="button" class="btn btn-default"><i class="icon-plus" data-icon="&#xe912;"></i>새폴더</button></div>
+							<div class="btn_close_pop">닫기<i class="icon-close" data-icon="&#xe915;"></i></div>
+						</div>
+					</div>
+					<div class="cont_list pr">
+						<ol class="tree">
+							<li>
+								<div><input type="radio" id="" name=""><strong>defaultID</strong>님의 폴더</div>
+								<ol>
+									<li>
+										<input type="radio" id="" name="">폴더 1
+										<ol>
+											<li><input type="radio" id="" name="">under 222</li>
+											<li><input type="radio" id="" name="">under 222</li>
+											<li><input type="radio" id="" name="">under 222</li>
+											<li><input type="radio" id="" name="">under 222</li>
+											<li><input type="radio" id="" name="">under 222</li>
+											<li><input type="radio" id="" name="">under 222</li>
+											<li><input type="radio" id="" name=""><input type="text" id="" value=""> <span>확인</span><span>취소</span></li>
+										</ol>
+									</li>
+									<li>
+										<input type="radio" id="" name="">폴더 2
+										<ol>
+											<li><input type="radio" id="" name="">under 222</li>
+											<li><input type="radio" id="" name="">under 222</li>
+											<li><input type="radio" id="" name="">under 222</li>
+											<li><input type="radio" id="" name="">under 222</li>
+											<li><input type="radio" id="" name="">under 222</li>
+											<li><input type="radio" id="" name="">under 222</li>
+											<li><input type="radio" id="" name="">under 222</li>
+										</ol>
+									</li>
+								</ol>
+							</li>
+						</ol>
+					</div>
+					<div class="noti_txt">
+						<i class="icon-" data-icon="&#xe90d;"></i> 폴더 저장 후 본문 페이지 우측영역에서 메모를 추가하실 수 있습니다.
+					</div>
+					<div class="ac">
+						<div class="btn-group  ">
+							<button type="button" class="btn   btn-square" style="width:80px">저장</button>
+							<button type="button" class="btn btn-default" style="width:80px">취소</button>
+						</div>
+					</div>
+				</div>
+				<div id="popup_alert_set" class="base_popup">
+					<div class="top_title ">
+						<span><i class="icon-" data-icon="&#xe91b;"></i> 알림 설정</span>
+						<div class="top_title_group">
+							<div class="btn_close_pop">닫기<i class="icon-close" data-icon="&#xe915;"></i></div>
+						</div>
+					</div>
+					<div>
+						<form id="submitForm" method="post" onsubmit="myfolder.myFolderSaveValidCheck()" action="">
+							<input type="hidden" id="sAlertDiv" name="" value="" />
+							<input type="hidden" id="sInfo" name="" value="" />
+							<input type="hidden" id="sFreqDiv" name="" value="" />
+							<input type="hidden" id="sEmailYN" name="" value="" />
+							<input type="hidden" id="sPeriod" name="" value="" />
+							<input type="hidden" id="sScope" name="" value="" />
+							<ul class="cont_list ">
+								<li><label>전송기간</label> <span> <em>2017.01.21</em> ~  <em>2018.01.20</em> </span><input type="radio" id="" name=""> 6개월 <input type="radio" id="" name=""> 1년 <input type="radio" id="" name=""> 3년</li>
+								<li>
+									<label>알림메일<br>수신여부</label>   <div style="line-height:160%;display:inline-block">
+										<input type="radio" id="" name=""> Yes <input type="radio" id="" name=""> No <br> &nbsp;<input type="text" id="" name="" style="width:200px">   <div class="btn-group  ">
+											<button type="button" class="btn btn-default">메일수정</button>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</form>
+						<div class="noti_txt"><i class="icon-" data-icon="&#xe90d;"></i> 메일정보 수정시 회원정보상의 메일 주소가 수정됩니다. 기존의 알림 메일 역시 수정된 메일 주소로 발송됩니다.  </div>
+						<div class="ac">
+							<div class="btn-group  ">
+								<button type="button" class="btn   btn-square" style="width:80px">저장</button>
+								<button type="button" class="btn btn-default" style="width:80px">알람삭제</button>
+								<button type="button" class="btn btn-default" style="width:80px">취소</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="popup_share" class="base_popup">
+					<div class="top_title">
+						<span><i class="icon-" data-icon="&#xea82;"></i> 공유하기</span>
+						<div class="top_title_group">
+							<div class="btn_close_pop">닫기<i class="icon-close" data-icon="&#xe915;"></i></div>
+						</div>
+					</div>
+					<div class="share_site">
+						<i class="icon-" data-icon="&#xea90;"><span class="blind">페이스북</span></i>
+						<i class="icon-" data-icon="&#xea96;"><span class="blind">트위터</span></i>
+						<i class="icon-" data-icon="&#xea8b;"><span class="blind">구글+</span></i>
+						<i class="icon-" data-icon="&#xe928;"><span class="blind">네이버</span></i>
+						<i class="icon-" data-icon="&#xe929;"><span class="blind">다음</span></i>
+						<i class="icon-" data-icon="&#xe90c;" onclick="email_edit();"><span class="blind">이메일</span></i>
+					</div>
+					<div class="share_address">
+						http://www.lawnb.com C1D8C25
+						<span>URL복사</span>
+					</div>
+				</div>
+				<div id="popup_email" class="base_popup">
+					<div class="top_title">
+						<span><i class="icon-" data-icon="&#xe90c;"></i> 메일 보내기</span>
+						<div class="top_title_group">
+							<div class="btn_close_pop">닫기<i class="icon-close" data-icon="&#xe915;"></i></div>
+						</div>
+					</div>
+					<div class="share_emails"><em>보내는 사람</em> <br /><span>- 이름</span><input type="text" id="Text1" name="" style="width:88%"><br /><span>- 이메일</span><input type="text" id="Text2" name="" style="width:88%"></div>
+
+					<div class="share_emails"><em>받는 사람</em> <input type="text" id="" name="" style="width:88%"></div>
+					<div class="share_email_title">제목 <strong> [LAWnB] 판례 : 대법원 2016.12.29 선고 2015두1151 판결 [부당노동행위제심판정취소]</strong></div>
+					<div class="share_email_address">
+						http://www.lawnb.com C1D8C25
+						<textarea name="" id="" style="width:98%;height:120px" class="mgt10" placeholder="추가 메세지(선택사항)"></textarea>
+					</div>
+					<div class="ac">
+						<div class="btn-group  ">
+							<button type="button" class="btn   btn-square" style="width:80px">발송</button>
+							<button type="button" class="btn btn-default" style="width:80px">취소</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		<script type="text/javascript">   
+			setHeight();
+		</script>
+</div> 
+</body>
+</html>

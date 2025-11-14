@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="../js/commonjs.js"></script>
+<script language="javascript">
+<!--
+ 
+		function resizeComment(){ 
+			setHeight();
+			$(".right_container").removeClass('slide_mov_right'); 
+		}
+		$(function () {  
+			 
+			$("section .btn-group .btn").click(function(){  
+				$("#title_result_tab .btn_close").show();
+				$("#title_result_tab .btn_reapprea").hide();
+				$("#title_result_tab").show(); 
+				$("#result_area").show();
+				$("#pdf_view").hide();
+				$("#view_content").hide();
+				//$(".main_container").css('overflow','hidden');
+				setTimeout(function(){  
+					$("#result_area").addClass('slide_mov_bottom');    
+				}, 200);
+			}); 
+
+ 
+		});
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_popupContainer">
+	<div id="wrap" >
+		<header> 
+			<div class="top_container  ">  
+				<a href="/maf/poc/app/homepage"><h1>로앤비</h1></a>
+				<div class="function_area">
+					<p class="hide">기타기능버튼들</p> 
+					<div>
+						<span style="padding-right:0"><i class="icon-left" data-icon="&#xe901;"></i></span> 
+						<span><i class="icon-checkbox-unchecked" style="color:yellow" data-icon="&#xea52;"></i></span>
+						<span style="padding-left:0"><i class="icon-right" data-icon="&#xe900;"></i></span>
+						<br><span>검색어</span>
+					</div>
+					<div>
+						<span><i class="icon-plus" data-icon="&#xea0a;"></i></span> 
+						<span><i class="icon-plus" data-icon="&#xea0b;"></i></span>
+						<br><span>글자크기</span>
+					</div>
+					<a href="#" id="alert_set"> 
+						<span><i class="icon-alert" data-icon="&#xe91b;" ></i></span>
+						<span>알림설정</span>
+					</a>
+					<a href="#" id="folder_put"> 
+						<span><i class="icon-folder" data-icon="&#xe930;"></i></span>
+						<span>폴더담기</span>
+					</a>
+					<a href="#"> 
+						<span><i class="icon-printer" data-icon="&#xe954;"></i></span>
+						<span>인쇄</span>
+					</a>
+					<a href="#" > 
+						<span><i class="icon-download3" data-icon="&#xe9c7;"></i></span>
+						<span>파일저장</span>
+					</a>
+					<a href="#">
+						<span><i class="icon-share2" data-icon="&#xea82;"></i></span>
+						<span>공유</span>
+					</a>
+				</div>
+			</div>        	
+		</header> 
+		<div id="container" class="bui_lawfirm two-con"> 
+			<div id="breadcrumb" class="navi_area"> 
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div class="title_area">  
+				<h2>태평양, 컴플라이언스 환경 변화와 대응 전략 세미나 개최 <span>[법무법인 유한 태평양] 2016.10.26</span></h2>  
+			</div>
+			<div id="container_inner">
+				<div class="left_container">   
+					 
+				</div>
+				<article class="main_container">  
+					 <div class="main_container_view">
+						<div id="title_result_tab" class="result_tab">관련정보<div class="btn_option_outer"><div class="btn_close">X</div></div>
+								<div class="btn_option_outer"><div class="btn_reapprea">검색결과 보기</div></div>
+							</div>
+							<div id="result_area" class="popup_mov_area"> 
+								<div class="main_container_view_inner">
+									<div class="s_num_area">관련심판 총 21건 <small>1/1000</small></div>
+									<ol class="list">
+										<li>
+											<span class="list_num">1</span>							 
+											<div class="co_searchContent">
+												<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[학회논문] 개별 행정법상 "이의신청제도"의 현황 검토</a><br><span>Legal Practice Study : Study on objection systems in several administrative laws</span><br><span class="list_meta">하경효(Kyung Hyo Ha), 하경효(Kyung Hyo Ha)/ 안암법학회/ 안암법학 <54>/ 2014/ 30Page </span></h3>  
+											</div>
+										</li>
+										<li>
+											<span class="list_num">1</span>							 
+											<div class="co_searchContent">
+												<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[학회논문] 개별 행정법상 "이의신청제도"의 현황 검토</a><br><span>Legal Practice Study : Study on objection systems in several administrative laws</span><br><span class="list_meta">하경효(Kyung Hyo Ha), 하경효(Kyung Hyo Ha)/ 안암법학회/ 안암법학 <54>/ 2014/ 30Page </span></h3>  
+											</div>
+										</li>
+										<li>
+											<span class="list_num">1</span>							 
+											<div class="co_searchContent">
+												<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[학회논문] 개별 행정법상 "이의신청제도"의 현황 검토</a><br><span>Legal Practice Study : Study on objection systems in several administrative laws</span><br><span class="list_meta">하경효(Kyung Hyo Ha), 하경효(Kyung Hyo Ha)/ 안암법학회/ 안암법학 <54>/ 2014/ 30Page </span></h3>  
+											</div>
+										</li>
+										<li>
+											<span class="list_num">1</span>							 
+											<div class="co_searchContent">
+												<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[학회논문] 개별 행정법상 "이의신청제도"의 현황 검토</a><br><span>Legal Practice Study : Study on objection systems in several administrative laws</span><br><span class="list_meta">하경효(Kyung Hyo Ha), 하경효(Kyung Hyo Ha)/ 안암법학회/ 안암법학 <54>/ 2014/ 30Page </span></h3>  
+											</div>
+										</li>
+										<li>
+											<span class="list_num">1</span>							 
+											<div class="co_searchContent">
+												<h3> <a href="http://testlawnb.lawnb.com/lbmobileweb/html/list_view.html">[학회논문] 개별 행정법상 "이의신청제도"의 현황 검토</a><br><span>Legal Practice Study : Study on objection systems in several administrative laws</span><br><span class="list_meta">하경효(Kyung Hyo Ha), 하경효(Kyung Hyo Ha)/ 안암법학회/ 안암법학 <54>/ 2014/ 30Page </span></h3>  
+											</div>
+										</li>
+									</ol>
+									<div class="navigationLinks">				        									
+										<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=0" class="navFirst hiddenLink "><i class="icon-7" data-icon="&#xe911;"></i></a>
+										<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=-1" class="navPrevious hiddenLink "><i class="icon-2" data-icon="&#xe901;"></i></a>
+										<span class="currentPage">1</span>
+										<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navPages">2</a>
+										<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=2" class="navPages">3</a>
+										<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=3" class="navPages">4</a>
+										<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=1" class="navNext"><i class="icon-1" data-icon="&#xe900;"></i></a>
+										<a href="/maf/poc/app/search/navigate?snippets=true&amp;ao=o.IAED6CC08DD364059AB193CEAF31A4AB0&amp;savedSearch=false&amp;originates-from-link=false&amp;searchFrom=&amp;page=13" class="navLast "><i class="icon-8" data-icon="&#xe907;"></i></a>
+									</div> 
+								</div>
+							</div>
+						<div class="main_container_view_inner"> 
+							<div class="case_info" id="view_content"> 
+								「지방세법」제7조 제5항에 따른 과점주주에 해당하는지 여부는 특정주주와 그 특수관계인이 소유하고 있는 주식을 모두 합하여 판단하는 것이고 특수관계인 중 1인이 당해 법인의 경영에 참여하지 않는다 하더라도 납세의무 성립에는 별다른 영향을 줄 수 없다고 할 것인바, 청구인 등은 이 건 법인을 사실상 지배하고 있고, 청구인의 쟁점주식 취득으로 과점주주가 보유하고 있는 이 건 법인의 지분이 증가하였으므로 처분청에서 청구인에게 이 건 취득세 등을 부과한 처분은 잘못이 없음
+								1. 처분개요<br>
+
+가. 처분청은 청구인이 2014.4.22., 2014.7.14. OOO)을 청구인에게 부과·고지하였다.<br>
+
+나. 청구인은 이에 불복하여 2016.5.16. 심판청구를 제기하였다.<br>
+
+2. 청구인 주장 및 처분청 의견<br>
+
+가. 청구인 주장<br>
+
+「지방세기본법」제47조 제2호에서 주주와 특수관계인들의 소유주식의 합계가 해당 법인의 발행주식의 100분의 50을 초과하면서 그에 관한 권리를 실질적으로 행사하는 자들을 과점주주라고 규정하고 있고, 청구인은 전업주부로서 이 건 법인의 주식만을 소유하고 있을 뿐 경영에는 참여하지 아니하고 있으므로
+
+							</div> 
+						</div>
+					 </div>
+				</article> 
+				<aside class="right_container"> 
+					<section >
+						<h4>저자 프로필</h4>
+						<div class="firm_logo"><img src="http://www.kimchang.com/images/common/logo.gif"></div>
+						<dl class="lawyer_area">
+							<dt><img src="../images/main_img_lawyer_3.png" ></dt>
+							<dd><a href="1">John J. Kim</a><br>외국변호사<br>지적재산권</dd> 
+						</dl> 
+						<dl class="lawyer_area">
+							<dt><img src="../images/main_img_lawyer_3.png" ></dt>
+							<dd><a href="1">최용문</a><br>변호사/<div>사법시험 42회</div><br>공정거래</dd> 
+						</dl>  
+					</section>
+					<section >
+						<h4>관련 판례 <em>총 134건</em> 
+							<div class="btn-group fr"  >
+							  <button type="button" class="btn btn-default">전체보기</button> 
+							</div>
+						</h4>
+						<ul>
+							<li><a href="ㅇ"  >대법원1992.10.13 선고 92도1428 판결 【절도】</a></li>  
+						</ul>  
+					</section>
+					<section >
+						<h4>관련 법령<em>총 134건</em> 
+							<div class="btn-group fr"  >
+							  <button type="button" class="btn btn-default">전체보기</button> 
+							</div>
+						</h4>
+						<ul>
+							<li><a href="1">조세감면규제법 제23조</a></li>
+						</ul>
+					</section>
+					<section >
+						<h4>김앤장 법률사무소의 리포트<em>총 134건</em> 
+							<div class="btn-group fr"  >
+							  <button type="button" class="btn btn-default">전체보기</button> 
+							</div>
+						</h4>
+						<ul>
+							<li><a href="1">태평양, 컴플라이언스 환경 변화와 대응 전략 세미나 개최</a> <span><em>연합뉴스</em> / 2016.09.09</span></li> 
+							<li><a href="1">태평양, 컴플라이언스 환경 변화와 대응 전략 세미나 개최</a> <span><em>연합뉴스</em> / 2016.09.09</span></li>
+						</ul>
+					</section> 
+				</aside>   
+			</div>
+    	</div> 
+		<div id="bg_screen"></div> 
+	</div>
+		<script type="text/javascript">   
+			setHeight();
+		</script>
+</div> 
+</body>
+</html>

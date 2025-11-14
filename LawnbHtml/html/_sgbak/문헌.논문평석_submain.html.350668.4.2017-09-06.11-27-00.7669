@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+<meta name="viewport" content="width=1140">
+<title> 로앤비 </title> 
+<link rel="shortcut icon" href="http://www.lawnb.com/favicon_tr.ico" />
+<link rel="stylesheet" type="text/css" href="../css/_next_default.css" /> 
+<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />  
+<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />  
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../js/commonjs.js?sdd"></script>
+<script language="javascript">
+<!--
+	 
+	function resizeComment(){ 
+			setHeight_under();
+			$(".right_container").removeClass('slide_mov_right'); 
+		}
+//-->
+</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_mainContainer">
+	<div id="wrap" >
+		<header>
+		<div class="top_container ">
+			<h1>로앤비</h1>
+			<div id="t_search" class="search_container">
+				<h2>통합검색 영역</h2>
+				<div class="search_inner">
+					<form  action="" > 
+					<div class="search_left hide">
+						<label class="hide">통합검색  </label>
+					</div>
+					<div class="search_center">
+						<input type="search" name="" id="" >
+					</div>
+					<div class="search_right"><span  class="more_btn">more</span></div>
+					<div id="searchButton" class="search_btn"><i class="icon-" data-icon="&#xe910;"></i><span class="hide">검색</span></div> 
+					</form>
+					<div class="btn_search_result"><i class="icon-table" data-icon="&#xea71;"></i><span class="hide">검색결과 맵 보기</span></div>
+				</div>
+				<div class="search_layer_outer" >
+					<div class="search_layer" >
+						<div class="search_layer_list _done ">
+							<!-- <div class="txt_info">최근검색어저장 기능이 OFF 상태에 있습니다.<br>이용을 원하시면 하단의 최근검색어저장 상태를 ON으로 변경해주세요. </div> 
+							<ul>
+								<li>공정거래법 위반으로 인한 손해액의 산정방법과 주요 쟁점으로 <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+								<li>ddd <span>03.20</span></li>
+							</ul>-->
+							<ul>
+								<li><strong>대법</strong>원인터넷등기소<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+								<li><strong>대법</strong>원나의사건검색</li>
+								<li><strong>대법</strong>원법원경매정보</li>
+								<li><strong>대법</strong>원전자가족관계</li>
+								<li><strong>대법</strong>원경매</li>
+								<li><strong>대법</strong>원인터넷등기소<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+								<li><strong>대법</strong>원나의사건검색<i class="icon-myfolder" data-icon="&#xe900;"></i></li>
+								<li><strong>대법</strong>원법원경매정보</li>
+								<li><strong>대법</strong>원전자가족관계</li>
+								<li><strong>대법</strong>원경매</li>
+							</ul> 
+							<div class="expend_result" onclick="">
+								<p>법무법인(유한) 태평양어쩌고 저쩌고</p>
+								<span>주소 : [050-50] 서울시 광진구 디지털로 272, 한신 IT타워 611호<br>대표전화 : 02-2204-2114</span>
+								<div class="dirct_go">바로가기</div>
+							</div>
+						</div>
+						<!-- <div class="noti_txt"><i class="icon-" data-icon="&#xe90d;"></i> 공용 PC에서는 개인정보보호를 위하여 반드시 로그아웃을 해주세요.</div> -->
+						<div class="search_layer_foot">
+							<div class="fl">기록삭제</div>
+							<div class="fr">최근검색어저장 <div class="btn-group"><button type="button" class="btn btn_orange _select">ON</button><button type="button" class="btn btn-default">OFF</button></div> 자동완성 <div class="btn-group"><button type="button" class="btn btn_orange _select">ON</button><button type="button" class="btn btn-default">OFF</button></div>
+							</div>						
+						</div>
+					</div>
+					
+					
+				</div>
+			</div>
+			<div id="indiv_area" class="indiv_container">
+				<span alt="나의폴더">나의폴더<i class="icon-myfolder" data-icon="&#xe91a;"></i></span>
+				<span alt="히스토리">히스토리<i class="icon-history" data-icon="&#xe916;"></i></span>
+				<span alt="알림설정">알림설정<i class="icon-alert" data-icon="&#xe918;"></i><em>9+</em></span>
+				<span alt="질문내역">문의내역<i class="icon-question" data-icon="&#xe919;"></i></span>
+				<span alt="나의정보">나의정보<i class="icon-myinfo" data-icon="&#xe917;"></i></span>
+			</div>
+		</div>
+		<nav> 
+			<dl id="main_menu" class="mmenu">
+				<dt class="blind">메인 메뉴</dt> 
+				<dd>
+					<a href="#"><span>판례</span></a>
+				</dd>
+				<dd class="currentTab" >
+					<a href="#"><span>법규</span></a>
+				</dd>
+				<dd>
+					<a href="#"><span>심판·결정·해석</span></a>
+				</dd>
+				<dd >
+					<a href="#"><span>문헌</span></a>
+				</dd>
+				<dd>
+					<a href="#"><span>법조인</span></a>
+				</dd>
+				<dd>
+					<a href="#"><span>기업법무</span></a>
+				</dd>
+				<dd>
+					<a href="#"><span>서식</span></a>
+				</dd>
+				<dd>
+					<a href="#"><span>뉴스·칼럼</span></a>
+				</dd>
+			</dl>  
+		</nav>
+	</header>
+		<div id="container" class="two-con submain doc">
+			<div id="breadcrumb" class="navi_area">
+				<div>Home > 문헌 > <a href="1">논문·평석</a></div>
+				<div class="group_indivi_btn"><a href="">로그인</a><a href="">개인화님</a> </div>
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div id="container_inner">
+				<div class="left_container">  
+				</div>
+				<article class="main_container"> 
+					<div class="main_container_inner">
+						<div id="search_submain" class="submain_group">
+							<h3>논문·평석</h3>
+							<div class="search_div">
+								<form id="searchForm" method="post" action="CaseList">
+								<div class="search_input">
+									<input type="search" id="sWord" name="sWord"  placeholder="검색어">
+									<div class="except">
+									<input type="search" name="sWord1" placeholder="제외어">
+									</div>
+								</div>
+								<ol class="check_area">
+									<li><input type="checkbox" class="sType2List" value="0"><label>전체</label></li>
+									<li><input type="checkbox" class="sType2List" value="32"><label>제목</label></li>
+									<li><input type="checkbox" class="sType2List" value="16"><label>본문(초록)</label></li>
+									<li><input type="checkbox" class="sType2List" value="8"><label>저자</label></li>
+									<li><input type="checkbox" class="sType2List" value="2"><label>판례 사건번호</label></li> 
+								</ol>
+								<div class="detail_area_open    _open">
+									<ul> 
+										<li >
+											<label>검색범위</label>
+											<input type="checkbox" class="sType2List" value="2"> 전체&nbsp;&nbsp;<input type="checkbox" class="sType2List" value="2">학회논문&nbsp;&nbsp;<input type="checkbox" class="sType2List" value="2">법률잡지&nbsp;&nbsp;<input type="checkbox" class="sType2List" value="2">공공간행물&nbsp;&nbsp;<input type="checkbox" class="sType2List" value="2">판례연구&nbsp;&nbsp;<input type="checkbox" class="sType2List" value="2">실무논문&nbsp;&nbsp;<input type="checkbox" class="sType2List" value="2">천자평석&nbsp;&nbsp;<input type="checkbox" class="sType2List" value="2">독일판례평석&nbsp;&nbsp;
+										</li>
+										<li >
+											<label>발행연도</label>
+											<input type="number" id="sUnivS" name="sUnivS" title="시작일" style="width:80px" placeholder="20160101"> ~ <input type="number" id="sUnivE" name="sUnivE" title="종료일" style="width:80px" placeholder="20161231"> <div class="btn-group" ><button type="button"  class="btn btn-square ">최근 1년</button> <button type="button"  class="btn btn-square">최근 3년</button> <button type="button"  class="btn btn-square">최근 5년</button></div>
+										</li>
+									</ul>
+								</div>	
+								<div class="btn_area"><input type="submit" id="searchBtn" value="검색"> <span class="_cancel"><i class="icon-16" data-icon="&#xe90e;"></i>입력초기화</span></div>
+								</form>
+							</div> 
+						</div>
+						<div  class="submain_group title">
+							<h3>DB별/분야별 논문평석</h3> 
+							<ul class="doc_list">
+								<li><em>학회논문</em>
+								<strong>학회/간행물 리스트 <span>(학회수 1,111, 간행물종수 2,222)</span></strong><br><a href="2" >법학<span>(117)</span></a> <a href="2" >행정학<span>(38)</span></a> <a href="2" >사회과학<span>(35)</span></a> <a href="2" >공학<span>(233)</span></a> <a href="2" >어문학<span>(53)</span></a> <a href="2" >의약학<span>(48)</span></a>  <a href="2" >자연학<span>(2,333)</span></a>  <a href="2" >농학<span>(38)</span></a> <a href="2" >수해양학<span>(35)</span></a> <a href="2" >예체능학<span>(233)</span></a> <a href="2" >인문과학<span>(53)</span></a> | &nbsp;<i class="icon-icon_search" data-icon="&#xe910;"  ></i><a href="2" ><strong>학회명 검색</strong></a>   </li>
+								<li><em>법률잡지</em>
+								<a href="2" >전체 </a> <a href="2" >사법행정 </a> <a href="2" >저스티스</a> <a href="2" >(고시계) </a> <a href="2" >사법정책연구총서</a> <a href="2" >고시연구</a> <a href="2" >고시월보</a>
+								</li>
+								<li><em>공공간행물</em><a href="javascript:doc.goToSearchList('D004', '0');">전체 </a>
+                <a href="javascript:doc.goToSearchList('D004', '13337');">사법정책연구총서 </a>
+            </li>
+								<li><em>판례연구</em>
+								<a href="2" >전체</a> <a href="2" >민사</a> <a href="2" >형사</a> <a href="2" >상사</a> <a href="2" >행정</a> <a href="2" >특허/상표</a> <a href="2" >기타</a>
+								</li>
+								<li><em>실무논문</em>
+								<a href="2" >전체</a> <a href="2" >일반민사</a> <a href="2" >공정거래</a> <a href="2" >상사</a> <a href="2" >집행/경매</a> <a href="2" >금융/증권</a> <a href="2" >화의/파산/회생</a> <a href="2" >가사/호적</a> <a href="2" >인수/합병</a> <a href="2" >해상/보험</a> <a href="2" >건설/부동산</a> <a href="2" >엔터테인먼트</a> <a href="2" >중재</a> <a href="2" >의료</a> <a href="2" >정보통신</a> <a href="2" >지적재산권</a> <a href="2" >산재/노동</a> <a href="2" >국제법/국제사법</a> <a href="2" >교통사고</a> <a href="2" >헌법</a> <a href="2" >행정</a> <a href="2" >형사</a> <a href="2" >언론</a> <a href="2" >회사법</a> <a href="2" >경제법</a> <a href="2" >세법</a> <a href="2" >사회보장</a> <a href="2" >소송법</a> <a href="2" >기타</a>
+								</li>
+								<li><em>천자평석</em>
+								<a href="2" >전체</a> <a href="2" >헌법</a> <a href="2" >민사</a> <a href="2" >형사</a> <a href="2" >가사</a> <a href="2" >행정</a> <a href="2" >특허</a> <a href="2" >선거</a>
+								</li>
+								<li><em>독일판례</em>
+								<a href="2" >전체</a> <a href="2" >2017</a> <a href="2" >2016</a> <a href="2" >2015</a> <a href="2" >2014</a> <a href="2" >2013</a> <a href="2" >2012</a> <a href="2" >2011</a> <a href="2" >2010</a> <a href="2" >2009</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="main_container_view">
+						<div class="main_container_view_inner">
+							 
+						</div>
+					</div>
+				</article> 
+				<aside class="right_container"> 
+					<section >
+						<h4>법률잡지 Update</h4>
+						<ul class="magazine_update"> 
+							<li><a href="1" ><img src="http://www.lawnb.com//images/doc/sabub_11.gif" alt="사법행정"> <div>사법행정<br>2016년 11월호</div></a></li>  
+							<li><a href="1" ><img src="http://www.lawnb.com//images/doc/sabub_11.gif" alt="사법행정"> <div>사법행정<br>2016년 11월호</div></a></li>  
+						</ul>   
+					</section>
+					<section >
+						<h4>최신 Update</h4>
+						<ul> 
+							<li><a href="1" >[실무논문] 학교안전법상 공제급여인 유족급여 및 장의비에 대하여 과실상계, 기왕증 참작을 할 수 있는지 여부 </a><span>2016.10.31</span></li> 
+							<li><a href="1" >[사법행정] 학교안전법상 공제급여인 유족급여 및 장의비에 대하여 과실상계</a> <span>2016.11.22</span></li>  
+						</ul>  
+						<!-- <div class="more_view">more</div> -->
+					</section>
+				</aside>
+			</div>
+    	</div>
+		<footer>
+			<div class="etc_menu"> 
+				<div class="top_container">  
+					<ul>	
+						<li class="blind">기타 메뉴 </li>
+						<li>회사소개</li>
+						<li>광고 · 제휴문의</li>
+						<li>이용약관</li>
+						<li>개인정보 취급/처리 방침</li>
+						<li>법적고지</li>
+						<li>이메일 무단수집거부</li>
+					</ul>
+				</div>
+			</div>  
+			<div class="top_container   _footer"> 	   
+				1. 콘텐츠의 명칭 : 법률정보 &nbsp;&nbsp; 2. 콘텐츠의 제작 및 표시 : 2006년 2월 17일(업그레이드 콘텐츠의 경우 갱신일) &nbsp;&nbsp; 3. 콘텐츠 제작자 : ㈜로앤비  &nbsp;&nbsp;  4. 콘텐츠의 이용조건 : <a href="/support/agree_use.asp" class="red_bott">이용약관</a> 및 로앤비 <a href="/support/serviceInfo_member.asp" class="red_bott">서비스안내</a>와 같음 (무단 복제금지) &nbsp;&nbsp;5. 콘텐츠의 보호기간 : ㈜로앤비 사이트의 모든 콘텐츠는 「콘텐츠산업 진흥법」에 따라 제작 또는 갱신일로부터 5년간 보호됨
+				<div>Thomson reuters</div>
+				<div>Copyright ⓒ 1998~2016 <b>LAWnB</b>. All Rights Reserved.</div>
+			</div>       
+		</footer>
+		<div id="bg_screen"></div>
+		<script type="text/javascript">  
+			setHeight_under();			  
+		</script>
+	</div>
+</div> 
+</body>
+</html>

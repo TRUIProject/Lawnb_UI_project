@@ -1,0 +1,1302 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;">
+	<meta name="viewport" content="width=1140">
+	<title> 로앤비 </title>
+	<link rel="stylesheet" type="text/css" href="../css/_next_default.css" />
+	<link rel="stylesheet" type="text/css" href="../css/_next_layout_old.css" />
+	<link rel="stylesheet" type="text/css" href="../css/_next_law.css" />
+	<link rel="stylesheet" type="text/css" href="../css/icon-style.css" />
+	<script src="../Scripts/lib/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="../Scripts/common/commonjs.js"></script>
+	<script language="javascript">
+<!--
+
+		function resizeComment() {
+			setHeight();
+			$(".right_container").removeClass('slide_mov_right');
+		}
+		$(document).ready(function () {
+			$(".popup_mov_area").height($('.main_container').height() - 37);
+			$("#searchButton_s").click(function () {
+				$("#title_result_tab").show();
+				$("#title_result_tab").css('z-index', '100');
+				$("#title_result_tab .btn_close").show();
+				$("#title_result_tab .btn_reapprea").hide();
+				$("#result_area").show();
+				$("#result_area").css('z-index', '100');
+				setTimeout(function () {
+					$("#result_area").addClass('slide_mov_bottom');
+					$("#pdf_view").css('padding-top', '37px');
+				}, 200);
+			});
+
+			$("#related_comment .btn").click(function () {
+				$("#related_comment_tab").show();
+				$("#related_comment_tab .btn_close").show();
+				$("#related_comment_tab").css('z-index', '100');
+				$("#related_comment_result").css('z-index', '100');
+				$("#related_comment_result").show();
+				setTimeout(function () {
+					$("#related_comment_result").addClass('slide_mov_bottom');
+					$("#pdf_view").css('padding-top', '37px');
+				}, 200);
+			});
+
+			 
+		});
+
+		function open_onjuindex() {  
+            $('.onju_index_popup').show();
+			$('#view_sub_content').hide();
+			$('#view_content').show();
+
+            if ($("#View_admin_onjuwriter").is(':visible')) {
+				$('.onju_index_popup').css('top','40px');
+            }
+
+            $('p .btn_close').click(function () {
+                $('.onju_index_popup').hide(); 
+            });
+		}
+
+        function open_onjupublisher() {
+            $('#view_sub_content').show();
+			$('#view_content').hide();
+
+            $('p .btn_close').click(function () {
+                $('#view_sub_content').hide();
+                $('#view_content').show();
+			});
+		}
+
+        function open_title_modify() {
+            $('.view_onju_title').show(); 
+
+            $('.view_onju_title p .btn_close').click(function () {
+                $('.view_onju_title').hide(); 
+            });
+        }
+
+		//-->
+	</script>
+
+</head>
+
+<body onresize="resizeComment();">
+<div id="co_popupContainer">
+	<div id="wrap" >
+		<header> 
+			<div class="top_container  ">  
+				<a href="/maf/poc/app/homepage"><h1>로앤비</h1></a>
+				<div class="function_area">
+					<p class="hide">기타기능버튼들</p>
+					<a href="#" id="inner_search">
+						<span><i class="icon-folder" data-icon="&#xe90f;"></i></span>
+						<span>본문검색</span>
+					</a>
+					<div id="search_word">
+						<span style="padding-right:0" onclick="moveFindMarks('P')"><i class="icon-left" data-icon="&#xe901;"></i></span>
+						<span onclick="checkMarking()"> 
+							<i class="icon-checkbox-unchecked "></i> 
+						</span>
+						<span style="padding-left:0" onclick="moveFindMarks('N')"><i class="icon-right" data-icon="&#xe900;"></i></span>
+						<br><span>검색어</span>
+					</div>
+					<div>
+						<span class="font-p"><i class="icon-plus" data-icon="&#xea0a;"></i></span>
+						<span class="font-m"><i class="icon-minus" data-icon="&#xea0b;"></i></span>
+						<br><span>글자크기</span>
+					</div>
+					<a href="#" id="alert_set" class=" " onclick=" ">
+						<span><i class="icon-alert" data-icon="&#xe91b;"></i></span>
+						<span id="alertSetting">알림설정</span>
+					</a>
+					<a href="#" id="pring_set"  >
+						<span><i class="icon-printer" data-icon="&#xe954;"></i></span>
+						<span>인쇄</span>
+					</a>
+					<a href="#"> 
+						<span><i class="icon-download3" data-icon="&#xe9c7;"></i></span>
+						<span>파일저장</span>
+					</a>
+					<a href="#" id="cont_share"  >
+						<span><i class="icon-share2" data-icon="&#xea82;"></i></span>
+						<span>공유</span>
+					</a>
+				</div>
+			</div>        	
+		</header> 
+		<div id="container" class="onju">
+			<div class="container_hide">
+				<button id="left_wide"><i class="icon_list" data-icon=""><span class="blind">목차 넓게보기</span></i></button>
+				<button id="left_hide"><i class="icon_list" data-icon=""><span class="blind">목차 없애기</span></i></button>
+			</div>
+			<div id="breadcrumb" class="navi_area">
+				<span id="right_control"><i class="icon-2" data-icon="&#xe901;"><span class="blind">오른쪽 영역</span></i></span>
+			</div>
+			<div class="title_area">
+				<h2><em class="favi_add"><i class="icon-star"></i></em>온주 개인정보보호법<span><i class="icon-" data-icon="&#xe901;"></i>약칭 : 사건명 별칭사건명 별칭사건명<i class="icon-" data-icon="&#xe900;"></i></span></h2>
+				<div class="meta_area">
+					편저:온주편집위원회 / 집필대표:다재호
+				</div>
+			</div>
+			<div id="container_inner">
+				<div id="View_admin_onjuwriter">
+					<div>집필자 모드</div>
+					<div class="btn-group fr mgt10 mgl10 mgr10">
+						<!--전후주만보임-->
+						<span class="btn btn-default" onclick="open_title_modify();">제목수정</span>
+						<span class="btn btn-default">삭제</span>
+					</div>
+					<div class="btn-group fr mgt10">
+						<span class="btn " onclick="window.open('popup_온주.출판이력.html','_blank','top=0,left=0,width=1024,height=600,toolbar=0,status=0,scrollbars=1,resizable=0')" style="border: 1px solid rgba(255,255,255,0.5);">출판이력</span>
+						<span class="btn " style="border: 1px solid rgba(255,255,255,0.5);">편집하기</span>
+					</div>
+				</div>
+				<div class="small_search_inbox">
+					<input type="search" name="" placeholder="도서내 검색" style="width:69%"> <input type="button" value="검색 " id="searchButton_s" class="btn _search">
+				</div>
+				<div class="left_container">
+					<div class="table_index">
+						<h3>목차</h3>
+						<ul class="tree onju_index ">
+							<li><a href="">주석서 표지</a></li>
+							<li>
+								<a href="#case_plaintiff"> 제1편 유가증권법상의 기본이론 </a><span>p.77</span>
+								<ol>
+									<li>제1장 총설 <span>p.31</span></li>
+									<li>
+										제2장 유가증권의 개념 <span>p.32</span>
+										<ol>
+											<li><a href="dddd" class="_this">1. 총설 <span>p.32</span> </a> </li>
+											<li>2. 유가증권의 개념에 관한 학설<span> p.34</span>  </li>
+											<li>3. 보통증권 <span>p.37</span>  </li>
+											<li>4. 유가증권과 구별되는 증권 <span>p.41</span>  </li>
+											<li>5. 유가증권인지 여부가 문제되는 증권<span>p.44</span>  </li>
+										</ol>
+									</li>
+									<li>
+										제3장 유가증권의 기능과 속성 <span>p.59</span>
+										<ol>
+											<li> 1. 유가증권의 기능 <span>p.59</span>  </li>
+											<li>2. 유가증권의 개념에 관한 학설 <span>p.34</span>  </li>
+											<li>2. 유가증권의 속성<span> p.67</span>  </li>
+										</ol>
+									</li>
+								</ol>
+							</li>
+							<li>
+								<a href="#case_plaintiff">제2편 어음· 수표에 관한 통칙 </a><span>p.115 </span>
+								<ol>
+									<li>
+										제1장 어음· 수표의 의의 <span>p.115 </span>
+										<ol>
+											<li>1. 어음· 수표의 개념 <span>p.115</span> </li>
+											<li>2. 어음· 수표의 경제적 기능· 속성 및 남용 <span>p.119</span> </li>
+											<li>3. 환어음· 약속어음· 수표의 이동 <span>p.129</span> </li>
+										</ol>
+									</li>
+									<li>
+										제2장 어음· 수표의 분류 <span>p.136 </span>
+										<ol>
+											<li>1. 어음· 수표의 개념 <span>p.115</span> </li>
+											<li>2. 어음· 수표의 경제적 기능· 속성 및 남용 <span>p.119</span> </li>
+											<li>3. 환어음· 약속어음· 수표의 이동 <span>p.129</span> </li>
+										</ol>
+									</li>
+								</ol>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<article class="main_container">
+					<div class="main_container_view">
+						<div class="main_container_view_inner">
+							<div id="title_result_tab" class="result_tab">
+								도서내 검색결과 1,000건
+								<div class="btn_option_outer"><div class="btn_close">X</div></div>
+								<div class="btn_option_outer"><div class="btn_reapprea">검색결과 보기</div></div>
+							</div>
+							<div id="result_area" class="popup_mov_area">
+								<div id="result_sep"></div>
+								<div class="list tree">
+									<ul>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1009_R1')">목차</a>
+											</em>
+											<div class="co_searchResults_summary">
+												제1항 위헌법률심판(<marks>헌가</marks>사건) ..1... 재판전제성 2... 위헌법률심판결정의 효력 ..406 406 408 413 413 414 415 417 417 419 420 420 ..【 9 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1070_R1')">3. 사법부</a>
+											</em>
+											<div class="co_searchResults_summary">
+												2011년 법원은 동일한 종전 법률상 부칙을 근거로 한 과세처분을 다툰 다른..‘자기책임의 원리’에 의해 이해할 수도 있겠다(헌법재판소 2004.6.24., 2002<marks>헌가</marks>27)...【 49 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1080_R1')">2. 과세요건법정주의</a>
+											</em>
+											<div class="co_searchResults_summary">
+												83) 2000헌바14(2002.10.31), 2003<marks>헌가</marks>23(2005.4.28) 등 84) 실제 당시 법인세법시행령은 기타 사외유출 및 사내유보에 대해 규정하고 있었다...【 56 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1084_R1')">2. 과세요건법정주의</a>
+											</em>
+											<div class="co_searchResults_summary">
+												에서 규정하고 있다.98) ..3... 과세요건명확주의 ..과세요건명확주의는 조세의 과세요건.. 100) 헌재결정 1999.3.25, 98<marks>헌가</marks>11, 14, 15, 18(병합)...【 60 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1085_R1')">3. 과세요건명확주의</a>
+											</em>
+											<div class="co_searchResults_summary">
+												에서 규정하고 있다.98) ..3... 과세요건명확주의 ..과세요건명확주의는 조세의 과세요건.. 100) 헌재결정 1999.3.25, 98<marks>헌가</marks>11, 14, 15, 18(병합)...【 60 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1098_R1')">1. 조세평등주의</a>
+											</em>
+											<div class="co_searchResults_summary">
+												1... 조세평등주의 ..가...128) 헌재 1997.12.24, 96<marks>헌가</marks>19등 129) 헌재 2000.2.24, 98헌바94등, 헌재 2005.10.27, 2004<marks>헌가</marks>21...【 71 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1101_R1')">1. 조세평등주의</a>
+											</em>
+											<div class="co_searchResults_summary">
+												..위헌소원 등 사건[(2008.11.13, 2006헌바112, 2007헌 바71⋅88⋅94, 2008헌바3⋅62, 2008<marks>헌가</marks>12(병합) 전원재판부]에서, 종합부동산세의 과세..【 74 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1110_R1')">2. 재산권 보장 및 과잉금지원칙</a>
+											</em>
+											<div class="co_searchResults_summary">
+												다만, 그 증여재산의 수증자가 제1항에 규정 한 상속인 또는 수유자일 경우에는 각자가 납부할 상속세액에서 공제한다(96<marks>헌가</marks>19⋅96헌바72(병합) 1997.12.24...【 82 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1112_R1')">2. 재산권 보장 및 과잉금지원칙</a>
+											</em>
+											<div class="co_searchResults_summary">
+												‘…으로부터 1년’이라는 부분은 헌법에 위반된다.][92<marks>헌가</marks>5, 1993.9.27, 구 국세기본법(1990.12.31, 법률 제4277호로 개정되기 전의 것) 제35조 제2항 ..【 84 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1113_R1')">2. 재산권 보장 및 과잉금지원칙</a>
+											</em>
+											<div class="co_searchResults_summary">
+												이후 해당 세금이 체납이 된 경우에는 이를 사해행위로 해서 법원에 그 취소를 청구할 수 있 다(국세기본법 제35조 제4항, 국세징수법 제30조)... 일.. 91<marks>헌가</marks>1 참조)...【 85 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1119_R1')">2. 재산권 보장 및 과잉금지원칙</a>
+											</em>
+											<div class="co_searchResults_summary">
+												2003두12820)... 177) 대법원은 2002헌바80 사건에서는 위헌제청신청을 기각한 바 있지만, 동일한 쟁점에 관한 2003<marks>헌가</marks>22 사건에서는 위헌제 청을 하였다...【 91 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1120_R1')">2. 재산권 보장 및 과잉금지원칙</a>
+											</em>
+											<div class="co_searchResults_summary">
+												할 필요가 있는가? 침.. 법률 제6558호로 개정되기 전의 것) 제76조 제5항이 헌법상 비례 의 원칙에 위반되지 않는다고 하였다(헌재 2005.11.24, 2004<marks>헌가</marks>7)...【 92 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1121_R1')">2. 재산권 보장 및 과잉금지원칙</a>
+											</em>
+											<div class="co_searchResults_summary">
+												것만으로 과세당국이나 금융기관을 통하여 계좌정보나 소득과 재산에 관한 개인정보가 외부에 공개될 우려가 있다고 보기 어렵고, 이 ..헌재 2005.11.24., 2004<marks>헌가</marks>7는 ..【 93 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1122_R1')">3. 기타</a>
+											</em>
+											<div class="co_searchResults_summary">
+												것만으로 과세당국이나 금융기관을 통하여 계좌정보나 소득과 재산에 관한 개인정보가 외부에 공개될 우려가 있다고 보기 어렵고, 이 ..헌재 2005.11.24., 2004<marks>헌가</marks>7는 ..【 93 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1282_R1')">1. 납세의무자</a>
+											</em>
+											<div class="co_searchResults_summary">
+												정은 조세법 적용을 위해 법인격부인의 법리를 사용하는 것은 엄격하게 제한.. 헌법재판소는 1998.5.28., 97<marks>헌가</marks>13결정에서 구 국세기본법 제39조 제1항 제2호 가목이 ..【 231 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1283_R1')">1. 납세의무자</a>
+											</em>
+											<div class="co_searchResults_summary">
+												가 아니라는 이유를 들어 서울고등법원에 위 과세처분의 취소를 구하는 행정소송을 제기하였 다(96구27317)... 그.. 법 4672)](97<marks>헌가</marks>13 1998.5.28.) 1...【 232 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1335_R1')">3. 가산세</a>
+											</em>
+											<div class="co_searchResults_summary">
+												(2) 과소신고가산세.. 663) 납부불성실가산세는 미납세액과 미납기간을 고려하여야 헌법상 비례의 원칙 및 평등의 원칙에 부합한다(헌재 2005.10.27, 2004<marks>헌가</marks>21)...【 270 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1361_R1')">1. 제도의 필요성</a>
+											</em>
+											<div class="co_searchResults_summary">
+												..<marks>헌가</marks>1, 판례집 1, 157, 163－164; 1993.3.11, 89헌마79, 판례집 5－1, 92, 101~102; 1996.10.31, 94 헌마108, 판례집 8－2..【 290 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1542_R1')">5. 판결의 효력</a>
+											</em>
+											<div class="co_searchResults_summary">
+												구속력에 저촉되지 않는다.1031) 취소판결이 확정되면 당해 처분의 위법성 일반이 확정되므로 허용되는 재처분의 범주..‘<marks>헌가</marks>사건’이라고 한다...제1항 위헌법률심판(<marks>헌가</marks>사건) ..【 406 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1543_R1')">제4절 헌법재판</a>
+											</em>
+											<div class="co_searchResults_summary">
+												구속력에 저촉되지 않는다.1031) 취소판결이 확정되면 당해 처분의 위법성 일반이 확정되므로 허용되는 재처분의 범주..‘<marks>헌가</marks>사건’이라고 한다...제1항 위헌법률심판(<marks>헌가</marks>사건) ..【 406 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1544_R1')">제1항 위헌법률심판(<marks>헌가</marks>사건)</a>
+											</em>
+											<div class="co_searchResults_summary">
+												구속력에 저촉되지 않는다.1031) 취소판결이 확정되면 당해 처분의 위법성 일반이 확정되므로 허용되는 재처분의 범주..‘<marks>헌가</marks>사건’이라고 한다...제1항 위헌법률심판(<marks>헌가</marks>사건) ..【 406 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1545_R1')">1. 재판전제성</a>
+											</em>
+											<div class="co_searchResults_summary">
+												구속력에 저촉되지 않는다.1031) 취소판결이 확정되면 당해 처분의 위법성 일반이 확정되므로 허용되는 재처분의 범주..‘<marks>헌가</marks>사건’이라고 한다...제1항 위헌법률심판(<marks>헌가</marks>사건) ..【 406 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1548_R1')">2. 위헌법률심판결정의 효력</a>
+											</em>
+											<div class="co_searchResults_summary">
+												..<marks>헌가</marks>12(병합) 전원재판부] 에서 헌법재판소의 위헌결정에 따라 2006~2007년 종합부동산세 신고자 중 세대별 합산과세된 자는 국세기본법 제45조의 2(경정청구)에 따라 ..【 409 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1568_R1')">2. 조세포탈의 주체</a>
+											</em>
+											<div class="co_searchResults_summary">
+												조세포탈의 주체로서의 납세의무자는 세법에 의해 국세를 납부할 의무가 있는 자이어야 한 다.1055) 이에는 연대납세의무자가 원칙적으로 포함되지만 제2차 .. 2010<marks>헌가</marks>80)...【 421 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1581_R1')">제2절 기타 조세형벌</a>
+											</em>
+											<div class="co_searchResults_summary">
+												천징수불이행(제13조), 거짓근로소득원천징수영수증발급(제14조)에 대해 징역 또는 벌금을 부과 하도록 규정하고 있다... 세금계산서를 발급받아야 할 자.. 2009<marks>헌가</marks>17). ..【 432 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1637_R1')">제2절 개인단위 과세의 원칙</a>
+											</em>
+											<div class="co_searchResults_summary">
+												..게 회 복할 수 없는 피해를 초래할 가능성이 높아 이를 통해 달성하려는 입법 목적과 사용된 수단 사이의 비례 관계가 적 정하지 아니하다(헌재 2006.4.27, 2004<marks>헌가</marks>..【 455 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1692_R1')">2. 소득금액 계산</a>
+											</em>
+											<div class="co_searchResults_summary">
+												민법상 조합은 계약의 하나로서 법적인 실체가 아니다... 민법상 조합에 대해서는 이를 공동사 업으로 보아 조합에 귀.. 2006<marks>헌가</marks>16, 2007<marks>헌가</marks>14(병합) 전원재판부). ..【 500 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1695_R1')">2. 소득금액 계산</a>
+											</em>
+											<div class="co_searchResults_summary">
+												사... 부동산임대사업 소득금액 계산에 고유한 사항 ..(1) 선세금 ..선세금이란 임대료의 선지급금액을 말한다... 이는 대여기간 종료 시점에 .. 94<marks>헌가</marks>10 전원재판부)...【 503 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1773_R1')">5. 우리나라</a>
+											</em>
+											<div class="co_searchResults_summary">
+												됨은 자명하다... 당초 양도소득세는 소득종류 간 형평의 가치보다는 부동산투기억제의 목적에 의하여 .. 2004<marks>헌가</marks>26 전원재 판부, 2003.4.24... 2002<marks>헌가</marks>6). ..【 545 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1774_R1')">제3항 과세대상</a>
+											</em>
+											<div class="co_searchResults_summary">
+												됨은 자명하다... 당초 양도소득세는 소득종류 간 형평의 가치보다는 부동산투기억제의 목적에 의하여 .. 2004<marks>헌가</marks>26 전원재 판부, 2003.4.24... 2002<marks>헌가</marks>6). ..【 545 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1775_R1')">1. 대상물건</a>
+											</em>
+											<div class="co_searchResults_summary">
+												됨은 자명하다... 당초 양도소득세는 소득종류 간 형평의 가치보다는 부동산투기억제의 목적에 의하여 .. 2004<marks>헌가</marks>26 전원재 판부, 2003.4.24... 2002<marks>헌가</marks>6). ..【 545 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1812_R1')">2. 소득금액</a>
+											</em>
+											<div class="co_searchResults_summary">
+												래 과세되지 않는 경우에는346) .. 2004헌바76, 2004<marks>헌가</marks>16(병합) 전원재판부결정에서 합헌의 다수의견을 공표하였지만, 그 결정 중 다음의 반대의견이 주목할 만하다...【 572 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|1827_R1')">2. 소득금액</a>
+											</em>
+											<div class="co_searchResults_summary">
+												인으로부터 저가양수에 의한 경제적 이익에 대한 증여과세는 2004년부터 이루어지고 있다... 이 와 .. 2004헌바76, 2004<marks>헌가</marks>16(병합) 전원재판부의 합헌 결정 참조 ..【 587 페이지 】
+											</div>
+										</li>
+										<li>
+											<em>
+												<a href="javascript:doc.showTargetContent('D022BEECD1A9CD1E|2138_R1')">2. 증여재산가액 등의 가산</a>
+											</em>
+											<div class="co_searchResults_summary">
+												채무가 아래에 해당되는 경우로서 용도가 객관적으로 명백하지 아니한 금액은 상속받은 것으 로 추정하여 과세가액에 산입한다(상증세법 제15조).7.. 2005<marks>헌가</marks>4 전원재판부). ..【 772 페이지 】
+											</div>
+										</li>
+									</ul>
+								</div>
+								<ol class="list myfolder_total"></ol>
+								<div class="navigationLinks"></div>
+							</div>
+							<div id="related_comment_tab" class="result_tab">
+								관련 해설
+								<div class="btn_option_outer"><div class="btn_close">X</div></div>
+							</div>
+							<div id="related_comment_result" class="popup_mov_area">
+								<div class="popup_commentary">
+									(9) 상속의 효과<br>
+									(가) 상속재산의 포괄적 승계<br>
+									상속인은 상속개시된 때로부터 피상속인의 재산1)에 관한 포괄적 권리의무를 승계한다(민 제1005조). 이러한 상속의 효과는 상속개시 사실에 대한 상속인의 지, 부지를 불문하고 또한 부동산의 등기, 동산의 인도, 채권양도의 통지 없이 법률상 당연히 발생하는 것이고, 또한 구체적인 권리의무뿐만 아니라 아직 권리 또는 의무로 구체화되지 않은 재산법상의 법률관계 내지 법적 지위도 포함된다.2) 그러나 피상속인의 일신전속에 관한 것은 그러하지 아니하다(민 제1005조 단서).<br><br><a href="1" target="new">[서식1] 소장 (새창 팝업)</a><br><br>(나) 상속재산의 범위<br>
+									1) 재산상권리<br>
+									가) 물 권<br>
+									소유권, 제한물권, 점유권 등의 물권은 그 목적물의 소재지 여하를 불문하고 상속인에게 이전되고, 피상속인의 생존시에 현실화된 물권적 청구권도 상속된다. 이러한 상속으로 인한 부동산물권의 취득은 등기를 요하지 아니하고(민 제186조), 동산물권에 관하여도 역시 인도가 없더라도 상속인에게 당연히 이전된다. 그 외 점유권도 상속인에게
+
+								</div>
+							</div>
+							<div class="case_info publish_write" id="view_sub_content" style="display:none">
+								<p> 발간사 <span class="btn_close"></span></p>
+								<div class="publisher_0">
+									<div class="publish_writer_area">
+										<div class="publish_write_img"><img src="/lbimg/peopdata/kimyeona20120418.jpg" alt="사진"></div>
+										<div>
+											집필대표 백재흠 변호사 <br />(김ㆍ장 법률사무소)
+										</div>
+									</div>
+									국제교역은 우리나라의 경제발전에 지대한 역할을 수행해 왔습니다. 무역입국(貿易立國)의 기치 하에 우리나라는 반세기 이상 수출입을 통하여 국내산업을 일구어 왔고, 2019년 말을 기준으로 3년 연속 무역액 1조 달러를 달성한 세계 10대 무역강국으로 자리매김하였습니다.  
+									<br />관세법은 관세와 통관을 규율하는 법률입니다. 1949년 독자적인 법률로 제정된 이후 ‘재정수입 확보’와 ‘국내산업 보호’라는 두가지 기능을 수행해 오고 있습니다. 관세법은 조세로서의 관세의 부과ㆍ징수 외에도 수출입물품의 통관 등 관세행정에 대한 사항을 규정하고 있고, 관세범에 대한 벌칙과 조사 및 처분에 대한 규정도 두고 있어 그 법적 성격이 복잡하고 독특합니다.
+									<br /><br />2020년 3월
+									<br />집필진을 대표하여
+									<br />김ㆍ장 법률사무소 변호사 백제흠
+
+								</div>
+
+								<div class="publisher_0">
+									<div class="publish_writer_area">
+										<div class="publish_write_img"><img src="/lbimg/peopdata/kimyeona20120418.jpg" alt="사진"></div>
+										<div>
+											집필대표 백재흠 변호사 <br />(김ㆍ장 법률사무소)
+										</div>
+									</div>
+									국제교역은 우리나라의 경제발전에 지대한 역할을 수행해 왔습니다. 무역입국(貿易立國)의 기치 하에 우리나라는 반세기 이상 수출입을 통하여 국내산업을 일구어 왔고, 2019년 말을 기준으로 3년 연속 무역액 1조 달러를 달성한 세계 10대 무역강국으로 자리매김하였습니다.  
+									<br />관세법은 관세와 통관을 규율하는 법률입니다. 1949년 독자적인 법률로 제정된 이후 ‘재정수입 확보’와 ‘국내산업 보호’라는 두가지 기능을 수행해 오고 있습니다. 관세법은 조세로서의 관세의 부과ㆍ징수 외에도 수출입물품의 통관 등 관세행정에 대한 사항을 규정하고 있고, 관세범에 대한 벌칙과 조사 및 처분에 대한 규정도 두고 있어 그 법적 성격이 복잡하고 독특합니다.
+									<br /><br />2020년 3월
+									<br />집필진을 대표하여
+									<br />김ㆍ장 법률사무소 변호사 백제흠
+
+								</div>
+
+							</div>
+							<div id="view_content">
+								<div class="view_onju_title">
+									<p>전후주 제목수정 <span class="btn_close">닫기</span> </p>
+									<div><label>목차</label> 21조, 전주</div>
+									<div><label>제목</label> <input type="text" id="" style="width:85%" /></div>
+									<div class="btn_area_f_popup ac mgb10"><span class="btn" onclick="">저장</span></div>
+								</div>
+
+								<div class="onju_front_page" style="display:none">
+									<p style="height:400px;line-height:400px">개인정보보호법</p>
+									<div>
+										<ul>
+											<li><span>편저</span>온주편집위원회</li>
+											<li><span>집필대표</span><a href="dddd">다재호</a> 부장판사(서울고등법원)</li>
+											<li class="front_writers"><span>집필위원</span><a href="dddd">다재호</a>판사(서울고등법원), <a href="dddd">다재호</a> 부장판사(서울고등법원), <a href="dddd">다재호</a>판사(서울고등법원), <a href="dddd">다재호</a> 부장판사(서울고등법원), <a href="dddd">다재호</a>판사(서울고등법원), <a href="dddd">다재호</a> 부장판사(서울고등법원)</li>
+											<li><span>ISBN</span>978-89-955563-5-1(95360)</li>
+										</ul>
+									</div>
+									<div class="mgt10 ar"><img src="http://www.lawnb.com/images/tr_mail_logo_tr.png" style="width:320px;"></div>
+								</div>
+								<div id="commentCont" class="onju_preview_onju">
+									<div class="viewmode">
+										<a name="1">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">1</div>
+											<div name="doc_content" class="doc_content"><div class="gray_info gray"><a href="javascript:hyperlink('0','부동산등기법','23')">제23조</a>(등기신청인) <br>④ 판결에 의한 등기는 승소한 등기권리자 또는 등기의무자가 단독으로 신청한다.</div></div>
+										</div>
+										<a name="2">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_1" name="title_1" class="title_1">Ⅰ. 의의</div>
+										</div>
+										<a name="3">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">2</div>
+											<div id="doc_content" name="doc_content" class="doc_content"><a href="javascript:hyperlink('0','부동산등기법','23')">법 제23조 제4항</a>은 공동신청주의에 대한 예외 중 하나로 판결에 의한 등기를 규정하고 있다. 판결에 의한 등기는 승소한 등기권리자 또는 등기의무자가 단독으로 신청한다(<a href="javascript:hyperlink('0','부동산등기법','23')">법 제23조 제4항</a>). 등기청구권에 기하여 등기권리자가 등기의무자를 상대로 한 소송에서 일정한 내용의 등기절차를 이행할 것을 명하는 판결이 확정되면 그것으로써 등기의무자가 등기신청을 한 것으로 간주되므로(<a href="javascript:hyperlink('0','민사집행법','263')">민사집행법 제263조</a>), 승소한 등기권리자는 그 확정판결에 의하여 단독으로 등기신청을 할 수 있다. 이런 경우에는 공동신청에 의하지 않더라도 등기의 진정을 보장할 수 있는 사정이 있기 때문이다. 보통 공동신청에 의하여야 할 등기를 등기의무자가 협력하지 않을 경우 등기의무자의 의사에 갈음하는 판결을 얻어 등기권리자가 단독으로 신청하는 구조이나, 소유권보존등기말소판결의 경우 예외적으로 단독신청에 의하여 하는 소유권보존등기 말소신청의사를 갈음하는 판결이 인정된다. 승소한 등기권리자 뿐만 아니라 등기의무자도 단독으로 등기를 신청할 수 있게 한 것은, 통상의 채권채무 관계에서는 채권자가 수령을 지체하는 경우 채무자는 공탁 등에 의한 방법으로 채무부담에서 벗어날 수 있으나 등기에 관한 채권채무 관계에 있어서는 이러한 방법을 사용할 수 없으므로, 등기의무자가 자기 명의로 있어서는 안 될 등기가 자기 명의로 있음으로 인하여 사회생활상 또는 법상 불이익을 입을 우려가 있는 경우에는 소의 방법으로 등기권리자를 상대로 등기를 인수받아 갈 것을 구하고 그 판결을 받아 등기를 강제로 실현할 수 있도록 한 것이다.<div class="miju_num" onmouseout="close_miju('Miju1')" onmouseover="open_miju('Miju1')"><a name="Miu1" href="#Mi1">1)</a> <div id="Miju1" style="display: none;" class="miju_box"> <span></span><div class="miju_box_line"><a href="javascript:hyperlink('1','대법원','2000다60708')">대법원 2001. 2. 9. 선고 2000다60708 판결</a>.</div></div></div></div>
+										</div>
+										<a name="4">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_1" name="title_1" class="title_1">Ⅱ. 판결의 요건<div class="miju_num" onmouseout="close_miju('Miju2')" onmouseover="open_miju('Miju2')"><a name="Miu2" href="#Mi2">2)</a> <div id="Miju2" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">판결 등 집행권원에 의한 등기의 신청에 관한 업무처리지침(등기예규 제1607호) 2.</div></div></div></div>
+										</div>
+										<a name="5">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_2" name="title_2" class="title_2">1. 이행판결 </div>
+										</div>
+										<a name="6">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_3" name="title_3" class="title_3">가. 확인판결, 형성판결 포함 여부 </div>
+										</div>
+										<a name="7">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">3</div>
+											<div id="doc_content" name="doc_content" class="doc_content"><a href="javascript:hyperlink('0','부동산등기법','23')">법 제23조 제4항</a>의 판결의 범위에 관하여, ① 이 경우의 판결은 채무자의 등기소에 대한 등기신청의 의사표시를 갈음하는 것이므로 특정한 등기신청의 의사표시를 할 것을 명하는 이행판결만을 의미한다는 견해와, ② <a href="javascript:hyperlink('0','부동산등기법','23')">법 제23조 제4항</a>의 문언상 반드시 이행판결로만 해석해야 할 이유가 없고 등기의 진정이 보장되기만 하면 당사자 간의 실질적 권리관계에 대한 확인 또는 형성의 판결도 포함된다는 견해가 있을 수 있다. 그런데 실체법상 권리의 존부가 확인되었다는 것과 어떤 자를 등기의무자로 하여 등기신청에 협력하게 하는 것은 다르므로, 여기서의 판결은 <a href="javascript:hyperlink('0','민사집행법','263')">민사집행법 제263조</a>의 의사의 진술, 그 중에서도 등기신청의사의 진술을 명한 판결만을 의미한다고 보는 것이 타당하다. 판례 및 등기실무도 후자의 입장을 취하고 있다. 따라서 <a href="javascript:hyperlink('0','부동산등기법','23')">법 제23조 제4항</a>의 판결은 “○○○등기절차를 이행하라”와 같이 등기신청의사의 진술을 명하는 이행판결만을 의미하고, 확인판결이나 형성판결은 이에 포함되지 않는다(다만 공유물분할판결의 경우에는 예외이다). 이런 점에서 <a href="javascript:hyperlink('0','부동산등기법','23')">법 제23조 제4항</a>의 판결은, 이행판결 뿐만 아니라 확인판결과 형성판결도 포함하는 <a href="javascript:hyperlink('0','부동산등기법','65')">법 제65조 제2항</a>의 ‘확정판결’과 다르다.<div class="miju_num" onmouseout="close_miju('Miju3')" onmouseover="open_miju('Miju3')"><a name="Miu3" href="#Mi3">3)</a> <div id="Miju3" style="display:none" class="miju_box"> <span></span><div class="miju_box_line"><a href="javascript:hyperlink('0','부동산등기법','65')">법 제65조 제2항</a>의 확정판결은 신청인에게 소유권이 있음을 증명하는 확정판결이면 족하고, 그 종류에 관하여 아무런 제한이 없어 반드시 확인판결이어야 할 필요는 없고, 이행판결이든 형성판결이든 관계가 없으며, 또한 화해조서 등 확정판결에 준하는 것도 포함한다(<a href="javascript:hyperlink('1','대법원','93다57704')">대법원 1994. 3. 11. 선고 93다57704 판결</a> 등 참조).</div></div></div> <br>확인판결의 경우, 매매계약이 무효라는 확인판결에 의하여 소유권이전등기의 말소등기를 신청할 수 없고,<div class="miju_num" onmouseout="close_miju('Miju4')" onmouseover="open_miju('Miju4')"><a name="Miu4" href="#Mi4">4)</a> <div id="Miju4" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 1-494.</div></div></div> 소유권확인판결에 의하여 소유권이전등기를 신청하거나,<div class="miju_num" onmouseout="close_miju('Miju5')" onmouseover="open_miju('Miju5')"><a name="Miu5" href="#Mi5">5)</a> <div id="Miju5" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 4-217.</div></div></div> 통행권확인판결에 의하여 지역권설정등기를 신청할 수 없다.<div class="miju_num" onmouseout="close_miju('Miju6')" onmouseover="open_miju('Miju6')"><a name="Miu6" href="#Mi6">6)</a> <div id="Miju6" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 7-322.</div></div></div><br>형성판결의 경우에도 공유물분할판결을 제외하고는 단독으로 등기신청을 할 수 없다. 재심의 소에 의하여 재심대상 판결이 취소된 경우라도 그 재심판결만으로 취소된 판결에 의하여 이루어진 소유권이전등기의 말소등기를 신청할 수 없고, 당사자의 공동신청에 의하거나 또는 별소로 말소등기를 명하는 판결을 받아야만 단독으로 그 말소등기의 신청을 할 수 있다.<div class="miju_num" onmouseout="close_miju('Miju7')" onmouseover="open_miju('Miju7')"><a name="Miu7" href="#Mi7">7)</a> <div id="Miju7" style="display:none" class="miju_box"> <span></span><div class="miju_box_line"><a href="javascript:hyperlink('1','대법원','71다8')">대법원 1973. 3. 31. 선고 71다8 판결</a>.</div></div></div> 또한 피고의 주소를 허위로 기재하여 소송서류 및 판결정본을 그 곳으로 송달하게 한 이른바 사위판결에 의하여 소유권이전등기가 이루어진 후 상소심절차에서 그 사위판결이 취소ㆍ기각된 경우, 그 취소ㆍ기각 판결에는 등기절차의 이행을 명하는 취지가 나타나지 아니하므로 그 취소ㆍ기각 판결에 의하여는 위 소유권이전등기의 말소등기를 단독으로 신청할 수 없다.<div class="miju_num" onmouseout="close_miju('Miju8')" onmouseover="open_miju('Miju8')"><a name="Miu8" href="#Mi8">8)</a> <div id="Miju8" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 4-486.</div></div></div><br>공유물분할판결의 주문에는 특정한 등기절차의 이행을 명하는 내용이 없지만 각 공유자는 원ㆍ피고에 관계없이 그 판결을 첨부하여 공유물분할등기(지분이전등기)를 신청할 수 있다.<div class="miju_num" onmouseout="close_miju('Miju9')" onmouseover="open_miju('Miju9')"><a name="Miu9" href="#Mi9">9)</a> <div id="Miju9" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 3-556.</div></div></div><br>이는 공유물분할판결이 확정되면 공유자는 각자의 취득 부분에 대하여 등기 없이도 소유권을 취득하고(<a href="javascript:hyperlink('0','민법','187')">민법 제187조</a>), 판결에 의하여 등기의 진정성이 이미 보장되었는데 소유권이전등기절차의 이행을 명하지 않았다고 해서 각 공유자가 다른 공유자와 공동으로 신청하든지 아니면 다시 지분이전의 이행판결을 받아야 한다고 하는 것은 지나치게 기교적이고 당사자에게 의미 없는 절차를 강요하는 것이 되기 때문에 예외를 인정한 것이다.<div class="miju_num" onmouseout="close_miju('Miju10')" onmouseover="open_miju('Miju10')"><a name="Miu10" href="#Mi10">10)</a> <div id="Miju10" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">부동산등기실무 ⁆, 373.</div></div></div><br>그런데 최근 공유물분할판결과 공유물분할에 관한 조정 등의 효과를 달리 보는 판결이 선고된 바 있다. 즉 공유물분할판결과는 달리, 공유물분할의 소송절차 또는 조정절차에서 공유토지에 관한 현물분할의 협의가 성립하여 그 합의사항을 조서에 기재함으로써 조정이 성립되었다고 하더라도, 그와 같은 사정만으로 재판에 의한 공유물분할의 경우와 마찬가지로 그 즉시 공유관계가 소멸하고 각 공유자에게 그 협의에 따른 새로운 법률관계가 창설되는 것은 아니고, 공유자들이 협의한 바에 따라 토지의 분필절차를 마친 후 각 단독소유로 하기로 한 부분에 관하여 다른 공유자의 공유지분을 이전받아 등기를 마침으로써 비로소 그 부분에 대한 대세적 권리로서의 소유권을 취득한다.<div class="miju_num" onmouseout="close_miju('Miju11')" onmouseover="open_miju('Miju11')"><a name="Miu11" href="#Mi11">11)</a> <div id="Miju11" style="display:none" class="miju_box"> <span></span><div class="miju_box_line"><a href="javascript:hyperlink('1','대법원','2011두1917')">대법원 2013. 11. 21. 선고 2011두1917 전원합의체 판결</a>.</div></div></div> 이에 따르면 공유물분할의 조정이 성립된 경우에는 각 공유자의 단독신청이 허용되지 않는다고 볼 여지가 있으나, 소유권취득의 시기와 관계없이 판결에 준하는 집행권원에 의하여 등기의 진정성이 보장된다는 점을 고려하면 단독신청을 허용하여도 무방할 것이다.<br>판결에는 등기권리자와 등기의무자가 나타나야 하며, 신청의 대상인 등기의 내용, 즉 등기의 종류, 등기원인과 그 연월일 등 신청서에 기재하여야 할 사항이 명시되어 있어야 한다. 신청서에 기재하여야 할 필수적 기재사항이 판결주문에 명시되지 아니한 경우, 예를 들면 근저당권설정등기를 명하는 판결주문에 필수적 기재사항인 채권최고액이나 채무자가 명시되지 아니한 경우나 전세권설정등기를 명하는 판결주문에 필수적 기재사항인 전세금이나 전세권의 목적인 범위가 명시되지 아니한 경우에는 그 판결에 의하여 등기를 신청할 수 없다.<div class="miju_num" onmouseout="close_miju('Miju12')" onmouseover="open_miju('Miju12')"><a name="Miu12" href="#Mi12">12)</a> <div id="Miju12" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">부동산등기실무 ⁆, 377.</div></div></div></div>
+										</div>
+										<a name="8">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_2" name="title_2" class="title_2">2. 확정판결 </div>
+										</div>
+										<a name="9">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">4</div>
+											<div id="doc_content" name="doc_content" class="doc_content">의사의 진술을 명하는 판결은 그 판결이 확정된 때에 그 의사를 진술한 것으로 보므로(<a href="javascript:hyperlink('0','민사집행법','263')">민사집행법 제263조 제1항</a>), <a href="javascript:hyperlink('0','부동산등기법','23')">법 제23조 제4항</a>의 판결은 확정판결이어야 한다.<div class="miju_num" onmouseout="close_miju('Miju13')" onmouseover="open_miju('Miju13')"><a name="Miu13" href="#Mi13">13)</a> <div id="Miju13" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">등기절차의 이행을 명하는 판결은 재산권의 청구에 관한 판결이지만, 의사의 진술을 명하는 판결은 그 판결이 확정된 때에 비로소 의사를 진술한 것으로 간주되고, 가집행선고부 판결에 의한 등기를 허용할 경우 그 판결이 취소된 때에는 거래의 안전을 해칠 수 있으므로 가집행선고를 붙일 수 없다.</div></div></div> 따라서 확정되지 아니한 가집행선고가 붙은 판결에 의하여 등기를 신청한 경우 신청서에 필요한 서면인 확정증명서를 첨부하지 않은 때에 해당하므로 등기관은 그 신청을 각하하여야 한다(<a href="javascript:hyperlink('0','부동산등기법','29')">법 제29조 제9호</a>). 그러나 등기관의 착오로 그러한 등기가 마쳐진 경우라도 <a href="javascript:hyperlink('0','부동산등기법','58')">법 제58조</a>에 의하여 직권으로 말소할 것은 아니다(<a href="javascript:hyperlink('0','부동산등기법','58')">법 제58조 제1항</a>).</div>
+										</div>
+										<a name="10">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_2" name="title_2" class="title_2">3. <a href="javascript:hyperlink('0','부동산등기법','23')">법 제23조 제4항</a>의 판결에 준하는 집행권원 </div>
+										</div>
+										<a name="11">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">5</div>
+											<div id="doc_content" name="doc_content" class="doc_content">확정판결과 동일한 효력이 있는 집행권원 즉, 화해조서ㆍ인낙조서(<a href="javascript:hyperlink('0','민사소송법','220')">민사소송법 제220조</a>), 화해권고결정(<a href="javascript:hyperlink('0','민사소송법','225')">민사소송법 제225조</a>, <a href="javascript:hyperlink('0','민사소송법','231')">제231조</a>), 민사조정조서ㆍ조정에 갈음하는 결정(<a href="javascript:hyperlink('0','민사조정법','29')">민사조정법 제29조</a>, <a href="javascript:hyperlink('0','민사조정법','34')">제34조 제4항</a>),<div class="miju_num" onmouseout="close_miju('Miju14')" onmouseover="open_miju('Miju14')"><a name="Miu14" href="#Mi14">14)</a> <div id="Miju14" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">보전절차에서 조정이 성립된 경우도 포함한다.</div></div></div> 가사조정조서ㆍ조정에 갈음하는 결정(<a href="javascript:hyperlink('0','가사소송법','59')">가사소송법 제59조 제2항</a>) 등도 그 내용에 등기의무자의 등기신청에 관한 의사표시의 기재가 있는 경우에는 판결에 준하여 등기권리자가 단독으로 등기를 신청할 수 있다. <br>중재판정(<a href="javascript:hyperlink('0','중재법','35')">중재법 제35조</a>, <a href="javascript:hyperlink('0','중재법','37')">제37조 제2항</a>) 또는 외국판결(<a href="javascript:hyperlink('0','민사집행법','26')">민사집행법 제26조</a>)에 의한 등기신청은 집행판결을 첨부하여야만 단독으로 등기를 신청할 수 있다. 공증인 작성의 공정증서는 그 채무가 일정한 금액 또는 대체물, 유가증권의 지급인 경우에 집행력을 가지므로, 설령 부동산에 관한 등기신청의무를 이행하기로 하는 조항이 기재되어 있더라도 등기권리자는 이 공정증서에 의하여 단독으로 등기를 신청할 수 없다. 가처분결정 또는 가처분판결에 등기절차의 이행을 명하는 조항이 기재되어 있어도 가처분의 잠정적 성격으로 인하여 등기권리자는 이 가처분결정 등에 의하여 단독으로 등기를 신청할 수 없다. 다만 가등기가처분에는 민사집행법상 가처분에 관한 규정이 준용되지 않고, 가등기권자는 <a href="javascript:hyperlink('0','부동산등기법','89')">법 제89조</a>의 가등기가처분명령을 등기원인증서로 하여 단독으로 가등기를 신청할 수 있다.<br>소유권지분 10분의 3을 양도한다 라고 한 화해조서,<div class="miju_num" onmouseout="close_miju('Miju15')" onmouseover="open_miju('Miju15')"><a name="Miu15" href="#Mi15">15)</a> <div id="Miju15" style="display:none" class="miju_box"> <span></span><div class="miju_box_line"><a href="javascript:hyperlink('1','대법원','91다11476')">대법원 1991. 6. 25. 선고 91다11476 판결</a>.</div></div></div> 소유권이전등기절차에 필요한 서류를 교부한다 라고 한 화해조서<div class="miju_num" onmouseout="close_miju('Miju16')" onmouseover="open_miju('Miju16')"><a name="Miu16" href="#Mi16">16)</a> <div id="Miju16" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 5-202.</div></div></div>는 등기이행에 관한 내용이 없으므로 이를 근거로 단독으로 등기를 신청할 수 없다.</div>
+										</div>
+										<a name="12">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_1" name="title_1" class="title_1">Ⅲ. 집행문의 요부 </div>
+										</div>
+										<a name="13">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_2" name="title_2" class="title_2">1. 집행문 </div>
+										</div>
+										<a name="14">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">6</div>
+											<div id="doc_content" name="doc_content" class="doc_content">통상의 강제집행 절차에서 강제집행을 하려면 집행권원에 집행문을 부여받아야 하나, 의사표시를 명하는 판결은 그 확정 시 채무자의 의사표시가 있는 것으로 보기 때문에 등기절차의 이행을 명하는 판결에 의한 등기신청에는 확정증명서를 첨부하면 충분하고 집행문을 부여받을 필요가 없음이 원칙이다.<br>그러나 의사표시를 하여야 하는 채무가 반대의무가 이행된 뒤에 하여야 하는 것인 경우에는 <a href="javascript:hyperlink('0','민사집행법','30')">민사집행법 제30조</a>와 <a href="javascript:hyperlink('0','민사집행법','32')">제32조</a>의 규정에 의하여 집행문을 부여한 때에 의사표시를 한 것으로 보므로(<a href="javascript:hyperlink('0','민사집행법','263')">민사집행법 제263조 제2항</a>), 집행문을 부여받은 때에 판결의 효력(등기신청의사 진술의 의제)이 발생한다. 이 규정의 취지는 의사표시를 명하는 판결의 경우에는 별도의 집행절차가 존재하지 않으므로 집행문 부여기관이 반대의무의 이행 여부를 조사하게 함으로써 등기의무자의 이익을 보호하려는 데 있다. <a href="javascript:hyperlink('0','민사집행법','263')">민사집행법 제263조 제2항</a>은 반대의무를 선이행해야 하는 경우에는 집행문을 부여한 때에 의사표시를 한 것으로 본다고 규정하나, 동시이행의 경우, 의사표시 의무에 정지조건이나 불확정기한이 붙어 있는 경우에도 집행문을 필요로 한다. 이 경우에도 집행문 없이 등기신청이 가능하다고 하면 등기의무자에게 불리하기 때문이다. 다만 확정기한이 붙어 있는 경우에는 그 확정기한의 도래에 의하여 의사진술의 효과가 생기며 별도로 집행문을 필요로 하지 아니한다. 그리고 확정판결 및 이와 동일한 효력이 인정되는 조정조서 등에서 등기절차의 이행과 반대급부의 이행이 각각 독립적으로 기재되었다면 그 판결 등에 의한 등기신청의 경우에는 집행문을 부여받을 필요가 없다.<div class="miju_num" onmouseout="close_miju('Miju17')" onmouseover="open_miju('Miju17')"><a name="Miu17" href="#Mi17">17)</a> <div id="Miju17" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 4-244, 201305-1. 이를테면, 다음과 같이 각 조정조항 사이에 선이행(동시이행)관계 또는 다른 조건이 없고, 별도 조항에서 각 의무간 동시이행 또는 선이행관계를 명시하지 않고 있는 경우. “1. 피고는 원고에게 별지 기재 부동산에 관하여 소유권이전등기절차를 이행한다. 2. 원고는 피고에게 돈 ○○원을 지급한다.”</div></div></div></div>
+										</div>
+										<a name="15">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_2" name="title_2" class="title_2"> 2. 승계집행문</div>
+										</div>
+										<a name="16">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">7</div>
+											<div id="doc_content" name="doc_content" class="doc_content">의사의 진술을 명하는 판결의 경우 일반적인 강제집행과는 달리 판결이 확정됨과 동시에 집행이 종료되므로 승계집행이 가능한지 의문이 있을 수 있지만, 판결에 의한 등기신청 역시 광의의 판결집행으로 볼 수 있으므로 승계집행을 인정하는 것이 등기실무이다. 이하에서는 경우를 나누어 본다. </div>
+										</div>
+										<a name="17">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_3" name="title_3" class="title_3">가. 등기의무자 승계 </div>
+										</div>
+										<a name="18">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_4" name="title_4" class="title_4">1) 등기청구권이 물권적 권리인 경우 </div>
+										</div>
+										<a name="19">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">8</div>
+											<div id="doc_content" name="doc_content" class="doc_content">현행 판례와 등기실무에 의하면, 소송물인 등기청구권이 대세적 효력을 갖는 물권적 청구권인 때에는 피고의 지위를 승계한 자, 즉 피고 명의의 등기에 기하여 새로이 등기명의인이 된 자는 <a href="javascript:hyperlink('0','민사소송법','218')">민사소송법 제218조 제1항</a>의 승계인에 해당한다. 예를 들어, 갑으로부터 원인 없이 을에게 소유권이전등기가 되자 갑이 을을 상대로 소유권이전등기의 말소청구를 하여 승소판결이 확정된 경우, 그 확정판결의 변론종결 후에 을로부터 소유권을 이전받거나 새로운 등기를 한 병은 을의 승계인에 해당한다. 따라서 갑은 병에 대한 승계집행문을 부여받아 위 확정판결에 의하여 을 명의의 소유권이전등기와 병 명의의 등기를 모두 단독으로 말소신청할 수 있다. 이때 병을 등기기록상 이해관계 있는 제3자로 보아 그의 승낙이나 대항할 수 있는 판결을 받아야 하는 것은 아니다.<div class="miju_num" onmouseout="close_miju('Miju18')" onmouseover="open_miju('Miju18')"><a name="Miu18" href="#Mi18">18)</a> <div id="Miju18" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 1-87.</div></div></div> 승계는 포괄승계(상속, 합병 등)와 특정승계를 가리지 않으며, 승계원인도 임의처분(매매, 유증 등)이든 국가의 강제처분(경매에 의한 소유권이전 등)이든 묻지 않는다. <br>원인무효인 소유권이전등기의 말소등기판결의 변론종결 후에 이루어진 소유권이전등기,<div class="miju_num" onmouseout="close_miju('Miju19')" onmouseover="open_miju('Miju19')"><a name="Miu19" href="#Mi19">19)</a> <div id="Miju19" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 4-482.</div></div></div> 지상권설정등기,<div class="miju_num" onmouseout="close_miju('Miju20')" onmouseover="open_miju('Miju20')"><a name="Miu20" href="#Mi20">20)</a> <div id="Miju20" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 2-143.</div></div></div> 가압류등기, 체납처분에 의한 압류등기<div class="miju_num" onmouseout="close_miju('Miju21')" onmouseover="open_miju('Miju21')"><a name="Miu21" href="#Mi21">21)</a> <div id="Miju21" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 4-645.</div></div></div> 등은 승계집행문을 부여받아 그 등기의 말소신청을 할 수 있다. 이때 변론종결 후에 마쳐진 등기의 말소등기신청과 원인무효인 소유권이전등기의 말소등기신청은 동시에 하여야 한다.<div class="miju_num" onmouseout="close_miju('Miju22')" onmouseover="open_miju('Miju22')"><a name="Miu22" href="#Mi22">22)</a> <div id="Miju22" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">판결 등 집행권원에 의한 등기의 신청에 관한 업무처리지침(예규 1607호) 5. 다. 1) 가), 선례 2-429.</div></div></div> 원고가 소유권이전등기 말소의 확정판결에 의하여 말소등기를 신청하는 경우 등기상 이해관계 있는 제3자가 있는 때에는 그 판결의 기판력이 그에게 미치지 아니하는 한 그의 승낙 또는 이에 대항할 수 있는 재판이 있음을 증명하는 정보를 제공하여야 하나, 위 제3자가 <a href="javascript:hyperlink('0','민사소송법','218')">민사소송법 제218조 제1항</a>의 변론종결 후의 승계인에 해당하여 위 판결의 기판력이 제3자에게 미칠 때에는 원고는 승계집행문을 부여받아 제3자 명의의 등기의 말소를 신청할 수 있다.<div class="miju_num" onmouseout="close_miju('Miju23')" onmouseover="open_miju('Miju23')"><a name="Miu23" href="#Mi23">23)</a> <div id="Miju23" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 8-71.</div></div></div><br>등기청구권이 물권적 청구권인 경우는 말소등기절차의 이행판결인 경우가 대부분이지만 이전등기절차의 이행판결인 경우도 있다. 따라서 권리이전등기(주로 진정명의 회복을 원인으로 하는 소유권이전등기)절차를 이행하라는 확정판결의 변론종결 후 그 판결에 따른 등기신청 전에 그 권리에 대한 제3자 명의의 이전등기가 이루어지고, 그 제3자가 <a href="javascript:hyperlink('0','민사소송법','218')">민사소송법 제218조 제1항</a>의 변론종결 후의 승계인에 해당하여 판결의 기판력이 그에게 미친다는 이유로 원고가 승계집행문을 부여받은 경우에는, 원고는 그 제3자를 등기의무자로 하여 곧바로 판결에 따른 권리이전등기를 단독으로 신청할 수 있다.<div class="miju_num" onmouseout="close_miju('Miju24')" onmouseover="open_miju('Miju24')"><a name="Miu24" href="#Mi24">24)</a> <div id="Miju24" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">판결 등 집행권원에 의한 등기의 신청에 관한 업무처리지침(예규 1607호) 5. 다. 1) 나).</div></div></div></div>
+										</div>
+										<a name="20">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_4" name="title_4" class="title_4">2) 등기청구권이 채권적 청구권인 경우 </div>
+										</div>
+										<a name="21">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">9</div>
+											<div id="doc_content" name="doc_content" class="doc_content">등기청구권이 대인적 효력밖에 없는 채권적 청구권인 경우에는 피고로부터 권리를 취득한 자는 승계인이 아니지만, 다만 채권적 청구권에 기하여 소유권이전등기절차를 명하는 확정판결을 받은 원고가 등기를 하기 전에 등기의무자의 사망으로 상속이 일어난 경우 그 상속인은 변론종결 후의 승계인이 아니므로 승계집행은 문제되지 않는다. 이 경우 원고(등기권리자)는 <a href="javascript:hyperlink('0','부동산등기법','27')">법 제27조</a>에 의하여 판결에 의한 등기를 할 수 있다. 이 경우 원고는 상속등기를 대위하여 할 필요가 없으며, 만일 상속인들이 상속등기를 하였다면 그 등기를 그대로 둔 채로 자기 앞으로 소유권이전등기를 신청할 수 있다. <br> </div>
+										</div>
+										<a name="22">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_3" name="title_3" class="title_3">나. 등기권리자 승계</div>
+										</div>
+										<a name="23">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">10</div>
+											<div id="doc_content" name="doc_content" class="doc_content">등기권리자의 지위에 승계가 있는 경우 대개 <a href="javascript:hyperlink('0','부동산등기법','27')">법 제27조</a>의 포괄승계인에 의한 등기신청 또는 <a href="javascript:hyperlink('0','부동산등기법','28')">법 제28조</a>의 대위등기에 의하여 해결되어, 승계집행이 문제되지 않는다. </div>
+										</div>
+										<a name="24">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_4" name="title_4" class="title_4">1) 등기청구권이 물권적 청구권인 경우 </div>
+										</div>
+										<a name="25">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">11</div>
+											<div id="doc_content" name="doc_content" class="doc_content">등기의무자 지위의 승계와 마찬가지로 등기청구권이 물권적 청구권인 경우에만 승계인에 해당하고 채권적 청구권인 경우에는 승계인에 해당하지 않는다. 예를 들어 원고가 피고를 상대로 소유권이전등기말소판결을 받았으나 그 등기 전에 사망한 경우 원고의 상속인은 승계인에 해당하므로 승계집행문을 받아 위 판결에 따른 등기를 할 수 있다. 그러나 실제로는 승계집행문을 부여받을 필요 없이 <a href="javascript:hyperlink('0','부동산등기법','27')">법 제27조</a>에 의하여 상속을 증명하는 서면을 첨부하여 위 판결에 의한 등기를 할 수 있으므로 승계집행이 문제되지 않는다. <br>특정승계의 경우 예를 들어 원고 갑이 소유권이전등기말소판결을 받은 후 등기를 하지 않은 상태에서 을에게 위 부동산을 매도한 경우, 을은 갑에 대한 채권자에 불과하고 판결의 효력을 받는 당사자가 아니므로 위 판결에 의한 등기를 신청할 수 없다. 다만, 위 판결에 의한 갑의 말소등기신청을 을이 대위신청할 수도 있고, 을이 갑을 대위하여 소유권이전등기말소소송을 제기한 경우라면 대위에 의하여 등기를 신청할 수 있을 것이나, 이는 승계집행의 문제는 아니다. </div>
+										</div>
+										<a name="26">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_4" name="title_4" class="title_4">2) 등기청구권이 채권적 청구권인 경우 </div>
+										</div>
+										<a name="27">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">12</div>
+											<div id="doc_content" name="doc_content" class="doc_content">등기청구권이 채권적 청구권인 경우에는 등기권리자의 지위를 이전받은 자는 <a href="javascript:hyperlink('0','민사소송법','218')">민사소송법 제218조 제1항</a>의 변론종결 후의 승계인에 해당하지 않는다. 예컨대 갑이 을을 상대로 매매를 원인으로 한 소유권이전의 승소확정판결을 받았으나 그 등기를 하기 전에 갑(원고)이 사망하여 병이 갑을 상속한 경우 병은 등기청구권에 관하여 갑의 승계인이 아니다. 다만 병은 등기신청권의 포괄승계인에 해당하므로 <a href="javascript:hyperlink('0','부동산등기법','27')">법 제27조</a>의 규정에 따라 상속을 증명하는 서면을 첨부하여 을로부터 직접 자기 명의로 소유권이전등기를 신청할 수 있다. 갑이 을에 대한 소유권이전등기소송에서 승소하고 그 등기를 하기 전에 병과 매매계약을 체결한 경우 병은 갑의 승계인이 아니므로 위 판결에 의한 등기를 신청할 수 없다. 다만, 위 판결에 의한 갑의 이전등기신청을 병이 대위신청할 수 있다. </div>
+										</div>
+										<a name="28">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_3" name="title_3" class="title_3">다. 공유물분할판결과 승계집행 </div>
+										</div>
+										<a name="29">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">13</div>
+											<div id="doc_content" name="doc_content" class="doc_content">공유물분할판결에 의한 등기를 하기 전에 공유자 중 일부가 자기 지분을 제3자에게 이전하고 그 등기를 마친 경우에 그 제3자를 승계인으로 볼 수 있을 것인지가 문제된다. 이는 형성판결에도 승계집행문을 부여받을 수 있는지에 관한 문제이기도 하다. 이에 관하여, 형성판결은 그 확정에 의하여 권리관계가 형성되므로 강제집행의 여지가 없고 따라서 집행문 자체를 부여하지 못한다는 견해와 공유물분할판결에 의한 등기신청을 인정하는 이상 변론종결 후의 제3자를 승계인으로 보아야 한다는 견해가 있으나,<div class="miju_num" onmouseout="close_miju('Miju25')" onmouseover="open_miju('Miju25')"><a name="Miu25" href="#Mi25">25)</a> <div id="Miju25" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">부동산등기실무 ⁆, 386-387.</div></div></div> 현행 등기실무는 승계집행문을 받은 경우 판결에 따른 등기신청을 허용한다.<div class="miju_num" onmouseout="close_miju('Miju26')" onmouseover="open_miju('Miju26')"><a name="Miu26" href="#Mi26">26)</a> <div id="Miju26" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">판결 등 집행권원에 의한 등기의 신청에 관한 업무처리지침(등기예규 제1607호) 5. 다. 2).</div></div></div> 다만 이는 공유물분할 “판결”이 있는 경우에 적용되고, 공유물에 관한 현물분할 내용의 조정이 성립한 경우에는 적용되지 않는다. 이 경우에는 공유자들이 협의한 바에 따라 토지의 분필절차를 마친 후 다른 공유자의 공유지분을 이전받아 등기를 마침으로써 비로소 그 부분에 대한 대세적 권리로서의 소유권을 취득하게 되어, 공유자 중 1인으로부터 공유지분을 인수한 제3자를 <a href="javascript:hyperlink('0','민사소송법','218')">민사소송법 제218조 제1항</a>의 승계인으로 볼 수 없기 때문이다.<div class="miju_num" onmouseout="close_miju('Miju27')" onmouseover="open_miju('Miju27')"><a name="Miu27" href="#Mi27">27)</a> <div id="Miju27" style="display:none" class="miju_box"> <span></span><div class="miju_box_line"><a href="javascript:hyperlink('1','대법원','2011두1917')">대법원 2013. 11. 21. 선고 2011두1917 전원합의체 판결</a>.</div></div></div></div>
+										</div>
+										<a name="30">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_4" name="title_4" class="title_4">1) 일부 공유자의 지분을 기초로 한 제3자 명의의 새로운 등기(단, 공유지분이전등기를 제외한다)가 마쳐진 경우  </div>
+										</div>
+										<a name="31">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">14</div>
+											<div id="doc_content" name="doc_content" class="doc_content">공유물분할판결의 변론종결 후 그 판결에 따른 등기신청 전에 일부 공유자의 지분을 기초로 한 제3자 명의의 새로운 등기가 마쳐진 경우(단, 아래 2)(가)의 경우를 제외한다)로서 제3자가 <a href="javascript:hyperlink('0','민사소송법','218')">민사소송법 제218조 제1항</a>의 변론을 종결한 뒤의 승계인에 해당하여 위 판결의 기판력이 그에게 미친다는 이유로 다른 공유자가 자신이 취득한 분할부분에 관하여 위 제3자에 대한 승계집행문을 부여받은 경우에는, 그 공유자는 제3자 명의의 등기의 말소등기와 판결에 따른 지분이전등기를 단독으로 신청할 수 있으며, 위 각 등기는 동시에 신청하여야 한다.</div>
+										</div>
+										<a name="32">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_4" name="title_4" class="title_4">2) 일부 공유자의 지분이 제3자에게 이전된 경우  </div>
+										</div>
+										<a name="33">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_5" name="title_5" class="title_5">가) 등기의무자의 승계  </div>
+										</div>
+										<a name="34">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">15</div>
+											<div id="doc_content" name="doc_content" class="doc_content">공유물분할판결의 변론종결 후 그 판결에 따른 등기신청 전에 일부 공유자의 지분이 제3자에게 이전된 경우로서 제3자가 <a href="javascript:hyperlink('0','민사소송법','218')">민사소송법 제218조 제1항</a>의 변론을 종결한 뒤의 승계인에 해당하여 위 판결의 기판력이 그에게 미친다는 이유로 다른 공유자가 자신이 취득한 분할부분에 관하여 위 제3자에 대한 승계집행문을 부여받은 경우에는, 그 공유자는 제3자 명의의 지분에 대하여 그 제3자를 등기의무자로 하여 곧바로 판결에 따른 이전등기를 단독으로 신청할 수 있다.  </div>
+										</div>
+										<a name="35">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_5" name="title_5" class="title_5">나) 등기권리자의 승계  </div>
+										</div>
+										<a name="36">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">16</div>
+											<div id="doc_content" name="doc_content" class="doc_content">공유물분할판결의 변론종결 후 그 판결의 확정 전에 일부 공유자의 지분이 제3자에게 이전된 경우로서 위 제3자가 <a href="javascript:hyperlink('0','민사소송법','218')">민사소송법 제218조 제1항</a>의 변론을 종결한 뒤의 승계인에 해당하여 위 판결의 기판력이 그에게 미친다는 이유로 종전 공유자가 취득한 분할부분에 관하여 자신을 위한 승계집행문을 부여받은 경우에는, 그 제3자는 다른 공유자 명의의 지분에 대하여 곧바로 자신 앞으로 판결에 따른 이전등기를 단독으로 신청할 수 있다.  </div>
+										</div>
+										<a name="37">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_1" name="title_1" class="title_1">Ⅳ. 판결에 의한 등기신청절차  </div>
+										</div>
+										<a name="38">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_2" name="title_2" class="title_2">1. 신청인 </div>
+										</div>
+										<a name="39">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_3" name="title_3" class="title_3">가. 승소한 등기권리자 또는 승소한 등기의무자 </div>
+										</div>
+										<a name="40">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">17</div>
+											<div id="doc_content" name="doc_content" class="doc_content">승소한 등기권리자 또는 승소한 등기의무자는 단독으로 판결에 의한 등기신청을 할 수 있다. 패소한 등기의무자는 그 판결에 기하여 직접 등기권리자 명의의 등기신청을 하거나 승소한 등기권리자를 대위하여 등기신청을 할 수 없다. 이는 승소한 등기권리자는 확정판결이나 그 밖의 집행권원을 취득하여 언제라도 단독으로 등기신청을 할 수 있는 지위를 취득하였지만 신청주의 원칙상 그 신청 여부는 등기권리자에게 맡겨져 있고, 등기의무자는 등기권리자와 공동신청에 의하여만 등기를 할 수 있기 때문이다.<div class="miju_num" onmouseout="close_miju('Miju28')" onmouseover="open_miju('Miju28')"><a name="Miu28" href="#Mi28">28)</a> <div id="Miju28" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">부동산등기실무 ⁆, 389.</div></div></div> 승소한 등기권리자에는 적극적 당사자인 원고뿐만 아니라 피고나 당사자참가인도 포함된다.<br>‘피고는 원고로부터 금원을 지급받음과 동시에 원고에게 소유권이전등기절차를 이행하라’는 판결이 확정된 경우, 원고만이 판결정본 및 집행문을 첨부하여 판결로써 단독으로 등기신청을 할 수 있고, 등기의무자인 피고는 할 수 없다. 피고가 자신의 등기명의를 원고에게 넘겨주기 위해서는 원고를 상대로 하여 “소유권이전등기절차를 인수하라”는 승소판결을 받아서 단독으로 소유권이전등기신청을 하여야 한다.<div class="miju_num" onmouseout="close_miju('Miju29')" onmouseover="open_miju('Miju29')"><a name="Miu29" href="#Mi29">29)</a> <div id="Miju29" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 6-131 참조.</div></div></div><br>‘피고는 원고로부터 소유권이전등기절차를 이행받음과 동시에 원고에게 금원을 지급하라’는 판결이 확정된 경우, 위 판결의 집행력은 피고의 금원지급 부분에만 미치고 원고의 반대의무 이행 부분에는 미치지 않으므로, 피고는 그 판결에 의하여 단독으로 등기신청을 할 수 없다.<div class="miju_num" onmouseout="close_miju('Miju30')" onmouseover="open_miju('Miju30')"><a name="Miu30" href="#Mi30">30)</a> <div id="Miju30" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 2-425, 8-95.</div></div></div><br>승소한 등기권리자는 소송당사자만을 의미하므로 소송당사자가 아닌 자는 그 판결이나 조정 등에서 등기권리자나 등기의무자로 기재되었다 하더라도 단독으로 등기신청을 할 수 없다. 소송당사자 아닌 제3자는 재판상 화해의 당사자가 될 수 있고, 이 경우 그 화해의 효력은 제3자에게도 미치지만 화해 당사자가 아닌 제3자에게는 화해의 효력이 미치지 않는다.<div class="miju_num" onmouseout="close_miju('Miju31')" onmouseover="open_miju('Miju31')"><a name="Miu31" href="#Mi31">31)</a> <div id="Miju31" style="display:none" class="miju_box"> <span></span><div class="miju_box_line"><a href="javascript:hyperlink('1','대법원','84다카1880')">대법원 1985. 11. 26. 선고 84다카1880 판결</a>.</div></div></div> 예컨대 당사자(원고, 피고, 참가인)가 아닌 제3자에게 소유권이전등기절차를 이행한다는 내용이 포함된 재판상 화해가 성립되었어도 그 제3자가 화해절차에 당사자로 참가하지 아니한 이상 화해의 효력이 미치지 아니하므로 그 자는 화해조서에 의하여 단독으로 등기신청을 할 수 없다.<div class="miju_num" onmouseout="close_miju('Miju32')" onmouseover="open_miju('Miju32')"><a name="Miu32" href="#Mi32">32)</a> <div id="Miju32" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 4-202, 7-110.</div></div></div></div>
+										</div>
+										<a name="41">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_3" name="title_3" class="title_3">나. 승소한 등기권리자의 상속인</div>
+										</div>
+										<a name="42">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">18</div>
+											<div id="doc_content" name="doc_content" class="doc_content">승소한 등기권리자가 승소판결의 변론종결 후 사망하였다면 상속인이 상속을 증명하는 서면을 첨부하여 직접 자기 명의로 등기를 신청할 수 있다(<a href="javascript:hyperlink('0','부동산등기법','27')">법 제27조</a>). </div>
+										</div>
+										<a name="43">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_3" name="title_3" class="title_3">다. 공유물분할판결에 의한 경우 </div>
+										</div>
+										<a name="44">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">19</div>
+											<div id="doc_content" name="doc_content" class="doc_content">공유물분할판결이 확정되면 그 소송 당사자는 원‧피고인지 여부에 관계없이 그 확정판결을 첨부하여 등기권리자 단독으로 공유물분할을 원인으로 한 지분이전등기를 신청할 수 있다. </div>
+										</div>
+										<a name="45">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_3" name="title_3" class="title_3">라. 채권자대위소송에 의한 경우 </div>
+										</div>
+										<a name="46">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">20</div>
+											<div id="doc_content" name="doc_content" class="doc_content">채권자가 제3채무자를 상대로 채무자를 대위하여 등기절차의 이행을 명하는 판결을 얻은 경우 채권자는 <a href="javascript:hyperlink('0','부동산등기법','28')">법 제28조</a>에 의하여 채무자의 대위신청인으로서 그 판결에 의하여 단독으로 등기를 신청할 수 있다. 채권자대위소송에서 채무자가 채권자대위소송이 제기된 사실을 알았을 경우에는 그 확정판결의 효력이 채무자에게 미치므로,<div class="miju_num" onmouseout="close_miju('Miju33')" onmouseover="open_miju('Miju33')"><a name="Miu33" href="#Mi33">33)</a> <div id="Miju33" style="display:none" class="miju_box"> <span></span><div class="miju_box_line"><a href="javascript:hyperlink('1','대법원','74다1664')">대법원 1975. 5. 13. 선고 74다1664 전원합의체 판결</a>.</div></div></div> 채무자 또는 제3채권자도 채권자가 얻은 승소판결에 의하여 단독으로 등기를 신청할 수 있다.</div>
+										</div>
+										<a name="47">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_3" name="title_3" class="title_3">마. 채권자취소소송의 경우</div>
+										</div>
+										<a name="48">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">21</div>
+											<div id="doc_content" name="doc_content" class="doc_content">수익자 갑을 상대로 사해행위취소판결을 받은 채권자 을이 채무자 병 앞으로 말소등기절차를 이행할 것을 명하는 판결을 받아 위 판결이 확정된 경우, 병이 등기권리자, 갑이 등기의무자가 되고, 을은 등기권리자도 등기권리자도 아니다. 따라서 을은 등기권리자인 병을 대위하여 등기신청을 하여야 한다.  </div>
+										</div>
+										<a name="49">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_2" name="title_2" class="title_2">2. 등기원인과 그 연월일의 기재<div class="miju_num" onmouseout="close_miju('Miju34')" onmouseover="open_miju('Miju34')"><a name="Miu34" href="#Mi34">34)</a> <div id="Miju34" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">이는 판결 등 집행권원에 의한 등기의 신청에 관한 업무처리지침(등기예규 제1607호) 4.에 상세히 규정되어 있다.</div></div></div><br> </div>
+										</div>
+										<a name="50">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_3" name="title_3" class="title_3">가. 이행판결</div>
+										</div>
+										<a name="51">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">22</div>
+											<div id="doc_content" name="doc_content" class="doc_content">원칙적으로, 등기절차의 이행을 명하는 판결에 의하여 등기를 신청하는 경우에는 그 판결주문에 명시된 등기원인과 그 연월일을 등기신청서에 기재한다. 다만 등기절차의 이행을 명하는 판결주문에 등기원인과 그 연월일이 명시되어 있지 아니한 경우(예: 기존등기의 등기원인이 부존재 내지 무효이거나 취소ㆍ해제에 의하여 소멸하였음을 이유로 말소등기 또는 회복등기를 명하는 판결 또는 가등기상 권리가 매매예약에 의한 소유권이전등기청구권으로서 그 가등기에 기한 본등기를 명한 판결의 주문에 등기원인과 그 연월일의 기재가 없는 경우 등), 등기신청서에는 등기원인은 “확정판결”로, 그 연월일은 “판결선고일”을 기재한다. <br>판결에 의하여 가등기에 의한 본등기를 신청하는 경우의 등기원인일자는 그 주문에 원인일자의 표시가 있으면 그 일자를 기재하여야 한다. 여기서 원인일자라 함은 매매예약완결권이 행사되어 매매가 성립된 날을 뜻하는 것으로 판결주문에 매매예약 완결일자가 있는 이상 그 일자를 등기원인일자로 기재하여야 한다. 그런데 매매예약의 형식을 취하여 가등기를 하였으나 실제로는 예약완결권의 행사를 요하지 않고 원고의 청구가 있으면 언제든지 본등기를 해주기로 약정한 경우에는 예약완결일자가 판결주문에 표시되지 않아도 무방하므로,<div class="miju_num" onmouseout="close_miju('Miju35')" onmouseover="open_miju('Miju35')"><a name="Miu35" href="#Mi35">35)</a> <div id="Miju35" style="display:none" class="miju_box"> <span></span><div class="miju_box_line"><a href="javascript:hyperlink('1','대법원','80다2583')">대법원 1981. 3. 10. 선고 80다2583 판결</a>.</div></div></div> 이 경우에는 등기원인은 “확정판결”로, 그 연월일은 “판결의 선고일”을 각 기재한다.<div class="miju_num" onmouseout="close_miju('Miju36')" onmouseover="open_miju('Miju36')"><a name="Miu36" href="#Mi36">36)</a> <div id="Miju36" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">가등기에 관한 업무처리지침(등기예규 제1632호) 4. 바. (3). </div></div></div></div>
+										</div>
+										<a name="52">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_3" name="title_3" class="title_3">나. 형성판결</div>
+										</div>
+										<a name="53">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">23</div>
+											<div id="doc_content" name="doc_content" class="doc_content">권리변경의 원인이 판결 자체, 즉 형성판결인 경우 등기신청서에는 등기원인은 “판결에서 행한 형성처분”을 기재하고, 그 연월일은 “판결확정일”을 기재한다. 예를 들어, 공유물분할판결의 경우 등기원인은 “공유물분할”로, 그 연월일은 “판결확정일”을 기재한다. 사해행위취소판결의 경우 등기원인은 “사해행위취소”로, 그 연월일은 “판결확정일”을 기재한다. 재산분할심판의 경우 등기원인은 “재산분할”로, 그 연월일은 “심판확정일”을 기재한다. </div>
+										</div>
+										<a name="54">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_3" name="title_3" class="title_3">다. 화해조서 등  </div>
+										</div>
+										<a name="55">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">24</div>
+											<div id="doc_content" name="doc_content" class="doc_content">화해조서ㆍ인낙조서, 화해권고결정, 민사조정조서ㆍ조정에 갈음하는 결정, 가사조정조서ㆍ조정에 갈음하는 결정 등(이하 “화해조서 등”이라 한다)에 등기신청에 관한 의사표시의 기재가 있고 그 내용에 등기원인과 그 연월일의 기재가 있는 경우 등기신청서에는 그 등기원인과 그 연월일을 기재한다. 화해조서 등에 등기신청에 관한 의사표시의 기재가 있으나 그 내용에 등기원인과 그 연월일의 기재가 없는 경우 등기신청서에는 등기원인은 “화해”, “인낙”, “화해권고결정”, “조정” 또는 “조정에 갈음하는 결정” 등으로, 그 연월일은 “조서기재일” 또는 “결정확정일”을 기재한다.</div>
+										</div>
+										<a name="56">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_2" name="title_2" class="title_2">3. 첨부정보<div class="miju_num" onmouseout="close_miju('Miju37')" onmouseover="open_miju('Miju37')"><a name="Miu37" href="#Mi37">37)</a> <div id="Miju37" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">이는 집행권원에 의한 등기의 신청에 관한 업무처리지침(등기예규 제1607호) 5.에 상세히 규정되어 있다.</div></div></div></div>
+										</div>
+										<a name="57">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_3" name="title_3" class="title_3">가. 판결정본 및 확정증명서 </div>
+										</div>
+										<a name="58">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">25</div>
+											<div id="doc_content" name="doc_content" class="doc_content">판결에 의한 등기를 신청함에 있어서 판결서가 등기원인증서가 되므로 그 등기신청서에 판결정본을 첨부하여야 한다. 판결의 목적인 수필의 토지를 필지별로 나누어 따로따로 등기를 신청할 수밖에 없는 경우라고 하더라도 등기원인증서로서 판결정본의 사본을 첨부할 수는 없다.<div class="miju_num" onmouseout="close_miju('Miju38')" onmouseover="open_miju('Miju38')"><a name="Miu38" href="#Mi38">38)</a> <div id="Miju38" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 5-46.</div></div></div><a href="javascript:hyperlink('0','부동산등기법','23')">법 제23조 제4항</a>의 판결은 앞서 본 바와 같이 확정판결을 의미하므로 반드시 확정증명서를 첨부하여야 한다. 다만 조정조서나 화해조서 또는 인낙조서를 등기원인증서로 제출하는 경우에는 그 자체가 확정판결과 동일한 효력이 있으므로 확정증명서를 제출할 필요가 없다. 그러나 조정을 갈음하는 결정이나 화해권고결정의 경우에는 확정되어야 판결과 동일한 효력이 있으므로 확정증명이 반드시 필요하다. <br>한편, 실무상 송달증명서의 제출 요부가 문제되나, 일반적으로 판결의 송달은 강제집행의 개시요건이지만(<a href="javascript:hyperlink('0','민사집행법','39')">민사집행법 제39조</a>), 의사의 진술을 명하는 판결의 경우에는 판결이 확정되면 의사의 진술이 있는 것으로 간주되기 때문에 그 판결은 이미 집행이 된 것이고 별도의 강제집행이라는 절차가 필요 없으므로 송달증명서를 제출하지 않아도 된다. 화해, 조정, 인낙, 조정을 갈음하는 결정 및 화해권고결정의 경우에도 송달증명서를 첨부할 필요가 없다.</div>
+										</div>
+										<a name="59">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_3" name="title_3" class="title_3">나. 집행문 및 승계집행문 </div>
+										</div>
+										<a name="60">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">26</div>
+											<div id="doc_content" name="doc_content" class="doc_content">판결에 의한 등기를 신청하는 경우 원칙적으로 집행문의 첨부를 요하지 않지만, 등기절차의 이행을 명하는 판결이 선이행판결, 상환이행판결, 조건부이행판결인 경우에는 집행문을 첨부하여야 한다. 다만 등기절차의 이행과 반대급부의 이행이 각각 독립적으로 기재되어 있는 경우에는 그렇지 아니하다. 당사자의 승계가 이루어진 경우에는 승계집행문을 받아 이를 첨부하여야 한다.  </div>
+										</div>
+										<a name="61">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_3" name="title_3" class="title_3">다. 등기필증(또는 등기필정보) </div>
+										</div>
+										<a name="62">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">27</div>
+											<div id="doc_content" name="doc_content" class="doc_content">승소한 등기권리자가 단독으로 판결에 의하여 등기를 신청하는 경우에는 등기의무자의 권리에 관한 등기필정보를 제공할 필요가 없다. 등기의무자의 협력을 얻을 수 없어서 등기권리자가 판결을 받아 단독으로 등기신청을 하는 것이므로 등기의무자의 등기필증을 요구하지 않는 것이다.<div class="miju_num" onmouseout="close_miju('Miju39')" onmouseover="open_miju('Miju39')"><a name="Miu39" href="#Mi39">39)</a> <div id="Miju39" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">부동산실무 ⁆, 395.</div></div></div> 다만 승소한 등기의무자가 단독으로 등기를 신청할 때에는 그의 권리에 관한 등기필정보를 제공하여야 한다(<a href="javascript:hyperlink('0','부동산등기법','50')">법 제50조 제2항</a>).</div>
+										</div>
+										<a name="63">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_3" name="title_3" class="title_3">라. 제3자의 허가서</div>
+										</div>
+										<a name="64">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">28</div>
+											<div id="doc_content" name="doc_content" class="doc_content">신청대상인 등기에 제3자의 허가서 등이 필요한 경우(<a href="javascript:hyperlink('0','부동산등기규칙','46')">규칙 제46조 제3항</a>)에도 허가 등의 존부가 이미 재판과정에서 확인되었다고 볼 수 있으므로 그러한 서면의 제출은 요하지 않는다. 다만, 등기원인에 대하여 행정관청의 허가, 동의 또는 승낙 등을 받을 것이 요구되는 때에는 해당 허가서 등의 현존사실이 그 판결서에 기재되어 있는 경우에 한하여 허가서 등의 제출의무가 면제된다. 그러나 소유권이전등기를 신청할 때에는 해당 허가서 등의 현존사실이 판결서 등에 기재되어 있다 하더라도 행정관청의 허가 등을 증명하는 서면을 반드시 제출하여야 한다(<a href="javascript:hyperlink('0','부동산등기특별조치법','5')">부동산등기특별조치법 제5조 제1항</a>). 예컨대 판결에 의하여 농지에 대한 소유권이전등기를 신청하는 경우에도 농지취득자격증명을 첨부하여야 한다.<div class="miju_num" onmouseout="close_miju('Miju40')" onmouseover="open_miju('Miju40')"><a name="Miu40" href="#Mi40">40)</a> <div id="Miju40" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 6-557.</div></div></div></div>
+										</div>
+										<a name="65">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_3" name="title_3" class="title_3">마. 등기상 이해관계 있는 제3자의 승낙 또는 이에 대항할 수 있는 재판이 있음을 증명하는 정보 </div>
+										</div>
+										<a name="66">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">29</div>
+											<div id="doc_content" name="doc_content" class="doc_content">판결에 의하여 말소등기나 말소회복등기를 신청하는 경우에도 등기상 이해관계 있는 제3자의 승낙서 등의 제출은 면제되지 않는다.  </div>
+										</div>
+										<a name="67">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_3" name="title_3" class="title_3">바. 주소를 증명하는 서면 </div>
+										</div>
+										<a name="68">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_4" name="title_4" class="title_4">1) 판결에 의하여 소유권이전등기신청을 하는 경우  </div>
+										</div>
+										<a name="69">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">30</div>
+											<div id="doc_content" name="doc_content" class="doc_content">판결에 의하여 등기권리자가 단독으로 소유권이전등기를 신청할 때는 등기권리자의 주소를 증명하는 서면만을 제출하면 된다. 판결문상의 피고의 주소가 등기부상의 등기의무자의 주소와 다른 경우(등기부상 주소가 판결에 병기된 경우 포함)에는 동일인임을 증명할 수 있는 자료로서 주소에 관한 서면을 제출하여야 한다. 다만 판결문상에 기재된 피고의 주민등록번호와 등기부상에 기재된 등기의무자의 주민등록번호가 동일하여 동일인임을 인정할 수 있는 경우에는 그러하지 아니하다. 행정구역 또는 그 명칭이 변경되었을 때에는 등기기록에 기록된 행정구역 또는 그 명칭에 대하여 변경등기가 있는 것으로 보므로(<a href="javascript:hyperlink('0','부동산등기법','31')">법 제31조</a>), 등기기록상 등기의무자의 주소가 행정구역 또는 그 명칭의 변경으로 판결문상 피고의 주소로 변경되었음이 조례 등에 의하여 확인되는 경우에는 등기의무자의 주소에 관한 정보를 제공하지 않아도 된다.<div class="miju_num" onmouseout="close_miju('Miju41')" onmouseover="open_miju('Miju41')"><a name="Miu41" href="#Mi41">41)</a> <div id="Miju41" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 201201-2.</div></div></div></div>
+										</div>
+										<a name="70">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_4" name="title_4" class="title_4">2) 판결에 의한 대위보존등기를 신청하는 경우 보존등기명의인의 주소를 증명하는 서면  </div>
+										</div>
+										<a name="71">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">31</div>
+											<div id="doc_content" name="doc_content" class="doc_content">원고가 미등기부동산에 관하여 그 소유자를 피고로 하여 소유권이전등기절차의 이행을 명하는 판결을 받은 후 피고를 대위하여 소유권보존등기를 신청하는 경우에는 그 보존등기명의인인 피고의 주소를 증명하는 서면을 제출하여야 한다. 피고에 대한 소송서류의 송달이 공시송달에 의하여 이루어진 경우에도 같다. 이 경우 피고의 주민등록이 <a href="javascript:hyperlink('0','주민등록법','20')">주민등록법 제20조 제5항</a>에 의하여 말소된 때에는 말소된 주민등록표등본을 첨부하고 그 최후 주소를 주소지로 하여 피고명의의 소유권보존등기를 신청할 수 있다. </div>
+										</div>
+										<a name="72">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_4" name="title_4" class="title_4">3) 판결에 의하여 소유권이전등기를 순차로 대위신청하는 경우  </div>
+										</div>
+										<a name="73">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">32</div>
+											<div id="doc_content" name="doc_content" class="doc_content">갑은 을에게, 을은 병에게 각 소유권이전등기절차를 순차로 이행하라는 판결에 의하여 병이 을을 대위하여 갑으로부터 을로의 소유권이전등기를 신청할 때에는 을의 주소를 증명하는 서면을 첨부하여야 하고, 이 경우 을에 대한 소송서류의 송달이 공시송달에 의하여 이루어진 때에는 그 판결에 기재된 을의 최후 주소를 증명하는 서면을 첨부하여야 한다.  </div>
+										</div>
+										<a name="74">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_2" name="title_2" class="title_2">4. 판결이유에 대한 등기관의 심사범위   </div>
+										</div>
+										<a name="75">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">33</div>
+											<div id="doc_content" name="doc_content" class="doc_content">판결에 의한 등기를 하는 경우 등기관은 원칙적으로 판결주문에 나타난 등기권리자와 등기의무자 및 이행의 대상인 등기의 내용이 등기신청서와 부합하는지를 심사하는 것으로 족하다. 확정판결을 근거로 하는 등기신청에 의한 경우에는 그 등기절차를 명한 확정판결이 당연무효인 여부의 점은 등기공무원으로서는 심사할 수 없다.<div class="miju_num" onmouseout="close_miju('Miju42')" onmouseover="open_miju('Miju42')"><a name="Miu42" href="#Mi42">42)</a> <div id="Miju42" style="display:none" class="miju_box"> <span></span><div class="miju_box_line"><a href="javascript:hyperlink('1','대법원','67마1128')">대법원 1968. 7. 8. 자 67마1128 결정</a>.</div></div></div> 판결서에 법률이 정한 기재 사항이 흠결되어 있거나 조잡하게 기재되어 있는 등 그 외형과 작성 방법에 비추어 위조된 것이라고 쉽게 의심할 만한 객관적 상황이 존재하지 않는 경우, 등기관이 판결서의 기재 사항 중 신청된 등기의 경료와 직접적으로 관련되어 있는 것도 아니고, 그 기재 방법의 차이로 인하여 판결의 효력에 어떠한 영향도 주지 않는 기재 사항까지 일일이 검토하여 그것이 재판서양식에관한예규 및 일반적인 작성 관행 등에서 벗어난 것인지 여부를 파악한 다음 이를 토대로 그 위조 여부에 관하여 보다 자세한 확인을 하여야 할 주의의무가 있다고는 할 수 없다.<div class="miju_num" onmouseout="close_miju('Miju43')" onmouseover="open_miju('Miju43')"><a name="Miu43" href="#Mi43">43)</a> <div id="Miju43" style="display:none" class="miju_box"> <span></span><div class="miju_box_line"><a href="javascript:hyperlink('1','대법원','2003다13048')">대법원 2005. 2. 25. 2003다13048 선고 판결</a>.</div></div></div><br>등기관은 판결이유의 기재를 원인으로 그 신청을 각하하거나 반려할 수 없다. 즉, 판결의 주문가 이유가 논리적으로 연결되지 않거나 모순이 있어 보이더라도 주문대로 등기를 실행해야 한다. 등기절차의 이행을 명하는 확정판결을 받았다면 그 확정시기에 관계없이 즉 확정 후 10년이 경과하였다 하더라도 그 판결에 의한 등기신청을 할 수 있다. 형식적 심사권만 있는 등기관으로서는 소멸시효의 중단 여부를 심사할 수 없기 때문이다.<br>다만 다음의 경우 등에는 예외적으로 등기관이 판결 이유를 고려하여 신청에 대한 심사를 하여야 한다.<div class="box_gray">① 소유권이전등기가 가등기에 기한 본등기인지를 가리기 위하여 판결이유를 보는 경우.<div class="miju_num" onmouseout="close_miju('Miju44')" onmouseover="open_miju('Miju44')"><a name="Miu44" href="#Mi44">44)</a> <div id="Miju44" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">가등기에 관한 업무처리지침(등기예규 1632호) 4. 바. (3).</div></div></div> 판결주문에 가등기에 의한 본등기라는 취지의 기재가 없더라도 판결이유에 의하여 피고의 소유권이전등기절차의 이행이 가등기에 의한 본등기임이 명백한 때에는 판결을 원인증서로 하여 가등기에 의한 본등기를 신청할 수 있다.<br>② 명의신탁해지를 원인으로 소유권이전등기절차를 명한 판결의 경우 그 명의신탁이 부동산 실권리자명의 등기에 관한 법률에서 예외적으로 유효하다고 보는 상호명의신탁, 배우자 또는 종중에 의한 명의신탁인지 여부를 가리기 위한 경우 <br>③ 소유권보존등기말소를 명하는 판결을 첨부하여 소유권보존등기를 신청하는 경우에는 그 판결이유에서 원고의 소유임을 인정하였는가를 확인하기 위한 경우<br>④ 매도인인 피상속인이 매매계약 체결 후 사망하고 매수인이 상속인들을 상대로 하여 소유권이전등기절차의 이행을 명하는 판결을 받았는데, 판결이유에 상속관계에 관한 설시가 있는지 여부를 확인하기 위한 경우(그러한 설시가 없다면 피고들이 상속인 전원임을 증명할 수 있는 서류를 제출하여야 한다)</div></div>
+										</div>
+										<a name="76">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_1" name="title_1" class="title_1">Ⅴ. 관련문제 </div>
+										</div>
+										<a name="77">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_2" name="title_2" class="title_2">1. 판결문과 등기기록의 불일치 </div>
+										</div>
+										<a name="78">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">34</div>
+											<div id="doc_content" name="doc_content" class="doc_content">판결문상의 당사자 표시(성명, 주소, 주민등록번호)는 신청정보 및 등기기록상 기록과 일치하여야 함이 원칙이나, 서로 다를 경우 다음과 같이 처리한다. </div>
+										</div>
+										<a name="79">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_3" name="title_3" class="title_3">가. 등기권리자의 불일치 </div>
+										</div>
+										<a name="80">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">35</div>
+											<div id="doc_content" name="doc_content" class="doc_content">판결문상 등기권리자인 원고의 주소가 제출된 주소증명서면의 현 주소와 부합하지 않고 또 양 주소가 연결되지 않은 경우에는 주소증명서면 외에 동일인임을 소명하는 자료를 첨부하여야 하고, 이 경우 동일성의 인정 여부는 등기관의 심사권에 속하는 사항이다.<div class="miju_num" onmouseout="close_miju('Miju45')" onmouseover="open_miju('Miju45')"><a name="Miu45" href="#Mi45">45)</a> <div id="Miju45" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 1-219.</div></div></div> <br>소유권이전등기 말소등기절차 이행청구소송에서 승소한 원고가 그 확정판결에 기하여 해당 등기의 말소등기신청을 하는 경우에 판결문상 원고의 주소가 등기기록상 주소와 상이하다고 하더라도 소장에 기재된 원고의 등기기록상 주소가 판결문에서 누락된 것이고, 또 등기기록과 주민등록표에 각 기재된 원고의 주민등록번호가 동일할 뿐 아니라 등기기록상 주소도 주민등록표상 변경 전의 주소와 동일한 때에는 등기관은 그 신청을 수리할 수 있다.<div class="miju_num" onmouseout="close_miju('Miju46')" onmouseover="open_miju('Miju46')"><a name="Miu46" href="#Mi46">46)</a> <div id="Miju46" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 3-197.</div></div></div> 원고의 명칭이 소송계속 중 변경되었으나 당사자표시 정정을 하지 않아서 종전 명칭으로 승소확정판결을 받은 경우에는 그 명칭변경을 증명하는 서면을 첨부하여 소유권이전등기를 신청할 수 있다.<div class="miju_num" onmouseout="close_miju('Miju47')" onmouseover="open_miju('Miju47')"><a name="Miu47" href="#Mi47">47)</a> <div id="Miju47" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 3-484.</div></div></div></div>
+										</div>
+										<a name="81">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_3" name="title_3" class="title_3">나. 등기의무자의 불일치 </div>
+										</div>
+										<a name="82">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">36</div>
+											<div id="doc_content" name="doc_content" class="doc_content">판결문상 피고의 주소가 등기기록상 등기의무자의 주소와 다른 경우에는 동일인임을 증명할 수 있는 자료로서 주소에 관한 서면을 제출하여야 한다. </div>
+										</div>
+										<a name="83">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_3" name="title_3" class="title_3">다. 부동산표시의 불일치 </div>
+										</div>
+										<a name="84">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">37</div>
+											<div id="doc_content" name="doc_content" class="doc_content">판결문에 기재된 부동산의 표시가 등기기록과 다른 경우에는 <a href="javascript:hyperlink('0','부동산등기법','29')">법 제29조 제6호</a>(신청정보의 부동산의 표시가 등기기록과 일치하지 아니한 경우)에 해당하여 그 등기신청을 각하하여야 한다. 그러나 전혀 다른 부동산이 아니라 부동산표시에 변경이 생긴 경우라면 그 사유가 발생한 시점에 따라 다음과 같이 처리한다.  </div>
+										</div>
+										<a name="85">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_4" name="title_4" class="title_4">1) 변론종결 전 </div>
+										</div>
+										<a name="86">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">38</div>
+											<div id="doc_content" name="doc_content" class="doc_content">사실심 변론종결 전에 분할, 지목 변경 등으로 그 부동산의 표시에 변경이 있었던 경우에는 먼저 판결경정에 의하여 부동산의 표시를 대장상의 표시와 일치시킨 다음 분필등기 등을 거쳐(원고의 대위신청도 가능) 판결에 의한 등기를 신청할 수 있다.<div class="miju_num" onmouseout="close_miju('Miju48')" onmouseover="open_miju('Miju48')"><a name="Miu48" href="#Mi48">48)</a> <div id="Miju48" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 4-229.</div></div></div> 판결에 기재된 토지의 면적이 등기기록상 면적과는 일치하나 토지대장상 지적과 일치하지 아니하는 경우에는, 먼저 등기기록상 토지의 면적을 토지대장상 토지의 면적으로 변경(경정)하는 토지표시변경(경정)등기를 한 후 판결경정을 하고 소유권이전등기를 신청하여야 한다.<div class="miju_num" onmouseout="close_miju('Miju49')" onmouseover="open_miju('Miju49')"><a name="Miu49" href="#Mi49">49)</a> <div id="Miju49" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 5-176.</div></div></div> 농지의 일부가 무변론 판결선고일 전에 이미 토지대장상 분할 및 지목변경이 되었을 경우, 그 판결에 의한 소유권이전등기를 신청하기 위해서는 판결경정 및 분필등기에 의하여 판결의 부동산 표시를 토지대장 및 등기기록의 표시와 일치시킨 후 소유권이전등기를 신청하여야 한다.<div class="miju_num" onmouseout="close_miju('Miju50')" onmouseover="open_miju('Miju50')"><a name="Miu50" href="#Mi50">50)</a> <div id="Miju50" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 201207-4.</div></div></div><br>그러나 등기기록상 구분건물에 대하여 판결문의 부동산 표시에는 일반건물로 되어 있으면서 주문에서 지분이전등기를 명한 경우, 그 판결 이유 중에 위 구분소유권보존등기가 무효라는 설시가 있다고 하더라도 위 판결만으로는 구분소유권보존등기를 말소할 수 없고, 또 구분등기된 상태에서는 전체 건물에 대한 지분이전등기도 신청할 수 없다.<div class="miju_num" onmouseout="close_miju('Miju51')" onmouseover="open_miju('Miju51')"><a name="Miu51" href="#Mi51">51)</a> <div id="Miju51" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 5-164.</div></div></div> 부동산의 표시가 완전히 다르기 때문이다.</div>
+										</div>
+										<a name="87">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_4" name="title_4" class="title_4">2)  변론종결 후</div>
+										</div>
+										<a name="88">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">39</div>
+											<div id="doc_content" name="doc_content" class="doc_content">변론종결 후 부동산의 표시에 변경이 발생한 경우에는 판결경정 절차 없이 변경 전후의 부동산이 동일한 것이라는 소명자료(토지대장 등본, 건축물대장 등본 등)를 첨부하여 판결에 의한 등기신청을 할 수 있다. 예컨대 근저당권설정등기말소의 확정판결을 받은 후 그 등기 전에 환지등기가 이루어져 판결서와 등기기록의 부동산표시가 서로 부합하지 않게 된 경우 환지계획 등으로 보아 등기기록상 환지 전 부동산표시가 판결서의 기재와 동일하다고 인정할 수 있을 때에는, 현재의 환지된 부동산표시에 의한 신청으로 그 판결에 따른 말소등기신청을 할 수 있다.<div class="miju_num" onmouseout="close_miju('Miju52')" onmouseover="open_miju('Miju52')"><a name="Miu52" href="#Mi52">52)</a> <div id="Miju52" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 6-371.</div></div></div> 조정조서에서 소유권이전 및 공유물분할을 하기로 한 토지와 현재 분할된 토지의 등기기록상 표시가 상이하더라도 신청서에 첨부된 소명자료에 의해서 그 동일성이 인정된다면 판결확정 후 분할등기가 되었다 할지라도 소유권이전등기신청을 할 수 있다.<div class="miju_num" onmouseout="close_miju('Miju53')" onmouseover="open_miju('Miju53')"><a name="Miu53" href="#Mi53">53)</a> <div id="Miju53" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 201008-3.</div></div></div></div>
+										</div>
+										<a name="89">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_3" name="title_3" class="title_3">라. 판결문의 기재가 현재의 소유관계와 일치하지 않는 경우</div>
+										</div>
+										<a name="90">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">40</div>
+											<div id="doc_content" name="doc_content" class="doc_content">소송계속 중에 공유물분할등기, 협의분할에 의한 상속등기 등으로 소유권에 변동이 있는 경우 또는 판결문에 기재된 상속인이나 상속지분이 실제와 다른 경우에는 판결서의 기재와 현재의 소유관계가 부합하는 범위 내에서만 등기신청이 가능하다. <br>예컨대 ① 종중이 수탁자를 상대로 명의신탁 해지를 원인으로 한 공유지분이전등기절차를 이행하라는 판결을 받았으나 그 판결에 의한 등기 전에 분할등기를 거쳐 공유물분할등기가 이루어진 경우, 공유물분할에 의하여 피고인 수탁자가 소유권을 취득한 토지에 대하여는 위 판결에 표시된 지분만큼 공유지분이전등기를 신청할 수 있을 것이나, 수탁자가 아닌 다른 공유자가 소유권을 취득한 토지에 대하여는 위 판결의 기판력이 미치지 아니하므로 그 등기를 신청할 수 없고,<div class="miju_num" onmouseout="close_miju('Miju54')" onmouseover="open_miju('Miju54')"><a name="Miu54" href="#Mi54">54)</a> <div id="Miju54" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 6-146.</div></div></div> ② 공동상속인들을 상대로 각 그 상속지분 비율에 따라 원고와 피상속인 사이의 생전 약정을 원인으로 한 소유권이전등기절차를 이행하라는 판결을 받았다 하더라도 공동상속인 중 1인이 목적 부동산에 관하여 협의분할에 의한 상속등기를 하였다면, 위 판결에 의하여서는 동인의 원래의 상속지분에 관한 이전등기의 신청만을 할 수 있으며,<div class="miju_num" onmouseout="close_miju('Miju55')" onmouseover="open_miju('Miju55')"><a name="Miu55" href="#Mi55">55)</a> <div id="Miju55" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 1-359.</div></div></div> ③ 판결문에 상속인들 중 일부는 누락되어 있고 일부는 상속인이 아님에도 포함되어 있을 경우 원고는 상속인들 중 판결문에 기재되어 있는 정당한 상속인들의 지분에 한하여 판결에 의한 등기를 단독으로 신청할 수 있다. 이 경우 판결문에 누락되거나 상속지분이 적게 기재된 진정한 상속인의 지분에 관하여는 위 판결만으로는 직접 등기를 신청할 수는 없고 그들과 공동으로 등기신청을 하거나 별도의 판결을 얻어야 한다.<div class="miju_num" onmouseout="close_miju('Miju56')" onmouseover="open_miju('Miju56')"><a name="Miu56" href="#Mi56">56)</a> <div id="Miju56" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 5-205.</div></div></div><br>등기기록상 소유자의 상속인들을 상대로 소유권보존등기말소등기청구의 소를 제기하여 승소판결을 받았으나 상속인 중 1인을 피고에서 빠뜨리는 바람에 판결문에 상속인 중 1인이 누락되었다면, 누락된 상속인에 대하여는 별소를 제기하여 승소판결을 받아야 소유권보존등기 말소신청이 가능하다.<div class="miju_num" onmouseout="close_miju('Miju57')" onmouseover="open_miju('Miju57')"><a name="Miu57" href="#Mi57">57)</a> <div id="Miju57" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 4-204.</div></div></div></div>
+										</div>
+										<a name="91">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_2" name="title_2" class="title_2">2. 1필지 토지 중 특정 일부에 대하여 소유권이전등기 명하거나 소유권이전등기의 말소를 명하는 판결이 확정된 경우 </div>
+										</div>
+										<a name="92">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">41</div>
+											<div id="doc_content" name="doc_content" class="doc_content">1필지의 토지 중 특정 일부에 대하여 소유권이전등기를 명하거나 소유권이전등기의 말소를 명하는 판결(화해조서)이 확정(성립)된 경우에는 먼저 그 특정부분을 분할하여 분필등기를 마친 다음 그 분할된 토지에 관하여 이전등기 또는 말소등기를 신청하여야 하고, 1필지의 특정부분의 면적을 지분으로 표시하여 이전등기 또는 말소등기를 신청할 수는 없다.<div class="miju_num" onmouseout="close_miju('Miju58')" onmouseover="open_miju('Miju58')"><a name="Miu58" href="#Mi58">58)</a> <div id="Miju58" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">토지의 분할을 명함이 없이 1필지의 특정된 일부에 대하여 소유권이전등기의 말소를 명하는 판결이 집행불능의 판결인지 여부(등기예규 639호), 선례 4-219.</div></div></div> <br>이때 분할한 토지의 지번이 분필 전의 토지의 지번과 달라진 경우에도 그 판결을 등기원인증서로 하여 분할한 토지에 대한 소유권이전등기를 신청할 수 있다.<div class="miju_num" onmouseout="close_miju('Miju59')" onmouseover="open_miju('Miju59')"><a name="Miu59" href="#Mi59">59)</a> <div id="Miju59" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">한 필지의 토지 중 특정부분에 대한 소유권이전등기절차(등기예규 455호).</div></div></div> 그러나 판결(화해조서)상의 특정부분과 분필 후의 토지가 동일하다는 것을 소명하여야 하므로 판결(화해조서)에서 등기할 토지를 특정하기 위하여 첨부한 도면(지적측량성과도에 의하여 작성된 것)과 분할 전후의 토지가 표시된 지적도 등본 및 토지대장 등본 등을 첨부하여야 한다.<div class="miju_num" onmouseout="close_miju('Miju60')" onmouseover="open_miju('Miju60')"><a name="Miu60" href="#Mi60">60)</a> <div id="Miju60" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">1필지 토지의 특정일부에 대한 소유권이전등기절차를 이행하기로 한 화해조서에 의하여 분할된 토지와 그 화해조서상의 토지의 동일성 소명방법(등기예규 734호).</div></div></div></div>
+										</div>
+										<a name="93">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_2" name="title_2" class="title_2">3. 부동산의 일부 지분에 대하여 말소를 명하는 판결이 확정된 경우 </div>
+										</div>
+										<a name="94">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">42</div>
+											<div id="doc_content" name="doc_content" class="doc_content">부동산의 일부 지분에 대하여 말소를 명하는 판결이 확정되어 그에 따른 등기신청이 있는 경우에는 일부말소 의미의 경정등기를 실행하여야 한다. 예컨대 갑 단독명의의 소유권보존등기에 이어 을, 병 명의로 소유권이전등기가 순차로 이루어진 토지에 관하여 정이 갑, 을, 병의 소유권 중 일부 지분에 관하여 각 말소등기의 이행을 명하는 판결을 받은 경우, 정은 위 판결에 의하여 지분 일부말소의 의미로서 갑 단독 명의의 소유권보존등기를 정을 공유자로 하는 경정등기와 을, 병 명의의 각 소유권이전등기를 지분이전등기로 하는 경정등기를 신청할 수 있다.<div class="miju_num" onmouseout="close_miju('Miju61')" onmouseover="open_miju('Miju61')"><a name="Miu61" href="#Mi61">61)</a> <div id="Miju61" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 3-276.</div></div></div> <br>그러나 토지 전부에 관하여 지상권설정등기가 마쳐진 후 토지의 일부 지분에 대한 지상권설정등기의 말소를 명하는 승소확정판결에 따라 지상권말소등기를 신청한 경우에는 그 등기 전부를 말소하여야 한다.<div class="miju_num" onmouseout="close_miju('Miju62')" onmouseover="open_miju('Miju62')"><a name="Miu62" href="#Mi62">62)</a> <div id="Miju62" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 3-636.</div></div></div> 용익물권은 공유지분에 대하여 성립할 수 없기 때문에 전체를 말소하는 것이다.<div class="miju_num" onmouseout="close_miju('Miju63')" onmouseover="open_miju('Miju63')"><a name="Miu63" href="#Mi63">63)</a> <div id="Miju63" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">부동산등기실무 ⁆, 406-407.</div></div></div></div>
+										</div>
+										<a name="95">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_2" name="title_2" class="title_2">4. 승소판결 내용 중 일부만에 대한 등기신청 </div>
+										</div>
+										<a name="96">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">43</div>
+											<div id="doc_content" name="doc_content" class="doc_content">판결의 내용 중 일부만에 대한 등기의 신청도 원칙적으로 가능하다. 따라서 1필지의 토지 전부에 대하여 소유권이전등기를 명하는 확정판결을 원인서면으로 첨부하여 그 토지의 일부지분에 대한 이전등기를 신청할 수도 있고,<div class="miju_num" onmouseout="close_miju('Miju64')" onmouseover="open_miju('Miju64')"><a name="Miu64" href="#Mi64">64)</a> <div id="Miju64" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 6-113.</div></div></div> 수개의 부동산에 대하여 소유권이전등기절차의 이행을 명하는 판결을 얻었으나 그 중 일부에 관하여만 소유권이전등기를 신청할 수도 있다.<div class="miju_num" onmouseout="close_miju('Miju65')" onmouseover="open_miju('Miju65')"><a name="Miu65" href="#Mi65">65)</a> <div id="Miju65" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 3-263.</div></div></div> 판결주문에서 소유권이전등기의 말소절차 및 소유권이전등기절차를 명한 경우 소유권이전등기를 신청하지 않은 채 소유권이전등기의 말소등기만을 신청할 수 있고,<div class="miju_num" onmouseout="close_miju('Miju66')" onmouseover="open_miju('Miju66')"><a name="Miu66" href="#Mi66">66)</a> <div id="Miju66" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 6-150.</div></div></div> 소유권이전등기 및 근저당권설정등기의 각 말소등기절차를 명한 경우 소유권이전등기말소등기를 신청하지 않은 채 근저당권설정등기말소등기만을 신청할 수도 있다.<div class="miju_num" onmouseout="close_miju('Miju67')" onmouseover="open_miju('Miju67')"><a name="Miu67" href="#Mi67">67)</a> <div id="Miju67" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 201303-2.</div></div></div><br>판결의 내용 중 일부에 대하여는 등기신청을 할 수 없는 사정이 있는 경우(등기상 이해관계 있는 제3자의 승낙을 얻지 못한 경우 등)에는 그러한 제한이 없는 부분만 등기신청을 할 수 있다. 예컨대 수인 명의의 소유권이전청구권보전의 가등기 및 그 가등기에 의한 소유권이전의 본등기가 마쳐진 후에 위 각 가등기 및 본등기를 말소할 것을 명하는 판결을 받았으나 가등기 및 본등기 명의인 중 1인의 지분에 대하여 가압류등기가 이미 이루어진 경우, 가압류채권자의 승낙을 얻지 못하였다면 나머지 명의인들의 지분에 대해서만 말소등기를 신청할 수 있다.<div class="miju_num" onmouseout="close_miju('Miju68')" onmouseover="open_miju('Miju68')"><a name="Miu68" href="#Mi68">68)</a> <div id="Miju68" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 6-127.</div></div></div> 마찬가지로 원고가 공유지분이전등기의 말소등기절차를 명하는 승소확정판결을 받았으나 그 소송의 사실심 변론종결 전에 피고가 말소의 대상인 지분이전등기에 터잡아 그 지분 중 일부를 제3자에게 이전한 경우 제3자에게 이전되지 아니한 피고의 나머지 지분에 대하여는 말소등기를 신청할 수 있으며, 이 경우 그 말소등기는 일부말소 의미의 경정등기의 형식을 취하게 된다.<div class="miju_num" onmouseout="close_miju('Miju69')" onmouseover="open_miju('Miju69')"><a name="Miu69" href="#Mi69">69)</a> <div id="Miju69" style="display:none" class="miju_box"> <span></span><div class="miju_box_line">선례 3-251.</div></div></div></div>
+										</div>
+										<a name="97">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">
+											</div>
+											<div id="title_2" name="title_2" class="title_2">5. 판결에 의한 등기와 집행정지 </div>
+										</div>
+										<a name="98">
+										</a>
+										<div class="edit_box">
+											<div class="grayname">44</div>
+											<div id="doc_content" name="doc_content" class="doc_content">의사의 진술을 명하는 판결은 그 확정으로 의사를 진술한 것으로 간주되므로 집행기관이 관여하는 강제집행 절차는 존재하지 않는다. 조건부 의사의 진술을 명하는 재판의 경우도 그 조건이 성취되어 집행문이 부여되었을 때 의사를 진술한 것과 동일한 효력이 발생하므로 집행기관이 관여하는 현실적인 강제집행 절차가 존재할 수 없어 강제집행의 정지도 인정될 여지가 없으므로, 등기관으로서는 강제집행정지결정이 있었다 하더라도 이에 구애됨이 없이 등기신청을 받아들여 등기를 할 수 있다.<div class="miju_num" onmouseout="close_miju('Miju70')" onmouseover="open_miju('Miju70')"><a name="Miu70" href="#Mi70">70)</a> <div id="Miju70" style="display:none" class="miju_box"> <span></span><div class="miju_box_line"><a href="javascript:hyperlink('1','대법원','77마427')">대법원 1979. 5. 22.자 77마427 결정</a>.</div></div></div></div>
+										</div>
+									</div>
+									<div class="miju">
+										<hr>
+										<div class="mi_content" name="mi_content">
+											<a name="Mi1" href="#Miu1" class="black">
+												1)
+											</a>
+											‘업무의 시작과 종료 시각’은 취업규칙의 필수적 기재사항이지만(<a href="javascript:hyperlink('0','근로기준법','93')">법 제93조 제1호</a>), 시업 시각과 종업 시각을 근로자가 자유롭게 정할 수 있는 선택적 근로시간제(<a href="javascript:hyperlink('0','근로기준법','52')">법 제52조</a>)에서는 그 성격상 이를 취업규칙에 기재하지 않거나, 취업규칙에 기재된 시업 시각과 종업 시각이 적용되지 않는다. 하갑래a, “통상임금제도의 변화와 과제”, 노동법학 44호, 한국노동법학회(2012), 378면.<br>
+										</div>
+										<div class="mi_content" name="mi_content">
+											<a name="Mi2" href="#Miu2" class="black">
+												2)
+											</a>
+											<a href="javascript:hyperlink('1','대법원','2006다64245')">대법원 2007.1.11. 선고 2006다64245 판결</a>, <a href="javascript:hyperlink('1','대법원','2015다7879')">대법원 2017.11.9. 선고 2015다7879 판결</a>, <a href="javascript:hyperlink('1','대법원','2016도8729')">대법원 2017.12.28. 선고 2016도8729 판결</a> 등(소정근로시간은 통상임금 산정 기준시간 수와는 구별되므로, 주급제 혹은 월급제에서 지급되는 유급휴일에 관한 임금인 주휴수당 관련 근로시간은 고려할 필요가 없다). 자세한 내용은 <a href="javascript:hyperlink('0','근로기준법','2')">법 제2조 제1항 제6호 및 제2항</a>에 대한 해설 Ⅲ. 6. 하. 참조.<br>
+										</div>
+										<div class="mi_content" name="mi_content">
+											<a name="Mi3" href="#Miu3" class="black">
+												3)
+											</a>
+											한편, ① <a href="javascript:hyperlink('0','근로자퇴직급여보장법','4')">퇴직급여법 제4조 제1항</a>은 “사용자는 퇴직하는 근로자에게 급여를 지급하기 위하여 퇴직급여제도 중 하나 이상의 제도를 설정하여야 한다. 다만, 계속근로기간이 1년 미만인 근로자, 4주간을 평균하여 1주간의 소정근로시간이 15시간 미만인 근로자에 대하여는 그러하지 아니하다”라고 규정하여 본조에서 정의한 소정근로시간을 기준으로 퇴직급여제도의 적용범위를 정하고 있고(<a href="javascript:hyperlink('1','대법원','2018다260602')">대법원 2019.1.17. 선고 2018다260602 판결</a> 참조), ② <a href="javascript:hyperlink('0','기간제및단시간근로자보호등에관한법률','6')">기간제법 제6조</a>는 단시간근로자에 대하여 “소정근로시간을 초과하는 근로”를 초과근로로 보아 사용자의 가산수당 지급의무를 규정하고 있으며, ③ <a href="javascript:hyperlink('0','최저임금법','6')">최저임금법 제6조</a>는 “소정근로시간 또는 소정의 근로일에 대하여 지급하는 임금 외의 임금으로서 고용노동부령으로 정하는 임금”을 최저임금 적용을 위한 비교대상 임금에서 제외함으로써(제4항 제1호) 소정근로시간을 비교대상 임금 해당 여부의 기준으로 삼고 있다.<br>
+										</div>
+										<div class="mi_content" name="mi_content">
+											<a name="Mi4" href="#Miu4" class="black">
+												4)
+											</a>
+											잠함(潛函) 또는 잠수 작업 등 높은 기압에서 하는 작업에 종사하는 근로자를 말한다(<a href="javascript:hyperlink('0','산업안전보건법시행령','99')">산안법 시행령 제99조 제1항</a>).<br>
+										</div>
+									</div>
+
+
+								</div>
+
+								<div class="case_info onju_index_popup">
+									<p>본문 목차 <span class="btn_close  "></span></p>
+									<div id="listing">
+										<div class="title_1"><a href="#1">Ⅰ. 노동법 총설 </a></div>
+										<div class="title_2"><a href="#2">1. 노동법의 의의 </a></div>
+										<div class="title_3"><a href="#4">가. 규율 대상  </a></div>
+										<div class="title_4"><a href="#5">1) 배경<br></a></div>
+										<div class="title_4"><a href="#7">2) 노동의 종속성 </a></div>
+										<div class="title_3"><a href="#9">나. 규율 방식  </a></div>
+										<div class="title_1"><a href="#1">Ⅱ. 노동법의 법원(法源) </a></div>
+										<div class="title_2"><a href="#2">1. 노동법의 의의 </a></div>
+										<div class="title_3"><a href="#4">가. 규율 대상  </a></div>
+										<div class="title_4"><a href="#5">1) 배경<br></a></div>
+										<div class="title_4"><a href="#7">2) 노동의 종속성 </a></div>
+										<div class="title_3"><a href="#9">나. 규율 방식  </a></div>
+										<div class="title_2"><a href="#2">1. 노동법의 의의 </a></div>
+										<div class="title_3"><a href="#4">가. 규율 대상  </a></div>
+										<div class="title_4"><a href="#5">1) 배경<br></a></div>
+										<div class="title_4"><a href="#7">2) 노동의 종속성 </a></div>
+										<div class="title_3"><a href="#9">나. 규율 방식  </a></div>
+									</div>
+								</div>
+							</div>
+						</div>
+				</article>
+				<aside class="right_container">
+					<section>
+						<!--<div class="btn_group law_funtion_btn">
+							<a href="javascript:law.goToRefView('L0007CC6C28714E6_0_U');" id="rNewOldInfo"><span>현행법령</span></a><a href="javascript:law.goToRefView('L0007CC6C28714E6_0_L');" id="rSamInfo"><span>3단비교</span></a>
+						</div>
+						<div class="btn_group ">
+							<a href="javascript:open_onjupublisher();" class="onlyone onju"><span>발간사</span></a>
+						</div>
+						<div class="btn_group onju_sub_funtion">
+							<span class="btn">인용하기</span>
+							<span class="btn">의견남기기</span>
+						</div>-->
+						<div class="btn_group ">
+							<a href="javascript:open_onjuindex();" class="onlyone  "><span>본문 목차</span></a>
+						</div>
+					</section>
+
+				</aside>
+			</div>
+		</div> 
+		<div id="bg_screen"></div> 
+	</div>
+		<script type="text/javascript">   
+			setHeight();
+		</script>
+</div> 
+</body>
+</html>
