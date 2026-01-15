@@ -532,6 +532,9 @@
 .sub-main-tab-warp .sub-main-tab-ul > li > a{display:block;padding: 10px 10px;font-weight: 700;color: #585858;line-height: 22px;}
 .sub-main-tab-warp .sub-main-tab-ul > li.on:after{background:#fa6400;}
 .sub-main-tab-warp .sub-main-tab-ul > li.on > a{color: #212121}
+.guide-operator .info-bt{color: #585858; font-size: 14px;}
+.guide-operator .icon{display:inline-block; margin-right: 3px;vertical-align: middle;}
+.guide-operator .icon:after{background-color: #585858;width: 20px;height: 20px;}
 .sub-main-info .info-bt{color: #585858; font-size: 14px;padding: 10px 5px 10px 25px;}
 .sub-main-info .icon{display:inline-block; margin-right: 3px;vertical-align: middle;}
 .sub-main-info .icon:after{background-color: #585858;width: 20px;height: 20px;}

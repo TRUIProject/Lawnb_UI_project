@@ -72,6 +72,7 @@
 										<li><a href="../precedent/precedent_submain01.php">판례</a></li>
 										<li><a href="../precedent/squareFeet_submain01.php">천자평석</a></li>
 										<li><a href="../precedent/research_submain01.php">판례연구</a></li>
+										<li><a href='../precedent/explanation_submain01.php'>판례해설</a></li>
 									</ul>
 								</li>
 								<li>
