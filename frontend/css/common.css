@@ -95,6 +95,7 @@ body.no-scroll {overflow: hidden;}
 .chk-dot-wrap input[type="checkbox"]:checked + label .dot{background-color: #005da2;}
 .chk-dot-wrap input[type="checkbox"]:checked + label .dot:after{right:4px;left:inherit;}
 /* align */
+.va-t{vertical-align: top!important;}
 .va-m{vertical-align: middle!important;}
 .ta-c{text-align: center;}
 .ta-r{text-align: right;}

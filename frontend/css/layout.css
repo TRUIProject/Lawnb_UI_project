@@ -60,6 +60,8 @@
 .accordion .keyword-list.list-block > li.keyword-dropdown{padding-left: 20px;position: relative;}
 .accordion .keyword-list.list-block > li.keyword-dropdown .sub-ul{padding-left: 20px;display: none;padding-top: 5px;}
 .accordion .keyword-list.list-block > li.keyword-dropdown.on .sub-ul{padding-left: 20px;display: block;}
+.accordion .keyword-list.list-block > li.sub-num{ position: relative; padding-right: 30px;}
+.accordion .keyword-list.list-block > li.sub-num .sub-ul-num{ position: absolute; top: 0; right: 0; display: block;}
 .accordion .keyword-list.not-input li{padding-left: 0;cursor: pointer;}
 .accordion .keyword-list.not-input li:hover{color: #005da2;}
 .accordion .keyword-list.not-input li:hover > a{color: #005da2;}
@@ -348,6 +350,7 @@
 .flex-container .flex-3{flex:3;}
 .flex-container .flex-item{display: block;box-sizing: border-box;}
 .flex-container.flex-num-2.gab15 > .flex-item{flex: 0 0 calc(50% - 8px);}
+.flex-container.flex-num-3.gab20 > .flex-item{flex: 0 0 calc((100% - 40px) / 3);}
 .flex-container.flex-num-3.gab30 > .flex-item{flex: 0 0 calc((100% - 60px) / 3);}
 .flex-container.flex-num-4.gab15 > .flex-item{flex: 0 0 calc((100% - 45px) / 4);}
 .flex-container.flex-2.gab20 > .flex-item{flex: 0 0 calc(50% - 10px);}
@@ -677,6 +680,11 @@
 .img-box-list .box01 .txt-div{float: left;width: 125px;box-sizing: border-box;padding: 0 0 0 15px;}
 .img-box-list.box-in-4 .box01{float: left;width: 48%;margin-right: 4%;margin-bottom: 20px;}
 .img-box-list.box-in-4 .box01:nth-child(2n){margin-right:0;}
+/* 주요 조세예규 해설집 */
+.img-box-list02 .slider{padding: 0 8px;}
+.img-box-list02 .slider-box{display: block; box-sizing: border-box;border: 1px solid #dadada;position: relative;}
+.img-box-list02 .slider-box .img{height: 150px;width: 100%;background-size: cover;background-repeat: no-repeat;background-position: 50% 50%; background-color: #005da2;}
+.img-box-list02 .slider-box .txt{box-sizing: border-box;position: absolute;top: 50%;left: 0;transform:translateY(-50%); -webkit-transform:translateY(-50%);padding: 10px; color: #fff;text-align: center;z-index: 100;width: 100%;}
 /* 왼쪽 - 검색결과 */
 .test-result .dis-t{width: 100%;font-size: 14px;color: #585858;}
 .test-result .div-tit{word-break: keep-all;}

@@ -89,6 +89,31 @@
 				<td class='info'>
 				</td>
 			</tr>
+			<tr>
+				<td colspan='5'></td>
+			</tr>
+			<tr>
+				<th rowspan='3'>주요 예규 해설</th>
+				<td><a href='/frontend/law/mainRulesExp_submain01.php' target='_blank'>조세예규 검색</a></td>
+				<td>작업완료</td>
+				<td>2026.01.17</td>
+				<td class='info'>
+				</td>
+			</tr>
+			<tr>
+				<td><a href='/frontend/law/mainRulesExp_submain02.php' target='_blank'>법령별 예규 · 주요예규 해설집</a></td>
+				<td>작업완료</td>
+				<td>2026.01.17</td>
+				<td class='info'>
+				</td>
+			</tr>
+			<tr>
+				<td><a href='/frontend/law/mainRulesExp_search01.php' target='_blank'>검색결과 페이지</a></td>
+				<td>작업완료</td>
+				<td>2026.01.17</td>
+				<td class='info'>
+				</td>
+			</tr>
 		</tbody>
 	</table>
 </div>
