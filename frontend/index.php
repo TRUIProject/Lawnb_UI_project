@@ -93,7 +93,7 @@
 				<td colspan='5'></td>
 			</tr>
 			<tr>
-				<th rowspan='3'>주요 예규 해설</th>
+				<th rowspan='5'>주요 예규 해설</th>
 				<td><a href='/frontend/law/mainRulesExp_submain01.php' target='_blank'>조세예규 검색</a></td>
 				<td>작업완료</td>
 				<td>2026.01.17</td>
@@ -108,9 +108,23 @@
 				</td>
 			</tr>
 			<tr>
-				<td><a href='/frontend/law/mainRulesExp_search01.php' target='_blank'>검색결과 페이지</a></td>
+				<td><a href='/frontend/law/mainRulesExp_search01.php' target='_blank'>검색결과</a></td>
 				<td>작업완료</td>
 				<td>2026.01.17</td>
+				<td class='info'>
+				</td>
+			</tr>
+			<tr>
+				<td><a href='/frontend/law/mainRulesExp_contents01.php' target='_blank'>주요 예규 · 해설 목차 페이지</a></td>
+				<td>작업완료</td>
+				<td>2026.01.18</td>
+				<td class='info'>
+				</td>
+			</tr>
+			<tr>
+				<td><a href='/frontend/law/mainRulesExp_contents02.php' target='_blank'>본문 뷰 페이지</a></td>
+				<td>작업완료</td>
+				<td>2026.01.18</td>
 				<td class='info'>
 				</td>
 			</tr>

@@ -5,7 +5,7 @@ input[type="checkbox"]{border:1px solid #dadada;}
 body.no-scroll {overflow: hidden;}
 /* width */
 .min-h-100p{min-height: 100%;}
-.h-100p{height: 100%;}
+.h-100p{height: 100% !important;}
 .h-180px{height: 180px;}
 .h-270px{height: 270px;}
 .w-30px{width: 30px;}
