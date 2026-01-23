@@ -304,6 +304,14 @@
 .ul-style10 > li{display:block;float: left;font-size: 14px;word-break: break-word;margin-bottom: 10px;margin-right: 30px; }
 .ul-style10 > li > .txt01{display: block;color: #005da2;font-size: 14px;}
 .ul-style10 > li > .txt02{display: block;color: #005da2;font-size: 14px;}
+/* 리스트 디자인11 */
+.ul-style11:after{display:block;content: "";clear: both;}
+.ul-style11 li{display:block;margin-bottom: 10px;float: left;margin-right:10px;}
+.ul-style11 li:last-child{margin-right:0;}
+.ul-style11 li a{display:block;font-size: 14px;color:#005da2;padding: 10px;line-height: 15px;}
+.ul-style11 li:hover a,
+.ul-style11 li:focus a{background: #f2f2f2;}
+.ul-style11 li.on a{font-weight: 700;}
 /* 리스트 디자인 */
 .ul-float{display:block;}
 .ul-float:after{display:block;content: "";clear: both;}
@@ -2105,3 +2113,15 @@ position: absolute;top: 50%;right:10px;transform:translateY(-50%); -webkit-trans
 .lawyer-navigation .title-area #tab_area a{display:inline-block;box-sizing:border-box;padding:0 15px;font-weight:bold;border-top:1px solid #ccc;border-left:1px solid #ccc;border-right:1px solid #ccc;line-height:29px;margin-right:5px}
 .lawyer-navigation .title-area #tab_area a.on{background-color:#005da2;color:#fff;border:1px solid #005da2;border-bottom:2px solid #005da2}
 .lawyer-navigation .title-area #tab_area a.off{background-color:#fff;color:#555}
+
+/* 본분 상세, 탭구분 리스트 */
+.btn_option_outer{text-align:right;padding:5px 10px;background-color:#f1f8f9}
+.co_searchContent_list li{font-size: 14px;padding-top:15px;padding-bottom:15px;position:relative;border-top:1px solid #e6e6e6}
+.co_searchContent_list li._this{background-color:#eee}
+.co_searchContent_list li:first-child{border-top:0}
+.co_searchContent_list li:after{ display: block; content: ""; clear: both;}
+.co_searchContent_list li .list_num{float: left;width: 30px;}
+.co_searchContent_list li .list_num::after{content:"."}
+.co_searchContent_list li .co_searchContent{float: left;width: calc(100% - 30px);}
+.co_searchContent_list li h3 a{color: #005da2;font-size: 16px;}
+

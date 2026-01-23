@@ -348,6 +348,10 @@ body.no-scroll {overflow: hidden;}
 .dis-b{display: block;}
 .dis-ib{display: inline-block!important;}
 .dis-i{display: inline;}
+.show{display:block}
+.hide,.hidden{display:none !important }
+.blind,legend{display:block;overflow:hidden;position:absolute;top:-1000em;left:0}
+
 /* font-weight */
 .fw-400{font-weight: 400;}
 .fw-500{font-weight: 500;}

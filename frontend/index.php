@@ -54,7 +54,7 @@
 				<td colspan="5"></td>
 			</tr>
 			<tr>
-				<th rowspan="5">판례해설</th>
+				<th rowspan="6">판례해설</th>
 				<td><a href="/frontend/precedent/explanation_submain01.php" target='_blank'>판례해설 검색</a></td>
 				<td>작업완료</td>
 				<td>2026.01.10</td>
@@ -83,7 +83,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td><a href='/frontend/precedent/explanation_contents.php' target='_blank'>판례해설 본문</a></td>
+				<td><a href='/frontend/precedent/explanation_contents.php' target='_blank'>판례해설 본문리스트</a></td>
+				<td>작업완료</td>
+				<td>2026.01.24</td>
+				<td class='info'>
+				</td>
+			</tr>
+			<tr>
+				<td><a href='/frontend/precedent/explanation_contents02.php' target='_blank'>판례해설 본문</a></td>
 				<td>작업완료</td>
 				<td>2026.01.10</td>
 				<td class='info'>
