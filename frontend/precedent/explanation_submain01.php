@@ -11,7 +11,12 @@
                         <ul class="sub-main-tab-ul c-left">
                             <li class="on"><a href="./explanation_submain01.php">판례해설 검색</a></li>
 	                        <li><a href='./explanation_submain02.php'>민사판례해설</a></li>
-	                        <li><a href='./explanation_submain03.php'>조세판례해설</a></li>
+	                        <li class="hover-div">
+		                        <a href='./explanation_submain03.php'><p class='str pr-20'>조세판례해설<span class='n-i n-i-w20 n-i-exclamation-circle str-rm'></span></p></a>
+		                        <div class='hover-target popup-bg-white' style="top: 0;left: 100%;width: 300px;">
+			                        법무법인 화우 조세팀에서 제공하는 콘텐츠로 Basic 등급 이상 유료회원에게만 제공됩니다.
+		                        </div>
+	                        </li>
                         </ul>
 	                    <div class='sub-main-info c-right'>
                             <?php include '../common/guide_operator.php'; ?>

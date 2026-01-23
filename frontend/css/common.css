@@ -129,6 +129,7 @@ body.no-scroll {overflow: hidden;}
 .str > .str-lt.t3{top: 3px}
 .str > .str-ltc{position: absolute;top: 50%;left: 0;transform:translateY(-50%); -webkit-transform:translateY(-50%);}
 .str > .str-rt{position: absolute;top: 0;right: 0; }
+.str > .str-rtc,
 .str > .str-rm{position: absolute;top:50%;right: 0;transform:translateY(-50%);-webkit-transform:translateY(-50%);}
 .str > .str-rm.r5{right:5px;}
 .str > .str-rb{position: absolute;float: right;right: 0;bottom: 0;}
@@ -449,3 +450,13 @@ textarea.input-css01{height: 150px;}
 .school_search div:before{content:"- "}
 
 .ac{text-align:center !important}
+
+.popup-bg-white{background: #ffffff; border: 1px solid #dadada; border-radius: 5px;}
+.hover-div{position: relative}
+.hover-div .hover-target{display: block;visibility: hidden;opacity: 0;position: absolute;z-index: 10;box-sizing:border-box;font-size: 13px;color: #585858;line-height: 150%;
+    padding: 10px 15px;width: 250px;border: 1px solid #dadada;background-color:#fff;box-shadow: 2px 2px 5px rgb(0 0 0 / 40%);
+    -webkit-transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; -moz-transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    -ms-transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;-o-transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;}
+.hover-div:hover .hover-target{visibility: visible;opacity: 1;}
+

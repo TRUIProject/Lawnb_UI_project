@@ -101,6 +101,8 @@
 .n-i-alert-tri{background-color: #585858; -webkit-mask-image: url('../images/icon/exclamation-triangle.svg'); mask-image: url('../images/icon/exclamation-triangle.svg');mask-size: contain;mask-repeat: no-repeat;mask-position: 50% 50%;}
 .n-i-doc-left{background-color: #585858; -webkit-mask-image: url('../images/icon/content-left.svg'); mask-image: url('../images/icon/content-left.svg');mask-size: contain;mask-repeat: no-repeat;mask-position: 50% 50%;}
 .n-i-doc-right{background-color: #585858; -webkit-mask-image: url('../images/icon/content-right.svg'); mask-image: url('../images/icon/content-right.svg');mask-size: contain;mask-repeat: no-repeat;mask-position: 50% 50%;}
+.n-i-exclamation-circle{background-color: #585858; -webkit-mask-image: url('../images/icon/exclamation-circle.svg'); mask-image: url('../images/icon/exclamation-circle.svg');mask-size: contain;mask-repeat: no-repeat;mask-position: 50% 50%;}
+
 .n-i-w15{display:block;width: 15px;height: 15px;}
 .n-i-w20{display:block;width: 20px;height: 20px;}
 .n-i-w25{display:block;width: 25px;height: 25px;}
