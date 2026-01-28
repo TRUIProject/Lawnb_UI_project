@@ -1,11 +1,6 @@
 <?php include '../include/header_sub_content.php'; ?>
 <!--	시작 : 헤더	-->
-<header class="ct-header">
-	<div class="w1600 str clear">
-		<h1 class="logo-div"><a href="../main/main_search.php"><img src="../images/common/logo_s.png" alt="로앤비"/></a>
-		</h1>
-	</div>
-</header>
+<?php include '../include/header_sub_02.php'; ?>
 <!--	끝 : 헤더	-->
 <div class="container-wrap">
 	<div class="container-inner">
