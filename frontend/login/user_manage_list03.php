@@ -82,7 +82,7 @@
 											<li>결제 예정금액 : 103,000원</li>
 											<li>정기결제 : 1개월</li>
 											<li>결제수단 : 신용카드(신한 / 45184212****302*)
-												<button class="btn square-none btn-square btn-s ml-5">변경</button>
+												<button class="btn square-none btn-square btn-s ml-5" onclick="fn_add_class_on('#popup-pay-select')">변경</button>
 											</li>
 										</ul>
 									</td>
@@ -173,7 +173,7 @@
 		</div>
 	</div>
 </div>
-<div id='popup-pay-select' class='ct-popup-wrap detail-search-popup bg30 str on'>
+<div id='popup-pay-select' class='ct-popup-wrap detail-search-popup bg30 str'>
 	<div class='str-center'>
 		<div class='bg-border'>
 			<div class='top_title clear'>

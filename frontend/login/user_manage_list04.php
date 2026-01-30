@@ -48,8 +48,13 @@
 										<option>선택4</option>
 									</select>
 								</div>
-								<div class="dis-tc v-m">
+								<div class="dis-tc v-m pr-5">
 									<button class="btn btn-blue btn-m">적용</button>
+								</div>
+								<div class='dis-tc v-m'>
+									<button type='button' class='btn btn-blue btn-m'
+									        onclick="OpenPopup('/Payment/DocumentOfProof/','DOP');">증빙서류 발급안내
+									</button>
 								</div>
 							</div>
 						</div>
@@ -70,7 +75,7 @@
 								<tbody>
 									<tr>
 										<td class="ta-c">1</td>
-										<td class="ta-c"><p class="c-blue">정기결제</p></td>
+										<td class="ta-c"><p class="c-blue on-hover" onclick="fn_add_class_on('#popup-pay-info')">정기결제</p></td>
 										<td class="ta-c">
 											<p>113,300원</p>
 										</td>
@@ -126,6 +131,48 @@
 						</nav>
 					</div>
 				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id='popup-pay-info' class='ct-popup-wrap detail-search-popup bg30 str'>
+	<div class='str-center'>
+		<div class='bg-border'>
+			<div class='top_title clear'>
+				<div class='top_title_txt c-left c-blue'>결재번호</div>
+				<div class='top_title_group c-right'>
+					<button class='btn btn-none btn-s' onclick="fn_remove_class_on('#popup-pay-info')"><i
+								class='icon-close' data-icon=''></i></button>
+				</div>
+			</div>
+			<div class='info_table'>
+				<table class='list pay mb-20'>
+					<colgroup>
+						<col width='200'>
+						<col>
+						<col width='100'>
+						<col width='100'>
+						<col width='100'>
+					</colgroup>
+					<thead>
+					<tr>
+						<th>아이디</th>
+						<th>상품</th>
+						<th>기간</th>
+						<th>금액</th>
+						<th>쿠폰사용</th>
+					</tr>
+					</thead>
+					<tbody id='MemberList'>
+					<tr>
+						<td>전지혜<br>jjhStack</td>
+						<td>-</td>
+						<td>-</td>
+						<td>-</td>
+						<td>-</td>
+					</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</div>

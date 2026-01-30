@@ -169,6 +169,16 @@
 					<p>- 결제수단 팝업 레이어 추가</p>
 				</td>
 			</tr>
+			<tr>
+				<td><a href='./login/user_manage_list04.php'>결제내역조회1</a></td>
+				<td>작업완료</td>
+				<td>2025.05.04</td>
+				<td class='info'>
+					<p>2026.01.30</p>
+					<p>- 레이아웃 수정</p>
+					<p>- 정기결제 팝업 레이어 추가</p>
+				</td>
+			</tr>
 		</tbody>
 	</table>
 </div>

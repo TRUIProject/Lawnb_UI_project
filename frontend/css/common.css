@@ -468,6 +468,7 @@ textarea.input-css01{height: 150px;}
     -ms-transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;-o-transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;}
 .hover-div:hover .hover-target{visibility: visible;opacity: 1;}
+.on-hover:hover{cursor: pointer}
 
 .txt_blue{color:#006595 !important}
 .txt_warning{color:#d71345 !important}
@@ -490,3 +491,10 @@ textarea.input-css01{height: 150px;}
 .pay_select li a:hover {background:#e6e6e6;}
 .pay_select li._this { border:1px solid #000;}
 .pay_select li:before {display:none;}
+
+/* 결제내역 조회 > 정기결제 팝업 */
+#popup-pay-info .str-center{width: 100%;max-width: 900px;}
+#popup-pay-info .info_table,
+#popup-pay-info .info_table td{font-size: 14px;text-align: center}
+#popup-pay-info .info_table,
+#popup-pay-info .info_table .txtbg_blue td{color: #006595 !important;}
