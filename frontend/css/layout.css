@@ -1747,6 +1747,7 @@ em { font-weight: bold;}
 .cs-css .member_level p:not(.text_ex){font-size:16px;color:#005da2;font-weight: 500;margin-bottom: 10px}
 .cs-css div.just_p_info{margin:20px 0}
 .cs-css a{color: #005da2 !important;font-size: 14px;}
+.cs-css a.btn-blue{color: #FFFFFF !important;}
 .law_level_1{font-weight:bold;margin-top:20px}
 .law_level_2{padding-left:30px;text-indent:-20px}
 .law_level_2 div{text-indent:0;padding-left:10px}

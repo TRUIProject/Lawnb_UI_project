@@ -147,6 +147,17 @@
 					<p>- 법인 관련 데이터 추가 2026.01.30</p>
 				</td>
 			</tr>
+			<tr class='bg'>
+				<td><a href='./login/user_manage_list02.php'>유료회원결제</a></td>
+				<td>작업완료</td>
+				<td>2025.05.04</td>
+				<td class='info'>
+					<p>2026.01.30</p>
+					<p>- 거래계좌 확인서 / 증빙서류 발급안내 버튼추가</p>
+					<p>- 세금계산서 레이아웃 추가</p>
+					<p>- 쿠폰사용칸 UI/UX 추가</p>
+				</td>
+			</tr>
 		</tbody>
 	</table>
 </div>

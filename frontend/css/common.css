@@ -28,6 +28,8 @@ body.no-scroll {overflow: hidden;}
 .w-1445px{width: 1445px;}
 .w-50p{width: 50%}
 .w-100p{width: 100%}
+.mw-150px{max-width: 150px;}
+.mw-250px{max-width: 250px;}
 .min-h-90px{min-height: 90px;}
 .min-w-60px{min-width: 60px;}
 .min-w-80px{min-width: 80px;}
@@ -427,6 +429,9 @@ body.no-scroll {overflow: hidden;}
 .form-css input[type='text']{display: block;width: 100%;border: 1px solid #dadada;height: 30px;padding: 0 10px;font-size: 14px;box-sizing: border-box;}
 .form-css input[type='file']{display: block;width: 100%;border: 1px solid #dadada;height: 30px;padding: 0 10px;font-size: 14px;box-sizing: border-box;}
 .input-css01{display: block;width: 100%;border: 1px solid #dadada;height: 30px;padding: 0 10px;font-size: 14px;box-sizing: border-box;}
+.css-label{margin-right:5px}
+.css-label input[type='radio'],
+.css-label input[type='checkbox']{margin-right: 2px}
 .input-file {}
 .input-file input {display: none;}
 .input-file .label-file {display: inline-block;padding: 5px 20px;background-color: #005da2;color: white;border-radius: 5px;cursor: pointer;font-size: 14px;border:none}

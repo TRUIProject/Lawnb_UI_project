@@ -92,8 +92,20 @@
 										<td class="ta-c" rowspan="2"><button class="btn btn-blue btn-s">적용</button></td>
 									</tr>
 									<tr >
-										<td colspan="2">
-											<label><input type="checkbox"> 쿠폰 사용</label>
+										<td colspan='2'>
+											<div>
+												<label class='css-label'><input type='checkbox' id='CouponUseYN_0' onclick="CouponUse('0')">쿠폰 사용</label>
+											</div>
+											<div class="mt-5 dis-t w-100p">
+												<div class='dis-tr'>
+													<div class='dis-tc'>
+														<input type='text' id='CouponCode_0' name='CouponCode_0' style='' placeholder='보유한 쿠폰번호를 입력해 주세요. ' maxlength='8' class="input-css01">
+													</div>
+													<div class='dis-tc pl-5 va-m w-60px'>
+														<button type='button' class='btn btn-blue btn-s dis-b' onclick="CouponConfirm('0')">확인</button>
+													</div>
+												</div>
+											</div>
 										</td>
 									</tr>
 								</tbody>
@@ -113,6 +125,10 @@
 							<div class="c-left">
 								<h3>결제방법 선택</h3>
 							</div>
+							<div class='c-right clear'>
+								<button type='button' class='btn btn-none btn-s c-left mr-5'>거래계좌 확인서</button>
+								<button type='button' class='btn btn-none btn-s c-left'>증빙서류 발급안내</button>
+							</div>
 						</div>
 						<div class="info_table">
 							<table>
@@ -124,15 +140,105 @@
 								<tr >
 									<th>결제수단</th>
 									<td>
-										<label><input type="radio"> 신용카드</label>
+										<label class='css-label'><input type="radio"> 신용카드</label>
+										<label class='css-label'><input type='radio'> 무통장입금</label>
+									</td>
+								</tr>
+								<tr>
+									<th>무통장입금 안내</th>
+									<td colspan='3'>
+										<div id='DepositlessLayer'>
+											<input type='text' name='Depositless_Name' id='Depositless_Name' placeholder='입금자명' maxlength='50' class='input-css01 mw-250px'>
+											<div class='mgt10'>
+												임금계좌 안내 : SC은행 195-20-012309 (주)톰슨로이터코리아<br>
+											</div>
+											<div class='mgt10' id='DepositlessTaxLayer' style=''>
+												<span class='mr-10'>세금계산서 발행여부</span>
+												<label class="css-label"><input type='radio' name='Depositless_TaxBill' onchange='TaxBillLayer()'
+												       value='1'>발행</label>
+												<label class='css-label'><input type='radio' name='Depositless_TaxBill' onchange='TaxBillLayer()'
+												       value='0' class="">미발행</label>
+												<span class='text_ex'>(법인회원만 가능)</span>
+											</div>
+										</div>
 									</td>
 								</tr>
 								</tbody>
 							</table>
-							<div class="bg-gray-box ta-c mt-30">
-								<p>2023.2.13부로 정기결제 시스템으로 전환되었습니다.</p>
-								<p>항목과 결제방법 선택을 후 결제하기를 진행해 주세요.</p>
+						</div>
+						<div class='h3-wrap' id='TaxManagerTitleLayer' style=''>
+							<div class='h3-div clear'>
+								<div class='c-left'>
+									<h3>전자 세금계산서 수신정보</h3>
+								</div>
+								<div class='c-right clear'>
+									<button type='button' class='btn btn-none btn-s c-left' onclick='ModifyTaxManager();'>담당자 정보수정</button>
+								</div>
 							</div>
+							<div class='info_table' id='TaxManagerLayer' style=''>
+								<table class='pay'>
+									<colgroup>
+										<col width='150'>
+										<col width='32%'>
+										<col width='150'>
+										<col>
+									</colgroup>
+									<tbody>
+									<tr>
+										<th>담당자 이름</th>
+										<td id='TaxManager_Name'></td>
+										<th>부서</th>
+										<td id='TaxManager_Department'></td>
+									</tr>
+									<tr>
+										<th>이메일</th>
+										<td id='TaxManager_Email'></td>
+										<th>전화</th>
+										<td id='TaxManager_Phone'></td>
+									</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class='info_table' id='TaxManagerModifyLayer'>
+								<table class='pay'>
+									<colgroup>
+										<col width='150'>
+										<col width='32%'>
+										<col width='150'>
+										<col>
+									</colgroup>
+									<tbody>
+									<tr>
+										<th>담당자 이름</th>
+										<td><input type='text' name='TaxManager_Name_mod' id='TaxManager_Name_mod'
+										           maxlength='50' class='input-css01'></td>
+										<th>부서</th>
+										<td><input type='text' name='TaxManager_Department_mod'
+										           id='TaxManager_Department_mod' maxlength='50' class='input-css01'></td>
+									</tr>
+									<tr>
+										<th>이메일</th>
+										<td><input type='text' name='TaxManager_Email_mod' id='TaxManager_Email_mod'
+										           maxlength='200' class='input-css01'></td>
+										<th>전화</th>
+										<td><input type='text' name='TaxManager_Phone_mod' id='TaxManager_Phone_mod'
+										           maxlength='50' class='input-css01'></td>
+									</tr>
+									</tbody>
+								</table>
+								<div class='mgt10'>
+									<div class='btn-list-m ta-c'>
+										<button class='btn btn-blue btn-m dis-ib' onclick='TaxManagerModifySave();'>저장
+										</button>
+										<button class='btn btn-none btn-m dis-ib' onclick='TaxManagerCancel();'>취소
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class='bg-gray-box ta-c mt-30'>
+							<p>2023.2.13부로 정기결제 시스템으로 전환되었습니다.</p>
+							<p>항목과 결제방법 선택을 후 결제하기를 진행해 주세요.</p>
 						</div>
 						<div class="mt-30">
 							<button class="btn btn-blue btn-l w-150px dis-b m-auto">결제하기</button>
