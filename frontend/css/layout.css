@@ -1724,7 +1724,7 @@ span.hl_GY {background-color:rgba(219,219,219,1);}
 .info_table th{font-size:14px;text-align: left;font-weight: 500;}
 .info_table td{line-height:150%;}
 .info_table tbody th{background-color:#fafafa;width:150px;color:#555;padding:15px 10px}
-.info_table tbody td{padding:10px;background: #ffffff;}
+.info_table tbody td{padding:10px;}
 .info_table tbody tr{border-top:1px solid #e6e6e6}
 .info_table tbody tr:first-child{border-top:0}
 .info_table thead th{background-color:#fafafa;color:#777;text-align:center;padding:10px 0}

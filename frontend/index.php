@@ -135,6 +135,18 @@
 				<td class='info'>
 				</td>
 			</tr>
+			<tr>
+				<td colspan='5'></td>
+			</tr>
+			<tr>
+				<th rowspan='5'>회원페이지</th>
+				<td><a href='./login/user_manage_list01.php'>ID관리</a></td>
+				<td>작업완료</td>
+				<td>2025.05.02</td>
+				<td class='info'>
+					<p>- 법인 관련 데이터 추가 2026.01.30</p>
+				</td>
+			</tr>
 		</tbody>
 	</table>
 </div>

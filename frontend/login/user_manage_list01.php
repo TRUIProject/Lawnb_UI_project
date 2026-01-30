@@ -46,6 +46,14 @@
 								</tr>
 								</tbody>
 							</table>
+							<!-- 법인용 그룹관리 -->
+							<ul id='CorpMainSubLayer' class='mt-10'>
+								<li>그룹ID 총 1개 (Basic 0개, Professional 0개, 무료 1개)
+									<div class='dis-ib va-m ml-5'>
+										<button type='button' class='btn btn-s btn-none' onclick="fn_add_class_on('#popup-my-group')">그룹 관리</button>
+									</div>
+								</li>
+							</ul>
 						</div>
 					</div>
 					<div class="h3-wrap">
@@ -59,7 +67,7 @@
 								<tbody>
 								<tr>
 									<th>로앤비 법률정보 </th>
-									<td id="LAWNB_Service" class="pr">현재 권한 : 유료회원 (Professional 2011.04.20 ~ 2100.12.31) <button type="button" class="btn btn-blue btn-s dis-ib ml-5" onclick="location.href='/Payment/Order/'">유료권한 결제</button></td>
+									<td id="LAWNB_Service" class="pr">현재 권한 : 유료회원 (Professional 2011.04.20 ~ 2100.12.31) <button type="button" class="btn btn-blue btn-s dis-ib ml-5" onclick="location.href='user_manage_list02.php'">유료권한 결제</button></td>
 								</tr>
 
 								<tr>
@@ -197,7 +205,136 @@
 							</table>
 						</div>
 					</div>
+					<!-- 법인 사업체 정보 -->
+					<div class='h3-wrap'>
+						<div class='h3-div clear'>
+							<div class='c-left'>
+								<h3>사업체 정보</h3>
+							</div>
+						</div>
+						<div class='info_table'>
+							<table>
+								<colgroup>
+									<col width='150'>
+									<col width='32%'>
+									<col width='150'>
+									<col>
+								</colgroup>
+								<tbody>
+								<tr>
+									<th>사업자구분</th>
+									<td id='CompanyTypeName'>일반기업</td>
+									<th>사업체명</th>
+									<td id='CompanyName'>테스트상호</td>
+								</tr>
+								<tr>
+									<th>사업자번호</th>
+									<td id='CompanyNum'>1111111111</td>
+									<th>대표자명</th>
+									<td id='CompanyCEO'></td>
+								</tr>
+								<tr>
+									<th>업태</th>
+									<td id='CompanyCategory'></td>
+									<th>종목</th>
+									<td id='CompanyDept'></td>
+								</tr>
+								<tr>
+									<th>대표번호</th>
+									<td colspan='3' id='CompanyPhone'></td>
+								</tr>
+								<tr>
+									<th>주소</th>
+									<td colspan='3' id='CompanyAddress'></td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!-- 법인 전자 세금계산서 수신정보 -->
+					<div class='h3-wrap'>
+						<div class='h3-div clear'>
+							<div class='c-left'>
+								<h3>전자 세금계산서 수신정보</h3>
+							</div>
+						</div>
+						<div class='info_table'>
+							<table>
+								<colgroup>
+									<col width='150'>
+									<col width='32%'>
+									<col width='150'>
+									<col>
+								</colgroup>
+								<tbody>
+								<tr>
+									<th>담당자</th>
+									<td id='TaxManager'></td>
+									<th>부서</th>
+									<td id='TaxDepartment'></td>
+								</tr>
+								<tr>
+									<th>이메일</th>
+									<td id='TaxEmail'></td>
+									<th>전화번호</th>
+									<td id='TaxTel'></td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
 				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 그룹 관리 팝업 -->
+<div id='popup-my-group' class='ct-popup-wrap detail-search-popup bg30 str'>
+	<div class='str-center'>
+		<div class='bg-border'>
+			<div class='top_title clear'>
+				<div class='top_title_txt c-left c-blue'>그룹관리</div>
+				<div class='top_title_group c-right'>
+					<button class='btn btn-none btn-s' onclick="fn_remove_class_on('#popup-my-group')"><i
+								class='icon-close' data-icon=''></i></button>
+				</div>
+			</div>
+			<div class='info_table'>
+				<div class='clear mb-10'>
+					<button type='button' class='btn btn-blue btn-s c-right' onclick='SubIDAdd();'">Sub ID 추가</button>
+				</div>
+				<table class='list pay mb-20'>
+					<colgroup>
+						<col width='50'>
+						<col width='110'>
+						<col width='200'>
+						<col width='100'>
+						<col>
+					</colgroup>
+					<thead>
+					<tr>
+						<th>No</th>
+						<th>회원구분</th>
+						<th>이름/ID</th>
+						<th>현 서비스등급</th>
+						<th>이용기간</th>
+						<th>ID초기화</th>
+					</tr>
+					</thead>
+					<tbody id='MemberList'>
+					<tr class='txtbg_blue'>
+						<td>1</td>
+						<td>법인Main <input type='radio' name='gr_chk' value='jjhStack' onclick='mainChange(this.value);'
+						                  checked=''></td>
+						<td>전지혜<br>jjhStack</td>
+						<td>무료회원</td>
+						<td>-</td>
+						<td>
+							<button type='button' class='btn btn-none btn-s dis-ib'>초기화</button>
+						</td>
+					</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</div>

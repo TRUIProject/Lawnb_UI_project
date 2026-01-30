@@ -464,3 +464,12 @@ textarea.input-css01{height: 150px;}
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;}
 .hover-div:hover .hover-target{visibility: visible;opacity: 1;}
 
+.txt_blue{color:#006595 !important}
+.txt_warning{color:#d71345 !important}
+.txt_gray{color:#555 !important}
+.txtbg_blue{ color: #006595 !important;  background: #f1f8f9;}
+
+#popup-my-group .str-center{width: 100%;max-width: 900px;}
+#popup-my-group .str-center .bg-border{min-height: 400px}
+#popup-my-group #MemberList,
+#popup-my-group #MemberList td{font-size: 14px;color: #006595 !important;text-align: center}
