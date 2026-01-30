@@ -140,7 +140,7 @@
 			</tr>
 			<tr>
 				<th rowspan='5'>회원페이지</th>
-				<td><a href='./login/user_manage_list01.php'>ID관리</a></td>
+				<td><a href='/frontend/login/user_manage_list01.php' target='_blank'>ID관리</a></td>
 				<td>작업완료</td>
 				<td>2025.05.02</td>
 				<td class='info'>
@@ -149,7 +149,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td><a href='./login/user_manage_list02.php'>유료회원결제</a></td>
+				<td><a href='/frontend/login/user_manage_list02.php' target='_blank'>유료회원결제</a></td>
 				<td>작업완료</td>
 				<td>2025.05.04</td>
 				<td class='info'>
@@ -160,7 +160,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td><a href='./login/user_manage_list03.php'>ID결제관리1</a></td>
+				<td><a href='/frontend/login/user_manage_list03.php' target='_blank'>ID결제관리1</a></td>
 				<td>작업완료</td>
 				<td>2025.05.04</td>
 				<td class='info'>
@@ -170,7 +170,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td><a href='./login/user_manage_list04.php'>결제내역조회1</a></td>
+				<td><a href='/frontend/login/user_manage_list04.php' target='_blank'>결제내역조회1</a></td>
 				<td>작업완료</td>
 				<td>2025.05.04</td>
 				<td class='info'>
