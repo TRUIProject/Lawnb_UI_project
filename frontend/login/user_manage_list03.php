@@ -40,7 +40,7 @@
 									<td>
 										<ul>
 											<li>그룹ID 총 5개 (Basic 1개, Professional 0개, 무료 4개)
-												<button class="btn btn-blue btn-s ml-5">목록</button>
+												<button class="btn btn-blue btn-s ml-5" onclick="fn_add_class_on('#popup-my-group')">목록</button>
 											</li>
 											<li>
 												<div>다음 결제 예정일은 <b>2024년 01월 01일</b>입니다.</div>
@@ -127,6 +127,68 @@
 					</div>
 				</div>
 			</div>
+		</div>
+	</div>
+</div>
+<!-- 그룹 관리 팝업 -->
+<div id='popup-my-group' class='ct-popup-wrap detail-search-popup bg30 str'>
+	<div class='str-center'>
+		<div class='bg-border'>
+			<div class='top_title clear'>
+				<div class='top_title_txt c-left c-blue'>그룹관리</div>
+				<div class='top_title_group c-right'>
+					<button class='btn btn-none btn-s' onclick="fn_remove_class_on('#popup-my-group')"><i
+								class='icon-close' data-icon=''></i></button>
+				</div>
+			</div>
+			<div class='info_table'>
+				<table class='list pay mb-20'>
+					<colgroup>
+						<col width='50'>
+						<col width='110'>
+						<col width='200'>
+						<col width='100'>
+						<col>
+					</colgroup>
+					<thead>
+					<tr>
+						<th>No</th>
+						<th>회원구분</th>
+						<th>이름/ID</th>
+						<th>현 서비스등급</th>
+						<th>이용기간</th>
+					</tr>
+					</thead>
+					<tbody id='MemberList'>
+					<tr>
+						<td>1</td>
+						<td>법인Main</td>
+						<td>전지혜<br>jjhStack</td>
+						<td>무료회원</td>
+						<td>-</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<div id='popup-pay-select' class='ct-popup-wrap detail-search-popup bg30 str on'>
+	<div class='str-center'>
+		<div class='bg-border'>
+			<div class='top_title clear'>
+				<div class='top_title_txt c-left c-blue'>결재방법 선택</div>
+				<div class='top_title_group c-right'>
+					<button class='btn btn-none btn-s' onclick="fn_remove_class_on('#popup-pay-select')"><i
+								class='icon-close' data-icon=''></i></button>
+				</div>
+			</div>
+			<ul class='pay_select'>
+				<li class='_this'><a onclick="PaymentChange('C')"><img src='../images/common/icon_creadit.png'>신용카드</a>
+				</li>
+				<li id='PaymethodChange_O'><a onclick="PaymentChange('O')"><img src='../images/common/icon_paybank.png'>무통장입금</a>
+				</li>
+			</ul>
 		</div>
 	</div>
 </div>

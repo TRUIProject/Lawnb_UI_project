@@ -477,4 +477,16 @@ textarea.input-css01{height: 150px;}
 #popup-my-group .str-center{width: 100%;max-width: 900px;}
 #popup-my-group .str-center .bg-border{min-height: 400px}
 #popup-my-group #MemberList,
-#popup-my-group #MemberList td{font-size: 14px;color: #006595 !important;text-align: center}
+#popup-my-group #MemberList td{font-size: 14px;text-align: center}
+#popup-my-group #MemberList,
+#popup-my-group #MemberList .txtbg_blue td{color: #006595 !important;}
+
+#popup-pay-select .str-center{width: 100%;max-width: 500px;}
+.pay_select {display:flex;}
+.pay_select li { width:48%; margin-right:4%;border:1px solid #dcdcdc; }
+.pay_select li:nth-child(2n){ margin-right:0; }
+.pay_select li a {display:block; text-align:center; padding:20px;  background:#fff; cursor:pointer; color:#333; text-decoration:none;}
+.pay_select li a img {display: block; margin: 0 auto; width:30px;}
+.pay_select li a:hover {background:#e6e6e6;}
+.pay_select li._this { border:1px solid #000;}
+.pay_select li:before {display:none;}
