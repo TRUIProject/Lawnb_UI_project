@@ -139,7 +139,29 @@
 				<td colspan='5'></td>
 			</tr>
 			<tr>
-				<th rowspan='6'>회원페이지</th>
+				<th rowspan='2'>회원가입</th>
+				<td><a href='/frontend/login/join03.php' target='_blank'>개인_2내용입력</a></td>
+				<td>작업완료</td>
+				<td>2025.04.27</td>
+				<td class='info'>
+					<p>2026.02.06</p>
+					<p>- input창 추가</p>
+				</td>
+			</tr>
+			<tr>
+				<td><a href='/frontend/login/join-co-03.php' target='_blank'>법인_2내용입력</a></td>
+				<td>작업완료</td>
+				<td>2025.05.02</td>
+				<td class='info'>
+					<p>2026.02.06</p>
+					<p>- input 타입변경</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan='5'></td>
+			</tr>
+			<tr>
+				<th rowspan='8'>회원페이지</th>
 				<td><a href='/frontend/login/user_manage_list01.php' target='_blank'>ID관리</a></td>
 				<td>작업완료</td>
 				<td>2025.05.02</td>

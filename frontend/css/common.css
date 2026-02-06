@@ -276,6 +276,7 @@ body.no-scroll {overflow: hidden;}
 .border-r-0{border-radius: 0;}
 .border-r-10{border-radius: 10px;}
 /* btn */
+button:disabled{background: #acacac !important; cursor:inherit}
 .highlight-yellow{background: #fffbd7;}
 .square-none{background: #ffffff;border: 1px solid #dadada;}
 .square-blue{background: #005da2;color: #ffffff;}
@@ -500,3 +501,15 @@ textarea.input-css01{height: 150px;}
 #popup-pay-info .info_table .txtbg_blue td{color: #006595 !important;}
 
 .flow_check{background-color:rgba(1,1,1,0.2);height:30px;line-height:25px;text-align:right;padding-right:10px}
+
+/* 우편번호 찾기 */
+#popup-find-zipcode{}
+#popup-find-zipcode .str-center{width: 100%;max-width: 600px;}
+.post_scroll_out{overflow:hidden;height:195px;overflow-y:auto;}
+.post_layer{width:100%;font-size: 14px;}
+.post_layer li{position:relative;font-weight:bold;line-height:20px;color:#333;vertical-align:top; cursor:pointer;padding:5px;padding-left:60px }
+.post_layer li div{padding-bottom:3px}
+.post_layer li span{position:absolute;left:3px;top:5px}
+.post_layer li:nth-child(odd){background-color:#f4f4f4}
+.post_layer span{display:inline-block}
+.post_layer span.star{background:url(../images/blit.gif) no-repeat 0px -298px;padding-left:7px}

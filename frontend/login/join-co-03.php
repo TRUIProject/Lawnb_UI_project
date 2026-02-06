@@ -26,12 +26,12 @@
 					<div class="input-div">
 						<div class="input-hd fw-500">사업자 구분</div>
 						<div class="mt-10">
-							<label class="mr-10"><input type="checkbox" name="userbiz_letter" id="userbiz_letter" checked="checked"> 일반기업</label>
-							<label class="mr-10"><input type="checkbox" name="useredu_letter" id="useredu_letter" checked="checked"> 공공기관</label>
-							<label class="mr-10"><input type="checkbox" name="userad_letter" id="userad_letter" checked="checked"> 법무법인(로펌 등)</label>
+							<label class="mr-10"><input type="radio" name="business_division" checked="checked"> 일반기업</label>
+							<label class="mr-10"><input type="radio" name="business_division"> 공공기관</label>
+							<label class="mr-10"><input type="radio" name="business_division"> 법무법인(로펌 등)</label>
 						</div>
 						<div class="mt-10">
-							<label class="mr-10"><input type="checkbox" name="userad_letter" id="userad_letter" checked="checked"> 개인사업자(법률사무소 등)</label>
+							<label class="mr-10"><input type="radio" name="business_division"> 개인사업자(법률사무소 등)</label>
 						</div>
 					</div>
 					<div class="input-div mt-10">
@@ -368,8 +368,8 @@
 						<div class="dis-t w-100p">
 							<div class="dis-tr">
 								<div class="dis-tc v-m pr-10">
-									<label class="mr-10"><input type="checkbox"> 휴대폰</label>
-									<label class="mr-10"><input type="checkbox"> 이메일</label>
+									<label class="mr-10"><input type="radio"> 휴대폰</label>
+									<label class="mr-10"><input type="radio"> 이메일</label>
 								</div>
 								<div class="dis-tc v-t" style="width: 200px">
 									<button class="btn-blue btn-m w-100p">인증번호 발송</button>
@@ -398,7 +398,7 @@
 			</div>
 		</div>
 		<p class="ta-c mt-30">
-			<button class="btn-blue btn-m min-w-130px">확인</button>
+			<button class="btn-blue btn-m min-w-130px" disabled>확인</button>
 		</p>
 	</div>
 </div>
