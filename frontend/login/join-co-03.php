@@ -111,7 +111,7 @@
 						<div class="dis-t w-100p">
 							<div class="dis-tr">
 								<div class="dis-tc v-t pr-10" style="width :75px">
-									<select name="userbirth3" id="userbirth3" class="input-css01">
+									<select name="userbirth3" id="userbirth3" class="input-css01" style="width: 100px">
 										<option value="">년</option>
 										<option value="2010">2010</option>
 										<option value="2009">2009</option>
@@ -256,28 +256,45 @@
 							</div>
 						</div>
 					</div>
-					<div class="input-div">
-						<div class="dis-t w-100p">
-							<div class="dis-tr">
-								<div class="dis-tc v-t pr-10">
-									<div class="input-hd fw-500">
-										<span class="">직업</span>
-										<span class="star"></span>
+					<div class='input-div'>
+						<div class='dis-t w-100p'>
+							<div class='dis-tr'>
+								<div class='dis-tc v-t pr-10'>
+									<div class='input-hd fw-500'>
+										<span class=''>직업</span>
+										<span class='star'></span>
 									</div>
-									<input type="text" class="input-css01">
+									<input type='text' class='input-css01'>
 								</div>
-								<div class="dis-tc v-t pr-10">
-									<div class="input-hd fw-500">
-										<span class="">소속</span>
-										<span class="star"></span>
+								<div class='dis-tc v-t pr-10'>
+									<div class='input-hd fw-500'>
+										<span class=''>직급</span>
 									</div>
-									<input type="text" class="input-css01">
+									<input type='text' class='input-css01'>
 								</div>
-								<div class="dis-tc v-t">
-									<div class="input-hd fw-500">
-										<span class="">부서</span>
+							</div>
+						</div>
+						<div class='dis-t w-100p mt-10'>
+							<div class='dis-tr'>
+								<div class='dis-tc v-t pr-10'>
+									<div class='input-hd fw-500'>
+										<span class=''>회사명</span>
+										<span class='star'></span>
 									</div>
-									<input type="text" class="input-css01">
+									<input type='text' class='input-css01'>
+								</div>
+								<div class='dis-tc v-t pr-10'>
+									<div class='input-hd fw-500'>
+										<span class=''>소속</span>
+										<span class='star'></span>
+									</div>
+									<input type='text' class='input-css01'>
+								</div>
+								<div class='dis-tc v-t'>
+									<div class='input-hd fw-500'>
+										<span class=''>부서</span>
+									</div>
+									<input type='text' class='input-css01'>
 								</div>
 							</div>
 						</div>
@@ -299,8 +316,10 @@
 								<div class="dis-tc v-t pr-10">
 									<input type="text" class="input-css01">
 								</div>
-								<div class="dis-tc v-t w-130px">
-									<button class="btn-submit min-w-130px">우편번호검색</button>
+								<div class='dis-tc v-t w-130px'>
+									<button class='btn-submit min-w-130px'
+									        onclick="fn_add_class_on('#popup-find-zipcode')">우편번호검색
+									</button>
 								</div>
 							</div>
 							<div class="dis-tr">
@@ -326,7 +345,14 @@
 						<div class="dis-t w-100p">
 							<div class="dis-tr">
 								<div class="dis-tc v-t pr-10">
-									<input type="text"  class="input-css01">
+									<select name='userhcellphone1' id='userhcellphone1' title='휴대폰' style='width:100px' class='input-css01'>
+										<option value='010' selected='selected'>010</option>
+										<option value='011'>011</option>
+										<option value='016'>016</option>
+										<option value='017'>017</option>
+										<option value='018'>018</option>
+										<option value='019'>019</option>
+									</select>
 								</div>
 								<div class="dis-tc v-t pr-10">
 									<input type="text"  class="input-css01">
@@ -416,6 +442,145 @@
 		<p class="ta-c mt-30">
 			<button class="btn-blue btn-m min-w-130px" disabled>확인</button>
 		</p>
+	</div>
+</div>
+
+<!-- 주소 검색 팝업 -->
+<div id='popup-find-zipcode' class='ct-popup-wrap detail-search-popup bg30 str'>
+	<div class='str-center'>
+		<div class='bg-border'>
+			<div class='top_title clear'>
+				<div class='top_title_txt c-left c-blue'>우편번호찾기</div>
+				<div class='top_title_group c-right'>
+					<button class='btn btn-none btn-s' onclick="fn_remove_class_on('#popup-find-zipcode')"><i
+								class='icon-close' data-icon=''></i></button>
+				</div>
+			</div>
+			<div class='mt-5 dis-t w-100p'>
+				<div class='dis-tr'>
+					<div class='dis-tc'>
+						<input type='text' name='Post_SearchName' id='Post_SearchName' maxlength='15'
+						       class='input-css01'
+						       onkeypress='if(event.keyCode==13) {PostLayer_Search(1); return false;}'>
+					</div>
+					<div class='dis-tc pl-5 va-m w-60px'>
+						<button type='button' class='btn btn-blue btn-s dis-b' onclick='PostLayer_Search(1);'>확인
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class='post_scroll_out mt-10'>
+				<ul id='ResultAddress' class='post_layer'>
+					<li><span>(12244) </span>
+						<div onclick="javascript:SetPost('12244','경기도 남양주시 다산지금로 91 (이패동)');">경기도 남양주시 다산지금로 91
+							(이패동)
+						</div>
+						<div onclick="javascript:SetPost('12244','경기도 남양주시 이패동 산87 남양주체육문화센터,남양주도시공사');">경기도 남양주시
+							이패동 산87 남양주체육문화센터,남양주도시공사
+						</div>
+					</li>
+					<li><span>(12244) </span>
+						<div onclick="javascript:SetPost('12244','경기도 남양주시 다산지금로 51-47 (이패동)');">경기도 남양주시 다산지금로
+							51-47 (이패동)
+						</div>
+						<div onclick="javascript:SetPost('12244','경기도 남양주시 이패동 715-12 남양주시청소년수련관');">경기도 남양주시 이패동
+							715-12 남양주시청소년수련관
+						</div>
+					</li>
+					<li><span>(12051) </span>
+						<div onclick="javascript:SetPost('12051','경기도 남양주시 진접읍 경복대로 425-17');">경기도 남양주시 진접읍 경복대로
+							425-17
+						</div>
+						<div onclick="javascript:SetPost('12051','경기도 남양주시 진접읍 금곡리 383 경복대학교 남양주캠퍼스 학생회관(창조관)');">
+							경기도 남양주시 진접읍 금곡리 383 경복대학교 남양주캠퍼스 학생회관(창조관)
+						</div>
+					</li>
+					<li><span>(12263) </span>
+						<div onclick="javascript:SetPost('12263','경기도 남양주시 가운로2길 8 (다산동, 남양주가운마을휴먼시아2단지)');">경기도
+							남양주시 가운로2길 8 (다산동, 남양주가운마을휴먼시아2단지)
+						</div>
+						<div onclick="javascript:SetPost('12263','경기도 남양주시 다산동 671 남양주가운마을휴먼시아2단지');">경기도 남양주시 다산동
+							671 남양주가운마을휴먼시아2단지
+						</div>
+					</li>
+					<li><span>(12263) </span>
+						<div onclick="javascript:SetPost('12263','경기도 남양주시 가운로2길 9 (다산동)');">경기도 남양주시 가운로2길 9
+							(다산동)
+						</div>
+						<div onclick="javascript:SetPost('12263','경기도 남양주시 다산동 673 남양주가운마을휴먼시아4단지 상가동');">경기도 남양주시
+							다산동 673 남양주가운마을휴먼시아4단지 상가동
+						</div>
+					</li>
+					<li><span>(12263) </span>
+						<div onclick="javascript:SetPost('12263','경기도 남양주시 가운로2길 14 (다산동)');">경기도 남양주시 가운로2길 14
+							(다산동)
+						</div>
+						<div onclick="javascript:SetPost('12263','경기도 남양주시 다산동 671 남양주가운마을휴먼시아2단지 상가동');">경기도 남양주시
+							다산동 671 남양주가운마을휴먼시아2단지 상가동
+						</div>
+					</li>
+					<li><span>(12262) </span>
+						<div onclick="javascript:SetPost('12262','경기도 남양주시 가운로2길 28 (다산동, 남양주가운마을휴먼시아1단지)');">경기도
+							남양주시 가운로2길 28 (다산동, 남양주가운마을휴먼시아1단지)
+						</div>
+						<div onclick="javascript:SetPost('12262','경기도 남양주시 다산동 669 남양주가운마을휴먼시아1단지');">경기도 남양주시 다산동
+							669 남양주가운마을휴먼시아1단지
+						</div>
+					</li>
+					<li><span>(12262) </span>
+						<div onclick="javascript:SetPost('12262','경기도 남양주시 가운로2길 30 (다산동)');">경기도 남양주시 가운로2길 30
+							(다산동)
+						</div>
+						<div onclick="javascript:SetPost('12262','경기도 남양주시 다산동 669 남양주가운마을휴먼시아1단지 상가동');">경기도 남양주시
+							다산동 669 남양주가운마을휴먼시아1단지 상가동
+						</div>
+					</li>
+					<li><span>(12262) </span>
+						<div onclick="javascript:SetPost('12262','경기도 남양주시 가운로2길 32 (다산동)');">경기도 남양주시 가운로2길 32
+							(다산동)
+						</div>
+						<div onclick="javascript:SetPost('12262','경기도 남양주시 다산동 669 남양주가운마을휴먼시아1단지 상가동');">경기도 남양주시
+							다산동 669 남양주가운마을휴먼시아1단지 상가동
+						</div>
+					</li>
+					<li><span>(12267) </span>
+						<div onclick="javascript:SetPost('12267','경기도 남양주시 가운로2길 90 (다산동)');">경기도 남양주시 가운로2길 90
+							(다산동)
+						</div>
+						<div onclick="javascript:SetPost('12267','경기도 남양주시 다산동 681 남양주가운마을휴먼시아7단지 상가동');">경기도 남양주시
+							다산동 681 남양주가운마을휴먼시아7단지 상가동
+						</div>
+					</li>
+				</ul>
+				<nav class='page-navigation mt-10'>
+					<ul class='pagination'>
+						<li class='page-item on'>
+							<a class='page-link' href='#' aria-label='Previous'>
+								<span class='icon-chevron-double-left'></span>
+							</a>
+						</li>
+						<li class='page-item'>
+							<a class='page-link' href='#' aria-label='Previous'>
+								<span class='icon-prev'></span>
+							</a>
+						</li>
+						<li class='page-item'><a class='page-link' href='#'>1</a></li>
+						<li class='page-item'><a class='page-link' href='#'>2</a></li>
+						<li class='page-item'><a class='page-link' href='#'>3</a></li>
+						<li class='page-item'>
+							<a class='page-link' href='#' aria-label='Next'>
+								<span class='icon-next'></span>
+							</a>
+						</li>
+						<li class='page-item'>
+							<a class='page-link' href='#' aria-label='Previous'>
+								<span class='icon-chevron-double-right'></span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
 	</div>
 </div>
 <?php include '../include/footer_sub.php'; ?>
