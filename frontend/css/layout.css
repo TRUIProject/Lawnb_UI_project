@@ -1736,6 +1736,7 @@ span.hl_GY {background-color:rgba(219,219,219,1);}
 .info_table ul{margin-top:10px}
 .info_table table.pay tr:first-child td{border-left: 1px solid #e6e6e6;border-top:0}
 .info_table table.pay tr td{border-left: 1px solid #e6e6e6;border-top:1px solid #e6e6e6}
+.info_table table.pay tr:first-child td.no-b{border-left:none;}
 .info_table input[type='checkbox']{margin-right: 3px;}
 /* cs-css */
 em { font-weight: bold;}

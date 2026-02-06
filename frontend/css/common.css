@@ -498,3 +498,5 @@ textarea.input-css01{height: 150px;}
 #popup-pay-info .info_table td{font-size: 14px;text-align: center}
 #popup-pay-info .info_table,
 #popup-pay-info .info_table .txtbg_blue td{color: #006595 !important;}
+
+.flow_check{background-color:rgba(1,1,1,0.2);height:30px;line-height:25px;text-align:right;padding-right:10px}

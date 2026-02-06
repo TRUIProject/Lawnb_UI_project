@@ -139,7 +139,7 @@
 				<td colspan='5'></td>
 			</tr>
 			<tr>
-				<th rowspan='5'>회원페이지</th>
+				<th rowspan='6'>회원페이지</th>
 				<td><a href='/frontend/login/user_manage_list01.php' target='_blank'>ID관리</a></td>
 				<td>작업완료</td>
 				<td>2025.05.02</td>
@@ -177,6 +177,20 @@
 					<p>2026.01.30</p>
 					<p>- 레이아웃 수정</p>
 					<p>- 정기결제 팝업 레이어 추가</p>
+				</td>
+			</tr>
+			<tr>
+				<td><a href='/frontend/login/user_manage_withdrawal_02.php' target='_blank'>탈퇴신청2</a></td>
+				<td>작업완료</td>
+				<td>2026.02.06</td>
+				<td class='info'>
+				</td>
+			</tr>
+			<tr>
+				<td><a href='/frontend/login/user_manage_withdrawal_03.php' target='_blank'>탈퇴완료</a></td>
+				<td>작업완료</td>
+				<td>2026.02.06</td>
+				<td class='info'>
 				</td>
 			</tr>
 		</tbody>

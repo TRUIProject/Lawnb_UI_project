@@ -1449,7 +1449,7 @@
 			<td class='info'></td>
 		</tr>
 		<tr class='bg'>
-			<td><a href='./login/user_manage_list05.php'>탈퇴신청</a></td>
+			<td><a href='./login/user_manage_withdrawal_01.php'>탈퇴신청</a></td>
 			<td>작업완료</td>
 			<td>2025.05.04</td>
 			<td class='info'></td>
