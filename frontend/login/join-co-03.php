@@ -345,7 +345,23 @@
 						</div>
 						<div class="mt-10 fw-500">
 							<div class="str pr-25 dis-ib">
-								정기 메일링 서비스 선택 <span class="n-i-alert-cir n-i-w20 str-rm"></span>
+								정기 메일링 서비스 선택
+								<div class='hover-div str-rm' style="z-index: 999">
+									<span class='n-i n-i-w20 n-i-exclamation-circle'></span>
+									<div class='hover-target' style='top: 0;left: 100%;width: 300px;'>
+										<ul>
+											<li><strong>비즈레터</strong> - 최근 법률 이슈와 관련된 로앤비가 보유하고 있는 각종 콘텐츠(판례,법령, 논문
+												등)를 메일로 제공해 드립니다.
+											</li>
+											<li><strong>교육센터 안내메일</strong> - 로앤비 교육센터의 법무 관련 온/오프라인 교육과정, 세미나, 컨퍼런스,
+												프로모션에 관한 정보를 받아보실 수 있습니다.
+											</li>
+											<li><strong>마케팅 메일</strong> - 톰슨로이터와 로앤비의 리걸솔루션 관련 정보, 백서, 프로모션, 이벤트에 관한
+												소식을 전해드립니다.
+											</li>
+										</ul>
+									</div>
+								</div>
 							</div>
 						</div>
 						<div class="mt-10">
@@ -368,8 +384,8 @@
 						<div class="dis-t w-100p">
 							<div class="dis-tr">
 								<div class="dis-tc v-m pr-10">
-									<label class="mr-10"><input type="radio"> 휴대폰</label>
-									<label class="mr-10"><input type="radio"> 이메일</label>
+									<label class="mr-10"><input type="radio" name="contact-type" checked> 휴대폰</label>
+									<label class="mr-10"><input type="radio" name='contact-type'> 이메일</label>
 								</div>
 								<div class="dis-tc v-t" style="width: 200px">
 									<button class="btn-blue btn-m w-100p">인증번호 발송</button>
