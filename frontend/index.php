@@ -161,7 +161,7 @@
 				<td colspan='5'></td>
 			</tr>
 			<tr>
-				<th rowspan='8'>회원페이지</th>
+				<th rowspan='10'>회원페이지</th>
 				<td><a href='/frontend/login/user_manage_id01.php' target='_blank'>ID관리 - Guidance [Member, PIMS]</a></td>
 				<td>작업완료</td>
 				<td>2026.02.07</td>
