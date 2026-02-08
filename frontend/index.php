@@ -161,7 +161,7 @@
 				<td colspan='5'></td>
 			</tr>
 			<tr>
-				<th rowspan='10'>회원페이지</th>
+				<th rowspan='14'>회원페이지</th>
 				<td><a href='/frontend/login/user_manage_id01.php' target='_blank'>ID관리 - Guidance [Member, PIMS]</a></td>
 				<td>작업완료</td>
 				<td>2026.02.07</td>
@@ -188,7 +188,38 @@
 				<td>작업완료</td>
 				<td>2026.02.07</td>
 				<td class='info'>
-					<p>개인- B12,P12 정기결제  O </p>
+					<p>개인- B12,P12 정기결제 O</p>
+				</td>
+			</tr>
+			<tr>
+				<td><a href='/frontend/login/user_manage_payment04.php' target='_blank'>유료회원결제 - Guidance [Member, PIMS]</a></td>
+				<td>작업완료</td>
+				<td>2026.02.08</td>
+				<td class='info'>
+					<p>개인- B12,P12 정기결제 X</p>
+				</td>
+			</tr>
+			<tr>
+				<td><a href='/frontend/login/user_manage_payment05.php' target='_blank'>결제 완료 - Guidance [Member, PIMS]</a></td>
+				<td>작업완료</td>
+				<td>2026.02.08</td>
+				<td class='info'>
+				</td>
+			</tr>
+			<tr>
+				<td><a href='/frontend/login/user_manage_id02.php' target='_blank'>ID 결제관리 - Guidance [Member, PIMS]</a></td>
+				<td>작업완료</td>
+				<td>2026.02.08</td>
+				<td class='info'>
+					<p>14p / 개인- 무료 ,PIMS에서 유료전환</p>
+				</td>
+			</tr>
+			<tr>
+				<td><a href='/frontend/login/user_manage_id03.php' target='_blank'>ID 결제관리 - Guidance [Member, PIMS]</a></td>
+				<td>작업완료</td>
+				<td>2026.02.08</td>
+				<td class='info'>
+					<p>15p / 개인- B1,P1 정기결제 O </p>
 				</td>
 			</tr>
 			<tr>
