@@ -8,13 +8,77 @@
 </header>
 <!--	끝 : 헤더	-->
 <!--	시작 : 본문	-->
-<div class='ct-wrap'>
-	<div class='ct-left'>
-		<div class='ct-pt h-100p'>
-			<div class='str h-100p'>
-				<div class='ct-scroll'>
+<div class='ct-wrap lawyer-navigation'>
+	<div class="ct-right">
+		<div class="ct-pt h-100p">
+			<div class="ct-scroll">
+				<div class="ct-pw">
+					<div class='border-b'>
+						<button class='btn-none w-100p btn-l dis-b btn-shadow'>현행법령 바로가기</button>
+					</div>
+					<div class='border-b'>
+						<button class='btn-none w-100p btn-l dis-b btn-shadow'>로고</button>
+					</div>
+					<div class='border-b'>
+						<div class='str'>
+							<h3 class='ct-tit'>집필위원</h3>
+							<div class='str-rt'><a href='' class='btn-none btn-s'>전체보기</a></div>
+						</div>
+						<div class='mt-10'>
+							<div class='clear mt-10'>
+								<div class='c-left img-div-wrap pr-10'>
+									<div class='img-circle'
+									     style="background-image: url('../images/test/testImg01.jpg')"></div>
+								</div>
+								<div class='c-left txt-div-wrap pt-5'>
+									<a href='' class='c-blue fs-14'>홍길동</a>
+									<p class='fs-12 c-gray-l mt-5'>(변호사시험 7)</p>
+								</div>
+							</div>
+							<div class='clear mt-10'>
+								<div class='c-left img-div-wrap pr-10'>
+									<div class='img-circle'
+									     style="background-image: url('../images/test/testImg01.jpg')"></div>
+								</div>
+								<div class='c-left txt-div-wrap pt-5'>
+									<a href='' class='c-blue fs-14'>홍길동</a>
+									<p class='fs-12 c-gray-l mt-5'>(변호사시험 7)</p>
+								</div>
+							</div>
+							<div class='clear mt-10'>
+								<div class='c-left img-div-wrap pr-10'>
+									<div class='img-circle'
+									     style="background-image: url('../images/test/testImg01.jpg')"></div>
+								</div>
+								<div class='c-left txt-div-wrap pt-5'>
+									<a href='' class='c-blue fs-14'>홍길동</a>
+									<p class='fs-12 c-gray-l mt-5'>(변호사시험 7)</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class='ct-center ct-fl border-r border-l'>
+		<div class='title-area' style="height: 100px;">
+			<div class='title-div'>
+				<h2 class='tit'>소득세법 주요 예규·해설</h2>
+				<p class='tit-sub'>집필위원 : 임승순, 전오영, 옥무석, 정재웅</p>
+			</div>
+		</div>
+		<div class='navi-con-wrap clear' style='height: calc(100% - 100px);'>
+			<div class='navi-left ct-left open h-100p c-left pt-20'>
+				<div class='h-100p ct-scroll ct-scroll-x'>
 					<div class='table_index tree'>
-						<h3 class='hide'>조문목차</h3>
+						<div class='str pl-10'>
+							<h3 class='ct-tit str'>
+								<p class='str pl-20'>
+									<span class='n-i-home n-i-w15 str-ltc'></span>주석서 표지
+								</p>
+							</h3>
+						</div>
 						<ul id='law_tree_list' class='regulation'>
 							<li class='active_d1 open'>
 								<button class='tNavToggle minus' onclick='fn_table_index(this)'></button>
@@ -181,8 +245,7 @@
 											(정거장 간의 거리)</a></li>
 									<li class='comment'><a name='joMoveLink' href='#P31'
 									                       onclick="law.goTarget('31')"><span>제31조</span> (승강장의 너비
-											등)</a><span
-												class='icon_red'> [변경]</span></li>
+											등)</a><span class='icon_red'> [변경]</span></li>
 									<li class='comment'><a name='joMoveLink' href='#P32'
 									                       onclick="law.goTarget('32')"><span>제32조</span> (승강장 연단의
 											높이)</a></li>
@@ -351,161 +414,155 @@
 								class='icon icon-double-right icon-w20'></span></button>
 				</div>
 			</div>
-		</div>
-	</div>
-	<div class="ct-right">
-		<div class="ct-pt h-100p">
-			<div class="ct-scroll">
-				<div class="ct-pw">
-					<div class='border-b'>
-						<button class='btn-none w-100p btn-l dis-b btn-shadow'>법령별 주요 예규 · 해설 바로가기</button>
-					</div>
-					<div class='border-b'>
-						<div class='str'>
-							<h3 class='ct-tit'>관련법령 총 10건</h3>
-							<div class='str-rt'><a href='' class='btn-none btn-s'>전체보기</a></div>
+			<div class='navi-con h-100p c-left ct-scroll' >
+				<div class='navi-con-w'>
+					<div class='tab-button-wrap clear'>
+						<div class='c-right clear'>
+							<div class='c-left ml-10'>
+								<div class='btn-list btn-list-m btn-list-none dis-b'>
+									<button class='btn on'>
+										<span class='icon'>해설</span>
+									</button>
+								</div>
+							</div>
+							<div class='dropdown c-left ml-10'>
+								<button class='btn btn-none btn-m dropdown-toggle' type='button'
+								        data-bs-toggle='dropdown' aria-expanded='false'>
+									20개
+								</button>
+								<div class='dropdown-menu-wrap dropdown-str-rt'>
+									<ul class='dropdown-menu'>
+										<li><a class='dropdown-item' href='#'>50개</a></li>
+										<li><a class='dropdown-item' href='#'>20개</a></li>
+										<li><a class='dropdown-item' href='#'>10개</a></li>
+									</ul>
+								</div>
+							</div>
 						</div>
-						<ul class='ul-dot link-list block-list mt-10'>
-							<li>
-								<div class='dot-cell'>
-									<a href='' class=''>
-										<span class='fs-14 c-blue'>'소득세법 제20조</span>
+					</div>
+					<ul class='content-ul'>
+						<li>
+							<div class='li-con pl-none'>
+								<div class='txt-div'>
+									<a href='' class='txt01 pr-0'>
+										<span class='c-blue'>비거주자가 국내에서 계속 거주할 목적으로 가족과 함께 입국 시거주자로 되는 시기 /</span>
+										<span class='c-gray-l fs-14 ml-5'>사전-2020-법령해석소득-0422 [법령해석과- 2252] / 생산일자 2024.12.12.</span>
 									</a>
 								</div>
+							</div>
+						</li>
+						<li>
+							<div class='li-con pl-none'>
+								<div class='txt-div'>
+									<a href='' class='txt01 pr-0'>
+										<span class='c-blue'>상가건물 관리단이 유료주차료 수익을 분배해야 하는지 여부 /</span>
+										<span class='c-gray-l fs-14 ml-5'> 사전- 2020-법령해석소득-0422 [법령해석과-2252]</span>
+									</a>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class='li-con pl-none'>
+								<div class='txt-div'>
+									<a href='' class='txt01 pr-0'>
+										<span class='c-blue'>국외에서 채용되는 경우 국내에서 파견된 임직원에 해당하는지 여부 / 사전-2020-법령해석소득-0422 [법령해석과-2252]</span>
+										<span class='c-gray-l fs-14 ml-5'> 생산일자 2024.12.12.</span>
+										<span class='badge-sky badge-small  ml-5'>해설</span>
+									</a>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class='li-con pl-none'>
+								<div class='txt-div'>
+									<a href='' class='txt01 pr-0'>
+										<span class='c-blue'>비거주자가 국내에서 계속 거주할 목적으로 가족과 함께 입국 시거주자로 되는 시기 /</span>
+										<span class='c-gray-l fs-14 ml-5'>사전-2020-법령해석소득-0422 [법령해석과- 2252] / 생산일자 2024.12.12.</span>
+									</a>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class='li-con pl-none'>
+								<div class='txt-div'>
+									<a href='' class='txt01 pr-0'>
+										<span class='c-blue'>상가건물 관리단이 유료주차료 수익을 분배해야 하는지 여부 /</span>
+										<span class='c-gray-l fs-14 ml-5'> 사전- 2020-법령해석소득-0422 [법령해석과-2252]</span>
+									</a>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class='li-con pl-none'>
+								<div class='txt-div'>
+									<a href='' class='txt01 pr-0'>
+										<span class='c-blue'>국외에서 채용되는 경우 국내에서 파견된 임직원에 해당하는지 여부 / 사전-2020-법령해석소득-0422 [법령해석과-2252]</span>
+										<span class='c-gray-l fs-14 ml-5'> 생산일자 2024.12.12.</span>
+										<span class='badge-sky badge-small  ml-5'>해설</span>
+									</a>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class='li-con pl-none'>
+								<div class='txt-div'>
+									<a href='' class='txt01 pr-0'>
+										<span class='c-blue'>비거주자가 국내에서 계속 거주할 목적으로 가족과 함께 입국 시거주자로 되는 시기 /</span>
+										<span class='c-gray-l fs-14 ml-5'>사전-2020-법령해석소득-0422 [법령해석과- 2252] / 생산일자 2024.12.12.</span>
+									</a>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class='li-con pl-none'>
+								<div class='txt-div'>
+									<a href='' class='txt01 pr-0'>
+										<span class='c-blue'>상가건물 관리단이 유료주차료 수익을 분배해야 하는지 여부 /</span>
+										<span class='c-gray-l fs-14 ml-5'> 사전- 2020-법령해석소득-0422 [법령해석과-2252]</span>
+									</a>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class='li-con pl-none'>
+								<div class='txt-div'>
+									<a href='' class='txt01 pr-0'>
+										<span class='c-blue'>국외에서 채용되는 경우 국내에서 파견된 임직원에 해당하는지 여부 / 사전-2020-법령해석소득-0422 [법령해석과-2252]</span>
+										<span class='c-gray-l fs-14 ml-5'> 생산일자 2024.12.12.</span>
+										<span class='badge-sky badge-small  ml-5'>해설</span>
+									</a>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<nav class='page-navigation'>
+						<ul class='pagination'>
+							<li class='page-item on'>
+								<a class='page-link' href='#' aria-label='Previous'>
+									<span class='icon-chevron-double-left'></span>
+								</a>
 							</li>
-							<li>
-								<div class='dot-cell'>
-									<a href='' class=''>
-										<span class='fs-14 c-blue'>소득세법 제12조</span>
-									</a>
-								</div>
+							<li class='page-item'>
+								<a class='page-link' href='#' aria-label='Previous'>
+									<span class='icon-prev'></span>
+								</a>
+							</li>
+							<li class='page-item'><a class='page-link' href='#'>1</a></li>
+							<li class='page-item'><a class='page-link' href='#'>2</a></li>
+							<li class='page-item'><a class='page-link' href='#'>3</a></li>
+							<li class='page-item'>
+								<a class='page-link' href='#' aria-label='Next'>
+									<span class='icon-next'></span>
+								</a>
+							</li>
+							<li class='page-item'>
+								<a class='page-link' href='#' aria-label='Previous'>
+									<span class='icon-chevron-double-right'></span>
+								</a>
 							</li>
 						</ul>
-					</div>
-					<div class='border-b'>
-						<div class='str'>
-							<h3 class='ct-tit'>관련판례 총 10건</h3>
-							<div class='str-rt'><a href='' class='btn-none btn-s'>전체보기</a></div>
-						</div>
-						<ul class='ul-dot link-list block-list mt-10'>
-							<li>
-								<div class='dot-cell'>
-									<a href='' class=''>
-										<span class='fs-14 c-blue fw-500'>'하도급법 위반' HD한국조선해양 2심 벌금 15억원…병합해 감형 </span>
-										<span class='fs-14 c-blue'>연합뉴스 / 2025.04.18</span>
-									</a>
-								</div>
-							</li>
-							<li>
-								<div class='dot-cell'>
-									<a href='' class=''>
-										<span class='fs-14 c-blue fw-500'>'하도급법 위반' HD한국조선해양 2심 벌금 15억원…병합해 감형 </span>
-										<span class='fs-14 c-blue'>연합뉴스 / 2025.04.18</span>
-									</a>
-								</div>
-							</li>
-							<li>
-								<div class='dot-cell'>
-									<a href='' class=''>
-										<span class='fs-14 c-blue fw-500'>'하도급법 위반' HD한국조선해양 2심 벌금 15억원…병합해 감형 </span>
-										<span class='fs-14 c-blue'>연합뉴스 / 2025.04.18</span>
-									</a>
-								</div>
-							</li>
-							<li>
-								<div class='dot-cell'>
-									<a href='' class=''>
-										<span class='fs-14 c-blue fw-500'>'하도급법 위반' HD한국조선해양 2심 벌금 15억원…병합해 감형 </span>
-										<span class='fs-14 c-blue'>연합뉴스 / 2025.04.18</span>
-									</a>
-								</div>
-							</li>
-						</ul>
-					</div>
-					<div class='border-b'>
-						<div class='str'>
-							<h3 class='ct-tit'>관련주석서 총 10건</h3>
-							<div class='str-rt'><a href='' class='btn-none btn-s'>전체보기</a></div>
-						</div>
-						<ul class='ul-dot link-list block-list mt-10'>
-							<li>
-								<div class='dot-cell'>
-									<a href='' class=''>
-										<span class='fs-14 c-blue'>[온주]소득세법 제20조</span>
-									</a>
-								</div>
-							</li>
-							<li>
-								<div class='dot-cell'>
-									<a href='' class=''>
-										<span class='fs-14 c-blue'>[온주]소득세법 제12조</span>
-									</a>
-								</div>
-							</li>
-						</ul>
-					</div>
+					</nav>
 				</div>
-			</div>
-		</div>
-	</div>
-	<div class='ct-center'>
-		<div class='ct-pt h-100p'>
-			<div class='str h-100p'>
-				<div class='ct-bg h-100p'>
-					<div class='ct-scroll ct-bg-pd'>
-						<div class='ct-title'>
-							<div class='dis-t w-100p'>
-								<div class='dis-tr'>
-									<div class='tit-div dis-tc'>
-										<h2 class='tit'>무급휴업, 휴직자에 대한 고용유지지원금의 과세대상여부 <span class='badge-sky badge-mid  ml-5'>해설</span></h2>
-										<p class='tit-sub'>기획재정부 소득세제과-407 생산일자 2020. 8. 5.</p>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div id='view_content' class='highlighter-context'>
-							<div class='case_info'>
-								<p>질의내용</p>
-								고용보험법에 따라 무급휴업, 휴직자에게 국가가 직접 지급하는 고용유지지원금의 과세대
-								상여부
-							</div>
-							<div class='case_info mt-30'>
-								<p>회신</p>
-								고용보험법 제21조 제1항 후단에 따라 사업주가 무급휴업, 휴직을 실시하고 동법에 근거하
-								여 정부가 근로자에게 직접 지급하는 고용유지지원금은 소득세 과세대상에 해당하지 않는
-								것임.
-							</div>
-							<div class='case_info'>
-								<div class='detail_area clear'>
-									<button class='btn btn-gray c-right ml-5'>현행법령 바로가기 <i class='icon_open'></i></button>
-									<button class='btn btn-gray c-right ml-5'>버튼1 <i class='icon_open'></i></button>
-									<button class='btn btn-gray c-right ml-5'>버튼2 <i class='icon_open'></i></button>
-								</div>
-							</div>
-							<div class='case_info mt-30'>
-								<p>관련 법령</p>
-								<a href=''>소득세법 제20조, 소득세법 제12조 제3호</a>
-							</div>
-							<div class='onju_preview_law'>
-								<div class='normal'>
-									<span class='badge-sky badge-mid'>해설</span>
-									<br>
-									<p>
-										소득세법 제12조는 고용보험법에 따라 받는 실업급여(제3호 마목) 등 정책적으로 필요에
-										따른 일정한 소득을 비과세하도록 규정하고 있습니다. 고용유지지원금은 세법상 비과세소
-										득으로 열거되어 있지는 않지만, 실업급여 등과 유사한 성격임을 고려하여, 특별히 비과세
-										혜택을 부여하는 것으로 이해됩니다.
-									</p>
-									<div class='ta-r'>
-										<span>[집필위원 <a href=''>임승순</a>, <a href=''>전오영</a>, <a href=''>정재웅</a>]</span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-		        <?php include '../include/content_popup.php'; ?>
 			</div>
 		</div>
 	</div>
