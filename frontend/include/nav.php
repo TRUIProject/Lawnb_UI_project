@@ -59,6 +59,18 @@
 										<div class="txt-div">특허심판례</div>
 									</a>
 								</li>
+								<li>
+									<a href='../law/mainRulesExp_submain01.php'>
+										<div class='img-div'><img src='../images/common/icon_nav30.png' alt=''></div>
+										<div class='txt-div'>조세예규해설</div>
+									</a>
+								</li>
+								<li>
+									<a href='../precedent/explanation_submain01.php'>
+										<div class='img-div'><img src='../images/common/icon_nav31.png' alt=''></div>
+										<div class='txt-div'>판례 및 <br>심결례 해설</div>
+									</a>
+								</li>
 							</ul>
 						</div>
 						<div class="gnb02">
@@ -446,6 +458,26 @@
 											<img src="../images/common/icon_nav29.png" alt="">
 										</div>
 										<div class="txt-div">온주</div>
+									</label>
+								</li>
+								<li>
+									<label class='txt-div' for='fav-30'>
+										<div class='img-div str'>
+											<input type='checkbox' id='fav-30' value='' name='keyword-list'>
+											<span class='icon'></span>
+											<img src='../images/common/icon_nav30.png' alt=''>
+										</div>
+										<div class='txt-div'>조세예규해설</div>
+									</label>
+								</li>
+								<li>
+									<label class='txt-div' for='fav-31'>
+										<div class='img-div str'>
+											<input type='checkbox' id='fav-31' value='' name='keyword-list'>
+											<span class='icon'></span>
+											<img src='../images/common/icon_nav31.png' alt=''>
+										</div>
+										<div class='txt-div'>판례 및 <br>심결례 해설</div>
 									</label>
 								</li>
 							</ul>
