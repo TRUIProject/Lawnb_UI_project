@@ -513,3 +513,7 @@ textarea.input-css01{height: 150px;}
 .post_layer li:nth-child(odd){background-color:#f4f4f4}
 .post_layer span{display:inline-block}
 .post_layer span.star{background:url(../images/blit.gif) no-repeat 0px -298px;padding-left:7px}
+
+.img-warp img{display: block;max-width: 100%;}
+.img-in-warp{text-align: center;}
+.img-in-warp img{display: inline-block;max-width: 100%;}

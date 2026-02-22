@@ -17,6 +17,12 @@
 		<div class="ct-pt h-100p">
 			<div class="ct-scroll">
 				<div class="ct-pw">
+					<div class="img-warp mb-10">
+						<img src="../images/test/main02.jpg" alt=""/>
+					</div>
+					<div class='img-in-warp'>
+						<img src='../images/test/logo_hwawoo.jpg' alt=''/>
+					</div>
 					<div class='border-b'>
 						<div class='str'>
 							<h3 class='ct-tit'>대상판례</h3>
