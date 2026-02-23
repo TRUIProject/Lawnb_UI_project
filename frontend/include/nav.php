@@ -10,7 +10,7 @@
 								<h2 class="tit01">자주찾는 메뉴</h2>
 								<button class="str-rt icon-w20 icon-setting" onclick="fn_toggle_on('#icon-setting-wrap')"></button>
 							</div>
-							<ul class="fav-menu-list clear">
+							<ul class="fav-menu-list">
 								<li>
 									<a href="../precedent/precedent_submain01.php">
 										<div class="img-div"><img src="../images/common/icon_nav01.png" alt=""></div>
@@ -21,6 +21,12 @@
 									<a href="../law/lawSearchList.php">
 										<div class="img-div"><img src="../images/common/icon_nav04.png" alt=""></div>
 										<div class="txt-div">법령</div>
+									</a>
+								</li>
+								<li>
+									<a href='../precedent/explanation_submain01.php'>
+										<div class='img-div'><img src='../images/common/icon_nav31.png' alt=''></div>
+										<div class='txt-div'>판례 및 <br>심결례 해설</div>
 									</a>
 								</li>
 								<li>
@@ -63,12 +69,6 @@
 									<a href='../law/mainRulesExp_submain01.php'>
 										<div class='img-div'><img src='../images/common/icon_nav30.png' alt=''></div>
 										<div class='txt-div'>조세예규해설</div>
-									</a>
-								</li>
-								<li>
-									<a href='../precedent/explanation_submain01.php'>
-										<div class='img-div'><img src='../images/common/icon_nav31.png' alt=''></div>
-										<div class='txt-div'>판례 및 <br>심결례 해설</div>
 									</a>
 								</li>
 							</ul>
@@ -421,6 +421,16 @@
 									</label>
 								</li>
 								<li>
+									<label class='txt-div' for='fav-31'>
+										<div class='img-div str'>
+											<input type='checkbox' id='fav-31' value='' name='keyword-list'>
+											<span class='icon'></span>
+											<img src='../images/common/icon_nav31.png' alt=''>
+										</div>
+										<div class='txt-div'>판례 및 <br>심결례 해설</div>
+									</label>
+								</li>
+								<li>
 									<label class="txt-div" for="fav-26">
 										<div class="img-div str">
 											<input type="checkbox" id="fav-26" value="" name="keyword-list">
@@ -468,16 +478,6 @@
 											<img src='../images/common/icon_nav30.png' alt=''>
 										</div>
 										<div class='txt-div'>조세예규해설</div>
-									</label>
-								</li>
-								<li>
-									<label class='txt-div' for='fav-31'>
-										<div class='img-div str'>
-											<input type='checkbox' id='fav-31' value='' name='keyword-list'>
-											<span class='icon'></span>
-											<img src='../images/common/icon_nav31.png' alt=''>
-										</div>
-										<div class='txt-div'>판례 및 <br>심결례 해설</div>
 									</label>
 								</li>
 							</ul>
